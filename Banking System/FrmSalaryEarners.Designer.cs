@@ -32,29 +32,30 @@ namespace Banking_System
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmSalaryEarners));
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.SalaryBank = new System.Windows.Forms.TextBox();
+            this.StaffID = new System.Windows.Forms.TextBox();
+            this.PayRoleNo = new System.Windows.Forms.TextBox();
+            this.JobTitle = new System.Windows.Forms.TextBox();
+            this.Employer = new System.Windows.Forms.TextBox();
+            this.LoanID = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.AccountNumber = new System.Windows.Forms.TextBox();
+            this.AccountName = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.integerInput1 = new DevComponents.Editors.IntegerInput();
+            this.NetSalary = new DevComponents.Editors.IntegerInput();
             this.label12 = new System.Windows.Forms.Label();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.Description = new System.Windows.Forms.RichTextBox();
             this.buttonX2 = new DevComponents.DotNetBar.ButtonX();
             this.buttonX1 = new DevComponents.DotNetBar.ButtonX();
-            ((System.ComponentModel.ISupportInitialize)(this.integerInput1)).BeginInit();
+            this.label13 = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.NetSalary)).BeginInit();
             this.SuspendLayout();
             // 
             // label2
@@ -65,6 +66,7 @@ namespace Banking_System
             this.label2.Size = new System.Drawing.Size(50, 22);
             this.label2.TabIndex = 3;
             this.label2.Text = "label2";
+            this.label2.Visible = false;
             // 
             // label1
             // 
@@ -74,48 +76,50 @@ namespace Banking_System
             this.label1.Size = new System.Drawing.Size(50, 22);
             this.label1.TabIndex = 2;
             this.label1.Text = "label1";
+            this.label1.Visible = false;
             // 
-            // textBox6
+            // SalaryBank
             // 
-            this.textBox6.Location = new System.Drawing.Point(468, 129);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(216, 29);
-            this.textBox6.TabIndex = 26;
+            this.SalaryBank.Location = new System.Drawing.Point(468, 121);
+            this.SalaryBank.Name = "SalaryBank";
+            this.SalaryBank.Size = new System.Drawing.Size(216, 29);
+            this.SalaryBank.TabIndex = 4;
             // 
-            // textBox5
+            // StaffID
             // 
-            this.textBox5.Location = new System.Drawing.Point(137, 121);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(207, 29);
-            this.textBox5.TabIndex = 25;
+            this.StaffID.Location = new System.Drawing.Point(137, 121);
+            this.StaffID.Name = "StaffID";
+            this.StaffID.Size = new System.Drawing.Size(207, 29);
+            this.StaffID.TabIndex = 3;
             // 
-            // textBox4
+            // PayRoleNo
             // 
-            this.textBox4.Location = new System.Drawing.Point(468, 71);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(216, 29);
-            this.textBox4.TabIndex = 24;
+            this.PayRoleNo.Location = new System.Drawing.Point(468, 68);
+            this.PayRoleNo.Name = "PayRoleNo";
+            this.PayRoleNo.Size = new System.Drawing.Size(216, 29);
+            this.PayRoleNo.TabIndex = 2;
             // 
-            // textBox3
+            // JobTitle
             // 
-            this.textBox3.Location = new System.Drawing.Point(137, 68);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(207, 29);
-            this.textBox3.TabIndex = 23;
+            this.JobTitle.Location = new System.Drawing.Point(137, 68);
+            this.JobTitle.Name = "JobTitle";
+            this.JobTitle.Size = new System.Drawing.Size(207, 29);
+            this.JobTitle.TabIndex = 1;
             // 
-            // textBox2
+            // Employer
             // 
-            this.textBox2.Location = new System.Drawing.Point(468, 17);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(216, 29);
-            this.textBox2.TabIndex = 22;
+            this.Employer.Location = new System.Drawing.Point(468, 13);
+            this.Employer.Name = "Employer";
+            this.Employer.Size = new System.Drawing.Size(216, 29);
+            this.Employer.TabIndex = 0;
             // 
-            // textBox1
+            // LoanID
             // 
-            this.textBox1.Location = new System.Drawing.Point(137, 13);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(207, 29);
-            this.textBox1.TabIndex = 21;
+            this.LoanID.Enabled = false;
+            this.LoanID.Location = new System.Drawing.Point(137, 13);
+            this.LoanID.Name = "LoanID";
+            this.LoanID.Size = new System.Drawing.Size(207, 29);
+            this.LoanID.TabIndex = 21;
             // 
             // label9
             // 
@@ -131,7 +135,7 @@ namespace Banking_System
             // 
             this.label7.AutoSize = true;
             this.label7.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label7.Location = new System.Drawing.Point(364, 128);
+            this.label7.Location = new System.Drawing.Point(364, 129);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(94, 22);
             this.label7.TabIndex = 19;
@@ -177,25 +181,25 @@ namespace Banking_System
             this.label3.TabIndex = 15;
             this.label3.Text = "Employer";
             // 
-            // textBox7
+            // AccountNumber
             // 
-            this.textBox7.Location = new System.Drawing.Point(468, 179);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(216, 29);
-            this.textBox7.TabIndex = 30;
+            this.AccountNumber.Location = new System.Drawing.Point(468, 171);
+            this.AccountNumber.Name = "AccountNumber";
+            this.AccountNumber.Size = new System.Drawing.Size(216, 29);
+            this.AccountNumber.TabIndex = 6;
             // 
-            // textBox8
+            // AccountName
             // 
-            this.textBox8.Location = new System.Drawing.Point(137, 171);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(207, 29);
-            this.textBox8.TabIndex = 29;
+            this.AccountName.Location = new System.Drawing.Point(137, 171);
+            this.AccountName.Name = "AccountName";
+            this.AccountName.Size = new System.Drawing.Size(207, 29);
+            this.AccountName.TabIndex = 5;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label8.Location = new System.Drawing.Point(364, 178);
+            this.label8.Location = new System.Drawing.Point(363, 178);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(95, 22);
             this.label8.TabIndex = 28;
@@ -221,19 +225,19 @@ namespace Banking_System
             this.label11.TabIndex = 31;
             this.label11.Text = "Net Salary";
             // 
-            // integerInput1
+            // NetSalary
             // 
             // 
             // 
             // 
-            this.integerInput1.BackgroundStyle.Class = "DateTimeInputBackground";
-            this.integerInput1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.integerInput1.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2;
-            this.integerInput1.DisplayFormat = "N0";
-            this.integerInput1.Location = new System.Drawing.Point(137, 221);
-            this.integerInput1.Name = "integerInput1";
-            this.integerInput1.Size = new System.Drawing.Size(207, 29);
-            this.integerInput1.TabIndex = 32;
+            this.NetSalary.BackgroundStyle.Class = "DateTimeInputBackground";
+            this.NetSalary.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.NetSalary.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2;
+            this.NetSalary.DisplayFormat = "N0";
+            this.NetSalary.Location = new System.Drawing.Point(137, 221);
+            this.NetSalary.Name = "NetSalary";
+            this.NetSalary.Size = new System.Drawing.Size(207, 29);
+            this.NetSalary.TabIndex = 7;
             // 
             // label12
             // 
@@ -245,13 +249,13 @@ namespace Banking_System
             this.label12.TabIndex = 33;
             this.label12.Text = "Description";
             // 
-            // richTextBox1
+            // Description
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(137, 270);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(543, 57);
-            this.richTextBox1.TabIndex = 34;
-            this.richTextBox1.Text = "";
+            this.Description.Location = new System.Drawing.Point(137, 270);
+            this.Description.Name = "Description";
+            this.Description.Size = new System.Drawing.Size(543, 57);
+            this.Description.TabIndex = 8;
+            this.Description.Text = "";
             // 
             // buttonX2
             // 
@@ -261,8 +265,9 @@ namespace Banking_System
             this.buttonX2.Name = "buttonX2";
             this.buttonX2.Size = new System.Drawing.Size(114, 60);
             this.buttonX2.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.buttonX2.TabIndex = 36;
+            this.buttonX2.TabIndex = 10;
             this.buttonX2.Text = "&Cancel";
+            this.buttonX2.Click += new System.EventHandler(this.buttonX2_Click);
             // 
             // buttonX1
             // 
@@ -272,31 +277,43 @@ namespace Banking_System
             this.buttonX1.Name = "buttonX1";
             this.buttonX1.Size = new System.Drawing.Size(121, 60);
             this.buttonX1.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.buttonX1.TabIndex = 35;
+            this.buttonX1.TabIndex = 9;
             this.buttonX1.Text = "&Save";
+            this.buttonX1.Click += new System.EventHandler(this.buttonX1_Click);
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(510, 221);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(18, 22);
+            this.label13.TabIndex = 37;
+            this.label13.Text = "0";
+            this.label13.Visible = false;
             // 
             // FrmSalaryEarners
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = global::Banking_System.Properties.Settings.Default.usercolor;
-            this.ClientSize = new System.Drawing.Size(715, 407);
+            this.ClientSize = new System.Drawing.Size(715, 401);
+            this.Controls.Add(this.label13);
             this.Controls.Add(this.buttonX2);
             this.Controls.Add(this.buttonX1);
-            this.Controls.Add(this.richTextBox1);
+            this.Controls.Add(this.Description);
             this.Controls.Add(this.label12);
-            this.Controls.Add(this.integerInput1);
+            this.Controls.Add(this.NetSalary);
             this.Controls.Add(this.label11);
-            this.Controls.Add(this.textBox7);
-            this.Controls.Add(this.textBox8);
+            this.Controls.Add(this.AccountNumber);
+            this.Controls.Add(this.AccountName);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.textBox6);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.SalaryBank);
+            this.Controls.Add(this.StaffID);
+            this.Controls.Add(this.PayRoleNo);
+            this.Controls.Add(this.JobTitle);
+            this.Controls.Add(this.Employer);
+            this.Controls.Add(this.LoanID);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
@@ -315,37 +332,37 @@ namespace Banking_System
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Salary Earners";
             this.Load += new System.EventHandler(this.FrmSalaryEarners_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.integerInput1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NetSalary)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox SalaryBank;
+        private System.Windows.Forms.TextBox StaffID;
+        private System.Windows.Forms.TextBox PayRoleNo;
+        private System.Windows.Forms.TextBox JobTitle;
+        private System.Windows.Forms.TextBox Employer;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.TextBox AccountNumber;
+        private System.Windows.Forms.TextBox AccountName;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
-        private DevComponents.Editors.IntegerInput integerInput1;
+        private DevComponents.Editors.IntegerInput NetSalary;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.RichTextBox Description;
         private DevComponents.DotNetBar.ButtonX buttonX2;
         private DevComponents.DotNetBar.ButtonX buttonX1;
+        public System.Windows.Forms.Label label2;
+        public System.Windows.Forms.Label label1;
+        public System.Windows.Forms.Label label13;
+        public System.Windows.Forms.TextBox LoanID;
     }
 }

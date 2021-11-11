@@ -334,7 +334,7 @@ namespace Banking_System
                         con.Close();
                         frmMainMenu frm = new frmMainMenu();
                         frm.User.Text = txtUserName.Text;
-                        frm.UserType.Text = usertypes;
+                        frm.UserType.Text = realname;
                         this.Hide();
                         frm.Show();
                         con = new SqlConnection(cs.DBConn);

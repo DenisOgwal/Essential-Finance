@@ -24,11 +24,11 @@ namespace Banking_System
             {
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
-                cmd = new SqlCommand("select RTRIM(MemberID)[Client ID],RTRIM(MemberName)[Client Name],RTRIM(LoansID)[Loan ID] from Loans where Issue='Issued' order by ID DESC", con);
+                cmd = new SqlCommand("select RTRIM(AccountNo)[Account No.],RTRIM(AccountName)[Account Name],RTRIM(LoanID)[Loan ID] from Loan order by ID DESC", con);
                 SqlDataAdapter myDA = new SqlDataAdapter(cmd);
                 DataSet myDataSet = new DataSet();
-                myDA.Fill(myDataSet, "Loans");
-                dataGridView1.DataSource = myDataSet.Tables["Loans"].DefaultView;
+                myDA.Fill(myDataSet, "Loan");
+                dataGridView1.DataSource = myDataSet.Tables["Loan"].DefaultView;
                 con.Close();
             }
             catch (Exception ex)
@@ -91,11 +91,11 @@ namespace Banking_System
             {
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
-                cmd = new SqlCommand("select RTRIM(MemberID)[Client ID],RTRIM(MemberName)[Client Name],RTRIM(LoansID)[Loan ID] from Loans where MemberID like '" + textBoxX1.Text + "%' OR MemberName Like '" + textBoxX1.Text + "%'  order by ID DESC", con);
+                cmd = new SqlCommand("select RTRIM(AccountNo)[Account No.],RTRIM(AccountName)[Account Name],RTRIM(LoanID)[Loan ID] from Loan where AccountNo like '" + textBoxX1.Text + "%' OR AccountName Like '" + textBoxX1.Text + "%' OR LoanID Like '" + textBoxX1.Text + "%' order by ID DESC", con);
                 SqlDataAdapter myDA = new SqlDataAdapter(cmd);
                 DataSet myDataSet = new DataSet();
-                myDA.Fill(myDataSet, "Loans");
-                dataGridView1.DataSource = myDataSet.Tables["Loans"].DefaultView;
+                myDA.Fill(myDataSet, "Loan");
+                dataGridView1.DataSource = myDataSet.Tables["Loan"].DefaultView;
                 con.Close();
             }
             catch (Exception ex)
@@ -109,8 +109,9 @@ namespace Banking_System
             try{
             DataGridViewRow dr = dataGridView1.CurrentRow;
             clientnames.Text=dr.Cells[0].Value.ToString();
-            Accountnames.Text = dr.Cells[2].Value.ToString();
-             }
+            Accountnames.Text = dr.Cells[1].Value.ToString();
+            LoanID.Text = dr.Cells[2].Value.ToString();
+            }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -136,7 +137,8 @@ namespace Banking_System
                 {
                     DataGridViewRow dr = dataGridView1.CurrentRow;
                     clientnames.Text = dr.Cells[0].Value.ToString();
-                    Accountnames.Text = dr.Cells[2].Value.ToString();
+                    Accountnames.Text = dr.Cells[1].Value.ToString();
+                    LoanID.Text = dr.Cells[2].Value.ToString();
                     buttonX1.Focus();
                 }
                 catch (Exception ex)

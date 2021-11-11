@@ -32,18 +32,18 @@ namespace Banking_System
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmLandTitle));
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.richTextBox3 = new System.Windows.Forms.RichTextBox();
-            this.richTextBox2 = new System.Windows.Forms.RichTextBox();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.textBoxX1 = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.Description = new System.Windows.Forms.RichTextBox();
+            this.Occupants = new System.Windows.Forms.RichTextBox();
+            this.Developments = new System.Windows.Forms.RichTextBox();
+            this.LandAt = new System.Windows.Forms.TextBox();
+            this.Folio = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.Volume = new System.Windows.Forms.TextBox();
+            this.LandSize = new System.Windows.Forms.TextBox();
+            this.County = new System.Windows.Forms.TextBox();
+            this.Block = new System.Windows.Forms.TextBox();
+            this.Plot = new System.Windows.Forms.TextBox();
+            this.District = new System.Windows.Forms.TextBox();
+            this.LoanID = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
@@ -58,6 +58,7 @@ namespace Banking_System
             this.label3 = new System.Windows.Forms.Label();
             this.buttonX2 = new DevComponents.DotNetBar.ButtonX();
             this.buttonX1 = new DevComponents.DotNetBar.ButtonX();
+            this.label15 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label2
@@ -68,6 +69,7 @@ namespace Banking_System
             this.label2.Size = new System.Drawing.Size(50, 22);
             this.label2.TabIndex = 3;
             this.label2.Text = "label2";
+            this.label2.Visible = false;
             // 
             // label1
             // 
@@ -77,98 +79,100 @@ namespace Banking_System
             this.label1.Size = new System.Drawing.Size(50, 22);
             this.label1.TabIndex = 2;
             this.label1.Text = "label1";
+            this.label1.Visible = false;
             // 
-            // richTextBox3
+            // Description
             // 
-            this.richTextBox3.Location = new System.Drawing.Point(142, 321);
-            this.richTextBox3.Name = "richTextBox3";
-            this.richTextBox3.Size = new System.Drawing.Size(562, 57);
-            this.richTextBox3.TabIndex = 49;
-            this.richTextBox3.Text = "";
+            this.Description.Location = new System.Drawing.Point(142, 321);
+            this.Description.Name = "Description";
+            this.Description.Size = new System.Drawing.Size(562, 57);
+            this.Description.TabIndex = 10;
+            this.Description.Text = "";
             // 
-            // richTextBox2
+            // Occupants
             // 
-            this.richTextBox2.Location = new System.Drawing.Point(142, 261);
-            this.richTextBox2.Name = "richTextBox2";
-            this.richTextBox2.Size = new System.Drawing.Size(563, 53);
-            this.richTextBox2.TabIndex = 48;
-            this.richTextBox2.Text = "";
+            this.Occupants.Location = new System.Drawing.Point(142, 261);
+            this.Occupants.Name = "Occupants";
+            this.Occupants.Size = new System.Drawing.Size(563, 53);
+            this.Occupants.TabIndex = 9;
+            this.Occupants.Text = "";
             // 
-            // richTextBox1
+            // Developments
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(142, 195);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(562, 60);
-            this.richTextBox1.TabIndex = 47;
-            this.richTextBox1.Text = "";
+            this.Developments.Location = new System.Drawing.Point(142, 195);
+            this.Developments.Name = "Developments";
+            this.Developments.Size = new System.Drawing.Size(562, 60);
+            this.Developments.TabIndex = 8;
+            this.Developments.Text = "";
             // 
-            // textBox8
+            // LandAt
             // 
-            this.textBox8.Location = new System.Drawing.Point(143, 160);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(222, 29);
-            this.textBox8.TabIndex = 46;
+            this.LandAt.Location = new System.Drawing.Point(143, 160);
+            this.LandAt.Name = "LandAt";
+            this.LandAt.Size = new System.Drawing.Size(222, 29);
+            this.LandAt.TabIndex = 7;
             // 
-            // textBoxX1
-            // 
-            // 
+            // Folio
             // 
             // 
-            this.textBoxX1.Border.Class = "TextBoxBorder";
-            this.textBoxX1.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.textBoxX1.Location = new System.Drawing.Point(491, 126);
-            this.textBoxX1.Name = "textBoxX1";
-            this.textBoxX1.Size = new System.Drawing.Size(214, 29);
-            this.textBoxX1.TabIndex = 45;
             // 
-            // textBox7
             // 
-            this.textBox7.Location = new System.Drawing.Point(142, 125);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(222, 29);
-            this.textBox7.TabIndex = 44;
+            this.Folio.Border.Class = "TextBoxBorder";
+            this.Folio.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.Folio.Location = new System.Drawing.Point(491, 126);
+            this.Folio.Name = "Folio";
+            this.Folio.Size = new System.Drawing.Size(214, 29);
+            this.Folio.TabIndex = 6;
             // 
-            // textBox6
+            // Volume
             // 
-            this.textBox6.Location = new System.Drawing.Point(491, 90);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(214, 29);
-            this.textBox6.TabIndex = 43;
+            this.Volume.Location = new System.Drawing.Point(142, 125);
+            this.Volume.Name = "Volume";
+            this.Volume.Size = new System.Drawing.Size(222, 29);
+            this.Volume.TabIndex = 5;
             // 
-            // textBox5
+            // LandSize
             // 
-            this.textBox5.Location = new System.Drawing.Point(142, 90);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(222, 29);
-            this.textBox5.TabIndex = 42;
+            this.LandSize.Location = new System.Drawing.Point(491, 90);
+            this.LandSize.Name = "LandSize";
+            this.LandSize.Size = new System.Drawing.Size(214, 29);
+            this.LandSize.TabIndex = 4;
             // 
-            // textBox4
+            // County
             // 
-            this.textBox4.Location = new System.Drawing.Point(491, 56);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(214, 29);
-            this.textBox4.TabIndex = 41;
+            this.County.Location = new System.Drawing.Point(142, 90);
+            this.County.Name = "County";
+            this.County.Size = new System.Drawing.Size(222, 29);
+            this.County.TabIndex = 3;
             // 
-            // textBox3
+            // Block
             // 
-            this.textBox3.Location = new System.Drawing.Point(142, 55);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(222, 29);
-            this.textBox3.TabIndex = 40;
+            this.Block.Location = new System.Drawing.Point(491, 56);
+            this.Block.Name = "Block";
+            this.Block.Size = new System.Drawing.Size(214, 29);
+            this.Block.TabIndex = 2;
             // 
-            // textBox2
+            // Plot
             // 
-            this.textBox2.Location = new System.Drawing.Point(491, 20);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(214, 29);
-            this.textBox2.TabIndex = 39;
+            this.Plot.Location = new System.Drawing.Point(142, 55);
+            this.Plot.Name = "Plot";
+            this.Plot.Size = new System.Drawing.Size(222, 29);
+            this.Plot.TabIndex = 1;
             // 
-            // textBox1
+            // District
             // 
-            this.textBox1.Location = new System.Drawing.Point(142, 20);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(222, 29);
-            this.textBox1.TabIndex = 38;
+            this.District.Location = new System.Drawing.Point(491, 20);
+            this.District.Name = "District";
+            this.District.Size = new System.Drawing.Size(214, 29);
+            this.District.TabIndex = 0;
+            // 
+            // LoanID
+            // 
+            this.LoanID.Enabled = false;
+            this.LoanID.Location = new System.Drawing.Point(142, 20);
+            this.LoanID.Name = "LoanID";
+            this.LoanID.Size = new System.Drawing.Size(222, 29);
+            this.LoanID.TabIndex = 38;
             // 
             // label14
             // 
@@ -298,8 +302,9 @@ namespace Banking_System
             this.buttonX2.Name = "buttonX2";
             this.buttonX2.Size = new System.Drawing.Size(111, 56);
             this.buttonX2.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.buttonX2.TabIndex = 51;
+            this.buttonX2.TabIndex = 12;
             this.buttonX2.Text = "&Cancel";
+            this.buttonX2.Click += new System.EventHandler(this.buttonX2_Click);
             // 
             // buttonX1
             // 
@@ -309,29 +314,41 @@ namespace Banking_System
             this.buttonX1.Name = "buttonX1";
             this.buttonX1.Size = new System.Drawing.Size(104, 56);
             this.buttonX1.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.buttonX1.TabIndex = 50;
+            this.buttonX1.TabIndex = 11;
             this.buttonX1.Text = "&Save";
+            this.buttonX1.Click += new System.EventHandler(this.buttonX1_Click);
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(567, 158);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(18, 22);
+            this.label15.TabIndex = 52;
+            this.label15.Text = "0";
+            this.label15.Visible = false;
             // 
             // FrmLandTitle
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = global::Banking_System.Properties.Settings.Default.usercolor;
-            this.ClientSize = new System.Drawing.Size(722, 459);
+            this.ClientSize = new System.Drawing.Size(722, 453);
+            this.Controls.Add(this.label15);
             this.Controls.Add(this.buttonX2);
             this.Controls.Add(this.buttonX1);
-            this.Controls.Add(this.richTextBox3);
-            this.Controls.Add(this.richTextBox2);
-            this.Controls.Add(this.richTextBox1);
-            this.Controls.Add(this.textBox8);
-            this.Controls.Add(this.textBoxX1);
-            this.Controls.Add(this.textBox7);
-            this.Controls.Add(this.textBox6);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.Description);
+            this.Controls.Add(this.Occupants);
+            this.Controls.Add(this.Developments);
+            this.Controls.Add(this.LandAt);
+            this.Controls.Add(this.Folio);
+            this.Controls.Add(this.Volume);
+            this.Controls.Add(this.LandSize);
+            this.Controls.Add(this.County);
+            this.Controls.Add(this.Block);
+            this.Controls.Add(this.Plot);
+            this.Controls.Add(this.District);
+            this.Controls.Add(this.LoanID);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.label12);
@@ -362,21 +379,17 @@ namespace Banking_System
         }
 
         #endregion
-
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.RichTextBox richTextBox3;
-        private System.Windows.Forms.RichTextBox richTextBox2;
-        private System.Windows.Forms.RichTextBox richTextBox1;
-        private System.Windows.Forms.TextBox textBox8;
-        private DevComponents.DotNetBar.Controls.TextBoxX textBoxX1;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.RichTextBox Description;
+        private System.Windows.Forms.RichTextBox Occupants;
+        private System.Windows.Forms.RichTextBox Developments;
+        private System.Windows.Forms.TextBox LandAt;
+        private DevComponents.DotNetBar.Controls.TextBoxX Folio;
+        private System.Windows.Forms.TextBox Volume;
+        private System.Windows.Forms.TextBox LandSize;
+        private System.Windows.Forms.TextBox County;
+        private System.Windows.Forms.TextBox Block;
+        private System.Windows.Forms.TextBox Plot;
+        private System.Windows.Forms.TextBox District;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label12;
@@ -391,5 +404,9 @@ namespace Banking_System
         private System.Windows.Forms.Label label3;
         private DevComponents.DotNetBar.ButtonX buttonX2;
         private DevComponents.DotNetBar.ButtonX buttonX1;
+        public System.Windows.Forms.Label label2;
+        public System.Windows.Forms.Label label1;
+        public System.Windows.Forms.Label label15;
+        public System.Windows.Forms.TextBox LoanID;
     }
 }

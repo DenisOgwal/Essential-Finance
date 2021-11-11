@@ -44,20 +44,21 @@ namespace Banking_System
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBoxX1 = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.richTextBox2 = new System.Windows.Forms.RichTextBox();
-            this.richTextBox3 = new System.Windows.Forms.RichTextBox();
+            this.LoanID = new System.Windows.Forms.TextBox();
+            this.District = new System.Windows.Forms.TextBox();
+            this.County = new System.Windows.Forms.TextBox();
+            this.Subcounty = new System.Windows.Forms.TextBox();
+            this.Village = new System.Windows.Forms.TextBox();
+            this.KibanjaSize = new System.Windows.Forms.TextBox();
+            this.CurrentOwner = new System.Windows.Forms.TextBox();
+            this.PreviousOwner = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.LC1Chairman = new System.Windows.Forms.TextBox();
+            this.Developments = new System.Windows.Forms.RichTextBox();
+            this.Occupants = new System.Windows.Forms.RichTextBox();
+            this.Description = new System.Windows.Forms.RichTextBox();
             this.buttonX1 = new DevComponents.DotNetBar.ButtonX();
             this.buttonX2 = new DevComponents.DotNetBar.ButtonX();
+            this.label15 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -68,6 +69,7 @@ namespace Banking_System
             this.label1.Size = new System.Drawing.Size(50, 22);
             this.label1.TabIndex = 0;
             this.label1.Text = "label1";
+            this.label1.Visible = false;
             // 
             // label2
             // 
@@ -77,6 +79,7 @@ namespace Banking_System
             this.label2.Size = new System.Drawing.Size(50, 22);
             this.label2.TabIndex = 1;
             this.label2.Text = "label2";
+            this.label2.Visible = false;
             // 
             // label3
             // 
@@ -198,97 +201,98 @@ namespace Banking_System
             this.label14.TabIndex = 13;
             this.label14.Text = "Description";
             // 
-            // textBox1
+            // LoanID
             // 
-            this.textBox1.Location = new System.Drawing.Point(151, 18);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(222, 29);
-            this.textBox1.TabIndex = 14;
+            this.LoanID.Enabled = false;
+            this.LoanID.Location = new System.Drawing.Point(151, 18);
+            this.LoanID.Name = "LoanID";
+            this.LoanID.Size = new System.Drawing.Size(222, 29);
+            this.LoanID.TabIndex = 14;
             // 
-            // textBox2
+            // District
             // 
-            this.textBox2.Location = new System.Drawing.Point(500, 18);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(214, 29);
-            this.textBox2.TabIndex = 15;
+            this.District.Location = new System.Drawing.Point(500, 18);
+            this.District.Name = "District";
+            this.District.Size = new System.Drawing.Size(214, 29);
+            this.District.TabIndex = 0;
             // 
-            // textBox3
+            // County
             // 
-            this.textBox3.Location = new System.Drawing.Point(151, 53);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(222, 29);
-            this.textBox3.TabIndex = 16;
+            this.County.Location = new System.Drawing.Point(151, 53);
+            this.County.Name = "County";
+            this.County.Size = new System.Drawing.Size(222, 29);
+            this.County.TabIndex = 1;
             // 
-            // textBox4
+            // Subcounty
             // 
-            this.textBox4.Location = new System.Drawing.Point(500, 54);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(214, 29);
-            this.textBox4.TabIndex = 17;
+            this.Subcounty.Location = new System.Drawing.Point(500, 54);
+            this.Subcounty.Name = "Subcounty";
+            this.Subcounty.Size = new System.Drawing.Size(214, 29);
+            this.Subcounty.TabIndex = 2;
             // 
-            // textBox5
+            // Village
             // 
-            this.textBox5.Location = new System.Drawing.Point(151, 88);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(222, 29);
-            this.textBox5.TabIndex = 18;
+            this.Village.Location = new System.Drawing.Point(151, 88);
+            this.Village.Name = "Village";
+            this.Village.Size = new System.Drawing.Size(222, 29);
+            this.Village.TabIndex = 3;
             // 
-            // textBox6
+            // KibanjaSize
             // 
-            this.textBox6.Location = new System.Drawing.Point(500, 88);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(214, 29);
-            this.textBox6.TabIndex = 19;
+            this.KibanjaSize.Location = new System.Drawing.Point(500, 88);
+            this.KibanjaSize.Name = "KibanjaSize";
+            this.KibanjaSize.Size = new System.Drawing.Size(214, 29);
+            this.KibanjaSize.TabIndex = 4;
             // 
-            // textBox7
+            // CurrentOwner
             // 
-            this.textBox7.Location = new System.Drawing.Point(151, 123);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(222, 29);
-            this.textBox7.TabIndex = 20;
+            this.CurrentOwner.Location = new System.Drawing.Point(151, 123);
+            this.CurrentOwner.Name = "CurrentOwner";
+            this.CurrentOwner.Size = new System.Drawing.Size(222, 29);
+            this.CurrentOwner.TabIndex = 5;
             // 
-            // textBoxX1
-            // 
-            // 
+            // PreviousOwner
             // 
             // 
-            this.textBoxX1.Border.Class = "TextBoxBorder";
-            this.textBoxX1.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.textBoxX1.Location = new System.Drawing.Point(500, 124);
-            this.textBoxX1.Name = "textBoxX1";
-            this.textBoxX1.Size = new System.Drawing.Size(214, 29);
-            this.textBoxX1.TabIndex = 21;
             // 
-            // textBox8
             // 
-            this.textBox8.Location = new System.Drawing.Point(152, 158);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(222, 29);
-            this.textBox8.TabIndex = 22;
+            this.PreviousOwner.Border.Class = "TextBoxBorder";
+            this.PreviousOwner.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.PreviousOwner.Location = new System.Drawing.Point(500, 124);
+            this.PreviousOwner.Name = "PreviousOwner";
+            this.PreviousOwner.Size = new System.Drawing.Size(214, 29);
+            this.PreviousOwner.TabIndex = 6;
             // 
-            // richTextBox1
+            // LC1Chairman
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(151, 193);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(562, 60);
-            this.richTextBox1.TabIndex = 23;
-            this.richTextBox1.Text = "";
+            this.LC1Chairman.Location = new System.Drawing.Point(152, 158);
+            this.LC1Chairman.Name = "LC1Chairman";
+            this.LC1Chairman.Size = new System.Drawing.Size(222, 29);
+            this.LC1Chairman.TabIndex = 7;
             // 
-            // richTextBox2
+            // Developments
             // 
-            this.richTextBox2.Location = new System.Drawing.Point(151, 259);
-            this.richTextBox2.Name = "richTextBox2";
-            this.richTextBox2.Size = new System.Drawing.Size(563, 53);
-            this.richTextBox2.TabIndex = 24;
-            this.richTextBox2.Text = "";
+            this.Developments.Location = new System.Drawing.Point(151, 193);
+            this.Developments.Name = "Developments";
+            this.Developments.Size = new System.Drawing.Size(562, 60);
+            this.Developments.TabIndex = 8;
+            this.Developments.Text = "";
             // 
-            // richTextBox3
+            // Occupants
             // 
-            this.richTextBox3.Location = new System.Drawing.Point(151, 319);
-            this.richTextBox3.Name = "richTextBox3";
-            this.richTextBox3.Size = new System.Drawing.Size(562, 57);
-            this.richTextBox3.TabIndex = 25;
-            this.richTextBox3.Text = "";
+            this.Occupants.Location = new System.Drawing.Point(151, 259);
+            this.Occupants.Name = "Occupants";
+            this.Occupants.Size = new System.Drawing.Size(563, 53);
+            this.Occupants.TabIndex = 9;
+            this.Occupants.Text = "";
+            // 
+            // Description
+            // 
+            this.Description.Location = new System.Drawing.Point(151, 319);
+            this.Description.Name = "Description";
+            this.Description.Size = new System.Drawing.Size(562, 57);
+            this.Description.TabIndex = 10;
+            this.Description.Text = "";
             // 
             // buttonX1
             // 
@@ -298,8 +302,9 @@ namespace Banking_System
             this.buttonX1.Name = "buttonX1";
             this.buttonX1.Size = new System.Drawing.Size(104, 56);
             this.buttonX1.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.buttonX1.TabIndex = 26;
+            this.buttonX1.TabIndex = 11;
             this.buttonX1.Text = "&Save";
+            this.buttonX1.Click += new System.EventHandler(this.buttonX1_Click);
             // 
             // buttonX2
             // 
@@ -309,29 +314,41 @@ namespace Banking_System
             this.buttonX2.Name = "buttonX2";
             this.buttonX2.Size = new System.Drawing.Size(111, 56);
             this.buttonX2.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.buttonX2.TabIndex = 27;
+            this.buttonX2.TabIndex = 12;
             this.buttonX2.Text = "&Cancel";
+            this.buttonX2.Click += new System.EventHandler(this.buttonX2_Click);
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(536, 161);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(18, 22);
+            this.label15.TabIndex = 28;
+            this.label15.Text = "0";
+            this.label15.Visible = false;
             // 
             // FrmKibanjaProperty
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = global::Banking_System.Properties.Settings.Default.usercolor;
-            this.ClientSize = new System.Drawing.Size(731, 452);
+            this.ClientSize = new System.Drawing.Size(731, 446);
+            this.Controls.Add(this.label15);
             this.Controls.Add(this.buttonX2);
             this.Controls.Add(this.buttonX1);
-            this.Controls.Add(this.richTextBox3);
-            this.Controls.Add(this.richTextBox2);
-            this.Controls.Add(this.richTextBox1);
-            this.Controls.Add(this.textBox8);
-            this.Controls.Add(this.textBoxX1);
-            this.Controls.Add(this.textBox7);
-            this.Controls.Add(this.textBox6);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.Description);
+            this.Controls.Add(this.Occupants);
+            this.Controls.Add(this.Developments);
+            this.Controls.Add(this.LC1Chairman);
+            this.Controls.Add(this.PreviousOwner);
+            this.Controls.Add(this.CurrentOwner);
+            this.Controls.Add(this.KibanjaSize);
+            this.Controls.Add(this.Village);
+            this.Controls.Add(this.Subcounty);
+            this.Controls.Add(this.County);
+            this.Controls.Add(this.District);
+            this.Controls.Add(this.LoanID);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.label12);
@@ -362,9 +379,6 @@ namespace Banking_System
         }
 
         #endregion
-
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
@@ -377,19 +391,22 @@ namespace Banking_System
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox7;
-        private DevComponents.DotNetBar.Controls.TextBoxX textBoxX1;
-        private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.RichTextBox richTextBox1;
-        private System.Windows.Forms.RichTextBox richTextBox2;
-        private System.Windows.Forms.RichTextBox richTextBox3;
+        private System.Windows.Forms.TextBox District;
+        private System.Windows.Forms.TextBox County;
+        private System.Windows.Forms.TextBox Subcounty;
+        private System.Windows.Forms.TextBox Village;
+        private System.Windows.Forms.TextBox KibanjaSize;
+        private System.Windows.Forms.TextBox CurrentOwner;
+        private DevComponents.DotNetBar.Controls.TextBoxX PreviousOwner;
+        private System.Windows.Forms.TextBox LC1Chairman;
+        private System.Windows.Forms.RichTextBox Developments;
+        private System.Windows.Forms.RichTextBox Occupants;
+        private System.Windows.Forms.RichTextBox Description;
         private DevComponents.DotNetBar.ButtonX buttonX1;
         private DevComponents.DotNetBar.ButtonX buttonX2;
+        public System.Windows.Forms.Label label1;
+        public System.Windows.Forms.Label label2;
+        public System.Windows.Forms.Label label15;
+        public System.Windows.Forms.TextBox LoanID;
     }
 }

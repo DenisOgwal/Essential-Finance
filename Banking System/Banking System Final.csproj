@@ -369,6 +369,12 @@
     <Compile Include="frmLoanApplication.Designer.cs">
       <DependentUpon>frmLoanApplication.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmLoanApplicationPayment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmLoanApplicationPayment.Designer.cs">
+      <DependentUpon>FrmLoanApplicationPayment.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmLoanInsuranceType.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1440,6 +1446,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmLoanApplication.resx">
       <DependentUpon>frmLoanApplication.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmLoanApplicationPayment.resx">
+      <DependentUpon>FrmLoanApplicationPayment.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmLoanInsuranceType.resx">
       <DependentUpon>frmLoanInsuranceType.cs</DependentUpon>

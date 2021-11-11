@@ -39,18 +39,19 @@ namespace Banking_System
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.LoanID = new System.Windows.Forms.TextBox();
+            this.ItemName = new System.Windows.Forms.TextBox();
+            this.SerialNo = new System.Windows.Forms.TextBox();
+            this.ModelYear = new System.Windows.Forms.TextBox();
+            this.Color = new System.Windows.Forms.TextBox();
+            this.Model = new System.Windows.Forms.TextBox();
+            this.Description = new System.Windows.Forms.RichTextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.buttonX1 = new DevComponents.DotNetBar.ButtonX();
             this.buttonX2 = new DevComponents.DotNetBar.ButtonX();
+            this.label10 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -62,6 +63,7 @@ namespace Banking_System
             this.label1.Size = new System.Drawing.Size(50, 22);
             this.label1.TabIndex = 0;
             this.label1.Text = "label1";
+            this.label1.Visible = false;
             // 
             // label2
             // 
@@ -71,6 +73,7 @@ namespace Banking_System
             this.label2.Size = new System.Drawing.Size(50, 22);
             this.label2.TabIndex = 1;
             this.label2.Text = "label2";
+            this.label2.Visible = false;
             // 
             // label3
             // 
@@ -142,55 +145,56 @@ namespace Banking_System
             this.label9.TabIndex = 8;
             this.label9.Text = "Loan ID";
             // 
-            // textBox1
+            // LoanID
             // 
-            this.textBox1.Location = new System.Drawing.Point(131, 25);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(207, 29);
-            this.textBox1.TabIndex = 9;
+            this.LoanID.Enabled = false;
+            this.LoanID.Location = new System.Drawing.Point(131, 25);
+            this.LoanID.Name = "LoanID";
+            this.LoanID.Size = new System.Drawing.Size(207, 29);
+            this.LoanID.TabIndex = 20;
             // 
-            // textBox2
+            // ItemName
             // 
-            this.textBox2.Location = new System.Drawing.Point(462, 29);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(216, 29);
-            this.textBox2.TabIndex = 10;
+            this.ItemName.Location = new System.Drawing.Point(462, 29);
+            this.ItemName.Name = "ItemName";
+            this.ItemName.Size = new System.Drawing.Size(216, 29);
+            this.ItemName.TabIndex = 0;
             // 
-            // textBox3
+            // SerialNo
             // 
-            this.textBox3.Location = new System.Drawing.Point(131, 80);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(207, 29);
-            this.textBox3.TabIndex = 11;
+            this.SerialNo.Location = new System.Drawing.Point(131, 80);
+            this.SerialNo.Name = "SerialNo";
+            this.SerialNo.Size = new System.Drawing.Size(207, 29);
+            this.SerialNo.TabIndex = 1;
             // 
-            // textBox4
+            // ModelYear
             // 
-            this.textBox4.Location = new System.Drawing.Point(462, 83);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(216, 29);
-            this.textBox4.TabIndex = 12;
+            this.ModelYear.Location = new System.Drawing.Point(462, 83);
+            this.ModelYear.Name = "ModelYear";
+            this.ModelYear.Size = new System.Drawing.Size(216, 29);
+            this.ModelYear.TabIndex = 2;
             // 
-            // textBox5
+            // Color
             // 
-            this.textBox5.Location = new System.Drawing.Point(131, 133);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(207, 29);
-            this.textBox5.TabIndex = 13;
+            this.Color.Location = new System.Drawing.Point(131, 133);
+            this.Color.Name = "Color";
+            this.Color.Size = new System.Drawing.Size(207, 29);
+            this.Color.TabIndex = 3;
             // 
-            // textBox6
+            // Model
             // 
-            this.textBox6.Location = new System.Drawing.Point(462, 141);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(216, 29);
-            this.textBox6.TabIndex = 14;
+            this.Model.Location = new System.Drawing.Point(462, 141);
+            this.Model.Name = "Model";
+            this.Model.Size = new System.Drawing.Size(216, 29);
+            this.Model.TabIndex = 4;
             // 
-            // richTextBox1
+            // Description
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(131, 190);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(547, 63);
-            this.richTextBox1.TabIndex = 15;
-            this.richTextBox1.Text = "";
+            this.Description.Location = new System.Drawing.Point(131, 190);
+            this.Description.Name = "Description";
+            this.Description.Size = new System.Drawing.Size(547, 63);
+            this.Description.TabIndex = 5;
+            this.Description.Text = "";
             // 
             // groupBox1
             // 
@@ -200,7 +204,7 @@ namespace Banking_System
             this.groupBox1.Location = new System.Drawing.Point(28, 259);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(396, 64);
-            this.groupBox1.TabIndex = 17;
+            this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Borrower has Deposited the above-mentioned property";
             // 
@@ -234,8 +238,9 @@ namespace Banking_System
             this.buttonX1.Name = "buttonX1";
             this.buttonX1.Size = new System.Drawing.Size(121, 60);
             this.buttonX1.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.buttonX1.TabIndex = 18;
+            this.buttonX1.TabIndex = 7;
             this.buttonX1.Text = "&Save";
+            this.buttonX1.Click += new System.EventHandler(this.buttonX1_Click);
             // 
             // buttonX2
             // 
@@ -245,25 +250,37 @@ namespace Banking_System
             this.buttonX2.Name = "buttonX2";
             this.buttonX2.Size = new System.Drawing.Size(114, 60);
             this.buttonX2.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.buttonX2.TabIndex = 19;
+            this.buttonX2.TabIndex = 8;
             this.buttonX2.Text = "&Cancel";
+            this.buttonX2.Click += new System.EventHandler(this.buttonX2_Click);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(18, 219);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(18, 22);
+            this.label10.TabIndex = 20;
+            this.label10.Text = "0";
+            this.label10.Visible = false;
             // 
             // FrmAssets
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = global::Banking_System.Properties.Settings.Default.usercolor;
-            this.ClientSize = new System.Drawing.Size(706, 350);
+            this.ClientSize = new System.Drawing.Size(706, 348);
+            this.Controls.Add(this.label10);
             this.Controls.Add(this.buttonX2);
             this.Controls.Add(this.buttonX1);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.richTextBox1);
-            this.Controls.Add(this.textBox6);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.Description);
+            this.Controls.Add(this.Model);
+            this.Controls.Add(this.Color);
+            this.Controls.Add(this.ModelYear);
+            this.Controls.Add(this.SerialNo);
+            this.Controls.Add(this.ItemName);
+            this.Controls.Add(this.LoanID);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
@@ -291,9 +308,6 @@ namespace Banking_System
         }
 
         #endregion
-
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
@@ -301,17 +315,20 @@ namespace Banking_System
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.TextBox ItemName;
+        private System.Windows.Forms.TextBox SerialNo;
+        private System.Windows.Forms.TextBox ModelYear;
+        private System.Windows.Forms.TextBox Color;
+        private System.Windows.Forms.TextBox Model;
+        private System.Windows.Forms.RichTextBox Description;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.RadioButton radioButton2;
         private System.Windows.Forms.RadioButton radioButton1;
         private DevComponents.DotNetBar.ButtonX buttonX1;
         private DevComponents.DotNetBar.ButtonX buttonX2;
+        public System.Windows.Forms.Label label1;
+        public System.Windows.Forms.Label label2;
+        public System.Windows.Forms.TextBox LoanID;
+        public System.Windows.Forms.Label label10;
     }
 }

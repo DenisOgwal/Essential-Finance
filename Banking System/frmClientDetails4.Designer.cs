@@ -37,6 +37,8 @@
             this.textBoxX1 = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.Accountnames = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.labelX3 = new DevComponents.DotNetBar.LabelX();
+            this.LoanID = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.labelX2 = new DevComponents.DotNetBar.LabelX();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -48,12 +50,12 @@
             this.labelX1.BackgroundStyle.Class = "";
             this.labelX1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.labelX1.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelX1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.labelX1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.labelX1.Location = new System.Drawing.Point(386, 13);
             this.labelX1.Name = "labelX1";
             this.labelX1.Size = new System.Drawing.Size(157, 23);
             this.labelX1.TabIndex = 0;
-            this.labelX1.Text = "Client ID";
+            this.labelX1.Text = "Account Number";
             // 
             // clientnames
             // 
@@ -75,7 +77,7 @@
             this.buttonX1.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.buttonX1.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonX1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.buttonX1.Location = new System.Drawing.Point(434, 161);
+            this.buttonX1.Location = new System.Drawing.Point(434, 222);
             this.buttonX1.Name = "buttonX1";
             this.buttonX1.Size = new System.Drawing.Size(109, 39);
             this.buttonX1.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -88,7 +90,7 @@
             this.buttonX2.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.buttonX2.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonX2.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.buttonX2.Location = new System.Drawing.Point(433, 206);
+            this.buttonX2.Location = new System.Drawing.Point(433, 267);
             this.buttonX2.Name = "buttonX2";
             this.buttonX2.Size = new System.Drawing.Size(110, 39);
             this.buttonX2.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -135,7 +137,7 @@
             this.Accountnames.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.Accountnames.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Accountnames.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.Accountnames.Location = new System.Drawing.Point(386, 110);
+            this.Accountnames.Location = new System.Drawing.Point(386, 105);
             this.Accountnames.Name = "Accountnames";
             this.Accountnames.Size = new System.Drawing.Size(207, 29);
             this.Accountnames.TabIndex = 10;
@@ -148,19 +150,50 @@
             this.labelX3.BackgroundStyle.Class = "";
             this.labelX3.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.labelX3.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelX3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.labelX3.Location = new System.Drawing.Point(386, 81);
+            this.labelX3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.labelX3.Location = new System.Drawing.Point(386, 140);
             this.labelX3.Name = "labelX3";
             this.labelX3.Size = new System.Drawing.Size(157, 23);
             this.labelX3.TabIndex = 9;
             this.labelX3.Text = "Loan ID";
+            // 
+            // LoanID
+            // 
+            // 
+            // 
+            // 
+            this.LoanID.Border.Class = "TextBoxBorder";
+            this.LoanID.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.LoanID.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LoanID.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.LoanID.Location = new System.Drawing.Point(386, 169);
+            this.LoanID.Name = "LoanID";
+            this.LoanID.Size = new System.Drawing.Size(207, 29);
+            this.LoanID.TabIndex = 12;
+            // 
+            // labelX2
+            // 
+            // 
+            // 
+            // 
+            this.labelX2.BackgroundStyle.Class = "";
+            this.labelX2.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX2.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelX2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.labelX2.Location = new System.Drawing.Point(386, 76);
+            this.labelX2.Name = "labelX2";
+            this.labelX2.Size = new System.Drawing.Size(157, 23);
+            this.labelX2.TabIndex = 11;
+            this.labelX2.Text = "Account Names";
             // 
             // frmClientDetails4
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = global::Banking_System.Properties.Settings.Default.usercolor;
-            this.ClientSize = new System.Drawing.Size(610, 472);
+            this.ClientSize = new System.Drawing.Size(610, 471);
+            this.Controls.Add(this.LoanID);
+            this.Controls.Add(this.labelX2);
             this.Controls.Add(this.Accountnames);
             this.Controls.Add(this.labelX3);
             this.Controls.Add(this.textBoxX1);
@@ -192,5 +225,7 @@
         private DevComponents.DotNetBar.Controls.TextBoxX textBoxX1;
         public DevComponents.DotNetBar.Controls.TextBoxX Accountnames;
         private DevComponents.DotNetBar.LabelX labelX3;
+        public DevComponents.DotNetBar.Controls.TextBoxX LoanID;
+        private DevComponents.DotNetBar.LabelX labelX2;
     }
 }

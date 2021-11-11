@@ -50,7 +50,7 @@
             this.labelX1.BackgroundStyle.Class = "";
             this.labelX1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.labelX1.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelX1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.labelX1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.labelX1.Location = new System.Drawing.Point(386, 13);
             this.labelX1.Name = "labelX1";
             this.labelX1.Size = new System.Drawing.Size(157, 23);
@@ -148,7 +148,7 @@
             this.labelX3.BackgroundStyle.Class = "";
             this.labelX3.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.labelX3.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelX3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.labelX3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.labelX3.Location = new System.Drawing.Point(386, 81);
             this.labelX3.Name = "labelX3";
             this.labelX3.Size = new System.Drawing.Size(157, 23);
@@ -177,7 +177,7 @@
             this.labelX2.BackgroundStyle.Class = "";
             this.labelX2.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.labelX2.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelX2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.labelX2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.labelX2.Location = new System.Drawing.Point(386, 151);
             this.labelX2.Name = "labelX2";
             this.labelX2.Size = new System.Drawing.Size(157, 23);
@@ -189,7 +189,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = global::Banking_System.Properties.Settings.Default.usercolor;
-            this.ClientSize = new System.Drawing.Size(610, 473);
+            this.ClientSize = new System.Drawing.Size(610, 472);
             this.Controls.Add(this.Accountnumber);
             this.Controls.Add(this.labelX2);
             this.Controls.Add(this.Accountnames);
