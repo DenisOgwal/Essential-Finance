@@ -1,0 +1,157 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Banking_System.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="day" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="month" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="year" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="checkeda" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="BSConnectionString" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionString&gt;Data Source=(LocalDB)\v11.0;AttachDbFilename=C:\Users\Denis\Documents\Databases\Database4\BS.mdf;Integrated Security=True;Connect Timeout=30&lt;/ConnectionString&gt;
+  &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">Data Source=(LocalDB)\v11.0;AttachDbFilename=C:\Users\Denis\Documents\Databases\Database4\BS.mdf;Integrated Security=True;Connect Timeout=30</Value>
+    </Setting>
+    <Setting Name="BSConnectionString1" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionString&gt;Data Source=(LocalDB)\v11.0;AttachDbFilename="C:\Users\Denis\Documents\Databases\Database4\BS.mdf";Integrated Security=True;Connect Timeout=30&lt;/ConnectionString&gt;
+  &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">Data Source=(LocalDB)\v11.0;AttachDbFilename="C:\Users\Denis\Documents\Databases\Database4\BS.mdf";Integrated Security=True;Connect Timeout=30</Value>
+    </Setting>
+    <Setting Name="Maximised" Type="System.Windows.Forms.FormWindowState" Scope="User">
+      <Value Profile="(Default)">Maximized</Value>
+    </Setting>
+    <Setting Name="BSConnectionString2" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionString&gt;Data Source=(LocalDB)\v11.0;AttachDbFilename="C:\Users\ogden\Documents\Dither Technologies\KCDSACCO\BS.mdf";Integrated Security=True;Connect Timeout=30&lt;/ConnectionString&gt;
+  &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">Data Source=(LocalDB)\v11.0;AttachDbFilename="C:\Users\ogden\Documents\Dither Technologies\KCDSACCO\BS.mdf";Integrated Security=True;Connect Timeout=30</Value>
+    </Setting>
+    <Setting Name="usercolor" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">Highlight</Value>
+    </Setting>
+    <Setting Name="userstyle" Type="DevComponents.DotNetBar.eStyle" Scope="User">
+      <Value Profile="(Default)">Office2007Blue</Value>
+    </Setting>
+    <Setting Name="intresttype" Type="System.String" Scope="User">
+      <Value Profile="(Default)">FlatRate</Value>
+    </Setting>
+    <Setting Name="loantype" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Monthly</Value>
+    </Setting>
+    <Setting Name="frontendprinter" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="barcodeprinter" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="monthlycharge" Type="System.String" Scope="User">
+      <Value Profile="(Default)">No</Value>
+    </Setting>
+    <Setting Name="smsallow" Type="System.String" Scope="User">
+      <Value Profile="(Default)">No</Value>
+    </Setting>
+    <Setting Name="smsusername" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="smspassword" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="BSConnectionString3" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionString&gt;Data Source=(LocalDB)\v11.0;AttachDbFilename="C:\Users\ogden\Documents\Dither Technologies\SACCO\BS.mdf";Integrated Security=True;Connect Timeout=30&lt;/ConnectionString&gt;
+  &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">Data Source=(LocalDB)\v11.0;AttachDbFilename="C:\Users\ogden\Documents\Dither Technologies\SACCO\BS.mdf";Integrated Security=True;Connect Timeout=30</Value>
+    </Setting>
+    <Setting Name="companycode" Type="System.String" Scope="User">
+      <Value Profile="(Default)">CHPU</Value>
+    </Setting>
+    <Setting Name="sharesinclude" Type="System.String" Scope="User">
+      <Value Profile="(Default)">No</Value>
+    </Setting>
+    <Setting Name="compulsoryprocessing" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Yes</Value>
+    </Setting>
+    <Setting Name="compulsoryinsurance" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Yes</Value>
+    </Setting>
+    <Setting Name="Loanprocessingtype" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Percentage</Value>
+    </Setting>
+    <Setting Name="autoloanfines" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Manual</Value>
+    </Setting>
+    <Setting Name="autoloandays" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">2</Value>
+    </Setting>
+    <Setting Name="Loaninsurancetype" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Percentage</Value>
+    </Setting>
+    <Setting Name="loanmultipletype" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Percentage</Value>
+    </Setting>
+    <Setting Name="userdb" Type="System.String" Scope="User">
+      <Value Profile="(Default)">n</Value>
+    </Setting>
+    <Setting Name="usercon" Type="System.String" Scope="User">
+      <Value Profile="(Default)">n</Value>
+    </Setting>
+    <Setting Name="connectionsuccess" Type="System.String" Scope="User">
+      <Value Profile="(Default)">n</Value>
+    </Setting>
+    <Setting Name="realcon" Type="System.String" Scope="User">
+      <Value Profile="(Default)">n</Value>
+    </Setting>
+    <Setting Name="servernam" Type="System.String" Scope="User">
+      <Value Profile="(Default)">sa</Value>
+    </Setting>
+    <Setting Name="serverpass" Type="System.String" Scope="User">
+      <Value Profile="(Default)">jesus@lord1</Value>
+    </Setting>
+    <Setting Name="conserver" Type="System.String" Scope="User">
+      <Value Profile="(Default)">n</Value>
+    </Setting>
+    <Setting Name="readcon" Type="System.String" Scope="User">
+      <Value Profile="(Default)">you</Value>
+    </Setting>
+    <Setting Name="currentselection" Type="System.String" Scope="User">
+      <Value Profile="(Default)">ribbonTabItem2</Value>
+    </Setting>
+    <Setting Name="receiptlogo" Type="System.String" Scope="User">
+      <Value Profile="(Default)">yes</Value>
+    </Setting>
+    <Setting Name="reportlogo" Type="System.String" Scope="User">
+      <Value Profile="(Default)">yes</Value>
+    </Setting>
+    <Setting Name="SaccoConnectionString" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionString&gt;Data Source=DENIS\SQLEXPRESS;Initial Catalog=Sacco;Persist Security Info=True;User ID=sa;Password=jesus@lord1&lt;/ConnectionString&gt;
+  &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">Data Source=DENIS\SQLEXPRESS;Initial Catalog=Sacco;Persist Security Info=True;User ID=sa;Password=jesus@lord1</Value>
+    </Setting>
+    <Setting Name="autotransfer" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Manual</Value>
+    </Setting>
+    <Setting Name="autotransferdays" Type="System.String" Scope="User">
+      <Value Profile="(Default)">2</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
