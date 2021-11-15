@@ -765,5 +765,14 @@ namespace Banking_System
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void buttonX9_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FrmLoanFirstApproval frm = new FrmLoanFirstApproval();
+            frm.label1.Text = label1.Text;
+            frm.label2.Text = label2.Text;
+            frm.ShowDialog();
+        }
     }
 }

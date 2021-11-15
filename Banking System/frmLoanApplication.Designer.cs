@@ -762,6 +762,7 @@ namespace Banking_System
             this.buttonX9.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.buttonX9.TabIndex = 25;
             this.buttonX9.Text = "&1st \r\nAPPROVAL";
+            this.buttonX9.Click += new System.EventHandler(this.buttonX9_Click);
             // 
             // buttonX10
             // 
@@ -869,7 +870,7 @@ namespace Banking_System
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = global::Banking_System.Properties.Settings.Default.usercolor;
-            this.ClientSize = new System.Drawing.Size(1008, 686);
+            this.ClientSize = new System.Drawing.Size(1008, 684);
             this.Controls.Add(this.AmortisationMethod);
             this.Controls.Add(this.label25);
             this.Controls.Add(this.LoanID);

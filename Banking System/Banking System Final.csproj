@@ -363,6 +363,12 @@
     <Compile Include="frmLoadLocalDB.Designer.cs">
       <DependentUpon>frmLoadLocalDB.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmLoanAmortisationReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmLoanAmortisationReport.Designer.cs">
+      <DependentUpon>FrmLoanAmortisationReport.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmLoanApplication.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -374,6 +380,18 @@
     </Compile>
     <Compile Include="FrmLoanApplicationPayment.Designer.cs">
       <DependentUpon>FrmLoanApplicationPayment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmLoanFirstApproval.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmLoanFirstApproval.Designer.cs">
+      <DependentUpon>FrmLoanFirstApproval.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmLoanLiabilitiesRecord.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmLoanLiabilitiesRecord.Designer.cs">
+      <DependentUpon>FrmLoanLiabilitiesRecord.cs</DependentUpon>
     </Compile>
     <Compile Include="frmLoanInsuranceType.cs">
       <SubType>Form</SubType>
@@ -416,6 +434,18 @@
     </Compile>
     <Compile Include="frmIndividualAttendanceForm.Designer.cs">
       <DependentUpon>frmIndividualAttendanceForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmLoanGurarantorsRecord.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmLoanGurarantorsRecord.Designer.cs">
+      <DependentUpon>FrmLoanGurarantorsRecord.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmLoanRecord.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmLoanRecord.Designer.cs">
+      <DependentUpon>FrmLoanRecord.cs</DependentUpon>
     </Compile>
     <Compile Include="frmLoanTypesSet.cs">
       <SubType>Form</SubType>
@@ -1444,11 +1474,20 @@
     <EmbeddedResource Include="frmLoadLocalDB.resx">
       <DependentUpon>frmLoadLocalDB.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmLoanAmortisationReport.resx">
+      <DependentUpon>FrmLoanAmortisationReport.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmLoanApplication.resx">
       <DependentUpon>frmLoanApplication.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmLoanApplicationPayment.resx">
       <DependentUpon>FrmLoanApplicationPayment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmLoanFirstApproval.resx">
+      <DependentUpon>FrmLoanFirstApproval.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmLoanLiabilitiesRecord.resx">
+      <DependentUpon>FrmLoanLiabilitiesRecord.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmLoanInsuranceType.resx">
       <DependentUpon>frmLoanInsuranceType.cs</DependentUpon>
@@ -1470,6 +1509,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmIndividualAttendanceForm.resx">
       <DependentUpon>frmIndividualAttendanceForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmLoanGurarantorsRecord.resx">
+      <DependentUpon>FrmLoanGurarantorsRecord.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmLoanRecord.resx">
+      <DependentUpon>FrmLoanRecord.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmLoanTypesSet.resx">
       <DependentUpon>frmLoanTypesSet.cs</DependentUpon>
