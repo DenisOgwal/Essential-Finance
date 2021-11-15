@@ -20,27 +20,19 @@ namespace Banking_System {
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
     [global::System.ComponentModel.ToolboxItem(true)]
     [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema")]
-    [global::System.Xml.Serialization.XmlRootAttribute("AloansDataset")]
+    [global::System.Xml.Serialization.XmlRootAttribute("ALoansDataset")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
-    public partial class AloansDataset : global::System.Data.DataSet {
+    public partial class ALoansDataset : global::System.Data.DataSet {
         
-        private LoansDataTable tableLoans;
+        private AmortisationScheduleDataTable tableAmortisationSchedule;
         
-        private RepaymentScheduleDataTable tableRepaymentSchedule;
-        
-        private ExternalLoanRepaymentDataTable tableExternalLoanRepayment;
-        
-        private ExternalLoansDataTable tableExternalLoans;
-        
-        private ExternalRepaymentScheduleDataTable tableExternalRepaymentSchedule;
-        
-        private LoanRepaymentDataTable tableLoanRepayment;
+        private LoanDataTable tableLoan;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public AloansDataset() {
+        public ALoansDataset() {
             this.BeginInit();
             this.InitClass();
             global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
@@ -51,7 +43,7 @@ namespace Banking_System {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        protected AloansDataset(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+        protected ALoansDataset(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                 base(info, context, false) {
             if ((this.IsBinarySerialized(info, context) == true)) {
                 this.InitVars(false);
@@ -64,23 +56,11 @@ namespace Banking_System {
             if ((this.DetermineSchemaSerializationMode(info, context) == global::System.Data.SchemaSerializationMode.IncludeSchema)) {
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
-                if ((ds.Tables["Loans"] != null)) {
-                    base.Tables.Add(new LoansDataTable(ds.Tables["Loans"]));
+                if ((ds.Tables["AmortisationSchedule"] != null)) {
+                    base.Tables.Add(new AmortisationScheduleDataTable(ds.Tables["AmortisationSchedule"]));
                 }
-                if ((ds.Tables["RepaymentSchedule"] != null)) {
-                    base.Tables.Add(new RepaymentScheduleDataTable(ds.Tables["RepaymentSchedule"]));
-                }
-                if ((ds.Tables["ExternalLoanRepayment"] != null)) {
-                    base.Tables.Add(new ExternalLoanRepaymentDataTable(ds.Tables["ExternalLoanRepayment"]));
-                }
-                if ((ds.Tables["ExternalLoans"] != null)) {
-                    base.Tables.Add(new ExternalLoansDataTable(ds.Tables["ExternalLoans"]));
-                }
-                if ((ds.Tables["ExternalRepaymentSchedule"] != null)) {
-                    base.Tables.Add(new ExternalRepaymentScheduleDataTable(ds.Tables["ExternalRepaymentSchedule"]));
-                }
-                if ((ds.Tables["LoanRepayment"] != null)) {
-                    base.Tables.Add(new LoanRepaymentDataTable(ds.Tables["LoanRepayment"]));
+                if ((ds.Tables["Loan"] != null)) {
+                    base.Tables.Add(new LoanDataTable(ds.Tables["Loan"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -104,9 +84,9 @@ namespace Banking_System {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public LoansDataTable Loans {
+        public AmortisationScheduleDataTable AmortisationSchedule {
             get {
-                return this.tableLoans;
+                return this.tableAmortisationSchedule;
             }
         }
         
@@ -114,49 +94,9 @@ namespace Banking_System {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public RepaymentScheduleDataTable RepaymentSchedule {
+        public LoanDataTable Loan {
             get {
-                return this.tableRepaymentSchedule;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Browsable(false)]
-        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public ExternalLoanRepaymentDataTable ExternalLoanRepayment {
-            get {
-                return this.tableExternalLoanRepayment;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Browsable(false)]
-        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public ExternalLoansDataTable ExternalLoans {
-            get {
-                return this.tableExternalLoans;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Browsable(false)]
-        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public ExternalRepaymentScheduleDataTable ExternalRepaymentSchedule {
-            get {
-                return this.tableExternalRepaymentSchedule;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Browsable(false)]
-        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public LoanRepaymentDataTable LoanRepayment {
-            get {
-                return this.tableLoanRepayment;
+                return this.tableLoan;
             }
         }
         
@@ -202,7 +142,7 @@ namespace Banking_System {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public override global::System.Data.DataSet Clone() {
-            AloansDataset cln = ((AloansDataset)(base.Clone()));
+            ALoansDataset cln = ((ALoansDataset)(base.Clone()));
             cln.InitVars();
             cln.SchemaSerializationMode = this.SchemaSerializationMode;
             return cln;
@@ -227,23 +167,11 @@ namespace Banking_System {
                 this.Reset();
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXml(reader);
-                if ((ds.Tables["Loans"] != null)) {
-                    base.Tables.Add(new LoansDataTable(ds.Tables["Loans"]));
+                if ((ds.Tables["AmortisationSchedule"] != null)) {
+                    base.Tables.Add(new AmortisationScheduleDataTable(ds.Tables["AmortisationSchedule"]));
                 }
-                if ((ds.Tables["RepaymentSchedule"] != null)) {
-                    base.Tables.Add(new RepaymentScheduleDataTable(ds.Tables["RepaymentSchedule"]));
-                }
-                if ((ds.Tables["ExternalLoanRepayment"] != null)) {
-                    base.Tables.Add(new ExternalLoanRepaymentDataTable(ds.Tables["ExternalLoanRepayment"]));
-                }
-                if ((ds.Tables["ExternalLoans"] != null)) {
-                    base.Tables.Add(new ExternalLoansDataTable(ds.Tables["ExternalLoans"]));
-                }
-                if ((ds.Tables["ExternalRepaymentSchedule"] != null)) {
-                    base.Tables.Add(new ExternalRepaymentScheduleDataTable(ds.Tables["ExternalRepaymentSchedule"]));
-                }
-                if ((ds.Tables["LoanRepayment"] != null)) {
-                    base.Tables.Add(new LoanRepaymentDataTable(ds.Tables["LoanRepayment"]));
+                if ((ds.Tables["Loan"] != null)) {
+                    base.Tables.Add(new LoanDataTable(ds.Tables["Loan"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -278,40 +206,16 @@ namespace Banking_System {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         internal void InitVars(bool initTable) {
-            this.tableLoans = ((LoansDataTable)(base.Tables["Loans"]));
+            this.tableAmortisationSchedule = ((AmortisationScheduleDataTable)(base.Tables["AmortisationSchedule"]));
             if ((initTable == true)) {
-                if ((this.tableLoans != null)) {
-                    this.tableLoans.InitVars();
+                if ((this.tableAmortisationSchedule != null)) {
+                    this.tableAmortisationSchedule.InitVars();
                 }
             }
-            this.tableRepaymentSchedule = ((RepaymentScheduleDataTable)(base.Tables["RepaymentSchedule"]));
+            this.tableLoan = ((LoanDataTable)(base.Tables["Loan"]));
             if ((initTable == true)) {
-                if ((this.tableRepaymentSchedule != null)) {
-                    this.tableRepaymentSchedule.InitVars();
-                }
-            }
-            this.tableExternalLoanRepayment = ((ExternalLoanRepaymentDataTable)(base.Tables["ExternalLoanRepayment"]));
-            if ((initTable == true)) {
-                if ((this.tableExternalLoanRepayment != null)) {
-                    this.tableExternalLoanRepayment.InitVars();
-                }
-            }
-            this.tableExternalLoans = ((ExternalLoansDataTable)(base.Tables["ExternalLoans"]));
-            if ((initTable == true)) {
-                if ((this.tableExternalLoans != null)) {
-                    this.tableExternalLoans.InitVars();
-                }
-            }
-            this.tableExternalRepaymentSchedule = ((ExternalRepaymentScheduleDataTable)(base.Tables["ExternalRepaymentSchedule"]));
-            if ((initTable == true)) {
-                if ((this.tableExternalRepaymentSchedule != null)) {
-                    this.tableExternalRepaymentSchedule.InitVars();
-                }
-            }
-            this.tableLoanRepayment = ((LoanRepaymentDataTable)(base.Tables["LoanRepayment"]));
-            if ((initTable == true)) {
-                if ((this.tableLoanRepayment != null)) {
-                    this.tableLoanRepayment.InitVars();
+                if ((this.tableLoan != null)) {
+                    this.tableLoan.InitVars();
                 }
             }
         }
@@ -319,58 +223,26 @@ namespace Banking_System {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitClass() {
-            this.DataSetName = "AloansDataset";
+            this.DataSetName = "ALoansDataset";
             this.Prefix = "";
-            this.Namespace = "http://tempuri.org/AloansDataset.xsd";
+            this.Namespace = "http://tempuri.org/ALoansDataset.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
-            this.tableLoans = new LoansDataTable();
-            base.Tables.Add(this.tableLoans);
-            this.tableRepaymentSchedule = new RepaymentScheduleDataTable();
-            base.Tables.Add(this.tableRepaymentSchedule);
-            this.tableExternalLoanRepayment = new ExternalLoanRepaymentDataTable();
-            base.Tables.Add(this.tableExternalLoanRepayment);
-            this.tableExternalLoans = new ExternalLoansDataTable();
-            base.Tables.Add(this.tableExternalLoans);
-            this.tableExternalRepaymentSchedule = new ExternalRepaymentScheduleDataTable();
-            base.Tables.Add(this.tableExternalRepaymentSchedule);
-            this.tableLoanRepayment = new LoanRepaymentDataTable();
-            base.Tables.Add(this.tableLoanRepayment);
+            this.tableAmortisationSchedule = new AmortisationScheduleDataTable();
+            base.Tables.Add(this.tableAmortisationSchedule);
+            this.tableLoan = new LoanDataTable();
+            base.Tables.Add(this.tableLoan);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private bool ShouldSerializeLoans() {
+        private bool ShouldSerializeAmortisationSchedule() {
             return false;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private bool ShouldSerializeRepaymentSchedule() {
-            return false;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private bool ShouldSerializeExternalLoanRepayment() {
-            return false;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private bool ShouldSerializeExternalLoans() {
-            return false;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private bool ShouldSerializeExternalRepaymentSchedule() {
-            return false;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private bool ShouldSerializeLoanRepayment() {
+        private bool ShouldSerializeLoan() {
             return false;
         }
         
@@ -385,7 +257,7 @@ namespace Banking_System {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedDataSetSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-            AloansDataset ds = new AloansDataset();
+            ALoansDataset ds = new ALoansDataset();
             global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
             global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
             global::System.Xml.Schema.XmlSchemaAny any = new global::System.Xml.Schema.XmlSchemaAny();
@@ -430,699 +302,25 @@ namespace Banking_System {
         }
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public delegate void LoansRowChangeEventHandler(object sender, LoansRowChangeEvent e);
+        public delegate void AmortisationScheduleRowChangeEventHandler(object sender, AmortisationScheduleRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public delegate void RepaymentScheduleRowChangeEventHandler(object sender, RepaymentScheduleRowChangeEvent e);
-        
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public delegate void ExternalLoanRepaymentRowChangeEventHandler(object sender, ExternalLoanRepaymentRowChangeEvent e);
-        
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public delegate void ExternalLoansRowChangeEventHandler(object sender, ExternalLoansRowChangeEvent e);
-        
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public delegate void ExternalRepaymentScheduleRowChangeEventHandler(object sender, ExternalRepaymentScheduleRowChangeEvent e);
-        
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public delegate void LoanRepaymentRowChangeEventHandler(object sender, LoanRepaymentRowChangeEvent e);
+        public delegate void LoanRowChangeEventHandler(object sender, LoanRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class LoansDataTable : global::System.Data.TypedTableBase<LoansRow> {
-            
-            private global::System.Data.DataColumn columnID;
-            
-            private global::System.Data.DataColumn columnLoansID;
-            
-            private global::System.Data.DataColumn columnMemberID;
-            
-            private global::System.Data.DataColumn columnMemberName;
-            
-            private global::System.Data.DataColumn columnIdentify;
-            
-            private global::System.Data.DataColumn columnLoanAmmount;
-            
-            private global::System.Data.DataColumn columnSite;
-            
-            private global::System.Data.DataColumn columnSecurities;
-            
-            private global::System.Data.DataColumn columnIncome;
-            
-            private global::System.Data.DataColumn columnComment;
-            
-            private global::System.Data.DataColumn columnOfficerName;
-            
-            private global::System.Data.DataColumn columnYear;
-            
-            private global::System.Data.DataColumn columnMonths;
-            
-            private global::System.Data.DataColumn columnDate;
-            
-            private global::System.Data.DataColumn columnManagerName;
-            
-            private global::System.Data.DataColumn columnReviewComment;
-            
-            private global::System.Data.DataColumn columnReviewDate;
-            
-            private global::System.Data.DataColumn columnChairpersonName;
-            
-            private global::System.Data.DataColumn columnDecision;
-            
-            private global::System.Data.DataColumn columnDecisionDate;
-            
-            private global::System.Data.DataColumn columnDescription;
-            
-            private global::System.Data.DataColumn columnIssue;
-            
-            private global::System.Data.DataColumn columnSecurityPhoto;
-            
-            private global::System.Data.DataColumn columnPeriod;
-            
-            private global::System.Data.DataColumn columnInsBranch;
-            
-            private global::System.Data.DataColumn columnUploadStatus;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public LoansDataTable() {
-                this.TableName = "Loans";
-                this.BeginInit();
-                this.InitClass();
-                this.EndInit();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal LoansDataTable(global::System.Data.DataTable table) {
-                this.TableName = table.TableName;
-                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
-                    this.CaseSensitive = table.CaseSensitive;
-                }
-                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
-                    this.Locale = table.Locale;
-                }
-                if ((table.Namespace != table.DataSet.Namespace)) {
-                    this.Namespace = table.Namespace;
-                }
-                this.Prefix = table.Prefix;
-                this.MinimumCapacity = table.MinimumCapacity;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected LoansDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
-                    base(info, context) {
-                this.InitVars();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn IDColumn {
-                get {
-                    return this.columnID;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn LoansIDColumn {
-                get {
-                    return this.columnLoansID;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn MemberIDColumn {
-                get {
-                    return this.columnMemberID;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn MemberNameColumn {
-                get {
-                    return this.columnMemberName;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn IdentifyColumn {
-                get {
-                    return this.columnIdentify;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn LoanAmmountColumn {
-                get {
-                    return this.columnLoanAmmount;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn SiteColumn {
-                get {
-                    return this.columnSite;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn SecuritiesColumn {
-                get {
-                    return this.columnSecurities;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn IncomeColumn {
-                get {
-                    return this.columnIncome;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn CommentColumn {
-                get {
-                    return this.columnComment;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn OfficerNameColumn {
-                get {
-                    return this.columnOfficerName;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn YearColumn {
-                get {
-                    return this.columnYear;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn MonthsColumn {
-                get {
-                    return this.columnMonths;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn DateColumn {
-                get {
-                    return this.columnDate;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn ManagerNameColumn {
-                get {
-                    return this.columnManagerName;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn ReviewCommentColumn {
-                get {
-                    return this.columnReviewComment;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn ReviewDateColumn {
-                get {
-                    return this.columnReviewDate;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn ChairpersonNameColumn {
-                get {
-                    return this.columnChairpersonName;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn DecisionColumn {
-                get {
-                    return this.columnDecision;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn DecisionDateColumn {
-                get {
-                    return this.columnDecisionDate;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn DescriptionColumn {
-                get {
-                    return this.columnDescription;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn IssueColumn {
-                get {
-                    return this.columnIssue;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn SecurityPhotoColumn {
-                get {
-                    return this.columnSecurityPhoto;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn PeriodColumn {
-                get {
-                    return this.columnPeriod;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn InsBranchColumn {
-                get {
-                    return this.columnInsBranch;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn UploadStatusColumn {
-                get {
-                    return this.columnUploadStatus;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            [global::System.ComponentModel.Browsable(false)]
-            public int Count {
-                get {
-                    return this.Rows.Count;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public LoansRow this[int index] {
-                get {
-                    return ((LoansRow)(this.Rows[index]));
-                }
-            }
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event LoansRowChangeEventHandler LoansRowChanging;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event LoansRowChangeEventHandler LoansRowChanged;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event LoansRowChangeEventHandler LoansRowDeleting;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event LoansRowChangeEventHandler LoansRowDeleted;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void AddLoansRow(LoansRow row) {
-                this.Rows.Add(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public LoansRow AddLoansRow(
-                        string LoansID, 
-                        string MemberID, 
-                        string MemberName, 
-                        string Identify, 
-                        int LoanAmmount, 
-                        string Site, 
-                        string Securities, 
-                        int Income, 
-                        string Comment, 
-                        string OfficerName, 
-                        string Year, 
-                        string Months, 
-                        string Date, 
-                        string ManagerName, 
-                        string ReviewComment, 
-                        string ReviewDate, 
-                        string ChairpersonName, 
-                        string Decision, 
-                        string DecisionDate, 
-                        string Description, 
-                        string Issue, 
-                        byte[] SecurityPhoto, 
-                        int Period, 
-                        string InsBranch, 
-                        string UploadStatus) {
-                LoansRow rowLoansRow = ((LoansRow)(this.NewRow()));
-                object[] columnValuesArray = new object[] {
-                        null,
-                        LoansID,
-                        MemberID,
-                        MemberName,
-                        Identify,
-                        LoanAmmount,
-                        Site,
-                        Securities,
-                        Income,
-                        Comment,
-                        OfficerName,
-                        Year,
-                        Months,
-                        Date,
-                        ManagerName,
-                        ReviewComment,
-                        ReviewDate,
-                        ChairpersonName,
-                        Decision,
-                        DecisionDate,
-                        Description,
-                        Issue,
-                        SecurityPhoto,
-                        Period,
-                        InsBranch,
-                        UploadStatus};
-                rowLoansRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowLoansRow);
-                return rowLoansRow;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public LoansRow FindByLoansID(string LoansID) {
-                return ((LoansRow)(this.Rows.Find(new object[] {
-                            LoansID})));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public override global::System.Data.DataTable Clone() {
-                LoansDataTable cln = ((LoansDataTable)(base.Clone()));
-                cln.InitVars();
-                return cln;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected override global::System.Data.DataTable CreateInstance() {
-                return new LoansDataTable();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal void InitVars() {
-                this.columnID = base.Columns["ID"];
-                this.columnLoansID = base.Columns["LoansID"];
-                this.columnMemberID = base.Columns["MemberID"];
-                this.columnMemberName = base.Columns["MemberName"];
-                this.columnIdentify = base.Columns["Identify"];
-                this.columnLoanAmmount = base.Columns["LoanAmmount"];
-                this.columnSite = base.Columns["Site"];
-                this.columnSecurities = base.Columns["Securities"];
-                this.columnIncome = base.Columns["Income"];
-                this.columnComment = base.Columns["Comment"];
-                this.columnOfficerName = base.Columns["OfficerName"];
-                this.columnYear = base.Columns["Year"];
-                this.columnMonths = base.Columns["Months"];
-                this.columnDate = base.Columns["Date"];
-                this.columnManagerName = base.Columns["ManagerName"];
-                this.columnReviewComment = base.Columns["ReviewComment"];
-                this.columnReviewDate = base.Columns["ReviewDate"];
-                this.columnChairpersonName = base.Columns["ChairpersonName"];
-                this.columnDecision = base.Columns["Decision"];
-                this.columnDecisionDate = base.Columns["DecisionDate"];
-                this.columnDescription = base.Columns["Description"];
-                this.columnIssue = base.Columns["Issue"];
-                this.columnSecurityPhoto = base.Columns["SecurityPhoto"];
-                this.columnPeriod = base.Columns["Period"];
-                this.columnInsBranch = base.Columns["InsBranch"];
-                this.columnUploadStatus = base.Columns["UploadStatus"];
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            private void InitClass() {
-                this.columnID = new global::System.Data.DataColumn("ID", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnID);
-                this.columnLoansID = new global::System.Data.DataColumn("LoansID", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnLoansID);
-                this.columnMemberID = new global::System.Data.DataColumn("MemberID", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnMemberID);
-                this.columnMemberName = new global::System.Data.DataColumn("MemberName", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnMemberName);
-                this.columnIdentify = new global::System.Data.DataColumn("Identify", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnIdentify);
-                this.columnLoanAmmount = new global::System.Data.DataColumn("LoanAmmount", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnLoanAmmount);
-                this.columnSite = new global::System.Data.DataColumn("Site", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnSite);
-                this.columnSecurities = new global::System.Data.DataColumn("Securities", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnSecurities);
-                this.columnIncome = new global::System.Data.DataColumn("Income", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnIncome);
-                this.columnComment = new global::System.Data.DataColumn("Comment", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnComment);
-                this.columnOfficerName = new global::System.Data.DataColumn("OfficerName", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnOfficerName);
-                this.columnYear = new global::System.Data.DataColumn("Year", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnYear);
-                this.columnMonths = new global::System.Data.DataColumn("Months", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnMonths);
-                this.columnDate = new global::System.Data.DataColumn("Date", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnDate);
-                this.columnManagerName = new global::System.Data.DataColumn("ManagerName", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnManagerName);
-                this.columnReviewComment = new global::System.Data.DataColumn("ReviewComment", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnReviewComment);
-                this.columnReviewDate = new global::System.Data.DataColumn("ReviewDate", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnReviewDate);
-                this.columnChairpersonName = new global::System.Data.DataColumn("ChairpersonName", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnChairpersonName);
-                this.columnDecision = new global::System.Data.DataColumn("Decision", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnDecision);
-                this.columnDecisionDate = new global::System.Data.DataColumn("DecisionDate", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnDecisionDate);
-                this.columnDescription = new global::System.Data.DataColumn("Description", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnDescription);
-                this.columnIssue = new global::System.Data.DataColumn("Issue", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnIssue);
-                this.columnSecurityPhoto = new global::System.Data.DataColumn("SecurityPhoto", typeof(byte[]), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnSecurityPhoto);
-                this.columnPeriod = new global::System.Data.DataColumn("Period", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnPeriod);
-                this.columnInsBranch = new global::System.Data.DataColumn("InsBranch", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnInsBranch);
-                this.columnUploadStatus = new global::System.Data.DataColumn("UploadStatus", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnUploadStatus);
-                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnLoansID}, true));
-                this.columnID.AutoIncrement = true;
-                this.columnID.AutoIncrementSeed = -1;
-                this.columnID.AutoIncrementStep = -1;
-                this.columnID.AllowDBNull = false;
-                this.columnID.ReadOnly = true;
-                this.columnLoansID.AllowDBNull = false;
-                this.columnLoansID.Unique = true;
-                this.columnLoansID.MaxLength = 15;
-                this.columnMemberID.MaxLength = 30;
-                this.columnMemberName.MaxLength = 60;
-                this.columnIdentify.AllowDBNull = false;
-                this.columnIdentify.MaxLength = 5;
-                this.columnSite.MaxLength = 100;
-                this.columnSecurities.MaxLength = 200;
-                this.columnComment.MaxLength = 200;
-                this.columnOfficerName.MaxLength = 50;
-                this.columnYear.MaxLength = 10;
-                this.columnMonths.MaxLength = 10;
-                this.columnDate.MaxLength = 20;
-                this.columnManagerName.MaxLength = 50;
-                this.columnReviewComment.MaxLength = 200;
-                this.columnReviewDate.MaxLength = 20;
-                this.columnChairpersonName.MaxLength = 50;
-                this.columnDecision.MaxLength = 20;
-                this.columnDecisionDate.MaxLength = 20;
-                this.columnDescription.MaxLength = 200;
-                this.columnIssue.MaxLength = 10;
-                this.columnInsBranch.AllowDBNull = false;
-                this.columnInsBranch.MaxLength = 50;
-                this.columnUploadStatus.AllowDBNull = false;
-                this.columnUploadStatus.MaxLength = 10;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public LoansRow NewLoansRow() {
-                return ((LoansRow)(this.NewRow()));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new LoansRow(builder);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected override global::System.Type GetRowType() {
-                return typeof(LoansRow);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanged(e);
-                if ((this.LoansRowChanged != null)) {
-                    this.LoansRowChanged(this, new LoansRowChangeEvent(((LoansRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanging(e);
-                if ((this.LoansRowChanging != null)) {
-                    this.LoansRowChanging(this, new LoansRowChangeEvent(((LoansRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleted(e);
-                if ((this.LoansRowDeleted != null)) {
-                    this.LoansRowDeleted(this, new LoansRowChangeEvent(((LoansRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleting(e);
-                if ((this.LoansRowDeleting != null)) {
-                    this.LoansRowDeleting(this, new LoansRowChangeEvent(((LoansRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void RemoveLoansRow(LoansRow row) {
-                this.Rows.Remove(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
-                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                AloansDataset ds = new AloansDataset();
-                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
-                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
-                any1.MinOccurs = new decimal(0);
-                any1.MaxOccurs = decimal.MaxValue;
-                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any1);
-                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
-                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
-                any2.MinOccurs = new decimal(1);
-                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any2);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute1.Name = "namespace";
-                attribute1.FixedValue = ds.Namespace;
-                type.Attributes.Add(attribute1);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "LoansDataTable";
-                type.Attributes.Add(attribute2);
-                type.Particle = sequence;
-                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
-                if (xs.Contains(dsSchema.TargetNamespace)) {
-                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
-                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
-                    try {
-                        global::System.Xml.Schema.XmlSchema schema = null;
-                        dsSchema.Write(s1);
-                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
-                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
-                            s2.SetLength(0);
-                            schema.Write(s2);
-                            if ((s1.Length == s2.Length)) {
-                                s1.Position = 0;
-                                s2.Position = 0;
-                                for (; ((s1.Position != s1.Length) 
-                                            && (s1.ReadByte() == s2.ReadByte())); ) {
-                                    ;
-                                }
-                                if ((s1.Position == s1.Length)) {
-                                    return type;
-                                }
-                            }
-                        }
-                    }
-                    finally {
-                        if ((s1 != null)) {
-                            s1.Close();
-                        }
-                        if ((s2 != null)) {
-                            s2.Close();
-                        }
-                    }
-                }
-                xs.Add(dsSchema);
-                return type;
-            }
-        }
-        
-        /// <summary>
-        ///Represents the strongly named DataTable class.
-        ///</summary>
-        [global::System.Serializable()]
-        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class RepaymentScheduleDataTable : global::System.Data.TypedTableBase<RepaymentScheduleRow> {
+        public partial class AmortisationScheduleDataTable : global::System.Data.TypedTableBase<AmortisationScheduleRow> {
             
             private global::System.Data.DataColumn columnID;
             
             private global::System.Data.DataColumn columnLoanID;
             
-            private global::System.Data.DataColumn columnMemberID;
+            private global::System.Data.DataColumn columnAccountNumber;
             
-            private global::System.Data.DataColumn columnMemberName;
+            private global::System.Data.DataColumn columnAccountName;
             
             private global::System.Data.DataColumn columnAmmountPay;
             
@@ -1132,24 +330,16 @@ namespace Banking_System {
             
             private global::System.Data.DataColumn columnPaymentDate;
             
-            private global::System.Data.DataColumn columnPaymentStatus;
-            
             private global::System.Data.DataColumn columnMonths;
-            
-            private global::System.Data.DataColumn columnYear;
             
             private global::System.Data.DataColumn columnBalanceExist;
             
             private global::System.Data.DataColumn columnBeginningBalance;
             
-            private global::System.Data.DataColumn columnInsBranch;
-            
-            private global::System.Data.DataColumn columnUploadStatus;
-            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public RepaymentScheduleDataTable() {
-                this.TableName = "RepaymentSchedule";
+            public AmortisationScheduleDataTable() {
+                this.TableName = "AmortisationSchedule";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -1157,7 +347,7 @@ namespace Banking_System {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal RepaymentScheduleDataTable(global::System.Data.DataTable table) {
+            internal AmortisationScheduleDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -1174,7 +364,7 @@ namespace Banking_System {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected RepaymentScheduleDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected AmortisationScheduleDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
@@ -1197,17 +387,17 @@ namespace Banking_System {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn MemberIDColumn {
+            public global::System.Data.DataColumn AccountNumberColumn {
                 get {
-                    return this.columnMemberID;
+                    return this.columnAccountNumber;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn MemberNameColumn {
+            public global::System.Data.DataColumn AccountNameColumn {
                 get {
-                    return this.columnMemberName;
+                    return this.columnAccountName;
                 }
             }
             
@@ -1245,25 +435,9 @@ namespace Banking_System {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn PaymentStatusColumn {
-                get {
-                    return this.columnPaymentStatus;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public global::System.Data.DataColumn MonthsColumn {
                 get {
                     return this.columnMonths;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn YearColumn {
-                get {
-                    return this.columnYear;
                 }
             }
             
@@ -1285,22 +459,6 @@ namespace Banking_System {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn InsBranchColumn {
-                get {
-                    return this.columnInsBranch;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn UploadStatusColumn {
-                get {
-                    return this.columnUploadStatus;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1310,68 +468,55 @@ namespace Banking_System {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public RepaymentScheduleRow this[int index] {
+            public AmortisationScheduleRow this[int index] {
                 get {
-                    return ((RepaymentScheduleRow)(this.Rows[index]));
+                    return ((AmortisationScheduleRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event RepaymentScheduleRowChangeEventHandler RepaymentScheduleRowChanging;
+            public event AmortisationScheduleRowChangeEventHandler AmortisationScheduleRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event RepaymentScheduleRowChangeEventHandler RepaymentScheduleRowChanged;
+            public event AmortisationScheduleRowChangeEventHandler AmortisationScheduleRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event RepaymentScheduleRowChangeEventHandler RepaymentScheduleRowDeleting;
+            public event AmortisationScheduleRowChangeEventHandler AmortisationScheduleRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event RepaymentScheduleRowChangeEventHandler RepaymentScheduleRowDeleted;
+            public event AmortisationScheduleRowChangeEventHandler AmortisationScheduleRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void AddRepaymentScheduleRow(RepaymentScheduleRow row) {
+            public void AddAmortisationScheduleRow(AmortisationScheduleRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public RepaymentScheduleRow AddRepaymentScheduleRow(string LoanID, string MemberID, string MemberName, int AmmountPay, double Interest, double TotalAmmount, string PaymentDate, string PaymentStatus, string Months, string Year, double BalanceExist, double BeginningBalance, string InsBranch, string UploadStatus) {
-                RepaymentScheduleRow rowRepaymentScheduleRow = ((RepaymentScheduleRow)(this.NewRow()));
+            public AmortisationScheduleRow AddAmortisationScheduleRow(string LoanID, string AccountNumber, string AccountName, double AmmountPay, double Interest, double TotalAmmount, string PaymentDate, string Months, double BalanceExist, double BeginningBalance) {
+                AmortisationScheduleRow rowAmortisationScheduleRow = ((AmortisationScheduleRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         LoanID,
-                        MemberID,
-                        MemberName,
+                        AccountNumber,
+                        AccountName,
                         AmmountPay,
                         Interest,
                         TotalAmmount,
                         PaymentDate,
-                        PaymentStatus,
                         Months,
-                        Year,
                         BalanceExist,
-                        BeginningBalance,
-                        InsBranch,
-                        UploadStatus};
-                rowRepaymentScheduleRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowRepaymentScheduleRow);
-                return rowRepaymentScheduleRow;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public RepaymentScheduleRow FindByLoanIDPaymentDateMonths(string LoanID, string PaymentDate, string Months) {
-                return ((RepaymentScheduleRow)(this.Rows.Find(new object[] {
-                            LoanID,
-                            PaymentDate,
-                            Months})));
+                        BeginningBalance};
+                rowAmortisationScheduleRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowAmortisationScheduleRow);
+                return rowAmortisationScheduleRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                RepaymentScheduleDataTable cln = ((RepaymentScheduleDataTable)(base.Clone()));
+                AmortisationScheduleDataTable cln = ((AmortisationScheduleDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -1379,7 +524,7 @@ namespace Banking_System {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new RepaymentScheduleDataTable();
+                return new AmortisationScheduleDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1387,19 +532,15 @@ namespace Banking_System {
             internal void InitVars() {
                 this.columnID = base.Columns["ID"];
                 this.columnLoanID = base.Columns["LoanID"];
-                this.columnMemberID = base.Columns["MemberID"];
-                this.columnMemberName = base.Columns["MemberName"];
+                this.columnAccountNumber = base.Columns["AccountNumber"];
+                this.columnAccountName = base.Columns["AccountName"];
                 this.columnAmmountPay = base.Columns["AmmountPay"];
                 this.columnInterest = base.Columns["Interest"];
                 this.columnTotalAmmount = base.Columns["TotalAmmount"];
                 this.columnPaymentDate = base.Columns["PaymentDate"];
-                this.columnPaymentStatus = base.Columns["PaymentStatus"];
                 this.columnMonths = base.Columns["Months"];
-                this.columnYear = base.Columns["Year"];
                 this.columnBalanceExist = base.Columns["BalanceExist"];
                 this.columnBeginningBalance = base.Columns["BeginningBalance"];
-                this.columnInsBranch = base.Columns["InsBranch"];
-                this.columnUploadStatus = base.Columns["UploadStatus"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1409,11 +550,11 @@ namespace Banking_System {
                 base.Columns.Add(this.columnID);
                 this.columnLoanID = new global::System.Data.DataColumn("LoanID", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnLoanID);
-                this.columnMemberID = new global::System.Data.DataColumn("MemberID", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnMemberID);
-                this.columnMemberName = new global::System.Data.DataColumn("MemberName", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnMemberName);
-                this.columnAmmountPay = new global::System.Data.DataColumn("AmmountPay", typeof(int), null, global::System.Data.MappingType.Element);
+                this.columnAccountNumber = new global::System.Data.DataColumn("AccountNumber", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAccountNumber);
+                this.columnAccountName = new global::System.Data.DataColumn("AccountName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAccountName);
+                this.columnAmmountPay = new global::System.Data.DataColumn("AmmountPay", typeof(double), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnAmmountPay);
                 this.columnInterest = new global::System.Data.DataColumn("Interest", typeof(double), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnInterest);
@@ -1421,24 +562,12 @@ namespace Banking_System {
                 base.Columns.Add(this.columnTotalAmmount);
                 this.columnPaymentDate = new global::System.Data.DataColumn("PaymentDate", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPaymentDate);
-                this.columnPaymentStatus = new global::System.Data.DataColumn("PaymentStatus", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnPaymentStatus);
                 this.columnMonths = new global::System.Data.DataColumn("Months", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnMonths);
-                this.columnYear = new global::System.Data.DataColumn("Year", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnYear);
                 this.columnBalanceExist = new global::System.Data.DataColumn("BalanceExist", typeof(double), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnBalanceExist);
                 this.columnBeginningBalance = new global::System.Data.DataColumn("BeginningBalance", typeof(double), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnBeginningBalance);
-                this.columnInsBranch = new global::System.Data.DataColumn("InsBranch", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnInsBranch);
-                this.columnUploadStatus = new global::System.Data.DataColumn("UploadStatus", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnUploadStatus);
-                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnLoanID,
-                                this.columnPaymentDate,
-                                this.columnMonths}, true));
                 this.columnID.AutoIncrement = true;
                 this.columnID.AutoIncrementSeed = -1;
                 this.columnID.AutoIncrementStep = -1;
@@ -1446,45 +575,38 @@ namespace Banking_System {
                 this.columnID.ReadOnly = true;
                 this.columnLoanID.AllowDBNull = false;
                 this.columnLoanID.MaxLength = 15;
-                this.columnMemberID.MaxLength = 15;
-                this.columnMemberName.MaxLength = 60;
+                this.columnAccountNumber.MaxLength = 15;
+                this.columnAccountName.MaxLength = 100;
                 this.columnPaymentDate.AllowDBNull = false;
                 this.columnPaymentDate.MaxLength = 20;
-                this.columnPaymentStatus.MaxLength = 10;
                 this.columnMonths.AllowDBNull = false;
                 this.columnMonths.MaxLength = 10;
-                this.columnYear.AllowDBNull = false;
-                this.columnYear.MaxLength = 10;
-                this.columnInsBranch.AllowDBNull = false;
-                this.columnInsBranch.MaxLength = 50;
-                this.columnUploadStatus.AllowDBNull = false;
-                this.columnUploadStatus.MaxLength = 10;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public RepaymentScheduleRow NewRepaymentScheduleRow() {
-                return ((RepaymentScheduleRow)(this.NewRow()));
+            public AmortisationScheduleRow NewAmortisationScheduleRow() {
+                return ((AmortisationScheduleRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new RepaymentScheduleRow(builder);
+                return new AmortisationScheduleRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(RepaymentScheduleRow);
+                return typeof(AmortisationScheduleRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.RepaymentScheduleRowChanged != null)) {
-                    this.RepaymentScheduleRowChanged(this, new RepaymentScheduleRowChangeEvent(((RepaymentScheduleRow)(e.Row)), e.Action));
+                if ((this.AmortisationScheduleRowChanged != null)) {
+                    this.AmortisationScheduleRowChanged(this, new AmortisationScheduleRowChangeEvent(((AmortisationScheduleRow)(e.Row)), e.Action));
                 }
             }
             
@@ -1492,8 +614,8 @@ namespace Banking_System {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.RepaymentScheduleRowChanging != null)) {
-                    this.RepaymentScheduleRowChanging(this, new RepaymentScheduleRowChangeEvent(((RepaymentScheduleRow)(e.Row)), e.Action));
+                if ((this.AmortisationScheduleRowChanging != null)) {
+                    this.AmortisationScheduleRowChanging(this, new AmortisationScheduleRowChangeEvent(((AmortisationScheduleRow)(e.Row)), e.Action));
                 }
             }
             
@@ -1501,8 +623,8 @@ namespace Banking_System {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.RepaymentScheduleRowDeleted != null)) {
-                    this.RepaymentScheduleRowDeleted(this, new RepaymentScheduleRowChangeEvent(((RepaymentScheduleRow)(e.Row)), e.Action));
+                if ((this.AmortisationScheduleRowDeleted != null)) {
+                    this.AmortisationScheduleRowDeleted(this, new AmortisationScheduleRowChangeEvent(((AmortisationScheduleRow)(e.Row)), e.Action));
                 }
             }
             
@@ -1510,14 +632,14 @@ namespace Banking_System {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.RepaymentScheduleRowDeleting != null)) {
-                    this.RepaymentScheduleRowDeleting(this, new RepaymentScheduleRowChangeEvent(((RepaymentScheduleRow)(e.Row)), e.Action));
+                if ((this.AmortisationScheduleRowDeleting != null)) {
+                    this.AmortisationScheduleRowDeleting(this, new AmortisationScheduleRowChangeEvent(((AmortisationScheduleRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void RemoveRepaymentScheduleRow(RepaymentScheduleRow row) {
+            public void RemoveAmortisationScheduleRow(AmortisationScheduleRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -1526,7 +648,7 @@ namespace Banking_System {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                AloansDataset ds = new AloansDataset();
+                ALoansDataset ds = new ALoansDataset();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -1544,7 +666,7 @@ namespace Banking_System {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "RepaymentScheduleDataTable";
+                attribute2.FixedValue = "AmortisationScheduleDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -1590,40 +712,48 @@ namespace Banking_System {
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class ExternalLoanRepaymentDataTable : global::System.Data.TypedTableBase<ExternalLoanRepaymentRow> {
+        public partial class LoanDataTable : global::System.Data.TypedTableBase<LoanRow> {
             
             private global::System.Data.DataColumn columnID;
             
-            private global::System.Data.DataColumn columnRepaymentID;
+            private global::System.Data.DataColumn columnAccountNo;
             
-            private global::System.Data.DataColumn columnAmmountPaid;
-            
-            private global::System.Data.DataColumn columnBalance;
-            
-            private global::System.Data.DataColumn columnRepayMonths;
-            
-            private global::System.Data.DataColumn columnPaidBy;
+            private global::System.Data.DataColumn columnAccountName;
             
             private global::System.Data.DataColumn columnLoanID;
             
-            private global::System.Data.DataColumn columnRepaymentdate;
+            private global::System.Data.DataColumn columnServicingPeriod;
             
-            private global::System.Data.DataColumn columnYear;
-            
-            private global::System.Data.DataColumn columnMonths;
+            private global::System.Data.DataColumn columnRepaymentInterval;
             
             private global::System.Data.DataColumn columnInterest;
             
-            private global::System.Data.DataColumn columnModeOfPayment;
+            private global::System.Data.DataColumn columnCollateral;
             
-            private global::System.Data.DataColumn columnInsBranch;
+            private global::System.Data.DataColumn columnCollateralValue;
             
-            private global::System.Data.DataColumn columnUploadStatus;
+            private global::System.Data.DataColumn columnRefereeName;
+            
+            private global::System.Data.DataColumn columnRefereeTel;
+            
+            private global::System.Data.DataColumn columnRefereeAddress;
+            
+            private global::System.Data.DataColumn columnRefereeRelationship;
+            
+            private global::System.Data.DataColumn columnApplicationDate;
+            
+            private global::System.Data.DataColumn columnFirstApproval;
+            
+            private global::System.Data.DataColumn columnApprovalComment;
+            
+            private global::System.Data.DataColumn columnApprovalDate;
+            
+            private global::System.Data.DataColumn columnApprovedBy;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public ExternalLoanRepaymentDataTable() {
-                this.TableName = "ExternalLoanRepayment";
+            public LoanDataTable() {
+                this.TableName = "Loan";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -1631,7 +761,7 @@ namespace Banking_System {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal ExternalLoanRepaymentDataTable(global::System.Data.DataTable table) {
+            internal LoanDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -1648,7 +778,7 @@ namespace Banking_System {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected ExternalLoanRepaymentDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected LoanDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
@@ -1663,41 +793,17 @@ namespace Banking_System {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn RepaymentIDColumn {
+            public global::System.Data.DataColumn AccountNoColumn {
                 get {
-                    return this.columnRepaymentID;
+                    return this.columnAccountNo;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn AmmountPaidColumn {
+            public global::System.Data.DataColumn AccountNameColumn {
                 get {
-                    return this.columnAmmountPaid;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn BalanceColumn {
-                get {
-                    return this.columnBalance;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn RepayMonthsColumn {
-                get {
-                    return this.columnRepayMonths;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn PaidByColumn {
-                get {
-                    return this.columnPaidBy;
+                    return this.columnAccountName;
                 }
             }
             
@@ -1711,25 +817,17 @@ namespace Banking_System {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn RepaymentdateColumn {
+            public global::System.Data.DataColumn ServicingPeriodColumn {
                 get {
-                    return this.columnRepaymentdate;
+                    return this.columnServicingPeriod;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn YearColumn {
+            public global::System.Data.DataColumn RepaymentIntervalColumn {
                 get {
-                    return this.columnYear;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn MonthsColumn {
-                get {
-                    return this.columnMonths;
+                    return this.columnRepaymentInterval;
                 }
             }
             
@@ -1743,572 +841,89 @@ namespace Banking_System {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn ModeOfPaymentColumn {
+            public global::System.Data.DataColumn CollateralColumn {
                 get {
-                    return this.columnModeOfPayment;
+                    return this.columnCollateral;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn InsBranchColumn {
+            public global::System.Data.DataColumn CollateralValueColumn {
                 get {
-                    return this.columnInsBranch;
+                    return this.columnCollateralValue;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn UploadStatusColumn {
+            public global::System.Data.DataColumn RefereeNameColumn {
                 get {
-                    return this.columnUploadStatus;
+                    return this.columnRefereeName;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            [global::System.ComponentModel.Browsable(false)]
-            public int Count {
+            public global::System.Data.DataColumn RefereeTelColumn {
                 get {
-                    return this.Rows.Count;
+                    return this.columnRefereeTel;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public ExternalLoanRepaymentRow this[int index] {
+            public global::System.Data.DataColumn RefereeAddressColumn {
                 get {
-                    return ((ExternalLoanRepaymentRow)(this.Rows[index]));
-                }
-            }
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event ExternalLoanRepaymentRowChangeEventHandler ExternalLoanRepaymentRowChanging;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event ExternalLoanRepaymentRowChangeEventHandler ExternalLoanRepaymentRowChanged;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event ExternalLoanRepaymentRowChangeEventHandler ExternalLoanRepaymentRowDeleting;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event ExternalLoanRepaymentRowChangeEventHandler ExternalLoanRepaymentRowDeleted;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void AddExternalLoanRepaymentRow(ExternalLoanRepaymentRow row) {
-                this.Rows.Add(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public ExternalLoanRepaymentRow AddExternalLoanRepaymentRow(string RepaymentID, int AmmountPaid, int Balance, string RepayMonths, string PaidBy, string LoanID, string Repaymentdate, string Year, string Months, int Interest, string ModeOfPayment, string InsBranch, string UploadStatus) {
-                ExternalLoanRepaymentRow rowExternalLoanRepaymentRow = ((ExternalLoanRepaymentRow)(this.NewRow()));
-                object[] columnValuesArray = new object[] {
-                        null,
-                        RepaymentID,
-                        AmmountPaid,
-                        Balance,
-                        RepayMonths,
-                        PaidBy,
-                        LoanID,
-                        Repaymentdate,
-                        Year,
-                        Months,
-                        Interest,
-                        ModeOfPayment,
-                        InsBranch,
-                        UploadStatus};
-                rowExternalLoanRepaymentRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowExternalLoanRepaymentRow);
-                return rowExternalLoanRepaymentRow;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public ExternalLoanRepaymentRow FindByRepaymentID(string RepaymentID) {
-                return ((ExternalLoanRepaymentRow)(this.Rows.Find(new object[] {
-                            RepaymentID})));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public override global::System.Data.DataTable Clone() {
-                ExternalLoanRepaymentDataTable cln = ((ExternalLoanRepaymentDataTable)(base.Clone()));
-                cln.InitVars();
-                return cln;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected override global::System.Data.DataTable CreateInstance() {
-                return new ExternalLoanRepaymentDataTable();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal void InitVars() {
-                this.columnID = base.Columns["ID"];
-                this.columnRepaymentID = base.Columns["RepaymentID"];
-                this.columnAmmountPaid = base.Columns["AmmountPaid"];
-                this.columnBalance = base.Columns["Balance"];
-                this.columnRepayMonths = base.Columns["RepayMonths"];
-                this.columnPaidBy = base.Columns["PaidBy"];
-                this.columnLoanID = base.Columns["LoanID"];
-                this.columnRepaymentdate = base.Columns["Repaymentdate"];
-                this.columnYear = base.Columns["Year"];
-                this.columnMonths = base.Columns["Months"];
-                this.columnInterest = base.Columns["Interest"];
-                this.columnModeOfPayment = base.Columns["ModeOfPayment"];
-                this.columnInsBranch = base.Columns["InsBranch"];
-                this.columnUploadStatus = base.Columns["UploadStatus"];
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            private void InitClass() {
-                this.columnID = new global::System.Data.DataColumn("ID", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnID);
-                this.columnRepaymentID = new global::System.Data.DataColumn("RepaymentID", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnRepaymentID);
-                this.columnAmmountPaid = new global::System.Data.DataColumn("AmmountPaid", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnAmmountPaid);
-                this.columnBalance = new global::System.Data.DataColumn("Balance", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnBalance);
-                this.columnRepayMonths = new global::System.Data.DataColumn("RepayMonths", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnRepayMonths);
-                this.columnPaidBy = new global::System.Data.DataColumn("PaidBy", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnPaidBy);
-                this.columnLoanID = new global::System.Data.DataColumn("LoanID", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnLoanID);
-                this.columnRepaymentdate = new global::System.Data.DataColumn("Repaymentdate", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnRepaymentdate);
-                this.columnYear = new global::System.Data.DataColumn("Year", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnYear);
-                this.columnMonths = new global::System.Data.DataColumn("Months", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnMonths);
-                this.columnInterest = new global::System.Data.DataColumn("Interest", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnInterest);
-                this.columnModeOfPayment = new global::System.Data.DataColumn("ModeOfPayment", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnModeOfPayment);
-                this.columnInsBranch = new global::System.Data.DataColumn("InsBranch", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnInsBranch);
-                this.columnUploadStatus = new global::System.Data.DataColumn("UploadStatus", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnUploadStatus);
-                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnRepaymentID}, true));
-                this.columnID.AutoIncrement = true;
-                this.columnID.AutoIncrementSeed = -1;
-                this.columnID.AutoIncrementStep = -1;
-                this.columnID.AllowDBNull = false;
-                this.columnID.ReadOnly = true;
-                this.columnRepaymentID.AllowDBNull = false;
-                this.columnRepaymentID.Unique = true;
-                this.columnRepaymentID.MaxLength = 15;
-                this.columnRepayMonths.MaxLength = 20;
-                this.columnPaidBy.MaxLength = 50;
-                this.columnLoanID.MaxLength = 15;
-                this.columnRepaymentdate.MaxLength = 20;
-                this.columnYear.MaxLength = 10;
-                this.columnMonths.MaxLength = 10;
-                this.columnModeOfPayment.MaxLength = 10;
-                this.columnInsBranch.AllowDBNull = false;
-                this.columnInsBranch.MaxLength = 50;
-                this.columnUploadStatus.AllowDBNull = false;
-                this.columnUploadStatus.MaxLength = 10;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public ExternalLoanRepaymentRow NewExternalLoanRepaymentRow() {
-                return ((ExternalLoanRepaymentRow)(this.NewRow()));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new ExternalLoanRepaymentRow(builder);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected override global::System.Type GetRowType() {
-                return typeof(ExternalLoanRepaymentRow);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanged(e);
-                if ((this.ExternalLoanRepaymentRowChanged != null)) {
-                    this.ExternalLoanRepaymentRowChanged(this, new ExternalLoanRepaymentRowChangeEvent(((ExternalLoanRepaymentRow)(e.Row)), e.Action));
+                    return this.columnRefereeAddress;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanging(e);
-                if ((this.ExternalLoanRepaymentRowChanging != null)) {
-                    this.ExternalLoanRepaymentRowChanging(this, new ExternalLoanRepaymentRowChangeEvent(((ExternalLoanRepaymentRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleted(e);
-                if ((this.ExternalLoanRepaymentRowDeleted != null)) {
-                    this.ExternalLoanRepaymentRowDeleted(this, new ExternalLoanRepaymentRowChangeEvent(((ExternalLoanRepaymentRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleting(e);
-                if ((this.ExternalLoanRepaymentRowDeleting != null)) {
-                    this.ExternalLoanRepaymentRowDeleting(this, new ExternalLoanRepaymentRowChangeEvent(((ExternalLoanRepaymentRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void RemoveExternalLoanRepaymentRow(ExternalLoanRepaymentRow row) {
-                this.Rows.Remove(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
-                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                AloansDataset ds = new AloansDataset();
-                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
-                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
-                any1.MinOccurs = new decimal(0);
-                any1.MaxOccurs = decimal.MaxValue;
-                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any1);
-                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
-                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
-                any2.MinOccurs = new decimal(1);
-                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any2);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute1.Name = "namespace";
-                attribute1.FixedValue = ds.Namespace;
-                type.Attributes.Add(attribute1);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "ExternalLoanRepaymentDataTable";
-                type.Attributes.Add(attribute2);
-                type.Particle = sequence;
-                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
-                if (xs.Contains(dsSchema.TargetNamespace)) {
-                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
-                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
-                    try {
-                        global::System.Xml.Schema.XmlSchema schema = null;
-                        dsSchema.Write(s1);
-                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
-                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
-                            s2.SetLength(0);
-                            schema.Write(s2);
-                            if ((s1.Length == s2.Length)) {
-                                s1.Position = 0;
-                                s2.Position = 0;
-                                for (; ((s1.Position != s1.Length) 
-                                            && (s1.ReadByte() == s2.ReadByte())); ) {
-                                    ;
-                                }
-                                if ((s1.Position == s1.Length)) {
-                                    return type;
-                                }
-                            }
-                        }
-                    }
-                    finally {
-                        if ((s1 != null)) {
-                            s1.Close();
-                        }
-                        if ((s2 != null)) {
-                            s2.Close();
-                        }
-                    }
-                }
-                xs.Add(dsSchema);
-                return type;
-            }
-        }
-        
-        /// <summary>
-        ///Represents the strongly named DataTable class.
-        ///</summary>
-        [global::System.Serializable()]
-        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class ExternalLoansDataTable : global::System.Data.TypedTableBase<ExternalLoansRow> {
-            
-            private global::System.Data.DataColumn columnID;
-            
-            private global::System.Data.DataColumn columnLoansID;
-            
-            private global::System.Data.DataColumn columnLoanAmmount;
-            
-            private global::System.Data.DataColumn columnInterestRate;
-            
-            private global::System.Data.DataColumn columnSecurities;
-            
-            private global::System.Data.DataColumn columnComment;
-            
-            private global::System.Data.DataColumn columnOfficerName;
-            
-            private global::System.Data.DataColumn columnYear;
-            
-            private global::System.Data.DataColumn columnMonths;
-            
-            private global::System.Data.DataColumn columnDate;
-            
-            private global::System.Data.DataColumn columnManagerName;
-            
-            private global::System.Data.DataColumn columnReviewComment;
-            
-            private global::System.Data.DataColumn columnReviewDate;
-            
-            private global::System.Data.DataColumn columnChairpersonName;
-            
-            private global::System.Data.DataColumn columnDecision;
-            
-            private global::System.Data.DataColumn columnDecisionDate;
-            
-            private global::System.Data.DataColumn columnDescription;
-            
-            private global::System.Data.DataColumn columnPeriod;
-            
-            private global::System.Data.DataColumn columnRecieved;
-            
-            private global::System.Data.DataColumn columnRecievedDate;
-            
-            private global::System.Data.DataColumn columnInsBranch;
-            
-            private global::System.Data.DataColumn columnUploadStatus;
-            
-            private global::System.Data.DataColumn columnModeOfPayment;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public ExternalLoansDataTable() {
-                this.TableName = "ExternalLoans";
-                this.BeginInit();
-                this.InitClass();
-                this.EndInit();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal ExternalLoansDataTable(global::System.Data.DataTable table) {
-                this.TableName = table.TableName;
-                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
-                    this.CaseSensitive = table.CaseSensitive;
-                }
-                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
-                    this.Locale = table.Locale;
-                }
-                if ((table.Namespace != table.DataSet.Namespace)) {
-                    this.Namespace = table.Namespace;
-                }
-                this.Prefix = table.Prefix;
-                this.MinimumCapacity = table.MinimumCapacity;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected ExternalLoansDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
-                    base(info, context) {
-                this.InitVars();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn IDColumn {
+            public global::System.Data.DataColumn RefereeRelationshipColumn {
                 get {
-                    return this.columnID;
+                    return this.columnRefereeRelationship;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn LoansIDColumn {
+            public global::System.Data.DataColumn ApplicationDateColumn {
                 get {
-                    return this.columnLoansID;
+                    return this.columnApplicationDate;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn LoanAmmountColumn {
+            public global::System.Data.DataColumn FirstApprovalColumn {
                 get {
-                    return this.columnLoanAmmount;
+                    return this.columnFirstApproval;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn InterestRateColumn {
+            public global::System.Data.DataColumn ApprovalCommentColumn {
                 get {
-                    return this.columnInterestRate;
+                    return this.columnApprovalComment;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn SecuritiesColumn {
+            public global::System.Data.DataColumn ApprovalDateColumn {
                 get {
-                    return this.columnSecurities;
+                    return this.columnApprovalDate;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn CommentColumn {
+            public global::System.Data.DataColumn ApprovedByColumn {
                 get {
-                    return this.columnComment;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn OfficerNameColumn {
-                get {
-                    return this.columnOfficerName;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn YearColumn {
-                get {
-                    return this.columnYear;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn MonthsColumn {
-                get {
-                    return this.columnMonths;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn DateColumn {
-                get {
-                    return this.columnDate;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn ManagerNameColumn {
-                get {
-                    return this.columnManagerName;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn ReviewCommentColumn {
-                get {
-                    return this.columnReviewComment;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn ReviewDateColumn {
-                get {
-                    return this.columnReviewDate;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn ChairpersonNameColumn {
-                get {
-                    return this.columnChairpersonName;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn DecisionColumn {
-                get {
-                    return this.columnDecision;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn DecisionDateColumn {
-                get {
-                    return this.columnDecisionDate;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn DescriptionColumn {
-                get {
-                    return this.columnDescription;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn PeriodColumn {
-                get {
-                    return this.columnPeriod;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn RecievedColumn {
-                get {
-                    return this.columnRecieved;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn RecievedDateColumn {
-                get {
-                    return this.columnRecievedDate;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn InsBranchColumn {
-                get {
-                    return this.columnInsBranch;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn UploadStatusColumn {
-                get {
-                    return this.columnUploadStatus;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn ModeOfPaymentColumn {
-                get {
-                    return this.columnModeOfPayment;
+                    return this.columnApprovedBy;
                 }
             }
             
@@ -2323,1100 +938,79 @@ namespace Banking_System {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public ExternalLoansRow this[int index] {
+            public LoanRow this[int index] {
                 get {
-                    return ((ExternalLoansRow)(this.Rows[index]));
+                    return ((LoanRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event ExternalLoansRowChangeEventHandler ExternalLoansRowChanging;
+            public event LoanRowChangeEventHandler LoanRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event ExternalLoansRowChangeEventHandler ExternalLoansRowChanged;
+            public event LoanRowChangeEventHandler LoanRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event ExternalLoansRowChangeEventHandler ExternalLoansRowDeleting;
+            public event LoanRowChangeEventHandler LoanRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event ExternalLoansRowChangeEventHandler ExternalLoansRowDeleted;
+            public event LoanRowChangeEventHandler LoanRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void AddExternalLoansRow(ExternalLoansRow row) {
+            public void AddLoanRow(LoanRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public ExternalLoansRow AddExternalLoansRow(
-                        string LoansID, 
-                        int LoanAmmount, 
-                        double InterestRate, 
-                        string Securities, 
-                        string Comment, 
-                        string OfficerName, 
-                        string Year, 
-                        string Months, 
-                        string Date, 
-                        string ManagerName, 
-                        string ReviewComment, 
-                        string ReviewDate, 
-                        string ChairpersonName, 
-                        string Decision, 
-                        string DecisionDate, 
-                        string Description, 
-                        int Period, 
-                        string Recieved, 
-                        string RecievedDate, 
-                        string InsBranch, 
-                        string UploadStatus, 
-                        string ModeOfPayment) {
-                ExternalLoansRow rowExternalLoansRow = ((ExternalLoansRow)(this.NewRow()));
-                object[] columnValuesArray = new object[] {
-                        null,
-                        LoansID,
-                        LoanAmmount,
-                        InterestRate,
-                        Securities,
-                        Comment,
-                        OfficerName,
-                        Year,
-                        Months,
-                        Date,
-                        ManagerName,
-                        ReviewComment,
-                        ReviewDate,
-                        ChairpersonName,
-                        Decision,
-                        DecisionDate,
-                        Description,
-                        Period,
-                        Recieved,
-                        RecievedDate,
-                        InsBranch,
-                        UploadStatus,
-                        ModeOfPayment};
-                rowExternalLoansRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowExternalLoansRow);
-                return rowExternalLoansRow;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public ExternalLoansRow FindByLoansID(string LoansID) {
-                return ((ExternalLoansRow)(this.Rows.Find(new object[] {
-                            LoansID})));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public override global::System.Data.DataTable Clone() {
-                ExternalLoansDataTable cln = ((ExternalLoansDataTable)(base.Clone()));
-                cln.InitVars();
-                return cln;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected override global::System.Data.DataTable CreateInstance() {
-                return new ExternalLoansDataTable();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal void InitVars() {
-                this.columnID = base.Columns["ID"];
-                this.columnLoansID = base.Columns["LoansID"];
-                this.columnLoanAmmount = base.Columns["LoanAmmount"];
-                this.columnInterestRate = base.Columns["InterestRate"];
-                this.columnSecurities = base.Columns["Securities"];
-                this.columnComment = base.Columns["Comment"];
-                this.columnOfficerName = base.Columns["OfficerName"];
-                this.columnYear = base.Columns["Year"];
-                this.columnMonths = base.Columns["Months"];
-                this.columnDate = base.Columns["Date"];
-                this.columnManagerName = base.Columns["ManagerName"];
-                this.columnReviewComment = base.Columns["ReviewComment"];
-                this.columnReviewDate = base.Columns["ReviewDate"];
-                this.columnChairpersonName = base.Columns["ChairpersonName"];
-                this.columnDecision = base.Columns["Decision"];
-                this.columnDecisionDate = base.Columns["DecisionDate"];
-                this.columnDescription = base.Columns["Description"];
-                this.columnPeriod = base.Columns["Period"];
-                this.columnRecieved = base.Columns["Recieved"];
-                this.columnRecievedDate = base.Columns["RecievedDate"];
-                this.columnInsBranch = base.Columns["InsBranch"];
-                this.columnUploadStatus = base.Columns["UploadStatus"];
-                this.columnModeOfPayment = base.Columns["ModeOfPayment"];
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            private void InitClass() {
-                this.columnID = new global::System.Data.DataColumn("ID", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnID);
-                this.columnLoansID = new global::System.Data.DataColumn("LoansID", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnLoansID);
-                this.columnLoanAmmount = new global::System.Data.DataColumn("LoanAmmount", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnLoanAmmount);
-                this.columnInterestRate = new global::System.Data.DataColumn("InterestRate", typeof(double), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnInterestRate);
-                this.columnSecurities = new global::System.Data.DataColumn("Securities", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnSecurities);
-                this.columnComment = new global::System.Data.DataColumn("Comment", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnComment);
-                this.columnOfficerName = new global::System.Data.DataColumn("OfficerName", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnOfficerName);
-                this.columnYear = new global::System.Data.DataColumn("Year", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnYear);
-                this.columnMonths = new global::System.Data.DataColumn("Months", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnMonths);
-                this.columnDate = new global::System.Data.DataColumn("Date", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnDate);
-                this.columnManagerName = new global::System.Data.DataColumn("ManagerName", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnManagerName);
-                this.columnReviewComment = new global::System.Data.DataColumn("ReviewComment", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnReviewComment);
-                this.columnReviewDate = new global::System.Data.DataColumn("ReviewDate", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnReviewDate);
-                this.columnChairpersonName = new global::System.Data.DataColumn("ChairpersonName", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnChairpersonName);
-                this.columnDecision = new global::System.Data.DataColumn("Decision", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnDecision);
-                this.columnDecisionDate = new global::System.Data.DataColumn("DecisionDate", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnDecisionDate);
-                this.columnDescription = new global::System.Data.DataColumn("Description", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnDescription);
-                this.columnPeriod = new global::System.Data.DataColumn("Period", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnPeriod);
-                this.columnRecieved = new global::System.Data.DataColumn("Recieved", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnRecieved);
-                this.columnRecievedDate = new global::System.Data.DataColumn("RecievedDate", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnRecievedDate);
-                this.columnInsBranch = new global::System.Data.DataColumn("InsBranch", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnInsBranch);
-                this.columnUploadStatus = new global::System.Data.DataColumn("UploadStatus", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnUploadStatus);
-                this.columnModeOfPayment = new global::System.Data.DataColumn("ModeOfPayment", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnModeOfPayment);
-                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnLoansID}, true));
-                this.columnID.AutoIncrement = true;
-                this.columnID.AutoIncrementSeed = -1;
-                this.columnID.AutoIncrementStep = -1;
-                this.columnID.AllowDBNull = false;
-                this.columnID.ReadOnly = true;
-                this.columnLoansID.AllowDBNull = false;
-                this.columnLoansID.Unique = true;
-                this.columnLoansID.MaxLength = 15;
-                this.columnSecurities.MaxLength = 200;
-                this.columnComment.MaxLength = 200;
-                this.columnOfficerName.MaxLength = 50;
-                this.columnYear.MaxLength = 10;
-                this.columnMonths.MaxLength = 10;
-                this.columnDate.MaxLength = 20;
-                this.columnManagerName.AllowDBNull = false;
-                this.columnManagerName.MaxLength = 50;
-                this.columnReviewComment.AllowDBNull = false;
-                this.columnReviewComment.MaxLength = 200;
-                this.columnReviewDate.MaxLength = 20;
-                this.columnChairpersonName.AllowDBNull = false;
-                this.columnChairpersonName.MaxLength = 50;
-                this.columnDecision.AllowDBNull = false;
-                this.columnDecision.MaxLength = 20;
-                this.columnDecisionDate.MaxLength = 20;
-                this.columnDescription.AllowDBNull = false;
-                this.columnDescription.MaxLength = 200;
-                this.columnRecieved.AllowDBNull = false;
-                this.columnRecieved.MaxLength = 20;
-                this.columnRecievedDate.MaxLength = 20;
-                this.columnInsBranch.AllowDBNull = false;
-                this.columnInsBranch.MaxLength = 50;
-                this.columnUploadStatus.AllowDBNull = false;
-                this.columnUploadStatus.MaxLength = 10;
-                this.columnModeOfPayment.MaxLength = 10;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public ExternalLoansRow NewExternalLoansRow() {
-                return ((ExternalLoansRow)(this.NewRow()));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new ExternalLoansRow(builder);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected override global::System.Type GetRowType() {
-                return typeof(ExternalLoansRow);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanged(e);
-                if ((this.ExternalLoansRowChanged != null)) {
-                    this.ExternalLoansRowChanged(this, new ExternalLoansRowChangeEvent(((ExternalLoansRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanging(e);
-                if ((this.ExternalLoansRowChanging != null)) {
-                    this.ExternalLoansRowChanging(this, new ExternalLoansRowChangeEvent(((ExternalLoansRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleted(e);
-                if ((this.ExternalLoansRowDeleted != null)) {
-                    this.ExternalLoansRowDeleted(this, new ExternalLoansRowChangeEvent(((ExternalLoansRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleting(e);
-                if ((this.ExternalLoansRowDeleting != null)) {
-                    this.ExternalLoansRowDeleting(this, new ExternalLoansRowChangeEvent(((ExternalLoansRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void RemoveExternalLoansRow(ExternalLoansRow row) {
-                this.Rows.Remove(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
-                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                AloansDataset ds = new AloansDataset();
-                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
-                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
-                any1.MinOccurs = new decimal(0);
-                any1.MaxOccurs = decimal.MaxValue;
-                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any1);
-                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
-                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
-                any2.MinOccurs = new decimal(1);
-                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any2);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute1.Name = "namespace";
-                attribute1.FixedValue = ds.Namespace;
-                type.Attributes.Add(attribute1);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "ExternalLoansDataTable";
-                type.Attributes.Add(attribute2);
-                type.Particle = sequence;
-                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
-                if (xs.Contains(dsSchema.TargetNamespace)) {
-                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
-                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
-                    try {
-                        global::System.Xml.Schema.XmlSchema schema = null;
-                        dsSchema.Write(s1);
-                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
-                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
-                            s2.SetLength(0);
-                            schema.Write(s2);
-                            if ((s1.Length == s2.Length)) {
-                                s1.Position = 0;
-                                s2.Position = 0;
-                                for (; ((s1.Position != s1.Length) 
-                                            && (s1.ReadByte() == s2.ReadByte())); ) {
-                                    ;
-                                }
-                                if ((s1.Position == s1.Length)) {
-                                    return type;
-                                }
-                            }
-                        }
-                    }
-                    finally {
-                        if ((s1 != null)) {
-                            s1.Close();
-                        }
-                        if ((s2 != null)) {
-                            s2.Close();
-                        }
-                    }
-                }
-                xs.Add(dsSchema);
-                return type;
-            }
-        }
-        
-        /// <summary>
-        ///Represents the strongly named DataTable class.
-        ///</summary>
-        [global::System.Serializable()]
-        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class ExternalRepaymentScheduleDataTable : global::System.Data.TypedTableBase<ExternalRepaymentScheduleRow> {
-            
-            private global::System.Data.DataColumn columnID;
-            
-            private global::System.Data.DataColumn columnLoanID;
-            
-            private global::System.Data.DataColumn columnAmmountPay;
-            
-            private global::System.Data.DataColumn columnInterest;
-            
-            private global::System.Data.DataColumn columnTotalAmmount;
-            
-            private global::System.Data.DataColumn columnPaymentDate;
-            
-            private global::System.Data.DataColumn columnPaymentStatus;
-            
-            private global::System.Data.DataColumn columnMonths;
-            
-            private global::System.Data.DataColumn columnYear;
-            
-            private global::System.Data.DataColumn columnBalanceExist;
-            
-            private global::System.Data.DataColumn columnBeginningBalance;
-            
-            private global::System.Data.DataColumn columnInsBranch;
-            
-            private global::System.Data.DataColumn columnUploadStatus;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public ExternalRepaymentScheduleDataTable() {
-                this.TableName = "ExternalRepaymentSchedule";
-                this.BeginInit();
-                this.InitClass();
-                this.EndInit();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal ExternalRepaymentScheduleDataTable(global::System.Data.DataTable table) {
-                this.TableName = table.TableName;
-                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
-                    this.CaseSensitive = table.CaseSensitive;
-                }
-                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
-                    this.Locale = table.Locale;
-                }
-                if ((table.Namespace != table.DataSet.Namespace)) {
-                    this.Namespace = table.Namespace;
-                }
-                this.Prefix = table.Prefix;
-                this.MinimumCapacity = table.MinimumCapacity;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected ExternalRepaymentScheduleDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
-                    base(info, context) {
-                this.InitVars();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn IDColumn {
-                get {
-                    return this.columnID;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn LoanIDColumn {
-                get {
-                    return this.columnLoanID;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn AmmountPayColumn {
-                get {
-                    return this.columnAmmountPay;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn InterestColumn {
-                get {
-                    return this.columnInterest;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn TotalAmmountColumn {
-                get {
-                    return this.columnTotalAmmount;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn PaymentDateColumn {
-                get {
-                    return this.columnPaymentDate;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn PaymentStatusColumn {
-                get {
-                    return this.columnPaymentStatus;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn MonthsColumn {
-                get {
-                    return this.columnMonths;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn YearColumn {
-                get {
-                    return this.columnYear;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn BalanceExistColumn {
-                get {
-                    return this.columnBalanceExist;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn BeginningBalanceColumn {
-                get {
-                    return this.columnBeginningBalance;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn InsBranchColumn {
-                get {
-                    return this.columnInsBranch;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn UploadStatusColumn {
-                get {
-                    return this.columnUploadStatus;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            [global::System.ComponentModel.Browsable(false)]
-            public int Count {
-                get {
-                    return this.Rows.Count;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public ExternalRepaymentScheduleRow this[int index] {
-                get {
-                    return ((ExternalRepaymentScheduleRow)(this.Rows[index]));
-                }
-            }
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event ExternalRepaymentScheduleRowChangeEventHandler ExternalRepaymentScheduleRowChanging;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event ExternalRepaymentScheduleRowChangeEventHandler ExternalRepaymentScheduleRowChanged;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event ExternalRepaymentScheduleRowChangeEventHandler ExternalRepaymentScheduleRowDeleting;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event ExternalRepaymentScheduleRowChangeEventHandler ExternalRepaymentScheduleRowDeleted;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void AddExternalRepaymentScheduleRow(ExternalRepaymentScheduleRow row) {
-                this.Rows.Add(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public ExternalRepaymentScheduleRow AddExternalRepaymentScheduleRow(string LoanID, int AmmountPay, double Interest, double TotalAmmount, string PaymentDate, string PaymentStatus, string Months, string Year, double BalanceExist, double BeginningBalance, string InsBranch, string UploadStatus) {
-                ExternalRepaymentScheduleRow rowExternalRepaymentScheduleRow = ((ExternalRepaymentScheduleRow)(this.NewRow()));
-                object[] columnValuesArray = new object[] {
-                        null,
-                        LoanID,
-                        AmmountPay,
-                        Interest,
-                        TotalAmmount,
-                        PaymentDate,
-                        PaymentStatus,
-                        Months,
-                        Year,
-                        BalanceExist,
-                        BeginningBalance,
-                        InsBranch,
-                        UploadStatus};
-                rowExternalRepaymentScheduleRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowExternalRepaymentScheduleRow);
-                return rowExternalRepaymentScheduleRow;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public ExternalRepaymentScheduleRow FindByLoanIDMonths(string LoanID, string Months) {
-                return ((ExternalRepaymentScheduleRow)(this.Rows.Find(new object[] {
-                            LoanID,
-                            Months})));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public override global::System.Data.DataTable Clone() {
-                ExternalRepaymentScheduleDataTable cln = ((ExternalRepaymentScheduleDataTable)(base.Clone()));
-                cln.InitVars();
-                return cln;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected override global::System.Data.DataTable CreateInstance() {
-                return new ExternalRepaymentScheduleDataTable();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal void InitVars() {
-                this.columnID = base.Columns["ID"];
-                this.columnLoanID = base.Columns["LoanID"];
-                this.columnAmmountPay = base.Columns["AmmountPay"];
-                this.columnInterest = base.Columns["Interest"];
-                this.columnTotalAmmount = base.Columns["TotalAmmount"];
-                this.columnPaymentDate = base.Columns["PaymentDate"];
-                this.columnPaymentStatus = base.Columns["PaymentStatus"];
-                this.columnMonths = base.Columns["Months"];
-                this.columnYear = base.Columns["Year"];
-                this.columnBalanceExist = base.Columns["BalanceExist"];
-                this.columnBeginningBalance = base.Columns["BeginningBalance"];
-                this.columnInsBranch = base.Columns["InsBranch"];
-                this.columnUploadStatus = base.Columns["UploadStatus"];
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            private void InitClass() {
-                this.columnID = new global::System.Data.DataColumn("ID", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnID);
-                this.columnLoanID = new global::System.Data.DataColumn("LoanID", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnLoanID);
-                this.columnAmmountPay = new global::System.Data.DataColumn("AmmountPay", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnAmmountPay);
-                this.columnInterest = new global::System.Data.DataColumn("Interest", typeof(double), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnInterest);
-                this.columnTotalAmmount = new global::System.Data.DataColumn("TotalAmmount", typeof(double), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnTotalAmmount);
-                this.columnPaymentDate = new global::System.Data.DataColumn("PaymentDate", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnPaymentDate);
-                this.columnPaymentStatus = new global::System.Data.DataColumn("PaymentStatus", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnPaymentStatus);
-                this.columnMonths = new global::System.Data.DataColumn("Months", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnMonths);
-                this.columnYear = new global::System.Data.DataColumn("Year", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnYear);
-                this.columnBalanceExist = new global::System.Data.DataColumn("BalanceExist", typeof(double), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnBalanceExist);
-                this.columnBeginningBalance = new global::System.Data.DataColumn("BeginningBalance", typeof(double), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnBeginningBalance);
-                this.columnInsBranch = new global::System.Data.DataColumn("InsBranch", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnInsBranch);
-                this.columnUploadStatus = new global::System.Data.DataColumn("UploadStatus", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnUploadStatus);
-                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnLoanID,
-                                this.columnMonths}, true));
-                this.columnID.AutoIncrement = true;
-                this.columnID.AutoIncrementSeed = -1;
-                this.columnID.AutoIncrementStep = -1;
-                this.columnID.AllowDBNull = false;
-                this.columnID.ReadOnly = true;
-                this.columnLoanID.AllowDBNull = false;
-                this.columnLoanID.MaxLength = 15;
-                this.columnPaymentDate.AllowDBNull = false;
-                this.columnPaymentDate.MaxLength = 20;
-                this.columnPaymentStatus.MaxLength = 10;
-                this.columnMonths.AllowDBNull = false;
-                this.columnMonths.MaxLength = 10;
-                this.columnYear.AllowDBNull = false;
-                this.columnYear.MaxLength = 10;
-                this.columnInsBranch.AllowDBNull = false;
-                this.columnInsBranch.MaxLength = 50;
-                this.columnUploadStatus.AllowDBNull = false;
-                this.columnUploadStatus.MaxLength = 10;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public ExternalRepaymentScheduleRow NewExternalRepaymentScheduleRow() {
-                return ((ExternalRepaymentScheduleRow)(this.NewRow()));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new ExternalRepaymentScheduleRow(builder);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected override global::System.Type GetRowType() {
-                return typeof(ExternalRepaymentScheduleRow);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanged(e);
-                if ((this.ExternalRepaymentScheduleRowChanged != null)) {
-                    this.ExternalRepaymentScheduleRowChanged(this, new ExternalRepaymentScheduleRowChangeEvent(((ExternalRepaymentScheduleRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanging(e);
-                if ((this.ExternalRepaymentScheduleRowChanging != null)) {
-                    this.ExternalRepaymentScheduleRowChanging(this, new ExternalRepaymentScheduleRowChangeEvent(((ExternalRepaymentScheduleRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleted(e);
-                if ((this.ExternalRepaymentScheduleRowDeleted != null)) {
-                    this.ExternalRepaymentScheduleRowDeleted(this, new ExternalRepaymentScheduleRowChangeEvent(((ExternalRepaymentScheduleRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleting(e);
-                if ((this.ExternalRepaymentScheduleRowDeleting != null)) {
-                    this.ExternalRepaymentScheduleRowDeleting(this, new ExternalRepaymentScheduleRowChangeEvent(((ExternalRepaymentScheduleRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void RemoveExternalRepaymentScheduleRow(ExternalRepaymentScheduleRow row) {
-                this.Rows.Remove(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
-                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                AloansDataset ds = new AloansDataset();
-                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
-                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
-                any1.MinOccurs = new decimal(0);
-                any1.MaxOccurs = decimal.MaxValue;
-                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any1);
-                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
-                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
-                any2.MinOccurs = new decimal(1);
-                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any2);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute1.Name = "namespace";
-                attribute1.FixedValue = ds.Namespace;
-                type.Attributes.Add(attribute1);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "ExternalRepaymentScheduleDataTable";
-                type.Attributes.Add(attribute2);
-                type.Particle = sequence;
-                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
-                if (xs.Contains(dsSchema.TargetNamespace)) {
-                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
-                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
-                    try {
-                        global::System.Xml.Schema.XmlSchema schema = null;
-                        dsSchema.Write(s1);
-                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
-                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
-                            s2.SetLength(0);
-                            schema.Write(s2);
-                            if ((s1.Length == s2.Length)) {
-                                s1.Position = 0;
-                                s2.Position = 0;
-                                for (; ((s1.Position != s1.Length) 
-                                            && (s1.ReadByte() == s2.ReadByte())); ) {
-                                    ;
-                                }
-                                if ((s1.Position == s1.Length)) {
-                                    return type;
-                                }
-                            }
-                        }
-                    }
-                    finally {
-                        if ((s1 != null)) {
-                            s1.Close();
-                        }
-                        if ((s2 != null)) {
-                            s2.Close();
-                        }
-                    }
-                }
-                xs.Add(dsSchema);
-                return type;
-            }
-        }
-        
-        /// <summary>
-        ///Represents the strongly named DataTable class.
-        ///</summary>
-        [global::System.Serializable()]
-        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class LoanRepaymentDataTable : global::System.Data.TypedTableBase<LoanRepaymentRow> {
-            
-            private global::System.Data.DataColumn columnID;
-            
-            private global::System.Data.DataColumn columnRepaymentID;
-            
-            private global::System.Data.DataColumn columnAmmountPaid;
-            
-            private global::System.Data.DataColumn columnTotalAmmount;
-            
-            private global::System.Data.DataColumn columnBalance;
-            
-            private global::System.Data.DataColumn columnRepayMonths;
-            
-            private global::System.Data.DataColumn columnCashierID;
-            
-            private global::System.Data.DataColumn columnCashierName;
-            
-            private global::System.Data.DataColumn columnLoanID;
-            
-            private global::System.Data.DataColumn columnMemberID;
-            
-            private global::System.Data.DataColumn columnMemberName;
-            
-            private global::System.Data.DataColumn columnRepaymentdate;
-            
-            private global::System.Data.DataColumn columnYear;
-            
-            private global::System.Data.DataColumn columnMonths;
-            
-            private global::System.Data.DataColumn columnInterest;
-            
-            private global::System.Data.DataColumn columnModeOfPayment;
-            
-            private global::System.Data.DataColumn columnInsBranch;
-            
-            private global::System.Data.DataColumn columnUploadStatus;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public LoanRepaymentDataTable() {
-                this.TableName = "LoanRepayment";
-                this.BeginInit();
-                this.InitClass();
-                this.EndInit();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal LoanRepaymentDataTable(global::System.Data.DataTable table) {
-                this.TableName = table.TableName;
-                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
-                    this.CaseSensitive = table.CaseSensitive;
-                }
-                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
-                    this.Locale = table.Locale;
-                }
-                if ((table.Namespace != table.DataSet.Namespace)) {
-                    this.Namespace = table.Namespace;
-                }
-                this.Prefix = table.Prefix;
-                this.MinimumCapacity = table.MinimumCapacity;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected LoanRepaymentDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
-                    base(info, context) {
-                this.InitVars();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn IDColumn {
-                get {
-                    return this.columnID;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn RepaymentIDColumn {
-                get {
-                    return this.columnRepaymentID;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn AmmountPaidColumn {
-                get {
-                    return this.columnAmmountPaid;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn TotalAmmountColumn {
-                get {
-                    return this.columnTotalAmmount;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn BalanceColumn {
-                get {
-                    return this.columnBalance;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn RepayMonthsColumn {
-                get {
-                    return this.columnRepayMonths;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn CashierIDColumn {
-                get {
-                    return this.columnCashierID;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn CashierNameColumn {
-                get {
-                    return this.columnCashierName;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn LoanIDColumn {
-                get {
-                    return this.columnLoanID;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn MemberIDColumn {
-                get {
-                    return this.columnMemberID;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn MemberNameColumn {
-                get {
-                    return this.columnMemberName;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn RepaymentdateColumn {
-                get {
-                    return this.columnRepaymentdate;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn YearColumn {
-                get {
-                    return this.columnYear;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn MonthsColumn {
-                get {
-                    return this.columnMonths;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn InterestColumn {
-                get {
-                    return this.columnInterest;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn ModeOfPaymentColumn {
-                get {
-                    return this.columnModeOfPayment;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn InsBranchColumn {
-                get {
-                    return this.columnInsBranch;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn UploadStatusColumn {
-                get {
-                    return this.columnUploadStatus;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            [global::System.ComponentModel.Browsable(false)]
-            public int Count {
-                get {
-                    return this.Rows.Count;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public LoanRepaymentRow this[int index] {
-                get {
-                    return ((LoanRepaymentRow)(this.Rows[index]));
-                }
-            }
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event LoanRepaymentRowChangeEventHandler LoanRepaymentRowChanging;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event LoanRepaymentRowChangeEventHandler LoanRepaymentRowChanged;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event LoanRepaymentRowChangeEventHandler LoanRepaymentRowDeleting;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event LoanRepaymentRowChangeEventHandler LoanRepaymentRowDeleted;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void AddLoanRepaymentRow(LoanRepaymentRow row) {
-                this.Rows.Add(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public LoanRepaymentRow AddLoanRepaymentRow(
-                        string RepaymentID, 
-                        int AmmountPaid, 
-                        int TotalAmmount, 
-                        int Balance, 
-                        string RepayMonths, 
-                        string CashierID, 
-                        string CashierName, 
+            public LoanRow AddLoanRow(
+                        string AccountNo, 
+                        string AccountName, 
                         string LoanID, 
-                        string MemberID, 
-                        string MemberName, 
-                        string Repaymentdate, 
-                        string Year, 
-                        string Months, 
-                        int Interest, 
-                        string ModeOfPayment, 
-                        string InsBranch, 
-                        string UploadStatus) {
-                LoanRepaymentRow rowLoanRepaymentRow = ((LoanRepaymentRow)(this.NewRow()));
+                        int ServicingPeriod, 
+                        string RepaymentInterval, 
+                        double Interest, 
+                        string Collateral, 
+                        int CollateralValue, 
+                        string RefereeName, 
+                        string RefereeTel, 
+                        string RefereeAddress, 
+                        string RefereeRelationship, 
+                        string ApplicationDate, 
+                        string FirstApproval, 
+                        string ApprovalComment, 
+                        string ApprovalDate, 
+                        string ApprovedBy) {
+                LoanRow rowLoanRow = ((LoanRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
-                        RepaymentID,
-                        AmmountPaid,
-                        TotalAmmount,
-                        Balance,
-                        RepayMonths,
-                        CashierID,
-                        CashierName,
+                        AccountNo,
+                        AccountName,
                         LoanID,
-                        MemberID,
-                        MemberName,
-                        Repaymentdate,
-                        Year,
-                        Months,
+                        ServicingPeriod,
+                        RepaymentInterval,
                         Interest,
-                        ModeOfPayment,
-                        InsBranch,
-                        UploadStatus};
-                rowLoanRepaymentRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowLoanRepaymentRow);
-                return rowLoanRepaymentRow;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public LoanRepaymentRow FindByRepaymentID(string RepaymentID) {
-                return ((LoanRepaymentRow)(this.Rows.Find(new object[] {
-                            RepaymentID})));
+                        Collateral,
+                        CollateralValue,
+                        RefereeName,
+                        RefereeTel,
+                        RefereeAddress,
+                        RefereeRelationship,
+                        ApplicationDate,
+                        FirstApproval,
+                        ApprovalComment,
+                        ApprovalDate,
+                        ApprovedBy};
+                rowLoanRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowLoanRow);
+                return rowLoanRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                LoanRepaymentDataTable cln = ((LoanRepaymentDataTable)(base.Clone()));
+                LoanDataTable cln = ((LoanDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -3424,30 +1018,30 @@ namespace Banking_System {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new LoanRepaymentDataTable();
+                return new LoanDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             internal void InitVars() {
                 this.columnID = base.Columns["ID"];
-                this.columnRepaymentID = base.Columns["RepaymentID"];
-                this.columnAmmountPaid = base.Columns["AmmountPaid"];
-                this.columnTotalAmmount = base.Columns["TotalAmmount"];
-                this.columnBalance = base.Columns["Balance"];
-                this.columnRepayMonths = base.Columns["RepayMonths"];
-                this.columnCashierID = base.Columns["CashierID"];
-                this.columnCashierName = base.Columns["CashierName"];
+                this.columnAccountNo = base.Columns["AccountNo"];
+                this.columnAccountName = base.Columns["AccountName"];
                 this.columnLoanID = base.Columns["LoanID"];
-                this.columnMemberID = base.Columns["MemberID"];
-                this.columnMemberName = base.Columns["MemberName"];
-                this.columnRepaymentdate = base.Columns["Repaymentdate"];
-                this.columnYear = base.Columns["Year"];
-                this.columnMonths = base.Columns["Months"];
+                this.columnServicingPeriod = base.Columns["ServicingPeriod"];
+                this.columnRepaymentInterval = base.Columns["RepaymentInterval"];
                 this.columnInterest = base.Columns["Interest"];
-                this.columnModeOfPayment = base.Columns["ModeOfPayment"];
-                this.columnInsBranch = base.Columns["InsBranch"];
-                this.columnUploadStatus = base.Columns["UploadStatus"];
+                this.columnCollateral = base.Columns["Collateral"];
+                this.columnCollateralValue = base.Columns["CollateralValue"];
+                this.columnRefereeName = base.Columns["RefereeName"];
+                this.columnRefereeTel = base.Columns["RefereeTel"];
+                this.columnRefereeAddress = base.Columns["RefereeAddress"];
+                this.columnRefereeRelationship = base.Columns["RefereeRelationship"];
+                this.columnApplicationDate = base.Columns["ApplicationDate"];
+                this.columnFirstApproval = base.Columns["FirstApproval"];
+                this.columnApprovalComment = base.Columns["ApprovalComment"];
+                this.columnApprovalDate = base.Columns["ApprovalDate"];
+                this.columnApprovedBy = base.Columns["ApprovedBy"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3455,90 +1049,85 @@ namespace Banking_System {
             private void InitClass() {
                 this.columnID = new global::System.Data.DataColumn("ID", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnID);
-                this.columnRepaymentID = new global::System.Data.DataColumn("RepaymentID", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnRepaymentID);
-                this.columnAmmountPaid = new global::System.Data.DataColumn("AmmountPaid", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnAmmountPaid);
-                this.columnTotalAmmount = new global::System.Data.DataColumn("TotalAmmount", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnTotalAmmount);
-                this.columnBalance = new global::System.Data.DataColumn("Balance", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnBalance);
-                this.columnRepayMonths = new global::System.Data.DataColumn("RepayMonths", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnRepayMonths);
-                this.columnCashierID = new global::System.Data.DataColumn("CashierID", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnCashierID);
-                this.columnCashierName = new global::System.Data.DataColumn("CashierName", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnCashierName);
+                this.columnAccountNo = new global::System.Data.DataColumn("AccountNo", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAccountNo);
+                this.columnAccountName = new global::System.Data.DataColumn("AccountName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAccountName);
                 this.columnLoanID = new global::System.Data.DataColumn("LoanID", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnLoanID);
-                this.columnMemberID = new global::System.Data.DataColumn("MemberID", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnMemberID);
-                this.columnMemberName = new global::System.Data.DataColumn("MemberName", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnMemberName);
-                this.columnRepaymentdate = new global::System.Data.DataColumn("Repaymentdate", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnRepaymentdate);
-                this.columnYear = new global::System.Data.DataColumn("Year", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnYear);
-                this.columnMonths = new global::System.Data.DataColumn("Months", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnMonths);
-                this.columnInterest = new global::System.Data.DataColumn("Interest", typeof(int), null, global::System.Data.MappingType.Element);
+                this.columnServicingPeriod = new global::System.Data.DataColumn("ServicingPeriod", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnServicingPeriod);
+                this.columnRepaymentInterval = new global::System.Data.DataColumn("RepaymentInterval", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnRepaymentInterval);
+                this.columnInterest = new global::System.Data.DataColumn("Interest", typeof(double), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnInterest);
-                this.columnModeOfPayment = new global::System.Data.DataColumn("ModeOfPayment", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnModeOfPayment);
-                this.columnInsBranch = new global::System.Data.DataColumn("InsBranch", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnInsBranch);
-                this.columnUploadStatus = new global::System.Data.DataColumn("UploadStatus", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnUploadStatus);
-                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnRepaymentID}, true));
+                this.columnCollateral = new global::System.Data.DataColumn("Collateral", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCollateral);
+                this.columnCollateralValue = new global::System.Data.DataColumn("CollateralValue", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCollateralValue);
+                this.columnRefereeName = new global::System.Data.DataColumn("RefereeName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnRefereeName);
+                this.columnRefereeTel = new global::System.Data.DataColumn("RefereeTel", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnRefereeTel);
+                this.columnRefereeAddress = new global::System.Data.DataColumn("RefereeAddress", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnRefereeAddress);
+                this.columnRefereeRelationship = new global::System.Data.DataColumn("RefereeRelationship", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnRefereeRelationship);
+                this.columnApplicationDate = new global::System.Data.DataColumn("ApplicationDate", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnApplicationDate);
+                this.columnFirstApproval = new global::System.Data.DataColumn("FirstApproval", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFirstApproval);
+                this.columnApprovalComment = new global::System.Data.DataColumn("ApprovalComment", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnApprovalComment);
+                this.columnApprovalDate = new global::System.Data.DataColumn("ApprovalDate", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnApprovalDate);
+                this.columnApprovedBy = new global::System.Data.DataColumn("ApprovedBy", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnApprovedBy);
                 this.columnID.AutoIncrement = true;
                 this.columnID.AutoIncrementSeed = -1;
                 this.columnID.AutoIncrementStep = -1;
                 this.columnID.AllowDBNull = false;
                 this.columnID.ReadOnly = true;
-                this.columnRepaymentID.AllowDBNull = false;
-                this.columnRepaymentID.Unique = true;
-                this.columnRepaymentID.MaxLength = 15;
-                this.columnRepayMonths.MaxLength = 20;
-                this.columnCashierID.MaxLength = 15;
-                this.columnCashierName.MaxLength = 50;
+                this.columnAccountNo.MaxLength = 20;
+                this.columnAccountName.MaxLength = 100;
                 this.columnLoanID.MaxLength = 15;
-                this.columnMemberID.MaxLength = 15;
-                this.columnMemberName.MaxLength = 15;
-                this.columnRepaymentdate.MaxLength = 20;
-                this.columnYear.MaxLength = 10;
-                this.columnMonths.MaxLength = 10;
-                this.columnModeOfPayment.MaxLength = 10;
-                this.columnInsBranch.AllowDBNull = false;
-                this.columnInsBranch.MaxLength = 50;
-                this.columnUploadStatus.AllowDBNull = false;
-                this.columnUploadStatus.MaxLength = 10;
+                this.columnRepaymentInterval.MaxLength = 10;
+                this.columnCollateral.MaxLength = 50;
+                this.columnRefereeName.MaxLength = 50;
+                this.columnRefereeTel.MaxLength = 10;
+                this.columnRefereeAddress.MaxLength = 100;
+                this.columnRefereeRelationship.MaxLength = 30;
+                this.columnApplicationDate.MaxLength = 20;
+                this.columnFirstApproval.MaxLength = 10;
+                this.columnApprovalComment.MaxLength = 2147483647;
+                this.columnApprovalDate.MaxLength = 20;
+                this.columnApprovedBy.MaxLength = 60;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public LoanRepaymentRow NewLoanRepaymentRow() {
-                return ((LoanRepaymentRow)(this.NewRow()));
+            public LoanRow NewLoanRow() {
+                return ((LoanRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new LoanRepaymentRow(builder);
+                return new LoanRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(LoanRepaymentRow);
+                return typeof(LoanRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.LoanRepaymentRowChanged != null)) {
-                    this.LoanRepaymentRowChanged(this, new LoanRepaymentRowChangeEvent(((LoanRepaymentRow)(e.Row)), e.Action));
+                if ((this.LoanRowChanged != null)) {
+                    this.LoanRowChanged(this, new LoanRowChangeEvent(((LoanRow)(e.Row)), e.Action));
                 }
             }
             
@@ -3546,8 +1135,8 @@ namespace Banking_System {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.LoanRepaymentRowChanging != null)) {
-                    this.LoanRepaymentRowChanging(this, new LoanRepaymentRowChangeEvent(((LoanRepaymentRow)(e.Row)), e.Action));
+                if ((this.LoanRowChanging != null)) {
+                    this.LoanRowChanging(this, new LoanRowChangeEvent(((LoanRow)(e.Row)), e.Action));
                 }
             }
             
@@ -3555,8 +1144,8 @@ namespace Banking_System {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.LoanRepaymentRowDeleted != null)) {
-                    this.LoanRepaymentRowDeleted(this, new LoanRepaymentRowChangeEvent(((LoanRepaymentRow)(e.Row)), e.Action));
+                if ((this.LoanRowDeleted != null)) {
+                    this.LoanRowDeleted(this, new LoanRowChangeEvent(((LoanRow)(e.Row)), e.Action));
                 }
             }
             
@@ -3564,14 +1153,14 @@ namespace Banking_System {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.LoanRepaymentRowDeleting != null)) {
-                    this.LoanRepaymentRowDeleting(this, new LoanRepaymentRowChangeEvent(((LoanRepaymentRow)(e.Row)), e.Action));
+                if ((this.LoanRowDeleting != null)) {
+                    this.LoanRowDeleting(this, new LoanRowChangeEvent(((LoanRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void RemoveLoanRepaymentRow(LoanRepaymentRow row) {
+            public void RemoveLoanRow(LoanRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -3580,7 +1169,7 @@ namespace Banking_System {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                AloansDataset ds = new AloansDataset();
+                ALoansDataset ds = new ALoansDataset();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -3598,7 +1187,7 @@ namespace Banking_System {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "LoanRepaymentDataTable";
+                attribute2.FixedValue = "LoanDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -3642,683 +1231,25 @@ namespace Banking_System {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class LoansRow : global::System.Data.DataRow {
+        public partial class AmortisationScheduleRow : global::System.Data.DataRow {
             
-            private LoansDataTable tableLoans;
+            private AmortisationScheduleDataTable tableAmortisationSchedule;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal LoansRow(global::System.Data.DataRowBuilder rb) : 
+            internal AmortisationScheduleRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tableLoans = ((LoansDataTable)(this.Table));
+                this.tableAmortisationSchedule = ((AmortisationScheduleDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public int ID {
                 get {
-                    return ((int)(this[this.tableLoans.IDColumn]));
+                    return ((int)(this[this.tableAmortisationSchedule.IDColumn]));
                 }
                 set {
-                    this[this.tableLoans.IDColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string LoansID {
-                get {
-                    return ((string)(this[this.tableLoans.LoansIDColumn]));
-                }
-                set {
-                    this[this.tableLoans.LoansIDColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string MemberID {
-                get {
-                    try {
-                        return ((string)(this[this.tableLoans.MemberIDColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'MemberID\' in table \'Loans\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableLoans.MemberIDColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string MemberName {
-                get {
-                    try {
-                        return ((string)(this[this.tableLoans.MemberNameColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'MemberName\' in table \'Loans\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableLoans.MemberNameColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string Identify {
-                get {
-                    return ((string)(this[this.tableLoans.IdentifyColumn]));
-                }
-                set {
-                    this[this.tableLoans.IdentifyColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int LoanAmmount {
-                get {
-                    try {
-                        return ((int)(this[this.tableLoans.LoanAmmountColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'LoanAmmount\' in table \'Loans\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableLoans.LoanAmmountColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string Site {
-                get {
-                    try {
-                        return ((string)(this[this.tableLoans.SiteColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Site\' in table \'Loans\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableLoans.SiteColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string Securities {
-                get {
-                    try {
-                        return ((string)(this[this.tableLoans.SecuritiesColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Securities\' in table \'Loans\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableLoans.SecuritiesColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int Income {
-                get {
-                    try {
-                        return ((int)(this[this.tableLoans.IncomeColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Income\' in table \'Loans\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableLoans.IncomeColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string Comment {
-                get {
-                    try {
-                        return ((string)(this[this.tableLoans.CommentColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Comment\' in table \'Loans\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableLoans.CommentColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string OfficerName {
-                get {
-                    try {
-                        return ((string)(this[this.tableLoans.OfficerNameColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'OfficerName\' in table \'Loans\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableLoans.OfficerNameColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string Year {
-                get {
-                    try {
-                        return ((string)(this[this.tableLoans.YearColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Year\' in table \'Loans\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableLoans.YearColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string Months {
-                get {
-                    try {
-                        return ((string)(this[this.tableLoans.MonthsColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Months\' in table \'Loans\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableLoans.MonthsColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string Date {
-                get {
-                    try {
-                        return ((string)(this[this.tableLoans.DateColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Date\' in table \'Loans\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableLoans.DateColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string ManagerName {
-                get {
-                    try {
-                        return ((string)(this[this.tableLoans.ManagerNameColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'ManagerName\' in table \'Loans\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableLoans.ManagerNameColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string ReviewComment {
-                get {
-                    try {
-                        return ((string)(this[this.tableLoans.ReviewCommentColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'ReviewComment\' in table \'Loans\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableLoans.ReviewCommentColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string ReviewDate {
-                get {
-                    try {
-                        return ((string)(this[this.tableLoans.ReviewDateColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'ReviewDate\' in table \'Loans\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableLoans.ReviewDateColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string ChairpersonName {
-                get {
-                    try {
-                        return ((string)(this[this.tableLoans.ChairpersonNameColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'ChairpersonName\' in table \'Loans\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableLoans.ChairpersonNameColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string Decision {
-                get {
-                    try {
-                        return ((string)(this[this.tableLoans.DecisionColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Decision\' in table \'Loans\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableLoans.DecisionColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string DecisionDate {
-                get {
-                    try {
-                        return ((string)(this[this.tableLoans.DecisionDateColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'DecisionDate\' in table \'Loans\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableLoans.DecisionDateColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string Description {
-                get {
-                    try {
-                        return ((string)(this[this.tableLoans.DescriptionColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Description\' in table \'Loans\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableLoans.DescriptionColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string Issue {
-                get {
-                    try {
-                        return ((string)(this[this.tableLoans.IssueColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Issue\' in table \'Loans\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableLoans.IssueColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public byte[] SecurityPhoto {
-                get {
-                    try {
-                        return ((byte[])(this[this.tableLoans.SecurityPhotoColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'SecurityPhoto\' in table \'Loans\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableLoans.SecurityPhotoColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int Period {
-                get {
-                    try {
-                        return ((int)(this[this.tableLoans.PeriodColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Period\' in table \'Loans\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableLoans.PeriodColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string InsBranch {
-                get {
-                    return ((string)(this[this.tableLoans.InsBranchColumn]));
-                }
-                set {
-                    this[this.tableLoans.InsBranchColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string UploadStatus {
-                get {
-                    return ((string)(this[this.tableLoans.UploadStatusColumn]));
-                }
-                set {
-                    this[this.tableLoans.UploadStatusColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsMemberIDNull() {
-                return this.IsNull(this.tableLoans.MemberIDColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetMemberIDNull() {
-                this[this.tableLoans.MemberIDColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsMemberNameNull() {
-                return this.IsNull(this.tableLoans.MemberNameColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetMemberNameNull() {
-                this[this.tableLoans.MemberNameColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsLoanAmmountNull() {
-                return this.IsNull(this.tableLoans.LoanAmmountColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetLoanAmmountNull() {
-                this[this.tableLoans.LoanAmmountColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsSiteNull() {
-                return this.IsNull(this.tableLoans.SiteColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetSiteNull() {
-                this[this.tableLoans.SiteColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsSecuritiesNull() {
-                return this.IsNull(this.tableLoans.SecuritiesColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetSecuritiesNull() {
-                this[this.tableLoans.SecuritiesColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsIncomeNull() {
-                return this.IsNull(this.tableLoans.IncomeColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetIncomeNull() {
-                this[this.tableLoans.IncomeColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsCommentNull() {
-                return this.IsNull(this.tableLoans.CommentColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetCommentNull() {
-                this[this.tableLoans.CommentColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsOfficerNameNull() {
-                return this.IsNull(this.tableLoans.OfficerNameColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetOfficerNameNull() {
-                this[this.tableLoans.OfficerNameColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsYearNull() {
-                return this.IsNull(this.tableLoans.YearColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetYearNull() {
-                this[this.tableLoans.YearColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsMonthsNull() {
-                return this.IsNull(this.tableLoans.MonthsColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetMonthsNull() {
-                this[this.tableLoans.MonthsColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsDateNull() {
-                return this.IsNull(this.tableLoans.DateColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetDateNull() {
-                this[this.tableLoans.DateColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsManagerNameNull() {
-                return this.IsNull(this.tableLoans.ManagerNameColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetManagerNameNull() {
-                this[this.tableLoans.ManagerNameColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsReviewCommentNull() {
-                return this.IsNull(this.tableLoans.ReviewCommentColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetReviewCommentNull() {
-                this[this.tableLoans.ReviewCommentColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsReviewDateNull() {
-                return this.IsNull(this.tableLoans.ReviewDateColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetReviewDateNull() {
-                this[this.tableLoans.ReviewDateColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsChairpersonNameNull() {
-                return this.IsNull(this.tableLoans.ChairpersonNameColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetChairpersonNameNull() {
-                this[this.tableLoans.ChairpersonNameColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsDecisionNull() {
-                return this.IsNull(this.tableLoans.DecisionColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetDecisionNull() {
-                this[this.tableLoans.DecisionColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsDecisionDateNull() {
-                return this.IsNull(this.tableLoans.DecisionDateColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetDecisionDateNull() {
-                this[this.tableLoans.DecisionDateColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsDescriptionNull() {
-                return this.IsNull(this.tableLoans.DescriptionColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetDescriptionNull() {
-                this[this.tableLoans.DescriptionColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsIssueNull() {
-                return this.IsNull(this.tableLoans.IssueColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetIssueNull() {
-                this[this.tableLoans.IssueColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsSecurityPhotoNull() {
-                return this.IsNull(this.tableLoans.SecurityPhotoColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetSecurityPhotoNull() {
-                this[this.tableLoans.SecurityPhotoColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsPeriodNull() {
-                return this.IsNull(this.tableLoans.PeriodColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetPeriodNull() {
-                this[this.tableLoans.PeriodColumn] = global::System.Convert.DBNull;
-            }
-        }
-        
-        /// <summary>
-        ///Represents strongly named DataRow class.
-        ///</summary>
-        public partial class RepaymentScheduleRow : global::System.Data.DataRow {
-            
-            private RepaymentScheduleDataTable tableRepaymentSchedule;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal RepaymentScheduleRow(global::System.Data.DataRowBuilder rb) : 
-                    base(rb) {
-                this.tableRepaymentSchedule = ((RepaymentScheduleDataTable)(this.Table));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int ID {
-                get {
-                    return ((int)(this[this.tableRepaymentSchedule.IDColumn]));
-                }
-                set {
-                    this[this.tableRepaymentSchedule.IDColumn] = value;
+                    this[this.tableAmortisationSchedule.IDColumn] = value;
                 }
             }
             
@@ -4326,58 +1257,58 @@ namespace Banking_System {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public string LoanID {
                 get {
-                    return ((string)(this[this.tableRepaymentSchedule.LoanIDColumn]));
+                    return ((string)(this[this.tableAmortisationSchedule.LoanIDColumn]));
                 }
                 set {
-                    this[this.tableRepaymentSchedule.LoanIDColumn] = value;
+                    this[this.tableAmortisationSchedule.LoanIDColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string MemberID {
+            public string AccountNumber {
                 get {
                     try {
-                        return ((string)(this[this.tableRepaymentSchedule.MemberIDColumn]));
+                        return ((string)(this[this.tableAmortisationSchedule.AccountNumberColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'MemberID\' in table \'RepaymentSchedule\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'AccountNumber\' in table \'AmortisationSchedule\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableRepaymentSchedule.MemberIDColumn] = value;
+                    this[this.tableAmortisationSchedule.AccountNumberColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string MemberName {
+            public string AccountName {
                 get {
                     try {
-                        return ((string)(this[this.tableRepaymentSchedule.MemberNameColumn]));
+                        return ((string)(this[this.tableAmortisationSchedule.AccountNameColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'MemberName\' in table \'RepaymentSchedule\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'AccountName\' in table \'AmortisationSchedule\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableRepaymentSchedule.MemberNameColumn] = value;
+                    this[this.tableAmortisationSchedule.AccountNameColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int AmmountPay {
+            public double AmmountPay {
                 get {
                     try {
-                        return ((int)(this[this.tableRepaymentSchedule.AmmountPayColumn]));
+                        return ((double)(this[this.tableAmortisationSchedule.AmmountPayColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'AmmountPay\' in table \'RepaymentSchedule\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'AmmountPay\' in table \'AmortisationSchedule\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableRepaymentSchedule.AmmountPayColumn] = value;
+                    this[this.tableAmortisationSchedule.AmmountPayColumn] = value;
                 }
             }
             
@@ -4386,14 +1317,14 @@ namespace Banking_System {
             public double Interest {
                 get {
                     try {
-                        return ((double)(this[this.tableRepaymentSchedule.InterestColumn]));
+                        return ((double)(this[this.tableAmortisationSchedule.InterestColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Interest\' in table \'RepaymentSchedule\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Interest\' in table \'AmortisationSchedule\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableRepaymentSchedule.InterestColumn] = value;
+                    this[this.tableAmortisationSchedule.InterestColumn] = value;
                 }
             }
             
@@ -4402,14 +1333,14 @@ namespace Banking_System {
             public double TotalAmmount {
                 get {
                     try {
-                        return ((double)(this[this.tableRepaymentSchedule.TotalAmmountColumn]));
+                        return ((double)(this[this.tableAmortisationSchedule.TotalAmmountColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'TotalAmmount\' in table \'RepaymentSchedule\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'TotalAmmount\' in table \'AmortisationSchedule\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableRepaymentSchedule.TotalAmmountColumn] = value;
+                    this[this.tableAmortisationSchedule.TotalAmmountColumn] = value;
                 }
             }
             
@@ -4417,26 +1348,10 @@ namespace Banking_System {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public string PaymentDate {
                 get {
-                    return ((string)(this[this.tableRepaymentSchedule.PaymentDateColumn]));
+                    return ((string)(this[this.tableAmortisationSchedule.PaymentDateColumn]));
                 }
                 set {
-                    this[this.tableRepaymentSchedule.PaymentDateColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string PaymentStatus {
-                get {
-                    try {
-                        return ((string)(this[this.tableRepaymentSchedule.PaymentStatusColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'PaymentStatus\' in table \'RepaymentSchedule\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableRepaymentSchedule.PaymentStatusColumn] = value;
+                    this[this.tableAmortisationSchedule.PaymentDateColumn] = value;
                 }
             }
             
@@ -4444,21 +1359,10 @@ namespace Banking_System {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public string Months {
                 get {
-                    return ((string)(this[this.tableRepaymentSchedule.MonthsColumn]));
+                    return ((string)(this[this.tableAmortisationSchedule.MonthsColumn]));
                 }
                 set {
-                    this[this.tableRepaymentSchedule.MonthsColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string Year {
-                get {
-                    return ((string)(this[this.tableRepaymentSchedule.YearColumn]));
-                }
-                set {
-                    this[this.tableRepaymentSchedule.YearColumn] = value;
+                    this[this.tableAmortisationSchedule.MonthsColumn] = value;
                 }
             }
             
@@ -4467,14 +1371,14 @@ namespace Banking_System {
             public double BalanceExist {
                 get {
                     try {
-                        return ((double)(this[this.tableRepaymentSchedule.BalanceExistColumn]));
+                        return ((double)(this[this.tableAmortisationSchedule.BalanceExistColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'BalanceExist\' in table \'RepaymentSchedule\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'BalanceExist\' in table \'AmortisationSchedule\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableRepaymentSchedule.BalanceExistColumn] = value;
+                    this[this.tableAmortisationSchedule.BalanceExistColumn] = value;
                 }
             }
             
@@ -4483,233 +1387,157 @@ namespace Banking_System {
             public double BeginningBalance {
                 get {
                     try {
-                        return ((double)(this[this.tableRepaymentSchedule.BeginningBalanceColumn]));
+                        return ((double)(this[this.tableAmortisationSchedule.BeginningBalanceColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'BeginningBalance\' in table \'RepaymentSchedule\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'BeginningBalance\' in table \'AmortisationSchedule\' is DBNull" +
+                                ".", e);
                     }
                 }
                 set {
-                    this[this.tableRepaymentSchedule.BeginningBalanceColumn] = value;
+                    this[this.tableAmortisationSchedule.BeginningBalanceColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string InsBranch {
-                get {
-                    return ((string)(this[this.tableRepaymentSchedule.InsBranchColumn]));
-                }
-                set {
-                    this[this.tableRepaymentSchedule.InsBranchColumn] = value;
-                }
+            public bool IsAccountNumberNull() {
+                return this.IsNull(this.tableAmortisationSchedule.AccountNumberColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string UploadStatus {
-                get {
-                    return ((string)(this[this.tableRepaymentSchedule.UploadStatusColumn]));
-                }
-                set {
-                    this[this.tableRepaymentSchedule.UploadStatusColumn] = value;
-                }
+            public void SetAccountNumberNull() {
+                this[this.tableAmortisationSchedule.AccountNumberColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsMemberIDNull() {
-                return this.IsNull(this.tableRepaymentSchedule.MemberIDColumn);
+            public bool IsAccountNameNull() {
+                return this.IsNull(this.tableAmortisationSchedule.AccountNameColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetMemberIDNull() {
-                this[this.tableRepaymentSchedule.MemberIDColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsMemberNameNull() {
-                return this.IsNull(this.tableRepaymentSchedule.MemberNameColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetMemberNameNull() {
-                this[this.tableRepaymentSchedule.MemberNameColumn] = global::System.Convert.DBNull;
+            public void SetAccountNameNull() {
+                this[this.tableAmortisationSchedule.AccountNameColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsAmmountPayNull() {
-                return this.IsNull(this.tableRepaymentSchedule.AmmountPayColumn);
+                return this.IsNull(this.tableAmortisationSchedule.AmmountPayColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetAmmountPayNull() {
-                this[this.tableRepaymentSchedule.AmmountPayColumn] = global::System.Convert.DBNull;
+                this[this.tableAmortisationSchedule.AmmountPayColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsInterestNull() {
-                return this.IsNull(this.tableRepaymentSchedule.InterestColumn);
+                return this.IsNull(this.tableAmortisationSchedule.InterestColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetInterestNull() {
-                this[this.tableRepaymentSchedule.InterestColumn] = global::System.Convert.DBNull;
+                this[this.tableAmortisationSchedule.InterestColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsTotalAmmountNull() {
-                return this.IsNull(this.tableRepaymentSchedule.TotalAmmountColumn);
+                return this.IsNull(this.tableAmortisationSchedule.TotalAmmountColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetTotalAmmountNull() {
-                this[this.tableRepaymentSchedule.TotalAmmountColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsPaymentStatusNull() {
-                return this.IsNull(this.tableRepaymentSchedule.PaymentStatusColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetPaymentStatusNull() {
-                this[this.tableRepaymentSchedule.PaymentStatusColumn] = global::System.Convert.DBNull;
+                this[this.tableAmortisationSchedule.TotalAmmountColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsBalanceExistNull() {
-                return this.IsNull(this.tableRepaymentSchedule.BalanceExistColumn);
+                return this.IsNull(this.tableAmortisationSchedule.BalanceExistColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetBalanceExistNull() {
-                this[this.tableRepaymentSchedule.BalanceExistColumn] = global::System.Convert.DBNull;
+                this[this.tableAmortisationSchedule.BalanceExistColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsBeginningBalanceNull() {
-                return this.IsNull(this.tableRepaymentSchedule.BeginningBalanceColumn);
+                return this.IsNull(this.tableAmortisationSchedule.BeginningBalanceColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetBeginningBalanceNull() {
-                this[this.tableRepaymentSchedule.BeginningBalanceColumn] = global::System.Convert.DBNull;
+                this[this.tableAmortisationSchedule.BeginningBalanceColumn] = global::System.Convert.DBNull;
             }
         }
         
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class ExternalLoanRepaymentRow : global::System.Data.DataRow {
+        public partial class LoanRow : global::System.Data.DataRow {
             
-            private ExternalLoanRepaymentDataTable tableExternalLoanRepayment;
+            private LoanDataTable tableLoan;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal ExternalLoanRepaymentRow(global::System.Data.DataRowBuilder rb) : 
+            internal LoanRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tableExternalLoanRepayment = ((ExternalLoanRepaymentDataTable)(this.Table));
+                this.tableLoan = ((LoanDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public int ID {
                 get {
-                    return ((int)(this[this.tableExternalLoanRepayment.IDColumn]));
+                    return ((int)(this[this.tableLoan.IDColumn]));
                 }
                 set {
-                    this[this.tableExternalLoanRepayment.IDColumn] = value;
+                    this[this.tableLoan.IDColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string RepaymentID {
-                get {
-                    return ((string)(this[this.tableExternalLoanRepayment.RepaymentIDColumn]));
-                }
-                set {
-                    this[this.tableExternalLoanRepayment.RepaymentIDColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int AmmountPaid {
+            public string AccountNo {
                 get {
                     try {
-                        return ((int)(this[this.tableExternalLoanRepayment.AmmountPaidColumn]));
+                        return ((string)(this[this.tableLoan.AccountNoColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'AmmountPaid\' in table \'ExternalLoanRepayment\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'AccountNo\' in table \'Loan\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableExternalLoanRepayment.AmmountPaidColumn] = value;
+                    this[this.tableLoan.AccountNoColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int Balance {
+            public string AccountName {
                 get {
                     try {
-                        return ((int)(this[this.tableExternalLoanRepayment.BalanceColumn]));
+                        return ((string)(this[this.tableLoan.AccountNameColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Balance\' in table \'ExternalLoanRepayment\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'AccountName\' in table \'Loan\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableExternalLoanRepayment.BalanceColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string RepayMonths {
-                get {
-                    try {
-                        return ((string)(this[this.tableExternalLoanRepayment.RepayMonthsColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'RepayMonths\' in table \'ExternalLoanRepayment\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableExternalLoanRepayment.RepayMonthsColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string PaidBy {
-                get {
-                    try {
-                        return ((string)(this[this.tableExternalLoanRepayment.PaidByColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'PaidBy\' in table \'ExternalLoanRepayment\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableExternalLoanRepayment.PaidByColumn] = value;
+                    this[this.tableLoan.AccountNameColumn] = value;
                 }
             }
             
@@ -4718,779 +1546,46 @@ namespace Banking_System {
             public string LoanID {
                 get {
                     try {
-                        return ((string)(this[this.tableExternalLoanRepayment.LoanIDColumn]));
+                        return ((string)(this[this.tableLoan.LoanIDColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'LoanID\' in table \'ExternalLoanRepayment\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'LoanID\' in table \'Loan\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableExternalLoanRepayment.LoanIDColumn] = value;
+                    this[this.tableLoan.LoanIDColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string Repaymentdate {
+            public int ServicingPeriod {
                 get {
                     try {
-                        return ((string)(this[this.tableExternalLoanRepayment.RepaymentdateColumn]));
+                        return ((int)(this[this.tableLoan.ServicingPeriodColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Repaymentdate\' in table \'ExternalLoanRepayment\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'ServicingPeriod\' in table \'Loan\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableExternalLoanRepayment.RepaymentdateColumn] = value;
+                    this[this.tableLoan.ServicingPeriodColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string Year {
+            public string RepaymentInterval {
                 get {
                     try {
-                        return ((string)(this[this.tableExternalLoanRepayment.YearColumn]));
+                        return ((string)(this[this.tableLoan.RepaymentIntervalColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Year\' in table \'ExternalLoanRepayment\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'RepaymentInterval\' in table \'Loan\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableExternalLoanRepayment.YearColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string Months {
-                get {
-                    try {
-                        return ((string)(this[this.tableExternalLoanRepayment.MonthsColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Months\' in table \'ExternalLoanRepayment\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableExternalLoanRepayment.MonthsColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int Interest {
-                get {
-                    try {
-                        return ((int)(this[this.tableExternalLoanRepayment.InterestColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Interest\' in table \'ExternalLoanRepayment\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableExternalLoanRepayment.InterestColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string ModeOfPayment {
-                get {
-                    try {
-                        return ((string)(this[this.tableExternalLoanRepayment.ModeOfPaymentColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'ModeOfPayment\' in table \'ExternalLoanRepayment\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableExternalLoanRepayment.ModeOfPaymentColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string InsBranch {
-                get {
-                    return ((string)(this[this.tableExternalLoanRepayment.InsBranchColumn]));
-                }
-                set {
-                    this[this.tableExternalLoanRepayment.InsBranchColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string UploadStatus {
-                get {
-                    return ((string)(this[this.tableExternalLoanRepayment.UploadStatusColumn]));
-                }
-                set {
-                    this[this.tableExternalLoanRepayment.UploadStatusColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsAmmountPaidNull() {
-                return this.IsNull(this.tableExternalLoanRepayment.AmmountPaidColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetAmmountPaidNull() {
-                this[this.tableExternalLoanRepayment.AmmountPaidColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsBalanceNull() {
-                return this.IsNull(this.tableExternalLoanRepayment.BalanceColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetBalanceNull() {
-                this[this.tableExternalLoanRepayment.BalanceColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsRepayMonthsNull() {
-                return this.IsNull(this.tableExternalLoanRepayment.RepayMonthsColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetRepayMonthsNull() {
-                this[this.tableExternalLoanRepayment.RepayMonthsColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsPaidByNull() {
-                return this.IsNull(this.tableExternalLoanRepayment.PaidByColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetPaidByNull() {
-                this[this.tableExternalLoanRepayment.PaidByColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsLoanIDNull() {
-                return this.IsNull(this.tableExternalLoanRepayment.LoanIDColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetLoanIDNull() {
-                this[this.tableExternalLoanRepayment.LoanIDColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsRepaymentdateNull() {
-                return this.IsNull(this.tableExternalLoanRepayment.RepaymentdateColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetRepaymentdateNull() {
-                this[this.tableExternalLoanRepayment.RepaymentdateColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsYearNull() {
-                return this.IsNull(this.tableExternalLoanRepayment.YearColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetYearNull() {
-                this[this.tableExternalLoanRepayment.YearColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsMonthsNull() {
-                return this.IsNull(this.tableExternalLoanRepayment.MonthsColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetMonthsNull() {
-                this[this.tableExternalLoanRepayment.MonthsColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsInterestNull() {
-                return this.IsNull(this.tableExternalLoanRepayment.InterestColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetInterestNull() {
-                this[this.tableExternalLoanRepayment.InterestColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsModeOfPaymentNull() {
-                return this.IsNull(this.tableExternalLoanRepayment.ModeOfPaymentColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetModeOfPaymentNull() {
-                this[this.tableExternalLoanRepayment.ModeOfPaymentColumn] = global::System.Convert.DBNull;
-            }
-        }
-        
-        /// <summary>
-        ///Represents strongly named DataRow class.
-        ///</summary>
-        public partial class ExternalLoansRow : global::System.Data.DataRow {
-            
-            private ExternalLoansDataTable tableExternalLoans;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal ExternalLoansRow(global::System.Data.DataRowBuilder rb) : 
-                    base(rb) {
-                this.tableExternalLoans = ((ExternalLoansDataTable)(this.Table));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int ID {
-                get {
-                    return ((int)(this[this.tableExternalLoans.IDColumn]));
-                }
-                set {
-                    this[this.tableExternalLoans.IDColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string LoansID {
-                get {
-                    return ((string)(this[this.tableExternalLoans.LoansIDColumn]));
-                }
-                set {
-                    this[this.tableExternalLoans.LoansIDColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int LoanAmmount {
-                get {
-                    try {
-                        return ((int)(this[this.tableExternalLoans.LoanAmmountColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'LoanAmmount\' in table \'ExternalLoans\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableExternalLoans.LoanAmmountColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public double InterestRate {
-                get {
-                    try {
-                        return ((double)(this[this.tableExternalLoans.InterestRateColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'InterestRate\' in table \'ExternalLoans\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableExternalLoans.InterestRateColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string Securities {
-                get {
-                    try {
-                        return ((string)(this[this.tableExternalLoans.SecuritiesColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Securities\' in table \'ExternalLoans\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableExternalLoans.SecuritiesColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string Comment {
-                get {
-                    try {
-                        return ((string)(this[this.tableExternalLoans.CommentColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Comment\' in table \'ExternalLoans\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableExternalLoans.CommentColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string OfficerName {
-                get {
-                    try {
-                        return ((string)(this[this.tableExternalLoans.OfficerNameColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'OfficerName\' in table \'ExternalLoans\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableExternalLoans.OfficerNameColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string Year {
-                get {
-                    try {
-                        return ((string)(this[this.tableExternalLoans.YearColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Year\' in table \'ExternalLoans\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableExternalLoans.YearColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string Months {
-                get {
-                    try {
-                        return ((string)(this[this.tableExternalLoans.MonthsColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Months\' in table \'ExternalLoans\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableExternalLoans.MonthsColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string Date {
-                get {
-                    try {
-                        return ((string)(this[this.tableExternalLoans.DateColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Date\' in table \'ExternalLoans\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableExternalLoans.DateColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string ManagerName {
-                get {
-                    return ((string)(this[this.tableExternalLoans.ManagerNameColumn]));
-                }
-                set {
-                    this[this.tableExternalLoans.ManagerNameColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string ReviewComment {
-                get {
-                    return ((string)(this[this.tableExternalLoans.ReviewCommentColumn]));
-                }
-                set {
-                    this[this.tableExternalLoans.ReviewCommentColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string ReviewDate {
-                get {
-                    try {
-                        return ((string)(this[this.tableExternalLoans.ReviewDateColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'ReviewDate\' in table \'ExternalLoans\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableExternalLoans.ReviewDateColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string ChairpersonName {
-                get {
-                    return ((string)(this[this.tableExternalLoans.ChairpersonNameColumn]));
-                }
-                set {
-                    this[this.tableExternalLoans.ChairpersonNameColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string Decision {
-                get {
-                    return ((string)(this[this.tableExternalLoans.DecisionColumn]));
-                }
-                set {
-                    this[this.tableExternalLoans.DecisionColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string DecisionDate {
-                get {
-                    try {
-                        return ((string)(this[this.tableExternalLoans.DecisionDateColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'DecisionDate\' in table \'ExternalLoans\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableExternalLoans.DecisionDateColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string Description {
-                get {
-                    return ((string)(this[this.tableExternalLoans.DescriptionColumn]));
-                }
-                set {
-                    this[this.tableExternalLoans.DescriptionColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int Period {
-                get {
-                    try {
-                        return ((int)(this[this.tableExternalLoans.PeriodColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Period\' in table \'ExternalLoans\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableExternalLoans.PeriodColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string Recieved {
-                get {
-                    return ((string)(this[this.tableExternalLoans.RecievedColumn]));
-                }
-                set {
-                    this[this.tableExternalLoans.RecievedColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string RecievedDate {
-                get {
-                    try {
-                        return ((string)(this[this.tableExternalLoans.RecievedDateColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'RecievedDate\' in table \'ExternalLoans\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableExternalLoans.RecievedDateColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string InsBranch {
-                get {
-                    return ((string)(this[this.tableExternalLoans.InsBranchColumn]));
-                }
-                set {
-                    this[this.tableExternalLoans.InsBranchColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string UploadStatus {
-                get {
-                    return ((string)(this[this.tableExternalLoans.UploadStatusColumn]));
-                }
-                set {
-                    this[this.tableExternalLoans.UploadStatusColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string ModeOfPayment {
-                get {
-                    try {
-                        return ((string)(this[this.tableExternalLoans.ModeOfPaymentColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'ModeOfPayment\' in table \'ExternalLoans\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableExternalLoans.ModeOfPaymentColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsLoanAmmountNull() {
-                return this.IsNull(this.tableExternalLoans.LoanAmmountColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetLoanAmmountNull() {
-                this[this.tableExternalLoans.LoanAmmountColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsInterestRateNull() {
-                return this.IsNull(this.tableExternalLoans.InterestRateColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetInterestRateNull() {
-                this[this.tableExternalLoans.InterestRateColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsSecuritiesNull() {
-                return this.IsNull(this.tableExternalLoans.SecuritiesColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetSecuritiesNull() {
-                this[this.tableExternalLoans.SecuritiesColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsCommentNull() {
-                return this.IsNull(this.tableExternalLoans.CommentColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetCommentNull() {
-                this[this.tableExternalLoans.CommentColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsOfficerNameNull() {
-                return this.IsNull(this.tableExternalLoans.OfficerNameColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetOfficerNameNull() {
-                this[this.tableExternalLoans.OfficerNameColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsYearNull() {
-                return this.IsNull(this.tableExternalLoans.YearColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetYearNull() {
-                this[this.tableExternalLoans.YearColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsMonthsNull() {
-                return this.IsNull(this.tableExternalLoans.MonthsColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetMonthsNull() {
-                this[this.tableExternalLoans.MonthsColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsDateNull() {
-                return this.IsNull(this.tableExternalLoans.DateColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetDateNull() {
-                this[this.tableExternalLoans.DateColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsReviewDateNull() {
-                return this.IsNull(this.tableExternalLoans.ReviewDateColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetReviewDateNull() {
-                this[this.tableExternalLoans.ReviewDateColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsDecisionDateNull() {
-                return this.IsNull(this.tableExternalLoans.DecisionDateColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetDecisionDateNull() {
-                this[this.tableExternalLoans.DecisionDateColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsPeriodNull() {
-                return this.IsNull(this.tableExternalLoans.PeriodColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetPeriodNull() {
-                this[this.tableExternalLoans.PeriodColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsRecievedDateNull() {
-                return this.IsNull(this.tableExternalLoans.RecievedDateColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetRecievedDateNull() {
-                this[this.tableExternalLoans.RecievedDateColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsModeOfPaymentNull() {
-                return this.IsNull(this.tableExternalLoans.ModeOfPaymentColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetModeOfPaymentNull() {
-                this[this.tableExternalLoans.ModeOfPaymentColumn] = global::System.Convert.DBNull;
-            }
-        }
-        
-        /// <summary>
-        ///Represents strongly named DataRow class.
-        ///</summary>
-        public partial class ExternalRepaymentScheduleRow : global::System.Data.DataRow {
-            
-            private ExternalRepaymentScheduleDataTable tableExternalRepaymentSchedule;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal ExternalRepaymentScheduleRow(global::System.Data.DataRowBuilder rb) : 
-                    base(rb) {
-                this.tableExternalRepaymentSchedule = ((ExternalRepaymentScheduleDataTable)(this.Table));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int ID {
-                get {
-                    return ((int)(this[this.tableExternalRepaymentSchedule.IDColumn]));
-                }
-                set {
-                    this[this.tableExternalRepaymentSchedule.IDColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string LoanID {
-                get {
-                    return ((string)(this[this.tableExternalRepaymentSchedule.LoanIDColumn]));
-                }
-                set {
-                    this[this.tableExternalRepaymentSchedule.LoanIDColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int AmmountPay {
-                get {
-                    try {
-                        return ((int)(this[this.tableExternalRepaymentSchedule.AmmountPayColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'AmmountPay\' in table \'ExternalRepaymentSchedule\' is DBNull." +
-                                "", e);
-                    }
-                }
-                set {
-                    this[this.tableExternalRepaymentSchedule.AmmountPayColumn] = value;
+                    this[this.tableLoan.RepaymentIntervalColumn] = value;
                 }
             }
             
@@ -5499,661 +1594,395 @@ namespace Banking_System {
             public double Interest {
                 get {
                     try {
-                        return ((double)(this[this.tableExternalRepaymentSchedule.InterestColumn]));
+                        return ((double)(this[this.tableLoan.InterestColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Interest\' in table \'ExternalRepaymentSchedule\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Interest\' in table \'Loan\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableExternalRepaymentSchedule.InterestColumn] = value;
+                    this[this.tableLoan.InterestColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public double TotalAmmount {
+            public string Collateral {
                 get {
                     try {
-                        return ((double)(this[this.tableExternalRepaymentSchedule.TotalAmmountColumn]));
+                        return ((string)(this[this.tableLoan.CollateralColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'TotalAmmount\' in table \'ExternalRepaymentSchedule\' is DBNul" +
-                                "l.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Collateral\' in table \'Loan\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableExternalRepaymentSchedule.TotalAmmountColumn] = value;
+                    this[this.tableLoan.CollateralColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string PaymentDate {
-                get {
-                    return ((string)(this[this.tableExternalRepaymentSchedule.PaymentDateColumn]));
-                }
-                set {
-                    this[this.tableExternalRepaymentSchedule.PaymentDateColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string PaymentStatus {
+            public int CollateralValue {
                 get {
                     try {
-                        return ((string)(this[this.tableExternalRepaymentSchedule.PaymentStatusColumn]));
+                        return ((int)(this[this.tableLoan.CollateralValueColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'PaymentStatus\' in table \'ExternalRepaymentSchedule\' is DBNu" +
-                                "ll.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'CollateralValue\' in table \'Loan\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableExternalRepaymentSchedule.PaymentStatusColumn] = value;
+                    this[this.tableLoan.CollateralValueColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string Months {
-                get {
-                    return ((string)(this[this.tableExternalRepaymentSchedule.MonthsColumn]));
-                }
-                set {
-                    this[this.tableExternalRepaymentSchedule.MonthsColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string Year {
-                get {
-                    return ((string)(this[this.tableExternalRepaymentSchedule.YearColumn]));
-                }
-                set {
-                    this[this.tableExternalRepaymentSchedule.YearColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public double BalanceExist {
+            public string RefereeName {
                 get {
                     try {
-                        return ((double)(this[this.tableExternalRepaymentSchedule.BalanceExistColumn]));
+                        return ((string)(this[this.tableLoan.RefereeNameColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'BalanceExist\' in table \'ExternalRepaymentSchedule\' is DBNul" +
-                                "l.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'RefereeName\' in table \'Loan\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableExternalRepaymentSchedule.BalanceExistColumn] = value;
+                    this[this.tableLoan.RefereeNameColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public double BeginningBalance {
+            public string RefereeTel {
                 get {
                     try {
-                        return ((double)(this[this.tableExternalRepaymentSchedule.BeginningBalanceColumn]));
+                        return ((string)(this[this.tableLoan.RefereeTelColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'BeginningBalance\' in table \'ExternalRepaymentSchedule\' is D" +
-                                "BNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'RefereeTel\' in table \'Loan\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableExternalRepaymentSchedule.BeginningBalanceColumn] = value;
+                    this[this.tableLoan.RefereeTelColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string InsBranch {
-                get {
-                    return ((string)(this[this.tableExternalRepaymentSchedule.InsBranchColumn]));
-                }
-                set {
-                    this[this.tableExternalRepaymentSchedule.InsBranchColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string UploadStatus {
-                get {
-                    return ((string)(this[this.tableExternalRepaymentSchedule.UploadStatusColumn]));
-                }
-                set {
-                    this[this.tableExternalRepaymentSchedule.UploadStatusColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsAmmountPayNull() {
-                return this.IsNull(this.tableExternalRepaymentSchedule.AmmountPayColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetAmmountPayNull() {
-                this[this.tableExternalRepaymentSchedule.AmmountPayColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsInterestNull() {
-                return this.IsNull(this.tableExternalRepaymentSchedule.InterestColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetInterestNull() {
-                this[this.tableExternalRepaymentSchedule.InterestColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsTotalAmmountNull() {
-                return this.IsNull(this.tableExternalRepaymentSchedule.TotalAmmountColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetTotalAmmountNull() {
-                this[this.tableExternalRepaymentSchedule.TotalAmmountColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsPaymentStatusNull() {
-                return this.IsNull(this.tableExternalRepaymentSchedule.PaymentStatusColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetPaymentStatusNull() {
-                this[this.tableExternalRepaymentSchedule.PaymentStatusColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsBalanceExistNull() {
-                return this.IsNull(this.tableExternalRepaymentSchedule.BalanceExistColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetBalanceExistNull() {
-                this[this.tableExternalRepaymentSchedule.BalanceExistColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsBeginningBalanceNull() {
-                return this.IsNull(this.tableExternalRepaymentSchedule.BeginningBalanceColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetBeginningBalanceNull() {
-                this[this.tableExternalRepaymentSchedule.BeginningBalanceColumn] = global::System.Convert.DBNull;
-            }
-        }
-        
-        /// <summary>
-        ///Represents strongly named DataRow class.
-        ///</summary>
-        public partial class LoanRepaymentRow : global::System.Data.DataRow {
-            
-            private LoanRepaymentDataTable tableLoanRepayment;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal LoanRepaymentRow(global::System.Data.DataRowBuilder rb) : 
-                    base(rb) {
-                this.tableLoanRepayment = ((LoanRepaymentDataTable)(this.Table));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int ID {
-                get {
-                    return ((int)(this[this.tableLoanRepayment.IDColumn]));
-                }
-                set {
-                    this[this.tableLoanRepayment.IDColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string RepaymentID {
-                get {
-                    return ((string)(this[this.tableLoanRepayment.RepaymentIDColumn]));
-                }
-                set {
-                    this[this.tableLoanRepayment.RepaymentIDColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int AmmountPaid {
+            public string RefereeAddress {
                 get {
                     try {
-                        return ((int)(this[this.tableLoanRepayment.AmmountPaidColumn]));
+                        return ((string)(this[this.tableLoan.RefereeAddressColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'AmmountPaid\' in table \'LoanRepayment\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'RefereeAddress\' in table \'Loan\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableLoanRepayment.AmmountPaidColumn] = value;
+                    this[this.tableLoan.RefereeAddressColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int TotalAmmount {
+            public string RefereeRelationship {
                 get {
                     try {
-                        return ((int)(this[this.tableLoanRepayment.TotalAmmountColumn]));
+                        return ((string)(this[this.tableLoan.RefereeRelationshipColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'TotalAmmount\' in table \'LoanRepayment\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'RefereeRelationship\' in table \'Loan\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableLoanRepayment.TotalAmmountColumn] = value;
+                    this[this.tableLoan.RefereeRelationshipColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int Balance {
+            public string ApplicationDate {
                 get {
                     try {
-                        return ((int)(this[this.tableLoanRepayment.BalanceColumn]));
+                        return ((string)(this[this.tableLoan.ApplicationDateColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Balance\' in table \'LoanRepayment\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'ApplicationDate\' in table \'Loan\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableLoanRepayment.BalanceColumn] = value;
+                    this[this.tableLoan.ApplicationDateColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string RepayMonths {
+            public string FirstApproval {
                 get {
                     try {
-                        return ((string)(this[this.tableLoanRepayment.RepayMonthsColumn]));
+                        return ((string)(this[this.tableLoan.FirstApprovalColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'RepayMonths\' in table \'LoanRepayment\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'FirstApproval\' in table \'Loan\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableLoanRepayment.RepayMonthsColumn] = value;
+                    this[this.tableLoan.FirstApprovalColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string CashierID {
+            public string ApprovalComment {
                 get {
                     try {
-                        return ((string)(this[this.tableLoanRepayment.CashierIDColumn]));
+                        return ((string)(this[this.tableLoan.ApprovalCommentColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'CashierID\' in table \'LoanRepayment\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'ApprovalComment\' in table \'Loan\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableLoanRepayment.CashierIDColumn] = value;
+                    this[this.tableLoan.ApprovalCommentColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string CashierName {
+            public string ApprovalDate {
                 get {
                     try {
-                        return ((string)(this[this.tableLoanRepayment.CashierNameColumn]));
+                        return ((string)(this[this.tableLoan.ApprovalDateColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'CashierName\' in table \'LoanRepayment\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'ApprovalDate\' in table \'Loan\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableLoanRepayment.CashierNameColumn] = value;
+                    this[this.tableLoan.ApprovalDateColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string LoanID {
+            public string ApprovedBy {
                 get {
                     try {
-                        return ((string)(this[this.tableLoanRepayment.LoanIDColumn]));
+                        return ((string)(this[this.tableLoan.ApprovedByColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'LoanID\' in table \'LoanRepayment\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'ApprovedBy\' in table \'Loan\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableLoanRepayment.LoanIDColumn] = value;
+                    this[this.tableLoan.ApprovedByColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string MemberID {
-                get {
-                    try {
-                        return ((string)(this[this.tableLoanRepayment.MemberIDColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'MemberID\' in table \'LoanRepayment\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableLoanRepayment.MemberIDColumn] = value;
-                }
+            public bool IsAccountNoNull() {
+                return this.IsNull(this.tableLoan.AccountNoColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string MemberName {
-                get {
-                    try {
-                        return ((string)(this[this.tableLoanRepayment.MemberNameColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'MemberName\' in table \'LoanRepayment\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableLoanRepayment.MemberNameColumn] = value;
-                }
+            public void SetAccountNoNull() {
+                this[this.tableLoan.AccountNoColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string Repaymentdate {
-                get {
-                    try {
-                        return ((string)(this[this.tableLoanRepayment.RepaymentdateColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Repaymentdate\' in table \'LoanRepayment\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableLoanRepayment.RepaymentdateColumn] = value;
-                }
+            public bool IsAccountNameNull() {
+                return this.IsNull(this.tableLoan.AccountNameColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string Year {
-                get {
-                    try {
-                        return ((string)(this[this.tableLoanRepayment.YearColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Year\' in table \'LoanRepayment\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableLoanRepayment.YearColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string Months {
-                get {
-                    try {
-                        return ((string)(this[this.tableLoanRepayment.MonthsColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Months\' in table \'LoanRepayment\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableLoanRepayment.MonthsColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int Interest {
-                get {
-                    try {
-                        return ((int)(this[this.tableLoanRepayment.InterestColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Interest\' in table \'LoanRepayment\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableLoanRepayment.InterestColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string ModeOfPayment {
-                get {
-                    try {
-                        return ((string)(this[this.tableLoanRepayment.ModeOfPaymentColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'ModeOfPayment\' in table \'LoanRepayment\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableLoanRepayment.ModeOfPaymentColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string InsBranch {
-                get {
-                    return ((string)(this[this.tableLoanRepayment.InsBranchColumn]));
-                }
-                set {
-                    this[this.tableLoanRepayment.InsBranchColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string UploadStatus {
-                get {
-                    return ((string)(this[this.tableLoanRepayment.UploadStatusColumn]));
-                }
-                set {
-                    this[this.tableLoanRepayment.UploadStatusColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsAmmountPaidNull() {
-                return this.IsNull(this.tableLoanRepayment.AmmountPaidColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetAmmountPaidNull() {
-                this[this.tableLoanRepayment.AmmountPaidColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsTotalAmmountNull() {
-                return this.IsNull(this.tableLoanRepayment.TotalAmmountColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetTotalAmmountNull() {
-                this[this.tableLoanRepayment.TotalAmmountColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsBalanceNull() {
-                return this.IsNull(this.tableLoanRepayment.BalanceColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetBalanceNull() {
-                this[this.tableLoanRepayment.BalanceColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsRepayMonthsNull() {
-                return this.IsNull(this.tableLoanRepayment.RepayMonthsColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetRepayMonthsNull() {
-                this[this.tableLoanRepayment.RepayMonthsColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsCashierIDNull() {
-                return this.IsNull(this.tableLoanRepayment.CashierIDColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetCashierIDNull() {
-                this[this.tableLoanRepayment.CashierIDColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsCashierNameNull() {
-                return this.IsNull(this.tableLoanRepayment.CashierNameColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetCashierNameNull() {
-                this[this.tableLoanRepayment.CashierNameColumn] = global::System.Convert.DBNull;
+            public void SetAccountNameNull() {
+                this[this.tableLoan.AccountNameColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsLoanIDNull() {
-                return this.IsNull(this.tableLoanRepayment.LoanIDColumn);
+                return this.IsNull(this.tableLoan.LoanIDColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetLoanIDNull() {
-                this[this.tableLoanRepayment.LoanIDColumn] = global::System.Convert.DBNull;
+                this[this.tableLoan.LoanIDColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsMemberIDNull() {
-                return this.IsNull(this.tableLoanRepayment.MemberIDColumn);
+            public bool IsServicingPeriodNull() {
+                return this.IsNull(this.tableLoan.ServicingPeriodColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetMemberIDNull() {
-                this[this.tableLoanRepayment.MemberIDColumn] = global::System.Convert.DBNull;
+            public void SetServicingPeriodNull() {
+                this[this.tableLoan.ServicingPeriodColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsMemberNameNull() {
-                return this.IsNull(this.tableLoanRepayment.MemberNameColumn);
+            public bool IsRepaymentIntervalNull() {
+                return this.IsNull(this.tableLoan.RepaymentIntervalColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetMemberNameNull() {
-                this[this.tableLoanRepayment.MemberNameColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsRepaymentdateNull() {
-                return this.IsNull(this.tableLoanRepayment.RepaymentdateColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetRepaymentdateNull() {
-                this[this.tableLoanRepayment.RepaymentdateColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsYearNull() {
-                return this.IsNull(this.tableLoanRepayment.YearColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetYearNull() {
-                this[this.tableLoanRepayment.YearColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsMonthsNull() {
-                return this.IsNull(this.tableLoanRepayment.MonthsColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetMonthsNull() {
-                this[this.tableLoanRepayment.MonthsColumn] = global::System.Convert.DBNull;
+            public void SetRepaymentIntervalNull() {
+                this[this.tableLoan.RepaymentIntervalColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsInterestNull() {
-                return this.IsNull(this.tableLoanRepayment.InterestColumn);
+                return this.IsNull(this.tableLoan.InterestColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetInterestNull() {
-                this[this.tableLoanRepayment.InterestColumn] = global::System.Convert.DBNull;
+                this[this.tableLoan.InterestColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsModeOfPaymentNull() {
-                return this.IsNull(this.tableLoanRepayment.ModeOfPaymentColumn);
+            public bool IsCollateralNull() {
+                return this.IsNull(this.tableLoan.CollateralColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetModeOfPaymentNull() {
-                this[this.tableLoanRepayment.ModeOfPaymentColumn] = global::System.Convert.DBNull;
+            public void SetCollateralNull() {
+                this[this.tableLoan.CollateralColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsCollateralValueNull() {
+                return this.IsNull(this.tableLoan.CollateralValueColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetCollateralValueNull() {
+                this[this.tableLoan.CollateralValueColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsRefereeNameNull() {
+                return this.IsNull(this.tableLoan.RefereeNameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetRefereeNameNull() {
+                this[this.tableLoan.RefereeNameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsRefereeTelNull() {
+                return this.IsNull(this.tableLoan.RefereeTelColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetRefereeTelNull() {
+                this[this.tableLoan.RefereeTelColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsRefereeAddressNull() {
+                return this.IsNull(this.tableLoan.RefereeAddressColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetRefereeAddressNull() {
+                this[this.tableLoan.RefereeAddressColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsRefereeRelationshipNull() {
+                return this.IsNull(this.tableLoan.RefereeRelationshipColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetRefereeRelationshipNull() {
+                this[this.tableLoan.RefereeRelationshipColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsApplicationDateNull() {
+                return this.IsNull(this.tableLoan.ApplicationDateColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetApplicationDateNull() {
+                this[this.tableLoan.ApplicationDateColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsFirstApprovalNull() {
+                return this.IsNull(this.tableLoan.FirstApprovalColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetFirstApprovalNull() {
+                this[this.tableLoan.FirstApprovalColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsApprovalCommentNull() {
+                return this.IsNull(this.tableLoan.ApprovalCommentColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetApprovalCommentNull() {
+                this[this.tableLoan.ApprovalCommentColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsApprovalDateNull() {
+                return this.IsNull(this.tableLoan.ApprovalDateColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetApprovalDateNull() {
+                this[this.tableLoan.ApprovalDateColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsApprovedByNull() {
+                return this.IsNull(this.tableLoan.ApprovedByColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetApprovedByNull() {
+                this[this.tableLoan.ApprovedByColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -6161,22 +1990,22 @@ namespace Banking_System {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public class LoansRowChangeEvent : global::System.EventArgs {
+        public class AmortisationScheduleRowChangeEvent : global::System.EventArgs {
             
-            private LoansRow eventRow;
+            private AmortisationScheduleRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public LoansRowChangeEvent(LoansRow row, global::System.Data.DataRowAction action) {
+            public AmortisationScheduleRowChangeEvent(AmortisationScheduleRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public LoansRow Row {
+            public AmortisationScheduleRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -6195,158 +2024,22 @@ namespace Banking_System {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public class RepaymentScheduleRowChangeEvent : global::System.EventArgs {
+        public class LoanRowChangeEvent : global::System.EventArgs {
             
-            private RepaymentScheduleRow eventRow;
+            private LoanRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public RepaymentScheduleRowChangeEvent(RepaymentScheduleRow row, global::System.Data.DataRowAction action) {
+            public LoanRowChangeEvent(LoanRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public RepaymentScheduleRow Row {
-                get {
-                    return this.eventRow;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataRowAction Action {
-                get {
-                    return this.eventAction;
-                }
-            }
-        }
-        
-        /// <summary>
-        ///Row event argument class
-        ///</summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public class ExternalLoanRepaymentRowChangeEvent : global::System.EventArgs {
-            
-            private ExternalLoanRepaymentRow eventRow;
-            
-            private global::System.Data.DataRowAction eventAction;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public ExternalLoanRepaymentRowChangeEvent(ExternalLoanRepaymentRow row, global::System.Data.DataRowAction action) {
-                this.eventRow = row;
-                this.eventAction = action;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public ExternalLoanRepaymentRow Row {
-                get {
-                    return this.eventRow;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataRowAction Action {
-                get {
-                    return this.eventAction;
-                }
-            }
-        }
-        
-        /// <summary>
-        ///Row event argument class
-        ///</summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public class ExternalLoansRowChangeEvent : global::System.EventArgs {
-            
-            private ExternalLoansRow eventRow;
-            
-            private global::System.Data.DataRowAction eventAction;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public ExternalLoansRowChangeEvent(ExternalLoansRow row, global::System.Data.DataRowAction action) {
-                this.eventRow = row;
-                this.eventAction = action;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public ExternalLoansRow Row {
-                get {
-                    return this.eventRow;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataRowAction Action {
-                get {
-                    return this.eventAction;
-                }
-            }
-        }
-        
-        /// <summary>
-        ///Row event argument class
-        ///</summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public class ExternalRepaymentScheduleRowChangeEvent : global::System.EventArgs {
-            
-            private ExternalRepaymentScheduleRow eventRow;
-            
-            private global::System.Data.DataRowAction eventAction;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public ExternalRepaymentScheduleRowChangeEvent(ExternalRepaymentScheduleRow row, global::System.Data.DataRowAction action) {
-                this.eventRow = row;
-                this.eventAction = action;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public ExternalRepaymentScheduleRow Row {
-                get {
-                    return this.eventRow;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataRowAction Action {
-                get {
-                    return this.eventAction;
-                }
-            }
-        }
-        
-        /// <summary>
-        ///Row event argument class
-        ///</summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public class LoanRepaymentRowChangeEvent : global::System.EventArgs {
-            
-            private LoanRepaymentRow eventRow;
-            
-            private global::System.Data.DataRowAction eventAction;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public LoanRepaymentRowChangeEvent(LoanRepaymentRow row, global::System.Data.DataRowAction action) {
-                this.eventRow = row;
-                this.eventAction = action;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public LoanRepaymentRow Row {
+            public LoanRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -6362,7 +2055,7 @@ namespace Banking_System {
         }
     }
 }
-namespace Banking_System.AloansDatasetTableAdapters {
+namespace Banking_System.ALoansDatasetTableAdapters {
     
     
     /// <summary>
@@ -6374,7 +2067,7 @@ namespace Banking_System.AloansDatasetTableAdapters {
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class LoansTableAdapter : global::System.ComponentModel.Component {
+    public partial class AmortisationScheduleTableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
@@ -6388,7 +2081,7 @@ namespace Banking_System.AloansDatasetTableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public LoansTableAdapter() {
+        public AmortisationScheduleTableAdapter() {
             this.ClearBeforeFill = true;
         }
         
@@ -6485,1465 +2178,40 @@ namespace Banking_System.AloansDatasetTableAdapters {
             this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "Loans";
-            tableMapping.ColumnMappings.Add("ID", "ID");
-            tableMapping.ColumnMappings.Add("LoansID", "LoansID");
-            tableMapping.ColumnMappings.Add("MemberID", "MemberID");
-            tableMapping.ColumnMappings.Add("MemberName", "MemberName");
-            tableMapping.ColumnMappings.Add("Identify", "Identify");
-            tableMapping.ColumnMappings.Add("LoanAmmount", "LoanAmmount");
-            tableMapping.ColumnMappings.Add("Site", "Site");
-            tableMapping.ColumnMappings.Add("Securities", "Securities");
-            tableMapping.ColumnMappings.Add("Income", "Income");
-            tableMapping.ColumnMappings.Add("Comment", "Comment");
-            tableMapping.ColumnMappings.Add("OfficerName", "OfficerName");
-            tableMapping.ColumnMappings.Add("Year", "Year");
-            tableMapping.ColumnMappings.Add("Months", "Months");
-            tableMapping.ColumnMappings.Add("Date", "Date");
-            tableMapping.ColumnMappings.Add("ManagerName", "ManagerName");
-            tableMapping.ColumnMappings.Add("ReviewComment", "ReviewComment");
-            tableMapping.ColumnMappings.Add("ReviewDate", "ReviewDate");
-            tableMapping.ColumnMappings.Add("ChairpersonName", "ChairpersonName");
-            tableMapping.ColumnMappings.Add("Decision", "Decision");
-            tableMapping.ColumnMappings.Add("DecisionDate", "DecisionDate");
-            tableMapping.ColumnMappings.Add("Description", "Description");
-            tableMapping.ColumnMappings.Add("Issue", "Issue");
-            tableMapping.ColumnMappings.Add("SecurityPhoto", "SecurityPhoto");
-            tableMapping.ColumnMappings.Add("Period", "Period");
-            tableMapping.ColumnMappings.Add("InsBranch", "InsBranch");
-            tableMapping.ColumnMappings.Add("UploadStatus", "UploadStatus");
-            this._adapter.TableMappings.Add(tableMapping);
-            this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[Loans] WHERE (([ID] = @Original_ID) AND ([LoansID] = @Original" +
-                "_LoansID) AND ((@IsNull_MemberID = 1 AND [MemberID] IS NULL) OR ([MemberID] = @O" +
-                "riginal_MemberID)) AND ((@IsNull_MemberName = 1 AND [MemberName] IS NULL) OR ([M" +
-                "emberName] = @Original_MemberName)) AND ([Identify] = @Original_Identify) AND ((" +
-                "@IsNull_LoanAmmount = 1 AND [LoanAmmount] IS NULL) OR ([LoanAmmount] = @Original" +
-                "_LoanAmmount)) AND ((@IsNull_Site = 1 AND [Site] IS NULL) OR ([Site] = @Original" +
-                "_Site)) AND ((@IsNull_Securities = 1 AND [Securities] IS NULL) OR ([Securities] " +
-                "= @Original_Securities)) AND ((@IsNull_Income = 1 AND [Income] IS NULL) OR ([Inc" +
-                "ome] = @Original_Income)) AND ((@IsNull_Comment = 1 AND [Comment] IS NULL) OR ([" +
-                "Comment] = @Original_Comment)) AND ((@IsNull_OfficerName = 1 AND [OfficerName] I" +
-                "S NULL) OR ([OfficerName] = @Original_OfficerName)) AND ((@IsNull_Year = 1 AND [" +
-                "Year] IS NULL) OR ([Year] = @Original_Year)) AND ((@IsNull_Months = 1 AND [Month" +
-                "s] IS NULL) OR ([Months] = @Original_Months)) AND ((@IsNull_Date = 1 AND [Date] " +
-                "IS NULL) OR ([Date] = @Original_Date)) AND ((@IsNull_ManagerName = 1 AND [Manage" +
-                "rName] IS NULL) OR ([ManagerName] = @Original_ManagerName)) AND ((@IsNull_Review" +
-                "Comment = 1 AND [ReviewComment] IS NULL) OR ([ReviewComment] = @Original_ReviewC" +
-                "omment)) AND ((@IsNull_ReviewDate = 1 AND [ReviewDate] IS NULL) OR ([ReviewDate]" +
-                " = @Original_ReviewDate)) AND ((@IsNull_ChairpersonName = 1 AND [ChairpersonName" +
-                "] IS NULL) OR ([ChairpersonName] = @Original_ChairpersonName)) AND ((@IsNull_Dec" +
-                "ision = 1 AND [Decision] IS NULL) OR ([Decision] = @Original_Decision)) AND ((@I" +
-                "sNull_DecisionDate = 1 AND [DecisionDate] IS NULL) OR ([DecisionDate] = @Origina" +
-                "l_DecisionDate)) AND ((@IsNull_Description = 1 AND [Description] IS NULL) OR ([D" +
-                "escription] = @Original_Description)) AND ((@IsNull_Issue = 1 AND [Issue] IS NUL" +
-                "L) OR ([Issue] = @Original_Issue)) AND ((@IsNull_Period = 1 AND [Period] IS NULL" +
-                ") OR ([Period] = @Original_Period)) AND ([InsBranch] = @Original_InsBranch) AND " +
-                "([UploadStatus] = @Original_UploadStatus))";
-            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_LoansID", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LoansID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_MemberID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MemberID", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MemberID", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MemberID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_MemberName", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MemberName", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MemberName", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MemberName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Identify", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Identify", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_LoanAmmount", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LoanAmmount", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_LoanAmmount", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LoanAmmount", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Site", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Site", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Site", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Site", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Securities", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Securities", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Securities", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Securities", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Income", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Income", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Income", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Income", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Comment", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Comment", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Comment", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Comment", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_OfficerName", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "OfficerName", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_OfficerName", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "OfficerName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Year", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Year", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Year", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Year", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Months", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Months", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Months", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Months", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Date", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Date", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Date", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Date", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_ManagerName", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ManagerName", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ManagerName", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ManagerName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_ReviewComment", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ReviewComment", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ReviewComment", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ReviewComment", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_ReviewDate", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ReviewDate", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ReviewDate", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ReviewDate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_ChairpersonName", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ChairpersonName", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ChairpersonName", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ChairpersonName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Decision", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Decision", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Decision", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Decision", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_DecisionDate", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DecisionDate", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_DecisionDate", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DecisionDate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Description", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Description", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Description", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Description", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Issue", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Issue", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Issue", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Issue", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Period", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Period", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Period", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Period", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_InsBranch", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "InsBranch", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_UploadStatus", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UploadStatus", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[Loans] ([LoansID], [MemberID], [MemberName], [Identify], [LoanAmmount], [Site], [Securities], [Income], [Comment], [OfficerName], [Year], [Months], [Date], [ManagerName], [ReviewComment], [ReviewDate], [ChairpersonName], [Decision], [DecisionDate], [Description], [Issue], [SecurityPhoto], [Period], [InsBranch], [UploadStatus]) VALUES (@LoansID, @MemberID, @MemberName, @Identify, @LoanAmmount, @Site, @Securities, @Income, @Comment, @OfficerName, @Year, @Months, @Date, @ManagerName, @ReviewComment, @ReviewDate, @ChairpersonName, @Decision, @DecisionDate, @Description, @Issue, @SecurityPhoto, @Period, @InsBranch, @UploadStatus);
-SELECT ID, LoansID, MemberID, MemberName, Identify, LoanAmmount, Site, Securities, Income, Comment, OfficerName, Year, Months, Date, ManagerName, ReviewComment, ReviewDate, ChairpersonName, Decision, DecisionDate, Description, Issue, SecurityPhoto, Period, InsBranch, UploadStatus FROM Loans WHERE (LoansID = @LoansID)";
-            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@LoansID", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LoansID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MemberID", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MemberID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MemberName", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MemberName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Identify", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Identify", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@LoanAmmount", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LoanAmmount", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Site", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Site", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Securities", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Securities", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Income", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Income", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Comment", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Comment", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@OfficerName", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "OfficerName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Year", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Year", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Months", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Months", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Date", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Date", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ManagerName", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ManagerName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ReviewComment", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ReviewComment", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ReviewDate", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ReviewDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ChairpersonName", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ChairpersonName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Decision", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Decision", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DecisionDate", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DecisionDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Description", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Description", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Issue", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Issue", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SecurityPhoto", global::System.Data.SqlDbType.Image, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SecurityPhoto", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Period", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Period", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@InsBranch", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "InsBranch", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@UploadStatus", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UploadStatus", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[Loans] SET [LoansID] = @LoansID, [MemberID] = @MemberID, [MemberNam" +
-                "e] = @MemberName, [Identify] = @Identify, [LoanAmmount] = @LoanAmmount, [Site] =" +
-                " @Site, [Securities] = @Securities, [Income] = @Income, [Comment] = @Comment, [O" +
-                "fficerName] = @OfficerName, [Year] = @Year, [Months] = @Months, [Date] = @Date, " +
-                "[ManagerName] = @ManagerName, [ReviewComment] = @ReviewComment, [ReviewDate] = @" +
-                "ReviewDate, [ChairpersonName] = @ChairpersonName, [Decision] = @Decision, [Decis" +
-                "ionDate] = @DecisionDate, [Description] = @Description, [Issue] = @Issue, [Secur" +
-                "ityPhoto] = @SecurityPhoto, [Period] = @Period, [InsBranch] = @InsBranch, [Uploa" +
-                "dStatus] = @UploadStatus WHERE (([ID] = @Original_ID) AND ([LoansID] = @Original" +
-                "_LoansID) AND ((@IsNull_MemberID = 1 AND [MemberID] IS NULL) OR ([MemberID] = @O" +
-                "riginal_MemberID)) AND ((@IsNull_MemberName = 1 AND [MemberName] IS NULL) OR ([M" +
-                "emberName] = @Original_MemberName)) AND ([Identify] = @Original_Identify) AND ((" +
-                "@IsNull_LoanAmmount = 1 AND [LoanAmmount] IS NULL) OR ([LoanAmmount] = @Original" +
-                "_LoanAmmount)) AND ((@IsNull_Site = 1 AND [Site] IS NULL) OR ([Site] = @Original" +
-                "_Site)) AND ((@IsNull_Securities = 1 AND [Securities] IS NULL) OR ([Securities] " +
-                "= @Original_Securities)) AND ((@IsNull_Income = 1 AND [Income] IS NULL) OR ([Inc" +
-                "ome] = @Original_Income)) AND ((@IsNull_Comment = 1 AND [Comment] IS NULL) OR ([" +
-                "Comment] = @Original_Comment)) AND ((@IsNull_OfficerName = 1 AND [OfficerName] I" +
-                "S NULL) OR ([OfficerName] = @Original_OfficerName)) AND ((@IsNull_Year = 1 AND [" +
-                "Year] IS NULL) OR ([Year] = @Original_Year)) AND ((@IsNull_Months = 1 AND [Month" +
-                "s] IS NULL) OR ([Months] = @Original_Months)) AND ((@IsNull_Date = 1 AND [Date] " +
-                "IS NULL) OR ([Date] = @Original_Date)) AND ((@IsNull_ManagerName = 1 AND [Manage" +
-                "rName] IS NULL) OR ([ManagerName] = @Original_ManagerName)) AND ((@IsNull_Review" +
-                "Comment = 1 AND [ReviewComment] IS NULL) OR ([ReviewComment] = @Original_ReviewC" +
-                "omment)) AND ((@IsNull_ReviewDate = 1 AND [ReviewDate] IS NULL) OR ([ReviewDate]" +
-                " = @Original_ReviewDate)) AND ((@IsNull_ChairpersonName = 1 AND [ChairpersonName" +
-                "] IS NULL) OR ([ChairpersonName] = @Original_ChairpersonName)) AND ((@IsNull_Dec" +
-                "ision = 1 AND [Decision] IS NULL) OR ([Decision] = @Original_Decision)) AND ((@I" +
-                "sNull_DecisionDate = 1 AND [DecisionDate] IS NULL) OR ([DecisionDate] = @Origina" +
-                "l_DecisionDate)) AND ((@IsNull_Description = 1 AND [Description] IS NULL) OR ([D" +
-                "escription] = @Original_Description)) AND ((@IsNull_Issue = 1 AND [Issue] IS NUL" +
-                "L) OR ([Issue] = @Original_Issue)) AND ((@IsNull_Period = 1 AND [Period] IS NULL" +
-                ") OR ([Period] = @Original_Period)) AND ([InsBranch] = @Original_InsBranch) AND " +
-                "([UploadStatus] = @Original_UploadStatus));\r\nSELECT ID, LoansID, MemberID, Membe" +
-                "rName, Identify, LoanAmmount, Site, Securities, Income, Comment, OfficerName, Ye" +
-                "ar, Months, Date, ManagerName, ReviewComment, ReviewDate, ChairpersonName, Decis" +
-                "ion, DecisionDate, Description, Issue, SecurityPhoto, Period, InsBranch, UploadS" +
-                "tatus FROM Loans WHERE (LoansID = @LoansID)";
-            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@LoansID", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LoansID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MemberID", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MemberID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MemberName", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MemberName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Identify", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Identify", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@LoanAmmount", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LoanAmmount", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Site", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Site", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Securities", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Securities", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Income", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Income", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Comment", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Comment", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@OfficerName", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "OfficerName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Year", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Year", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Months", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Months", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Date", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Date", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ManagerName", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ManagerName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ReviewComment", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ReviewComment", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ReviewDate", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ReviewDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ChairpersonName", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ChairpersonName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Decision", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Decision", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DecisionDate", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DecisionDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Description", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Description", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Issue", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Issue", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SecurityPhoto", global::System.Data.SqlDbType.Image, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SecurityPhoto", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Period", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Period", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@InsBranch", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "InsBranch", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@UploadStatus", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UploadStatus", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_LoansID", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LoansID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_MemberID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MemberID", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MemberID", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MemberID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_MemberName", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MemberName", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MemberName", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MemberName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Identify", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Identify", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_LoanAmmount", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LoanAmmount", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_LoanAmmount", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LoanAmmount", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Site", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Site", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Site", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Site", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Securities", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Securities", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Securities", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Securities", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Income", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Income", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Income", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Income", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Comment", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Comment", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Comment", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Comment", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_OfficerName", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "OfficerName", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_OfficerName", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "OfficerName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Year", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Year", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Year", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Year", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Months", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Months", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Months", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Months", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Date", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Date", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Date", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Date", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_ManagerName", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ManagerName", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ManagerName", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ManagerName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_ReviewComment", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ReviewComment", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ReviewComment", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ReviewComment", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_ReviewDate", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ReviewDate", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ReviewDate", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ReviewDate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_ChairpersonName", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ChairpersonName", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ChairpersonName", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ChairpersonName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Decision", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Decision", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Decision", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Decision", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_DecisionDate", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DecisionDate", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_DecisionDate", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DecisionDate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Description", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Description", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Description", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Description", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Issue", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Issue", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Issue", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Issue", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Period", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Period", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Period", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Period", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_InsBranch", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "InsBranch", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_UploadStatus", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UploadStatus", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private void InitConnection() {
-            this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::Banking_System.Properties.Settings.Default.BSConnectionString3;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
-            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT ID, LoansID, MemberID, MemberName, Identify, LoanAmmount, Site, Securities, Income, Comment, OfficerName, Year, Months, Date, ManagerName, ReviewComment, ReviewDate, ChairpersonName, Decision, DecisionDate, Description, Issue, SecurityPhoto, Period, InsBranch, UploadStatus FROM dbo.Loans";
-            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(AloansDataset.LoansDataTable dataTable) {
-            this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual AloansDataset.LoansDataTable GetData() {
-            this.Adapter.SelectCommand = this.CommandCollection[0];
-            AloansDataset.LoansDataTable dataTable = new AloansDataset.LoansDataTable();
-            this.Adapter.Fill(dataTable);
-            return dataTable;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(AloansDataset.LoansDataTable dataTable) {
-            return this.Adapter.Update(dataTable);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(AloansDataset dataSet) {
-            return this.Adapter.Update(dataSet, "Loans");
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow dataRow) {
-            return this.Adapter.Update(new global::System.Data.DataRow[] {
-                        dataRow});
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow[] dataRows) {
-            return this.Adapter.Update(dataRows);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(
-                    int Original_ID, 
-                    string Original_LoansID, 
-                    string Original_MemberID, 
-                    string Original_MemberName, 
-                    string Original_Identify, 
-                    global::System.Nullable<int> Original_LoanAmmount, 
-                    string Original_Site, 
-                    string Original_Securities, 
-                    global::System.Nullable<int> Original_Income, 
-                    string Original_Comment, 
-                    string Original_OfficerName, 
-                    string Original_Year, 
-                    string Original_Months, 
-                    string Original_Date, 
-                    string Original_ManagerName, 
-                    string Original_ReviewComment, 
-                    string Original_ReviewDate, 
-                    string Original_ChairpersonName, 
-                    string Original_Decision, 
-                    string Original_DecisionDate, 
-                    string Original_Description, 
-                    string Original_Issue, 
-                    global::System.Nullable<int> Original_Period, 
-                    string Original_InsBranch, 
-                    string Original_UploadStatus) {
-            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_ID));
-            if ((Original_LoansID == null)) {
-                throw new global::System.ArgumentNullException("Original_LoansID");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((string)(Original_LoansID));
-            }
-            if ((Original_MemberID == null)) {
-                this.Adapter.DeleteCommand.Parameters[2].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[3].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[2].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[3].Value = ((string)(Original_MemberID));
-            }
-            if ((Original_MemberName == null)) {
-                this.Adapter.DeleteCommand.Parameters[4].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[5].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[4].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[5].Value = ((string)(Original_MemberName));
-            }
-            if ((Original_Identify == null)) {
-                throw new global::System.ArgumentNullException("Original_Identify");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[6].Value = ((string)(Original_Identify));
-            }
-            if ((Original_LoanAmmount.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[8].Value = ((int)(Original_LoanAmmount.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[8].Value = global::System.DBNull.Value;
-            }
-            if ((Original_Site == null)) {
-                this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[10].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[10].Value = ((string)(Original_Site));
-            }
-            if ((Original_Securities == null)) {
-                this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[12].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[12].Value = ((string)(Original_Securities));
-            }
-            if ((Original_Income.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[13].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[14].Value = ((int)(Original_Income.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[13].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[14].Value = global::System.DBNull.Value;
-            }
-            if ((Original_Comment == null)) {
-                this.Adapter.DeleteCommand.Parameters[15].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[16].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[15].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[16].Value = ((string)(Original_Comment));
-            }
-            if ((Original_OfficerName == null)) {
-                this.Adapter.DeleteCommand.Parameters[17].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[18].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[17].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[18].Value = ((string)(Original_OfficerName));
-            }
-            if ((Original_Year == null)) {
-                this.Adapter.DeleteCommand.Parameters[19].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[20].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[19].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[20].Value = ((string)(Original_Year));
-            }
-            if ((Original_Months == null)) {
-                this.Adapter.DeleteCommand.Parameters[21].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[22].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[21].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[22].Value = ((string)(Original_Months));
-            }
-            if ((Original_Date == null)) {
-                this.Adapter.DeleteCommand.Parameters[23].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[24].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[23].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[24].Value = ((string)(Original_Date));
-            }
-            if ((Original_ManagerName == null)) {
-                this.Adapter.DeleteCommand.Parameters[25].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[26].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[25].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[26].Value = ((string)(Original_ManagerName));
-            }
-            if ((Original_ReviewComment == null)) {
-                this.Adapter.DeleteCommand.Parameters[27].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[28].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[27].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[28].Value = ((string)(Original_ReviewComment));
-            }
-            if ((Original_ReviewDate == null)) {
-                this.Adapter.DeleteCommand.Parameters[29].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[30].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[29].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[30].Value = ((string)(Original_ReviewDate));
-            }
-            if ((Original_ChairpersonName == null)) {
-                this.Adapter.DeleteCommand.Parameters[31].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[32].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[31].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[32].Value = ((string)(Original_ChairpersonName));
-            }
-            if ((Original_Decision == null)) {
-                this.Adapter.DeleteCommand.Parameters[33].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[34].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[33].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[34].Value = ((string)(Original_Decision));
-            }
-            if ((Original_DecisionDate == null)) {
-                this.Adapter.DeleteCommand.Parameters[35].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[36].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[35].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[36].Value = ((string)(Original_DecisionDate));
-            }
-            if ((Original_Description == null)) {
-                this.Adapter.DeleteCommand.Parameters[37].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[38].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[37].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[38].Value = ((string)(Original_Description));
-            }
-            if ((Original_Issue == null)) {
-                this.Adapter.DeleteCommand.Parameters[39].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[40].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[39].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[40].Value = ((string)(Original_Issue));
-            }
-            if ((Original_Period.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[41].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[42].Value = ((int)(Original_Period.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[41].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[42].Value = global::System.DBNull.Value;
-            }
-            if ((Original_InsBranch == null)) {
-                throw new global::System.ArgumentNullException("Original_InsBranch");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[43].Value = ((string)(Original_InsBranch));
-            }
-            if ((Original_UploadStatus == null)) {
-                throw new global::System.ArgumentNullException("Original_UploadStatus");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[44].Value = ((string)(Original_UploadStatus));
-            }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
-            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.DeleteCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.DeleteCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(
-                    string LoansID, 
-                    string MemberID, 
-                    string MemberName, 
-                    string Identify, 
-                    global::System.Nullable<int> LoanAmmount, 
-                    string Site, 
-                    string Securities, 
-                    global::System.Nullable<int> Income, 
-                    string Comment, 
-                    string OfficerName, 
-                    string Year, 
-                    string Months, 
-                    string Date, 
-                    string ManagerName, 
-                    string ReviewComment, 
-                    string ReviewDate, 
-                    string ChairpersonName, 
-                    string Decision, 
-                    string DecisionDate, 
-                    string Description, 
-                    string Issue, 
-                    byte[] SecurityPhoto, 
-                    global::System.Nullable<int> Period, 
-                    string InsBranch, 
-                    string UploadStatus) {
-            if ((LoansID == null)) {
-                throw new global::System.ArgumentNullException("LoansID");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(LoansID));
-            }
-            if ((MemberID == null)) {
-                this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(MemberID));
-            }
-            if ((MemberName == null)) {
-                this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(MemberName));
-            }
-            if ((Identify == null)) {
-                throw new global::System.ArgumentNullException("Identify");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(Identify));
-            }
-            if ((LoanAmmount.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[4].Value = ((int)(LoanAmmount.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
-            }
-            if ((Site == null)) {
-                this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[5].Value = ((string)(Site));
-            }
-            if ((Securities == null)) {
-                this.Adapter.InsertCommand.Parameters[6].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[6].Value = ((string)(Securities));
-            }
-            if ((Income.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[7].Value = ((int)(Income.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[7].Value = global::System.DBNull.Value;
-            }
-            if ((Comment == null)) {
-                this.Adapter.InsertCommand.Parameters[8].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[8].Value = ((string)(Comment));
-            }
-            if ((OfficerName == null)) {
-                this.Adapter.InsertCommand.Parameters[9].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[9].Value = ((string)(OfficerName));
-            }
-            if ((Year == null)) {
-                this.Adapter.InsertCommand.Parameters[10].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[10].Value = ((string)(Year));
-            }
-            if ((Months == null)) {
-                this.Adapter.InsertCommand.Parameters[11].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[11].Value = ((string)(Months));
-            }
-            if ((Date == null)) {
-                this.Adapter.InsertCommand.Parameters[12].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[12].Value = ((string)(Date));
-            }
-            if ((ManagerName == null)) {
-                this.Adapter.InsertCommand.Parameters[13].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[13].Value = ((string)(ManagerName));
-            }
-            if ((ReviewComment == null)) {
-                this.Adapter.InsertCommand.Parameters[14].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[14].Value = ((string)(ReviewComment));
-            }
-            if ((ReviewDate == null)) {
-                this.Adapter.InsertCommand.Parameters[15].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[15].Value = ((string)(ReviewDate));
-            }
-            if ((ChairpersonName == null)) {
-                this.Adapter.InsertCommand.Parameters[16].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[16].Value = ((string)(ChairpersonName));
-            }
-            if ((Decision == null)) {
-                this.Adapter.InsertCommand.Parameters[17].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[17].Value = ((string)(Decision));
-            }
-            if ((DecisionDate == null)) {
-                this.Adapter.InsertCommand.Parameters[18].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[18].Value = ((string)(DecisionDate));
-            }
-            if ((Description == null)) {
-                this.Adapter.InsertCommand.Parameters[19].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[19].Value = ((string)(Description));
-            }
-            if ((Issue == null)) {
-                this.Adapter.InsertCommand.Parameters[20].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[20].Value = ((string)(Issue));
-            }
-            if ((SecurityPhoto == null)) {
-                this.Adapter.InsertCommand.Parameters[21].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[21].Value = ((byte[])(SecurityPhoto));
-            }
-            if ((Period.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[22].Value = ((int)(Period.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[22].Value = global::System.DBNull.Value;
-            }
-            if ((InsBranch == null)) {
-                throw new global::System.ArgumentNullException("InsBranch");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[23].Value = ((string)(InsBranch));
-            }
-            if ((UploadStatus == null)) {
-                throw new global::System.ArgumentNullException("UploadStatus");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[24].Value = ((string)(UploadStatus));
-            }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
-            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.InsertCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.InsertCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(
-                    string LoansID, 
-                    string MemberID, 
-                    string MemberName, 
-                    string Identify, 
-                    global::System.Nullable<int> LoanAmmount, 
-                    string Site, 
-                    string Securities, 
-                    global::System.Nullable<int> Income, 
-                    string Comment, 
-                    string OfficerName, 
-                    string Year, 
-                    string Months, 
-                    string Date, 
-                    string ManagerName, 
-                    string ReviewComment, 
-                    string ReviewDate, 
-                    string ChairpersonName, 
-                    string Decision, 
-                    string DecisionDate, 
-                    string Description, 
-                    string Issue, 
-                    byte[] SecurityPhoto, 
-                    global::System.Nullable<int> Period, 
-                    string InsBranch, 
-                    string UploadStatus, 
-                    int Original_ID, 
-                    string Original_LoansID, 
-                    string Original_MemberID, 
-                    string Original_MemberName, 
-                    string Original_Identify, 
-                    global::System.Nullable<int> Original_LoanAmmount, 
-                    string Original_Site, 
-                    string Original_Securities, 
-                    global::System.Nullable<int> Original_Income, 
-                    string Original_Comment, 
-                    string Original_OfficerName, 
-                    string Original_Year, 
-                    string Original_Months, 
-                    string Original_Date, 
-                    string Original_ManagerName, 
-                    string Original_ReviewComment, 
-                    string Original_ReviewDate, 
-                    string Original_ChairpersonName, 
-                    string Original_Decision, 
-                    string Original_DecisionDate, 
-                    string Original_Description, 
-                    string Original_Issue, 
-                    global::System.Nullable<int> Original_Period, 
-                    string Original_InsBranch, 
-                    string Original_UploadStatus) {
-            if ((LoansID == null)) {
-                throw new global::System.ArgumentNullException("LoansID");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(LoansID));
-            }
-            if ((MemberID == null)) {
-                this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(MemberID));
-            }
-            if ((MemberName == null)) {
-                this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(MemberName));
-            }
-            if ((Identify == null)) {
-                throw new global::System.ArgumentNullException("Identify");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(Identify));
-            }
-            if ((LoanAmmount.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(LoanAmmount.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
-            }
-            if ((Site == null)) {
-                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(Site));
-            }
-            if ((Securities == null)) {
-                this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(Securities));
-            }
-            if ((Income.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(Income.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
-            }
-            if ((Comment == null)) {
-                this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(Comment));
-            }
-            if ((OfficerName == null)) {
-                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(OfficerName));
-            }
-            if ((Year == null)) {
-                this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(Year));
-            }
-            if ((Months == null)) {
-                this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(Months));
-            }
-            if ((Date == null)) {
-                this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(Date));
-            }
-            if ((ManagerName == null)) {
-                this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((string)(ManagerName));
-            }
-            if ((ReviewComment == null)) {
-                this.Adapter.UpdateCommand.Parameters[14].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((string)(ReviewComment));
-            }
-            if ((ReviewDate == null)) {
-                this.Adapter.UpdateCommand.Parameters[15].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((string)(ReviewDate));
-            }
-            if ((ChairpersonName == null)) {
-                this.Adapter.UpdateCommand.Parameters[16].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[16].Value = ((string)(ChairpersonName));
-            }
-            if ((Decision == null)) {
-                this.Adapter.UpdateCommand.Parameters[17].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[17].Value = ((string)(Decision));
-            }
-            if ((DecisionDate == null)) {
-                this.Adapter.UpdateCommand.Parameters[18].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[18].Value = ((string)(DecisionDate));
-            }
-            if ((Description == null)) {
-                this.Adapter.UpdateCommand.Parameters[19].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[19].Value = ((string)(Description));
-            }
-            if ((Issue == null)) {
-                this.Adapter.UpdateCommand.Parameters[20].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[20].Value = ((string)(Issue));
-            }
-            if ((SecurityPhoto == null)) {
-                this.Adapter.UpdateCommand.Parameters[21].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[21].Value = ((byte[])(SecurityPhoto));
-            }
-            if ((Period.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[22].Value = ((int)(Period.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[22].Value = global::System.DBNull.Value;
-            }
-            if ((InsBranch == null)) {
-                throw new global::System.ArgumentNullException("InsBranch");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[23].Value = ((string)(InsBranch));
-            }
-            if ((UploadStatus == null)) {
-                throw new global::System.ArgumentNullException("UploadStatus");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[24].Value = ((string)(UploadStatus));
-            }
-            this.Adapter.UpdateCommand.Parameters[25].Value = ((int)(Original_ID));
-            if ((Original_LoansID == null)) {
-                throw new global::System.ArgumentNullException("Original_LoansID");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[26].Value = ((string)(Original_LoansID));
-            }
-            if ((Original_MemberID == null)) {
-                this.Adapter.UpdateCommand.Parameters[27].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[28].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[27].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[28].Value = ((string)(Original_MemberID));
-            }
-            if ((Original_MemberName == null)) {
-                this.Adapter.UpdateCommand.Parameters[29].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[30].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[29].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[30].Value = ((string)(Original_MemberName));
-            }
-            if ((Original_Identify == null)) {
-                throw new global::System.ArgumentNullException("Original_Identify");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[31].Value = ((string)(Original_Identify));
-            }
-            if ((Original_LoanAmmount.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[32].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[33].Value = ((int)(Original_LoanAmmount.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[32].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[33].Value = global::System.DBNull.Value;
-            }
-            if ((Original_Site == null)) {
-                this.Adapter.UpdateCommand.Parameters[34].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[35].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[34].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[35].Value = ((string)(Original_Site));
-            }
-            if ((Original_Securities == null)) {
-                this.Adapter.UpdateCommand.Parameters[36].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[37].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[36].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[37].Value = ((string)(Original_Securities));
-            }
-            if ((Original_Income.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[38].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[39].Value = ((int)(Original_Income.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[38].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[39].Value = global::System.DBNull.Value;
-            }
-            if ((Original_Comment == null)) {
-                this.Adapter.UpdateCommand.Parameters[40].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[41].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[40].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[41].Value = ((string)(Original_Comment));
-            }
-            if ((Original_OfficerName == null)) {
-                this.Adapter.UpdateCommand.Parameters[42].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[43].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[42].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[43].Value = ((string)(Original_OfficerName));
-            }
-            if ((Original_Year == null)) {
-                this.Adapter.UpdateCommand.Parameters[44].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[45].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[44].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[45].Value = ((string)(Original_Year));
-            }
-            if ((Original_Months == null)) {
-                this.Adapter.UpdateCommand.Parameters[46].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[47].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[46].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[47].Value = ((string)(Original_Months));
-            }
-            if ((Original_Date == null)) {
-                this.Adapter.UpdateCommand.Parameters[48].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[49].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[48].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[49].Value = ((string)(Original_Date));
-            }
-            if ((Original_ManagerName == null)) {
-                this.Adapter.UpdateCommand.Parameters[50].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[51].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[50].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[51].Value = ((string)(Original_ManagerName));
-            }
-            if ((Original_ReviewComment == null)) {
-                this.Adapter.UpdateCommand.Parameters[52].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[53].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[52].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[53].Value = ((string)(Original_ReviewComment));
-            }
-            if ((Original_ReviewDate == null)) {
-                this.Adapter.UpdateCommand.Parameters[54].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[55].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[54].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[55].Value = ((string)(Original_ReviewDate));
-            }
-            if ((Original_ChairpersonName == null)) {
-                this.Adapter.UpdateCommand.Parameters[56].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[57].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[56].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[57].Value = ((string)(Original_ChairpersonName));
-            }
-            if ((Original_Decision == null)) {
-                this.Adapter.UpdateCommand.Parameters[58].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[59].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[58].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[59].Value = ((string)(Original_Decision));
-            }
-            if ((Original_DecisionDate == null)) {
-                this.Adapter.UpdateCommand.Parameters[60].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[61].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[60].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[61].Value = ((string)(Original_DecisionDate));
-            }
-            if ((Original_Description == null)) {
-                this.Adapter.UpdateCommand.Parameters[62].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[63].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[62].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[63].Value = ((string)(Original_Description));
-            }
-            if ((Original_Issue == null)) {
-                this.Adapter.UpdateCommand.Parameters[64].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[65].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[64].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[65].Value = ((string)(Original_Issue));
-            }
-            if ((Original_Period.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[66].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[67].Value = ((int)(Original_Period.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[66].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[67].Value = global::System.DBNull.Value;
-            }
-            if ((Original_InsBranch == null)) {
-                throw new global::System.ArgumentNullException("Original_InsBranch");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[68].Value = ((string)(Original_InsBranch));
-            }
-            if ((Original_UploadStatus == null)) {
-                throw new global::System.ArgumentNullException("Original_UploadStatus");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[69].Value = ((string)(Original_UploadStatus));
-            }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
-            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.UpdateCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.UpdateCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(
-                    string MemberID, 
-                    string MemberName, 
-                    string Identify, 
-                    global::System.Nullable<int> LoanAmmount, 
-                    string Site, 
-                    string Securities, 
-                    global::System.Nullable<int> Income, 
-                    string Comment, 
-                    string OfficerName, 
-                    string Year, 
-                    string Months, 
-                    string Date, 
-                    string ManagerName, 
-                    string ReviewComment, 
-                    string ReviewDate, 
-                    string ChairpersonName, 
-                    string Decision, 
-                    string DecisionDate, 
-                    string Description, 
-                    string Issue, 
-                    byte[] SecurityPhoto, 
-                    global::System.Nullable<int> Period, 
-                    string InsBranch, 
-                    string UploadStatus, 
-                    int Original_ID, 
-                    string Original_LoansID, 
-                    string Original_MemberID, 
-                    string Original_MemberName, 
-                    string Original_Identify, 
-                    global::System.Nullable<int> Original_LoanAmmount, 
-                    string Original_Site, 
-                    string Original_Securities, 
-                    global::System.Nullable<int> Original_Income, 
-                    string Original_Comment, 
-                    string Original_OfficerName, 
-                    string Original_Year, 
-                    string Original_Months, 
-                    string Original_Date, 
-                    string Original_ManagerName, 
-                    string Original_ReviewComment, 
-                    string Original_ReviewDate, 
-                    string Original_ChairpersonName, 
-                    string Original_Decision, 
-                    string Original_DecisionDate, 
-                    string Original_Description, 
-                    string Original_Issue, 
-                    global::System.Nullable<int> Original_Period, 
-                    string Original_InsBranch, 
-                    string Original_UploadStatus) {
-            return this.Update(Original_LoansID, MemberID, MemberName, Identify, LoanAmmount, Site, Securities, Income, Comment, OfficerName, Year, Months, Date, ManagerName, ReviewComment, ReviewDate, ChairpersonName, Decision, DecisionDate, Description, Issue, SecurityPhoto, Period, InsBranch, UploadStatus, Original_ID, Original_LoansID, Original_MemberID, Original_MemberName, Original_Identify, Original_LoanAmmount, Original_Site, Original_Securities, Original_Income, Original_Comment, Original_OfficerName, Original_Year, Original_Months, Original_Date, Original_ManagerName, Original_ReviewComment, Original_ReviewDate, Original_ChairpersonName, Original_Decision, Original_DecisionDate, Original_Description, Original_Issue, Original_Period, Original_InsBranch, Original_UploadStatus);
-        }
-    }
-    
-    /// <summary>
-    ///Represents the connection and commands used to retrieve and save data.
-    ///</summary>
-    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
-    [global::System.ComponentModel.ToolboxItem(true)]
-    [global::System.ComponentModel.DataObjectAttribute(true)]
-    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
-        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
-    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class RepaymentScheduleTableAdapter : global::System.ComponentModel.Component {
-        
-        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
-        
-        private global::System.Data.SqlClient.SqlConnection _connection;
-        
-        private global::System.Data.SqlClient.SqlTransaction _transaction;
-        
-        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
-        
-        private bool _clearBeforeFill;
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public RepaymentScheduleTableAdapter() {
-            this.ClearBeforeFill = true;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
-            get {
-                if ((this._adapter == null)) {
-                    this.InitAdapter();
-                }
-                return this._adapter;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        internal global::System.Data.SqlClient.SqlConnection Connection {
-            get {
-                if ((this._connection == null)) {
-                    this.InitConnection();
-                }
-                return this._connection;
-            }
-            set {
-                this._connection = value;
-                if ((this.Adapter.InsertCommand != null)) {
-                    this.Adapter.InsertCommand.Connection = value;
-                }
-                if ((this.Adapter.DeleteCommand != null)) {
-                    this.Adapter.DeleteCommand.Connection = value;
-                }
-                if ((this.Adapter.UpdateCommand != null)) {
-                    this.Adapter.UpdateCommand.Connection = value;
-                }
-                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
-                    if ((this.CommandCollection[i] != null)) {
-                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
-                    }
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        internal global::System.Data.SqlClient.SqlTransaction Transaction {
-            get {
-                return this._transaction;
-            }
-            set {
-                this._transaction = value;
-                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
-                    this.CommandCollection[i].Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.DeleteCommand != null))) {
-                    this.Adapter.DeleteCommand.Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.InsertCommand != null))) {
-                    this.Adapter.InsertCommand.Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.UpdateCommand != null))) {
-                    this.Adapter.UpdateCommand.Transaction = this._transaction;
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
-            get {
-                if ((this._commandCollection == null)) {
-                    this.InitCommandCollection();
-                }
-                return this._commandCollection;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public bool ClearBeforeFill {
-            get {
-                return this._clearBeforeFill;
-            }
-            set {
-                this._clearBeforeFill = value;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private void InitAdapter() {
-            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
-            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
-            tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "RepaymentSchedule";
+            tableMapping.DataSetTable = "AmortisationSchedule";
             tableMapping.ColumnMappings.Add("ID", "ID");
             tableMapping.ColumnMappings.Add("LoanID", "LoanID");
-            tableMapping.ColumnMappings.Add("MemberID", "MemberID");
-            tableMapping.ColumnMappings.Add("MemberName", "MemberName");
+            tableMapping.ColumnMappings.Add("AccountNumber", "AccountNumber");
+            tableMapping.ColumnMappings.Add("AccountName", "AccountName");
             tableMapping.ColumnMappings.Add("AmmountPay", "AmmountPay");
             tableMapping.ColumnMappings.Add("Interest", "Interest");
             tableMapping.ColumnMappings.Add("TotalAmmount", "TotalAmmount");
             tableMapping.ColumnMappings.Add("PaymentDate", "PaymentDate");
-            tableMapping.ColumnMappings.Add("PaymentStatus", "PaymentStatus");
             tableMapping.ColumnMappings.Add("Months", "Months");
-            tableMapping.ColumnMappings.Add("Year", "Year");
             tableMapping.ColumnMappings.Add("BalanceExist", "BalanceExist");
             tableMapping.ColumnMappings.Add("BeginningBalance", "BeginningBalance");
-            tableMapping.ColumnMappings.Add("InsBranch", "InsBranch");
-            tableMapping.ColumnMappings.Add("UploadStatus", "UploadStatus");
             this._adapter.TableMappings.Add(tableMapping);
-            this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[RepaymentSchedule] WHERE (([ID] = @Original_ID) AND ([LoanID] = @Original_LoanID) AND ((@IsNull_MemberID = 1 AND [MemberID] IS NULL) OR ([MemberID] = @Original_MemberID)) AND ((@IsNull_MemberName = 1 AND [MemberName] IS NULL) OR ([MemberName] = @Original_MemberName)) AND ((@IsNull_AmmountPay = 1 AND [AmmountPay] IS NULL) OR ([AmmountPay] = @Original_AmmountPay)) AND ((@IsNull_Interest = 1 AND [Interest] IS NULL) OR ([Interest] = @Original_Interest)) AND ((@IsNull_TotalAmmount = 1 AND [TotalAmmount] IS NULL) OR ([TotalAmmount] = @Original_TotalAmmount)) AND ([PaymentDate] = @Original_PaymentDate) AND ((@IsNull_PaymentStatus = 1 AND [PaymentStatus] IS NULL) OR ([PaymentStatus] = @Original_PaymentStatus)) AND ([Months] = @Original_Months) AND ([Year] = @Original_Year) AND ((@IsNull_BalanceExist = 1 AND [BalanceExist] IS NULL) OR ([BalanceExist] = @Original_BalanceExist)) AND ((@IsNull_BeginningBalance = 1 AND [BeginningBalance] IS NULL) OR ([BeginningBalance] = @Original_BeginningBalance)) AND ([InsBranch] = @Original_InsBranch) AND ([UploadStatus] = @Original_UploadStatus))";
-            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_LoanID", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LoanID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_MemberID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MemberID", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MemberID", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MemberID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_MemberName", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MemberName", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MemberName", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MemberName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_AmmountPay", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AmmountPay", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_AmmountPay", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AmmountPay", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Interest", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Interest", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Interest", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Interest", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_TotalAmmount", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TotalAmmount", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TotalAmmount", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TotalAmmount", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PaymentDate", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PaymentDate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_PaymentStatus", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PaymentStatus", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PaymentStatus", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PaymentStatus", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Months", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Months", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Year", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Year", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_BalanceExist", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BalanceExist", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_BalanceExist", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BalanceExist", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_BeginningBalance", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BeginningBalance", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_BeginningBalance", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BeginningBalance", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_InsBranch", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "InsBranch", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_UploadStatus", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UploadStatus", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[RepaymentSchedule] ([LoanID], [MemberID], [MemberName], [AmmountPay], [Interest], [TotalAmmount], [PaymentDate], [PaymentStatus], [Months], [Year], [BalanceExist], [BeginningBalance], [InsBranch], [UploadStatus]) VALUES (@LoanID, @MemberID, @MemberName, @AmmountPay, @Interest, @TotalAmmount, @PaymentDate, @PaymentStatus, @Months, @Year, @BalanceExist, @BeginningBalance, @InsBranch, @UploadStatus);
-SELECT ID, LoanID, MemberID, MemberName, AmmountPay, Interest, TotalAmmount, PaymentDate, PaymentStatus, Months, Year, BalanceExist, BeginningBalance, InsBranch, UploadStatus FROM RepaymentSchedule WHERE (LoanID = @LoanID) AND (Months = @Months) AND (PaymentDate = @PaymentDate)";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[AmortisationSchedule] ([LoanID], [AccountNumber], [AccountName], [AmmountPay], [Interest], [TotalAmmount], [PaymentDate], [Months], [BalanceExist], [BeginningBalance]) VALUES (@LoanID, @AccountNumber, @AccountName, @AmmountPay, @Interest, @TotalAmmount, @PaymentDate, @Months, @BalanceExist, @BeginningBalance)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@LoanID", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LoanID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MemberID", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MemberID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MemberName", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MemberName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AmmountPay", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AmmountPay", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AccountNumber", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AccountNumber", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AccountName", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AccountName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AmmountPay", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AmmountPay", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Interest", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Interest", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TotalAmmount", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TotalAmmount", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PaymentDate", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PaymentDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PaymentStatus", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PaymentStatus", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Months", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Months", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Year", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Year", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BalanceExist", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BalanceExist", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BeginningBalance", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BeginningBalance", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@InsBranch", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "InsBranch", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@UploadStatus", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UploadStatus", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[RepaymentSchedule] SET [LoanID] = @LoanID, [MemberID] = @MemberID, " +
-                "[MemberName] = @MemberName, [AmmountPay] = @AmmountPay, [Interest] = @Interest, " +
-                "[TotalAmmount] = @TotalAmmount, [PaymentDate] = @PaymentDate, [PaymentStatus] = " +
-                "@PaymentStatus, [Months] = @Months, [Year] = @Year, [BalanceExist] = @BalanceExi" +
-                "st, [BeginningBalance] = @BeginningBalance, [InsBranch] = @InsBranch, [UploadSta" +
-                "tus] = @UploadStatus WHERE (([ID] = @Original_ID) AND ([LoanID] = @Original_Loan" +
-                "ID) AND ((@IsNull_MemberID = 1 AND [MemberID] IS NULL) OR ([MemberID] = @Origina" +
-                "l_MemberID)) AND ((@IsNull_MemberName = 1 AND [MemberName] IS NULL) OR ([MemberN" +
-                "ame] = @Original_MemberName)) AND ((@IsNull_AmmountPay = 1 AND [AmmountPay] IS N" +
-                "ULL) OR ([AmmountPay] = @Original_AmmountPay)) AND ((@IsNull_Interest = 1 AND [I" +
-                "nterest] IS NULL) OR ([Interest] = @Original_Interest)) AND ((@IsNull_TotalAmmou" +
-                "nt = 1 AND [TotalAmmount] IS NULL) OR ([TotalAmmount] = @Original_TotalAmmount))" +
-                " AND ([PaymentDate] = @Original_PaymentDate) AND ((@IsNull_PaymentStatus = 1 AND" +
-                " [PaymentStatus] IS NULL) OR ([PaymentStatus] = @Original_PaymentStatus)) AND ([" +
-                "Months] = @Original_Months) AND ([Year] = @Original_Year) AND ((@IsNull_BalanceE" +
-                "xist = 1 AND [BalanceExist] IS NULL) OR ([BalanceExist] = @Original_BalanceExist" +
-                ")) AND ((@IsNull_BeginningBalance = 1 AND [BeginningBalance] IS NULL) OR ([Begin" +
-                "ningBalance] = @Original_BeginningBalance)) AND ([InsBranch] = @Original_InsBran" +
-                "ch) AND ([UploadStatus] = @Original_UploadStatus));\r\nSELECT ID, LoanID, MemberID" +
-                ", MemberName, AmmountPay, Interest, TotalAmmount, PaymentDate, PaymentStatus, Mo" +
-                "nths, Year, BalanceExist, BeginningBalance, InsBranch, UploadStatus FROM Repayme" +
-                "ntSchedule WHERE (LoanID = @LoanID) AND (Months = @Months) AND (PaymentDate = @P" +
-                "aymentDate)";
-            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@LoanID", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LoanID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MemberID", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MemberID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MemberName", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MemberName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AmmountPay", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AmmountPay", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Interest", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Interest", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TotalAmmount", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TotalAmmount", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PaymentDate", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PaymentDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PaymentStatus", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PaymentStatus", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Months", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Months", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Year", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Year", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BalanceExist", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BalanceExist", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BeginningBalance", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BeginningBalance", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@InsBranch", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "InsBranch", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@UploadStatus", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UploadStatus", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_LoanID", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LoanID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_MemberID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MemberID", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MemberID", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MemberID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_MemberName", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MemberName", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MemberName", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MemberName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_AmmountPay", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AmmountPay", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_AmmountPay", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AmmountPay", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Interest", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Interest", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Interest", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Interest", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_TotalAmmount", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TotalAmmount", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TotalAmmount", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TotalAmmount", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PaymentDate", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PaymentDate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_PaymentStatus", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PaymentStatus", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PaymentStatus", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PaymentStatus", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Months", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Months", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Year", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Year", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_BalanceExist", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BalanceExist", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_BalanceExist", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BalanceExist", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_BeginningBalance", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BeginningBalance", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_BeginningBalance", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BeginningBalance", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_InsBranch", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "InsBranch", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_UploadStatus", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UploadStatus", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::Banking_System.Properties.Settings.Default.BSConnectionString3;
+            this._connection.ConnectionString = global::Banking_System.Properties.Settings.Default.LendingConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -7952,9 +2220,9 @@ SELECT ID, LoanID, MemberID, MemberName, AmmountPay, Interest, TotalAmmount, Pay
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT ID, LoanID, MemberID, MemberName, AmmountPay, Interest, TotalAmmount, Paym" +
-                "entDate, PaymentStatus, Months, Year, BalanceExist, BeginningBalance, InsBranch," +
-                " UploadStatus FROM dbo.RepaymentSchedule";
+            this._commandCollection[0].CommandText = "SELECT ID, LoanID, AccountNumber, AccountName, AmmountPay, Interest, TotalAmmount" +
+                ", PaymentDate, Months, BalanceExist, BeginningBalance FROM dbo.AmortisationSched" +
+                "ule";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -7962,7 +2230,7 @@ SELECT ID, LoanID, MemberID, MemberName, AmmountPay, Interest, TotalAmmount, Pay
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(AloansDataset.RepaymentScheduleDataTable dataTable) {
+        public virtual int Fill(ALoansDataset.AmortisationScheduleDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -7975,9 +2243,9 @@ SELECT ID, LoanID, MemberID, MemberName, AmmountPay, Interest, TotalAmmount, Pay
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual AloansDataset.RepaymentScheduleDataTable GetData() {
+        public virtual ALoansDataset.AmortisationScheduleDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            AloansDataset.RepaymentScheduleDataTable dataTable = new AloansDataset.RepaymentScheduleDataTable();
+            ALoansDataset.AmortisationScheduleDataTable dataTable = new ALoansDataset.AmortisationScheduleDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -7985,15 +2253,15 @@ SELECT ID, LoanID, MemberID, MemberName, AmmountPay, Interest, TotalAmmount, Pay
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(AloansDataset.RepaymentScheduleDataTable dataTable) {
+        public virtual int Update(ALoansDataset.AmortisationScheduleDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(AloansDataset dataSet) {
-            return this.Adapter.Update(dataSet, "RepaymentSchedule");
+        public virtual int Update(ALoansDataset dataSet) {
+            return this.Adapter.Update(dataSet, "AmortisationSchedule");
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -8014,150 +2282,28 @@ SELECT ID, LoanID, MemberID, MemberName, AmmountPay, Interest, TotalAmmount, Pay
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_ID, string Original_LoanID, string Original_MemberID, string Original_MemberName, global::System.Nullable<int> Original_AmmountPay, global::System.Nullable<double> Original_Interest, global::System.Nullable<double> Original_TotalAmmount, string Original_PaymentDate, string Original_PaymentStatus, string Original_Months, string Original_Year, global::System.Nullable<double> Original_BalanceExist, global::System.Nullable<double> Original_BeginningBalance, string Original_InsBranch, string Original_UploadStatus) {
-            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_ID));
-            if ((Original_LoanID == null)) {
-                throw new global::System.ArgumentNullException("Original_LoanID");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((string)(Original_LoanID));
-            }
-            if ((Original_MemberID == null)) {
-                this.Adapter.DeleteCommand.Parameters[2].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[3].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[2].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[3].Value = ((string)(Original_MemberID));
-            }
-            if ((Original_MemberName == null)) {
-                this.Adapter.DeleteCommand.Parameters[4].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[5].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[4].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[5].Value = ((string)(Original_MemberName));
-            }
-            if ((Original_AmmountPay.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[6].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[7].Value = ((int)(Original_AmmountPay.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[6].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[7].Value = global::System.DBNull.Value;
-            }
-            if ((Original_Interest.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[8].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[9].Value = ((double)(Original_Interest.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[8].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[9].Value = global::System.DBNull.Value;
-            }
-            if ((Original_TotalAmmount.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[10].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[11].Value = ((double)(Original_TotalAmmount.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[10].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[11].Value = global::System.DBNull.Value;
-            }
-            if ((Original_PaymentDate == null)) {
-                throw new global::System.ArgumentNullException("Original_PaymentDate");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[12].Value = ((string)(Original_PaymentDate));
-            }
-            if ((Original_PaymentStatus == null)) {
-                this.Adapter.DeleteCommand.Parameters[13].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[14].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[13].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[14].Value = ((string)(Original_PaymentStatus));
-            }
-            if ((Original_Months == null)) {
-                throw new global::System.ArgumentNullException("Original_Months");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[15].Value = ((string)(Original_Months));
-            }
-            if ((Original_Year == null)) {
-                throw new global::System.ArgumentNullException("Original_Year");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[16].Value = ((string)(Original_Year));
-            }
-            if ((Original_BalanceExist.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[17].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[18].Value = ((double)(Original_BalanceExist.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[17].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[18].Value = global::System.DBNull.Value;
-            }
-            if ((Original_BeginningBalance.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[19].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[20].Value = ((double)(Original_BeginningBalance.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[19].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[20].Value = global::System.DBNull.Value;
-            }
-            if ((Original_InsBranch == null)) {
-                throw new global::System.ArgumentNullException("Original_InsBranch");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[21].Value = ((string)(Original_InsBranch));
-            }
-            if ((Original_UploadStatus == null)) {
-                throw new global::System.ArgumentNullException("Original_UploadStatus");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[22].Value = ((string)(Original_UploadStatus));
-            }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
-            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.DeleteCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.DeleteCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string LoanID, string MemberID, string MemberName, global::System.Nullable<int> AmmountPay, global::System.Nullable<double> Interest, global::System.Nullable<double> TotalAmmount, string PaymentDate, string PaymentStatus, string Months, string Year, global::System.Nullable<double> BalanceExist, global::System.Nullable<double> BeginningBalance, string InsBranch, string UploadStatus) {
+        public virtual int Insert(string LoanID, string AccountNumber, string AccountName, global::System.Nullable<double> AmmountPay, global::System.Nullable<double> Interest, global::System.Nullable<double> TotalAmmount, string PaymentDate, string Months, global::System.Nullable<double> BalanceExist, global::System.Nullable<double> BeginningBalance) {
             if ((LoanID == null)) {
                 throw new global::System.ArgumentNullException("LoanID");
             }
             else {
                 this.Adapter.InsertCommand.Parameters[0].Value = ((string)(LoanID));
             }
-            if ((MemberID == null)) {
+            if ((AccountNumber == null)) {
                 this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(MemberID));
+                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(AccountNumber));
             }
-            if ((MemberName == null)) {
+            if ((AccountName == null)) {
                 this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(MemberName));
+                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(AccountName));
             }
             if ((AmmountPay.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[3].Value = ((int)(AmmountPay.Value));
+                this.Adapter.InsertCommand.Parameters[3].Value = ((double)(AmmountPay.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
@@ -8180,2759 +2326,11 @@ SELECT ID, LoanID, MemberID, MemberName, AmmountPay, Interest, TotalAmmount, Pay
             else {
                 this.Adapter.InsertCommand.Parameters[6].Value = ((string)(PaymentDate));
             }
-            if ((PaymentStatus == null)) {
-                this.Adapter.InsertCommand.Parameters[7].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[7].Value = ((string)(PaymentStatus));
-            }
             if ((Months == null)) {
                 throw new global::System.ArgumentNullException("Months");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[8].Value = ((string)(Months));
-            }
-            if ((Year == null)) {
-                throw new global::System.ArgumentNullException("Year");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[9].Value = ((string)(Year));
-            }
-            if ((BalanceExist.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[10].Value = ((double)(BalanceExist.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[10].Value = global::System.DBNull.Value;
-            }
-            if ((BeginningBalance.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[11].Value = ((double)(BeginningBalance.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[11].Value = global::System.DBNull.Value;
-            }
-            if ((InsBranch == null)) {
-                throw new global::System.ArgumentNullException("InsBranch");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[12].Value = ((string)(InsBranch));
-            }
-            if ((UploadStatus == null)) {
-                throw new global::System.ArgumentNullException("UploadStatus");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[13].Value = ((string)(UploadStatus));
-            }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
-            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.InsertCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.InsertCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(
-                    string LoanID, 
-                    string MemberID, 
-                    string MemberName, 
-                    global::System.Nullable<int> AmmountPay, 
-                    global::System.Nullable<double> Interest, 
-                    global::System.Nullable<double> TotalAmmount, 
-                    string PaymentDate, 
-                    string PaymentStatus, 
-                    string Months, 
-                    string Year, 
-                    global::System.Nullable<double> BalanceExist, 
-                    global::System.Nullable<double> BeginningBalance, 
-                    string InsBranch, 
-                    string UploadStatus, 
-                    int Original_ID, 
-                    string Original_LoanID, 
-                    string Original_MemberID, 
-                    string Original_MemberName, 
-                    global::System.Nullable<int> Original_AmmountPay, 
-                    global::System.Nullable<double> Original_Interest, 
-                    global::System.Nullable<double> Original_TotalAmmount, 
-                    string Original_PaymentDate, 
-                    string Original_PaymentStatus, 
-                    string Original_Months, 
-                    string Original_Year, 
-                    global::System.Nullable<double> Original_BalanceExist, 
-                    global::System.Nullable<double> Original_BeginningBalance, 
-                    string Original_InsBranch, 
-                    string Original_UploadStatus) {
-            if ((LoanID == null)) {
-                throw new global::System.ArgumentNullException("LoanID");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(LoanID));
-            }
-            if ((MemberID == null)) {
-                this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(MemberID));
-            }
-            if ((MemberName == null)) {
-                this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(MemberName));
-            }
-            if ((AmmountPay.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(AmmountPay.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
-            }
-            if ((Interest.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((double)(Interest.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
-            }
-            if ((TotalAmmount.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((double)(TotalAmmount.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
-            }
-            if ((PaymentDate == null)) {
-                throw new global::System.ArgumentNullException("PaymentDate");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(PaymentDate));
-            }
-            if ((PaymentStatus == null)) {
-                this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(PaymentStatus));
-            }
-            if ((Months == null)) {
-                throw new global::System.ArgumentNullException("Months");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(Months));
-            }
-            if ((Year == null)) {
-                throw new global::System.ArgumentNullException("Year");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(Year));
-            }
-            if ((BalanceExist.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((double)(BalanceExist.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
-            }
-            if ((BeginningBalance.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((double)(BeginningBalance.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
-            }
-            if ((InsBranch == null)) {
-                throw new global::System.ArgumentNullException("InsBranch");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(InsBranch));
-            }
-            if ((UploadStatus == null)) {
-                throw new global::System.ArgumentNullException("UploadStatus");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((string)(UploadStatus));
-            }
-            this.Adapter.UpdateCommand.Parameters[14].Value = ((int)(Original_ID));
-            if ((Original_LoanID == null)) {
-                throw new global::System.ArgumentNullException("Original_LoanID");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((string)(Original_LoanID));
-            }
-            if ((Original_MemberID == null)) {
-                this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[17].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[17].Value = ((string)(Original_MemberID));
-            }
-            if ((Original_MemberName == null)) {
-                this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[19].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[19].Value = ((string)(Original_MemberName));
-            }
-            if ((Original_AmmountPay.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[21].Value = ((int)(Original_AmmountPay.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[21].Value = global::System.DBNull.Value;
-            }
-            if ((Original_Interest.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[22].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[23].Value = ((double)(Original_Interest.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[22].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[23].Value = global::System.DBNull.Value;
-            }
-            if ((Original_TotalAmmount.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[24].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[25].Value = ((double)(Original_TotalAmmount.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[24].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[25].Value = global::System.DBNull.Value;
-            }
-            if ((Original_PaymentDate == null)) {
-                throw new global::System.ArgumentNullException("Original_PaymentDate");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[26].Value = ((string)(Original_PaymentDate));
-            }
-            if ((Original_PaymentStatus == null)) {
-                this.Adapter.UpdateCommand.Parameters[27].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[28].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[27].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[28].Value = ((string)(Original_PaymentStatus));
-            }
-            if ((Original_Months == null)) {
-                throw new global::System.ArgumentNullException("Original_Months");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[29].Value = ((string)(Original_Months));
-            }
-            if ((Original_Year == null)) {
-                throw new global::System.ArgumentNullException("Original_Year");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[30].Value = ((string)(Original_Year));
-            }
-            if ((Original_BalanceExist.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[31].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[32].Value = ((double)(Original_BalanceExist.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[31].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[32].Value = global::System.DBNull.Value;
-            }
-            if ((Original_BeginningBalance.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[33].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[34].Value = ((double)(Original_BeginningBalance.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[33].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[34].Value = global::System.DBNull.Value;
-            }
-            if ((Original_InsBranch == null)) {
-                throw new global::System.ArgumentNullException("Original_InsBranch");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[35].Value = ((string)(Original_InsBranch));
-            }
-            if ((Original_UploadStatus == null)) {
-                throw new global::System.ArgumentNullException("Original_UploadStatus");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[36].Value = ((string)(Original_UploadStatus));
-            }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
-            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.UpdateCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.UpdateCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(
-                    string MemberID, 
-                    string MemberName, 
-                    global::System.Nullable<int> AmmountPay, 
-                    global::System.Nullable<double> Interest, 
-                    global::System.Nullable<double> TotalAmmount, 
-                    string PaymentStatus, 
-                    string Year, 
-                    global::System.Nullable<double> BalanceExist, 
-                    global::System.Nullable<double> BeginningBalance, 
-                    string InsBranch, 
-                    string UploadStatus, 
-                    int Original_ID, 
-                    string Original_LoanID, 
-                    string Original_MemberID, 
-                    string Original_MemberName, 
-                    global::System.Nullable<int> Original_AmmountPay, 
-                    global::System.Nullable<double> Original_Interest, 
-                    global::System.Nullable<double> Original_TotalAmmount, 
-                    string Original_PaymentDate, 
-                    string Original_PaymentStatus, 
-                    string Original_Months, 
-                    string Original_Year, 
-                    global::System.Nullable<double> Original_BalanceExist, 
-                    global::System.Nullable<double> Original_BeginningBalance, 
-                    string Original_InsBranch, 
-                    string Original_UploadStatus) {
-            return this.Update(Original_LoanID, MemberID, MemberName, AmmountPay, Interest, TotalAmmount, Original_PaymentDate, PaymentStatus, Original_Months, Year, BalanceExist, BeginningBalance, InsBranch, UploadStatus, Original_ID, Original_LoanID, Original_MemberID, Original_MemberName, Original_AmmountPay, Original_Interest, Original_TotalAmmount, Original_PaymentDate, Original_PaymentStatus, Original_Months, Original_Year, Original_BalanceExist, Original_BeginningBalance, Original_InsBranch, Original_UploadStatus);
-        }
-    }
-    
-    /// <summary>
-    ///Represents the connection and commands used to retrieve and save data.
-    ///</summary>
-    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
-    [global::System.ComponentModel.ToolboxItem(true)]
-    [global::System.ComponentModel.DataObjectAttribute(true)]
-    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
-        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
-    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class ExternalLoanRepaymentTableAdapter : global::System.ComponentModel.Component {
-        
-        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
-        
-        private global::System.Data.SqlClient.SqlConnection _connection;
-        
-        private global::System.Data.SqlClient.SqlTransaction _transaction;
-        
-        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
-        
-        private bool _clearBeforeFill;
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public ExternalLoanRepaymentTableAdapter() {
-            this.ClearBeforeFill = true;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
-            get {
-                if ((this._adapter == null)) {
-                    this.InitAdapter();
-                }
-                return this._adapter;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        internal global::System.Data.SqlClient.SqlConnection Connection {
-            get {
-                if ((this._connection == null)) {
-                    this.InitConnection();
-                }
-                return this._connection;
-            }
-            set {
-                this._connection = value;
-                if ((this.Adapter.InsertCommand != null)) {
-                    this.Adapter.InsertCommand.Connection = value;
-                }
-                if ((this.Adapter.DeleteCommand != null)) {
-                    this.Adapter.DeleteCommand.Connection = value;
-                }
-                if ((this.Adapter.UpdateCommand != null)) {
-                    this.Adapter.UpdateCommand.Connection = value;
-                }
-                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
-                    if ((this.CommandCollection[i] != null)) {
-                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
-                    }
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        internal global::System.Data.SqlClient.SqlTransaction Transaction {
-            get {
-                return this._transaction;
-            }
-            set {
-                this._transaction = value;
-                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
-                    this.CommandCollection[i].Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.DeleteCommand != null))) {
-                    this.Adapter.DeleteCommand.Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.InsertCommand != null))) {
-                    this.Adapter.InsertCommand.Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.UpdateCommand != null))) {
-                    this.Adapter.UpdateCommand.Transaction = this._transaction;
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
-            get {
-                if ((this._commandCollection == null)) {
-                    this.InitCommandCollection();
-                }
-                return this._commandCollection;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public bool ClearBeforeFill {
-            get {
-                return this._clearBeforeFill;
-            }
-            set {
-                this._clearBeforeFill = value;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private void InitAdapter() {
-            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
-            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
-            tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "ExternalLoanRepayment";
-            tableMapping.ColumnMappings.Add("ID", "ID");
-            tableMapping.ColumnMappings.Add("RepaymentID", "RepaymentID");
-            tableMapping.ColumnMappings.Add("AmmountPaid", "AmmountPaid");
-            tableMapping.ColumnMappings.Add("Balance", "Balance");
-            tableMapping.ColumnMappings.Add("RepayMonths", "RepayMonths");
-            tableMapping.ColumnMappings.Add("PaidBy", "PaidBy");
-            tableMapping.ColumnMappings.Add("LoanID", "LoanID");
-            tableMapping.ColumnMappings.Add("Repaymentdate", "Repaymentdate");
-            tableMapping.ColumnMappings.Add("Year", "Year");
-            tableMapping.ColumnMappings.Add("Months", "Months");
-            tableMapping.ColumnMappings.Add("Interest", "Interest");
-            tableMapping.ColumnMappings.Add("ModeOfPayment", "ModeOfPayment");
-            tableMapping.ColumnMappings.Add("InsBranch", "InsBranch");
-            tableMapping.ColumnMappings.Add("UploadStatus", "UploadStatus");
-            this._adapter.TableMappings.Add(tableMapping);
-            this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[ExternalLoanRepayment] WHERE (([ID] = @Original_ID) AND ([RepaymentID] = @Original_RepaymentID) AND ((@IsNull_AmmountPaid = 1 AND [AmmountPaid] IS NULL) OR ([AmmountPaid] = @Original_AmmountPaid)) AND ((@IsNull_Balance = 1 AND [Balance] IS NULL) OR ([Balance] = @Original_Balance)) AND ((@IsNull_RepayMonths = 1 AND [RepayMonths] IS NULL) OR ([RepayMonths] = @Original_RepayMonths)) AND ((@IsNull_PaidBy = 1 AND [PaidBy] IS NULL) OR ([PaidBy] = @Original_PaidBy)) AND ((@IsNull_LoanID = 1 AND [LoanID] IS NULL) OR ([LoanID] = @Original_LoanID)) AND ((@IsNull_Repaymentdate = 1 AND [Repaymentdate] IS NULL) OR ([Repaymentdate] = @Original_Repaymentdate)) AND ((@IsNull_Year = 1 AND [Year] IS NULL) OR ([Year] = @Original_Year)) AND ((@IsNull_Months = 1 AND [Months] IS NULL) OR ([Months] = @Original_Months)) AND ((@IsNull_Interest = 1 AND [Interest] IS NULL) OR ([Interest] = @Original_Interest)) AND ((@IsNull_ModeOfPayment = 1 AND [ModeOfPayment] IS NULL) OR ([ModeOfPayment] = @Original_ModeOfPayment)) AND ([InsBranch] = @Original_InsBranch) AND ([UploadStatus] = @Original_UploadStatus))";
-            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_RepaymentID", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RepaymentID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_AmmountPaid", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AmmountPaid", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_AmmountPaid", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AmmountPaid", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Balance", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Balance", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Balance", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Balance", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_RepayMonths", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RepayMonths", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_RepayMonths", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RepayMonths", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_PaidBy", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PaidBy", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PaidBy", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PaidBy", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_LoanID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LoanID", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_LoanID", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LoanID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Repaymentdate", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Repaymentdate", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Repaymentdate", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Repaymentdate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Year", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Year", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Year", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Year", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Months", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Months", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Months", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Months", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Interest", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Interest", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Interest", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Interest", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_ModeOfPayment", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ModeOfPayment", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ModeOfPayment", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ModeOfPayment", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_InsBranch", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "InsBranch", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_UploadStatus", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UploadStatus", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[ExternalLoanRepayment] ([RepaymentID], [AmmountPaid], [Balance], [RepayMonths], [PaidBy], [LoanID], [Repaymentdate], [Year], [Months], [Interest], [ModeOfPayment], [InsBranch], [UploadStatus]) VALUES (@RepaymentID, @AmmountPaid, @Balance, @RepayMonths, @PaidBy, @LoanID, @Repaymentdate, @Year, @Months, @Interest, @ModeOfPayment, @InsBranch, @UploadStatus);
-SELECT ID, RepaymentID, AmmountPaid, Balance, RepayMonths, PaidBy, LoanID, Repaymentdate, Year, Months, Interest, ModeOfPayment, InsBranch, UploadStatus FROM ExternalLoanRepayment WHERE (RepaymentID = @RepaymentID)";
-            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RepaymentID", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RepaymentID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AmmountPaid", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AmmountPaid", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Balance", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Balance", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RepayMonths", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RepayMonths", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PaidBy", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PaidBy", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@LoanID", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LoanID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Repaymentdate", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Repaymentdate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Year", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Year", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Months", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Months", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Interest", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Interest", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ModeOfPayment", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ModeOfPayment", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@InsBranch", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "InsBranch", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@UploadStatus", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UploadStatus", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[ExternalLoanRepayment] SET [RepaymentID] = @RepaymentID, [AmmountPa" +
-                "id] = @AmmountPaid, [Balance] = @Balance, [RepayMonths] = @RepayMonths, [PaidBy]" +
-                " = @PaidBy, [LoanID] = @LoanID, [Repaymentdate] = @Repaymentdate, [Year] = @Year" +
-                ", [Months] = @Months, [Interest] = @Interest, [ModeOfPayment] = @ModeOfPayment, " +
-                "[InsBranch] = @InsBranch, [UploadStatus] = @UploadStatus WHERE (([ID] = @Origina" +
-                "l_ID) AND ([RepaymentID] = @Original_RepaymentID) AND ((@IsNull_AmmountPaid = 1 " +
-                "AND [AmmountPaid] IS NULL) OR ([AmmountPaid] = @Original_AmmountPaid)) AND ((@Is" +
-                "Null_Balance = 1 AND [Balance] IS NULL) OR ([Balance] = @Original_Balance)) AND " +
-                "((@IsNull_RepayMonths = 1 AND [RepayMonths] IS NULL) OR ([RepayMonths] = @Origin" +
-                "al_RepayMonths)) AND ((@IsNull_PaidBy = 1 AND [PaidBy] IS NULL) OR ([PaidBy] = @" +
-                "Original_PaidBy)) AND ((@IsNull_LoanID = 1 AND [LoanID] IS NULL) OR ([LoanID] = " +
-                "@Original_LoanID)) AND ((@IsNull_Repaymentdate = 1 AND [Repaymentdate] IS NULL) " +
-                "OR ([Repaymentdate] = @Original_Repaymentdate)) AND ((@IsNull_Year = 1 AND [Year" +
-                "] IS NULL) OR ([Year] = @Original_Year)) AND ((@IsNull_Months = 1 AND [Months] I" +
-                "S NULL) OR ([Months] = @Original_Months)) AND ((@IsNull_Interest = 1 AND [Intere" +
-                "st] IS NULL) OR ([Interest] = @Original_Interest)) AND ((@IsNull_ModeOfPayment =" +
-                " 1 AND [ModeOfPayment] IS NULL) OR ([ModeOfPayment] = @Original_ModeOfPayment)) " +
-                "AND ([InsBranch] = @Original_InsBranch) AND ([UploadStatus] = @Original_UploadSt" +
-                "atus));\r\nSELECT ID, RepaymentID, AmmountPaid, Balance, RepayMonths, PaidBy, Loan" +
-                "ID, Repaymentdate, Year, Months, Interest, ModeOfPayment, InsBranch, UploadStatu" +
-                "s FROM ExternalLoanRepayment WHERE (RepaymentID = @RepaymentID)";
-            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RepaymentID", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RepaymentID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AmmountPaid", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AmmountPaid", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Balance", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Balance", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RepayMonths", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RepayMonths", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PaidBy", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PaidBy", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@LoanID", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LoanID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Repaymentdate", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Repaymentdate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Year", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Year", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Months", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Months", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Interest", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Interest", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ModeOfPayment", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ModeOfPayment", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@InsBranch", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "InsBranch", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@UploadStatus", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UploadStatus", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_RepaymentID", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RepaymentID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_AmmountPaid", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AmmountPaid", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_AmmountPaid", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AmmountPaid", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Balance", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Balance", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Balance", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Balance", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_RepayMonths", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RepayMonths", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_RepayMonths", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RepayMonths", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_PaidBy", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PaidBy", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PaidBy", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PaidBy", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_LoanID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LoanID", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_LoanID", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LoanID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Repaymentdate", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Repaymentdate", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Repaymentdate", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Repaymentdate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Year", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Year", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Year", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Year", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Months", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Months", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Months", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Months", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Interest", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Interest", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Interest", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Interest", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_ModeOfPayment", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ModeOfPayment", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ModeOfPayment", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ModeOfPayment", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_InsBranch", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "InsBranch", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_UploadStatus", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UploadStatus", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private void InitConnection() {
-            this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::Banking_System.Properties.Settings.Default.BSConnectionString3;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
-            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT ID, RepaymentID, AmmountPaid, Balance, RepayMonths, PaidBy, LoanID, Repaym" +
-                "entdate, Year, Months, Interest, ModeOfPayment, InsBranch, UploadStatus FROM dbo" +
-                ".ExternalLoanRepayment";
-            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(AloansDataset.ExternalLoanRepaymentDataTable dataTable) {
-            this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual AloansDataset.ExternalLoanRepaymentDataTable GetData() {
-            this.Adapter.SelectCommand = this.CommandCollection[0];
-            AloansDataset.ExternalLoanRepaymentDataTable dataTable = new AloansDataset.ExternalLoanRepaymentDataTable();
-            this.Adapter.Fill(dataTable);
-            return dataTable;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(AloansDataset.ExternalLoanRepaymentDataTable dataTable) {
-            return this.Adapter.Update(dataTable);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(AloansDataset dataSet) {
-            return this.Adapter.Update(dataSet, "ExternalLoanRepayment");
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow dataRow) {
-            return this.Adapter.Update(new global::System.Data.DataRow[] {
-                        dataRow});
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow[] dataRows) {
-            return this.Adapter.Update(dataRows);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_ID, string Original_RepaymentID, global::System.Nullable<int> Original_AmmountPaid, global::System.Nullable<int> Original_Balance, string Original_RepayMonths, string Original_PaidBy, string Original_LoanID, string Original_Repaymentdate, string Original_Year, string Original_Months, global::System.Nullable<int> Original_Interest, string Original_ModeOfPayment, string Original_InsBranch, string Original_UploadStatus) {
-            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_ID));
-            if ((Original_RepaymentID == null)) {
-                throw new global::System.ArgumentNullException("Original_RepaymentID");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((string)(Original_RepaymentID));
-            }
-            if ((Original_AmmountPaid.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[2].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[3].Value = ((int)(Original_AmmountPaid.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[2].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[3].Value = global::System.DBNull.Value;
-            }
-            if ((Original_Balance.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[4].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[5].Value = ((int)(Original_Balance.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[4].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[5].Value = global::System.DBNull.Value;
-            }
-            if ((Original_RepayMonths == null)) {
-                this.Adapter.DeleteCommand.Parameters[6].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[7].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[6].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[7].Value = ((string)(Original_RepayMonths));
-            }
-            if ((Original_PaidBy == null)) {
-                this.Adapter.DeleteCommand.Parameters[8].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[9].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[8].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[9].Value = ((string)(Original_PaidBy));
-            }
-            if ((Original_LoanID == null)) {
-                this.Adapter.DeleteCommand.Parameters[10].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[11].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[10].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[11].Value = ((string)(Original_LoanID));
-            }
-            if ((Original_Repaymentdate == null)) {
-                this.Adapter.DeleteCommand.Parameters[12].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[13].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[12].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[13].Value = ((string)(Original_Repaymentdate));
-            }
-            if ((Original_Year == null)) {
-                this.Adapter.DeleteCommand.Parameters[14].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[15].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[14].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[15].Value = ((string)(Original_Year));
-            }
-            if ((Original_Months == null)) {
-                this.Adapter.DeleteCommand.Parameters[16].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[17].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[16].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[17].Value = ((string)(Original_Months));
-            }
-            if ((Original_Interest.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[18].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[19].Value = ((int)(Original_Interest.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[18].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[19].Value = global::System.DBNull.Value;
-            }
-            if ((Original_ModeOfPayment == null)) {
-                this.Adapter.DeleteCommand.Parameters[20].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[21].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[20].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[21].Value = ((string)(Original_ModeOfPayment));
-            }
-            if ((Original_InsBranch == null)) {
-                throw new global::System.ArgumentNullException("Original_InsBranch");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[22].Value = ((string)(Original_InsBranch));
-            }
-            if ((Original_UploadStatus == null)) {
-                throw new global::System.ArgumentNullException("Original_UploadStatus");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[23].Value = ((string)(Original_UploadStatus));
-            }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
-            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.DeleteCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.DeleteCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string RepaymentID, global::System.Nullable<int> AmmountPaid, global::System.Nullable<int> Balance, string RepayMonths, string PaidBy, string LoanID, string Repaymentdate, string Year, string Months, global::System.Nullable<int> Interest, string ModeOfPayment, string InsBranch, string UploadStatus) {
-            if ((RepaymentID == null)) {
-                throw new global::System.ArgumentNullException("RepaymentID");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(RepaymentID));
-            }
-            if ((AmmountPaid.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((int)(AmmountPaid.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            if ((Balance.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((int)(Balance.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            if ((RepayMonths == null)) {
-                this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(RepayMonths));
-            }
-            if ((PaidBy == null)) {
-                this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(PaidBy));
-            }
-            if ((LoanID == null)) {
-                this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[5].Value = ((string)(LoanID));
-            }
-            if ((Repaymentdate == null)) {
-                this.Adapter.InsertCommand.Parameters[6].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[6].Value = ((string)(Repaymentdate));
-            }
-            if ((Year == null)) {
-                this.Adapter.InsertCommand.Parameters[7].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[7].Value = ((string)(Year));
-            }
-            if ((Months == null)) {
-                this.Adapter.InsertCommand.Parameters[8].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[8].Value = ((string)(Months));
-            }
-            if ((Interest.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[9].Value = ((int)(Interest.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[9].Value = global::System.DBNull.Value;
-            }
-            if ((ModeOfPayment == null)) {
-                this.Adapter.InsertCommand.Parameters[10].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[10].Value = ((string)(ModeOfPayment));
-            }
-            if ((InsBranch == null)) {
-                throw new global::System.ArgumentNullException("InsBranch");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[11].Value = ((string)(InsBranch));
-            }
-            if ((UploadStatus == null)) {
-                throw new global::System.ArgumentNullException("UploadStatus");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[12].Value = ((string)(UploadStatus));
-            }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
-            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.InsertCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.InsertCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(
-                    string RepaymentID, 
-                    global::System.Nullable<int> AmmountPaid, 
-                    global::System.Nullable<int> Balance, 
-                    string RepayMonths, 
-                    string PaidBy, 
-                    string LoanID, 
-                    string Repaymentdate, 
-                    string Year, 
-                    string Months, 
-                    global::System.Nullable<int> Interest, 
-                    string ModeOfPayment, 
-                    string InsBranch, 
-                    string UploadStatus, 
-                    int Original_ID, 
-                    string Original_RepaymentID, 
-                    global::System.Nullable<int> Original_AmmountPaid, 
-                    global::System.Nullable<int> Original_Balance, 
-                    string Original_RepayMonths, 
-                    string Original_PaidBy, 
-                    string Original_LoanID, 
-                    string Original_Repaymentdate, 
-                    string Original_Year, 
-                    string Original_Months, 
-                    global::System.Nullable<int> Original_Interest, 
-                    string Original_ModeOfPayment, 
-                    string Original_InsBranch, 
-                    string Original_UploadStatus) {
-            if ((RepaymentID == null)) {
-                throw new global::System.ArgumentNullException("RepaymentID");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(RepaymentID));
-            }
-            if ((AmmountPaid.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(AmmountPaid.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            if ((Balance.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(Balance.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            if ((RepayMonths == null)) {
-                this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(RepayMonths));
-            }
-            if ((PaidBy == null)) {
-                this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(PaidBy));
-            }
-            if ((LoanID == null)) {
-                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(LoanID));
-            }
-            if ((Repaymentdate == null)) {
-                this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(Repaymentdate));
-            }
-            if ((Year == null)) {
-                this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(Year));
-            }
-            if ((Months == null)) {
-                this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(Months));
-            }
-            if ((Interest.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((int)(Interest.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
-            }
-            if ((ModeOfPayment == null)) {
-                this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(ModeOfPayment));
-            }
-            if ((InsBranch == null)) {
-                throw new global::System.ArgumentNullException("InsBranch");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(InsBranch));
-            }
-            if ((UploadStatus == null)) {
-                throw new global::System.ArgumentNullException("UploadStatus");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(UploadStatus));
-            }
-            this.Adapter.UpdateCommand.Parameters[13].Value = ((int)(Original_ID));
-            if ((Original_RepaymentID == null)) {
-                throw new global::System.ArgumentNullException("Original_RepaymentID");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((string)(Original_RepaymentID));
-            }
-            if ((Original_AmmountPaid.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[16].Value = ((int)(Original_AmmountPaid.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[16].Value = global::System.DBNull.Value;
-            }
-            if ((Original_Balance.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[18].Value = ((int)(Original_Balance.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[18].Value = global::System.DBNull.Value;
-            }
-            if ((Original_RepayMonths == null)) {
-                this.Adapter.UpdateCommand.Parameters[19].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[20].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[19].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[20].Value = ((string)(Original_RepayMonths));
-            }
-            if ((Original_PaidBy == null)) {
-                this.Adapter.UpdateCommand.Parameters[21].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[22].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[21].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[22].Value = ((string)(Original_PaidBy));
-            }
-            if ((Original_LoanID == null)) {
-                this.Adapter.UpdateCommand.Parameters[23].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[24].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[23].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[24].Value = ((string)(Original_LoanID));
-            }
-            if ((Original_Repaymentdate == null)) {
-                this.Adapter.UpdateCommand.Parameters[25].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[26].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[25].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[26].Value = ((string)(Original_Repaymentdate));
-            }
-            if ((Original_Year == null)) {
-                this.Adapter.UpdateCommand.Parameters[27].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[28].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[27].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[28].Value = ((string)(Original_Year));
-            }
-            if ((Original_Months == null)) {
-                this.Adapter.UpdateCommand.Parameters[29].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[30].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[29].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[30].Value = ((string)(Original_Months));
-            }
-            if ((Original_Interest.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[31].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[32].Value = ((int)(Original_Interest.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[31].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[32].Value = global::System.DBNull.Value;
-            }
-            if ((Original_ModeOfPayment == null)) {
-                this.Adapter.UpdateCommand.Parameters[33].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[34].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[33].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[34].Value = ((string)(Original_ModeOfPayment));
-            }
-            if ((Original_InsBranch == null)) {
-                throw new global::System.ArgumentNullException("Original_InsBranch");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[35].Value = ((string)(Original_InsBranch));
-            }
-            if ((Original_UploadStatus == null)) {
-                throw new global::System.ArgumentNullException("Original_UploadStatus");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[36].Value = ((string)(Original_UploadStatus));
-            }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
-            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.UpdateCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.UpdateCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(
-                    global::System.Nullable<int> AmmountPaid, 
-                    global::System.Nullable<int> Balance, 
-                    string RepayMonths, 
-                    string PaidBy, 
-                    string LoanID, 
-                    string Repaymentdate, 
-                    string Year, 
-                    string Months, 
-                    global::System.Nullable<int> Interest, 
-                    string ModeOfPayment, 
-                    string InsBranch, 
-                    string UploadStatus, 
-                    int Original_ID, 
-                    string Original_RepaymentID, 
-                    global::System.Nullable<int> Original_AmmountPaid, 
-                    global::System.Nullable<int> Original_Balance, 
-                    string Original_RepayMonths, 
-                    string Original_PaidBy, 
-                    string Original_LoanID, 
-                    string Original_Repaymentdate, 
-                    string Original_Year, 
-                    string Original_Months, 
-                    global::System.Nullable<int> Original_Interest, 
-                    string Original_ModeOfPayment, 
-                    string Original_InsBranch, 
-                    string Original_UploadStatus) {
-            return this.Update(Original_RepaymentID, AmmountPaid, Balance, RepayMonths, PaidBy, LoanID, Repaymentdate, Year, Months, Interest, ModeOfPayment, InsBranch, UploadStatus, Original_ID, Original_RepaymentID, Original_AmmountPaid, Original_Balance, Original_RepayMonths, Original_PaidBy, Original_LoanID, Original_Repaymentdate, Original_Year, Original_Months, Original_Interest, Original_ModeOfPayment, Original_InsBranch, Original_UploadStatus);
-        }
-    }
-    
-    /// <summary>
-    ///Represents the connection and commands used to retrieve and save data.
-    ///</summary>
-    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
-    [global::System.ComponentModel.ToolboxItem(true)]
-    [global::System.ComponentModel.DataObjectAttribute(true)]
-    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
-        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
-    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class ExternalLoansTableAdapter : global::System.ComponentModel.Component {
-        
-        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
-        
-        private global::System.Data.SqlClient.SqlConnection _connection;
-        
-        private global::System.Data.SqlClient.SqlTransaction _transaction;
-        
-        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
-        
-        private bool _clearBeforeFill;
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public ExternalLoansTableAdapter() {
-            this.ClearBeforeFill = true;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
-            get {
-                if ((this._adapter == null)) {
-                    this.InitAdapter();
-                }
-                return this._adapter;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        internal global::System.Data.SqlClient.SqlConnection Connection {
-            get {
-                if ((this._connection == null)) {
-                    this.InitConnection();
-                }
-                return this._connection;
-            }
-            set {
-                this._connection = value;
-                if ((this.Adapter.InsertCommand != null)) {
-                    this.Adapter.InsertCommand.Connection = value;
-                }
-                if ((this.Adapter.DeleteCommand != null)) {
-                    this.Adapter.DeleteCommand.Connection = value;
-                }
-                if ((this.Adapter.UpdateCommand != null)) {
-                    this.Adapter.UpdateCommand.Connection = value;
-                }
-                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
-                    if ((this.CommandCollection[i] != null)) {
-                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
-                    }
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        internal global::System.Data.SqlClient.SqlTransaction Transaction {
-            get {
-                return this._transaction;
-            }
-            set {
-                this._transaction = value;
-                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
-                    this.CommandCollection[i].Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.DeleteCommand != null))) {
-                    this.Adapter.DeleteCommand.Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.InsertCommand != null))) {
-                    this.Adapter.InsertCommand.Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.UpdateCommand != null))) {
-                    this.Adapter.UpdateCommand.Transaction = this._transaction;
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
-            get {
-                if ((this._commandCollection == null)) {
-                    this.InitCommandCollection();
-                }
-                return this._commandCollection;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public bool ClearBeforeFill {
-            get {
-                return this._clearBeforeFill;
-            }
-            set {
-                this._clearBeforeFill = value;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private void InitAdapter() {
-            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
-            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
-            tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "ExternalLoans";
-            tableMapping.ColumnMappings.Add("ID", "ID");
-            tableMapping.ColumnMappings.Add("LoansID", "LoansID");
-            tableMapping.ColumnMappings.Add("LoanAmmount", "LoanAmmount");
-            tableMapping.ColumnMappings.Add("InterestRate", "InterestRate");
-            tableMapping.ColumnMappings.Add("Securities", "Securities");
-            tableMapping.ColumnMappings.Add("Comment", "Comment");
-            tableMapping.ColumnMappings.Add("OfficerName", "OfficerName");
-            tableMapping.ColumnMappings.Add("Year", "Year");
-            tableMapping.ColumnMappings.Add("Months", "Months");
-            tableMapping.ColumnMappings.Add("Date", "Date");
-            tableMapping.ColumnMappings.Add("ManagerName", "ManagerName");
-            tableMapping.ColumnMappings.Add("ReviewComment", "ReviewComment");
-            tableMapping.ColumnMappings.Add("ReviewDate", "ReviewDate");
-            tableMapping.ColumnMappings.Add("ChairpersonName", "ChairpersonName");
-            tableMapping.ColumnMappings.Add("Decision", "Decision");
-            tableMapping.ColumnMappings.Add("DecisionDate", "DecisionDate");
-            tableMapping.ColumnMappings.Add("Description", "Description");
-            tableMapping.ColumnMappings.Add("Period", "Period");
-            tableMapping.ColumnMappings.Add("Recieved", "Recieved");
-            tableMapping.ColumnMappings.Add("RecievedDate", "RecievedDate");
-            tableMapping.ColumnMappings.Add("InsBranch", "InsBranch");
-            tableMapping.ColumnMappings.Add("UploadStatus", "UploadStatus");
-            tableMapping.ColumnMappings.Add("ModeOfPayment", "ModeOfPayment");
-            this._adapter.TableMappings.Add(tableMapping);
-            this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[ExternalLoans] WHERE (([ID] = @Original_ID) AND ([LoansID] = @" +
-                "Original_LoansID) AND ((@IsNull_LoanAmmount = 1 AND [LoanAmmount] IS NULL) OR ([" +
-                "LoanAmmount] = @Original_LoanAmmount)) AND ((@IsNull_InterestRate = 1 AND [Inter" +
-                "estRate] IS NULL) OR ([InterestRate] = @Original_InterestRate)) AND ((@IsNull_Se" +
-                "curities = 1 AND [Securities] IS NULL) OR ([Securities] = @Original_Securities))" +
-                " AND ((@IsNull_Comment = 1 AND [Comment] IS NULL) OR ([Comment] = @Original_Comm" +
-                "ent)) AND ((@IsNull_OfficerName = 1 AND [OfficerName] IS NULL) OR ([OfficerName]" +
-                " = @Original_OfficerName)) AND ((@IsNull_Year = 1 AND [Year] IS NULL) OR ([Year]" +
-                " = @Original_Year)) AND ((@IsNull_Months = 1 AND [Months] IS NULL) OR ([Months] " +
-                "= @Original_Months)) AND ((@IsNull_Date = 1 AND [Date] IS NULL) OR ([Date] = @Or" +
-                "iginal_Date)) AND ([ManagerName] = @Original_ManagerName) AND ([ReviewComment] =" +
-                " @Original_ReviewComment) AND ((@IsNull_ReviewDate = 1 AND [ReviewDate] IS NULL)" +
-                " OR ([ReviewDate] = @Original_ReviewDate)) AND ([ChairpersonName] = @Original_Ch" +
-                "airpersonName) AND ([Decision] = @Original_Decision) AND ((@IsNull_DecisionDate " +
-                "= 1 AND [DecisionDate] IS NULL) OR ([DecisionDate] = @Original_DecisionDate)) AN" +
-                "D ([Description] = @Original_Description) AND ((@IsNull_Period = 1 AND [Period] " +
-                "IS NULL) OR ([Period] = @Original_Period)) AND ([Recieved] = @Original_Recieved)" +
-                " AND ((@IsNull_RecievedDate = 1 AND [RecievedDate] IS NULL) OR ([RecievedDate] =" +
-                " @Original_RecievedDate)) AND ([InsBranch] = @Original_InsBranch) AND ([UploadSt" +
-                "atus] = @Original_UploadStatus) AND ((@IsNull_ModeOfPayment = 1 AND [ModeOfPayme" +
-                "nt] IS NULL) OR ([ModeOfPayment] = @Original_ModeOfPayment)))";
-            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_LoansID", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LoansID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_LoanAmmount", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LoanAmmount", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_LoanAmmount", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LoanAmmount", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_InterestRate", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "InterestRate", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_InterestRate", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "InterestRate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Securities", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Securities", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Securities", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Securities", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Comment", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Comment", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Comment", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Comment", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_OfficerName", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "OfficerName", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_OfficerName", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "OfficerName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Year", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Year", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Year", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Year", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Months", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Months", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Months", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Months", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Date", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Date", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Date", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Date", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ManagerName", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ManagerName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ReviewComment", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ReviewComment", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_ReviewDate", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ReviewDate", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ReviewDate", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ReviewDate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ChairpersonName", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ChairpersonName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Decision", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Decision", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_DecisionDate", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DecisionDate", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_DecisionDate", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DecisionDate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Description", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Description", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Period", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Period", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Period", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Period", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Recieved", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Recieved", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_RecievedDate", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RecievedDate", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_RecievedDate", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RecievedDate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_InsBranch", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "InsBranch", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_UploadStatus", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UploadStatus", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_ModeOfPayment", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ModeOfPayment", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ModeOfPayment", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ModeOfPayment", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[ExternalLoans] ([LoansID], [LoanAmmount], [InterestRate], [Securities], [Comment], [OfficerName], [Year], [Months], [Date], [ManagerName], [ReviewComment], [ReviewDate], [ChairpersonName], [Decision], [DecisionDate], [Description], [Period], [Recieved], [RecievedDate], [InsBranch], [UploadStatus], [ModeOfPayment]) VALUES (@LoansID, @LoanAmmount, @InterestRate, @Securities, @Comment, @OfficerName, @Year, @Months, @Date, @ManagerName, @ReviewComment, @ReviewDate, @ChairpersonName, @Decision, @DecisionDate, @Description, @Period, @Recieved, @RecievedDate, @InsBranch, @UploadStatus, @ModeOfPayment);
-SELECT ID, LoansID, LoanAmmount, InterestRate, Securities, Comment, OfficerName, Year, Months, Date, ManagerName, ReviewComment, ReviewDate, ChairpersonName, Decision, DecisionDate, Description, Period, Recieved, RecievedDate, InsBranch, UploadStatus, ModeOfPayment FROM ExternalLoans WHERE (LoansID = @LoansID)";
-            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@LoansID", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LoansID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@LoanAmmount", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LoanAmmount", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@InterestRate", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "InterestRate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Securities", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Securities", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Comment", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Comment", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@OfficerName", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "OfficerName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Year", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Year", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Months", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Months", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Date", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Date", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ManagerName", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ManagerName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ReviewComment", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ReviewComment", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ReviewDate", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ReviewDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ChairpersonName", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ChairpersonName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Decision", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Decision", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DecisionDate", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DecisionDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Description", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Description", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Period", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Period", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Recieved", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Recieved", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RecievedDate", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RecievedDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@InsBranch", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "InsBranch", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@UploadStatus", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UploadStatus", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ModeOfPayment", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ModeOfPayment", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[ExternalLoans] SET [LoansID] = @LoansID, [LoanAmmount] = @LoanAmmou" +
-                "nt, [InterestRate] = @InterestRate, [Securities] = @Securities, [Comment] = @Com" +
-                "ment, [OfficerName] = @OfficerName, [Year] = @Year, [Months] = @Months, [Date] =" +
-                " @Date, [ManagerName] = @ManagerName, [ReviewComment] = @ReviewComment, [ReviewD" +
-                "ate] = @ReviewDate, [ChairpersonName] = @ChairpersonName, [Decision] = @Decision" +
-                ", [DecisionDate] = @DecisionDate, [Description] = @Description, [Period] = @Peri" +
-                "od, [Recieved] = @Recieved, [RecievedDate] = @RecievedDate, [InsBranch] = @InsBr" +
-                "anch, [UploadStatus] = @UploadStatus, [ModeOfPayment] = @ModeOfPayment WHERE (([" +
-                "ID] = @Original_ID) AND ([LoansID] = @Original_LoansID) AND ((@IsNull_LoanAmmoun" +
-                "t = 1 AND [LoanAmmount] IS NULL) OR ([LoanAmmount] = @Original_LoanAmmount)) AND" +
-                " ((@IsNull_InterestRate = 1 AND [InterestRate] IS NULL) OR ([InterestRate] = @Or" +
-                "iginal_InterestRate)) AND ((@IsNull_Securities = 1 AND [Securities] IS NULL) OR " +
-                "([Securities] = @Original_Securities)) AND ((@IsNull_Comment = 1 AND [Comment] I" +
-                "S NULL) OR ([Comment] = @Original_Comment)) AND ((@IsNull_OfficerName = 1 AND [O" +
-                "fficerName] IS NULL) OR ([OfficerName] = @Original_OfficerName)) AND ((@IsNull_Y" +
-                "ear = 1 AND [Year] IS NULL) OR ([Year] = @Original_Year)) AND ((@IsNull_Months =" +
-                " 1 AND [Months] IS NULL) OR ([Months] = @Original_Months)) AND ((@IsNull_Date = " +
-                "1 AND [Date] IS NULL) OR ([Date] = @Original_Date)) AND ([ManagerName] = @Origin" +
-                "al_ManagerName) AND ([ReviewComment] = @Original_ReviewComment) AND ((@IsNull_Re" +
-                "viewDate = 1 AND [ReviewDate] IS NULL) OR ([ReviewDate] = @Original_ReviewDate))" +
-                " AND ([ChairpersonName] = @Original_ChairpersonName) AND ([Decision] = @Original" +
-                "_Decision) AND ((@IsNull_DecisionDate = 1 AND [DecisionDate] IS NULL) OR ([Decis" +
-                "ionDate] = @Original_DecisionDate)) AND ([Description] = @Original_Description) " +
-                "AND ((@IsNull_Period = 1 AND [Period] IS NULL) OR ([Period] = @Original_Period))" +
-                " AND ([Recieved] = @Original_Recieved) AND ((@IsNull_RecievedDate = 1 AND [Recie" +
-                "vedDate] IS NULL) OR ([RecievedDate] = @Original_RecievedDate)) AND ([InsBranch]" +
-                " = @Original_InsBranch) AND ([UploadStatus] = @Original_UploadStatus) AND ((@IsN" +
-                "ull_ModeOfPayment = 1 AND [ModeOfPayment] IS NULL) OR ([ModeOfPayment] = @Origin" +
-                "al_ModeOfPayment)));\r\nSELECT ID, LoansID, LoanAmmount, InterestRate, Securities," +
-                " Comment, OfficerName, Year, Months, Date, ManagerName, ReviewComment, ReviewDat" +
-                "e, ChairpersonName, Decision, DecisionDate, Description, Period, Recieved, Recie" +
-                "vedDate, InsBranch, UploadStatus, ModeOfPayment FROM ExternalLoans WHERE (LoansI" +
-                "D = @LoansID)";
-            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@LoansID", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LoansID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@LoanAmmount", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LoanAmmount", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@InterestRate", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "InterestRate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Securities", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Securities", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Comment", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Comment", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@OfficerName", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "OfficerName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Year", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Year", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Months", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Months", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Date", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Date", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ManagerName", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ManagerName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ReviewComment", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ReviewComment", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ReviewDate", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ReviewDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ChairpersonName", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ChairpersonName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Decision", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Decision", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DecisionDate", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DecisionDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Description", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Description", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Period", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Period", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Recieved", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Recieved", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RecievedDate", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RecievedDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@InsBranch", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "InsBranch", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@UploadStatus", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UploadStatus", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ModeOfPayment", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ModeOfPayment", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_LoansID", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LoansID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_LoanAmmount", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LoanAmmount", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_LoanAmmount", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LoanAmmount", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_InterestRate", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "InterestRate", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_InterestRate", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "InterestRate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Securities", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Securities", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Securities", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Securities", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Comment", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Comment", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Comment", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Comment", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_OfficerName", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "OfficerName", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_OfficerName", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "OfficerName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Year", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Year", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Year", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Year", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Months", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Months", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Months", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Months", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Date", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Date", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Date", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Date", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ManagerName", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ManagerName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ReviewComment", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ReviewComment", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_ReviewDate", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ReviewDate", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ReviewDate", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ReviewDate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ChairpersonName", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ChairpersonName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Decision", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Decision", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_DecisionDate", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DecisionDate", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_DecisionDate", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DecisionDate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Description", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Description", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Period", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Period", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Period", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Period", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Recieved", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Recieved", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_RecievedDate", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RecievedDate", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_RecievedDate", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RecievedDate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_InsBranch", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "InsBranch", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_UploadStatus", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UploadStatus", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_ModeOfPayment", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ModeOfPayment", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ModeOfPayment", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ModeOfPayment", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private void InitConnection() {
-            this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::Banking_System.Properties.Settings.Default.BSConnectionString3;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
-            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT ID, LoansID, LoanAmmount, InterestRate, Securities, Comment, OfficerName, Year, Months, Date, ManagerName, ReviewComment, ReviewDate, ChairpersonName, Decision, DecisionDate, Description, Period, Recieved, RecievedDate, InsBranch, UploadStatus, ModeOfPayment FROM dbo.ExternalLoans";
-            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(AloansDataset.ExternalLoansDataTable dataTable) {
-            this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual AloansDataset.ExternalLoansDataTable GetData() {
-            this.Adapter.SelectCommand = this.CommandCollection[0];
-            AloansDataset.ExternalLoansDataTable dataTable = new AloansDataset.ExternalLoansDataTable();
-            this.Adapter.Fill(dataTable);
-            return dataTable;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(AloansDataset.ExternalLoansDataTable dataTable) {
-            return this.Adapter.Update(dataTable);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(AloansDataset dataSet) {
-            return this.Adapter.Update(dataSet, "ExternalLoans");
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow dataRow) {
-            return this.Adapter.Update(new global::System.Data.DataRow[] {
-                        dataRow});
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow[] dataRows) {
-            return this.Adapter.Update(dataRows);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(
-                    int Original_ID, 
-                    string Original_LoansID, 
-                    global::System.Nullable<int> Original_LoanAmmount, 
-                    global::System.Nullable<double> Original_InterestRate, 
-                    string Original_Securities, 
-                    string Original_Comment, 
-                    string Original_OfficerName, 
-                    string Original_Year, 
-                    string Original_Months, 
-                    string Original_Date, 
-                    string Original_ManagerName, 
-                    string Original_ReviewComment, 
-                    string Original_ReviewDate, 
-                    string Original_ChairpersonName, 
-                    string Original_Decision, 
-                    string Original_DecisionDate, 
-                    string Original_Description, 
-                    global::System.Nullable<int> Original_Period, 
-                    string Original_Recieved, 
-                    string Original_RecievedDate, 
-                    string Original_InsBranch, 
-                    string Original_UploadStatus, 
-                    string Original_ModeOfPayment) {
-            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_ID));
-            if ((Original_LoansID == null)) {
-                throw new global::System.ArgumentNullException("Original_LoansID");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((string)(Original_LoansID));
-            }
-            if ((Original_LoanAmmount.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[2].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[3].Value = ((int)(Original_LoanAmmount.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[2].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[3].Value = global::System.DBNull.Value;
-            }
-            if ((Original_InterestRate.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[4].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[5].Value = ((double)(Original_InterestRate.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[4].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[5].Value = global::System.DBNull.Value;
-            }
-            if ((Original_Securities == null)) {
-                this.Adapter.DeleteCommand.Parameters[6].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[7].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[6].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[7].Value = ((string)(Original_Securities));
-            }
-            if ((Original_Comment == null)) {
-                this.Adapter.DeleteCommand.Parameters[8].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[9].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[8].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[9].Value = ((string)(Original_Comment));
-            }
-            if ((Original_OfficerName == null)) {
-                this.Adapter.DeleteCommand.Parameters[10].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[11].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[10].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[11].Value = ((string)(Original_OfficerName));
-            }
-            if ((Original_Year == null)) {
-                this.Adapter.DeleteCommand.Parameters[12].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[13].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[12].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[13].Value = ((string)(Original_Year));
-            }
-            if ((Original_Months == null)) {
-                this.Adapter.DeleteCommand.Parameters[14].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[15].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[14].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[15].Value = ((string)(Original_Months));
-            }
-            if ((Original_Date == null)) {
-                this.Adapter.DeleteCommand.Parameters[16].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[17].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[16].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[17].Value = ((string)(Original_Date));
-            }
-            if ((Original_ManagerName == null)) {
-                throw new global::System.ArgumentNullException("Original_ManagerName");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[18].Value = ((string)(Original_ManagerName));
-            }
-            if ((Original_ReviewComment == null)) {
-                throw new global::System.ArgumentNullException("Original_ReviewComment");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[19].Value = ((string)(Original_ReviewComment));
-            }
-            if ((Original_ReviewDate == null)) {
-                this.Adapter.DeleteCommand.Parameters[20].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[21].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[20].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[21].Value = ((string)(Original_ReviewDate));
-            }
-            if ((Original_ChairpersonName == null)) {
-                throw new global::System.ArgumentNullException("Original_ChairpersonName");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[22].Value = ((string)(Original_ChairpersonName));
-            }
-            if ((Original_Decision == null)) {
-                throw new global::System.ArgumentNullException("Original_Decision");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[23].Value = ((string)(Original_Decision));
-            }
-            if ((Original_DecisionDate == null)) {
-                this.Adapter.DeleteCommand.Parameters[24].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[25].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[24].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[25].Value = ((string)(Original_DecisionDate));
-            }
-            if ((Original_Description == null)) {
-                throw new global::System.ArgumentNullException("Original_Description");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[26].Value = ((string)(Original_Description));
-            }
-            if ((Original_Period.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[27].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[28].Value = ((int)(Original_Period.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[27].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[28].Value = global::System.DBNull.Value;
-            }
-            if ((Original_Recieved == null)) {
-                throw new global::System.ArgumentNullException("Original_Recieved");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[29].Value = ((string)(Original_Recieved));
-            }
-            if ((Original_RecievedDate == null)) {
-                this.Adapter.DeleteCommand.Parameters[30].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[31].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[30].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[31].Value = ((string)(Original_RecievedDate));
-            }
-            if ((Original_InsBranch == null)) {
-                throw new global::System.ArgumentNullException("Original_InsBranch");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[32].Value = ((string)(Original_InsBranch));
-            }
-            if ((Original_UploadStatus == null)) {
-                throw new global::System.ArgumentNullException("Original_UploadStatus");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[33].Value = ((string)(Original_UploadStatus));
-            }
-            if ((Original_ModeOfPayment == null)) {
-                this.Adapter.DeleteCommand.Parameters[34].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[35].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[34].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[35].Value = ((string)(Original_ModeOfPayment));
-            }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
-            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.DeleteCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.DeleteCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(
-                    string LoansID, 
-                    global::System.Nullable<int> LoanAmmount, 
-                    global::System.Nullable<double> InterestRate, 
-                    string Securities, 
-                    string Comment, 
-                    string OfficerName, 
-                    string Year, 
-                    string Months, 
-                    string Date, 
-                    string ManagerName, 
-                    string ReviewComment, 
-                    string ReviewDate, 
-                    string ChairpersonName, 
-                    string Decision, 
-                    string DecisionDate, 
-                    string Description, 
-                    global::System.Nullable<int> Period, 
-                    string Recieved, 
-                    string RecievedDate, 
-                    string InsBranch, 
-                    string UploadStatus, 
-                    string ModeOfPayment) {
-            if ((LoansID == null)) {
-                throw new global::System.ArgumentNullException("LoansID");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(LoansID));
-            }
-            if ((LoanAmmount.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((int)(LoanAmmount.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            if ((InterestRate.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((double)(InterestRate.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            if ((Securities == null)) {
-                this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(Securities));
-            }
-            if ((Comment == null)) {
-                this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(Comment));
-            }
-            if ((OfficerName == null)) {
-                this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[5].Value = ((string)(OfficerName));
-            }
-            if ((Year == null)) {
-                this.Adapter.InsertCommand.Parameters[6].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[6].Value = ((string)(Year));
-            }
-            if ((Months == null)) {
-                this.Adapter.InsertCommand.Parameters[7].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.InsertCommand.Parameters[7].Value = ((string)(Months));
-            }
-            if ((Date == null)) {
-                this.Adapter.InsertCommand.Parameters[8].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[8].Value = ((string)(Date));
-            }
-            if ((ManagerName == null)) {
-                throw new global::System.ArgumentNullException("ManagerName");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[9].Value = ((string)(ManagerName));
-            }
-            if ((ReviewComment == null)) {
-                throw new global::System.ArgumentNullException("ReviewComment");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[10].Value = ((string)(ReviewComment));
-            }
-            if ((ReviewDate == null)) {
-                this.Adapter.InsertCommand.Parameters[11].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[11].Value = ((string)(ReviewDate));
-            }
-            if ((ChairpersonName == null)) {
-                throw new global::System.ArgumentNullException("ChairpersonName");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[12].Value = ((string)(ChairpersonName));
-            }
-            if ((Decision == null)) {
-                throw new global::System.ArgumentNullException("Decision");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[13].Value = ((string)(Decision));
-            }
-            if ((DecisionDate == null)) {
-                this.Adapter.InsertCommand.Parameters[14].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[14].Value = ((string)(DecisionDate));
-            }
-            if ((Description == null)) {
-                throw new global::System.ArgumentNullException("Description");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[15].Value = ((string)(Description));
-            }
-            if ((Period.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[16].Value = ((int)(Period.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[16].Value = global::System.DBNull.Value;
-            }
-            if ((Recieved == null)) {
-                throw new global::System.ArgumentNullException("Recieved");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[17].Value = ((string)(Recieved));
-            }
-            if ((RecievedDate == null)) {
-                this.Adapter.InsertCommand.Parameters[18].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[18].Value = ((string)(RecievedDate));
-            }
-            if ((InsBranch == null)) {
-                throw new global::System.ArgumentNullException("InsBranch");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[19].Value = ((string)(InsBranch));
-            }
-            if ((UploadStatus == null)) {
-                throw new global::System.ArgumentNullException("UploadStatus");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[20].Value = ((string)(UploadStatus));
-            }
-            if ((ModeOfPayment == null)) {
-                this.Adapter.InsertCommand.Parameters[21].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[21].Value = ((string)(ModeOfPayment));
-            }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
-            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.InsertCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.InsertCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(
-                    string LoansID, 
-                    global::System.Nullable<int> LoanAmmount, 
-                    global::System.Nullable<double> InterestRate, 
-                    string Securities, 
-                    string Comment, 
-                    string OfficerName, 
-                    string Year, 
-                    string Months, 
-                    string Date, 
-                    string ManagerName, 
-                    string ReviewComment, 
-                    string ReviewDate, 
-                    string ChairpersonName, 
-                    string Decision, 
-                    string DecisionDate, 
-                    string Description, 
-                    global::System.Nullable<int> Period, 
-                    string Recieved, 
-                    string RecievedDate, 
-                    string InsBranch, 
-                    string UploadStatus, 
-                    string ModeOfPayment, 
-                    int Original_ID, 
-                    string Original_LoansID, 
-                    global::System.Nullable<int> Original_LoanAmmount, 
-                    global::System.Nullable<double> Original_InterestRate, 
-                    string Original_Securities, 
-                    string Original_Comment, 
-                    string Original_OfficerName, 
-                    string Original_Year, 
-                    string Original_Months, 
-                    string Original_Date, 
-                    string Original_ManagerName, 
-                    string Original_ReviewComment, 
-                    string Original_ReviewDate, 
-                    string Original_ChairpersonName, 
-                    string Original_Decision, 
-                    string Original_DecisionDate, 
-                    string Original_Description, 
-                    global::System.Nullable<int> Original_Period, 
-                    string Original_Recieved, 
-                    string Original_RecievedDate, 
-                    string Original_InsBranch, 
-                    string Original_UploadStatus, 
-                    string Original_ModeOfPayment) {
-            if ((LoansID == null)) {
-                throw new global::System.ArgumentNullException("LoansID");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(LoansID));
-            }
-            if ((LoanAmmount.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(LoanAmmount.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            if ((InterestRate.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((double)(InterestRate.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            if ((Securities == null)) {
-                this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(Securities));
-            }
-            if ((Comment == null)) {
-                this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(Comment));
-            }
-            if ((OfficerName == null)) {
-                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(OfficerName));
-            }
-            if ((Year == null)) {
-                this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(Year));
-            }
-            if ((Months == null)) {
-                this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(Months));
-            }
-            if ((Date == null)) {
-                this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(Date));
-            }
-            if ((ManagerName == null)) {
-                throw new global::System.ArgumentNullException("ManagerName");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(ManagerName));
-            }
-            if ((ReviewComment == null)) {
-                throw new global::System.ArgumentNullException("ReviewComment");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(ReviewComment));
-            }
-            if ((ReviewDate == null)) {
-                this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(ReviewDate));
-            }
-            if ((ChairpersonName == null)) {
-                throw new global::System.ArgumentNullException("ChairpersonName");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(ChairpersonName));
-            }
-            if ((Decision == null)) {
-                throw new global::System.ArgumentNullException("Decision");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((string)(Decision));
-            }
-            if ((DecisionDate == null)) {
-                this.Adapter.UpdateCommand.Parameters[14].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((string)(DecisionDate));
-            }
-            if ((Description == null)) {
-                throw new global::System.ArgumentNullException("Description");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((string)(Description));
-            }
-            if ((Period.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[16].Value = ((int)(Period.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[16].Value = global::System.DBNull.Value;
-            }
-            if ((Recieved == null)) {
-                throw new global::System.ArgumentNullException("Recieved");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[17].Value = ((string)(Recieved));
-            }
-            if ((RecievedDate == null)) {
-                this.Adapter.UpdateCommand.Parameters[18].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[18].Value = ((string)(RecievedDate));
-            }
-            if ((InsBranch == null)) {
-                throw new global::System.ArgumentNullException("InsBranch");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[19].Value = ((string)(InsBranch));
-            }
-            if ((UploadStatus == null)) {
-                throw new global::System.ArgumentNullException("UploadStatus");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[20].Value = ((string)(UploadStatus));
-            }
-            if ((ModeOfPayment == null)) {
-                this.Adapter.UpdateCommand.Parameters[21].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[21].Value = ((string)(ModeOfPayment));
-            }
-            this.Adapter.UpdateCommand.Parameters[22].Value = ((int)(Original_ID));
-            if ((Original_LoansID == null)) {
-                throw new global::System.ArgumentNullException("Original_LoansID");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[23].Value = ((string)(Original_LoansID));
-            }
-            if ((Original_LoanAmmount.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[24].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[25].Value = ((int)(Original_LoanAmmount.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[24].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[25].Value = global::System.DBNull.Value;
-            }
-            if ((Original_InterestRate.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[26].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[27].Value = ((double)(Original_InterestRate.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[26].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[27].Value = global::System.DBNull.Value;
-            }
-            if ((Original_Securities == null)) {
-                this.Adapter.UpdateCommand.Parameters[28].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[29].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[28].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[29].Value = ((string)(Original_Securities));
-            }
-            if ((Original_Comment == null)) {
-                this.Adapter.UpdateCommand.Parameters[30].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[31].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[30].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[31].Value = ((string)(Original_Comment));
-            }
-            if ((Original_OfficerName == null)) {
-                this.Adapter.UpdateCommand.Parameters[32].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[33].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[32].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[33].Value = ((string)(Original_OfficerName));
-            }
-            if ((Original_Year == null)) {
-                this.Adapter.UpdateCommand.Parameters[34].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[35].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[34].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[35].Value = ((string)(Original_Year));
-            }
-            if ((Original_Months == null)) {
-                this.Adapter.UpdateCommand.Parameters[36].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[37].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[36].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[37].Value = ((string)(Original_Months));
-            }
-            if ((Original_Date == null)) {
-                this.Adapter.UpdateCommand.Parameters[38].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[39].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[38].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[39].Value = ((string)(Original_Date));
-            }
-            if ((Original_ManagerName == null)) {
-                throw new global::System.ArgumentNullException("Original_ManagerName");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[40].Value = ((string)(Original_ManagerName));
-            }
-            if ((Original_ReviewComment == null)) {
-                throw new global::System.ArgumentNullException("Original_ReviewComment");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[41].Value = ((string)(Original_ReviewComment));
-            }
-            if ((Original_ReviewDate == null)) {
-                this.Adapter.UpdateCommand.Parameters[42].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[43].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[42].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[43].Value = ((string)(Original_ReviewDate));
-            }
-            if ((Original_ChairpersonName == null)) {
-                throw new global::System.ArgumentNullException("Original_ChairpersonName");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[44].Value = ((string)(Original_ChairpersonName));
-            }
-            if ((Original_Decision == null)) {
-                throw new global::System.ArgumentNullException("Original_Decision");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[45].Value = ((string)(Original_Decision));
-            }
-            if ((Original_DecisionDate == null)) {
-                this.Adapter.UpdateCommand.Parameters[46].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[47].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[46].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[47].Value = ((string)(Original_DecisionDate));
-            }
-            if ((Original_Description == null)) {
-                throw new global::System.ArgumentNullException("Original_Description");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[48].Value = ((string)(Original_Description));
-            }
-            if ((Original_Period.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[49].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[50].Value = ((int)(Original_Period.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[49].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[50].Value = global::System.DBNull.Value;
-            }
-            if ((Original_Recieved == null)) {
-                throw new global::System.ArgumentNullException("Original_Recieved");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[51].Value = ((string)(Original_Recieved));
-            }
-            if ((Original_RecievedDate == null)) {
-                this.Adapter.UpdateCommand.Parameters[52].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[53].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[52].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[53].Value = ((string)(Original_RecievedDate));
-            }
-            if ((Original_InsBranch == null)) {
-                throw new global::System.ArgumentNullException("Original_InsBranch");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[54].Value = ((string)(Original_InsBranch));
-            }
-            if ((Original_UploadStatus == null)) {
-                throw new global::System.ArgumentNullException("Original_UploadStatus");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[55].Value = ((string)(Original_UploadStatus));
-            }
-            if ((Original_ModeOfPayment == null)) {
-                this.Adapter.UpdateCommand.Parameters[56].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[57].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[56].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[57].Value = ((string)(Original_ModeOfPayment));
-            }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
-            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.UpdateCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.UpdateCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(
-                    global::System.Nullable<int> LoanAmmount, 
-                    global::System.Nullable<double> InterestRate, 
-                    string Securities, 
-                    string Comment, 
-                    string OfficerName, 
-                    string Year, 
-                    string Months, 
-                    string Date, 
-                    string ManagerName, 
-                    string ReviewComment, 
-                    string ReviewDate, 
-                    string ChairpersonName, 
-                    string Decision, 
-                    string DecisionDate, 
-                    string Description, 
-                    global::System.Nullable<int> Period, 
-                    string Recieved, 
-                    string RecievedDate, 
-                    string InsBranch, 
-                    string UploadStatus, 
-                    string ModeOfPayment, 
-                    int Original_ID, 
-                    string Original_LoansID, 
-                    global::System.Nullable<int> Original_LoanAmmount, 
-                    global::System.Nullable<double> Original_InterestRate, 
-                    string Original_Securities, 
-                    string Original_Comment, 
-                    string Original_OfficerName, 
-                    string Original_Year, 
-                    string Original_Months, 
-                    string Original_Date, 
-                    string Original_ManagerName, 
-                    string Original_ReviewComment, 
-                    string Original_ReviewDate, 
-                    string Original_ChairpersonName, 
-                    string Original_Decision, 
-                    string Original_DecisionDate, 
-                    string Original_Description, 
-                    global::System.Nullable<int> Original_Period, 
-                    string Original_Recieved, 
-                    string Original_RecievedDate, 
-                    string Original_InsBranch, 
-                    string Original_UploadStatus, 
-                    string Original_ModeOfPayment) {
-            return this.Update(Original_LoansID, LoanAmmount, InterestRate, Securities, Comment, OfficerName, Year, Months, Date, ManagerName, ReviewComment, ReviewDate, ChairpersonName, Decision, DecisionDate, Description, Period, Recieved, RecievedDate, InsBranch, UploadStatus, ModeOfPayment, Original_ID, Original_LoansID, Original_LoanAmmount, Original_InterestRate, Original_Securities, Original_Comment, Original_OfficerName, Original_Year, Original_Months, Original_Date, Original_ManagerName, Original_ReviewComment, Original_ReviewDate, Original_ChairpersonName, Original_Decision, Original_DecisionDate, Original_Description, Original_Period, Original_Recieved, Original_RecievedDate, Original_InsBranch, Original_UploadStatus, Original_ModeOfPayment);
-        }
-    }
-    
-    /// <summary>
-    ///Represents the connection and commands used to retrieve and save data.
-    ///</summary>
-    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
-    [global::System.ComponentModel.ToolboxItem(true)]
-    [global::System.ComponentModel.DataObjectAttribute(true)]
-    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
-        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
-    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class ExternalRepaymentScheduleTableAdapter : global::System.ComponentModel.Component {
-        
-        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
-        
-        private global::System.Data.SqlClient.SqlConnection _connection;
-        
-        private global::System.Data.SqlClient.SqlTransaction _transaction;
-        
-        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
-        
-        private bool _clearBeforeFill;
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public ExternalRepaymentScheduleTableAdapter() {
-            this.ClearBeforeFill = true;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
-            get {
-                if ((this._adapter == null)) {
-                    this.InitAdapter();
-                }
-                return this._adapter;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        internal global::System.Data.SqlClient.SqlConnection Connection {
-            get {
-                if ((this._connection == null)) {
-                    this.InitConnection();
-                }
-                return this._connection;
-            }
-            set {
-                this._connection = value;
-                if ((this.Adapter.InsertCommand != null)) {
-                    this.Adapter.InsertCommand.Connection = value;
-                }
-                if ((this.Adapter.DeleteCommand != null)) {
-                    this.Adapter.DeleteCommand.Connection = value;
-                }
-                if ((this.Adapter.UpdateCommand != null)) {
-                    this.Adapter.UpdateCommand.Connection = value;
-                }
-                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
-                    if ((this.CommandCollection[i] != null)) {
-                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
-                    }
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        internal global::System.Data.SqlClient.SqlTransaction Transaction {
-            get {
-                return this._transaction;
-            }
-            set {
-                this._transaction = value;
-                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
-                    this.CommandCollection[i].Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.DeleteCommand != null))) {
-                    this.Adapter.DeleteCommand.Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.InsertCommand != null))) {
-                    this.Adapter.InsertCommand.Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.UpdateCommand != null))) {
-                    this.Adapter.UpdateCommand.Transaction = this._transaction;
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
-            get {
-                if ((this._commandCollection == null)) {
-                    this.InitCommandCollection();
-                }
-                return this._commandCollection;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public bool ClearBeforeFill {
-            get {
-                return this._clearBeforeFill;
-            }
-            set {
-                this._clearBeforeFill = value;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private void InitAdapter() {
-            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
-            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
-            tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "ExternalRepaymentSchedule";
-            tableMapping.ColumnMappings.Add("ID", "ID");
-            tableMapping.ColumnMappings.Add("LoanID", "LoanID");
-            tableMapping.ColumnMappings.Add("AmmountPay", "AmmountPay");
-            tableMapping.ColumnMappings.Add("Interest", "Interest");
-            tableMapping.ColumnMappings.Add("TotalAmmount", "TotalAmmount");
-            tableMapping.ColumnMappings.Add("PaymentDate", "PaymentDate");
-            tableMapping.ColumnMappings.Add("PaymentStatus", "PaymentStatus");
-            tableMapping.ColumnMappings.Add("Months", "Months");
-            tableMapping.ColumnMappings.Add("Year", "Year");
-            tableMapping.ColumnMappings.Add("BalanceExist", "BalanceExist");
-            tableMapping.ColumnMappings.Add("BeginningBalance", "BeginningBalance");
-            tableMapping.ColumnMappings.Add("InsBranch", "InsBranch");
-            tableMapping.ColumnMappings.Add("UploadStatus", "UploadStatus");
-            this._adapter.TableMappings.Add(tableMapping);
-            this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[ExternalRepaymentSchedule] WHERE (([ID] = @Original_ID) AND ([LoanID] = @Original_LoanID) AND ((@IsNull_AmmountPay = 1 AND [AmmountPay] IS NULL) OR ([AmmountPay] = @Original_AmmountPay)) AND ((@IsNull_Interest = 1 AND [Interest] IS NULL) OR ([Interest] = @Original_Interest)) AND ((@IsNull_TotalAmmount = 1 AND [TotalAmmount] IS NULL) OR ([TotalAmmount] = @Original_TotalAmmount)) AND ([PaymentDate] = @Original_PaymentDate) AND ((@IsNull_PaymentStatus = 1 AND [PaymentStatus] IS NULL) OR ([PaymentStatus] = @Original_PaymentStatus)) AND ([Months] = @Original_Months) AND ([Year] = @Original_Year) AND ((@IsNull_BalanceExist = 1 AND [BalanceExist] IS NULL) OR ([BalanceExist] = @Original_BalanceExist)) AND ((@IsNull_BeginningBalance = 1 AND [BeginningBalance] IS NULL) OR ([BeginningBalance] = @Original_BeginningBalance)) AND ([InsBranch] = @Original_InsBranch) AND ([UploadStatus] = @Original_UploadStatus))";
-            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_LoanID", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LoanID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_AmmountPay", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AmmountPay", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_AmmountPay", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AmmountPay", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Interest", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Interest", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Interest", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Interest", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_TotalAmmount", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TotalAmmount", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TotalAmmount", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TotalAmmount", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PaymentDate", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PaymentDate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_PaymentStatus", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PaymentStatus", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PaymentStatus", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PaymentStatus", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Months", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Months", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Year", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Year", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_BalanceExist", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BalanceExist", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_BalanceExist", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BalanceExist", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_BeginningBalance", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BeginningBalance", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_BeginningBalance", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BeginningBalance", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_InsBranch", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "InsBranch", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_UploadStatus", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UploadStatus", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[ExternalRepaymentSchedule] ([LoanID], [AmmountPay], [Interest], [TotalAmmount], [PaymentDate], [PaymentStatus], [Months], [Year], [BalanceExist], [BeginningBalance], [InsBranch], [UploadStatus]) VALUES (@LoanID, @AmmountPay, @Interest, @TotalAmmount, @PaymentDate, @PaymentStatus, @Months, @Year, @BalanceExist, @BeginningBalance, @InsBranch, @UploadStatus);
-SELECT ID, LoanID, AmmountPay, Interest, TotalAmmount, PaymentDate, PaymentStatus, Months, Year, BalanceExist, BeginningBalance, InsBranch, UploadStatus FROM ExternalRepaymentSchedule WHERE (LoanID = @LoanID) AND (Months = @Months)";
-            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@LoanID", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LoanID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AmmountPay", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AmmountPay", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Interest", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Interest", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TotalAmmount", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TotalAmmount", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PaymentDate", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PaymentDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PaymentStatus", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PaymentStatus", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Months", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Months", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Year", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Year", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BalanceExist", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BalanceExist", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BeginningBalance", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BeginningBalance", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@InsBranch", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "InsBranch", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@UploadStatus", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UploadStatus", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[ExternalRepaymentSchedule] SET [LoanID] = @LoanID, [AmmountPay] = @AmmountPay, [Interest] = @Interest, [TotalAmmount] = @TotalAmmount, [PaymentDate] = @PaymentDate, [PaymentStatus] = @PaymentStatus, [Months] = @Months, [Year] = @Year, [BalanceExist] = @BalanceExist, [BeginningBalance] = @BeginningBalance, [InsBranch] = @InsBranch, [UploadStatus] = @UploadStatus WHERE (([ID] = @Original_ID) AND ([LoanID] = @Original_LoanID) AND ((@IsNull_AmmountPay = 1 AND [AmmountPay] IS NULL) OR ([AmmountPay] = @Original_AmmountPay)) AND ((@IsNull_Interest = 1 AND [Interest] IS NULL) OR ([Interest] = @Original_Interest)) AND ((@IsNull_TotalAmmount = 1 AND [TotalAmmount] IS NULL) OR ([TotalAmmount] = @Original_TotalAmmount)) AND ([PaymentDate] = @Original_PaymentDate) AND ((@IsNull_PaymentStatus = 1 AND [PaymentStatus] IS NULL) OR ([PaymentStatus] = @Original_PaymentStatus)) AND ([Months] = @Original_Months) AND ([Year] = @Original_Year) AND ((@IsNull_BalanceExist = 1 AND [BalanceExist] IS NULL) OR ([BalanceExist] = @Original_BalanceExist)) AND ((@IsNull_BeginningBalance = 1 AND [BeginningBalance] IS NULL) OR ([BeginningBalance] = @Original_BeginningBalance)) AND ([InsBranch] = @Original_InsBranch) AND ([UploadStatus] = @Original_UploadStatus));
-SELECT ID, LoanID, AmmountPay, Interest, TotalAmmount, PaymentDate, PaymentStatus, Months, Year, BalanceExist, BeginningBalance, InsBranch, UploadStatus FROM ExternalRepaymentSchedule WHERE (LoanID = @LoanID) AND (Months = @Months)";
-            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@LoanID", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LoanID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AmmountPay", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AmmountPay", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Interest", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Interest", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TotalAmmount", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TotalAmmount", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PaymentDate", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PaymentDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PaymentStatus", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PaymentStatus", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Months", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Months", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Year", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Year", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BalanceExist", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BalanceExist", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BeginningBalance", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BeginningBalance", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@InsBranch", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "InsBranch", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@UploadStatus", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UploadStatus", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_LoanID", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LoanID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_AmmountPay", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AmmountPay", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_AmmountPay", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AmmountPay", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Interest", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Interest", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Interest", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Interest", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_TotalAmmount", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TotalAmmount", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TotalAmmount", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TotalAmmount", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PaymentDate", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PaymentDate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_PaymentStatus", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PaymentStatus", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PaymentStatus", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PaymentStatus", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Months", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Months", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Year", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Year", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_BalanceExist", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BalanceExist", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_BalanceExist", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BalanceExist", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_BeginningBalance", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BeginningBalance", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_BeginningBalance", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BeginningBalance", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_InsBranch", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "InsBranch", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_UploadStatus", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UploadStatus", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private void InitConnection() {
-            this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::Banking_System.Properties.Settings.Default.BSConnectionString3;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
-            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT ID, LoanID, AmmountPay, Interest, TotalAmmount, PaymentDate, PaymentStatus" +
-                ", Months, Year, BalanceExist, BeginningBalance, InsBranch, UploadStatus FROM dbo" +
-                ".ExternalRepaymentSchedule";
-            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(AloansDataset.ExternalRepaymentScheduleDataTable dataTable) {
-            this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual AloansDataset.ExternalRepaymentScheduleDataTable GetData() {
-            this.Adapter.SelectCommand = this.CommandCollection[0];
-            AloansDataset.ExternalRepaymentScheduleDataTable dataTable = new AloansDataset.ExternalRepaymentScheduleDataTable();
-            this.Adapter.Fill(dataTable);
-            return dataTable;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(AloansDataset.ExternalRepaymentScheduleDataTable dataTable) {
-            return this.Adapter.Update(dataTable);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(AloansDataset dataSet) {
-            return this.Adapter.Update(dataSet, "ExternalRepaymentSchedule");
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow dataRow) {
-            return this.Adapter.Update(new global::System.Data.DataRow[] {
-                        dataRow});
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow[] dataRows) {
-            return this.Adapter.Update(dataRows);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_ID, string Original_LoanID, global::System.Nullable<int> Original_AmmountPay, global::System.Nullable<double> Original_Interest, global::System.Nullable<double> Original_TotalAmmount, string Original_PaymentDate, string Original_PaymentStatus, string Original_Months, string Original_Year, global::System.Nullable<double> Original_BalanceExist, global::System.Nullable<double> Original_BeginningBalance, string Original_InsBranch, string Original_UploadStatus) {
-            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_ID));
-            if ((Original_LoanID == null)) {
-                throw new global::System.ArgumentNullException("Original_LoanID");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((string)(Original_LoanID));
-            }
-            if ((Original_AmmountPay.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[2].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[3].Value = ((int)(Original_AmmountPay.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[2].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[3].Value = global::System.DBNull.Value;
-            }
-            if ((Original_Interest.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[4].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[5].Value = ((double)(Original_Interest.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[4].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[5].Value = global::System.DBNull.Value;
-            }
-            if ((Original_TotalAmmount.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[6].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[7].Value = ((double)(Original_TotalAmmount.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[6].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[7].Value = global::System.DBNull.Value;
-            }
-            if ((Original_PaymentDate == null)) {
-                throw new global::System.ArgumentNullException("Original_PaymentDate");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[8].Value = ((string)(Original_PaymentDate));
-            }
-            if ((Original_PaymentStatus == null)) {
-                this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[10].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[10].Value = ((string)(Original_PaymentStatus));
-            }
-            if ((Original_Months == null)) {
-                throw new global::System.ArgumentNullException("Original_Months");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[11].Value = ((string)(Original_Months));
-            }
-            if ((Original_Year == null)) {
-                throw new global::System.ArgumentNullException("Original_Year");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[12].Value = ((string)(Original_Year));
-            }
-            if ((Original_BalanceExist.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[13].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[14].Value = ((double)(Original_BalanceExist.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[13].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[14].Value = global::System.DBNull.Value;
-            }
-            if ((Original_BeginningBalance.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[15].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[16].Value = ((double)(Original_BeginningBalance.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[15].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[16].Value = global::System.DBNull.Value;
-            }
-            if ((Original_InsBranch == null)) {
-                throw new global::System.ArgumentNullException("Original_InsBranch");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[17].Value = ((string)(Original_InsBranch));
-            }
-            if ((Original_UploadStatus == null)) {
-                throw new global::System.ArgumentNullException("Original_UploadStatus");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[18].Value = ((string)(Original_UploadStatus));
-            }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
-            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.DeleteCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.DeleteCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string LoanID, global::System.Nullable<int> AmmountPay, global::System.Nullable<double> Interest, global::System.Nullable<double> TotalAmmount, string PaymentDate, string PaymentStatus, string Months, string Year, global::System.Nullable<double> BalanceExist, global::System.Nullable<double> BeginningBalance, string InsBranch, string UploadStatus) {
-            if ((LoanID == null)) {
-                throw new global::System.ArgumentNullException("LoanID");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(LoanID));
-            }
-            if ((AmmountPay.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((int)(AmmountPay.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            if ((Interest.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((double)(Interest.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            if ((TotalAmmount.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[3].Value = ((double)(TotalAmmount.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
-            }
-            if ((PaymentDate == null)) {
-                throw new global::System.ArgumentNullException("PaymentDate");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(PaymentDate));
-            }
-            if ((PaymentStatus == null)) {
-                this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[5].Value = ((string)(PaymentStatus));
-            }
-            if ((Months == null)) {
-                throw new global::System.ArgumentNullException("Months");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[6].Value = ((string)(Months));
-            }
-            if ((Year == null)) {
-                throw new global::System.ArgumentNullException("Year");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[7].Value = ((string)(Year));
             }
             if ((BalanceExist.HasValue == true)) {
                 this.Adapter.InsertCommand.Parameters[8].Value = ((double)(BalanceExist.Value));
@@ -10946,18 +2344,6 @@ SELECT ID, LoanID, AmmountPay, Interest, TotalAmmount, PaymentDate, PaymentStatu
             else {
                 this.Adapter.InsertCommand.Parameters[9].Value = global::System.DBNull.Value;
             }
-            if ((InsBranch == null)) {
-                throw new global::System.ArgumentNullException("InsBranch");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[10].Value = ((string)(InsBranch));
-            }
-            if ((UploadStatus == null)) {
-                throw new global::System.ArgumentNullException("UploadStatus");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[11].Value = ((string)(UploadStatus));
-            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -10973,240 +2359,6 @@ SELECT ID, LoanID, AmmountPay, Interest, TotalAmmount, PaymentDate, PaymentStatu
                 }
             }
         }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(
-                    string LoanID, 
-                    global::System.Nullable<int> AmmountPay, 
-                    global::System.Nullable<double> Interest, 
-                    global::System.Nullable<double> TotalAmmount, 
-                    string PaymentDate, 
-                    string PaymentStatus, 
-                    string Months, 
-                    string Year, 
-                    global::System.Nullable<double> BalanceExist, 
-                    global::System.Nullable<double> BeginningBalance, 
-                    string InsBranch, 
-                    string UploadStatus, 
-                    int Original_ID, 
-                    string Original_LoanID, 
-                    global::System.Nullable<int> Original_AmmountPay, 
-                    global::System.Nullable<double> Original_Interest, 
-                    global::System.Nullable<double> Original_TotalAmmount, 
-                    string Original_PaymentDate, 
-                    string Original_PaymentStatus, 
-                    string Original_Months, 
-                    string Original_Year, 
-                    global::System.Nullable<double> Original_BalanceExist, 
-                    global::System.Nullable<double> Original_BeginningBalance, 
-                    string Original_InsBranch, 
-                    string Original_UploadStatus) {
-            if ((LoanID == null)) {
-                throw new global::System.ArgumentNullException("LoanID");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(LoanID));
-            }
-            if ((AmmountPay.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(AmmountPay.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            if ((Interest.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((double)(Interest.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            if ((TotalAmmount.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((double)(TotalAmmount.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
-            }
-            if ((PaymentDate == null)) {
-                throw new global::System.ArgumentNullException("PaymentDate");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(PaymentDate));
-            }
-            if ((PaymentStatus == null)) {
-                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(PaymentStatus));
-            }
-            if ((Months == null)) {
-                throw new global::System.ArgumentNullException("Months");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(Months));
-            }
-            if ((Year == null)) {
-                throw new global::System.ArgumentNullException("Year");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(Year));
-            }
-            if ((BalanceExist.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((double)(BalanceExist.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
-            }
-            if ((BeginningBalance.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((double)(BeginningBalance.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
-            }
-            if ((InsBranch == null)) {
-                throw new global::System.ArgumentNullException("InsBranch");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(InsBranch));
-            }
-            if ((UploadStatus == null)) {
-                throw new global::System.ArgumentNullException("UploadStatus");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(UploadStatus));
-            }
-            this.Adapter.UpdateCommand.Parameters[12].Value = ((int)(Original_ID));
-            if ((Original_LoanID == null)) {
-                throw new global::System.ArgumentNullException("Original_LoanID");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((string)(Original_LoanID));
-            }
-            if ((Original_AmmountPay.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((int)(Original_AmmountPay.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[15].Value = global::System.DBNull.Value;
-            }
-            if ((Original_Interest.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[17].Value = ((double)(Original_Interest.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[17].Value = global::System.DBNull.Value;
-            }
-            if ((Original_TotalAmmount.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[19].Value = ((double)(Original_TotalAmmount.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[19].Value = global::System.DBNull.Value;
-            }
-            if ((Original_PaymentDate == null)) {
-                throw new global::System.ArgumentNullException("Original_PaymentDate");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[20].Value = ((string)(Original_PaymentDate));
-            }
-            if ((Original_PaymentStatus == null)) {
-                this.Adapter.UpdateCommand.Parameters[21].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[22].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[21].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[22].Value = ((string)(Original_PaymentStatus));
-            }
-            if ((Original_Months == null)) {
-                throw new global::System.ArgumentNullException("Original_Months");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[23].Value = ((string)(Original_Months));
-            }
-            if ((Original_Year == null)) {
-                throw new global::System.ArgumentNullException("Original_Year");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[24].Value = ((string)(Original_Year));
-            }
-            if ((Original_BalanceExist.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[25].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[26].Value = ((double)(Original_BalanceExist.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[25].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[26].Value = global::System.DBNull.Value;
-            }
-            if ((Original_BeginningBalance.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[27].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[28].Value = ((double)(Original_BeginningBalance.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[27].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[28].Value = global::System.DBNull.Value;
-            }
-            if ((Original_InsBranch == null)) {
-                throw new global::System.ArgumentNullException("Original_InsBranch");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[29].Value = ((string)(Original_InsBranch));
-            }
-            if ((Original_UploadStatus == null)) {
-                throw new global::System.ArgumentNullException("Original_UploadStatus");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[30].Value = ((string)(Original_UploadStatus));
-            }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
-            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.UpdateCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.UpdateCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(
-                    global::System.Nullable<int> AmmountPay, 
-                    global::System.Nullable<double> Interest, 
-                    global::System.Nullable<double> TotalAmmount, 
-                    string PaymentDate, 
-                    string PaymentStatus, 
-                    string Year, 
-                    global::System.Nullable<double> BalanceExist, 
-                    global::System.Nullable<double> BeginningBalance, 
-                    string InsBranch, 
-                    string UploadStatus, 
-                    int Original_ID, 
-                    string Original_LoanID, 
-                    global::System.Nullable<int> Original_AmmountPay, 
-                    global::System.Nullable<double> Original_Interest, 
-                    global::System.Nullable<double> Original_TotalAmmount, 
-                    string Original_PaymentDate, 
-                    string Original_PaymentStatus, 
-                    string Original_Months, 
-                    string Original_Year, 
-                    global::System.Nullable<double> Original_BalanceExist, 
-                    global::System.Nullable<double> Original_BeginningBalance, 
-                    string Original_InsBranch, 
-                    string Original_UploadStatus) {
-            return this.Update(Original_LoanID, AmmountPay, Interest, TotalAmmount, PaymentDate, PaymentStatus, Original_Months, Year, BalanceExist, BeginningBalance, InsBranch, UploadStatus, Original_ID, Original_LoanID, Original_AmmountPay, Original_Interest, Original_TotalAmmount, Original_PaymentDate, Original_PaymentStatus, Original_Months, Original_Year, Original_BalanceExist, Original_BeginningBalance, Original_InsBranch, Original_UploadStatus);
-        }
     }
     
     /// <summary>
@@ -11218,7 +2370,7 @@ SELECT ID, LoanID, AmmountPay, Interest, TotalAmmount, PaymentDate, PaymentStatu
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class LoanRepaymentTableAdapter : global::System.ComponentModel.Component {
+    public partial class LoanTableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
@@ -11232,7 +2384,7 @@ SELECT ID, LoanID, AmmountPay, Interest, TotalAmmount, PaymentDate, PaymentStatu
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public LoanRepaymentTableAdapter() {
+        public LoanTableAdapter() {
             this.ClearBeforeFill = true;
         }
         
@@ -11329,189 +2481,54 @@ SELECT ID, LoanID, AmmountPay, Interest, TotalAmmount, PaymentDate, PaymentStatu
             this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "LoanRepayment";
+            tableMapping.DataSetTable = "Loan";
             tableMapping.ColumnMappings.Add("ID", "ID");
-            tableMapping.ColumnMappings.Add("RepaymentID", "RepaymentID");
-            tableMapping.ColumnMappings.Add("AmmountPaid", "AmmountPaid");
-            tableMapping.ColumnMappings.Add("TotalAmmount", "TotalAmmount");
-            tableMapping.ColumnMappings.Add("Balance", "Balance");
-            tableMapping.ColumnMappings.Add("RepayMonths", "RepayMonths");
-            tableMapping.ColumnMappings.Add("CashierID", "CashierID");
-            tableMapping.ColumnMappings.Add("CashierName", "CashierName");
+            tableMapping.ColumnMappings.Add("AccountNo", "AccountNo");
+            tableMapping.ColumnMappings.Add("AccountName", "AccountName");
             tableMapping.ColumnMappings.Add("LoanID", "LoanID");
-            tableMapping.ColumnMappings.Add("MemberID", "MemberID");
-            tableMapping.ColumnMappings.Add("MemberName", "MemberName");
-            tableMapping.ColumnMappings.Add("Repaymentdate", "Repaymentdate");
-            tableMapping.ColumnMappings.Add("Year", "Year");
-            tableMapping.ColumnMappings.Add("Months", "Months");
+            tableMapping.ColumnMappings.Add("ServicingPeriod", "ServicingPeriod");
+            tableMapping.ColumnMappings.Add("RepaymentInterval", "RepaymentInterval");
             tableMapping.ColumnMappings.Add("Interest", "Interest");
-            tableMapping.ColumnMappings.Add("ModeOfPayment", "ModeOfPayment");
-            tableMapping.ColumnMappings.Add("InsBranch", "InsBranch");
-            tableMapping.ColumnMappings.Add("UploadStatus", "UploadStatus");
+            tableMapping.ColumnMappings.Add("Collateral", "Collateral");
+            tableMapping.ColumnMappings.Add("CollateralValue", "CollateralValue");
+            tableMapping.ColumnMappings.Add("RefereeName", "RefereeName");
+            tableMapping.ColumnMappings.Add("RefereeTel", "RefereeTel");
+            tableMapping.ColumnMappings.Add("RefereeAddress", "RefereeAddress");
+            tableMapping.ColumnMappings.Add("RefereeRelationship", "RefereeRelationship");
+            tableMapping.ColumnMappings.Add("ApplicationDate", "ApplicationDate");
+            tableMapping.ColumnMappings.Add("FirstApproval", "FirstApproval");
+            tableMapping.ColumnMappings.Add("ApprovalComment", "ApprovalComment");
+            tableMapping.ColumnMappings.Add("ApprovalDate", "ApprovalDate");
+            tableMapping.ColumnMappings.Add("ApprovedBy", "ApprovedBy");
             this._adapter.TableMappings.Add(tableMapping);
-            this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[LoanRepayment] WHERE (([ID] = @Original_ID) AND ([RepaymentID]" +
-                " = @Original_RepaymentID) AND ((@IsNull_AmmountPaid = 1 AND [AmmountPaid] IS NUL" +
-                "L) OR ([AmmountPaid] = @Original_AmmountPaid)) AND ((@IsNull_TotalAmmount = 1 AN" +
-                "D [TotalAmmount] IS NULL) OR ([TotalAmmount] = @Original_TotalAmmount)) AND ((@I" +
-                "sNull_Balance = 1 AND [Balance] IS NULL) OR ([Balance] = @Original_Balance)) AND" +
-                " ((@IsNull_RepayMonths = 1 AND [RepayMonths] IS NULL) OR ([RepayMonths] = @Origi" +
-                "nal_RepayMonths)) AND ((@IsNull_CashierID = 1 AND [CashierID] IS NULL) OR ([Cash" +
-                "ierID] = @Original_CashierID)) AND ((@IsNull_CashierName = 1 AND [CashierName] I" +
-                "S NULL) OR ([CashierName] = @Original_CashierName)) AND ((@IsNull_LoanID = 1 AND" +
-                " [LoanID] IS NULL) OR ([LoanID] = @Original_LoanID)) AND ((@IsNull_MemberID = 1 " +
-                "AND [MemberID] IS NULL) OR ([MemberID] = @Original_MemberID)) AND ((@IsNull_Memb" +
-                "erName = 1 AND [MemberName] IS NULL) OR ([MemberName] = @Original_MemberName)) A" +
-                "ND ((@IsNull_Repaymentdate = 1 AND [Repaymentdate] IS NULL) OR ([Repaymentdate] " +
-                "= @Original_Repaymentdate)) AND ((@IsNull_Year = 1 AND [Year] IS NULL) OR ([Year" +
-                "] = @Original_Year)) AND ((@IsNull_Months = 1 AND [Months] IS NULL) OR ([Months]" +
-                " = @Original_Months)) AND ((@IsNull_Interest = 1 AND [Interest] IS NULL) OR ([In" +
-                "terest] = @Original_Interest)) AND ((@IsNull_ModeOfPayment = 1 AND [ModeOfPaymen" +
-                "t] IS NULL) OR ([ModeOfPayment] = @Original_ModeOfPayment)) AND ([InsBranch] = @" +
-                "Original_InsBranch) AND ([UploadStatus] = @Original_UploadStatus))";
-            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_RepaymentID", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RepaymentID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_AmmountPaid", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AmmountPaid", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_AmmountPaid", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AmmountPaid", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_TotalAmmount", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TotalAmmount", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TotalAmmount", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TotalAmmount", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Balance", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Balance", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Balance", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Balance", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_RepayMonths", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RepayMonths", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_RepayMonths", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RepayMonths", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_CashierID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CashierID", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CashierID", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CashierID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_CashierName", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CashierName", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CashierName", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CashierName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_LoanID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LoanID", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_LoanID", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LoanID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_MemberID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MemberID", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MemberID", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MemberID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_MemberName", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MemberName", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MemberName", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MemberName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Repaymentdate", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Repaymentdate", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Repaymentdate", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Repaymentdate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Year", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Year", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Year", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Year", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Months", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Months", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Months", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Months", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Interest", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Interest", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Interest", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Interest", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_ModeOfPayment", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ModeOfPayment", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ModeOfPayment", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ModeOfPayment", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_InsBranch", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "InsBranch", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_UploadStatus", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UploadStatus", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[LoanRepayment] ([RepaymentID], [AmmountPaid], [TotalAmmount], [Balance], [RepayMonths], [CashierID], [CashierName], [LoanID], [MemberID], [MemberName], [Repaymentdate], [Year], [Months], [Interest], [ModeOfPayment], [InsBranch], [UploadStatus]) VALUES (@RepaymentID, @AmmountPaid, @TotalAmmount, @Balance, @RepayMonths, @CashierID, @CashierName, @LoanID, @MemberID, @MemberName, @Repaymentdate, @Year, @Months, @Interest, @ModeOfPayment, @InsBranch, @UploadStatus);
-SELECT ID, RepaymentID, AmmountPaid, TotalAmmount, Balance, RepayMonths, CashierID, CashierName, LoanID, MemberID, MemberName, Repaymentdate, Year, Months, Interest, ModeOfPayment, InsBranch, UploadStatus FROM LoanRepayment WHERE (RepaymentID = @RepaymentID)";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[Loan] ([AccountNo], [AccountName], [LoanID], [ServicingPeriod], [RepaymentInterval], [Interest], [Collateral], [CollateralValue], [RefereeName], [RefereeTel], [RefereeAddress], [RefereeRelationship], [ApplicationDate], [FirstApproval], [ApprovalComment], [ApprovalDate], [ApprovedBy]) VALUES (@AccountNo, @AccountName, @LoanID, @ServicingPeriod, @RepaymentInterval, @Interest, @Collateral, @CollateralValue, @RefereeName, @RefereeTel, @RefereeAddress, @RefereeRelationship, @ApplicationDate, @FirstApproval, @ApprovalComment, @ApprovalDate, @ApprovedBy)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RepaymentID", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RepaymentID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AmmountPaid", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AmmountPaid", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TotalAmmount", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TotalAmmount", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Balance", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Balance", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RepayMonths", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RepayMonths", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CashierID", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CashierID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CashierName", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CashierName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AccountNo", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AccountNo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AccountName", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AccountName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@LoanID", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LoanID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MemberID", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MemberID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MemberName", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MemberName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Repaymentdate", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Repaymentdate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Year", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Year", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Months", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Months", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Interest", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Interest", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ModeOfPayment", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ModeOfPayment", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@InsBranch", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "InsBranch", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@UploadStatus", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UploadStatus", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[LoanRepayment] SET [RepaymentID] = @RepaymentID, [AmmountPaid] = @A" +
-                "mmountPaid, [TotalAmmount] = @TotalAmmount, [Balance] = @Balance, [RepayMonths] " +
-                "= @RepayMonths, [CashierID] = @CashierID, [CashierName] = @CashierName, [LoanID]" +
-                " = @LoanID, [MemberID] = @MemberID, [MemberName] = @MemberName, [Repaymentdate] " +
-                "= @Repaymentdate, [Year] = @Year, [Months] = @Months, [Interest] = @Interest, [M" +
-                "odeOfPayment] = @ModeOfPayment, [InsBranch] = @InsBranch, [UploadStatus] = @Uplo" +
-                "adStatus WHERE (([ID] = @Original_ID) AND ([RepaymentID] = @Original_RepaymentID" +
-                ") AND ((@IsNull_AmmountPaid = 1 AND [AmmountPaid] IS NULL) OR ([AmmountPaid] = @" +
-                "Original_AmmountPaid)) AND ((@IsNull_TotalAmmount = 1 AND [TotalAmmount] IS NULL" +
-                ") OR ([TotalAmmount] = @Original_TotalAmmount)) AND ((@IsNull_Balance = 1 AND [B" +
-                "alance] IS NULL) OR ([Balance] = @Original_Balance)) AND ((@IsNull_RepayMonths =" +
-                " 1 AND [RepayMonths] IS NULL) OR ([RepayMonths] = @Original_RepayMonths)) AND ((" +
-                "@IsNull_CashierID = 1 AND [CashierID] IS NULL) OR ([CashierID] = @Original_Cashi" +
-                "erID)) AND ((@IsNull_CashierName = 1 AND [CashierName] IS NULL) OR ([CashierName" +
-                "] = @Original_CashierName)) AND ((@IsNull_LoanID = 1 AND [LoanID] IS NULL) OR ([" +
-                "LoanID] = @Original_LoanID)) AND ((@IsNull_MemberID = 1 AND [MemberID] IS NULL) " +
-                "OR ([MemberID] = @Original_MemberID)) AND ((@IsNull_MemberName = 1 AND [MemberNa" +
-                "me] IS NULL) OR ([MemberName] = @Original_MemberName)) AND ((@IsNull_Repaymentda" +
-                "te = 1 AND [Repaymentdate] IS NULL) OR ([Repaymentdate] = @Original_Repaymentdat" +
-                "e)) AND ((@IsNull_Year = 1 AND [Year] IS NULL) OR ([Year] = @Original_Year)) AND" +
-                " ((@IsNull_Months = 1 AND [Months] IS NULL) OR ([Months] = @Original_Months)) AN" +
-                "D ((@IsNull_Interest = 1 AND [Interest] IS NULL) OR ([Interest] = @Original_Inte" +
-                "rest)) AND ((@IsNull_ModeOfPayment = 1 AND [ModeOfPayment] IS NULL) OR ([ModeOfP" +
-                "ayment] = @Original_ModeOfPayment)) AND ([InsBranch] = @Original_InsBranch) AND " +
-                "([UploadStatus] = @Original_UploadStatus));\r\nSELECT ID, RepaymentID, AmmountPaid" +
-                ", TotalAmmount, Balance, RepayMonths, CashierID, CashierName, LoanID, MemberID, " +
-                "MemberName, Repaymentdate, Year, Months, Interest, ModeOfPayment, InsBranch, Upl" +
-                "oadStatus FROM LoanRepayment WHERE (RepaymentID = @RepaymentID)";
-            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RepaymentID", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RepaymentID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AmmountPaid", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AmmountPaid", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TotalAmmount", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TotalAmmount", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Balance", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Balance", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RepayMonths", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RepayMonths", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CashierID", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CashierID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CashierName", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CashierName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@LoanID", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LoanID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MemberID", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MemberID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MemberName", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MemberName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Repaymentdate", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Repaymentdate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Year", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Year", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Months", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Months", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Interest", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Interest", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ModeOfPayment", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ModeOfPayment", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@InsBranch", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "InsBranch", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@UploadStatus", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UploadStatus", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_RepaymentID", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RepaymentID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_AmmountPaid", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AmmountPaid", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_AmmountPaid", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AmmountPaid", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_TotalAmmount", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TotalAmmount", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TotalAmmount", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TotalAmmount", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Balance", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Balance", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Balance", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Balance", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_RepayMonths", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RepayMonths", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_RepayMonths", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RepayMonths", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_CashierID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CashierID", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CashierID", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CashierID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_CashierName", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CashierName", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CashierName", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CashierName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_LoanID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LoanID", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_LoanID", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LoanID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_MemberID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MemberID", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MemberID", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MemberID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_MemberName", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MemberName", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MemberName", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MemberName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Repaymentdate", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Repaymentdate", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Repaymentdate", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Repaymentdate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Year", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Year", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Year", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Year", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Months", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Months", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Months", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Months", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Interest", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Interest", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Interest", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Interest", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_ModeOfPayment", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ModeOfPayment", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ModeOfPayment", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ModeOfPayment", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_InsBranch", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "InsBranch", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_UploadStatus", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UploadStatus", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ServicingPeriod", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ServicingPeriod", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RepaymentInterval", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RepaymentInterval", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Interest", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Interest", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Collateral", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Collateral", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CollateralValue", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CollateralValue", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RefereeName", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RefereeName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RefereeTel", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RefereeTel", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RefereeAddress", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RefereeAddress", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RefereeRelationship", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RefereeRelationship", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ApplicationDate", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ApplicationDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FirstApproval", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FirstApproval", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ApprovalComment", global::System.Data.SqlDbType.Text, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ApprovalComment", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ApprovalDate", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ApprovalDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ApprovedBy", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ApprovedBy", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::Banking_System.Properties.Settings.Default.BSConnectionString3;
+            this._connection.ConnectionString = global::Banking_System.Properties.Settings.Default.LendingConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -11520,9 +2537,7 @@ SELECT ID, RepaymentID, AmmountPaid, TotalAmmount, Balance, RepayMonths, Cashier
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT ID, RepaymentID, AmmountPaid, TotalAmmount, Balance, RepayMonths, CashierI" +
-                "D, CashierName, LoanID, MemberID, MemberName, Repaymentdate, Year, Months, Inter" +
-                "est, ModeOfPayment, InsBranch, UploadStatus FROM dbo.LoanRepayment";
+            this._commandCollection[0].CommandText = @"SELECT ID, AccountNo, AccountName, LoanID, ServicingPeriod, RepaymentInterval, Interest, Collateral, CollateralValue, RefereeName, RefereeTel, RefereeAddress, RefereeRelationship, ApplicationDate, FirstApproval, ApprovalComment, ApprovalDate, ApprovedBy FROM dbo.Loan";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -11530,7 +2545,7 @@ SELECT ID, RepaymentID, AmmountPaid, TotalAmmount, Balance, RepayMonths, Cashier
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(AloansDataset.LoanRepaymentDataTable dataTable) {
+        public virtual int Fill(ALoansDataset.LoanDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -11543,9 +2558,9 @@ SELECT ID, RepaymentID, AmmountPaid, TotalAmmount, Balance, RepayMonths, Cashier
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual AloansDataset.LoanRepaymentDataTable GetData() {
+        public virtual ALoansDataset.LoanDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            AloansDataset.LoanRepaymentDataTable dataTable = new AloansDataset.LoanRepaymentDataTable();
+            ALoansDataset.LoanDataTable dataTable = new ALoansDataset.LoanDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -11553,15 +2568,15 @@ SELECT ID, RepaymentID, AmmountPaid, TotalAmmount, Balance, RepayMonths, Cashier
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(AloansDataset.LoanRepaymentDataTable dataTable) {
+        public virtual int Update(ALoansDataset.LoanDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(AloansDataset dataSet) {
-            return this.Adapter.Update(dataSet, "LoanRepayment");
+        public virtual int Update(ALoansDataset dataSet) {
+            return this.Adapter.Update(dataSet, "Loan");
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -11582,296 +2597,126 @@ SELECT ID, RepaymentID, AmmountPaid, TotalAmmount, Balance, RepayMonths, Cashier
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(
-                    int Original_ID, 
-                    string Original_RepaymentID, 
-                    global::System.Nullable<int> Original_AmmountPaid, 
-                    global::System.Nullable<int> Original_TotalAmmount, 
-                    global::System.Nullable<int> Original_Balance, 
-                    string Original_RepayMonths, 
-                    string Original_CashierID, 
-                    string Original_CashierName, 
-                    string Original_LoanID, 
-                    string Original_MemberID, 
-                    string Original_MemberName, 
-                    string Original_Repaymentdate, 
-                    string Original_Year, 
-                    string Original_Months, 
-                    global::System.Nullable<int> Original_Interest, 
-                    string Original_ModeOfPayment, 
-                    string Original_InsBranch, 
-                    string Original_UploadStatus) {
-            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_ID));
-            if ((Original_RepaymentID == null)) {
-                throw new global::System.ArgumentNullException("Original_RepaymentID");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((string)(Original_RepaymentID));
-            }
-            if ((Original_AmmountPaid.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[2].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[3].Value = ((int)(Original_AmmountPaid.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[2].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[3].Value = global::System.DBNull.Value;
-            }
-            if ((Original_TotalAmmount.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[4].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[5].Value = ((int)(Original_TotalAmmount.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[4].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[5].Value = global::System.DBNull.Value;
-            }
-            if ((Original_Balance.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[6].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[7].Value = ((int)(Original_Balance.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[6].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[7].Value = global::System.DBNull.Value;
-            }
-            if ((Original_RepayMonths == null)) {
-                this.Adapter.DeleteCommand.Parameters[8].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[9].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[8].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[9].Value = ((string)(Original_RepayMonths));
-            }
-            if ((Original_CashierID == null)) {
-                this.Adapter.DeleteCommand.Parameters[10].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[11].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[10].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[11].Value = ((string)(Original_CashierID));
-            }
-            if ((Original_CashierName == null)) {
-                this.Adapter.DeleteCommand.Parameters[12].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[13].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[12].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[13].Value = ((string)(Original_CashierName));
-            }
-            if ((Original_LoanID == null)) {
-                this.Adapter.DeleteCommand.Parameters[14].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[15].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[14].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[15].Value = ((string)(Original_LoanID));
-            }
-            if ((Original_MemberID == null)) {
-                this.Adapter.DeleteCommand.Parameters[16].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[17].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[16].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[17].Value = ((string)(Original_MemberID));
-            }
-            if ((Original_MemberName == null)) {
-                this.Adapter.DeleteCommand.Parameters[18].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[19].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[18].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[19].Value = ((string)(Original_MemberName));
-            }
-            if ((Original_Repaymentdate == null)) {
-                this.Adapter.DeleteCommand.Parameters[20].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[21].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[20].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[21].Value = ((string)(Original_Repaymentdate));
-            }
-            if ((Original_Year == null)) {
-                this.Adapter.DeleteCommand.Parameters[22].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[23].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[22].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[23].Value = ((string)(Original_Year));
-            }
-            if ((Original_Months == null)) {
-                this.Adapter.DeleteCommand.Parameters[24].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[25].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[24].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[25].Value = ((string)(Original_Months));
-            }
-            if ((Original_Interest.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[26].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[27].Value = ((int)(Original_Interest.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[26].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[27].Value = global::System.DBNull.Value;
-            }
-            if ((Original_ModeOfPayment == null)) {
-                this.Adapter.DeleteCommand.Parameters[28].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[29].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[28].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[29].Value = ((string)(Original_ModeOfPayment));
-            }
-            if ((Original_InsBranch == null)) {
-                throw new global::System.ArgumentNullException("Original_InsBranch");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[30].Value = ((string)(Original_InsBranch));
-            }
-            if ((Original_UploadStatus == null)) {
-                throw new global::System.ArgumentNullException("Original_UploadStatus");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[31].Value = ((string)(Original_UploadStatus));
-            }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
-            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.DeleteCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.DeleteCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
         public virtual int Insert(
-                    string RepaymentID, 
-                    global::System.Nullable<int> AmmountPaid, 
-                    global::System.Nullable<int> TotalAmmount, 
-                    global::System.Nullable<int> Balance, 
-                    string RepayMonths, 
-                    string CashierID, 
-                    string CashierName, 
+                    string AccountNo, 
+                    string AccountName, 
                     string LoanID, 
-                    string MemberID, 
-                    string MemberName, 
-                    string Repaymentdate, 
-                    string Year, 
-                    string Months, 
-                    global::System.Nullable<int> Interest, 
-                    string ModeOfPayment, 
-                    string InsBranch, 
-                    string UploadStatus) {
-            if ((RepaymentID == null)) {
-                throw new global::System.ArgumentNullException("RepaymentID");
+                    global::System.Nullable<int> ServicingPeriod, 
+                    string RepaymentInterval, 
+                    global::System.Nullable<double> Interest, 
+                    string Collateral, 
+                    global::System.Nullable<int> CollateralValue, 
+                    string RefereeName, 
+                    string RefereeTel, 
+                    string RefereeAddress, 
+                    string RefereeRelationship, 
+                    string ApplicationDate, 
+                    string FirstApproval, 
+                    string ApprovalComment, 
+                    string ApprovalDate, 
+                    string ApprovedBy) {
+            if ((AccountNo == null)) {
+                this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(RepaymentID));
+                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(AccountNo));
             }
-            if ((AmmountPaid.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((int)(AmmountPaid.Value));
-            }
-            else {
+            if ((AccountName == null)) {
                 this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
-            if ((TotalAmmount.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((int)(TotalAmmount.Value));
-            }
             else {
+                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(AccountName));
+            }
+            if ((LoanID == null)) {
                 this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
-            if ((Balance.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[3].Value = ((int)(Balance.Value));
+            else {
+                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(LoanID));
+            }
+            if ((ServicingPeriod.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[3].Value = ((int)(ServicingPeriod.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
-            if ((RepayMonths == null)) {
+            if ((RepaymentInterval == null)) {
                 this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(RepayMonths));
+                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(RepaymentInterval));
             }
-            if ((CashierID == null)) {
-                this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
+            if ((Interest.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[5].Value = ((double)(Interest.Value));
             }
             else {
-                this.Adapter.InsertCommand.Parameters[5].Value = ((string)(CashierID));
+                this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
             }
-            if ((CashierName == null)) {
+            if ((Collateral == null)) {
                 this.Adapter.InsertCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[6].Value = ((string)(CashierName));
+                this.Adapter.InsertCommand.Parameters[6].Value = ((string)(Collateral));
             }
-            if ((LoanID == null)) {
-                this.Adapter.InsertCommand.Parameters[7].Value = global::System.DBNull.Value;
+            if ((CollateralValue.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[7].Value = ((int)(CollateralValue.Value));
             }
             else {
-                this.Adapter.InsertCommand.Parameters[7].Value = ((string)(LoanID));
+                this.Adapter.InsertCommand.Parameters[7].Value = global::System.DBNull.Value;
             }
-            if ((MemberID == null)) {
+            if ((RefereeName == null)) {
                 this.Adapter.InsertCommand.Parameters[8].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[8].Value = ((string)(MemberID));
+                this.Adapter.InsertCommand.Parameters[8].Value = ((string)(RefereeName));
             }
-            if ((MemberName == null)) {
+            if ((RefereeTel == null)) {
                 this.Adapter.InsertCommand.Parameters[9].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[9].Value = ((string)(MemberName));
+                this.Adapter.InsertCommand.Parameters[9].Value = ((string)(RefereeTel));
             }
-            if ((Repaymentdate == null)) {
+            if ((RefereeAddress == null)) {
                 this.Adapter.InsertCommand.Parameters[10].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[10].Value = ((string)(Repaymentdate));
+                this.Adapter.InsertCommand.Parameters[10].Value = ((string)(RefereeAddress));
             }
-            if ((Year == null)) {
+            if ((RefereeRelationship == null)) {
                 this.Adapter.InsertCommand.Parameters[11].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[11].Value = ((string)(Year));
+                this.Adapter.InsertCommand.Parameters[11].Value = ((string)(RefereeRelationship));
             }
-            if ((Months == null)) {
+            if ((ApplicationDate == null)) {
                 this.Adapter.InsertCommand.Parameters[12].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[12].Value = ((string)(Months));
+                this.Adapter.InsertCommand.Parameters[12].Value = ((string)(ApplicationDate));
             }
-            if ((Interest.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[13].Value = ((int)(Interest.Value));
-            }
-            else {
+            if ((FirstApproval == null)) {
                 this.Adapter.InsertCommand.Parameters[13].Value = global::System.DBNull.Value;
             }
-            if ((ModeOfPayment == null)) {
+            else {
+                this.Adapter.InsertCommand.Parameters[13].Value = ((string)(FirstApproval));
+            }
+            if ((ApprovalComment == null)) {
                 this.Adapter.InsertCommand.Parameters[14].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[14].Value = ((string)(ModeOfPayment));
+                this.Adapter.InsertCommand.Parameters[14].Value = ((string)(ApprovalComment));
             }
-            if ((InsBranch == null)) {
-                throw new global::System.ArgumentNullException("InsBranch");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[15].Value = ((string)(InsBranch));
-            }
-            if ((UploadStatus == null)) {
-                throw new global::System.ArgumentNullException("UploadStatus");
+            if ((ApprovalDate == null)) {
+                this.Adapter.InsertCommand.Parameters[15].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[16].Value = ((string)(UploadStatus));
+                this.Adapter.InsertCommand.Parameters[15].Value = ((string)(ApprovalDate));
+            }
+            if ((ApprovedBy == null)) {
+                this.Adapter.InsertCommand.Parameters[16].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[16].Value = ((string)(ApprovedBy));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -11887,337 +2732,6 @@ SELECT ID, RepaymentID, AmmountPaid, TotalAmmount, Balance, RepayMonths, Cashier
                     this.Adapter.InsertCommand.Connection.Close();
                 }
             }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(
-                    string RepaymentID, 
-                    global::System.Nullable<int> AmmountPaid, 
-                    global::System.Nullable<int> TotalAmmount, 
-                    global::System.Nullable<int> Balance, 
-                    string RepayMonths, 
-                    string CashierID, 
-                    string CashierName, 
-                    string LoanID, 
-                    string MemberID, 
-                    string MemberName, 
-                    string Repaymentdate, 
-                    string Year, 
-                    string Months, 
-                    global::System.Nullable<int> Interest, 
-                    string ModeOfPayment, 
-                    string InsBranch, 
-                    string UploadStatus, 
-                    int Original_ID, 
-                    string Original_RepaymentID, 
-                    global::System.Nullable<int> Original_AmmountPaid, 
-                    global::System.Nullable<int> Original_TotalAmmount, 
-                    global::System.Nullable<int> Original_Balance, 
-                    string Original_RepayMonths, 
-                    string Original_CashierID, 
-                    string Original_CashierName, 
-                    string Original_LoanID, 
-                    string Original_MemberID, 
-                    string Original_MemberName, 
-                    string Original_Repaymentdate, 
-                    string Original_Year, 
-                    string Original_Months, 
-                    global::System.Nullable<int> Original_Interest, 
-                    string Original_ModeOfPayment, 
-                    string Original_InsBranch, 
-                    string Original_UploadStatus) {
-            if ((RepaymentID == null)) {
-                throw new global::System.ArgumentNullException("RepaymentID");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(RepaymentID));
-            }
-            if ((AmmountPaid.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(AmmountPaid.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            if ((TotalAmmount.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(TotalAmmount.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            if ((Balance.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(Balance.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
-            }
-            if ((RepayMonths == null)) {
-                this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(RepayMonths));
-            }
-            if ((CashierID == null)) {
-                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(CashierID));
-            }
-            if ((CashierName == null)) {
-                this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(CashierName));
-            }
-            if ((LoanID == null)) {
-                this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(LoanID));
-            }
-            if ((MemberID == null)) {
-                this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(MemberID));
-            }
-            if ((MemberName == null)) {
-                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(MemberName));
-            }
-            if ((Repaymentdate == null)) {
-                this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(Repaymentdate));
-            }
-            if ((Year == null)) {
-                this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(Year));
-            }
-            if ((Months == null)) {
-                this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(Months));
-            }
-            if ((Interest.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((int)(Interest.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
-            }
-            if ((ModeOfPayment == null)) {
-                this.Adapter.UpdateCommand.Parameters[14].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((string)(ModeOfPayment));
-            }
-            if ((InsBranch == null)) {
-                throw new global::System.ArgumentNullException("InsBranch");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((string)(InsBranch));
-            }
-            if ((UploadStatus == null)) {
-                throw new global::System.ArgumentNullException("UploadStatus");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[16].Value = ((string)(UploadStatus));
-            }
-            this.Adapter.UpdateCommand.Parameters[17].Value = ((int)(Original_ID));
-            if ((Original_RepaymentID == null)) {
-                throw new global::System.ArgumentNullException("Original_RepaymentID");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[18].Value = ((string)(Original_RepaymentID));
-            }
-            if ((Original_AmmountPaid.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[19].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[20].Value = ((int)(Original_AmmountPaid.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[19].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[20].Value = global::System.DBNull.Value;
-            }
-            if ((Original_TotalAmmount.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[21].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[22].Value = ((int)(Original_TotalAmmount.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[21].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[22].Value = global::System.DBNull.Value;
-            }
-            if ((Original_Balance.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[23].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[24].Value = ((int)(Original_Balance.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[23].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[24].Value = global::System.DBNull.Value;
-            }
-            if ((Original_RepayMonths == null)) {
-                this.Adapter.UpdateCommand.Parameters[25].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[26].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[25].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[26].Value = ((string)(Original_RepayMonths));
-            }
-            if ((Original_CashierID == null)) {
-                this.Adapter.UpdateCommand.Parameters[27].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[28].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[27].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[28].Value = ((string)(Original_CashierID));
-            }
-            if ((Original_CashierName == null)) {
-                this.Adapter.UpdateCommand.Parameters[29].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[30].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[29].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[30].Value = ((string)(Original_CashierName));
-            }
-            if ((Original_LoanID == null)) {
-                this.Adapter.UpdateCommand.Parameters[31].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[32].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[31].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[32].Value = ((string)(Original_LoanID));
-            }
-            if ((Original_MemberID == null)) {
-                this.Adapter.UpdateCommand.Parameters[33].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[34].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[33].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[34].Value = ((string)(Original_MemberID));
-            }
-            if ((Original_MemberName == null)) {
-                this.Adapter.UpdateCommand.Parameters[35].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[36].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[35].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[36].Value = ((string)(Original_MemberName));
-            }
-            if ((Original_Repaymentdate == null)) {
-                this.Adapter.UpdateCommand.Parameters[37].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[38].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[37].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[38].Value = ((string)(Original_Repaymentdate));
-            }
-            if ((Original_Year == null)) {
-                this.Adapter.UpdateCommand.Parameters[39].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[40].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[39].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[40].Value = ((string)(Original_Year));
-            }
-            if ((Original_Months == null)) {
-                this.Adapter.UpdateCommand.Parameters[41].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[42].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[41].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[42].Value = ((string)(Original_Months));
-            }
-            if ((Original_Interest.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[43].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[44].Value = ((int)(Original_Interest.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[43].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[44].Value = global::System.DBNull.Value;
-            }
-            if ((Original_ModeOfPayment == null)) {
-                this.Adapter.UpdateCommand.Parameters[45].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[46].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[45].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[46].Value = ((string)(Original_ModeOfPayment));
-            }
-            if ((Original_InsBranch == null)) {
-                throw new global::System.ArgumentNullException("Original_InsBranch");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[47].Value = ((string)(Original_InsBranch));
-            }
-            if ((Original_UploadStatus == null)) {
-                throw new global::System.ArgumentNullException("Original_UploadStatus");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[48].Value = ((string)(Original_UploadStatus));
-            }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
-            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.UpdateCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.UpdateCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(
-                    global::System.Nullable<int> AmmountPaid, 
-                    global::System.Nullable<int> TotalAmmount, 
-                    global::System.Nullable<int> Balance, 
-                    string RepayMonths, 
-                    string CashierID, 
-                    string CashierName, 
-                    string LoanID, 
-                    string MemberID, 
-                    string MemberName, 
-                    string Repaymentdate, 
-                    string Year, 
-                    string Months, 
-                    global::System.Nullable<int> Interest, 
-                    string ModeOfPayment, 
-                    string InsBranch, 
-                    string UploadStatus, 
-                    int Original_ID, 
-                    string Original_RepaymentID, 
-                    global::System.Nullable<int> Original_AmmountPaid, 
-                    global::System.Nullable<int> Original_TotalAmmount, 
-                    global::System.Nullable<int> Original_Balance, 
-                    string Original_RepayMonths, 
-                    string Original_CashierID, 
-                    string Original_CashierName, 
-                    string Original_LoanID, 
-                    string Original_MemberID, 
-                    string Original_MemberName, 
-                    string Original_Repaymentdate, 
-                    string Original_Year, 
-                    string Original_Months, 
-                    global::System.Nullable<int> Original_Interest, 
-                    string Original_ModeOfPayment, 
-                    string Original_InsBranch, 
-                    string Original_UploadStatus) {
-            return this.Update(Original_RepaymentID, AmmountPaid, TotalAmmount, Balance, RepayMonths, CashierID, CashierName, LoanID, MemberID, MemberName, Repaymentdate, Year, Months, Interest, ModeOfPayment, InsBranch, UploadStatus, Original_ID, Original_RepaymentID, Original_AmmountPaid, Original_TotalAmmount, Original_Balance, Original_RepayMonths, Original_CashierID, Original_CashierName, Original_LoanID, Original_MemberID, Original_MemberName, Original_Repaymentdate, Original_Year, Original_Months, Original_Interest, Original_ModeOfPayment, Original_InsBranch, Original_UploadStatus);
         }
     }
     
@@ -12233,17 +2747,9 @@ SELECT ID, RepaymentID, AmmountPaid, TotalAmmount, Balance, RepayMonths, Cashier
         
         private UpdateOrderOption _updateOrder;
         
-        private LoansTableAdapter _loansTableAdapter;
+        private AmortisationScheduleTableAdapter _amortisationScheduleTableAdapter;
         
-        private RepaymentScheduleTableAdapter _repaymentScheduleTableAdapter;
-        
-        private ExternalLoanRepaymentTableAdapter _externalLoanRepaymentTableAdapter;
-        
-        private ExternalLoansTableAdapter _externalLoansTableAdapter;
-        
-        private ExternalRepaymentScheduleTableAdapter _externalRepaymentScheduleTableAdapter;
-        
-        private LoanRepaymentTableAdapter _loanRepaymentTableAdapter;
+        private LoanTableAdapter _loanTableAdapter;
         
         private bool _backupDataSetBeforeUpdate;
         
@@ -12265,12 +2771,12 @@ SELECT ID, RepaymentID, AmmountPaid, TotalAmmount, Balance, RepayMonths, Cashier
         [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
             "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
             "a", "System.Drawing.Design.UITypeEditor")]
-        public LoansTableAdapter LoansTableAdapter {
+        public AmortisationScheduleTableAdapter AmortisationScheduleTableAdapter {
             get {
-                return this._loansTableAdapter;
+                return this._amortisationScheduleTableAdapter;
             }
             set {
-                this._loansTableAdapter = value;
+                this._amortisationScheduleTableAdapter = value;
             }
         }
         
@@ -12279,68 +2785,12 @@ SELECT ID, RepaymentID, AmmountPaid, TotalAmmount, Balance, RepayMonths, Cashier
         [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
             "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
             "a", "System.Drawing.Design.UITypeEditor")]
-        public RepaymentScheduleTableAdapter RepaymentScheduleTableAdapter {
+        public LoanTableAdapter LoanTableAdapter {
             get {
-                return this._repaymentScheduleTableAdapter;
+                return this._loanTableAdapter;
             }
             set {
-                this._repaymentScheduleTableAdapter = value;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
-            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
-            "a", "System.Drawing.Design.UITypeEditor")]
-        public ExternalLoanRepaymentTableAdapter ExternalLoanRepaymentTableAdapter {
-            get {
-                return this._externalLoanRepaymentTableAdapter;
-            }
-            set {
-                this._externalLoanRepaymentTableAdapter = value;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
-            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
-            "a", "System.Drawing.Design.UITypeEditor")]
-        public ExternalLoansTableAdapter ExternalLoansTableAdapter {
-            get {
-                return this._externalLoansTableAdapter;
-            }
-            set {
-                this._externalLoansTableAdapter = value;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
-            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
-            "a", "System.Drawing.Design.UITypeEditor")]
-        public ExternalRepaymentScheduleTableAdapter ExternalRepaymentScheduleTableAdapter {
-            get {
-                return this._externalRepaymentScheduleTableAdapter;
-            }
-            set {
-                this._externalRepaymentScheduleTableAdapter = value;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
-            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
-            "a", "System.Drawing.Design.UITypeEditor")]
-        public LoanRepaymentTableAdapter LoanRepaymentTableAdapter {
-            get {
-                return this._loanRepaymentTableAdapter;
-            }
-            set {
-                this._loanRepaymentTableAdapter = value;
+                this._loanTableAdapter = value;
             }
         }
         
@@ -12363,29 +2813,13 @@ SELECT ID, RepaymentID, AmmountPaid, TotalAmmount, Balance, RepayMonths, Cashier
                 if ((this._connection != null)) {
                     return this._connection;
                 }
-                if (((this._loansTableAdapter != null) 
-                            && (this._loansTableAdapter.Connection != null))) {
-                    return this._loansTableAdapter.Connection;
+                if (((this._amortisationScheduleTableAdapter != null) 
+                            && (this._amortisationScheduleTableAdapter.Connection != null))) {
+                    return this._amortisationScheduleTableAdapter.Connection;
                 }
-                if (((this._repaymentScheduleTableAdapter != null) 
-                            && (this._repaymentScheduleTableAdapter.Connection != null))) {
-                    return this._repaymentScheduleTableAdapter.Connection;
-                }
-                if (((this._externalLoanRepaymentTableAdapter != null) 
-                            && (this._externalLoanRepaymentTableAdapter.Connection != null))) {
-                    return this._externalLoanRepaymentTableAdapter.Connection;
-                }
-                if (((this._externalLoansTableAdapter != null) 
-                            && (this._externalLoansTableAdapter.Connection != null))) {
-                    return this._externalLoansTableAdapter.Connection;
-                }
-                if (((this._externalRepaymentScheduleTableAdapter != null) 
-                            && (this._externalRepaymentScheduleTableAdapter.Connection != null))) {
-                    return this._externalRepaymentScheduleTableAdapter.Connection;
-                }
-                if (((this._loanRepaymentTableAdapter != null) 
-                            && (this._loanRepaymentTableAdapter.Connection != null))) {
-                    return this._loanRepaymentTableAdapter.Connection;
+                if (((this._loanTableAdapter != null) 
+                            && (this._loanTableAdapter.Connection != null))) {
+                    return this._loanTableAdapter.Connection;
                 }
                 return null;
             }
@@ -12400,22 +2834,10 @@ SELECT ID, RepaymentID, AmmountPaid, TotalAmmount, Balance, RepayMonths, Cashier
         public int TableAdapterInstanceCount {
             get {
                 int count = 0;
-                if ((this._loansTableAdapter != null)) {
+                if ((this._amortisationScheduleTableAdapter != null)) {
                     count = (count + 1);
                 }
-                if ((this._repaymentScheduleTableAdapter != null)) {
-                    count = (count + 1);
-                }
-                if ((this._externalLoanRepaymentTableAdapter != null)) {
-                    count = (count + 1);
-                }
-                if ((this._externalLoansTableAdapter != null)) {
-                    count = (count + 1);
-                }
-                if ((this._externalRepaymentScheduleTableAdapter != null)) {
-                    count = (count + 1);
-                }
-                if ((this._loanRepaymentTableAdapter != null)) {
+                if ((this._loanTableAdapter != null)) {
                     count = (count + 1);
                 }
                 return count;
@@ -12427,59 +2849,23 @@ SELECT ID, RepaymentID, AmmountPaid, TotalAmmount, Balance, RepayMonths, Cashier
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private int UpdateUpdatedRows(AloansDataset dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateUpdatedRows(ALoansDataset dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._loansTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Loans.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._amortisationScheduleTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.AmortisationSchedule.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._loansTableAdapter.Update(updatedRows));
+                    result = (result + this._amortisationScheduleTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._repaymentScheduleTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.RepaymentSchedule.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._loanTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Loan.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._repaymentScheduleTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._externalLoanRepaymentTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.ExternalLoanRepayment.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._externalLoanRepaymentTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._externalLoansTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.ExternalLoans.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._externalLoansTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._externalRepaymentScheduleTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.ExternalRepaymentSchedule.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._externalRepaymentScheduleTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._loanRepaymentTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.LoanRepayment.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._loanRepaymentTableAdapter.Update(updatedRows));
+                    result = (result + this._loanTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -12491,53 +2877,21 @@ SELECT ID, RepaymentID, AmmountPaid, TotalAmmount, Balance, RepayMonths, Cashier
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private int UpdateInsertedRows(AloansDataset dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateInsertedRows(ALoansDataset dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._loansTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Loans.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._amortisationScheduleTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.AmortisationSchedule.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._loansTableAdapter.Update(addedRows));
+                    result = (result + this._amortisationScheduleTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._repaymentScheduleTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.RepaymentSchedule.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._loanTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Loan.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._repaymentScheduleTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._externalLoanRepaymentTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.ExternalLoanRepayment.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._externalLoanRepaymentTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._externalLoansTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.ExternalLoans.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._externalLoansTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._externalRepaymentScheduleTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.ExternalRepaymentSchedule.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._externalRepaymentScheduleTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._loanRepaymentTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.LoanRepayment.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._loanRepaymentTableAdapter.Update(addedRows));
+                    result = (result + this._loanTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -12549,53 +2903,21 @@ SELECT ID, RepaymentID, AmmountPaid, TotalAmmount, Balance, RepayMonths, Cashier
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private int UpdateDeletedRows(AloansDataset dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
+        private int UpdateDeletedRows(ALoansDataset dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
-            if ((this._loanRepaymentTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.LoanRepayment.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._loanTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Loan.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._loanRepaymentTableAdapter.Update(deletedRows));
+                    result = (result + this._loanTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._externalRepaymentScheduleTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.ExternalRepaymentSchedule.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._amortisationScheduleTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.AmortisationSchedule.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._externalRepaymentScheduleTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._externalLoansTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.ExternalLoans.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._externalLoansTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._externalLoanRepaymentTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.ExternalLoanRepayment.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._externalLoanRepaymentTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._repaymentScheduleTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.RepaymentSchedule.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._repaymentScheduleTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._loansTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Loans.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._loansTableAdapter.Update(deletedRows));
+                    result = (result + this._amortisationScheduleTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -12631,40 +2953,20 @@ SELECT ID, RepaymentID, AmmountPaid, TotalAmmount, Balance, RepayMonths, Cashier
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public virtual int UpdateAll(AloansDataset dataSet) {
+        public virtual int UpdateAll(ALoansDataset dataSet) {
             if ((dataSet == null)) {
                 throw new global::System.ArgumentNullException("dataSet");
             }
             if ((dataSet.HasChanges() == false)) {
                 return 0;
             }
-            if (((this._loansTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._loansTableAdapter.Connection) == false))) {
+            if (((this._amortisationScheduleTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._amortisationScheduleTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
                         "tring.");
             }
-            if (((this._repaymentScheduleTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._repaymentScheduleTableAdapter.Connection) == false))) {
-                throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
-                        "tring.");
-            }
-            if (((this._externalLoanRepaymentTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._externalLoanRepaymentTableAdapter.Connection) == false))) {
-                throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
-                        "tring.");
-            }
-            if (((this._externalLoansTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._externalLoansTableAdapter.Connection) == false))) {
-                throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
-                        "tring.");
-            }
-            if (((this._externalRepaymentScheduleTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._externalRepaymentScheduleTableAdapter.Connection) == false))) {
-                throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
-                        "tring.");
-            }
-            if (((this._loanRepaymentTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._loanRepaymentTableAdapter.Connection) == false))) {
+            if (((this._loanTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._loanTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
                         "tring.");
             }
@@ -12700,58 +3002,22 @@ SELECT ID, RepaymentID, AmmountPaid, TotalAmmount, Balance, RepayMonths, Cashier
             try {
                 // ---- Prepare for update -----------
                 //
-                if ((this._loansTableAdapter != null)) {
-                    revertConnections.Add(this._loansTableAdapter, this._loansTableAdapter.Connection);
-                    this._loansTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
-                    this._loansTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
-                    if (this._loansTableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._loansTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._loansTableAdapter.Adapter);
+                if ((this._amortisationScheduleTableAdapter != null)) {
+                    revertConnections.Add(this._amortisationScheduleTableAdapter, this._amortisationScheduleTableAdapter.Connection);
+                    this._amortisationScheduleTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
+                    this._amortisationScheduleTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
+                    if (this._amortisationScheduleTableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._amortisationScheduleTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._amortisationScheduleTableAdapter.Adapter);
                     }
                 }
-                if ((this._repaymentScheduleTableAdapter != null)) {
-                    revertConnections.Add(this._repaymentScheduleTableAdapter, this._repaymentScheduleTableAdapter.Connection);
-                    this._repaymentScheduleTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
-                    this._repaymentScheduleTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
-                    if (this._repaymentScheduleTableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._repaymentScheduleTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._repaymentScheduleTableAdapter.Adapter);
-                    }
-                }
-                if ((this._externalLoanRepaymentTableAdapter != null)) {
-                    revertConnections.Add(this._externalLoanRepaymentTableAdapter, this._externalLoanRepaymentTableAdapter.Connection);
-                    this._externalLoanRepaymentTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
-                    this._externalLoanRepaymentTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
-                    if (this._externalLoanRepaymentTableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._externalLoanRepaymentTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._externalLoanRepaymentTableAdapter.Adapter);
-                    }
-                }
-                if ((this._externalLoansTableAdapter != null)) {
-                    revertConnections.Add(this._externalLoansTableAdapter, this._externalLoansTableAdapter.Connection);
-                    this._externalLoansTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
-                    this._externalLoansTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
-                    if (this._externalLoansTableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._externalLoansTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._externalLoansTableAdapter.Adapter);
-                    }
-                }
-                if ((this._externalRepaymentScheduleTableAdapter != null)) {
-                    revertConnections.Add(this._externalRepaymentScheduleTableAdapter, this._externalRepaymentScheduleTableAdapter.Connection);
-                    this._externalRepaymentScheduleTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
-                    this._externalRepaymentScheduleTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
-                    if (this._externalRepaymentScheduleTableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._externalRepaymentScheduleTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._externalRepaymentScheduleTableAdapter.Adapter);
-                    }
-                }
-                if ((this._loanRepaymentTableAdapter != null)) {
-                    revertConnections.Add(this._loanRepaymentTableAdapter, this._loanRepaymentTableAdapter.Connection);
-                    this._loanRepaymentTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
-                    this._loanRepaymentTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
-                    if (this._loanRepaymentTableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._loanRepaymentTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._loanRepaymentTableAdapter.Adapter);
+                if ((this._loanTableAdapter != null)) {
+                    revertConnections.Add(this._loanTableAdapter, this._loanTableAdapter.Connection);
+                    this._loanTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
+                    this._loanTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
+                    if (this._loanTableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._loanTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._loanTableAdapter.Adapter);
                     }
                 }
                 // 
@@ -12812,29 +3078,13 @@ SELECT ID, RepaymentID, AmmountPaid, TotalAmmount, Balance, RepayMonths, Cashier
                 if (workConnOpened) {
                     workConnection.Close();
                 }
-                if ((this._loansTableAdapter != null)) {
-                    this._loansTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._loansTableAdapter]));
-                    this._loansTableAdapter.Transaction = null;
+                if ((this._amortisationScheduleTableAdapter != null)) {
+                    this._amortisationScheduleTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._amortisationScheduleTableAdapter]));
+                    this._amortisationScheduleTableAdapter.Transaction = null;
                 }
-                if ((this._repaymentScheduleTableAdapter != null)) {
-                    this._repaymentScheduleTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._repaymentScheduleTableAdapter]));
-                    this._repaymentScheduleTableAdapter.Transaction = null;
-                }
-                if ((this._externalLoanRepaymentTableAdapter != null)) {
-                    this._externalLoanRepaymentTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._externalLoanRepaymentTableAdapter]));
-                    this._externalLoanRepaymentTableAdapter.Transaction = null;
-                }
-                if ((this._externalLoansTableAdapter != null)) {
-                    this._externalLoansTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._externalLoansTableAdapter]));
-                    this._externalLoansTableAdapter.Transaction = null;
-                }
-                if ((this._externalRepaymentScheduleTableAdapter != null)) {
-                    this._externalRepaymentScheduleTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._externalRepaymentScheduleTableAdapter]));
-                    this._externalRepaymentScheduleTableAdapter.Transaction = null;
-                }
-                if ((this._loanRepaymentTableAdapter != null)) {
-                    this._loanRepaymentTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._loanRepaymentTableAdapter]));
-                    this._loanRepaymentTableAdapter.Transaction = null;
+                if ((this._loanTableAdapter != null)) {
+                    this._loanTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._loanTableAdapter]));
+                    this._loanTableAdapter.Transaction = null;
                 }
                 if ((0 < adaptersWithAcceptChangesDuringUpdate.Count)) {
                     global::System.Data.Common.DataAdapter[] adapters = new System.Data.Common.DataAdapter[adaptersWithAcceptChangesDuringUpdate.Count];

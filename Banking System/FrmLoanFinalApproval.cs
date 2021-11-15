@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace Banking_System
 {
-    public partial class FrmLoanFirstApproval : DevComponents.DotNetBar.Office2007RibbonForm
+    public partial class FrmLoanFinalApproval : DevComponents.DotNetBar.Office2007RibbonForm
     {
         DataTable dtable = new DataTable();
         SqlConnection con = null;
@@ -19,7 +19,7 @@ namespace Banking_System
         SqlDataReader rdr = null;
         SqlCommand cmd2 = null;
         SqlDataReader rdr2 = null;
-        public FrmLoanFirstApproval()
+        public FrmLoanFinalApproval()
         {
             InitializeComponent();
         }
@@ -30,7 +30,7 @@ namespace Banking_System
             {
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
-                cmd = new SqlCommand("select RTRIM(AccountNo)[Account No.],RTRIM(AccountName)[Account Name],RTRIM(LoanID)[Loan ID] from Loan where FirstApproval='Pending' order by ID DESC", con);
+                cmd = new SqlCommand("select RTRIM(AccountNo)[Account No.],RTRIM(AccountName)[Account Name],RTRIM(LoanID)[Loan ID] from Loan where FinalApproval='Pending' and FirstApproval='Approved' order by ID DESC", con);
                 SqlDataAdapter myDA = new SqlDataAdapter(cmd);
                 DataSet myDataSet = new DataSet();
                 myDA.Fill(myDataSet, "Loan");
@@ -81,7 +81,7 @@ namespace Banking_System
         private void buttonX3_Click(object sender, EventArgs e)
         {
             this.Hide();
-            FrmLoanFirstApproval frm = new FrmLoanFirstApproval();
+            FrmLoanFinalApproval frm = new FrmLoanFinalApproval();
             frm.label1.Text = label1.Text;
             frm.label2.Text = label2.Text;
             frm.ShowDialog();
@@ -154,7 +154,7 @@ namespace Banking_System
                     string staffids = rdr["StaffID"].ToString().Trim();
                     con = new SqlConnection(cs.DBConn);
                     con.Open();
-                    string ct = "SELECT UserName,StaffID FROM ApprovalRights WHERE StaffID='" + staffids + "' and LoansManagerApproval='Yes'";
+                    string ct = "SELECT UserName,StaffID FROM ApprovalRights WHERE StaffID='" + staffids + "' and LoansFinalApproval='Yes'";
                     cmd2 = new SqlCommand(ct);
                     cmd2.Connection = con;
                     rdr2 = cmd2.ExecuteReader();
@@ -216,16 +216,16 @@ namespace Banking_System
             {
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
-                string cb = "UPDATE Loan SET ApprovalDate=@d4,FirstApproval=@d5,ApprovalComment=@d6,ApprovedBy=@d7 WHERE LoanID=@d1";
+                string cb = "UPDATE Loan SET FinalApprovalDate=@d4,FinalApproval=@d5,FinalApprovalComment=@d6,FinalApprovedBy=@d7 WHERE LoanID=@d1";
                 cmd = new SqlCommand(cb);
                 cmd.Connection = con;
                 cmd.Parameters.Add(new SqlParameter("@d1", System.Data.SqlDbType.NChar, 20, "LoanID"));
                 cmd.Parameters.Add(new SqlParameter("@d2", System.Data.SqlDbType.NChar, 20, "AccountNo"));
                 cmd.Parameters.Add(new SqlParameter("@d3", System.Data.SqlDbType.NChar, 100, "AccountName"));
-                cmd.Parameters.Add(new SqlParameter("@d4", System.Data.SqlDbType.NChar, 20, "ApprovalDate"));
-                cmd.Parameters.Add(new SqlParameter("@d5", System.Data.SqlDbType.NChar, 20, "FirstApproval"));
-                cmd.Parameters.Add(new SqlParameter("@d6", System.Data.SqlDbType.Text, 500, "ApprovalComment"));
-                cmd.Parameters.Add(new SqlParameter("@d7", System.Data.SqlDbType.NChar, 50, "ApprovedBy"));
+                cmd.Parameters.Add(new SqlParameter("@d4", System.Data.SqlDbType.NChar, 20, "FinalApprovalDate"));
+                cmd.Parameters.Add(new SqlParameter("@d5", System.Data.SqlDbType.NChar, 20, "FinalApproval"));
+                cmd.Parameters.Add(new SqlParameter("@d6", System.Data.SqlDbType.Text, 500, "FinalApprovalComment"));
+                cmd.Parameters.Add(new SqlParameter("@d7", System.Data.SqlDbType.NChar, 50, "FinalApprovedBy"));
                 cmd.Parameters["@d1"].Value = LoanID.Text;
                 cmd.Parameters["@d2"].Value = AccountNumber.Text;
                 cmd.Parameters["@d3"].Value = AccountName.Text;
@@ -237,7 +237,7 @@ namespace Banking_System
                 con.Close();
                 MessageBox.Show("Successful", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Hide();
-                FrmLoanFirstApproval frm = new FrmLoanFirstApproval();
+                FrmLoanFinalApproval frm = new FrmLoanFinalApproval();
                 frm.label1.Text = label1.Text;
                 frm.label2.Text = label2.Text;
                 frm.ShowDialog();

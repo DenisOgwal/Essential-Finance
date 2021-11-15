@@ -13,9 +13,6 @@ namespace Banking_System
         SqlCommand cmd = null;
         DataTable dt = new DataTable();
         ConnectionString cs = new ConnectionString();
-        SqlDataReader rdr = null;
-        SqlCommand cmd2 = null;
-        SqlDataReader rdr2 = null;
         public FrmLoanRecord()
         {
             InitializeComponent();
@@ -31,7 +28,7 @@ namespace Banking_System
             {
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
-                cmd = new SqlCommand("select RTRIM(AccountNo)[Account No.],RTRIM(AccountName)[Account Name],RTRIM(LoanID)[Loan ID],RTRIM(ApplicationDate)[Application Date],RTRIM(ServicingPeriod)[Servicing Period],RTRIM(RepaymentInterval)[Repayment Interval] ,RTRIM(Interest)[Interest Rate],RTRIM(RefereeName)[Referee Name],RTRIM(RefereeTel)[Referee Tel],RTRIM(RefereeAddress)[Referee Address],RTRIM(RefereeRelationShip)[Referee Relationship] from Loan where LoanID='" + label1.Text+"' order by ID DESC", con);
+                cmd = new SqlCommand("select RTRIM(AccountNo)[Account No.],RTRIM(AccountName)[Account Name],RTRIM(LoanID)[Loan ID],RTRIM(LoanAmount)[Loan Amount],RTRIM(ApplicationDate)[Application Date],RTRIM(ServicingPeriod)[Servicing Period],RTRIM(RepaymentInterval)[Repayment Interval] ,RTRIM(Interest)[Interest Rate],RTRIM(RefereeName)[Referee Name],RTRIM(RefereeTel)[Referee Tel],RTRIM(RefereeAddress)[Referee Address],RTRIM(RefereeRelationShip)[Referee Relationship] from Loan where LoanID='" + label1.Text+"' order by ID DESC", con);
                 SqlDataAdapter myDA = new SqlDataAdapter(cmd);
                 DataSet myDataSet = new DataSet();
                 myDA.Fill(myDataSet, "Loan");

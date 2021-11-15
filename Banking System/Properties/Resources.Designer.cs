@@ -323,6 +323,16 @@ namespace Banking_System.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Month {
+            get {
+                object obj = ResourceManager.GetObject("Month", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Note_Memo_01 {
             get {
                 object obj = ResourceManager.GetObject("Note-Memo-01", resourceCulture);
@@ -333,9 +343,29 @@ namespace Banking_System.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Orientation_Landscape {
+            get {
+                object obj = ResourceManager.GetObject("Orientation-Landscape", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Password_Text_01 {
             get {
                 object obj = ResourceManager.GetObject("Password-Text-01", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Payment_02 {
+            get {
+                object obj = ResourceManager.GetObject("Payment-02", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

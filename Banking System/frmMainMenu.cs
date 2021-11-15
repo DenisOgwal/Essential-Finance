@@ -1359,7 +1359,7 @@ namespace Banking_System
 
         private void buttonItem25_Click_1(object sender, EventArgs e)
         {
-            frmAccountApprove frm = new frmAccountApprove();
+            frmSavings frm = new frmSavings();
             frm.label1.Text = User.Text;
             frm.label2.Text = UserType.Text;
             frm.ShowDialog();
@@ -1988,6 +1988,54 @@ namespace Banking_System
             frm.label1.Text = User.Text;
             frm.label2.Text = UserType.Text;
             frm.ShowDialog();
+        }
+
+        private void buttonItem24_Click_1(object sender, EventArgs e)
+        {
+            frmMemberRegistration frm = new frmMemberRegistration();
+            frm.label33.Text = User.Text;
+            frm.label34.Text = UserType.Text;
+            frm.ShowDialog();
+        }
+
+        private void buttonItem91_Click(object sender, EventArgs e)
+        {
+            frmLoanApplication frm = new frmLoanApplication();
+            frm.label1.Text = User.Text;
+            frm.label2.Text = UserType.Text;
+            frm.ShowDialog();
+        }
+
+        private void buttonItem39_Click(object sender, EventArgs e)
+        {
+            FrmLoanApplicationPayment frm = new FrmLoanApplicationPayment();
+            frm.label1.Text = User.Text;
+            frm.label2.Text = UserType.Text;
+            frm.ShowDialog();
+        }
+
+        private void buttonItem93_Click(object sender, EventArgs e)
+        {
+            //this.Hide();
+            frmLoanInsuranceFeesPayment frm = new frmLoanInsuranceFeesPayment();
+            frm.label7.Text = User.Text;
+            frm.label12.Text = UserType.Text;
+            frm.ShowDialog();
+        }
+
+        private void buttonItem41_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonItem32_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonItem33_Click(object sender, EventArgs e)
+        {
+            contextMenuStrip1.Show(Cursor.Position.X, Cursor.Position.Y);
         }
     }
 }

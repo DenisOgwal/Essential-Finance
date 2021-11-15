@@ -521,5 +521,16 @@ namespace Banking_System.Properties {
                 this["autotransferdays"] = value;
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DENIS\\SQLEXPRESS;Initial Catalog=Lending;Persist Security Info=True;U" +
+            "ser ID=sa;Password=jesus@lord1")]
+        public string LendingConnectionString {
+            get {
+                return ((string)(this["LendingConnectionString"]));
+            }
+        }
     }
 }

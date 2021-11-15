@@ -13,9 +13,6 @@ namespace Banking_System
         SqlCommand cmd = null;
         DataTable dt = new DataTable();
         ConnectionString cs = new ConnectionString();
-        SqlDataReader rdr = null;
-        SqlCommand cmd2 = null;
-        SqlDataReader rdr2 = null;
         public FrmLoanLiabilitiesRecord()
         {
             InitializeComponent();

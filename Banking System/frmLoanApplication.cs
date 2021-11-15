@@ -387,7 +387,7 @@ namespace Banking_System
             {
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
-                string cb = "insert into Loan(AccountNo,AccountName,LoanID,ServicingPeriod,RepaymentInterval,Interest,Collateral,CollateralValue,RefereeName,RefereeTel,RefereeAddress,RefereeRelationship,ApplicationDate) VALUES (@d1,@d2,@d3,@d4,@d5,@d6,@d7,@d8,@d9,@d10,@d11,@d12,@d13)";
+                string cb = "insert into Loan(AccountNo,AccountName,LoanID,ServicingPeriod,RepaymentInterval,Interest,Collateral,CollateralValue,RefereeName,RefereeTel,RefereeAddress,RefereeRelationship,ApplicationDate,LoanAmount) VALUES (@d1,@d2,@d3,@d4,@d5,@d6,@d7,@d8,@d9,@d10,@d11,@d12,@d13,@d14)";
                 cmd = new SqlCommand(cb);
                 cmd.Connection = con;
                 cmd.Parameters.Add(new SqlParameter("@d1", System.Data.SqlDbType.NChar, 20, "AccountNo"));
@@ -403,6 +403,7 @@ namespace Banking_System
                 cmd.Parameters.Add(new SqlParameter("@d11", System.Data.SqlDbType.NChar, 100, "RefereeAddress"));
                 cmd.Parameters.Add(new SqlParameter("@d12", System.Data.SqlDbType.NChar, 30, "RefereeRelationship"));
                 cmd.Parameters.Add(new SqlParameter("@d13", System.Data.SqlDbType.NChar, 20, "ApplicationDate"));
+                cmd.Parameters.Add(new SqlParameter("@d14", System.Data.SqlDbType.Int, 10, "LoanAmount"));
                 cmd.Parameters["@d1"].Value = AccountNo.Text;
                 cmd.Parameters["@d2"].Value = AccountName.Text;
                 cmd.Parameters["@d3"].Value = LoanID.Text;
@@ -416,6 +417,7 @@ namespace Banking_System
                 cmd.Parameters["@d11"].Value = RefAddress.Text;
                 cmd.Parameters["@d12"].Value = RefRelationship.Text;
                 cmd.Parameters["@d13"].Value = ApplicationDate.Text;
+                cmd.Parameters["@d14"].Value = LoanAmount.Value;
                 cmd.ExecuteNonQuery();
                 con.Close();
             }
@@ -770,6 +772,15 @@ namespace Banking_System
         {
             this.Hide();
             FrmLoanFirstApproval frm = new FrmLoanFirstApproval();
+            frm.label1.Text = label1.Text;
+            frm.label2.Text = label2.Text;
+            frm.ShowDialog();
+        }
+
+        private void buttonX10_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FrmLoanFinalApproval frm = new FrmLoanFinalApproval();
             frm.label1.Text = label1.Text;
             frm.label2.Text = label2.Text;
             frm.ShowDialog();

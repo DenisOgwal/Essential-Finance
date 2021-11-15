@@ -118,137 +118,107 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="Award-01" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Award-01.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Shopping-Bag" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Shopping-Bag.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Positive" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Positive.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Gold" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Gold.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Accounting-01" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Accounting-01.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Recover-Deleted Items" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Recover-Deleted Items.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Finance-02" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Finance-02.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Finance-01" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Finance-01.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="smooth-navy-blue-user" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\smooth-navy-blue-user.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="signatures" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\signatures.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Password-Text-01" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Password-Text-01.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Payments" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Payments.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Business-Man-Add-021" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Business-Man-Add-021.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Banking-Transaction" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Banking-Transaction.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Group-Add" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Group-Add.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Transaction-Fee" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Transaction-Fee.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Day" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Day.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Note-Memo-01" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Note-Memo-01.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Identity-Card" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Identity-Card.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Finance-021" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Finance-021.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="User-Login" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\User-Login.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="SMS" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\SMS.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="Business-Man-Add-02" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Business-Man-Add-02.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Start screen" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Start screen.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="logout" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\logout.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Money-Credit-Card" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Money-Credit-Card.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Award-01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Award-01.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="charity" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\charity.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Clear All Formating" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Clear All Formating.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Payment-02" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Payment-02.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Start screen" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Start screen.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Transaction-Fee" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Transaction-Fee.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Pie-Chart" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Pie-Chart.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Register by Device" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Register by Device.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Clear All Formating" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Clear All Formating.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Code" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Code.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="signatures" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\signatures.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="For-This-Week" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\For-This-Week.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Clear" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Clear.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Savings2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Savings2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="spend Money" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\spend Money.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Reward-07" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Reward-07.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Key-Access" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Key-Access.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Savings" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Savings.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Financial Nest Egg" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Financial Nest Egg.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Savings1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Savings1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Finance-01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Finance-01.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Bank" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Bank.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Identity-Card" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Identity-Card.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="logout" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\logout.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Note-Memo-01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Note-Memo-01.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Reward-07" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Reward-07.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Finance-021" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Finance-021.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Password-Text-01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Password-Text-01.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ToggleButtonOn-Windows" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ToggleButtonOn-Windows.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Accounting-01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Accounting-01.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Register by Device" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Register by Device.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="User-Login" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\User-Login.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="For-This-Week" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\For-This-Week.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Positive" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Positive.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SMS" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SMS.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Payments" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Payments.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Savings1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Savings1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Banking-Transaction" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Banking-Transaction.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Percentage" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Percentage.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="ChangePassword" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ChangePassword.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Month" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Month.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Account-Payable" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Account-Payable.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Day" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Day.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Filter-Add" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Filter-Add.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Code" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Code.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Finance-02" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Finance-02.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Recover-Deleted Items" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Recover-Deleted Items.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Locker" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Locker.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -256,10 +226,49 @@
   <data name="photo" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\photo.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Filter-Add" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Filter-Add.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Account-Payable" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Account-Payable.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="ToggleButtonOn-Windows" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ToggleButtonOn-Windows.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Shopping-Bag" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Shopping-Bag.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Money-Credit-Card" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Money-Credit-Card.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Business-Man-Add-021" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Business-Man-Add-021.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="spend Money" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\spend Money.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Group-Add" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Group-Add.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Savings2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Savings2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Clear" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Clear.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Key-Access" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Key-Access.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="smooth-navy-blue-user" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\smooth-navy-blue-user.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ChangePassword" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ChangePassword.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Financial Nest Egg" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Financial Nest Egg.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Savings" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Savings.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Gold" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Gold.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Orientation-Landscape" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Orientation-Landscape.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

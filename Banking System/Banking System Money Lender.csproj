@@ -156,35 +156,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>AExpensesDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="AFineFeesDataSet1.Designer.cs">
+    <Compile Include="ALoansDataset.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>AFineFeesDataSet1.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="AllPaymentsDataset.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>AllPaymentsDataset.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="AloansDataset.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>AloansDataset.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="AMemberregistration.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>AMemberregistration.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="ARegistration.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ARegistration.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="AsavingsDataset.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>AsavingsDataset.xsd</DependentUpon>
+      <DependentUpon>ALoansDataset.xsd</DependentUpon>
     </Compile>
     <Compile Include="AShareCapitalDataSet1.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -381,11 +356,35 @@
     <Compile Include="FrmLoanApplicationPayment.Designer.cs">
       <DependentUpon>FrmLoanApplicationPayment.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmLoanCollateralRecord.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmLoanCollateralRecord.Designer.cs">
+      <DependentUpon>FrmLoanCollateralRecord.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmLoanFinalApproval.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmLoanFinalApproval.Designer.cs">
+      <DependentUpon>FrmLoanFinalApproval.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmLoanFirstApproval.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmLoanFirstApproval.Designer.cs">
       <DependentUpon>FrmLoanFirstApproval.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmLoanInsuranceFeePaymentRecord.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLoanInsuranceFeePaymentRecord.Designer.cs">
+      <DependentUpon>frmLoanInsuranceFeePaymentRecord.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmLoanInsuranceFeesPayment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLoanInsuranceFeesPayment.Designer.cs">
+      <DependentUpon>frmLoanInsuranceFeesPayment.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmLoanLiabilitiesRecord.cs">
       <SubType>Form</SubType>
@@ -627,6 +626,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>rptExpensesByMonths.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RptLoanAmortisation.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RptLoanAmortisation.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="rptLoansIssued.cs">
@@ -1483,8 +1488,20 @@
     <EmbeddedResource Include="FrmLoanApplicationPayment.resx">
       <DependentUpon>FrmLoanApplicationPayment.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmLoanCollateralRecord.resx">
+      <DependentUpon>FrmLoanCollateralRecord.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmLoanFinalApproval.resx">
+      <DependentUpon>FrmLoanFinalApproval.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmLoanFirstApproval.resx">
       <DependentUpon>FrmLoanFirstApproval.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLoanInsuranceFeePaymentRecord.resx">
+      <DependentUpon>frmLoanInsuranceFeePaymentRecord.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLoanInsuranceFeesPayment.resx">
+      <DependentUpon>frmLoanInsuranceFeesPayment.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmLoanLiabilitiesRecord.resx">
       <DependentUpon>FrmLoanLiabilitiesRecord.cs</DependentUpon>
@@ -1611,6 +1628,10 @@
     <EmbeddedResource Include="rptExpensesByMonths.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptExpensesByMonths.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RptLoanAmortisation.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RptLoanAmortisation.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="rptLoansIssued.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -2129,74 +2150,19 @@
     <None Include="AExpensesDataSet.xss">
       <DependentUpon>AExpensesDataSet.xsd</DependentUpon>
     </None>
-    <None Include="AFineFeesDataSet1.xsc">
-      <DependentUpon>AFineFeesDataSet1.xsd</DependentUpon>
+    <None Include="ALoansDataset.xsc">
+      <DependentUpon>ALoansDataset.xsd</DependentUpon>
     </None>
-    <None Include="AFineFeesDataSet1.xsd">
+    <None Include="ALoansDataset.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>AFineFeesDataSet1.Designer.cs</LastGenOutput>
+      <LastGenOutput>ALoansDataset.Designer.cs</LastGenOutput>
     </None>
-    <None Include="AFineFeesDataSet1.xss">
-      <DependentUpon>AFineFeesDataSet1.xsd</DependentUpon>
-    </None>
-    <None Include="AllPaymentsDataset.xsc">
-      <DependentUpon>AllPaymentsDataset.xsd</DependentUpon>
-    </None>
-    <None Include="AllPaymentsDataset.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>AllPaymentsDataset.Designer.cs</LastGenOutput>
-    </None>
-    <None Include="AllPaymentsDataset.xss">
-      <DependentUpon>AllPaymentsDataset.xsd</DependentUpon>
-    </None>
-    <None Include="AloansDataset.xsc">
-      <DependentUpon>AloansDataset.xsd</DependentUpon>
-    </None>
-    <None Include="AloansDataset.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>AloansDataset.Designer.cs</LastGenOutput>
-    </None>
-    <None Include="AloansDataset.xss">
-      <DependentUpon>AloansDataset.xsd</DependentUpon>
-    </None>
-    <None Include="AMemberregistration.xsc">
-      <DependentUpon>AMemberregistration.xsd</DependentUpon>
-    </None>
-    <None Include="AMemberregistration.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>AMemberregistration.Designer.cs</LastGenOutput>
-    </None>
-    <None Include="AMemberregistration.xss">
-      <DependentUpon>AMemberregistration.xsd</DependentUpon>
+    <None Include="ALoansDataset.xss">
+      <DependentUpon>ALoansDataset.xsd</DependentUpon>
     </None>
     <None Include="app.config">
       <SubType>Designer</SubType>
-    </None>
-    <None Include="ARegistration.xsc">
-      <DependentUpon>ARegistration.xsd</DependentUpon>
-    </None>
-    <None Include="ARegistration.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>ARegistration.Designer.cs</LastGenOutput>
-    </None>
-    <None Include="ARegistration.xss">
-      <DependentUpon>ARegistration.xsd</DependentUpon>
-    </None>
-    <None Include="AsavingsDataset.xsc">
-      <DependentUpon>AsavingsDataset.xsd</DependentUpon>
-    </None>
-    <None Include="AsavingsDataset.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>AsavingsDataset.Designer.cs</LastGenOutput>
-    </None>
-    <None Include="AsavingsDataset.xss">
-      <DependentUpon>AsavingsDataset.xsd</DependentUpon>
     </None>
     <None Include="AShareCapitalDataSet1.xsc">
       <DependentUpon>AShareCapitalDataSet1.xsd</DependentUpon>
@@ -2265,6 +2231,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Financial.ico" />
+    <None Include="Resources\Orientation-Landscape.png" />
+    <None Include="Resources\Month.png" />
+    <None Include="Resources\Payment-02.png" />
     <None Include="Resources\ToggleButtonOn-Windows.png" />
     <None Include="Resources\Money-Credit-Card.png" />
     <None Include="Resources\Financial Nest Egg.png" />

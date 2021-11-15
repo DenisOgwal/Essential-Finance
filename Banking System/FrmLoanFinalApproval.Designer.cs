@@ -1,7 +1,7 @@
 ﻿
 namespace Banking_System
 {
-    partial class FrmLoanFirstApproval
+    partial class FrmLoanFinalApproval
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@ namespace Banking_System
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmLoanFirstApproval));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmLoanFinalApproval));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.ApplicationDate = new System.Windows.Forms.DateTimePicker();
             this.AccountName = new System.Windows.Forms.TextBox();
@@ -338,12 +338,12 @@ namespace Banking_System
             this.buttonX8.Text = "Amortisation\r\nSchedule";
             this.buttonX8.Click += new System.EventHandler(this.buttonX8_Click);
             // 
-            // FrmLoanFirstApproval
+            // FrmLoanFinalApproval
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = global::Banking_System.Properties.Settings.Default.usercolor;
-            this.ClientSize = new System.Drawing.Size(877, 459);
+            this.ClientSize = new System.Drawing.Size(877, 457);
             this.Controls.Add(this.buttonX8);
             this.Controls.Add(this.buttonX7);
             this.Controls.Add(this.buttonX6);
@@ -377,7 +377,7 @@ namespace Banking_System
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "FrmLoanFirstApproval";
+            this.Name = "FrmLoanFinalApproval";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Loan First Approval";
             this.Load += new System.EventHandler(this.FrmLoanFirstApproval_Load);

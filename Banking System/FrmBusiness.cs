@@ -50,10 +50,10 @@ namespace Banking_System
                     RegNo.Focus();
                     return;
                 }
-                if (Location.Text == "")
+                if (Locations.Text == "")
                 {
                     MessageBox.Show("Please Fill Location", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    Location.Focus();
+                    Locations.Focus();
                     return;
                 }
                 if (AttendantName.Text == "")
@@ -129,7 +129,7 @@ namespace Banking_System
                 cmd.Parameters["@d2"].Value = BusinessName.Text;
                 cmd.Parameters["@d3"].Value = Lockup.Text;
                 cmd.Parameters["@d4"].Value = RegNo.Text;
-                cmd.Parameters["@d5"].Value = Location.Text;
+                cmd.Parameters["@d5"].Value = Locations.Text;
                 cmd.Parameters["@d6"].Value = AttendantName.Text;
                 cmd.Parameters["@d7"].Value = Dealership.Text;
                 cmd.Parameters["@d8"].Value = Description.Text;

@@ -38,7 +38,7 @@ namespace Banking_System
             this.AttendantName = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.Location = new System.Windows.Forms.TextBox();
+            this.Locations = new System.Windows.Forms.TextBox();
             this.RegNo = new System.Windows.Forms.TextBox();
             this.Lockup = new System.Windows.Forms.TextBox();
             this.BusinessName = new System.Windows.Forms.TextBox();
@@ -143,12 +143,12 @@ namespace Banking_System
             this.label10.TabIndex = 45;
             this.label10.Text = "Attendant Name";
             // 
-            // Location
+            // Locations
             // 
-            this.Location.Location = new System.Drawing.Point(461, 112);
-            this.Location.Name = "Location";
-            this.Location.Size = new System.Drawing.Size(216, 29);
-            this.Location.TabIndex = 3;
+            this.Locations.Location = new System.Drawing.Point(461, 112);
+            this.Locations.Name = "Locations";
+            this.Locations.Size = new System.Drawing.Size(216, 29);
+            this.Locations.TabIndex = 3;
             // 
             // RegNo
             // 
@@ -361,7 +361,7 @@ namespace Banking_System
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = global::Banking_System.Properties.Settings.Default.usercolor;
-            this.ClientSize = new System.Drawing.Size(689, 425);
+            this.ClientSize = new System.Drawing.Size(689, 424);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.buttonX2);
             this.Controls.Add(this.buttonX1);
@@ -376,7 +376,7 @@ namespace Banking_System
             this.Controls.Add(this.AttendantName);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.Location);
+            this.Controls.Add(this.Locations);
             this.Controls.Add(this.RegNo);
             this.Controls.Add(this.Lockup);
             this.Controls.Add(this.BusinessName);
@@ -416,7 +416,7 @@ namespace Banking_System
         private System.Windows.Forms.TextBox AttendantName;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox Location;
+        private System.Windows.Forms.TextBox Locations;
         private System.Windows.Forms.TextBox RegNo;
         private System.Windows.Forms.TextBox Lockup;
         private System.Windows.Forms.TextBox BusinessName;

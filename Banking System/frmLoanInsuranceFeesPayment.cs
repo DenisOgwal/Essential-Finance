@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Text;
@@ -9,7 +10,7 @@ using System.Reflection;
 using System.IO;
 namespace Banking_System
 {
-    public partial class frmFineFeesPayment : DevComponents.DotNetBar.Office2007Form
+    public partial class frmLoanInsuranceFeesPayment : DevComponents.DotNetBar.Office2007Form
     {
         SqlDataReader rdr = null;
         DataTable dtable = new DataTable();
@@ -26,7 +27,7 @@ namespace Banking_System
         string companyaddress = null;
         string companycontact = null;
         string companyslogan = null;
-        public frmFineFeesPayment()
+        public frmLoanInsuranceFeesPayment()
         {
             InitializeComponent();
         }
@@ -38,9 +39,11 @@ namespace Banking_System
             dtpPaymentDate.Text = DateTime.Today.ToString();
             months.Text = DateTime.Today.ToString();
             Year.Text = DateTime.Today.ToString();
+            txtBasicSalary.Text = null;
+            txtDeduction.Text = "";
             txtPaymentModeDetails.Text = "";
-            txtStaffName.Text = "";
-            txtTotalPaid.Text = "";
+            txtStaffName.Text = null;
+            txtTotalPaid.Text =null;
             staffid.Text = "";
             staffname.Text = "";
         }
@@ -67,7 +70,7 @@ namespace Banking_System
         private void auto()
         {
             string years = yearss.Substring(2, 2);
-            txtPaymentID.Text = "FF-" + years + monthss + days + GetUniqueKey(5);
+            txtPaymentID.Text = "LI-" + years + monthss + days + GetUniqueKey(5);
         }
         public string AssemblyCopyright
         {
@@ -88,7 +91,6 @@ namespace Banking_System
             this.Width = Screen.PrimaryScreen.WorkingArea.Width;
             this.Height = Screen.PrimaryScreen.WorkingArea.Height;
             this.MaximumSize = Screen.PrimaryScreen.WorkingArea.Size;*/
-
             dataGridView1.DataSource = GetData();
             PopulateStaffID();
             try
@@ -119,6 +121,34 @@ namespace Banking_System
             }
             try
             {
+                con = new SqlConnection(cs.DBConn);
+                con.Open();
+                string ct2 = "select InsurancePercentage from LoanInsurance order by ID DESC";
+                cmd = new SqlCommand(ct2);
+                cmd.Connection = con;
+                rdr = cmd.ExecuteReader();
+                if (rdr.Read())
+                {
+                    string proseccingpercentage = rdr["InsurancePercentage"].ToString();
+                    txtBasicSalary.Value = Convert.ToInt32(proseccingpercentage);
+                    if ((rdr != null))
+                    {
+                        rdr.Close();
+                    }
+                    // return;
+                }
+                else
+                {
+                    txtBasicSalary.Value = 0;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            try
+            {
                 SqlConnection CN = new SqlConnection(cs.DBConn);
                 CN.Open();
                 adp = new SqlDataAdapter();
@@ -141,7 +171,7 @@ namespace Banking_System
 
         private void frmRegistrationFeesPayment_FormClosing(object sender, FormClosingEventArgs e)
         {
-            /*this.Hide();
+           /* this.Hide();
             frmMainMenu frm = new frmMainMenu();
             frm.User.Text = label7.Text;
             frm.UserType.Text = label12.Text;
@@ -159,7 +189,7 @@ namespace Banking_System
         }
         public DataView GetData()
         {
-            dynamic SelectQry = "SELECT RTRIM(AccountNumber)[Account Number], RTRIM(AccountNames)[Account Names] from Account order by ID DESC ";
+            dynamic SelectQry = "SELECT RTRIM(LoanID)[Loan ID], RTRIM(LoanAmount)[Loan Amount] from Loan where Issued='Pending' order by ID DESC ";
             DataSet SampleSource = new DataSet();
             DataView TableView = null;
             try
@@ -185,13 +215,15 @@ namespace Banking_System
             {
                 DataGridViewRow dr = dataGridView1.SelectedRows[0];
                 cmbStaffID.Text = dr.Cells[0].Value.ToString();
-                txtStaffName.Text = dr.Cells[1].Value.ToString();
+                txtStaffName.Value = Convert.ToInt32(dr.Cells[1].Value);
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+      
 
         private void timer1_Tick(object sender, EventArgs e)
         {
@@ -206,7 +238,7 @@ namespace Banking_System
         private void buttonX1_Click(object sender, EventArgs e)
         {
             this.Hide();
-            frmGrantRecord frm = new frmGrantRecord();
+            frmLoanInsuranceFeePaymentRecord frm = new frmLoanInsuranceFeePaymentRecord();
             frm.label4.Text = label7.Text;
             frm.label5.Text = label12.Text;
             frm.ShowDialog();
@@ -216,6 +248,7 @@ namespace Banking_System
         {
             Reset(); 
         }
+
         public void company()
         {
             try
@@ -255,7 +288,7 @@ namespace Banking_System
             }
             if (staffname.Text == "")
             {
-                MessageBox.Show("Please enter Member name", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Please enter staff name", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 staffname.Focus();
                 return;
             }
@@ -271,12 +304,28 @@ namespace Banking_System
                 cmbModeOfPayment.Focus();
                 return;
             }
+            if (Duepayment.Text != "0")
+            {
+                MessageBox.Show("Pay this fee in not more than two installments for better accounts", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             try
             {
+                SqlDataReader rdr = null;
+                con = new SqlConnection(cs.DBConn);
+                con.Open();
+                string ct3 = "select LoanID from LoanInsuranceFees where LoanID= '" + cmbStaffID.Text + "' ";
+                cmd = new SqlCommand(ct3);
+                cmd.Connection = con;
+                rdr = cmd.ExecuteReader();
+                if (rdr.Read())
+                {
+                    MessageBox.Show("Loan Already Paid for", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
                 auto();
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
-                string cb = "insert into Fines(PaymentID,MemberID,Year,Months,Date,FineFee,CashierName,Reason) VALUES (@d1,@d2,@d3,@d4,@d5,@d6,@d7,@d8)";
+                string cb = "insert into LoanInsuranceFees(PaymentID,LoanID,MemberID,Year,Months,Date,InsuranceAmmount,CashierName,Duepayment) VALUES (@d1,@d9,@d2,@d3,@d4,@d5,@d6,@d7,@d8)";
                 cmd = new SqlCommand(cb);
                 cmd.Connection = con;
                 cmd.Parameters.Add(new SqlParameter("@d1", System.Data.SqlDbType.NChar, 15, "PaymentID"));
@@ -284,21 +333,23 @@ namespace Banking_System
                 cmd.Parameters.Add(new SqlParameter("@d3", System.Data.SqlDbType.NChar, 10, "Year"));
                 cmd.Parameters.Add(new SqlParameter("@d4", System.Data.SqlDbType.NChar, 30, "Months"));
                 cmd.Parameters.Add(new SqlParameter("@d5", System.Data.SqlDbType.NChar, 20, "Date"));
-                cmd.Parameters.Add(new SqlParameter("@d6", System.Data.SqlDbType.Int, 20, "FineFee"));
+                cmd.Parameters.Add(new SqlParameter("@d6", System.Data.SqlDbType.Int, 20, "InsuranceAmmount"));
                 cmd.Parameters.Add(new SqlParameter("@d7", System.Data.SqlDbType.NChar, 50, "CashierName"));
-                cmd.Parameters.Add(new SqlParameter("@d8", System.Data.SqlDbType.NChar, 100, "Reason"));
+                cmd.Parameters.Add(new SqlParameter("@d8", System.Data.SqlDbType.Int, 10, "Duepayment"));
+                cmd.Parameters.Add(new SqlParameter("@d9", System.Data.SqlDbType.NChar, 15, "LoanID"));
                 cmd.Parameters["@d1"].Value = txtPaymentID.Text;
-                cmd.Parameters["@d2"].Value = cmbStaffID.Text;
+                cmd.Parameters["@d2"].Value = txtStaffName.Value;
                 cmd.Parameters["@d3"].Value = Year.Text; 
                 cmd.Parameters["@d4"].Value = months.Text;
                 cmd.Parameters["@d5"].Value = dtpPaymentDate.Text; 
                 cmd.Parameters["@d6"].Value = Convert.ToInt32(txtTotalPaid.Value); 
                 cmd.Parameters["@d7"].Value =staffname.Text;
-                cmd.Parameters["@d8"].Value = txtPaymentModeDetails.Text;
+                cmd.Parameters["@d8"].Value = Convert.ToInt32(Duepayment.Value);
+                cmd.Parameters["@d9"].Value = cmbStaffID.Text;
                 cmd.ExecuteReader();
                 con.Close();
 
-                SqlDataReader rdr = null;
+                //SqlDataReader rdr = null;
                 int totalaamount = 0;
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
@@ -319,57 +370,12 @@ namespace Banking_System
                     con.Close();
                 }
                 MessageBox.Show("Successfully Saved", "Record", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                /*company();
-
-                try
-                {
-                    //this.Hide();
-                    Cursor = Cursors.WaitCursor;
-                    //timer1.Enabled = true;
-                    rptReceiptAll rpt = new rptReceiptAll(); //The report you created.
-                    SqlConnection myConnection = default(SqlConnection);
-                    SqlCommand MyCommand = new SqlCommand();
-                    SqlDataAdapter myDA = new SqlDataAdapter();
-                    AllPaymentsDataset myDS = new AllPaymentsDataset(); //The DataSet you created.
-                    Receipt frm = new Receipt();
-                    myConnection = new SqlConnection(cs.DBConn);
-                    MyCommand.Connection = myConnection;
-                    MyCommand.CommandText = "select * from AnnualFeesPayment";
-                    MyCommand.CommandType = CommandType.Text;
-                    myDA.SelectCommand = MyCommand;
-                    myDA.Fill(myDS, "AnnualFeesPayment");
-                    //myDA.Fill(myDS, "Rights");
-                    rpt.SetDataSource(myDS);
-                    rpt.SetParameterValue("paymentid", txtPaymentID.Text);
-                    rpt.SetParameterValue("accountno", cmbStaffID.Text);
-                    rpt.SetParameterValue("membernames", txtStaffName.Text);
-                    rpt.SetParameterValue("ammount", txtTotalPaid.Text);
-                    rpt.SetParameterValue("totalpaid", txtTotalPaid.Text);
-                    rpt.SetParameterValue("issuedby", staffname.Text);
-                    rpt.SetParameterValue("Transactions", "Fine Fees Receipt");
-                    rpt.SetParameterValue("addons", 0);
-                    rpt.SetParameterValue("duepayment", 0);
-                    rpt.SetParameterValue("comanyname", companyname);
-                    rpt.SetParameterValue("companyemail", companyemail);
-                    rpt.SetParameterValue("companycontact", companycontact);
-                    rpt.SetParameterValue("companyslogan", companyslogan);
-                    rpt.SetParameterValue("companyaddress", companyaddress);
-                    rpt.SetParameterValue("picpath", "logo.jpg");
-                    frm.crystalReportViewer1.ReportSource = rpt;
-                    //frm.Show();
-                    BarPrinter = Properties.Settings.Default.frontendprinter;
-                    rpt.PrintOptions.PrinterName = BarPrinter;
-                    rpt.PrintToPrinter(1, true, 1, 1);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }*/
+                
                 this.Hide();
-                frmFineFeesPayment frm2 = new frmFineFeesPayment();
+                frmLoanInsuranceFeesPayment frm2 = new frmLoanInsuranceFeesPayment();
                 frm2.label7.Text = label7.Text;
                 frm2.label12.Text = label12.Text;
-                frm2.Show();
+                frm2.ShowDialog();
             }
             catch (Exception ex)
             {
@@ -392,7 +398,7 @@ namespace Banking_System
                 int RowsAffected = 0;
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
-                string cq = "delete from Fines where PaymentID=@DELETE1;";
+                string cq = "delete from LoanInsuranceFees where  PaymentID=@DELETE1;";
                 cmd = new SqlCommand(cq);
                 cmd.Connection = con;
                 cmd.Parameters.Add(new SqlParameter("@DELETE1", System.Data.SqlDbType.NChar, 15, "PaymentID"));
@@ -426,7 +432,7 @@ namespace Banking_System
             {
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
-                string cb = "update Fines set MemberID=@d2,Date=@d5,Months=@d4,Year=@d3,CashierName=@d7,FineFee=@d6 where PaymentID=@d1";
+                string cb = "update LoanInsuranceFees set MemberID=@d2,Date=@d5,Months=@d4,Year=@d3,CashierName=@d7,InsuranceAmmount=@d6,Duepayment=@d8 where PaymentID=@d1";
                 cmd = new SqlCommand(cb);
                 cmd.Connection = con;
                 cmd.Parameters.Add(new SqlParameter("@d1", System.Data.SqlDbType.NChar, 15, "PaymentID"));
@@ -434,8 +440,9 @@ namespace Banking_System
                 cmd.Parameters.Add(new SqlParameter("@d3", System.Data.SqlDbType.NChar, 10, "Year"));
                 cmd.Parameters.Add(new SqlParameter("@d4", System.Data.SqlDbType.NChar, 30, "Months"));
                 cmd.Parameters.Add(new SqlParameter("@d5", System.Data.SqlDbType.NChar, 20, "Date"));
-                cmd.Parameters.Add(new SqlParameter("@d6", System.Data.SqlDbType.Int, 20, "FineFee"));
+                cmd.Parameters.Add(new SqlParameter("@d6", System.Data.SqlDbType.Int, 20, "InsuranceAmmount"));
                 cmd.Parameters.Add(new SqlParameter("@d7", System.Data.SqlDbType.NChar, 50, "CashierName"));
+                cmd.Parameters.Add(new SqlParameter("@d8", System.Data.SqlDbType.Int, 10, "Duepayment"));
                 cmd.Parameters["@d1"].Value = txtPaymentID.Text;
                 cmd.Parameters["@d2"].Value = cmbStaffID.Text;
                 cmd.Parameters["@d3"].Value = Year.Text;
@@ -443,6 +450,7 @@ namespace Banking_System
                 cmd.Parameters["@d5"].Value = dtpPaymentDate.Text;
                 cmd.Parameters["@d6"].Value = Convert.ToInt32(txtTotalPaid.Value);
                 cmd.Parameters["@d7"].Value = staffname.Text;
+                cmd.Parameters["@d8"].Value = Convert.ToInt32(Duepayment.Value);
                 cmd.ExecuteReader();
                 con.Close();
                 MessageBox.Show("Successfully Updated", "Record", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -460,7 +468,7 @@ namespace Banking_System
                 SqlConnection CN = new SqlConnection(cs.DBConn);
                 CN.Open();
                 adp = new SqlDataAdapter();
-                adp.SelectCommand = new SqlCommand("SELECT distinct RTRIM(AccountNumber) FROM Account", CN);
+                adp.SelectCommand = new SqlCommand("SELECT distinct RTRIM(LoanID) FROM Loan where Issued='Pending'", CN);
                 ds = new DataSet("ds");
                 adp.Fill(ds);
                 dtable = ds.Tables[0];
@@ -478,25 +486,25 @@ namespace Banking_System
 
         private void buttonX6_Click(object sender, EventArgs e)
         {
-            try
+            /*try
             {
                 this.Hide();
                Cursor = Cursors.WaitCursor;
                 timer1.Enabled = true;
-                rptFineFeesSlip rpt = new rptFineFeesSlip(); //The report you created.
+                rptLoanProcessingFeeSlip rpt = new rptLoanProcessingFeeSlip(); //The report you created.
                 SqlConnection myConnection = default(SqlConnection);
                 SqlCommand MyCommand = new SqlCommand();
                 SqlDataAdapter myDA = new SqlDataAdapter();
-                DataSet myDS = new DataSet();  //The DataSet you created.
-                FrmFineFeesSlip frm = new FrmFineFeesSlip();
+                ARegistration myDS = new ARegistration(); //The DataSet you created.
+                FrmLoanProcessingFeeSlip frm = new FrmLoanProcessingFeeSlip();
                 frm.label1.Text = label7.Text;
                 frm.label2.Text = label12.Text;
                 myConnection = new SqlConnection(cs.DBConn);
                 MyCommand.Connection = myConnection;
-                MyCommand.CommandText = "select * from Fines where PaymentID='" + txtPaymentID.Text + "'";
+                MyCommand.CommandText = "select * from LoanInsuranceFees where PaymentID='" + txtPaymentID.Text + "'";
                 MyCommand.CommandType = CommandType.Text;
                 myDA.SelectCommand = MyCommand;
-                myDA.Fill(myDS, "Fines");
+                myDA.Fill(myDS, "LoanInsuranceFees");
                 rpt.SetDataSource(myDS);
                 frm.crystalReportViewer1.ReportSource = rpt;
                 frm.Show();
@@ -504,35 +512,18 @@ namespace Banking_System
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            }*/
         }
 
-        private void cmbStaffID_SelectedIndexChanged(object sender, EventArgs e)
+       
+        private void txtTotalPaid_TextChanged(object sender, EventArgs e)
         {
-            try
-            {
-                con = new SqlConnection(cs.DBConn);
-                con.Open();
-                cmd = con.CreateCommand();
-                cmd.CommandText = "SELECT AccountNames from Account WHERE AccountNumber = '" + cmbStaffID.Text + "'";
-                rdr = cmd.ExecuteReader();
-                if (rdr.Read())
-                {
-                    txtStaffName.Text = (rdr.GetString(0).Trim());
-                }
-                if ((rdr != null))
-                {
-                    rdr.Close();
-                }
-                if (con.State == ConnectionState.Open)
-                {
-                    con.Close();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            
+        }
+
+        private void txtDeduction_TextChanged(object sender, EventArgs e)
+        {
+
         }
         public byte[] AES_Encrypt(byte[] bytesToBeEncrypted, byte[] passwordBytes)
         {
@@ -629,131 +620,180 @@ namespace Banking_System
             }
         }
 
-        private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        private void txtTotalPaid_Validating(object sender, CancelEventArgs e)
         {
-            try
+           
+            
+        }
+
+        private void cmbStaffID_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string howto = Properties.Settings.Default.Loaninsurancetype;
+            if (howto == "Figure")
             {
-                float x = 10;
-                float y = 5;
-
-                float width = 260.0F; // max width I found through trial and error
-                float height = 0F;
-
-                Font drawFontArial12Bold = new Font("Arial", 12, FontStyle.Bold);
-                Font drawFontArial10Regular = new Font("Arial", 10, FontStyle.Regular);
-                Font drawFontArial10italic = new Font("Arial", 10, FontStyle.Italic);
-                Font drawFontArial10Bold = new Font("Arial", 10, FontStyle.Bold);
-                Font drawFontArial6Regular = new Font("Arial", 6, FontStyle.Regular);
-                SolidBrush drawBrush = new SolidBrush(Color.Black);
-
-                // Set format of string.
-                StringFormat drawFormatCenter = new StringFormat();
-                drawFormatCenter.Alignment = StringAlignment.Center;
-                StringFormat drawFormatLeft = new StringFormat();
-                drawFormatLeft.Alignment = StringAlignment.Near;
-                StringFormat drawFormatRight = new StringFormat();
-                drawFormatRight.Alignment = StringAlignment.Far;
-
-                // Draw string to screen.
-                string text = "KIBUKU CONSTITUENCY DEVELOPMENT SACCO LTD";
-                e.Graphics.DrawString(text, drawFontArial12Bold, drawBrush, new RectangleF(x, y, width, height), drawFormatCenter);
-                y += e.Graphics.MeasureString(text, drawFontArial12Bold).Height;
-                text = " ";
-                e.Graphics.DrawString(text, drawFontArial10Regular, drawBrush, new RectangleF(x, y, width, height), drawFormatCenter);
-                y += e.Graphics.MeasureString(text, drawFontArial10Regular).Height;
-
-                text = "i save for my future, What about you? ";
-                e.Graphics.DrawString(text, drawFontArial10italic, drawBrush, new RectangleF(x, y, width, height), drawFormatCenter);
-                y += e.Graphics.MeasureString(text, drawFontArial10italic).Height;
-
-                text = " ";
-                e.Graphics.DrawString(text, drawFontArial10Regular, drawBrush, new RectangleF(x, y, width, height), drawFormatCenter);
-                y += e.Graphics.MeasureString(text, drawFontArial10Regular).Height;
-
-                text = "P.O.BOX 150, MBALE.";
-                e.Graphics.DrawString(text, drawFontArial10Regular, drawBrush, new RectangleF(x, y, width, height), drawFormatCenter);
-                y += e.Graphics.MeasureString(text, drawFontArial10Regular).Height;
-
-                text = "KIBUKU TOWN COUNCIL, BUSETA ROAD";
-                e.Graphics.DrawString(text, drawFontArial10Regular, drawBrush, new RectangleF(x, y, width, height), drawFormatCenter);
-                y += e.Graphics.MeasureString(text, drawFontArial10Regular).Height;
-                text = " ";
-                e.Graphics.DrawString(text, drawFontArial10Regular, drawBrush, new RectangleF(x, y, width, height), drawFormatCenter);
-                y += e.Graphics.MeasureString(text, drawFontArial10Regular).Height;
-
-                text = "TEL: 0393216208";
-                e.Graphics.DrawString(text, drawFontArial10Regular, drawBrush, new RectangleF(x, y, width, height), drawFormatCenter);
-                y += e.Graphics.MeasureString(text, drawFontArial10Regular).Height;
-
-                text = "-----------------------------------------------------";
-                e.Graphics.DrawString(text, drawFontArial10Regular, drawBrush, new RectangleF(x, y, width, height), drawFormatCenter);
-                y += e.Graphics.MeasureString(text, drawFontArial10Regular).Height;
-                text = " ";
-                e.Graphics.DrawString(text, drawFontArial10Regular, drawBrush, new RectangleF(x, y, width, height), drawFormatCenter);
-                y += e.Graphics.MeasureString(text, drawFontArial10Regular).Height;
-
-                text = "Payment ID: " + txtPaymentID.Text;
-                e.Graphics.DrawString(text, drawFontArial10Bold, drawBrush, new RectangleF(x, y, width, height), drawFormatCenter);
-                y += e.Graphics.MeasureString(text, drawFontArial10Bold).Height;
-
-                text = "Date: " + DateTime.Now.ToString();
-                e.Graphics.DrawString(text, drawFontArial10Regular, drawBrush, new RectangleF(x, y, width, height), drawFormatCenter);
-                y += e.Graphics.MeasureString(text, drawFontArial10Regular).Height;
-
-                text = " ";
-                e.Graphics.DrawString(text, drawFontArial10Regular, drawBrush, new RectangleF(x, y, width, height), drawFormatCenter);
-                y += e.Graphics.MeasureString(text, drawFontArial10Regular).Height;
-
-
-
-                text = "Paid For: Fine";
-                e.Graphics.DrawString(text, drawFontArial10Bold, drawBrush, new RectangleF(x, y, width, height), drawFormatCenter);
-                y += e.Graphics.MeasureString(text, drawFontArial10Bold).Height;
-                text = "Member ID: " + cmbStaffID.Text;
-                e.Graphics.DrawString(text, drawFontArial10Bold, drawBrush, new RectangleF(x, y, width, height), drawFormatCenter);
-                y += e.Graphics.MeasureString(text, drawFontArial10Bold).Height;
-                text = "-----------------------------------------------------";
-                e.Graphics.DrawString(text, drawFontArial10Regular, drawBrush, new RectangleF(x, y, width, height), drawFormatCenter);
-                y += e.Graphics.MeasureString(text, drawFontArial10Regular).Height;
-
-                text = " ";
-                e.Graphics.DrawString(text, drawFontArial10Regular, drawBrush, new RectangleF(x, y, width, height), drawFormatCenter);
-                y += e.Graphics.MeasureString(text, drawFontArial10Regular).Height;
-
-                text = "Total Paid: UGX." + string.Format("{0:n0}",Convert.ToInt32(txtTotalPaid.Value));
-                e.Graphics.DrawString(text, drawFontArial10Bold, drawBrush, new RectangleF(x, y, width, height), drawFormatCenter);
-                y += e.Graphics.MeasureString(text, drawFontArial10Bold).Height;
-
-
-                text = "Recieved By: " + staffname.Text;
-                e.Graphics.DrawString(text, drawFontArial10Regular, drawBrush, new RectangleF(x, y, width, height), drawFormatCenter);
-                y += e.Graphics.MeasureString(text, drawFontArial10Regular).Height;
-                text = "-----------------------------------------------------";
-                e.Graphics.DrawString(text, drawFontArial10Regular, drawBrush, new RectangleF(x, y, width, height), drawFormatCenter);
-                y += e.Graphics.MeasureString(text, drawFontArial10Regular).Height;
-
-                text = " ";
-                e.Graphics.DrawString(text, drawFontArial10Regular, drawBrush, new RectangleF(x, y, width, height), drawFormatCenter);
-                y += e.Graphics.MeasureString(text, drawFontArial10Regular).Height;
-
-                text = "THANK YOU, COME AGAIN";
-                e.Graphics.DrawString(text, drawFontArial10Bold, drawBrush, new RectangleF(x, y, width, height), drawFormatCenter);
-                y += e.Graphics.MeasureString(text, drawFontArial10Bold).Height;
-
-                text = " ";
-                e.Graphics.DrawString(text, drawFontArial10Regular, drawBrush, new RectangleF(x, y, width, height), drawFormatCenter);
-                y += e.Graphics.MeasureString(text, drawFontArial10Regular).Height;
-
-                text = "Powered by: www.essentialsystems.atwebpages.com +256787045644";
-                e.Graphics.DrawString(text, drawFontArial6Regular, drawBrush, new RectangleF(x, y, width, height), drawFormatCenter);
-                y += e.Graphics.MeasureString(text, drawFontArial6Regular).Height;
+                try
+                {
+                    con = new SqlConnection(cs.DBConn);
+                    con.Open();
+                    cmd = con.CreateCommand();
+                    cmd.CommandText = "SELECT LoanAmount from Loan WHERE LoanID = '" + cmbStaffID.Text + "'";
+                    rdr = cmd.ExecuteReader();
+                    if (rdr.Read())
+                    {
+                        txtStaffName.Value = rdr.GetInt32(0);
+                    }
+                    if ((rdr != null))
+                    {
+                        rdr.Close();
+                    }
+                    if (con.State == ConnectionState.Open)
+                    {
+                        con.Close();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
-            catch (Exception ex)
+            else if (howto == "Percentage")
             {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                try
+                {
+                    int val8 = 0;
+                    int val7 = 0;
+                    con = new SqlConnection(cs.DBConn);
+                    con.Open();
+                    string ct1 = "select LoanAmount from Loan where LoanID= '" + cmbStaffID.Text + "' order by ID DESC";
+                    cmd = new SqlCommand(ct1);
+                    cmd.Connection = con;
+                    rdr = cmd.ExecuteReader();
+                    if (rdr.Read())
+                    {
+                        string loanammount = rdr["LoanAmount"].ToString();
+
+                        val7 = Convert.ToInt32(loanammount);
+                        if ((rdr != null))
+                        {
+                            rdr.Close();
+                        }
+                        // return;
+                    }
+                    con = new SqlConnection(cs.DBConn);
+                    con.Open();
+                    string ct2 = "select InsurancePercentage from LoanInsurance order by ID DESC";
+                    cmd = new SqlCommand(ct2);
+                    cmd.Connection = con;
+                    rdr = cmd.ExecuteReader();
+                    if (rdr.Read())
+                    {
+                        string proseccingpercentage = rdr["InsurancePercentage"].ToString();
+
+                        val8 = Convert.ToInt32(proseccingpercentage);
+                        if ((rdr != null))
+                        {
+                            rdr.Close();
+                        }
+                        // return;
+                    }
+                    double pervalue = val8 * 0.01;
+                    int payablevalue = Convert.ToInt32(pervalue * val7);
+                    txtBasicSalary.Value = payablevalue;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 
+        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void cmbStaffID_TextChanged(object sender, EventArgs e)
+        {
+            string howto = Properties.Settings.Default.Loanprocessingtype;
+            if (howto == "Figure")
+            {
+                try
+                {
+                    con = new SqlConnection(cs.DBConn);
+                    con.Open();
+                    cmd = con.CreateCommand();
+                    cmd.CommandText = "SELECT LoanAmmount from Loans WHERE LoanID = '" + cmbStaffID.Text + "'";
+                    rdr = cmd.ExecuteReader();
+                    if (rdr.Read())
+                    {
+                        txtStaffName.Value = rdr.GetInt32(0);
+                    }
+                    if ((rdr != null))
+                    {
+                        rdr.Close();
+                    }
+                    if (con.State == ConnectionState.Open)
+                    {
+                        con.Close();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else if (howto == "Percentage")
+            {
+                try
+                {
+                    int val8 = 0;
+                    int val7 = 0;
+                    con = new SqlConnection(cs.DBConn);
+                    con.Open();
+                    string ct1 = "select LoanAmount from Loan where LoanID= '" + cmbStaffID.Text + "' order by ID DESC";
+                    cmd = new SqlCommand(ct1);
+                    cmd.Connection = con;
+                    rdr = cmd.ExecuteReader();
+                    if (rdr.Read())
+                    {
+                        string loanammount = rdr["LoanAmount"].ToString();
+
+                        val7 = Convert.ToInt32(loanammount);
+                        if ((rdr != null))
+                        {
+                            rdr.Close();
+                        }
+                        // return;
+                    }
+                    con = new SqlConnection(cs.DBConn);
+                    con.Open();
+                    string ct2 = "select InsurancePercentage from LoanInsurance order by ID DESC";
+                    cmd = new SqlCommand(ct2);
+                    cmd.Connection = con;
+                    rdr = cmd.ExecuteReader();
+                    if (rdr.Read())
+                    {
+                        string proseccingpercentage = rdr["InsurancePercentage"].ToString();
+
+                        val8 = Convert.ToInt32(proseccingpercentage);
+                        if ((rdr != null))
+                        {
+                            rdr.Close();
+                        }
+                        // return;
+                    }
+                    double pervalue = val8 * 0.01;
+                    int payablevalue = Convert.ToInt32(pervalue * val7);
+                    txtBasicSalary.Value = payablevalue;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+    
         private void buttonX7_Click(object sender, EventArgs e)
         {
             if (cmbStaffID.Text == "")
@@ -764,7 +804,7 @@ namespace Banking_System
             }
             if (staffname.Text == "")
             {
-                MessageBox.Show("Please enter Member name", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Please enter staff name", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 staffname.Focus();
                 return;
             }
@@ -780,12 +820,28 @@ namespace Banking_System
                 cmbModeOfPayment.Focus();
                 return;
             }
+            if (Duepayment.Text != "0")
+            {
+                MessageBox.Show("Pay this fee in not more than two installments for better accounts", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             try
             {
+                SqlDataReader rdr = null;
+                con = new SqlConnection(cs.DBConn);
+                con.Open();
+                string ct3 = "select LoanID from LoanInsuranceFees where LoanID= '" + cmbStaffID.Text + "' ";
+                cmd = new SqlCommand(ct3);
+                cmd.Connection = con;
+                rdr = cmd.ExecuteReader();
+                if (rdr.Read())
+                {
+                    MessageBox.Show("Loan Already Paid for", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
                 auto();
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
-                string cb = "insert into Fines(PaymentID,MemberID,Year,Months,Date,FineFee,CashierName,Reason) VALUES (@d1,@d2,@d3,@d4,@d5,@d6,@d7,@d8)";
+                string cb = "insert into LoanInsuranceFees(PaymentID,LoanID,MemberID,Year,Months,Date,InsuranceAmmount,CashierName,Duepayment) VALUES (@d1,@d9,@d2,@d3,@d4,@d5,@d6,@d7,@d8)";
                 cmd = new SqlCommand(cb);
                 cmd.Connection = con;
                 cmd.Parameters.Add(new SqlParameter("@d1", System.Data.SqlDbType.NChar, 15, "PaymentID"));
@@ -793,21 +849,25 @@ namespace Banking_System
                 cmd.Parameters.Add(new SqlParameter("@d3", System.Data.SqlDbType.NChar, 10, "Year"));
                 cmd.Parameters.Add(new SqlParameter("@d4", System.Data.SqlDbType.NChar, 30, "Months"));
                 cmd.Parameters.Add(new SqlParameter("@d5", System.Data.SqlDbType.NChar, 20, "Date"));
-                cmd.Parameters.Add(new SqlParameter("@d6", System.Data.SqlDbType.Int, 20, "FineFee"));
+                cmd.Parameters.Add(new SqlParameter("@d6", System.Data.SqlDbType.Int, 20, "InsuranceAmmount"));
                 cmd.Parameters.Add(new SqlParameter("@d7", System.Data.SqlDbType.NChar, 50, "CashierName"));
-                cmd.Parameters.Add(new SqlParameter("@d8", System.Data.SqlDbType.NChar, 100, "Reason"));
+                cmd.Parameters.Add(new SqlParameter("@d8", System.Data.SqlDbType.Int, 10, "Duepayment"));
+                cmd.Parameters.Add(new SqlParameter("@d9", System.Data.SqlDbType.NChar, 15, "LoanID"));
                 cmd.Parameters["@d1"].Value = txtPaymentID.Text;
-                cmd.Parameters["@d2"].Value = cmbStaffID.Text;
+                cmd.Parameters["@d2"].Value = txtStaffName.Value;
                 cmd.Parameters["@d3"].Value = Year.Text;
                 cmd.Parameters["@d4"].Value = months.Text;
                 cmd.Parameters["@d5"].Value = dtpPaymentDate.Text;
                 cmd.Parameters["@d6"].Value = Convert.ToInt32(txtTotalPaid.Value);
                 cmd.Parameters["@d7"].Value = staffname.Text;
-                cmd.Parameters["@d8"].Value = txtPaymentModeDetails.Text;
+                cmd.Parameters["@d8"].Value = Convert.ToInt32(Duepayment.Value);
+                cmd.Parameters["@d9"].Value = cmbStaffID.Text;
+                if (txtDeduction.Text == "")
+                {
+                    txtDeduction.Text = "0";
+                }
                 cmd.ExecuteReader();
                 con.Close();
-
-                SqlDataReader rdr = null;
                 int totalaamount = 0;
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
@@ -829,17 +889,16 @@ namespace Banking_System
                 }
                 MessageBox.Show("Successfully Saved", "Record", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 company();
-
                 try
                 {
                     //this.Hide();
-                    Cursor = Cursors.WaitCursor;
+                  /*  Cursor = Cursors.WaitCursor;
                     //timer1.Enabled = true;
-                    rptReceiptAll rpt = new rptReceiptAll(); //The report you created.
+                    rptReceiptAll2 rpt = new rptReceiptAll2(); //The report you created.
                     SqlConnection myConnection = default(SqlConnection);
                     SqlCommand MyCommand = new SqlCommand();
                     SqlDataAdapter myDA = new SqlDataAdapter();
-                    DataSet myDS = new DataSet(); //The DataSet you created.
+                    AllPaymentsDataset myDS = new AllPaymentsDataset(); //The DataSet you created.
                     Receipt frm = new Receipt();
                     myConnection = new SqlConnection(cs.DBConn);
                     MyCommand.Connection = myConnection;
@@ -851,13 +910,13 @@ namespace Banking_System
                     rpt.SetDataSource(myDS);
                     rpt.SetParameterValue("paymentid", txtPaymentID.Text);
                     rpt.SetParameterValue("accountno", cmbStaffID.Text);
-                    rpt.SetParameterValue("membernames", txtStaffName.Text);
-                    rpt.SetParameterValue("ammount", txtTotalPaid.Value);
+                    rpt.SetParameterValue("membernames", txtStaffName.Value);
+                    rpt.SetParameterValue("ammount", txtBasicSalary.Value);
                     rpt.SetParameterValue("totalpaid", txtTotalPaid.Value);
                     rpt.SetParameterValue("issuedby", staffname.Text);
-                    rpt.SetParameterValue("Transactions", "Fine Fees Receipt");
-                    rpt.SetParameterValue("addons", 0);
-                    rpt.SetParameterValue("duepayment", 0);
+                    rpt.SetParameterValue("Transactions", "Loan Insurance Fees Receipt");
+                    rpt.SetParameterValue("addons", txtDeduction.Text);
+                    rpt.SetParameterValue("duepayment", Duepayment.Value);
                     rpt.SetParameterValue("comanyname", companyname);
                     rpt.SetParameterValue("companyemail", companyemail);
                     rpt.SetParameterValue("companycontact", companycontact);
@@ -866,20 +925,19 @@ namespace Banking_System
                     rpt.SetParameterValue("picpath", "logo.jpg");
                     frm.crystalReportViewer1.ReportSource = rpt;
                     //frm.Show();
-                    //BarPrinter = Properties.Settings.Default.frontendprinter;
-                    //rpt.PrintOptions.PrinterName = BarPrinter;
-                    rpt.PrintToPrinter(1, true, 1, 1);
-                    this.Hide();
+                    BarPrinter = Properties.Settings.Default.frontendprinter;
+                    rpt.PrintOptions.PrinterName = BarPrinter;
+                    rpt.PrintToPrinter(1, true, 1, 1);*/
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 this.Hide();
-                frmFineFeesPayment frm2 = new frmFineFeesPayment();
+                frmLoanInsuranceFeesPayment frm2 = new frmLoanInsuranceFeesPayment();
                 frm2.label7.Text = label7.Text;
                 frm2.label12.Text = label12.Text;
-                frm2.Show();
+                frm2.ShowDialog();
             }
             catch (Exception ex)
             {
@@ -887,18 +945,62 @@ namespace Banking_System
             }
         }
 
-        private void cmbStaffID_Click(object sender, EventArgs e)
+        private void txtTotalPaid_ValueChanged(object sender, EventArgs e)
         {
-            frmClientDetails2 frm = new frmClientDetails2();
-            frm.ShowDialog();
-            this.cmbStaffID.Text = frm.clientnames.Text;
-            this.txtStaffName.Text = frm.Accountnames.Text;
-            return;
+            try
+            {
+                con = new SqlConnection(cs.DBConn);
+                con.Open();
+                string ct = "select LoanID,Duepayment from LoanInsuranceFees where LoanID= '" + cmbStaffID.Text + "' order by ID DESC";
+                cmd = new SqlCommand(ct);
+                cmd.Connection = con;
+                rdr = cmd.ExecuteReader();
+                if (rdr.Read())
+                {
+                    label11.Text = rdr["Duepayment"].ToString();
+                    int val4 = 0;
+                    int val5 = 0;
+                    int val6 = 0;
+                    int.TryParse(label11.Text, out val4);
+                    int.TryParse(txtDeduction.Text, out val5);
+                    int.TryParse(txtTotalPaid.Value.ToString(), out val6);
+                    int I = ((val4 + val5) - (val6));
+                    Duepayment.Value = I;
+
+                    if ((rdr != null))
+                    {
+                        rdr.Close();
+                    }
+                    // return;
+                }
+                else
+                {
+                    int val1 = 0;
+                    int val2 = 0;
+                    int val3 = 0;
+                    int.TryParse(txtBasicSalary.Value.ToString(), out val1);
+                    int.TryParse(txtDeduction.Text, out val2);
+                    int.TryParse(txtTotalPaid.Value.ToString(), out val3);
+                    int I = ((val1 + val2) - val3);
+                    Duepayment.Value = I;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
-        private void txtTotalPaid_TextChanged(object sender, EventArgs e)
+        private void txtTotalPaid_Validating_1(object sender, CancelEventArgs e)
         {
-
+            int val10 = Convert.ToInt32(txtTotalPaid.Value);
+            int val11 = Convert.ToInt32(txtBasicSalary.Value);
+            if (val10 < val11)
+            {
+                MessageBox.Show("Can Not pay less than Loan Insurance ammount", "Record", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtTotalPaid.Text = null;
+                return;
+            }
         }
     }
 }
