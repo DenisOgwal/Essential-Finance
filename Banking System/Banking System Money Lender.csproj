@@ -308,6 +308,12 @@
     <Compile Include="frmDrawingsRecord.Designer.cs">
       <DependentUpon>frmDrawingsRecord.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmEXpensesLoanProcess.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmEXpensesLoanProcess.Designer.cs">
+      <DependentUpon>frmEXpensesLoanProcess.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmKibanjaProperty.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -361,6 +367,48 @@
     </Compile>
     <Compile Include="FrmLoanCollateralRecord.Designer.cs">
       <DependentUpon>FrmLoanCollateralRecord.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmLoanScheduleRecord.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmLoanScheduleRecord.Designer.cs">
+      <DependentUpon>FrmLoanScheduleRecord.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmLoanWriteOffFinal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmLoanWriteOffFinal.Designer.cs">
+      <DependentUpon>FrmLoanWriteOffFinal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmLoanWriteOffApproval.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmLoanWriteOffApproval.Designer.cs">
+      <DependentUpon>FrmLoanWriteOffApproval.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmLoanWriteOff.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmLoanWriteOff.Designer.cs">
+      <DependentUpon>FrmLoanWriteOff.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmLoanTopup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmLoanTopup.Designer.cs">
+      <DependentUpon>FrmLoanTopup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmLoanReschedule.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmLoanReschedule.Designer.cs">
+      <DependentUpon>FrmLoanReschedule.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmLoanIssue.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmLoanIssue.Designer.cs">
+      <DependentUpon>FrmLoanIssue.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmLoanFinalApproval.cs">
       <SubType>Form</SubType>
@@ -458,17 +506,41 @@
     <Compile Include="frmInvestorAccount.Designer.cs">
       <DependentUpon>frmInvestorAccount.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmLoanWriteOffRecord.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmLoanWriteOffRecord.Designer.cs">
+      <DependentUpon>FrmLoanWriteOffRecord.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmMoneyTransfer.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmMoneyTransfer.Designer.cs">
       <DependentUpon>frmMoneyTransfer.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmPaymentSchedule.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPaymentSchedule.Designer.cs">
+      <DependentUpon>frmPaymentSchedule.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmPrintOptions.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmPrintOptions.Designer.cs">
       <DependentUpon>frmPrintOptions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmRepaymentEarlySettlement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRepaymentEarlySettlement.Designer.cs">
+      <DependentUpon>frmRepaymentEarlySettlement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmRepaymentForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRepaymentForm.Designer.cs">
+      <DependentUpon>frmRepaymentForm.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmRide.cs">
       <SubType>Form</SubType>
@@ -1464,6 +1536,9 @@
     <EmbeddedResource Include="frmDrawingsRecord.resx">
       <DependentUpon>frmDrawingsRecord.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmEXpensesLoanProcess.resx">
+      <DependentUpon>frmEXpensesLoanProcess.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmKibanjaProperty.resx">
       <DependentUpon>FrmKibanjaProperty.cs</DependentUpon>
     </EmbeddedResource>
@@ -1490,6 +1565,27 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmLoanCollateralRecord.resx">
       <DependentUpon>FrmLoanCollateralRecord.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmLoanScheduleRecord.resx">
+      <DependentUpon>FrmLoanScheduleRecord.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmLoanWriteOffFinal.resx">
+      <DependentUpon>FrmLoanWriteOffFinal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmLoanWriteOffApproval.resx">
+      <DependentUpon>FrmLoanWriteOffApproval.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmLoanWriteOff.resx">
+      <DependentUpon>FrmLoanWriteOff.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmLoanTopup.resx">
+      <DependentUpon>FrmLoanTopup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmLoanReschedule.resx">
+      <DependentUpon>FrmLoanReschedule.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmLoanIssue.resx">
+      <DependentUpon>FrmLoanIssue.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmLoanFinalApproval.resx">
       <DependentUpon>FrmLoanFinalApproval.cs</DependentUpon>
@@ -1539,11 +1635,23 @@
     <EmbeddedResource Include="frmInvestorAccount.resx">
       <DependentUpon>frmInvestorAccount.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmLoanWriteOffRecord.resx">
+      <DependentUpon>FrmLoanWriteOffRecord.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmMoneyTransfer.resx">
       <DependentUpon>frmMoneyTransfer.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmPaymentSchedule.resx">
+      <DependentUpon>frmPaymentSchedule.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmPrintOptions.resx">
       <DependentUpon>frmPrintOptions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRepaymentEarlySettlement.resx">
+      <DependentUpon>frmRepaymentEarlySettlement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRepaymentForm.resx">
+      <DependentUpon>frmRepaymentForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmRide.resx">
       <DependentUpon>FrmRide.cs</DependentUpon>

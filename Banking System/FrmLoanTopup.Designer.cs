@@ -1,7 +1,7 @@
 ﻿
 namespace Banking_System
 {
-    partial class FrmLoanFirstApproval
+    partial class FrmLoanTopup
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@ namespace Banking_System
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmLoanFirstApproval));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmLoanTopup));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.ApplicationDate = new System.Windows.Forms.DateTimePicker();
             this.AccountName = new System.Windows.Forms.TextBox();
@@ -43,21 +43,33 @@ namespace Banking_System
             this.ApprovalID = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.ApprovalComment = new System.Windows.Forms.RichTextBox();
             this.buttonX3 = new DevComponents.DotNetBar.ButtonX();
             this.buttonX2 = new DevComponents.DotNetBar.ButtonX();
             this.buttonX1 = new DevComponents.DotNetBar.ButtonX();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.approvals = new System.Windows.Forms.ComboBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
             this.buttonX4 = new DevComponents.DotNetBar.ButtonX();
-            this.buttonX5 = new DevComponents.DotNetBar.ButtonX();
-            this.buttonX6 = new DevComponents.DotNetBar.ButtonX();
-            this.buttonX7 = new DevComponents.DotNetBar.ButtonX();
-            this.buttonX8 = new DevComponents.DotNetBar.ButtonX();
+            this.Amount = new DevComponents.Editors.IntegerInput();
+            this.label14 = new System.Windows.Forms.Label();
+            this.TopupAmount = new DevComponents.Editors.IntegerInput();
+            this.label13 = new System.Windows.Forms.Label();
+            this.TotalAmount = new DevComponents.Editors.IntegerInput();
+            this.label15 = new System.Windows.Forms.Label();
+            this.AmortisationMethod = new System.Windows.Forms.ComboBox();
+            this.RepaymentInterval = new System.Windows.Forms.ComboBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.ServicingPeriod = new DevComponents.Editors.IntegerInput();
+            this.InterestRate = new DevComponents.Editors.IntegerInput();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Amount)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TopupAmount)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TotalAmount)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ServicingPeriod)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.InterestRate)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -68,7 +80,7 @@ namespace Banking_System
             this.dataGridView1.Location = new System.Drawing.Point(10, 16);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.Size = new System.Drawing.Size(310, 420);
+            this.dataGridView1.Size = new System.Drawing.Size(310, 534);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
@@ -77,9 +89,9 @@ namespace Banking_System
             this.ApplicationDate.CustomFormat = "dd/MMM/yyyy";
             this.ApplicationDate.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ApplicationDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.ApplicationDate.Location = new System.Drawing.Point(493, 118);
+            this.ApplicationDate.Location = new System.Drawing.Point(493, 362);
             this.ApplicationDate.Name = "ApplicationDate";
-            this.ApplicationDate.Size = new System.Drawing.Size(229, 29);
+            this.ApplicationDate.Size = new System.Drawing.Size(282, 29);
             this.ApplicationDate.TabIndex = 133;
             // 
             // AccountName
@@ -87,7 +99,7 @@ namespace Banking_System
             this.AccountName.Enabled = false;
             this.AccountName.Location = new System.Drawing.Point(493, 83);
             this.AccountName.Name = "AccountName";
-            this.AccountName.Size = new System.Drawing.Size(229, 29);
+            this.AccountName.Size = new System.Drawing.Size(282, 29);
             this.AccountName.TabIndex = 132;
             // 
             // AccountNumber
@@ -95,7 +107,7 @@ namespace Banking_System
             this.AccountNumber.Enabled = false;
             this.AccountNumber.Location = new System.Drawing.Point(493, 48);
             this.AccountNumber.Name = "AccountNumber";
-            this.AccountNumber.Size = new System.Drawing.Size(229, 29);
+            this.AccountNumber.Size = new System.Drawing.Size(282, 29);
             this.AccountNumber.TabIndex = 131;
             // 
             // LoanID
@@ -103,18 +115,19 @@ namespace Banking_System
             this.LoanID.Enabled = false;
             this.LoanID.Location = new System.Drawing.Point(493, 13);
             this.LoanID.Name = "LoanID";
-            this.LoanID.Size = new System.Drawing.Size(229, 29);
+            this.LoanID.Size = new System.Drawing.Size(282, 29);
             this.LoanID.TabIndex = 130;
+            this.LoanID.TextChanged += new System.EventHandler(this.LoanID_TextChanged);
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label7.Location = new System.Drawing.Point(334, 123);
+            this.label7.Location = new System.Drawing.Point(334, 367);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(109, 22);
+            this.label7.Size = new System.Drawing.Size(124, 22);
             this.label7.TabIndex = 129;
-            this.label7.Text = "Approval Date";
+            this.label7.Text = "Application Date";
             // 
             // label5
             // 
@@ -149,17 +162,17 @@ namespace Banking_System
             // ApprovalName
             // 
             this.ApprovalName.Enabled = false;
-            this.ApprovalName.Location = new System.Drawing.Point(493, 318);
+            this.ApprovalName.Location = new System.Drawing.Point(493, 432);
             this.ApprovalName.Name = "ApprovalName";
-            this.ApprovalName.Size = new System.Drawing.Size(229, 29);
+            this.ApprovalName.Size = new System.Drawing.Size(282, 29);
             this.ApprovalName.TabIndex = 137;
             // 
             // ApprovalID
             // 
-            this.ApprovalID.Location = new System.Drawing.Point(493, 283);
+            this.ApprovalID.Location = new System.Drawing.Point(493, 397);
             this.ApprovalID.Name = "ApprovalID";
             this.ApprovalID.PasswordChar = '*';
-            this.ApprovalID.Size = new System.Drawing.Size(229, 29);
+            this.ApprovalID.Size = new System.Drawing.Size(282, 29);
             this.ApprovalID.TabIndex = 3;
             this.ApprovalID.TextChanged += new System.EventHandler(this.ApprovalID_TextChanged);
             // 
@@ -167,7 +180,7 @@ namespace Banking_System
             // 
             this.label10.AutoSize = true;
             this.label10.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label10.Location = new System.Drawing.Point(334, 321);
+            this.label10.Location = new System.Drawing.Point(334, 435);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(119, 22);
             this.label10.TabIndex = 136;
@@ -177,37 +190,19 @@ namespace Banking_System
             // 
             this.label9.AutoSize = true;
             this.label9.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label9.Location = new System.Drawing.Point(334, 286);
+            this.label9.Location = new System.Drawing.Point(334, 400);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(94, 22);
             this.label9.TabIndex = 135;
             this.label9.Text = "Approval ID";
             // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label11.Location = new System.Drawing.Point(334, 189);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(145, 22);
-            this.label11.TabIndex = 138;
-            this.label11.Text = "Approval Comment";
-            // 
-            // ApprovalComment
-            // 
-            this.ApprovalComment.Location = new System.Drawing.Point(493, 189);
-            this.ApprovalComment.Name = "ApprovalComment";
-            this.ApprovalComment.Size = new System.Drawing.Size(229, 88);
-            this.ApprovalComment.TabIndex = 2;
-            this.ApprovalComment.Text = "";
-            // 
             // buttonX3
             // 
             this.buttonX3.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.buttonX3.Font = new System.Drawing.Font("Palatino Linotype", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonX3.Location = new System.Drawing.Point(359, 353);
+            this.buttonX3.Location = new System.Drawing.Point(333, 467);
             this.buttonX3.Name = "buttonX3";
-            this.buttonX3.Size = new System.Drawing.Size(120, 83);
+            this.buttonX3.Size = new System.Drawing.Size(108, 83);
             this.buttonX3.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.buttonX3.TabIndex = 5;
             this.buttonX3.Text = "&New";
@@ -217,9 +212,9 @@ namespace Banking_System
             // 
             this.buttonX2.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.buttonX2.Font = new System.Drawing.Font("Palatino Linotype", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonX2.Location = new System.Drawing.Point(493, 353);
+            this.buttonX2.Location = new System.Drawing.Point(447, 467);
             this.buttonX2.Name = "buttonX2";
-            this.buttonX2.Size = new System.Drawing.Size(112, 83);
+            this.buttonX2.Size = new System.Drawing.Size(100, 83);
             this.buttonX2.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.buttonX2.TabIndex = 4;
             this.buttonX2.Text = "&Save";
@@ -229,9 +224,9 @@ namespace Banking_System
             // 
             this.buttonX1.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.buttonX1.Font = new System.Drawing.Font("Palatino Linotype", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonX1.Location = new System.Drawing.Point(615, 353);
+            this.buttonX1.Location = new System.Drawing.Point(671, 467);
             this.buttonX1.Name = "buttonX1";
-            this.buttonX1.Size = new System.Drawing.Size(107, 83);
+            this.buttonX1.Size = new System.Drawing.Size(104, 83);
             this.buttonX1.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.buttonX1.TabIndex = 6;
             this.buttonX1.Text = "&Cancel";
@@ -240,7 +235,7 @@ namespace Banking_System
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(453, 439);
+            this.label2.Location = new System.Drawing.Point(233, 384);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(50, 22);
             this.label2.TabIndex = 144;
@@ -250,7 +245,7 @@ namespace Banking_System
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(397, 439);
+            this.label1.Location = new System.Drawing.Point(177, 384);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(50, 22);
             this.label1.TabIndex = 143;
@@ -261,103 +256,214 @@ namespace Banking_System
             // 
             this.label6.AutoSize = true;
             this.label6.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label6.Location = new System.Drawing.Point(334, 156);
+            this.label6.Location = new System.Drawing.Point(334, 121);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(73, 22);
+            this.label6.Size = new System.Drawing.Size(63, 22);
             this.label6.TabIndex = 145;
-            this.label6.Text = "Approval";
+            this.label6.Text = "Method";
             // 
-            // approvals
+            // label8
             // 
-            this.approvals.FormattingEnabled = true;
-            this.approvals.Items.AddRange(new object[] {
-            "Approved",
-            "Rejected"});
-            this.approvals.Location = new System.Drawing.Point(493, 153);
-            this.approvals.Name = "approvals";
-            this.approvals.Size = new System.Drawing.Size(229, 30);
-            this.approvals.TabIndex = 1;
+            this.label8.AutoSize = true;
+            this.label8.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label8.Location = new System.Drawing.Point(334, 156);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(60, 22);
+            this.label8.TabIndex = 147;
+            this.label8.Text = "Interest";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label11.Location = new System.Drawing.Point(334, 191);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(122, 22);
+            this.label11.TabIndex = 149;
+            this.label11.Text = "Existing Balance";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label12.Location = new System.Drawing.Point(334, 296);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(129, 22);
+            this.label12.TabIndex = 151;
+            this.label12.Text = "Servicing Interval";
             // 
             // buttonX4
             // 
             this.buttonX4.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.buttonX4.Font = new System.Drawing.Font("Palatino Linotype", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonX4.Location = new System.Drawing.Point(728, 13);
+            this.buttonX4.Font = new System.Drawing.Font("Palatino Linotype", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonX4.Location = new System.Drawing.Point(553, 467);
             this.buttonX4.Name = "buttonX4";
-            this.buttonX4.Size = new System.Drawing.Size(132, 81);
+            this.buttonX4.Size = new System.Drawing.Size(112, 83);
             this.buttonX4.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.buttonX4.TabIndex = 146;
-            this.buttonX4.Text = "View \r\nDetails";
-            this.buttonX4.Click += new System.EventHandler(this.buttonX4_Click);
+            this.buttonX4.TabIndex = 6;
+            this.buttonX4.Text = "&Schedule";
             // 
-            // buttonX5
+            // Amount
             // 
-            this.buttonX5.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.buttonX5.Font = new System.Drawing.Font("Palatino Linotype", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonX5.Location = new System.Drawing.Point(728, 100);
-            this.buttonX5.Name = "buttonX5";
-            this.buttonX5.Size = new System.Drawing.Size(132, 78);
-            this.buttonX5.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.buttonX5.TabIndex = 147;
-            this.buttonX5.Text = "View Collateral";
-            this.buttonX5.Click += new System.EventHandler(this.buttonX5_Click);
             // 
-            // buttonX6
             // 
-            this.buttonX6.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.buttonX6.Font = new System.Drawing.Font("Palatino Linotype", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonX6.Location = new System.Drawing.Point(728, 184);
-            this.buttonX6.Name = "buttonX6";
-            this.buttonX6.Size = new System.Drawing.Size(132, 79);
-            this.buttonX6.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.buttonX6.TabIndex = 148;
-            this.buttonX6.Text = "View Guarantors";
-            this.buttonX6.Click += new System.EventHandler(this.buttonX6_Click);
             // 
-            // buttonX7
+            this.Amount.BackgroundStyle.Class = "DateTimeInputBackground";
+            this.Amount.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.Amount.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2;
+            this.Amount.DisplayFormat = "N0";
+            this.Amount.Enabled = false;
+            this.Amount.Location = new System.Drawing.Point(493, 188);
+            this.Amount.Name = "Amount";
+            this.Amount.Size = new System.Drawing.Size(282, 29);
+            this.Amount.TabIndex = 154;
             // 
-            this.buttonX7.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.buttonX7.Font = new System.Drawing.Font("Palatino Linotype", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonX7.Location = new System.Drawing.Point(728, 269);
-            this.buttonX7.Name = "buttonX7";
-            this.buttonX7.Size = new System.Drawing.Size(132, 78);
-            this.buttonX7.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.buttonX7.TabIndex = 149;
-            this.buttonX7.Text = "View Liabilities";
-            this.buttonX7.Click += new System.EventHandler(this.buttonX7_Click);
+            // label14
             // 
-            // buttonX8
+            this.label14.AutoSize = true;
+            this.label14.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label14.Location = new System.Drawing.Point(334, 330);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(120, 22);
+            this.label14.TabIndex = 155;
+            this.label14.Text = "Servicing Period";
             // 
-            this.buttonX8.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.buttonX8.Font = new System.Drawing.Font("Palatino Linotype", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonX8.Location = new System.Drawing.Point(728, 353);
-            this.buttonX8.Name = "buttonX8";
-            this.buttonX8.Size = new System.Drawing.Size(132, 83);
-            this.buttonX8.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.buttonX8.TabIndex = 150;
-            this.buttonX8.Text = "Amortisation\r\nSchedule";
-            this.buttonX8.Click += new System.EventHandler(this.buttonX8_Click);
+            // TopupAmount
             // 
-            // FrmLoanFirstApproval
+            // 
+            // 
+            // 
+            this.TopupAmount.BackgroundStyle.Class = "DateTimeInputBackground";
+            this.TopupAmount.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.TopupAmount.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2;
+            this.TopupAmount.DisplayFormat = "N0";
+            this.TopupAmount.Location = new System.Drawing.Point(493, 223);
+            this.TopupAmount.Name = "TopupAmount";
+            this.TopupAmount.Size = new System.Drawing.Size(282, 29);
+            this.TopupAmount.TabIndex = 158;
+            this.TopupAmount.ValueChanged += new System.EventHandler(this.TopupAmount_ValueChanged);
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label13.Location = new System.Drawing.Point(334, 226);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(113, 22);
+            this.label13.TabIndex = 157;
+            this.label13.Text = "Topup Amount";
+            // 
+            // TotalAmount
+            // 
+            // 
+            // 
+            // 
+            this.TotalAmount.BackgroundStyle.Class = "DateTimeInputBackground";
+            this.TotalAmount.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.TotalAmount.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2;
+            this.TotalAmount.DisplayFormat = "N0";
+            this.TotalAmount.Enabled = false;
+            this.TotalAmount.Location = new System.Drawing.Point(493, 258);
+            this.TotalAmount.Name = "TotalAmount";
+            this.TotalAmount.Size = new System.Drawing.Size(282, 29);
+            this.TotalAmount.TabIndex = 160;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label15.Location = new System.Drawing.Point(334, 261);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(103, 22);
+            this.label15.TabIndex = 159;
+            this.label15.Text = "Total Amount";
+            // 
+            // AmortisationMethod
+            // 
+            this.AmortisationMethod.FormattingEnabled = true;
+            this.AmortisationMethod.Items.AddRange(new object[] {
+            "Reducing Balance",
+            "Flat Rate"});
+            this.AmortisationMethod.Location = new System.Drawing.Point(493, 117);
+            this.AmortisationMethod.Name = "AmortisationMethod";
+            this.AmortisationMethod.Size = new System.Drawing.Size(282, 30);
+            this.AmortisationMethod.TabIndex = 161;
+            // 
+            // RepaymentInterval
+            // 
+            this.RepaymentInterval.FormattingEnabled = true;
+            this.RepaymentInterval.Items.AddRange(new object[] {
+            "Daily",
+            "Weekly",
+            "Monthly"});
+            this.RepaymentInterval.Location = new System.Drawing.Point(493, 291);
+            this.RepaymentInterval.Name = "RepaymentInterval";
+            this.RepaymentInterval.Size = new System.Drawing.Size(282, 30);
+            this.RepaymentInterval.TabIndex = 162;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(226, 419);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(58, 22);
+            this.label16.TabIndex = 163;
+            this.label16.Text = "label16";
+            this.label16.Visible = false;
+            // 
+            // ServicingPeriod
+            // 
+            // 
+            // 
+            // 
+            this.ServicingPeriod.BackgroundStyle.Class = "DateTimeInputBackground";
+            this.ServicingPeriod.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.ServicingPeriod.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2;
+            this.ServicingPeriod.Location = new System.Drawing.Point(493, 327);
+            this.ServicingPeriod.Name = "ServicingPeriod";
+            this.ServicingPeriod.Size = new System.Drawing.Size(282, 29);
+            this.ServicingPeriod.TabIndex = 164;
+            // 
+            // InterestRate
+            // 
+            // 
+            // 
+            // 
+            this.InterestRate.BackgroundStyle.Class = "DateTimeInputBackground";
+            this.InterestRate.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.InterestRate.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2;
+            this.InterestRate.Location = new System.Drawing.Point(493, 153);
+            this.InterestRate.Name = "InterestRate";
+            this.InterestRate.Size = new System.Drawing.Size(282, 29);
+            this.InterestRate.TabIndex = 165;
+            // 
+            // FrmLoanTopup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = global::Banking_System.Properties.Settings.Default.usercolor;
-            this.ClientSize = new System.Drawing.Size(877, 457);
-            this.Controls.Add(this.buttonX8);
-            this.Controls.Add(this.buttonX7);
-            this.Controls.Add(this.buttonX6);
-            this.Controls.Add(this.buttonX5);
+            this.ClientSize = new System.Drawing.Size(784, 552);
+            this.Controls.Add(this.InterestRate);
+            this.Controls.Add(this.ServicingPeriod);
+            this.Controls.Add(this.label16);
+            this.Controls.Add(this.RepaymentInterval);
+            this.Controls.Add(this.AmortisationMethod);
+            this.Controls.Add(this.TotalAmount);
+            this.Controls.Add(this.label15);
+            this.Controls.Add(this.TopupAmount);
+            this.Controls.Add(this.label13);
+            this.Controls.Add(this.label14);
+            this.Controls.Add(this.Amount);
             this.Controls.Add(this.buttonX4);
-            this.Controls.Add(this.approvals);
+            this.Controls.Add(this.label12);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.buttonX3);
             this.Controls.Add(this.buttonX2);
             this.Controls.Add(this.buttonX1);
-            this.Controls.Add(this.ApprovalComment);
-            this.Controls.Add(this.label11);
             this.Controls.Add(this.ApprovalName);
             this.Controls.Add(this.ApprovalID);
             this.Controls.Add(this.label10);
@@ -377,11 +483,16 @@ namespace Banking_System
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "FrmLoanFirstApproval";
+            this.Name = "FrmLoanTopup";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Loan First Approval";
             this.Load += new System.EventHandler(this.FrmLoanFirstApproval_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Amount)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TopupAmount)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TotalAmount)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ServicingPeriod)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.InterestRate)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -402,19 +513,26 @@ namespace Banking_System
         private System.Windows.Forms.TextBox ApprovalID;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.RichTextBox ApprovalComment;
         private DevComponents.DotNetBar.ButtonX buttonX3;
         private DevComponents.DotNetBar.ButtonX buttonX2;
         private DevComponents.DotNetBar.ButtonX buttonX1;
         public System.Windows.Forms.Label label2;
         public System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.ComboBox approvals;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label12;
         private DevComponents.DotNetBar.ButtonX buttonX4;
-        private DevComponents.DotNetBar.ButtonX buttonX5;
-        private DevComponents.DotNetBar.ButtonX buttonX6;
-        private DevComponents.DotNetBar.ButtonX buttonX7;
-        private DevComponents.DotNetBar.ButtonX buttonX8;
+        private DevComponents.Editors.IntegerInput Amount;
+        private System.Windows.Forms.Label label14;
+        private DevComponents.Editors.IntegerInput TopupAmount;
+        private System.Windows.Forms.Label label13;
+        private DevComponents.Editors.IntegerInput TotalAmount;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.ComboBox AmortisationMethod;
+        private System.Windows.Forms.ComboBox RepaymentInterval;
+        private System.Windows.Forms.Label label16;
+        private DevComponents.Editors.IntegerInput ServicingPeriod;
+        private DevComponents.Editors.IntegerInput InterestRate;
     }
 }

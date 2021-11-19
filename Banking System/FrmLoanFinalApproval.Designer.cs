@@ -112,9 +112,9 @@ namespace Banking_System
             this.label7.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.label7.Location = new System.Drawing.Point(334, 123);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(107, 22);
+            this.label7.Size = new System.Drawing.Size(109, 22);
             this.label7.TabIndex = 129;
-            this.label7.Text = "Payment Date";
+            this.label7.Text = "Approval Date";
             // 
             // label5
             // 
@@ -343,7 +343,7 @@ namespace Banking_System
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = global::Banking_System.Properties.Settings.Default.usercolor;
-            this.ClientSize = new System.Drawing.Size(877, 457);
+            this.ClientSize = new System.Drawing.Size(877, 455);
             this.Controls.Add(this.buttonX8);
             this.Controls.Add(this.buttonX7);
             this.Controls.Add(this.buttonX6);

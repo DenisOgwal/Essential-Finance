@@ -10,7 +10,7 @@ using System.Security.Cryptography;
 
 namespace Banking_System
 {
-    public partial class frmEXpenses : DevComponents.DotNetBar.Office2007Form
+    public partial class frmEXpensesLoanProcess : DevComponents.DotNetBar.Office2007Form
     {
         SqlDataReader rdr = null;
         DataTable dtable = new DataTable();
@@ -27,7 +27,7 @@ namespace Banking_System
         string companyaddress = null;
         string companycontact = null;
         string companyslogan = null;
-        public frmEXpenses()
+        public frmEXpensesLoanProcess()
         {
             InitializeComponent();
         }
@@ -61,7 +61,7 @@ namespace Banking_System
             {
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
-                cmd = new SqlCommand("select RTRIM(Comment)[Comment], RTRIM(ExpenseID)[Expense ID], RTRIM(CashierID)[Cashier Name],RTRIM(Year)[Year], RTRIM(Months)[Months], RTRIM(Date)[Date],RTRIM(Expense)[Paid For],RTRIM(Cost)[Cost],RTRIM(TotalPaid)[Total Paid], RTRIM(Duepayment)[Due Payment],RTRIM(Description)[Description], RTRIM(Payee)[Names of Payee],RTRIM(Telephone)[Telephone No. ], RTRIM(Expenses.Email)[Email Address], RTRIM(Expenses.Address)[ Address], RTRIM(Paid)[Payment] from Expenses where LoanID ='N/A'  order by Expenses.ID DESC", con);
+                cmd = new SqlCommand("select RTRIM(Comment)[Comment], RTRIM(ExpenseID)[Expense ID], RTRIM(CashierID)[Cashier Name],RTRIM(Year)[Year], RTRIM(Months)[Months], RTRIM(Date)[Date],RTRIM(Expense)[Paid For],RTRIM(Cost)[Cost],RTRIM(TotalPaid)[Total Paid], RTRIM(Duepayment)[Due Payment],RTRIM(Description)[Description], RTRIM(Payee)[Names of Payee],RTRIM(Telephone)[Telephone No. ], RTRIM(Expenses.Email)[Email Address], RTRIM(Expenses.Address)[ Address], RTRIM(Paid)[Payment] from Expenses where LoanID !='N/A'  order by Expenses.ID DESC", con);
                 SqlDataAdapter myDA = new SqlDataAdapter(cmd);
                 DataSet myDataSet = new DataSet();
                 myDA.Fill(myDataSet, "Expenses");
@@ -97,10 +97,7 @@ namespace Banking_System
         }
         private void frmEXpenses_Load(object sender, EventArgs e)
         {
-            /*Left = Top = 0;
-            this.Width = Screen.PrimaryScreen.WorkingArea.Width;
-            this.Height = Screen.PrimaryScreen.WorkingArea.Height;
-            this.MaximumSize = Screen.PrimaryScreen.WorkingArea.Size;*/
+           
             dataload();
             AutocompleteStaffName();
             try
@@ -176,7 +173,7 @@ namespace Banking_System
         private void buttonX6_Click(object sender, EventArgs e)
         {
             this.Hide();
-            frmEXpenses frm = new frmEXpenses();
+            frmEXpensesLoanProcess frm = new frmEXpensesLoanProcess();
             frm.label1.Text = label1.Text;
             frm.label2.Text = label2.Text;
             frm.ShowDialog();
@@ -280,6 +277,12 @@ namespace Banking_System
                 Paid.Focus();
                 return;
             }
+            if (LoanID.Text == "")
+            {
+                MessageBox.Show("Please Enter Loan ID", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                LoanID.Focus();
+                return;
+            }
             if (duepayment.Text != "0")
             {
                 MessageBox.Show("Pay this fee in not more than two installments for better accounts", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -336,7 +339,7 @@ namespace Banking_System
                     cmd.ExecuteNonQuery();
                     con = new SqlConnection(cs.DBConn);
                     con.Open();
-                    string cb = "insert into Expenses(ExpenseID,CashierID,Year,Months,Date,Expense,Cost,TotalPaid,Duepayment,Description,Payee,Telephone,Email,Address,Comment,Paid,ExpenseType) VALUES (@d1,@d2,@d3,@d4,@d5,@d6,@d7,@d8,@d9,@d10,@d11,@d12,@d13,@d14,@d15,@d16,@d17)";
+                    string cb = "insert into Expenses(ExpenseID,CashierID,Year,Months,Date,Expense,Cost,TotalPaid,Duepayment,Description,Payee,Telephone,Email,Address,Comment,Paid,ExpenseType,LoanID) VALUES (@d1,@d2,@d3,@d4,@d5,@d6,@d7,@d8,@d9,@d10,@d11,@d12,@d13,@d14,@d15,@d16,@d17,@d18)";
                     cmd = new SqlCommand(cb);
                     cmd.Connection = con;
                     cmd.Parameters.Add(new SqlParameter("@d1", System.Data.SqlDbType.NChar, 15, "ExpenseID"));
@@ -356,6 +359,7 @@ namespace Banking_System
                     cmd.Parameters.Add(new SqlParameter("@d15", System.Data.SqlDbType.NChar, 30, "Comment"));
                     cmd.Parameters.Add(new SqlParameter("@d16", System.Data.SqlDbType.NChar, 10, "Paid"));
                     cmd.Parameters.Add(new SqlParameter("@d17", System.Data.SqlDbType.NChar, 50, "ExpenseType"));
+                    cmd.Parameters.Add(new SqlParameter("@d18", System.Data.SqlDbType.NChar, 20, "LoanID"));
                     cmd.Parameters["@d1"].Value = expenseid.Text.Trim();
                     cmd.Parameters["@d2"].Value = cashiername.Text;
                     cmd.Parameters["@d3"].Value = year.Text.Trim();
@@ -373,6 +377,7 @@ namespace Banking_System
                     cmd.Parameters["@d15"].Value = "Pending Approval";
                     cmd.Parameters["@d16"].Value = Paid.Text;
                     cmd.Parameters["@d17"].Value = expensetype.Text;
+                    cmd.Parameters["@d18"].Value = LoanID.Text;
                     cmd.ExecuteNonQuery();
                     SqlDataReader rdr = null;
                     int totalaamount = 0;
@@ -408,7 +413,7 @@ namespace Banking_System
                     
                     con = new SqlConnection(cs.DBConn);
                     con.Open();
-                    string cb = "insert into Expenses(ExpenseID,CashierID,Year,Months,Date,Expense,Cost,TotalPaid,Duepayment,Description,Payee,Telephone,Email,Address,Comment,Paid,ExpenseType) VALUES (@d1,@d2,@d3,@d4,@d5,@d6,@d7,@d8,@d9,@d10,@d11,@d12,@d13,@d14,@d15,@d16,@d17)";
+                    string cb = "insert into Expenses(ExpenseID,CashierID,Year,Months,Date,Expense,Cost,TotalPaid,Duepayment,Description,Payee,Telephone,Email,Address,Comment,Paid,ExpenseType,LoanID) VALUES (@d1,@d2,@d3,@d4,@d5,@d6,@d7,@d8,@d9,@d10,@d11,@d12,@d13,@d14,@d15,@d16,@d17,@d18)";
                     cmd = new SqlCommand(cb);
                     cmd.Connection = con;
                     cmd.Parameters.Add(new SqlParameter("@d1", System.Data.SqlDbType.NChar, 15, "ExpenseID"));
@@ -428,6 +433,7 @@ namespace Banking_System
                     cmd.Parameters.Add(new SqlParameter("@d15", System.Data.SqlDbType.NChar, 30, "Comment"));
                     cmd.Parameters.Add(new SqlParameter("@d16", System.Data.SqlDbType.NChar, 10, "Paid"));
                     cmd.Parameters.Add(new SqlParameter("@d17", System.Data.SqlDbType.NChar, 50, "ExpenseType"));
+                    cmd.Parameters.Add(new SqlParameter("@d18", System.Data.SqlDbType.NChar, 20, "LoanID"));
                     cmd.Parameters["@d1"].Value = expenseid.Text.Trim();
                     cmd.Parameters["@d2"].Value = cashiername.Text;
                     cmd.Parameters["@d3"].Value = year.Text.Trim();
@@ -445,6 +451,7 @@ namespace Banking_System
                     cmd.Parameters["@d15"].Value = "Pending Approval";
                     cmd.Parameters["@d16"].Value = Paid.Text;
                     cmd.Parameters["@d17"].Value = expensetype.Text;
+                    cmd.Parameters["@d18"].Value = LoanID.Text;
                     cmd.ExecuteNonQuery();
                     SqlDataReader rdr = null;
                     int totalaamount = 0;
@@ -478,7 +485,7 @@ namespace Banking_System
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             this.Hide();
-            frmEXpenses frm2 = new frmEXpenses();
+            frmEXpensesLoanProcess frm2 = new frmEXpensesLoanProcess();
             frm2.label1.Text = label1.Text;
             frm2.label2.Text = label2.Text;
             frm2.ShowDialog();
@@ -1005,7 +1012,7 @@ namespace Banking_System
                     cmd.ExecuteNonQuery();
                     con = new SqlConnection(cs.DBConn);
                     con.Open();
-                    string cb = "insert into Expenses(ExpenseID,CashierID,Year,Months,Date,Expense,Cost,TotalPaid,Duepayment,Description,Payee,Telephone,Email,Address,Comment,Paid,ExpenseType) VALUES (@d1,@d2,@d3,@d4,@d5,@d6,@d7,@d8,@d9,@d10,@d11,@d12,@d13,@d14,@d15,@d16,@d17)";
+                    string cb = "insert into Expenses(ExpenseID,CashierID,Year,Months,Date,Expense,Cost,TotalPaid,Duepayment,Description,Payee,Telephone,Email,Address,Comment,Paid,ExpenseType,LoanID) VALUES (@d1,@d2,@d3,@d4,@d5,@d6,@d7,@d8,@d9,@d10,@d11,@d12,@d13,@d14,@d15,@d16,@d17,@d18)";
                     cmd = new SqlCommand(cb);
                     cmd.Connection = con;
                     cmd.Parameters.Add(new SqlParameter("@d1", System.Data.SqlDbType.NChar, 15, "ExpenseID"));
@@ -1025,6 +1032,7 @@ namespace Banking_System
                     cmd.Parameters.Add(new SqlParameter("@d15", System.Data.SqlDbType.NChar, 30, "Comment"));
                     cmd.Parameters.Add(new SqlParameter("@d16", System.Data.SqlDbType.NChar, 10, "Paid"));
                     cmd.Parameters.Add(new SqlParameter("@d17", System.Data.SqlDbType.NChar, 50, "ExpenseType"));
+                    cmd.Parameters.Add(new SqlParameter("@d18", System.Data.SqlDbType.NChar, 20, "LoanID"));
                     cmd.Parameters["@d1"].Value = expenseid.Text.Trim();
                     cmd.Parameters["@d2"].Value = cashiername.Text;
                     cmd.Parameters["@d3"].Value = year.Text.Trim();
@@ -1042,6 +1050,7 @@ namespace Banking_System
                     cmd.Parameters["@d15"].Value = "Pending Approval";
                     cmd.Parameters["@d16"].Value = Paid.Text;
                     cmd.Parameters["@d17"].Value = expensetype.Text;
+                    cmd.Parameters["@d18"].Value = LoanID.Text;
                     cmd.ExecuteNonQuery();
                     con.Close();
                     SqlDataReader rdr = null;
@@ -1078,7 +1087,7 @@ namespace Banking_System
 
                     con = new SqlConnection(cs.DBConn);
                     con.Open();
-                    string cb = "insert into Expenses(ExpenseID,CashierID,Year,Months,Date,Expense,Cost,TotalPaid,Duepayment,Description,Payee,Telephone,Email,Address,Comment,Paid,ExpenseType) VALUES (@d1,@d2,@d3,@d4,@d5,@d6,@d7,@d8,@d9,@d10,@d11,@d12,@d13,@d14,@d15,@d16,@d17)";
+                    string cb = "insert into Expenses(ExpenseID,CashierID,Year,Months,Date,Expense,Cost,TotalPaid,Duepayment,Description,Payee,Telephone,Email,Address,Comment,Paid,ExpenseType,LoanID) VALUES (@d1,@d2,@d3,@d4,@d5,@d6,@d7,@d8,@d9,@d10,@d11,@d12,@d13,@d14,@d15,@d16,@d17,@d18)";
                     cmd = new SqlCommand(cb);
                     cmd.Connection = con;
                     cmd.Parameters.Add(new SqlParameter("@d1", System.Data.SqlDbType.NChar, 15, "ExpenseID"));
@@ -1098,6 +1107,7 @@ namespace Banking_System
                     cmd.Parameters.Add(new SqlParameter("@d15", System.Data.SqlDbType.NChar, 30, "Comment"));
                     cmd.Parameters.Add(new SqlParameter("@d16", System.Data.SqlDbType.NChar, 10, "Paid"));
                     cmd.Parameters.Add(new SqlParameter("@d17", System.Data.SqlDbType.NChar, 50, "ExpenseType"));
+                    cmd.Parameters.Add(new SqlParameter("@d18", System.Data.SqlDbType.NChar, 20, "LoanID"));
                     cmd.Parameters["@d1"].Value = expenseid.Text.Trim();
                     cmd.Parameters["@d2"].Value = cashiername.Text;
                     cmd.Parameters["@d3"].Value = year.Text.Trim();
@@ -1115,6 +1125,7 @@ namespace Banking_System
                     cmd.Parameters["@d15"].Value = "Pending Approval";
                     cmd.Parameters["@d16"].Value = Paid.Text;
                     cmd.Parameters["@d17"].Value = expensetype.Text;
+                    cmd.Parameters["@d18"].Value = LoanID.Text;
                     cmd.ExecuteNonQuery();
                     SqlDataReader rdr = null;
                     int totalaamount = 0;
@@ -1194,7 +1205,7 @@ namespace Banking_System
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             this.Hide();
-            frmEXpenses frm2 = new frmEXpenses();
+            frmEXpensesLoanProcess frm2 = new frmEXpensesLoanProcess();
             frm2.label1.Text = label1.Text;
             frm2.label2.Text = label2.Text;
             frm2.ShowDialog();
@@ -1372,6 +1383,13 @@ namespace Banking_System
         private void groupPanel5_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void LoanID_Click(object sender, EventArgs e)
+        {
+            frmClientDetails4 frm = new frmClientDetails4();
+            frm.ShowDialog();
+            LoanID.Text = frm.LoanID.Text;
         }
     }
 }

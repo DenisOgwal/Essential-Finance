@@ -29,14 +29,16 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSavingsToLoans));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label6 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.groupPanel1 = new DevComponents.DotNetBar.Controls.GroupPanel();
+            this.totalsavings = new DevComponents.Editors.IntegerInput();
+            this.txtTotalPaid = new DevComponents.Editors.IntegerInput();
             this.balance = new DevComponents.Editors.IntegerInput();
             this.labelX4 = new DevComponents.DotNetBar.LabelX();
             this.label13 = new System.Windows.Forms.Label();
@@ -50,13 +52,12 @@
             this.label16 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.groupPanel2 = new DevComponents.DotNetBar.Controls.GroupPanel();
+            this.accountbalance = new DevComponents.Editors.IntegerInput();
             this.label4 = new System.Windows.Forms.Label();
             this.cmbStaffID = new System.Windows.Forms.ComboBox();
             this.txtStaffName = new System.Windows.Forms.TextBox();
-            this.txtBasicSalary = new System.Windows.Forms.TextBox();
             this.Label2 = new System.Windows.Forms.Label();
             this.Label1 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
             this.groupPanel3 = new DevComponents.DotNetBar.Controls.GroupPanel();
             this.buttonX1 = new DevComponents.DotNetBar.ButtonX();
             this.txtPaymentID = new System.Windows.Forms.TextBox();
@@ -73,18 +74,6 @@
             this.loanid = new DevComponents.DotNetBar.Controls.ComboBoxEx();
             this.labelX6 = new DevComponents.DotNetBar.LabelX();
             this.repaymonths = new DevComponents.DotNetBar.Controls.ComboBoxEx();
-            this.comboItem1 = new DevComponents.Editors.ComboItem();
-            this.comboItem2 = new DevComponents.Editors.ComboItem();
-            this.comboItem3 = new DevComponents.Editors.ComboItem();
-            this.comboItem4 = new DevComponents.Editors.ComboItem();
-            this.comboItem5 = new DevComponents.Editors.ComboItem();
-            this.comboItem6 = new DevComponents.Editors.ComboItem();
-            this.comboItem7 = new DevComponents.Editors.ComboItem();
-            this.comboItem8 = new DevComponents.Editors.ComboItem();
-            this.comboItem9 = new DevComponents.Editors.ComboItem();
-            this.comboItem10 = new DevComponents.Editors.ComboItem();
-            this.comboItem11 = new DevComponents.Editors.ComboItem();
-            this.comboItem12 = new DevComponents.Editors.ComboItem();
             this.labelX9 = new DevComponents.DotNetBar.LabelX();
             this.label11 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
@@ -97,13 +86,13 @@
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
             this.label14 = new System.Windows.Forms.Label();
-            this.accountbalance = new DevComponents.Editors.IntegerInput();
-            this.txtTotalPaid = new DevComponents.Editors.IntegerInput();
-            this.totalsavings = new DevComponents.Editors.IntegerInput();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.totalsavings)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTotalPaid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.balance)).BeginInit();
             this.groupPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.accountbalance)).BeginInit();
             this.groupPanel3.SuspendLayout();
             this.groupPanel4.SuspendLayout();
             this.groupPanel5.SuspendLayout();
@@ -111,9 +100,6 @@
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.ribbonClientPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.accountbalance)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtTotalPaid)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.totalsavings)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -123,35 +109,35 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.BackgroundColor = global::Banking_System.Properties.Settings.Default.usercolor;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Palatino Linotype", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Palatino Linotype", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.DataBindings.Add(new System.Windows.Forms.Binding("BackgroundColor", global::Banking_System.Properties.Settings.Default, "usercolor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Palatino Linotype", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Palatino Linotype", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridView1.GridColor = System.Drawing.Color.Black;
             this.dataGridView1.Location = new System.Drawing.Point(528, 3);
             this.dataGridView1.Name = "dataGridView1";
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Palatino Linotype", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Palatino Linotype", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridView1.Size = new System.Drawing.Size(220, 560);
             this.dataGridView1.TabIndex = 3;
             this.dataGridView1.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_RowHeaderMouseClick);
@@ -227,6 +213,42 @@
             this.groupPanel1.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.groupPanel1.TabIndex = 60;
             this.groupPanel1.Text = "Payment Details";
+            // 
+            // totalsavings
+            // 
+            this.totalsavings.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            // 
+            // 
+            // 
+            this.totalsavings.BackgroundStyle.Class = "DateTimeInputBackground";
+            this.totalsavings.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.totalsavings.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2;
+            this.totalsavings.DisplayFormat = "N0";
+            this.totalsavings.Enabled = false;
+            this.totalsavings.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.totalsavings.Location = new System.Drawing.Point(195, 155);
+            this.totalsavings.Name = "totalsavings";
+            this.totalsavings.Size = new System.Drawing.Size(292, 29);
+            this.totalsavings.TabIndex = 90;
+            // 
+            // txtTotalPaid
+            // 
+            this.txtTotalPaid.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            // 
+            // 
+            // 
+            this.txtTotalPaid.BackgroundStyle.Class = "DateTimeInputBackground";
+            this.txtTotalPaid.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtTotalPaid.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2;
+            this.txtTotalPaid.DisplayFormat = "N0";
+            this.txtTotalPaid.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTotalPaid.Location = new System.Drawing.Point(195, 124);
+            this.txtTotalPaid.Name = "txtTotalPaid";
+            this.txtTotalPaid.Size = new System.Drawing.Size(292, 29);
+            this.txtTotalPaid.TabIndex = 89;
+            this.txtTotalPaid.ValueChanged += new System.EventHandler(this.txtTotalPaid_ValueChanged);
             // 
             // balance
             // 
@@ -398,10 +420,8 @@
             this.groupPanel2.Controls.Add(this.label4);
             this.groupPanel2.Controls.Add(this.cmbStaffID);
             this.groupPanel2.Controls.Add(this.txtStaffName);
-            this.groupPanel2.Controls.Add(this.txtBasicSalary);
             this.groupPanel2.Controls.Add(this.Label2);
             this.groupPanel2.Controls.Add(this.Label1);
-            this.groupPanel2.Controls.Add(this.label19);
             this.groupPanel2.Location = new System.Drawing.Point(3, 70);
             this.groupPanel2.Name = "groupPanel2";
             this.groupPanel2.Size = new System.Drawing.Size(513, 139);
@@ -439,13 +459,31 @@
             this.groupPanel2.TabIndex = 61;
             this.groupPanel2.Text = "Member Details";
             // 
+            // accountbalance
+            // 
+            this.accountbalance.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            // 
+            // 
+            // 
+            this.accountbalance.BackgroundStyle.Class = "DateTimeInputBackground";
+            this.accountbalance.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.accountbalance.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2;
+            this.accountbalance.DisplayFormat = "N0";
+            this.accountbalance.Enabled = false;
+            this.accountbalance.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.accountbalance.Location = new System.Drawing.Point(130, 86);
+            this.accountbalance.Name = "accountbalance";
+            this.accountbalance.Size = new System.Drawing.Size(242, 29);
+            this.accountbalance.TabIndex = 77;
+            // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label4.Location = new System.Drawing.Point(273, 88);
+            this.label4.Location = new System.Drawing.Point(6, 89);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(96, 22);
@@ -463,7 +501,6 @@
             this.cmbStaffID.Name = "cmbStaffID";
             this.cmbStaffID.Size = new System.Drawing.Size(242, 30);
             this.cmbStaffID.TabIndex = 70;
-            this.cmbStaffID.SelectedIndexChanged += new System.EventHandler(this.cmbStaffID_SelectedIndexChanged);
             this.cmbStaffID.TextChanged += new System.EventHandler(this.cmbStaffID_TextChanged);
             this.cmbStaffID.Click += new System.EventHandler(this.cmbStaffID_Click);
             // 
@@ -480,19 +517,6 @@
             this.txtStaffName.Size = new System.Drawing.Size(374, 29);
             this.txtStaffName.TabIndex = 71;
             // 
-            // txtBasicSalary
-            // 
-            this.txtBasicSalary.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtBasicSalary.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBasicSalary.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.txtBasicSalary.Location = new System.Drawing.Point(130, 85);
-            this.txtBasicSalary.Name = "txtBasicSalary";
-            this.txtBasicSalary.ReadOnly = true;
-            this.txtBasicSalary.Size = new System.Drawing.Size(136, 29);
-            this.txtBasicSalary.TabIndex = 72;
-            this.txtBasicSalary.TextChanged += new System.EventHandler(this.txtBasicSalary_TextChanged);
-            // 
             // Label2
             // 
             this.Label2.AutoSize = true;
@@ -502,9 +526,9 @@
             this.Label2.Location = new System.Drawing.Point(2, 50);
             this.Label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.Label2.Name = "Label2";
-            this.Label2.Size = new System.Drawing.Size(114, 22);
+            this.Label2.Size = new System.Drawing.Size(112, 22);
             this.Label2.TabIndex = 74;
-            this.Label2.Text = "Member Name";
+            this.Label2.Text = "Account Name";
             // 
             // Label1
             // 
@@ -515,22 +539,9 @@
             this.Label1.Location = new System.Drawing.Point(4, 11);
             this.Label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.Label1.Name = "Label1";
-            this.Label1.Size = new System.Drawing.Size(89, 22);
+            this.Label1.Size = new System.Drawing.Size(95, 22);
             this.Label1.TabIndex = 73;
-            this.Label1.Text = "Member ID";
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.BackColor = System.Drawing.Color.Transparent;
-            this.label19.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label19.Location = new System.Drawing.Point(4, 88);
-            this.label19.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(128, 22);
-            this.label19.TabIndex = 75;
-            this.label19.Text = "Account Number";
+            this.Label1.Text = "Account No.";
             // 
             // groupPanel3
             // 
@@ -688,7 +699,7 @@
             this.groupPanel5.Controls.Add(this.buttonX2);
             this.groupPanel5.Location = new System.Drawing.Point(770, 55);
             this.groupPanel5.Name = "groupPanel5";
-            this.groupPanel5.Size = new System.Drawing.Size(146, 200);
+            this.groupPanel5.Size = new System.Drawing.Size(146, 395);
             // 
             // 
             // 
@@ -725,10 +736,10 @@
             // buttonX6
             // 
             this.buttonX6.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.buttonX6.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonX6.Location = new System.Drawing.Point(19, 126);
+            this.buttonX6.Font = new System.Drawing.Font("Palatino Linotype", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonX6.Location = new System.Drawing.Point(3, 247);
             this.buttonX6.Name = "buttonX6";
-            this.buttonX6.Size = new System.Drawing.Size(106, 54);
+            this.buttonX6.Size = new System.Drawing.Size(134, 113);
             this.buttonX6.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.buttonX6.TabIndex = 4;
             this.buttonX6.Text = "&Payment Slip";
@@ -737,10 +748,10 @@
             // buttonX3
             // 
             this.buttonX3.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.buttonX3.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonX3.Location = new System.Drawing.Point(19, 69);
+            this.buttonX3.Font = new System.Drawing.Font("Palatino Linotype", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonX3.Location = new System.Drawing.Point(3, 134);
             this.buttonX3.Name = "buttonX3";
-            this.buttonX3.Size = new System.Drawing.Size(106, 51);
+            this.buttonX3.Size = new System.Drawing.Size(132, 106);
             this.buttonX3.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.buttonX3.TabIndex = 1;
             this.buttonX3.Text = "&Save";
@@ -749,10 +760,10 @@
             // buttonX2
             // 
             this.buttonX2.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.buttonX2.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonX2.Location = new System.Drawing.Point(21, 10);
+            this.buttonX2.Font = new System.Drawing.Font("Palatino Linotype", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonX2.Location = new System.Drawing.Point(3, 10);
             this.buttonX2.Name = "buttonX2";
-            this.buttonX2.Size = new System.Drawing.Size(106, 53);
+            this.buttonX2.Size = new System.Drawing.Size(134, 110);
             this.buttonX2.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.buttonX2.TabIndex = 0;
             this.buttonX2.Text = "&New";
@@ -845,6 +856,7 @@
             this.loanid.Size = new System.Drawing.Size(185, 29);
             this.loanid.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.loanid.TabIndex = 75;
+            this.loanid.TextChanged += new System.EventHandler(this.loanid_TextChanged);
             this.loanid.Click += new System.EventHandler(this.loanid_Click);
             // 
             // labelX6
@@ -873,73 +885,12 @@
             this.repaymonths.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.repaymonths.FormattingEnabled = true;
             this.repaymonths.ItemHeight = 23;
-            this.repaymonths.Items.AddRange(new object[] {
-            this.comboItem1,
-            this.comboItem2,
-            this.comboItem3,
-            this.comboItem4,
-            this.comboItem5,
-            this.comboItem6,
-            this.comboItem7,
-            this.comboItem8,
-            this.comboItem9,
-            this.comboItem10,
-            this.comboItem11,
-            this.comboItem12});
             this.repaymonths.Location = new System.Drawing.Point(332, 3);
             this.repaymonths.Name = "repaymonths";
             this.repaymonths.Size = new System.Drawing.Size(172, 29);
             this.repaymonths.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.repaymonths.TabIndex = 73;
             this.repaymonths.SelectedIndexChanged += new System.EventHandler(this.repaymonths_SelectedIndexChanged);
-            // 
-            // comboItem1
-            // 
-            this.comboItem1.Text = "1Months";
-            // 
-            // comboItem2
-            // 
-            this.comboItem2.Text = "2Months";
-            // 
-            // comboItem3
-            // 
-            this.comboItem3.Text = "3Months";
-            // 
-            // comboItem4
-            // 
-            this.comboItem4.Text = "4Months";
-            // 
-            // comboItem5
-            // 
-            this.comboItem5.Text = "5Months";
-            // 
-            // comboItem6
-            // 
-            this.comboItem6.Text = "6Months";
-            // 
-            // comboItem7
-            // 
-            this.comboItem7.Text = "7Months";
-            // 
-            // comboItem8
-            // 
-            this.comboItem8.Text = "8Months";
-            // 
-            // comboItem9
-            // 
-            this.comboItem9.Text = "9Months";
-            // 
-            // comboItem10
-            // 
-            this.comboItem10.Text = "10Months";
-            // 
-            // comboItem11
-            // 
-            this.comboItem11.Text = "11Months";
-            // 
-            // comboItem12
-            // 
-            this.comboItem12.Text = "12Months";
             // 
             // labelX9
             // 
@@ -1110,60 +1061,6 @@
             this.label14.Text = "label14";
             this.label14.Visible = false;
             // 
-            // accountbalance
-            // 
-            this.accountbalance.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            // 
-            // 
-            // 
-            this.accountbalance.BackgroundStyle.Class = "DateTimeInputBackground";
-            this.accountbalance.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.accountbalance.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2;
-            this.accountbalance.DisplayFormat = "N0";
-            this.accountbalance.Enabled = false;
-            this.accountbalance.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.accountbalance.Location = new System.Drawing.Point(377, 85);
-            this.accountbalance.Name = "accountbalance";
-            this.accountbalance.Size = new System.Drawing.Size(127, 29);
-            this.accountbalance.TabIndex = 77;
-            // 
-            // txtTotalPaid
-            // 
-            this.txtTotalPaid.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            // 
-            // 
-            // 
-            this.txtTotalPaid.BackgroundStyle.Class = "DateTimeInputBackground";
-            this.txtTotalPaid.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtTotalPaid.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2;
-            this.txtTotalPaid.DisplayFormat = "N0";
-            this.txtTotalPaid.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTotalPaid.Location = new System.Drawing.Point(195, 124);
-            this.txtTotalPaid.Name = "txtTotalPaid";
-            this.txtTotalPaid.Size = new System.Drawing.Size(292, 29);
-            this.txtTotalPaid.TabIndex = 89;
-            this.txtTotalPaid.ValueChanged += new System.EventHandler(this.txtTotalPaid_ValueChanged);
-            // 
-            // totalsavings
-            // 
-            this.totalsavings.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            // 
-            // 
-            // 
-            this.totalsavings.BackgroundStyle.Class = "DateTimeInputBackground";
-            this.totalsavings.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.totalsavings.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2;
-            this.totalsavings.DisplayFormat = "N0";
-            this.totalsavings.Enabled = false;
-            this.totalsavings.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.totalsavings.Location = new System.Drawing.Point(195, 155);
-            this.totalsavings.Name = "totalsavings";
-            this.totalsavings.Size = new System.Drawing.Size(292, 29);
-            this.totalsavings.TabIndex = 90;
-            // 
             // frmSavingsToLoans
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1189,14 +1086,16 @@
             this.Name = "frmSavingsToLoans";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Savings To Loans";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmRegistrationFeesPayment_FormClosing);
             this.Load += new System.EventHandler(this.frmSalaryPayment_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupPanel1.ResumeLayout(false);
             this.groupPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.totalsavings)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTotalPaid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.balance)).EndInit();
             this.groupPanel2.ResumeLayout(false);
             this.groupPanel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.accountbalance)).EndInit();
             this.groupPanel3.ResumeLayout(false);
             this.groupPanel3.PerformLayout();
             this.groupPanel4.ResumeLayout(false);
@@ -1206,9 +1105,6 @@
             this.tableLayoutPanel2.ResumeLayout(false);
             this.ribbonClientPanel1.ResumeLayout(false);
             this.ribbonClientPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.accountbalance)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtTotalPaid)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.totalsavings)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1228,10 +1124,8 @@
         private DevComponents.DotNetBar.Controls.GroupPanel groupPanel2;
         public System.Windows.Forms.ComboBox cmbStaffID;
         public System.Windows.Forms.TextBox txtStaffName;
-        public System.Windows.Forms.TextBox txtBasicSalary;
         internal System.Windows.Forms.Label Label2;
         internal System.Windows.Forms.Label Label1;
-        private System.Windows.Forms.Label label19;
         private DevComponents.DotNetBar.Controls.GroupPanel groupPanel3;
         private DevComponents.DotNetBar.ButtonX buttonX1;
         public System.Windows.Forms.TextBox txtPaymentID;
@@ -1262,18 +1156,6 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label14;
         private DevComponents.DotNetBar.Controls.ComboBoxEx repaymonths;
-        private DevComponents.Editors.ComboItem comboItem1;
-        private DevComponents.Editors.ComboItem comboItem2;
-        private DevComponents.Editors.ComboItem comboItem3;
-        private DevComponents.Editors.ComboItem comboItem4;
-        private DevComponents.Editors.ComboItem comboItem5;
-        private DevComponents.Editors.ComboItem comboItem6;
-        private DevComponents.Editors.ComboItem comboItem7;
-        private DevComponents.Editors.ComboItem comboItem8;
-        private DevComponents.Editors.ComboItem comboItem9;
-        private DevComponents.Editors.ComboItem comboItem10;
-        private DevComponents.Editors.ComboItem comboItem11;
-        private DevComponents.Editors.ComboItem comboItem12;
         private DevComponents.DotNetBar.LabelX labelX9;
         private System.Windows.Forms.Label label4;
         private DevComponents.Editors.IntegerInput balance;

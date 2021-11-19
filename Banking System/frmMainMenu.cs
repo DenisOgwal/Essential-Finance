@@ -2025,17 +2025,72 @@ namespace Banking_System
 
         private void buttonItem41_Click(object sender, EventArgs e)
         {
-
+            FrmLoanIssue frm = new FrmLoanIssue();
+            frm.label1.Text = User.Text;
+            frm.label2.Text = UserType.Text;
+            frm.ShowDialog();
         }
 
         private void buttonItem32_Click(object sender, EventArgs e)
         {
-
+            frmEXpensesLoanProcess frm = new frmEXpensesLoanProcess();
+            frm.label1.Text = User.Text;
+            frm.label2.Text = UserType.Text;
+            frm.ShowDialog();
         }
 
         private void buttonItem33_Click(object sender, EventArgs e)
         {
             contextMenuStrip1.Show(Cursor.Position.X, Cursor.Position.Y);
+        }
+
+        private void buttonItem14_Click_1(object sender, EventArgs e)
+        {
+            this.Hide();
+            frmPaymentSchedule frm = new frmPaymentSchedule();
+            frm.label1.Text = User.Text;
+            frm.label2.Text = UserType.Text;
+            frm.Show();
+        }
+
+        private void buttonX1_Click(object sender, EventArgs e)
+        {
+            frmRepaymentForm frm = new frmRepaymentForm();
+            frm.label1.Text = User.Text;
+            frm.label2.Text = UserType.Text;
+            frm.ShowDialog();
+        }
+
+        private void buttonX2_Click(object sender, EventArgs e)
+        {
+            frmRepaymentEarlySettlement frm = new frmRepaymentEarlySettlement();
+            frm.label1.Text = User.Text;
+            frm.label2.Text = UserType.Text;
+            frm.ShowDialog();
+        }
+
+        private void buttonX3_Click(object sender, EventArgs e)
+        {
+            FrmLoanReschedule frm = new FrmLoanReschedule();
+            frm.label1.Text = User.Text;
+            frm.label2.Text = UserType.Text;
+            frm.ShowDialog();
+        }
+
+        private void buttonX4_Click(object sender, EventArgs e)
+        {
+            FrmLoanTopup frm = new FrmLoanTopup();
+            frm.label1.Text = User.Text;
+            frm.label2.Text = UserType.Text;
+            frm.ShowDialog();
+        }
+
+        private void accounts_Click(object sender, EventArgs e)
+        {
+            FrmLoanWriteOff frm = new FrmLoanWriteOff();
+            frm.label1.Text = User.Text;
+            frm.label2.Text = UserType.Text;
+            frm.ShowDialog();
         }
     }
 }

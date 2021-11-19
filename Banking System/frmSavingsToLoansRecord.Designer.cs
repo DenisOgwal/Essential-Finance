@@ -244,9 +244,9 @@
             this.Label2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.Label2.Location = new System.Drawing.Point(47, 11);
             this.Label2.Name = "Label2";
-            this.Label2.Size = new System.Drawing.Size(89, 22);
+            this.Label2.Size = new System.Drawing.Size(128, 22);
             this.Label2.TabIndex = 6;
-            this.Label2.Text = "Member ID";
+            this.Label2.Text = "Account Number";
             // 
             // DGV
             // 

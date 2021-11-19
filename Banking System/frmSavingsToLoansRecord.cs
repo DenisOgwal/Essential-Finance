@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using Excel = Microsoft.Office.Interop.Excel;
@@ -31,7 +27,7 @@ namespace Banking_System
             {
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
-                cmd = new SqlCommand("select RTrim(PaymentID)[Payment ID], RTRIM(MemberID)[Member ID],RTRIM(AccountNumber)[Account Number],RTRIM(Date)[Payment Date],RTRIM(CashierName)[Recieved By], RTRIM(TransferedAmmount)[Ammount Transfered], RTRIM(LoanID)[Loan ID], (Details)[Details] from SavingsToLoans where MemberID= '" + cmbStaffName.Text + "' order by ID Desc", con);
+                cmd = new SqlCommand("select RTrim(PaymentID)[Payment ID], RTRIM(AccountNo)[Account No.],RTRIM(AccountNames)[Account Names],RTRIM(Date)[Payment Date],RTRIM(CashierName)[Recieved By], RTRIM(TransferedAmmount)[Ammount Transfered], RTRIM(LoanID)[Loan ID], (Details)[Details] from SavingsToLoans where AccountNo= '" + cmbStaffName.Text + "' order by ID Desc", con);
                 SqlDataAdapter myDA = new SqlDataAdapter(cmd);
                 DataSet myDataSet = new DataSet();
                 myDA.Fill(myDataSet, "SavingsToLoans");
@@ -68,7 +64,7 @@ namespace Banking_System
                 SqlConnection CN = new SqlConnection(cs.DBConn);
                 CN.Open();
                 adp = new SqlDataAdapter();
-                adp.SelectCommand = new SqlCommand("SELECT distinct RTRIM(MemberID) FROM RegistrationFees", CN);
+                adp.SelectCommand = new SqlCommand("SELECT distinct RTRIM(AccountNumber) FROM Account", CN);
                 ds = new DataSet("ds");
                 adp.Fill(ds);
                 dtable = ds.Tables[0];
@@ -248,7 +244,7 @@ namespace Banking_System
             {
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
-                cmd = new SqlCommand("select RTrim(PaymentID)[Payment ID], RTRIM(MemberID)[Member ID],RTRIM(AccountNumber)[Account Number],RTRIM(Date)[Payment Date],RTRIM(CashierName)[Recieved By], RTRIM(TransferedAmmount)[Ammount Transfered], RTRIM(LoanID)[Loan ID], (Details)[Details] from SavingsToLoans where  Date between @date1 and @date2 order by Date", con);
+                cmd = new SqlCommand("select RTrim(PaymentID)[Payment ID], RTRIM(AccountNo)[Account Number],RTRIM(AccountNames)[Account Names],RTRIM(Date)[Payment Date],RTRIM(CashierName)[Recieved By], RTRIM(TransferedAmmount)[Ammount Transfered], RTRIM(LoanID)[Loan ID], (Details)[Details] from SavingsToLoans where  Date between @date1 and @date2 order by Date", con);
                 cmd.Parameters.Add("@date1", SqlDbType.DateTime, 30, " Date").Value = DateFrom.Value.Date;
                 cmd.Parameters.Add("@date2", SqlDbType.DateTime, 30, "Date").Value = DateTo.Value.Date;
                 SqlDataAdapter myDA = new SqlDataAdapter(cmd);
