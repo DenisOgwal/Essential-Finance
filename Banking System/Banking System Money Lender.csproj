@@ -374,6 +374,12 @@
     <Compile Include="FrmExternalLoan.Designer.cs">
       <DependentUpon>FrmExternalLoan.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmInvestorAccountTypes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmInvestorAccountTypes.Designer.cs">
+      <DependentUpon>frmInvestorAccountTypes.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmLoanScheduleReport.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -643,6 +649,12 @@
     </Compile>
     <Compile Include="frmExternalRepaymentRecord.Designer.cs">
       <DependentUpon>frmExternalRepaymentRecord.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmInvestorSavings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmInvestorSavings.Designer.cs">
+      <DependentUpon>frmInvestorSavings.cs</DependentUpon>
     </Compile>
     <Compile Include="frmSavingsToLoans.cs">
       <SubType>Form</SubType>
@@ -1593,6 +1605,9 @@
     <EmbeddedResource Include="FrmExternalLoan.resx">
       <DependentUpon>FrmExternalLoan.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmInvestorAccountTypes.resx">
+      <DependentUpon>frmInvestorAccountTypes.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmLoanScheduleReport.resx">
       <DependentUpon>FrmLoanScheduleReport.cs</DependentUpon>
     </EmbeddedResource>
@@ -1727,6 +1742,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmExternalRepaymentRecord.resx">
       <DependentUpon>frmExternalRepaymentRecord.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmInvestorSavings.resx">
+      <DependentUpon>frmInvestorSavings.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmSavingsToLoans.resx">
       <DependentUpon>frmSavingsToLoans.cs</DependentUpon>

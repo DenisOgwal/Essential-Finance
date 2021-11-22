@@ -2090,5 +2090,79 @@ namespace Banking_System
             frm.label12.Text = UserType.Text;
             frm.ShowDialog();
         }
+
+        private void buttonItem38_Click_1(object sender, EventArgs e)
+        {
+            DialogResult dialog = MessageBox.Show("Do you really want to log out?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dialog == System.Windows.Forms.DialogResult.Yes)
+            {
+                con = new SqlConnection(cs.DBConn);
+                con.Open();
+                string cb1 = "update User_Registration set Status=@d2 where Username=@d1";
+                cmd = new SqlCommand(cb1);
+                cmd.Connection = con;
+                cmd.Parameters.Add(new SqlParameter("@d1", System.Data.SqlDbType.NChar, 30, "Username"));
+                cmd.Parameters.Add(new SqlParameter("@d2", System.Data.SqlDbType.NChar, 12, "Status"));
+                cmd.Parameters["@d1"].Value = User.Text.Trim();
+                cmd.Parameters["@d2"].Value = status;
+                cmd.ExecuteNonQuery();
+                con.Close();
+                SqlDataReader rdr = null;
+                con = new SqlConnection(cs.DBConn);
+                con.Open();
+                cmd = con.CreateCommand();
+                cmd.CommandText = "SELECT ID from Logins WHERE UserName = '" + User.Text + "' order by ID DESC";
+                rdr = cmd.ExecuteReader();
+                if (rdr.Read())
+                {
+                    int Ids = Convert.ToInt32(rdr["ID"]);
+                    string dts = DateTime.Now.ToLongTimeString();
+                    con = new SqlConnection(cs.DBConn);
+                    con.Open();
+                    string cb2 = "update Logins set LogOut=@d2 where UserName=@d1 and ID='" + Ids + "'";
+                    cmd = new SqlCommand(cb2);
+                    cmd.Connection = con;
+                    cmd.Parameters.Add(new SqlParameter("@d1", System.Data.SqlDbType.NChar, 30, "UserName"));
+                    cmd.Parameters.Add(new SqlParameter("@d2", System.Data.SqlDbType.NChar, 12, "Status"));
+                    cmd.Parameters["@d1"].Value = User.Text.Trim();
+                    cmd.Parameters["@d2"].Value = dts;
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+                }
+                this.Hide();
+                frmLogin frm = new frmLogin();
+                frm.Show();
+            }
+            else
+            {
+                this.Hide();
+                frmMainMenu frm = new frmMainMenu();
+                frm.User.Text = User.Text;
+                frm.UserType.Text = UserType.Text;
+                frm.Show();
+            }
+        }
+
+        private void buttonItem35_Click_1(object sender, EventArgs e)
+        {
+            frmInvestorAccount frm = new frmInvestorAccount();
+            frm.label33.Text = User.Text;
+            frm.label34.Text = UserType.Text;
+            frm.ShowDialog();
+        }
+
+        private void buttonItem36_Click_1(object sender, EventArgs e)
+        {
+            frmInvestorSavings frm = new frmInvestorSavings();
+            frm.label1.Text = User.Text;
+            frm.label2.Text = UserType.Text;
+            frm.ShowDialog();
+        }
+
+        private void buttonItem40_Click(object sender, EventArgs e)
+        {
+            frmInvestorAccountTypes frm = new frmInvestorAccountTypes();
+            frm.ShowDialog();
+        }
     }
 }
