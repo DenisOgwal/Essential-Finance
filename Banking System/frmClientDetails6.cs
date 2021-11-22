@@ -23,11 +23,11 @@ namespace Banking_System
             {
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
-                cmd = new SqlCommand("select RTRIM(MemberID)[Client ID],RTRIM(MemberName)[Client Name] from MemberRegistration order by ID DESC", con);
+                cmd = new SqlCommand("select RTRIM(LoansID)[Loan ID],RTRIM(Lender)[Lender],RTRIM(LoanAmmount)[Loan Ammount] from ExternalLoans order by ID DESC", con);
                 SqlDataAdapter myDA = new SqlDataAdapter(cmd);
                 DataSet myDataSet = new DataSet();
-                myDA.Fill(myDataSet, "RegistrationFees");
-                dataGridView1.DataSource = myDataSet.Tables["RegistrationFees"].DefaultView;
+                myDA.Fill(myDataSet, "ExternalLoans");
+                dataGridView1.DataSource = myDataSet.Tables["ExternalLoans"].DefaultView;
                 con.Close();
             }
             catch (Exception ex)
@@ -63,11 +63,11 @@ namespace Banking_System
             {
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
-                cmd = new SqlCommand("select RTRIM(MemberID)[Client ID],RTRIM(MemberName)[Client Name] from MemberRegistration where MemberID like '" + textBoxX1.Text + "%' OR MemberName Like '" + textBoxX1.Text + "%'  order by ID DESC", con);
+                cmd = new SqlCommand("select RTRIM(LoansID)[Loan ID],RTRIM(Lender)[Lender],RTRIM(LoanAmmount)[Loan Ammount] from ExternalLoans where LoansID like '" + textBoxX1.Text + "%' OR Lender Like '" + textBoxX1.Text + "%'  order by ID DESC", con);
                 SqlDataAdapter myDA = new SqlDataAdapter(cmd);
                 DataSet myDataSet = new DataSet();
-                myDA.Fill(myDataSet, "RegistrationFees");
-                dataGridView1.DataSource = myDataSet.Tables["RegistrationFees"].DefaultView;
+                myDA.Fill(myDataSet, "ExternalLoans");
+                dataGridView1.DataSource = myDataSet.Tables["ExternalLoans"].DefaultView;
                 con.Close();
             }
             catch (Exception ex)

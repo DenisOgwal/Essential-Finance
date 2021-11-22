@@ -792,15 +792,6 @@ namespace Banking_System
             frm.label2.Text = UserType.Text;
             frm.ShowDialog();
         }
-
-        private void externalloanapprovals_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            frmExternalLoans frm = new frmExternalLoans();
-            frm.label1.Text = User.Text;
-            frm.label2.Text = UserType.Text;
-            frm.Show();
-        }
         private void buttonItem53_Click(object sender, EventArgs e)
         {
             frmUserRegistration frm = new frmUserRegistration();
@@ -1173,15 +1164,6 @@ namespace Banking_System
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        private void buttonItem94_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            frmExternalLoans frm = new frmExternalLoans();
-            frm.label1.Text = User.Text;
-            frm.label2.Text = UserType.Text;
-            frm.Show();
-        }
-
         private void buttonItem14_Click_2(object sender, EventArgs e)
         {
             this.Hide();
@@ -1663,28 +1645,12 @@ namespace Banking_System
             frm.label2.Text = UserType.Text;
             frm.Show();
         }
-
-        private void buttonItem70_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            frmExternalLoans frm = new frmExternalLoans();
-            frm.label1.Text = User.Text;
-            frm.label2.Text = UserType.Text;
-            frm.Show();
-        }
-
         private void buttonItem72_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            frmExternalPaymentSchedule frm = new frmExternalPaymentSchedule();
+            frmExternalRepaymentForm frm = new frmExternalRepaymentForm();
             frm.label1.Text = User.Text;
             frm.label2.Text = UserType.Text;
-            frm.Show();
-        }
-
-        private void tableLayoutPanel8_Paint(object sender, PaintEventArgs e)
-        {
-
+            frm.ShowDialog();
         }
         private void buttonItem16_Click_1(object sender, EventArgs e)
         {
@@ -2090,6 +2056,38 @@ namespace Banking_System
             FrmLoanWriteOff frm = new FrmLoanWriteOff();
             frm.label1.Text = User.Text;
             frm.label2.Text = UserType.Text;
+            frm.ShowDialog();
+        }
+
+        private void reports_Click(object sender, EventArgs e)
+        {
+            FrmLoanRecovery frm = new FrmLoanRecovery();
+            frm.label1.Text = User.Text;
+            frm.label2.Text = UserType.Text;
+            frm.ShowDialog();
+        }
+
+        private void buttonItem50_Click(object sender, EventArgs e)
+        {
+            FrmExternalLoan frm = new FrmExternalLoan();
+            frm.label1.Text = User.Text;
+            frm.label2.Text = UserType.Text;
+            frm.ShowDialog();
+        }
+
+        private void buttonItem34_Click_1(object sender, EventArgs e)
+        {
+            frmExternalPaymentSchedule frm = new frmExternalPaymentSchedule();
+            frm.label1.Text = User.Text;
+            frm.label2.Text = UserType.Text;
+            frm.ShowDialog();
+        }
+
+        private void buttonItem70_Click(object sender, EventArgs e)
+        {
+            frmExternalLoanFineFeesPayment frm = new frmExternalLoanFineFeesPayment();
+            frm.label7.Text = User.Text;
+            frm.label12.Text = UserType.Text;
             frm.ShowDialog();
         }
     }

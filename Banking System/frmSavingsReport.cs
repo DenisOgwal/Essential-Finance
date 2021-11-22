@@ -1464,7 +1464,7 @@ namespace Banking_System
             company();
             try
             {
-                Cursor = Cursors.WaitCursor;
+               /* Cursor = Cursors.WaitCursor;
                 timer1.Enabled = true;
                 //The report you created.
                 SqlConnection myConnection = default(SqlConnection);
@@ -1487,7 +1487,7 @@ namespace Banking_System
                 rpt.SetParameterValue("companyslogan", companyslogan);
                 rpt.SetParameterValue("companyaddress", companyaddress);
                 rpt.SetParameterValue("picpath", "logo.jpg");
-                crystalReportViewer5.ReportSource = rpt;
+                crystalReportViewer5.ReportSource = rpt;*/
             }
             catch (Exception ex)
             {

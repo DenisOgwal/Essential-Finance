@@ -302,6 +302,7 @@ namespace Banking_System
             this.buttonX4.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.buttonX4.TabIndex = 6;
             this.buttonX4.Text = "&Schedule";
+            this.buttonX4.Click += new System.EventHandler(this.buttonX4_Click);
             // 
             // Amount
             // 
@@ -442,7 +443,7 @@ namespace Banking_System
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = global::Banking_System.Properties.Settings.Default.usercolor;
-            this.ClientSize = new System.Drawing.Size(784, 552);
+            this.ClientSize = new System.Drawing.Size(784, 565);
             this.Controls.Add(this.InterestRate);
             this.Controls.Add(this.ServicingPeriod);
             this.Controls.Add(this.label16);

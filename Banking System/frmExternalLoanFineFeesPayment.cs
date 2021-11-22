@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Data;
-using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using System.Data.SqlClient;
@@ -9,7 +8,7 @@ using System.Reflection;
 using System.IO;
 namespace Banking_System
 {
-    public partial class frmFineFeesPayment : DevComponents.DotNetBar.Office2007Form
+    public partial class frmExternalLoanFineFeesPayment : DevComponents.DotNetBar.Office2007Form
     {
         SqlDataReader rdr = null;
         DataTable dtable = new DataTable();
@@ -26,7 +25,7 @@ namespace Banking_System
         string companyaddress = null;
         string companycontact = null;
         string companyslogan = null;
-        public frmFineFeesPayment()
+        public frmExternalLoanFineFeesPayment()
         {
             InitializeComponent();
         }
@@ -84,13 +83,8 @@ namespace Banking_System
         private void frmSalaryPayment_Load(object sender, EventArgs e)
         {
             this.labelX5.Text = AssemblyCopyright;
-            /*Left = Top = 0;
-            this.Width = Screen.PrimaryScreen.WorkingArea.Width;
-            this.Height = Screen.PrimaryScreen.WorkingArea.Height;
-            this.MaximumSize = Screen.PrimaryScreen.WorkingArea.Size;*/
 
             dataGridView1.DataSource = GetData();
-            PopulateStaffID();
             try
             {
                 string prices = null;
@@ -159,7 +153,7 @@ namespace Banking_System
         }
         public DataView GetData()
         {
-            dynamic SelectQry = "SELECT RTRIM(AccountNumber)[Account Number], RTRIM(AccountNames)[Account Names] from Account order by ID DESC ";
+            dynamic SelectQry = "SELECT RTRIM(LoansID)[Loan ID], RTRIM(Lender)[Lender] from ExternalLoans order by ID DESC ";
             DataSet SampleSource = new DataSet();
             DataView TableView = null;
             try
@@ -206,7 +200,7 @@ namespace Banking_System
         private void buttonX1_Click(object sender, EventArgs e)
         {
             this.Hide();
-            frmFineFeeRecord frm = new frmFineFeeRecord();
+            frmExternalFineFeeRecord frm = new frmExternalFineFeeRecord();
             frm.label4.Text = label7.Text;
             frm.label5.Text = label12.Text;
             frm.ShowDialog();
@@ -276,11 +270,11 @@ namespace Banking_System
                 auto();
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
-                string cb = "insert into Fines(PaymentID,MemberID,Year,Months,Date,FineFee,CashierName,Reason) VALUES (@d1,@d2,@d3,@d4,@d5,@d6,@d7,@d8)";
+                string cb = "insert into ExternalLoanFines(PaymentID,MemberID,Year,Months,Date,FineFee,CashierName,Reason) VALUES (@d1,@d2,@d3,@d4,@d5,@d6,@d7,@d8)";
                 cmd = new SqlCommand(cb);
                 cmd.Connection = con;
                 cmd.Parameters.Add(new SqlParameter("@d1", System.Data.SqlDbType.NChar, 15, "PaymentID"));
-                cmd.Parameters.Add(new SqlParameter("@d2", System.Data.SqlDbType.NChar, 15, "MemberID"));
+                cmd.Parameters.Add(new SqlParameter("@d2", System.Data.SqlDbType.NChar, 100, "MemberID"));
                 cmd.Parameters.Add(new SqlParameter("@d3", System.Data.SqlDbType.NChar, 10, "Year"));
                 cmd.Parameters.Add(new SqlParameter("@d4", System.Data.SqlDbType.NChar, 30, "Months"));
                 cmd.Parameters.Add(new SqlParameter("@d5", System.Data.SqlDbType.NChar, 20, "Date"));
@@ -319,54 +313,9 @@ namespace Banking_System
                     con.Close();
                 }
                 MessageBox.Show("Successfully Saved", "Record", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                /*company();
-
-                try
-                {
-                    //this.Hide();
-                    Cursor = Cursors.WaitCursor;
-                    //timer1.Enabled = true;
-                    rptReceiptAll rpt = new rptReceiptAll(); //The report you created.
-                    SqlConnection myConnection = default(SqlConnection);
-                    SqlCommand MyCommand = new SqlCommand();
-                    SqlDataAdapter myDA = new SqlDataAdapter();
-                    AllPaymentsDataset myDS = new AllPaymentsDataset(); //The DataSet you created.
-                    Receipt frm = new Receipt();
-                    myConnection = new SqlConnection(cs.DBConn);
-                    MyCommand.Connection = myConnection;
-                    MyCommand.CommandText = "select * from AnnualFeesPayment";
-                    MyCommand.CommandType = CommandType.Text;
-                    myDA.SelectCommand = MyCommand;
-                    myDA.Fill(myDS, "AnnualFeesPayment");
-                    //myDA.Fill(myDS, "Rights");
-                    rpt.SetDataSource(myDS);
-                    rpt.SetParameterValue("paymentid", txtPaymentID.Text);
-                    rpt.SetParameterValue("accountno", cmbStaffID.Text);
-                    rpt.SetParameterValue("membernames", txtStaffName.Text);
-                    rpt.SetParameterValue("ammount", txtTotalPaid.Text);
-                    rpt.SetParameterValue("totalpaid", txtTotalPaid.Text);
-                    rpt.SetParameterValue("issuedby", staffname.Text);
-                    rpt.SetParameterValue("Transactions", "Fine Fees Receipt");
-                    rpt.SetParameterValue("addons", 0);
-                    rpt.SetParameterValue("duepayment", 0);
-                    rpt.SetParameterValue("comanyname", companyname);
-                    rpt.SetParameterValue("companyemail", companyemail);
-                    rpt.SetParameterValue("companycontact", companycontact);
-                    rpt.SetParameterValue("companyslogan", companyslogan);
-                    rpt.SetParameterValue("companyaddress", companyaddress);
-                    rpt.SetParameterValue("picpath", "logo.jpg");
-                    frm.crystalReportViewer1.ReportSource = rpt;
-                    //frm.Show();
-                    BarPrinter = Properties.Settings.Default.frontendprinter;
-                    rpt.PrintOptions.PrinterName = BarPrinter;
-                    rpt.PrintToPrinter(1, true, 1, 1);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }*/
+               
                 this.Hide();
-                frmFineFeesPayment frm2 = new frmFineFeesPayment();
+                frmExternalLoanFineFeesPayment frm2 = new frmExternalLoanFineFeesPayment();
                 frm2.label7.Text = label7.Text;
                 frm2.label12.Text = label12.Text;
                 frm2.ShowDialog();
@@ -392,7 +341,7 @@ namespace Banking_System
                 int RowsAffected = 0;
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
-                string cq = "delete from Fines where PaymentID=@DELETE1;";
+                string cq = "delete from ExternalLoanFines where PaymentID=@DELETE1;";
                 cmd = new SqlCommand(cq);
                 cmd.Connection = con;
                 cmd.Parameters.Add(new SqlParameter("@DELETE1", System.Data.SqlDbType.NChar, 15, "PaymentID"));
@@ -426,11 +375,11 @@ namespace Banking_System
             {
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
-                string cb = "update Fines set MemberID=@d2,Date=@d5,Months=@d4,Year=@d3,CashierName=@d7,FineFee=@d6 where PaymentID=@d1";
+                string cb = "update ExternalLoanFines set MemberID=@d2,Date=@d5,Months=@d4,Year=@d3,CashierName=@d7,FineFee=@d6 where PaymentID=@d1";
                 cmd = new SqlCommand(cb);
                 cmd.Connection = con;
                 cmd.Parameters.Add(new SqlParameter("@d1", System.Data.SqlDbType.NChar, 15, "PaymentID"));
-                cmd.Parameters.Add(new SqlParameter("@d2", System.Data.SqlDbType.NChar, 15, "MemberID"));
+                cmd.Parameters.Add(new SqlParameter("@d2", System.Data.SqlDbType.NChar, 100, "MemberID"));
                 cmd.Parameters.Add(new SqlParameter("@d3", System.Data.SqlDbType.NChar, 10, "Year"));
                 cmd.Parameters.Add(new SqlParameter("@d4", System.Data.SqlDbType.NChar, 30, "Months"));
                 cmd.Parameters.Add(new SqlParameter("@d5", System.Data.SqlDbType.NChar, 20, "Date"));
@@ -446,29 +395,6 @@ namespace Banking_System
                 cmd.ExecuteReader();
                 con.Close();
                 MessageBox.Show("Successfully Updated", "Record", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void PopulateStaffID()
-        {
-            try
-            {
-                SqlConnection CN = new SqlConnection(cs.DBConn);
-                CN.Open();
-                adp = new SqlDataAdapter();
-                adp.SelectCommand = new SqlCommand("SELECT distinct RTRIM(AccountNumber) FROM Account", CN);
-                ds = new DataSet("ds");
-                adp.Fill(ds);
-                dtable = ds.Tables[0];
-                cmbStaffID.Items.Clear();
-                foreach (DataRow drow in dtable.Rows)
-                {
-                    cmbStaffID.Items.Add(drow[0].ToString());
-                }
             }
             catch (Exception ex)
             {
@@ -493,10 +419,10 @@ namespace Banking_System
                 frm.label2.Text = label12.Text;
                 myConnection = new SqlConnection(cs.DBConn);
                 MyCommand.Connection = myConnection;
-                MyCommand.CommandText = "select * from Fines where PaymentID='" + txtPaymentID.Text + "'";
+                MyCommand.CommandText = "select * from ExternalLoanFines where PaymentID='" + txtPaymentID.Text + "'";
                 MyCommand.CommandType = CommandType.Text;
                 myDA.SelectCommand = MyCommand;
-                myDA.Fill(myDS, "Fines");
+                myDA.Fill(myDS, "ExternalLoanFines");
                 rpt.SetDataSource(myDS);
                 frm.crystalReportViewer1.ReportSource = rpt;
                 frm.Show();
@@ -514,7 +440,7 @@ namespace Banking_System
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
                 cmd = con.CreateCommand();
-                cmd.CommandText = "SELECT AccountNames from Account WHERE AccountNumber = '" + cmbStaffID.Text + "'";
+                cmd.CommandText = "SELECT Lender from ExternalLoans WHERE LoansID = '" + cmbStaffID.Text + "'";
                 rdr = cmd.ExecuteReader();
                 if (rdr.Read())
                 {
@@ -629,131 +555,6 @@ namespace Banking_System
             }
         }
 
-        private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
-        {
-            try
-            {
-                float x = 10;
-                float y = 5;
-
-                float width = 260.0F; // max width I found through trial and error
-                float height = 0F;
-
-                Font drawFontArial12Bold = new Font("Arial", 12, FontStyle.Bold);
-                Font drawFontArial10Regular = new Font("Arial", 10, FontStyle.Regular);
-                Font drawFontArial10italic = new Font("Arial", 10, FontStyle.Italic);
-                Font drawFontArial10Bold = new Font("Arial", 10, FontStyle.Bold);
-                Font drawFontArial6Regular = new Font("Arial", 6, FontStyle.Regular);
-                SolidBrush drawBrush = new SolidBrush(Color.Black);
-
-                // Set format of string.
-                StringFormat drawFormatCenter = new StringFormat();
-                drawFormatCenter.Alignment = StringAlignment.Center;
-                StringFormat drawFormatLeft = new StringFormat();
-                drawFormatLeft.Alignment = StringAlignment.Near;
-                StringFormat drawFormatRight = new StringFormat();
-                drawFormatRight.Alignment = StringAlignment.Far;
-
-                // Draw string to screen.
-                string text = "KIBUKU CONSTITUENCY DEVELOPMENT SACCO LTD";
-                e.Graphics.DrawString(text, drawFontArial12Bold, drawBrush, new RectangleF(x, y, width, height), drawFormatCenter);
-                y += e.Graphics.MeasureString(text, drawFontArial12Bold).Height;
-                text = " ";
-                e.Graphics.DrawString(text, drawFontArial10Regular, drawBrush, new RectangleF(x, y, width, height), drawFormatCenter);
-                y += e.Graphics.MeasureString(text, drawFontArial10Regular).Height;
-
-                text = "i save for my future, What about you? ";
-                e.Graphics.DrawString(text, drawFontArial10italic, drawBrush, new RectangleF(x, y, width, height), drawFormatCenter);
-                y += e.Graphics.MeasureString(text, drawFontArial10italic).Height;
-
-                text = " ";
-                e.Graphics.DrawString(text, drawFontArial10Regular, drawBrush, new RectangleF(x, y, width, height), drawFormatCenter);
-                y += e.Graphics.MeasureString(text, drawFontArial10Regular).Height;
-
-                text = "P.O.BOX 150, MBALE.";
-                e.Graphics.DrawString(text, drawFontArial10Regular, drawBrush, new RectangleF(x, y, width, height), drawFormatCenter);
-                y += e.Graphics.MeasureString(text, drawFontArial10Regular).Height;
-
-                text = "KIBUKU TOWN COUNCIL, BUSETA ROAD";
-                e.Graphics.DrawString(text, drawFontArial10Regular, drawBrush, new RectangleF(x, y, width, height), drawFormatCenter);
-                y += e.Graphics.MeasureString(text, drawFontArial10Regular).Height;
-                text = " ";
-                e.Graphics.DrawString(text, drawFontArial10Regular, drawBrush, new RectangleF(x, y, width, height), drawFormatCenter);
-                y += e.Graphics.MeasureString(text, drawFontArial10Regular).Height;
-
-                text = "TEL: 0393216208";
-                e.Graphics.DrawString(text, drawFontArial10Regular, drawBrush, new RectangleF(x, y, width, height), drawFormatCenter);
-                y += e.Graphics.MeasureString(text, drawFontArial10Regular).Height;
-
-                text = "-----------------------------------------------------";
-                e.Graphics.DrawString(text, drawFontArial10Regular, drawBrush, new RectangleF(x, y, width, height), drawFormatCenter);
-                y += e.Graphics.MeasureString(text, drawFontArial10Regular).Height;
-                text = " ";
-                e.Graphics.DrawString(text, drawFontArial10Regular, drawBrush, new RectangleF(x, y, width, height), drawFormatCenter);
-                y += e.Graphics.MeasureString(text, drawFontArial10Regular).Height;
-
-                text = "Payment ID: " + txtPaymentID.Text;
-                e.Graphics.DrawString(text, drawFontArial10Bold, drawBrush, new RectangleF(x, y, width, height), drawFormatCenter);
-                y += e.Graphics.MeasureString(text, drawFontArial10Bold).Height;
-
-                text = "Date: " + DateTime.Now.ToString();
-                e.Graphics.DrawString(text, drawFontArial10Regular, drawBrush, new RectangleF(x, y, width, height), drawFormatCenter);
-                y += e.Graphics.MeasureString(text, drawFontArial10Regular).Height;
-
-                text = " ";
-                e.Graphics.DrawString(text, drawFontArial10Regular, drawBrush, new RectangleF(x, y, width, height), drawFormatCenter);
-                y += e.Graphics.MeasureString(text, drawFontArial10Regular).Height;
-
-
-
-                text = "Paid For: Fine";
-                e.Graphics.DrawString(text, drawFontArial10Bold, drawBrush, new RectangleF(x, y, width, height), drawFormatCenter);
-                y += e.Graphics.MeasureString(text, drawFontArial10Bold).Height;
-                text = "Member ID: " + cmbStaffID.Text;
-                e.Graphics.DrawString(text, drawFontArial10Bold, drawBrush, new RectangleF(x, y, width, height), drawFormatCenter);
-                y += e.Graphics.MeasureString(text, drawFontArial10Bold).Height;
-                text = "-----------------------------------------------------";
-                e.Graphics.DrawString(text, drawFontArial10Regular, drawBrush, new RectangleF(x, y, width, height), drawFormatCenter);
-                y += e.Graphics.MeasureString(text, drawFontArial10Regular).Height;
-
-                text = " ";
-                e.Graphics.DrawString(text, drawFontArial10Regular, drawBrush, new RectangleF(x, y, width, height), drawFormatCenter);
-                y += e.Graphics.MeasureString(text, drawFontArial10Regular).Height;
-
-                text = "Total Paid: UGX." + string.Format("{0:n0}",Convert.ToInt32(txtTotalPaid.Value));
-                e.Graphics.DrawString(text, drawFontArial10Bold, drawBrush, new RectangleF(x, y, width, height), drawFormatCenter);
-                y += e.Graphics.MeasureString(text, drawFontArial10Bold).Height;
-
-
-                text = "Recieved By: " + staffname.Text;
-                e.Graphics.DrawString(text, drawFontArial10Regular, drawBrush, new RectangleF(x, y, width, height), drawFormatCenter);
-                y += e.Graphics.MeasureString(text, drawFontArial10Regular).Height;
-                text = "-----------------------------------------------------";
-                e.Graphics.DrawString(text, drawFontArial10Regular, drawBrush, new RectangleF(x, y, width, height), drawFormatCenter);
-                y += e.Graphics.MeasureString(text, drawFontArial10Regular).Height;
-
-                text = " ";
-                e.Graphics.DrawString(text, drawFontArial10Regular, drawBrush, new RectangleF(x, y, width, height), drawFormatCenter);
-                y += e.Graphics.MeasureString(text, drawFontArial10Regular).Height;
-
-                text = "THANK YOU, COME AGAIN";
-                e.Graphics.DrawString(text, drawFontArial10Bold, drawBrush, new RectangleF(x, y, width, height), drawFormatCenter);
-                y += e.Graphics.MeasureString(text, drawFontArial10Bold).Height;
-
-                text = " ";
-                e.Graphics.DrawString(text, drawFontArial10Regular, drawBrush, new RectangleF(x, y, width, height), drawFormatCenter);
-                y += e.Graphics.MeasureString(text, drawFontArial10Regular).Height;
-
-                text = "Powered by: www.essentialsystems.atwebpages.com +256787045644";
-                e.Graphics.DrawString(text, drawFontArial6Regular, drawBrush, new RectangleF(x, y, width, height), drawFormatCenter);
-                y += e.Graphics.MeasureString(text, drawFontArial6Regular).Height;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
         private void buttonX7_Click(object sender, EventArgs e)
         {
             if (cmbStaffID.Text == "")
@@ -785,11 +586,11 @@ namespace Banking_System
                 auto();
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
-                string cb = "insert into Fines(PaymentID,MemberID,Year,Months,Date,FineFee,CashierName,Reason) VALUES (@d1,@d2,@d3,@d4,@d5,@d6,@d7,@d8)";
+                string cb = "insert into ExternalLoanFines(PaymentID,MemberID,Year,Months,Date,FineFee,CashierName,Reason) VALUES (@d1,@d2,@d3,@d4,@d5,@d6,@d7,@d8)";
                 cmd = new SqlCommand(cb);
                 cmd.Connection = con;
                 cmd.Parameters.Add(new SqlParameter("@d1", System.Data.SqlDbType.NChar, 15, "PaymentID"));
-                cmd.Parameters.Add(new SqlParameter("@d2", System.Data.SqlDbType.NChar, 15, "MemberID"));
+                cmd.Parameters.Add(new SqlParameter("@d2", System.Data.SqlDbType.NChar, 100, "MemberID"));
                 cmd.Parameters.Add(new SqlParameter("@d3", System.Data.SqlDbType.NChar, 10, "Year"));
                 cmd.Parameters.Add(new SqlParameter("@d4", System.Data.SqlDbType.NChar, 30, "Months"));
                 cmd.Parameters.Add(new SqlParameter("@d5", System.Data.SqlDbType.NChar, 20, "Date"));
@@ -876,7 +677,7 @@ namespace Banking_System
                     MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 this.Hide();
-                frmFineFeesPayment frm2 = new frmFineFeesPayment();
+                frmExternalLoanFineFeesPayment frm2 = new frmExternalLoanFineFeesPayment();
                 frm2.label7.Text = label7.Text;
                 frm2.label12.Text = label12.Text;
                 frm2.ShowDialog();
@@ -889,7 +690,7 @@ namespace Banking_System
 
         private void cmbStaffID_Click(object sender, EventArgs e)
         {
-            frmClientDetails2 frm = new frmClientDetails2();
+            frmClientDetails6 frm = new frmClientDetails6();
             frm.ShowDialog();
             this.cmbStaffID.Text = frm.clientnames.Text;
             this.txtStaffName.Text = frm.Accountnames.Text;
@@ -899,6 +700,34 @@ namespace Banking_System
         private void txtTotalPaid_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void cmbStaffID_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                con = new SqlConnection(cs.DBConn);
+                con.Open();
+                cmd = con.CreateCommand();
+                cmd.CommandText = "SELECT Lender from ExternalLoans WHERE LoansID = '" + cmbStaffID.Text + "'";
+                rdr = cmd.ExecuteReader();
+                if (rdr.Read())
+                {
+                    txtStaffName.Text = (rdr.GetString(0).Trim());
+                }
+                if ((rdr != null))
+                {
+                    rdr.Close();
+                }
+                if (con.State == ConnectionState.Open)
+                {
+                    con.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

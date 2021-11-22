@@ -1,7 +1,7 @@
 ﻿
 namespace Banking_System
 {
-    partial class FrmLoanAmortisationReport
+    partial class FrmLoanScheduleReport
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@ namespace Banking_System
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmLoanAmortisationReport));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmLoanScheduleReport));
             this.crystalReportViewer1 = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
             this.rptLoanRepaymentSchedule1 = new Banking_System.rptLoanRepaymentSchedule();
             this.RptLoanAmortisation1 = new Banking_System.RptLoanAmortisation();
@@ -62,7 +62,7 @@ namespace Banking_System
             this.label1.Text = "label1";
             this.label1.Visible = false;
             // 
-            // FrmLoanAmortisationReport
+            // FrmLoanScheduleReport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -72,9 +72,9 @@ namespace Banking_System
             this.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.Name = "FrmLoanAmortisationReport";
+            this.Name = "FrmLoanScheduleReport";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Loan Amortisation Schedule";
+            this.Text = "Loan Schedule";
             this.Load += new System.EventHandler(this.FrmLoanAmortisationReport_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -82,10 +82,9 @@ namespace Banking_System
         }
 
         #endregion
-
-        private CrystalDecisions.Windows.Forms.CrystalReportViewer crystalReportViewer1;
         private RptLoanAmortisation RptLoanAmortisation1;
         public System.Windows.Forms.Label label1;
         private rptLoanRepaymentSchedule rptLoanRepaymentSchedule1;
+        public CrystalDecisions.Windows.Forms.CrystalReportViewer crystalReportViewer1;
     }
 }

@@ -111,7 +111,7 @@
             this.buttonX1.Size = new System.Drawing.Size(110, 42);
             this.buttonX1.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.buttonX1.TabIndex = 0;
-            this.buttonX1.Text = "&view Details";
+            this.buttonX1.Text = "&View Details";
             this.buttonX1.Click += new System.EventHandler(this.buttonX1_Click);
             // 
             // groupPanel1

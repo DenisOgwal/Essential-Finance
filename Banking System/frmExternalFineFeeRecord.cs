@@ -6,7 +6,7 @@ using System.Data.SqlClient;
 using Excel = Microsoft.Office.Interop.Excel;
 namespace Banking_System
 {
-    public partial class frmFineFeeRecord : DevComponents.DotNetBar.Office2007Form
+    public partial class frmExternalFineFeeRecord : DevComponents.DotNetBar.Office2007Form
     {
 
         DataTable dtable = new DataTable();
@@ -16,7 +16,7 @@ namespace Banking_System
         SqlCommand cmd = null;
         DataTable dt = new DataTable();
         ConnectionString cs = new ConnectionString();
-        public frmFineFeeRecord()
+        public frmExternalFineFeeRecord()
         {
             InitializeComponent();
         }
@@ -27,11 +27,11 @@ namespace Banking_System
             {
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
-                cmd = new SqlCommand("select RTrim(PaymentID)[Payment ID], RTRIM(MemberID)[Member ID], RTRIM(Year)[Year], RTRIM(Months)[Months], RTRIM(Date)[Payment Date],RTRIM(CashierName)[Recieved By], RTRIM(FineFee)[Ammount Paid], RTRIM(Reason)[Reason]from Fines where MemberID= '" + cmbStaffName.Text + "' order by ID Desc", con);
+                cmd = new SqlCommand("select RTrim(PaymentID)[Payment ID], RTRIM(MemberID)[Loan ID], RTRIM(Year)[Year], RTRIM(Months)[Months], RTRIM(Date)[Payment Date],RTRIM(CashierName)[Recieved By], RTRIM(FineFee)[Ammount Paid], RTRIM(Reason)[Reason] from ExternalLoanFines where MemberID= '" + cmbStaffName.Text + "' order by ID Desc", con);
                 SqlDataAdapter myDA = new SqlDataAdapter(cmd);
                 DataSet myDataSet = new DataSet();
-                myDA.Fill(myDataSet, "Fines");
-                DGV.DataSource = myDataSet.Tables["Fines"].DefaultView;
+                myDA.Fill(myDataSet, "ExternalLoanFines");
+                DGV.DataSource = myDataSet.Tables["ExternalLoanFines"].DefaultView;
                 con.Close();
             }
             catch (Exception ex)
@@ -64,7 +64,7 @@ namespace Banking_System
                 SqlConnection CN = new SqlConnection(cs.DBConn);
                 CN.Open();
                 adp = new SqlDataAdapter();
-                adp.SelectCommand = new SqlCommand("SELECT distinct RTRIM(AccountNumber) FROM Account", CN);
+                adp.SelectCommand = new SqlCommand("SELECT distinct RTRIM(MemberID) FROM ExternalLoan", CN);
                 ds = new DataSet("ds");
                 adp.Fill(ds);
                 dtable = ds.Tables[0];
@@ -255,13 +255,13 @@ namespace Banking_System
             {
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
-                cmd = new SqlCommand("select RTrim(PaymentID)[Payment ID], RTRIM(MemberID)[Account No.], RTRIM(Year)[Year], RTRIM(Months)[Months], RTRIM(Date)[Payment Date],RTRIM(CashierName)[Recieved By], RTRIM(FineFee)[Ammount Paid], RTRIM(Reason)[Reason]from Fines where  Date between @date1 and @date2 order by Date", con);
+                cmd = new SqlCommand("select RTrim(PaymentID)[Payment ID], RTRIM(MemberID)[Loan ID], RTRIM(Year)[Year], RTRIM(Months)[Months], RTRIM(Date)[Payment Date],RTRIM(CashierName)[Recieved By], RTRIM(FineFee)[Ammount Paid], RTRIM(Reason)[Reason]from ExternalLoanFines where  Date between @date1 and @date2 order by Date", con);
                 cmd.Parameters.Add("@date1", SqlDbType.DateTime, 30, "Date").Value = DateFrom.Value.Date;
                 cmd.Parameters.Add("@date2", SqlDbType.DateTime, 30, "Date").Value = DateTo.Value.Date;
                 SqlDataAdapter myDA = new SqlDataAdapter(cmd);
                 DataSet myDataSet = new DataSet();
-                myDA.Fill(myDataSet, "Fines");
-                dataGridView1.DataSource = myDataSet.Tables["Fines"].DefaultView;
+                myDA.Fill(myDataSet, "ExternalLoanFines");
+                dataGridView1.DataSource = myDataSet.Tables["ExternalLoanFines"].DefaultView;
                 con.Close();
             }
             catch (Exception ex)

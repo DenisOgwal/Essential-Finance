@@ -308,11 +308,35 @@
     <Compile Include="frmDrawingsRecord.Designer.cs">
       <DependentUpon>frmDrawingsRecord.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmEXpensesLoanRecovery.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmEXpensesLoanRecovery.Designer.cs">
+      <DependentUpon>frmEXpensesLoanRecovery.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmEXpensesLoanProcess.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmEXpensesLoanProcess.Designer.cs">
       <DependentUpon>frmEXpensesLoanProcess.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmExternalFineFeeRecord.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmExternalFineFeeRecord.Designer.cs">
+      <DependentUpon>frmExternalFineFeeRecord.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmFineFeesPayment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmFineFeesPayment.Designer.cs">
+      <DependentUpon>frmFineFeesPayment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmExternalLoanFineFeesPayment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmExternalLoanFineFeesPayment.Designer.cs">
+      <DependentUpon>frmExternalLoanFineFeesPayment.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmKibanjaProperty.cs">
       <SubType>Form</SubType>
@@ -344,6 +368,18 @@
     <Compile Include="frmLoadLocalDB.Designer.cs">
       <DependentUpon>frmLoadLocalDB.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmExternalLoan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmExternalLoan.Designer.cs">
+      <DependentUpon>FrmExternalLoan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmLoanScheduleReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmLoanScheduleReport.Designer.cs">
+      <DependentUpon>FrmLoanScheduleReport.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmLoanAmortisationReport.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -373,6 +409,12 @@
     </Compile>
     <Compile Include="FrmLoanScheduleRecord.Designer.cs">
       <DependentUpon>FrmLoanScheduleRecord.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmLoanRecovery.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmLoanRecovery.Designer.cs">
+      <DependentUpon>FrmLoanRecovery.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmLoanWriteOffFinal.cs">
       <SubType>Form</SubType>
@@ -535,6 +577,12 @@
     </Compile>
     <Compile Include="frmRepaymentEarlySettlement.Designer.cs">
       <DependentUpon>frmRepaymentEarlySettlement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmExternalRepaymentForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmExternalRepaymentForm.Designer.cs">
+      <DependentUpon>frmExternalRepaymentForm.cs</DependentUpon>
     </Compile>
     <Compile Include="frmRepaymentForm.cs">
       <SubType>Form</SubType>
@@ -704,6 +752,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>RptLoanAmortisation.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="rptLoanRepaymentSchedule.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptLoanRepaymentSchedule.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="rptLoansIssued.cs">
@@ -904,12 +958,6 @@
     <Compile Include="frmExternalPaymentSchedule.Designer.cs">
       <DependentUpon>frmExternalPaymentSchedule.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmExternalLoans.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmExternalLoans.Designer.cs">
-      <DependentUpon>frmExternalLoans.cs</DependentUpon>
-    </Compile>
     <Compile Include="rptLoanProcessingFeeSlip.cs">
       <DependentUpon>rptLoanProcessingFeeSlip.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -1090,12 +1138,6 @@
     <Compile Include="frmGeneralReport.Designer.cs">
       <DependentUpon>frmGeneralReport.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmFineFeesPayment.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmFineFeesPayment.Designer.cs">
-      <DependentUpon>frmFineFeesPayment.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmFineFeeRecord.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1261,29 +1303,11 @@
       <DependentUpon>rptUpaidLoans.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="rptWithdrawMember .cs">
-      <DependentUpon>rptWithdrawMember .rpt</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <SubType>Component</SubType>
-      <DesignTime>True</DesignTime>
-    </Compile>
-    <Compile Include="rptWithdraw.cs">
-      <DependentUpon>rptWithdraw.rpt</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <SubType>Component</SubType>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <Compile Include="rptDeposit.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>rptDeposit.rpt</DependentUpon>
       <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="rptWithdrawAll .cs">
-      <DependentUpon>rptWithdrawAll .rpt</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <SubType>Component</SubType>
-      <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="rptDepositAll.cs">
       <AutoGen>True</AutoGen>
@@ -1536,8 +1560,20 @@
     <EmbeddedResource Include="frmDrawingsRecord.resx">
       <DependentUpon>frmDrawingsRecord.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmEXpensesLoanRecovery.resx">
+      <DependentUpon>frmEXpensesLoanRecovery.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmEXpensesLoanProcess.resx">
       <DependentUpon>frmEXpensesLoanProcess.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmExternalFineFeeRecord.resx">
+      <DependentUpon>frmExternalFineFeeRecord.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmFineFeesPayment.resx">
+      <DependentUpon>frmFineFeesPayment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmExternalLoanFineFeesPayment.resx">
+      <DependentUpon>frmExternalLoanFineFeesPayment.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmKibanjaProperty.resx">
       <DependentUpon>FrmKibanjaProperty.cs</DependentUpon>
@@ -1554,6 +1590,12 @@
     <EmbeddedResource Include="frmLoadLocalDB.resx">
       <DependentUpon>frmLoadLocalDB.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmExternalLoan.resx">
+      <DependentUpon>FrmExternalLoan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmLoanScheduleReport.resx">
+      <DependentUpon>FrmLoanScheduleReport.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmLoanAmortisationReport.resx">
       <DependentUpon>FrmLoanAmortisationReport.cs</DependentUpon>
     </EmbeddedResource>
@@ -1568,6 +1610,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmLoanScheduleRecord.resx">
       <DependentUpon>FrmLoanScheduleRecord.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmLoanRecovery.resx">
+      <DependentUpon>FrmLoanRecovery.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmLoanWriteOffFinal.resx">
       <DependentUpon>FrmLoanWriteOffFinal.cs</DependentUpon>
@@ -1649,6 +1694,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmRepaymentEarlySettlement.resx">
       <DependentUpon>frmRepaymentEarlySettlement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmExternalRepaymentForm.resx">
+      <DependentUpon>frmExternalRepaymentForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmRepaymentForm.resx">
       <DependentUpon>frmRepaymentForm.cs</DependentUpon>
@@ -1740,6 +1788,10 @@
     <EmbeddedResource Include="RptLoanAmortisation.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>RptLoanAmortisation.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rptLoanRepaymentSchedule.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptLoanRepaymentSchedule.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="rptLoansIssued.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -1866,9 +1918,6 @@
     <EmbeddedResource Include="frmExternalPaymentSchedule.resx">
       <DependentUpon>frmExternalPaymentSchedule.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmExternalLoans.resx">
-      <DependentUpon>frmExternalLoans.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="rptLoanProcessingFeeSlip.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptLoanProcessingFeeSlip.cs</LastGenOutput>
@@ -1961,9 +2010,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmGeneralReport.resx">
       <DependentUpon>frmGeneralReport.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmFineFeesPayment.resx">
-      <DependentUpon>frmFineFeesPayment.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmFineFeeRecord.resx">
       <DependentUpon>frmFineFeeRecord.cs</DependentUpon>
@@ -2067,21 +2113,9 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptUpaidLoans.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="rptWithdrawMember .rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>rptWithdrawMember .cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="rptWithdraw.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>rptWithdraw.cs</LastGenOutput>
-    </EmbeddedResource>
     <EmbeddedResource Include="rptDeposit.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptDeposit.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="rptWithdrawAll .rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>rptWithdrawAll .cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="rptDepositAll.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

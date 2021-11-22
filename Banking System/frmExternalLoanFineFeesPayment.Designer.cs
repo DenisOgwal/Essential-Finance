@@ -1,6 +1,6 @@
 ﻿namespace Banking_System
 {
-    partial class frmFineFeesPayment
+    partial class frmExternalLoanFineFeesPayment
     {
         /// <summary>
         /// Required designer variable.
@@ -32,7 +32,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmFineFeesPayment));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmExternalLoanFineFeesPayment));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label6 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
@@ -81,9 +81,6 @@
             this.labelX5 = new DevComponents.DotNetBar.LabelX();
             this.label3 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.printDialog1 = new System.Windows.Forms.PrintDialog();
-            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
-            this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtTotalPaid)).BeginInit();
@@ -390,7 +387,7 @@
             this.groupPanel2.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupPanel2.Location = new System.Drawing.Point(3, 70);
             this.groupPanel2.Name = "groupPanel2";
-            this.groupPanel2.Size = new System.Drawing.Size(512, 130);
+            this.groupPanel2.Size = new System.Drawing.Size(512, 122);
             // 
             // 
             // 
@@ -423,7 +420,7 @@
             this.groupPanel2.StyleMouseOver.Class = "";
             this.groupPanel2.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.groupPanel2.TabIndex = 61;
-            this.groupPanel2.Text = "Member Details";
+            this.groupPanel2.Text = "Loan Details";
             // 
             // cmbStaffID
             // 
@@ -437,6 +434,7 @@
             this.cmbStaffID.Size = new System.Drawing.Size(258, 30);
             this.cmbStaffID.TabIndex = 70;
             this.cmbStaffID.SelectedIndexChanged += new System.EventHandler(this.cmbStaffID_SelectedIndexChanged);
+            this.cmbStaffID.TextChanged += new System.EventHandler(this.cmbStaffID_TextChanged);
             this.cmbStaffID.Click += new System.EventHandler(this.cmbStaffID_Click);
             // 
             // txtStaffName
@@ -461,9 +459,9 @@
             this.Label2.Location = new System.Drawing.Point(30, 50);
             this.Label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.Label2.Name = "Label2";
-            this.Label2.Size = new System.Drawing.Size(116, 22);
+            this.Label2.Size = new System.Drawing.Size(58, 22);
             this.Label2.TabIndex = 74;
-            this.Label2.Text = "Account  Name";
+            this.Label2.Text = "Lender";
             // 
             // Label1
             // 
@@ -474,9 +472,9 @@
             this.Label1.Location = new System.Drawing.Point(30, 14);
             this.Label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.Label1.Name = "Label1";
-            this.Label1.Size = new System.Drawing.Size(128, 22);
+            this.Label1.Size = new System.Drawing.Size(66, 22);
             this.Label1.TabIndex = 73;
-            this.Label1.Text = "Account Number";
+            this.Label1.Text = "Loan ID";
             // 
             // groupPanel3
             // 
@@ -622,7 +620,7 @@
             this.labelX1.Name = "labelX1";
             this.labelX1.Size = new System.Drawing.Size(873, 23);
             this.labelX1.TabIndex = 0;
-            this.labelX1.Text = "FINE DEPOSIT";
+            this.labelX1.Text = "EXTERNAL LOAN FINE DEPOSIT";
             this.labelX1.TextAlignment = System.Drawing.StringAlignment.Center;
             // 
             // groupPanel5
@@ -788,9 +786,9 @@
             this.groupPanel6.Controls.Add(this.label9);
             this.groupPanel6.Controls.Add(this.label4);
             this.groupPanel6.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupPanel6.Location = new System.Drawing.Point(3, 206);
+            this.groupPanel6.Location = new System.Drawing.Point(3, 198);
             this.groupPanel6.Name = "groupPanel6";
-            this.groupPanel6.Size = new System.Drawing.Size(512, 70);
+            this.groupPanel6.Size = new System.Drawing.Size(512, 78);
             // 
             // 
             // 
@@ -913,8 +911,8 @@
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 4;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 24.28572F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 13.57143F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 22.85714F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(518, 560);
             this.tableLayoutPanel2.TabIndex = 0;
@@ -991,29 +989,7 @@
             this.label8.Text = "label8";
             this.label8.Visible = false;
             // 
-            // printDialog1
-            // 
-            this.printDialog1.UseEXDialog = true;
-            // 
-            // printDocument1
-            // 
-            this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
-            // 
-            // printPreviewDialog1
-            // 
-            this.printPreviewDialog1.AutoScrollMargin = new System.Drawing.Size(0, 0);
-            this.printPreviewDialog1.AutoScrollMinSize = new System.Drawing.Size(0, 0);
-            this.printPreviewDialog1.ClientSize = new System.Drawing.Size(400, 300);
-            this.printPreviewDialog1.DataBindings.Add(new System.Windows.Forms.Binding("TopMost", global::Banking_System.Properties.Settings.Default, "checkeda", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.printPreviewDialog1.DataBindings.Add(new System.Windows.Forms.Binding("WindowState", global::Banking_System.Properties.Settings.Default, "Maximised", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.printPreviewDialog1.Enabled = true;
-            this.printPreviewDialog1.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog1.Icon")));
-            this.printPreviewDialog1.Name = "printPreviewDialog1";
-            this.printPreviewDialog1.TopMost = global::Banking_System.Properties.Settings.Default.checkeda;
-            this.printPreviewDialog1.Visible = false;
-            this.printPreviewDialog1.WindowState = global::Banking_System.Properties.Settings.Default.Maximised;
-            // 
-            // frmFineFeesPayment
+            // frmExternalLoanFineFeesPayment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -1033,9 +1009,9 @@
             this.ForeColor = System.Drawing.SystemColors.Highlight;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
-            this.Name = "frmFineFeesPayment";
+            this.Name = "frmExternalLoanFineFeesPayment";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Fine Fee Payment";
+            this.Text = "External Loan Fine Fee Payment";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmRegistrationFeesPayment_FormClosing);
             this.Load += new System.EventHandler(this.frmSalaryPayment_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -1107,9 +1083,6 @@
         private DevComponents.DotNetBar.LabelX labelX5;
         public System.Windows.Forms.Label label3;
         public System.Windows.Forms.Label label8;
-        private System.Windows.Forms.PrintDialog printDialog1;
-        private System.Drawing.Printing.PrintDocument printDocument1;
-        private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
         public DevComponents.DotNetBar.ButtonX buttonX7;
         public DevComponents.Editors.IntegerInput txtTotalPaid;
     }

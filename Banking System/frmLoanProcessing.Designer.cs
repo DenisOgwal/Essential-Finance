@@ -252,7 +252,7 @@
             this.chairpersonid.Location = new System.Drawing.Point(174, 53);
             this.chairpersonid.Name = "chairpersonid";
             this.chairpersonid.PasswordChar = '*';
-            this.chairpersonid.Size = new System.Drawing.Size(150, 29);
+            this.chairpersonid.Size = new System.Drawing.Size(215, 29);
             this.chairpersonid.TabIndex = 5;
             this.chairpersonid.TextChanged += new System.EventHandler(this.chairpersonid_TextChanged);
             // 
@@ -267,7 +267,7 @@
             this.interestrate.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.interestrate.Location = new System.Drawing.Point(172, 16);
             this.interestrate.Name = "interestrate";
-            this.interestrate.Size = new System.Drawing.Size(152, 29);
+            this.interestrate.Size = new System.Drawing.Size(217, 29);
             this.interestrate.TabIndex = 3;
             // 
             // labelX3

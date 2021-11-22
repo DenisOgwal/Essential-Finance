@@ -16,14 +16,14 @@ namespace Banking_System {
     using CrystalDecisions.CrystalReports.Engine;
     
     
-    public class rptWithdraw : ReportClass {
+    public class rptLoanRepaymentSchedule : ReportClass {
         
-        public rptWithdraw() {
+        public rptLoanRepaymentSchedule() {
         }
         
         public override string ResourceName {
             get {
-                return "rptWithdraw.rpt";
+                return "rptLoanRepaymentSchedule.rpt";
             }
             set {
                 // Do nothing
@@ -41,7 +41,7 @@ namespace Banking_System {
         
         public override string FullResourceName {
             get {
-                return "Banking_System.rptWithdraw.rpt";
+                return "Banking_System.rptLoanRepaymentSchedule.rpt";
             }
             set {
                 // Do nothing
@@ -66,7 +66,7 @@ namespace Banking_System {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section Section3 {
+        public CrystalDecisions.CrystalReports.Engine.Section GroupHeaderSection1 {
             get {
                 return this.ReportDefinition.Sections[2];
             }
@@ -74,7 +74,7 @@ namespace Banking_System {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section Section4 {
+        public CrystalDecisions.CrystalReports.Engine.Section Section3 {
             get {
                 return this.ReportDefinition.Sections[3];
             }
@@ -82,9 +82,25 @@ namespace Banking_System {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section Section5 {
+        public CrystalDecisions.CrystalReports.Engine.Section GroupFooterSection1 {
             get {
                 return this.ReportDefinition.Sections[4];
+            }
+        }
+        
+        [Browsable(false)]
+        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
+        public CrystalDecisions.CrystalReports.Engine.Section Section4 {
+            get {
+                return this.ReportDefinition.Sections[5];
+            }
+        }
+        
+        [Browsable(false)]
+        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
+        public CrystalDecisions.CrystalReports.Engine.Section Section5 {
+            get {
+                return this.ReportDefinition.Sections[6];
             }
         }
         
@@ -138,9 +154,9 @@ namespace Banking_System {
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
-    public class CachedrptWithdraw : Component, ICachedReport {
+    public class CachedrptLoanRepaymentSchedule : Component, ICachedReport {
         
-        public CachedrptWithdraw() {
+        public CachedrptLoanRepaymentSchedule() {
         }
         
         [Browsable(false)]
@@ -177,7 +193,7 @@ namespace Banking_System {
         }
         
         public virtual CrystalDecisions.CrystalReports.Engine.ReportDocument CreateReport() {
-            rptWithdraw rpt = new rptWithdraw();
+            rptLoanRepaymentSchedule rpt = new rptLoanRepaymentSchedule();
             rpt.Site = this.Site;
             return rpt;
         }

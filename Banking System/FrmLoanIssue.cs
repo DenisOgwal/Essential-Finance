@@ -25,6 +25,11 @@ namespace Banking_System
         double repaymentammount = 0;
         string repaymentmonths = null;
         string repaymentdate = null;
+        string companyname = null;
+        string companyemail = null;
+        string companyaddress = null;
+        string companycontact = null;
+        string companyslogan = null;
         public FrmLoanIssue()
         {
             InitializeComponent();
@@ -478,6 +483,37 @@ namespace Banking_System
                 cmd.ExecuteNonQuery();
                 con.Close();
                 MessageBox.Show("Successful", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                company();
+                try
+                {
+
+                    SqlConnection myConnection = default(SqlConnection);
+                    SqlCommand MyCommand = new SqlCommand();
+                    SqlDataAdapter myDA = new SqlDataAdapter();
+                    DataSet myDS = new DataSet();
+                    FrmLoanScheduleReport frm3 = new FrmLoanScheduleReport();
+                    rptLoanRepaymentSchedule rpt = new rptLoanRepaymentSchedule();
+                    myConnection = new SqlConnection(cs.DBConn);
+                    myConnection.Open();
+                    MyCommand.Connection = myConnection;
+                    MyCommand.CommandText = "select  * from RepaymentSchedule where LoanID='" + LoanID.Text + "' order by ID Asc ";
+                    MyCommand.CommandType = CommandType.Text;
+                    myDA.SelectCommand = MyCommand;
+                    myDA.Fill(myDS, "RepaymentSchedule");
+                    rpt.SetDataSource(myDS);
+                    rpt.SetParameterValue("comanyname", companyname);
+                    rpt.SetParameterValue("companyemail", companyemail);
+                    rpt.SetParameterValue("companycontact", companycontact);
+                    rpt.SetParameterValue("companyslogan", companyslogan);
+                    rpt.SetParameterValue("companyaddress", companyaddress);
+                    rpt.SetParameterValue("picpath", "logo.jpg");
+                    frm3.crystalReportViewer1.ReportSource = rpt;
+                    frm3.ShowDialog();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
                 this.Hide();
                 FrmLoanIssue frm = new FrmLoanIssue();
                 frm.label1.Text = label1.Text;
@@ -489,6 +525,74 @@ namespace Banking_System
                 MessageBox.Show(Ex.Message,"error",MessageBoxButtons.OK,MessageBoxIcon.Information);
             }
         }
+        public void company()
+        {
+            try
+            {
+                SqlDataReader rdr = null;
+                con = new SqlConnection(cs.DBConn);
+                con.Open();
+                string ct6 = "select * from CompanyNames";
+                cmd = new SqlCommand(ct6);
+                cmd.Connection = con;
+                rdr = cmd.ExecuteReader();
+                if (rdr.Read())
+                {
+                    companyname = rdr.GetString(1).Trim();
+                    companyaddress = rdr.GetString(5).Trim();
+                    companyslogan = rdr.GetString(2).Trim();
+                    companycontact = rdr.GetString(4).Trim();
+                    companyemail = rdr.GetString(3).Trim();
+                }
+                else
+                {
 
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private void buttonX4_Click(object sender, EventArgs e)
+        {
+            if (LoanID.Text == "")
+            {
+                MessageBox.Show("Please Fill Loan ID", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                LoanID.Focus();
+                return;
+            }
+            company();
+            try
+            {
+
+                SqlConnection myConnection = default(SqlConnection);
+                SqlCommand MyCommand = new SqlCommand();
+                SqlDataAdapter myDA = new SqlDataAdapter();
+                DataSet myDS = new DataSet();
+                FrmLoanScheduleReport frm = new FrmLoanScheduleReport();
+                rptLoanRepaymentSchedule rpt = new rptLoanRepaymentSchedule();
+                myConnection = new SqlConnection(cs.DBConn);
+                myConnection.Open();
+                MyCommand.Connection = myConnection;
+                MyCommand.CommandText = "select  * from RepaymentSchedule where LoanID='" + LoanID.Text + "' order by ID Asc ";
+                MyCommand.CommandType = CommandType.Text;
+                myDA.SelectCommand = MyCommand;
+                myDA.Fill(myDS, "RepaymentSchedule");
+                rpt.SetDataSource(myDS);
+                rpt.SetParameterValue("comanyname", companyname);
+                rpt.SetParameterValue("companyemail", companyemail);
+                rpt.SetParameterValue("companycontact", companycontact);
+                rpt.SetParameterValue("companyslogan", companyslogan);
+                rpt.SetParameterValue("companyaddress", companyaddress);
+                rpt.SetParameterValue("picpath", "logo.jpg");
+                frm.crystalReportViewer1.ReportSource = rpt;
+                frm.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }

@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace Banking_System
 {
-    public partial class FrmLoanWriteOffApproval : DevComponents.DotNetBar.Office2007RibbonForm
+    public partial class FrmLoanRecovery : DevComponents.DotNetBar.Office2007RibbonForm
     {
         DataTable dtable = new DataTable();
         SqlConnection con = null;
@@ -19,7 +19,7 @@ namespace Banking_System
         SqlDataReader rdr = null;
         SqlCommand cmd2 = null;
         SqlDataReader rdr2 = null;
-        public FrmLoanWriteOffApproval()
+        public FrmLoanRecovery()
         {
             InitializeComponent();
         }
@@ -30,11 +30,11 @@ namespace Banking_System
             {
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
-                cmd = new SqlCommand("select RTRIM(AccountNumber)[Account No.],RTRIM(AccountNames)[Account Name],RTRIM(LoanID)[Loan ID] from WriteOff where  Approval='Pending' order by ID DESC", con);
+                cmd = new SqlCommand("select RTRIM(AccountNo)[Account No.],RTRIM(AccountName)[Account Name],RTRIM(LoanID)[Loan ID] from Loan where  Issued='Yes' order by ID DESC", con);
                 SqlDataAdapter myDA = new SqlDataAdapter(cmd);
                 DataSet myDataSet = new DataSet();
-                myDA.Fill(myDataSet, "WriteOff");
-                dataGridView1.DataSource = myDataSet.Tables["WriteOff"].DefaultView;
+                myDA.Fill(myDataSet, "Loan");
+                dataGridView1.DataSource = myDataSet.Tables["Loan"].DefaultView;
                 con.Close();
             }
             catch (Exception ex)
@@ -61,7 +61,7 @@ namespace Banking_System
         private void buttonX3_Click(object sender, EventArgs e)
         {
             this.Hide();
-            FrmLoanWriteOffApproval frm = new FrmLoanWriteOffApproval();
+            FrmLoanRecovery frm = new FrmLoanRecovery();
             frm.label1.Text = label1.Text;
             frm.label2.Text = label2.Text;
             frm.ShowDialog();
@@ -185,43 +185,29 @@ namespace Banking_System
                 ApprovalID.Focus();
                 return;
             }
-            if (Reason.Text == "")
-            {
-                MessageBox.Show("Please Enter Reason", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Reason.Focus();
-                return;
-            }
             try
             {
-
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
-                string cb = "UPDATE WriteOff SET Approval=@d2,ApprovalComment=@d3,ApprovalDate=@d4,ApprovedBy=@d5 Where LoanID=@d1";
+                string cb = "update RepaymentSchedule set PaymentStatus=@d1 where LoanID=@d2 and BalanceExist > 0 and PaymentStatus !='Rescheduled' and PaymentStatus !='ToppedUp'";
                 cmd = new SqlCommand(cb);
                 cmd.Connection = con;
-                cmd.Parameters.Add(new SqlParameter("@d1", System.Data.SqlDbType.NChar, 20, "LoanID"));
-                cmd.Parameters.Add(new SqlParameter("@d2", System.Data.SqlDbType.NChar, 15, "Approval"));
-                cmd.Parameters.Add(new SqlParameter("@d3", System.Data.SqlDbType.NChar, 500, "ApprovalComment"));
-                cmd.Parameters.Add(new SqlParameter("@d4", System.Data.SqlDbType.NChar, 20, "ApprovalDate"));
-                cmd.Parameters.Add(new SqlParameter("@d5", System.Data.SqlDbType.NChar, 40, "ApprovedBy"));
-                cmd.Parameters["@d1"].Value = LoanID.Text;
-                cmd.Parameters["@d2"].Value =approvals.Text;
-                cmd.Parameters["@d3"].Value = Reason.Text;
-                cmd.Parameters["@d4"].Value = ApplicationDate.Text;
-                cmd.Parameters["@d5"].Value = ApprovalName.Text;
+                cmd.Parameters.Add(new SqlParameter("@d1", System.Data.SqlDbType.NChar, 15, "PaymentStatus"));
+                cmd.Parameters.Add(new SqlParameter("@d2", System.Data.SqlDbType.NChar, 15, "LoanID"));
+                cmd.Parameters["@d1"].Value = "Recovery";
+                cmd.Parameters["@d2"].Value = LoanID.Text;
                 cmd.ExecuteNonQuery();
                 con.Close();
-                MessageBox.Show("Successfully Approved", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.Hide();
-                FrmLoanWriteOffApproval frm = new FrmLoanWriteOffApproval();
+                MessageBox.Show("Successfuly Paused", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                FrmLoanRecovery frm = new FrmLoanRecovery();
                 frm.label1.Text = label1.Text;
                 frm.label2.Text = label2.Text;
                 frm.ShowDialog();
             }
-            catch (Exception ex)
+            catch (Exception Ex)
             {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+                MessageBox.Show(Ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            } 
         }
 
         private void Records_Click(object sender, EventArgs e)
@@ -237,15 +223,6 @@ namespace Banking_System
             frm.ShowDialog();
         }
 
-        private void buttonX6_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            FrmLoanWriteOffFinal frm = new FrmLoanWriteOffFinal();
-            frm.label1.Text = label1.Text;
-            frm.label2.Text = label2.Text;
-            frm.ShowDialog();
-        }
-
         private void buttonX5_Click(object sender, EventArgs e)
         {
             if (LoanID.Text == "")
@@ -254,9 +231,14 @@ namespace Banking_System
                 LoanID.Focus();
                 return;
             }
-            FrmLoanWriteOffRecord frm = new FrmLoanWriteOffRecord();
-            frm.label1.Text = LoanID.Text;
+            this.Hide();
+            frmEXpensesLoanRecovery frm = new frmEXpensesLoanRecovery();
+            frm.label1.Text = label1.Text;
+            frm.label2.Text = label2.Text;
+            frm.LoanID.Text = LoanID.Text;
+            frm.expensetype.Text = "Loan Recovery";
             frm.ShowDialog();
+           
         }
     }
 }

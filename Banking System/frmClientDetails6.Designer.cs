@@ -48,12 +48,12 @@
             this.labelX1.BackgroundStyle.Class = "";
             this.labelX1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.labelX1.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelX1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.labelX1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.labelX1.Location = new System.Drawing.Point(386, 13);
             this.labelX1.Name = "labelX1";
             this.labelX1.Size = new System.Drawing.Size(157, 23);
             this.labelX1.TabIndex = 0;
-            this.labelX1.Text = "Client ID";
+            this.labelX1.Text = "Loan ID";
             // 
             // clientnames
             // 
@@ -119,7 +119,7 @@
             this.textBoxX1.Name = "textBoxX1";
             this.textBoxX1.Size = new System.Drawing.Size(342, 29);
             this.textBoxX1.TabIndex = 7;
-            this.textBoxX1.WatermarkText = "Search Client Details";
+            this.textBoxX1.WatermarkText = "Search Lender Details";
             this.textBoxX1.TextChanged += new System.EventHandler(this.textBoxX1_TextChanged);
             this.textBoxX1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxX1_KeyDown);
             // 
@@ -145,19 +145,19 @@
             this.labelX3.BackgroundStyle.Class = "";
             this.labelX3.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.labelX3.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelX3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.labelX3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.labelX3.Location = new System.Drawing.Point(386, 81);
             this.labelX3.Name = "labelX3";
             this.labelX3.Size = new System.Drawing.Size(157, 23);
             this.labelX3.TabIndex = 9;
-            this.labelX3.Text = "Client Names";
+            this.labelX3.Text = "Lender";
             // 
             // frmClientDetails6
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = global::Banking_System.Properties.Settings.Default.usercolor;
-            this.ClientSize = new System.Drawing.Size(610, 473);
+            this.ClientSize = new System.Drawing.Size(610, 472);
             this.Controls.Add(this.Accountnames);
             this.Controls.Add(this.labelX3);
             this.Controls.Add(this.textBoxX1);
