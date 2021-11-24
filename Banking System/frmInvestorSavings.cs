@@ -148,7 +148,7 @@ namespace Banking_System
                         con = new SqlConnection(cs.DBConn);
                         con.Open();
                         cmd = con.CreateCommand();
-                        cmd.CommandText = "SELECT distinct RTRIM(ContactNo) FROM Account where AccountNumber='" + accountnumber.Text + "'";
+                        cmd.CommandText = "SELECT distinct RTRIM(ContactNo) FROM InvestorAccount where AccountNumber='" + accountnumber.Text + "'";
                         rdr = cmd.ExecuteReader();
                         if (rdr.Read())
                         {
@@ -232,9 +232,15 @@ namespace Banking_System
             }
             try
             {
+                string appreciationDate = null;
+                
+                DateTime startdate = DateTime.Parse(date2.Text).Date;
+                appreciationDate = (startdate.AddMonths(MaturityPeriod.Value)).ToShortDateString();
+                DateTime dt = DateTime.Parse(appreciationDate);
+                string ConvertedappreciationDate = dt.ToString("dd/MMM/yyyy");
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
-                string cb = "insert into InvestorSavings(SavingsID,AccountNo,AccountName,CashierName,Date,Deposit,Accountbalance,SubmittedBy,Transactions,ModeOfPayment,InterestRate,MaturityPeriod) VALUES (@d1,@d2,@d3,@d4,@d5,@d6,@d7,@d8,@d9,@d10,@d11,@d12)";
+                string cb = "insert into InvestorSavings(SavingsID,AccountNo,AccountName,CashierName,Date,Deposit,Accountbalance,SubmittedBy,Transactions,ModeOfPayment,InterestRate,MaturityPeriod,MaturityDate) VALUES (@d1,@d2,@d3,@d4,@d5,@d6,@d7,@d8,@d9,@d10,@d11,@d12,@d13)";
                 cmd = new SqlCommand(cb);
                 cmd.Connection = con;
                 cmd.Parameters.Add(new SqlParameter("@d1", System.Data.SqlDbType.NChar, 15, "SavingsID"));
@@ -249,6 +255,7 @@ namespace Banking_System
                 cmd.Parameters.Add(new SqlParameter("@d10", System.Data.SqlDbType.NChar, 30, "ModeOfPayment"));
                 cmd.Parameters.Add(new SqlParameter("@d11", System.Data.SqlDbType.Int, 20, "InterestRate"));
                 cmd.Parameters.Add(new SqlParameter("@d12", System.Data.SqlDbType.Int, 20, "MaturityPeriod"));
+                cmd.Parameters.Add(new SqlParameter("@d13", System.Data.SqlDbType.NChar, 20, "MaturityDate"));
                 cmd.Parameters["@d1"].Value = savingsid.Text.Trim();
                 cmd.Parameters["@d2"].Value = accountnumber.Text.Trim();
                 cmd.Parameters["@d3"].Value = accountname.Text;
@@ -261,6 +268,7 @@ namespace Banking_System
                 cmd.Parameters["@d10"].Value = cmbModeOfPayment.Text;
                 cmd.Parameters["@d11"].Value = IntrestRate.Text;
                 cmd.Parameters["@d12"].Value = MaturityPeriod.Text;
+                cmd.Parameters["@d13"].Value = ConvertedappreciationDate;
                 cmd.ExecuteNonQuery();
                 MessageBox.Show("Successfully saved", "Investment Record", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 string smsallow = Properties.Settings.Default.smsallow;
@@ -639,7 +647,41 @@ namespace Banking_System
 
         private void membername2_TextChanged(object sender, EventArgs e)
         {
+            try
+            {
+                con = new SqlConnection(cs.DBConn);
+                con.Open();
+                cmd = con.CreateCommand();
+                cmd.CommandText = "SELECT AccountType FROM InvestorAccount where AccountNumber='"+accountnumber.Text+"'";
+                rdr = cmd.ExecuteReader();
+                if (rdr.Read())
+                {
+                    label3.Text=rdr[0].ToString().Trim();
+                }
 
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            try
+            {
+                con = new SqlConnection(cs.DBConn);
+                con.Open();
+                cmd = con.CreateCommand();
+                cmd.CommandText = "SELECT MaturityPeriod,MinimumAmount FROM InvestorAccountTypes where AccountName='" + label3.Text + "'";
+                rdr = cmd.ExecuteReader();
+                if (rdr.Read())
+                {
+                    depositammount.Text = rdr[1].ToString().Trim();
+                    MaturityPeriod.Text = rdr[0].ToString().Trim();
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

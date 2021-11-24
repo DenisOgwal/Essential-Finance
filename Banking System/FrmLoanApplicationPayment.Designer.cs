@@ -223,6 +223,7 @@ namespace Banking_System
             this.AmountPayable.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.AmountPayable.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2;
             this.AmountPayable.DisplayFormat = "N0";
+            this.AmountPayable.Enabled = false;
             this.AmountPayable.Location = new System.Drawing.Point(476, 199);
             this.AmountPayable.Name = "AmountPayable";
             this.AmountPayable.Size = new System.Drawing.Size(229, 29);
@@ -286,7 +287,7 @@ namespace Banking_System
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = global::Banking_System.Properties.Settings.Default.usercolor;
-            this.ClientSize = new System.Drawing.Size(722, 410);
+            this.ClientSize = new System.Drawing.Size(722, 409);
             this.Controls.Add(this.buttonX3);
             this.Controls.Add(this.buttonX2);
             this.Controls.Add(this.buttonX1);

@@ -30,6 +30,10 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmInvestorSavings));
             this.groupPanel3 = new DevComponents.DotNetBar.Controls.GroupPanel();
+            this.MaturityPeriod = new DevComponents.Editors.IntegerInput();
+            this.labelX4 = new DevComponents.DotNetBar.LabelX();
+            this.IntrestRate = new DevComponents.Editors.IntegerInput();
+            this.labelX3 = new DevComponents.DotNetBar.LabelX();
             this.submittedby = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.labelX2 = new DevComponents.DotNetBar.LabelX();
             this.labelX1 = new DevComponents.DotNetBar.LabelX();
@@ -60,19 +64,16 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
-            this.IntrestRate = new DevComponents.Editors.IntegerInput();
-            this.labelX3 = new DevComponents.DotNetBar.LabelX();
-            this.labelX4 = new DevComponents.DotNetBar.LabelX();
-            this.MaturityPeriod = new DevComponents.Editors.IntegerInput();
+            this.label3 = new System.Windows.Forms.Label();
             this.groupPanel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.MaturityPeriod)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.IntrestRate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.accountbalance)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.depositammount)).BeginInit();
             this.groupPanel5.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.IntrestRate)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.MaturityPeriod)).BeginInit();
             this.SuspendLayout();
             // 
             // groupPanel3
@@ -82,6 +83,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupPanel3.CanvasColor = System.Drawing.SystemColors.Control;
             this.groupPanel3.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
+            this.groupPanel3.Controls.Add(this.label3);
             this.groupPanel3.Controls.Add(this.MaturityPeriod);
             this.groupPanel3.Controls.Add(this.labelX4);
             this.groupPanel3.Controls.Add(this.IntrestRate);
@@ -145,6 +147,70 @@
             this.groupPanel3.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.groupPanel3.TabIndex = 2;
             this.groupPanel3.Text = "Investment Deposit";
+            // 
+            // MaturityPeriod
+            // 
+            // 
+            // 
+            // 
+            this.MaturityPeriod.BackgroundStyle.Class = "DateTimeInputBackground";
+            this.MaturityPeriod.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.MaturityPeriod.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2;
+            this.MaturityPeriod.DisplayFormat = "N0";
+            this.MaturityPeriod.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MaturityPeriod.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.MaturityPeriod.Location = new System.Drawing.Point(157, 124);
+            this.MaturityPeriod.Name = "MaturityPeriod";
+            this.MaturityPeriod.Size = new System.Drawing.Size(205, 29);
+            this.MaturityPeriod.TabIndex = 87;
+            // 
+            // labelX4
+            // 
+            this.labelX4.BackColor = System.Drawing.Color.Transparent;
+            // 
+            // 
+            // 
+            this.labelX4.BackgroundStyle.Class = "";
+            this.labelX4.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX4.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelX4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.labelX4.Location = new System.Drawing.Point(3, 130);
+            this.labelX4.Name = "labelX4";
+            this.labelX4.Size = new System.Drawing.Size(129, 23);
+            this.labelX4.TabIndex = 86;
+            this.labelX4.Text = "Maturity Period";
+            // 
+            // IntrestRate
+            // 
+            // 
+            // 
+            // 
+            this.IntrestRate.BackgroundStyle.Class = "DateTimeInputBackground";
+            this.IntrestRate.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.IntrestRate.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2;
+            this.IntrestRate.DisplayFormat = "N0";
+            this.IntrestRate.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.IntrestRate.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.IntrestRate.Location = new System.Drawing.Point(509, 124);
+            this.IntrestRate.Name = "IntrestRate";
+            this.IntrestRate.Size = new System.Drawing.Size(205, 29);
+            this.IntrestRate.TabIndex = 84;
+            // 
+            // labelX3
+            // 
+            this.labelX3.BackColor = System.Drawing.Color.Transparent;
+            // 
+            // 
+            // 
+            this.labelX3.BackgroundStyle.Class = "";
+            this.labelX3.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX3.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelX3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.labelX3.Location = new System.Drawing.Point(373, 130);
+            this.labelX3.Name = "labelX3";
+            this.labelX3.Size = new System.Drawing.Size(98, 23);
+            this.labelX3.TabIndex = 85;
+            this.labelX3.Text = "Interest Rate";
             // 
             // submittedby
             // 
@@ -625,69 +691,14 @@
             this.tableLayoutPanel4.Size = new System.Drawing.Size(735, 104);
             this.tableLayoutPanel4.TabIndex = 74;
             // 
-            // IntrestRate
+            // label3
             // 
-            // 
-            // 
-            // 
-            this.IntrestRate.BackgroundStyle.Class = "DateTimeInputBackground";
-            this.IntrestRate.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.IntrestRate.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2;
-            this.IntrestRate.DisplayFormat = "N0";
-            this.IntrestRate.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.IntrestRate.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.IntrestRate.Location = new System.Drawing.Point(509, 124);
-            this.IntrestRate.Name = "IntrestRate";
-            this.IntrestRate.Size = new System.Drawing.Size(205, 29);
-            this.IntrestRate.TabIndex = 84;
-            // 
-            // labelX3
-            // 
-            this.labelX3.BackColor = System.Drawing.Color.Transparent;
-            // 
-            // 
-            // 
-            this.labelX3.BackgroundStyle.Class = "";
-            this.labelX3.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX3.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelX3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.labelX3.Location = new System.Drawing.Point(373, 130);
-            this.labelX3.Name = "labelX3";
-            this.labelX3.Size = new System.Drawing.Size(98, 23);
-            this.labelX3.TabIndex = 85;
-            this.labelX3.Text = "Interest Rate";
-            // 
-            // labelX4
-            // 
-            this.labelX4.BackColor = System.Drawing.Color.Transparent;
-            // 
-            // 
-            // 
-            this.labelX4.BackgroundStyle.Class = "";
-            this.labelX4.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX4.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelX4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.labelX4.Location = new System.Drawing.Point(3, 130);
-            this.labelX4.Name = "labelX4";
-            this.labelX4.Size = new System.Drawing.Size(129, 23);
-            this.labelX4.TabIndex = 86;
-            this.labelX4.Text = "Maturity Period";
-            // 
-            // MaturityPeriod
-            // 
-            // 
-            // 
-            // 
-            this.MaturityPeriod.BackgroundStyle.Class = "DateTimeInputBackground";
-            this.MaturityPeriod.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.MaturityPeriod.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2;
-            this.MaturityPeriod.DisplayFormat = "N0";
-            this.MaturityPeriod.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MaturityPeriod.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.MaturityPeriod.Location = new System.Drawing.Point(157, 124);
-            this.MaturityPeriod.Name = "MaturityPeriod";
-            this.MaturityPeriod.Size = new System.Drawing.Size(205, 29);
-            this.MaturityPeriod.TabIndex = 87;
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(73, 185);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(35, 13);
+            this.label3.TabIndex = 88;
+            this.label3.Text = "label3";
             // 
             // frmInvestorSavings
             // 
@@ -707,14 +718,14 @@
             this.Load += new System.EventHandler(this.frmSavings_Load);
             this.groupPanel3.ResumeLayout(false);
             this.groupPanel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.MaturityPeriod)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.IntrestRate)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.accountbalance)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.depositammount)).EndInit();
             this.groupPanel5.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.IntrestRate)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.MaturityPeriod)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -756,5 +767,6 @@
         private DevComponents.DotNetBar.LabelX labelX4;
         private DevComponents.Editors.IntegerInput IntrestRate;
         private DevComponents.DotNetBar.LabelX labelX3;
+        private System.Windows.Forms.Label label3;
     }
 }

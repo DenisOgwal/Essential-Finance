@@ -433,16 +433,6 @@ namespace Banking_System
             frm.label4.Text = UserType.Text;
             frm.Show();
         }
-
-        private void reportreglink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            this.Hide();
-            frmMemberRegistratioReport frm = new frmMemberRegistratioReport();
-            frm.label1.Text = User.Text;
-            frm.label3.Text = UserType.Text;
-            frm.Show();
-        }
-
         private void reportpaylink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             this.Hide();
@@ -451,16 +441,6 @@ namespace Banking_System
             frm.label3.Text = UserType.Text;
             frm.Show();
         }
-
-        private void reportpatlink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            this.Hide();
-            frmSavingsReport frm = new frmSavingsReport();
-            frm.label1.Text = User.Text;
-            frm.label2.Text = UserType.Text;
-            frm.Show();
-        }
-
         private void reporteventslink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             this.Hide();
@@ -489,16 +469,6 @@ namespace Banking_System
             //frmMedication frm = new frmMedication();
             //frm.Show();
         }
-
-        private void clinicRep_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            frmSavingsReport frm = new frmSavingsReport();
-            frm.label1.Text = User.Text;
-            frm.label2.Text = UserType.Text;
-            frm.Show();
-        }
-
         private void pharmsto_Click(object sender, EventArgs e)
         {
 
@@ -639,14 +609,6 @@ namespace Banking_System
             frm.label2.Text = UserType.Text;
             frm.Show();
         }
-        private void linkLabel11_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            this.Hide();
-            frmEquipmentPurchaseReport frm = new frmEquipmentPurchaseReport();
-            frm.label1.Text = User.Text;
-            frm.label3.Text = UserType.Text;
-            frm.Show();
-        }
         private void pharmsch_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -704,15 +666,6 @@ namespace Banking_System
             frm.label2.Text = UserType.Text;
             frm.Show();
         }
-
-        private void buttonItem19_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            frmSavingsReport frm = new frmSavingsReport();
-            frm.label1.Text = User.Text;
-            frm.label2.Text = UserType.Text;
-            frm.Show();
-        }
         private void buttonItem21_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -730,25 +683,6 @@ namespace Banking_System
             frm.label2.Text = UserType.Text;
             frm.Show();
         }
-
-        private void buttonItem23_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            frmEquipmentPurchaseReport frm = new frmEquipmentPurchaseReport();
-            frm.label1.Text = User.Text;
-            frm.label3.Text = UserType.Text;
-            frm.Show();
-        }
-
-        private void buttonItem24_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            frmMemberRegistratioReport frm = new frmMemberRegistratioReport();
-            frm.label1.Text = User.Text;
-            frm.label3.Text = UserType.Text;
-            frm.Show();
-        }
-
         private void buttonItem25_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -1662,24 +1596,6 @@ namespace Banking_System
         {
             frmConfigurePrinter frm = new frmConfigurePrinter();
             frm.ShowDialog();
-        }
-        private void buttonItem73_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            frmMemberRegistratioReport frm = new frmMemberRegistratioReport();
-            frm.label1.Text = User.Text;
-            frm.label3.Text = UserType.Text;
-            frm.Show();
-        }
-
-        private void buttonItem75_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            frmSavingsReport frm = new frmSavingsReport();
-            frm.label1.Text = User.Text;
-            frm.label2.Text = UserType.Text;
-            frm.Show();
-
         }
         private void buttonItem84_Click(object sender, EventArgs e)
         {

@@ -661,6 +661,17 @@ namespace Banking_System
                     }
                 }
                 MessageBox.Show("Successfully Submitted Application","Information",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                DialogResult dialog = MessageBox.Show("Do you want to View Amortisation Schedule", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (dialog == System.Windows.Forms.DialogResult.Yes)
+                {
+                    FrmLoanAmortisationReport frm3 = new FrmLoanAmortisationReport();
+                    frm3.label1.Text = LoanID.Text;
+                    frm3.ShowDialog();
+                }
+                else
+                {
+                  
+                }
                 this.Hide();
                 frmLoanApplication frm = new frmLoanApplication();
                 frm.label1.Text = label1.Text;

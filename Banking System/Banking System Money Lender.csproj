@@ -56,10 +56,10 @@
     <SignManifests>true</SignManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>41823FC86A2AC56A702B7000CDC8CF6B757AD4B0</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>274F84B38E766D0B899440DFB46A3CF1D550F6D6</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestKeyFile>Banking System Final_TemporaryKey.pfx</ManifestKeyFile>
+    <ManifestKeyFile>Banking System Money Lender_TemporaryKey.pfx</ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
     <TargetZone>LocalIntranet</TargetZone>
@@ -205,6 +205,12 @@
     </Compile>
     <Compile Include="FrmAssets.Designer.cs">
       <DependentUpon>FrmAssets.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmAutoSavingsToLoansWork.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAutoSavingsToLoansWork.Designer.cs">
+      <DependentUpon>FrmAutoSavingsToLoansWork.cs</DependentUpon>
     </Compile>
     <Compile Include="frmAutoSavingsToLoans.cs">
       <SubType>Form</SubType>
@@ -566,6 +572,12 @@
     <Compile Include="frmMoneyTransfer.Designer.cs">
       <DependentUpon>frmMoneyTransfer.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmAutoLoanFinesWork.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAutoLoanFinesWork.Designer.cs">
+      <DependentUpon>FrmAutoLoanFinesWork.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmPaymentSchedule.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -716,6 +728,12 @@
     <Compile Include="frmPlant.Designer.cs">
       <DependentUpon>frmPlant.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmInvestorDebit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmInvestorDebit.Designer.cs">
+      <DependentUpon>FrmInvestorDebit.cs</DependentUpon>
+    </Compile>
     <Compile Include="mysqlconnection.cs" />
     <Compile Include="PrintDGV.cs" />
     <Compile Include="Receipt.cs">
@@ -723,12 +741,6 @@
     </Compile>
     <Compile Include="Receipt.Designer.cs">
       <DependentUpon>Receipt.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ReceiptLoanIssued.cs">
-      <DependentUpon>ReceiptLoanIssued.rpt</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <SubType>Component</SubType>
-      <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="rptCashFlowStatement1.cs">
       <AutoGen>True</AutoGen>
@@ -772,35 +784,11 @@
       <DependentUpon>rptLoanRepaymentSchedule.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="rptLoansIssued.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>rptLoansIssued.rpt</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="rptLoansPaid.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>rptLoansPaid.rpt</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="rptLoansRepaymentReport.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>rptLoansRepaymentReport.rpt</DependentUpon>
       <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="rptReceiptAccountClear.cs">
-      <DependentUpon>rptReceiptAccountClear.rpt</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <SubType>Component</SubType>
-      <DesignTime>True</DesignTime>
-    </Compile>
-    <Compile Include="rptReceiptAccountClear3.cs">
-      <DependentUpon>rptReceiptAccountClear3.rpt</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <SubType>Component</SubType>
-      <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="rptReceiptAll3.cs">
       <DependentUpon>rptReceiptAll3.rpt</DependentUpon>
@@ -819,30 +807,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>rptReceiptAll.rpt</DependentUpon>
       <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="rptReceiptClearAll.cs">
-      <DependentUpon>rptReceiptClearAll.rpt</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <SubType>Component</SubType>
-      <DesignTime>True</DesignTime>
-    </Compile>
-    <Compile Include="rptReceiptClearAll3.cs">
-      <DependentUpon>rptReceiptClearAll3.rpt</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <SubType>Component</SubType>
-      <DesignTime>True</DesignTime>
-    </Compile>
-    <Compile Include="rptReceiptDeposit.cs">
-      <DependentUpon>rptReceiptDeposit.rpt</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <SubType>Component</SubType>
-      <DesignTime>True</DesignTime>
-    </Compile>
-    <Compile Include="rptReceiptDeposit3.cs">
-      <DependentUpon>rptReceiptDeposit3.rpt</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <SubType>Component</SubType>
-      <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="rptReceiptLoanRepayment.cs">
       <DependentUpon>rptReceiptLoanRepayment.rpt</DependentUpon>
@@ -873,24 +837,6 @@
       <AutoGen>True</AutoGen>
       <SubType>Component</SubType>
       <DesignTime>True</DesignTime>
-    </Compile>
-    <Compile Include="rptSavingsByAccount.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>rptSavingsByAccount.rpt</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="rptSavingsbyDate.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>rptSavingsbyDate.rpt</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="rptSavingsByMember.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>rptSavingsByMember.rpt</DependentUpon>
-      <SubType>Component</SubType>
     </Compile>
     <Compile Include="rptStaffPaymentGeneral.cs">
       <AutoGen>True</AutoGen>
@@ -1090,12 +1036,6 @@
     <Compile Include="frmEquipmentPurchase.Designer.cs">
       <DependentUpon>frmEquipmentPurchase.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmEquipmentPurchaseReport.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmEquipmentPurchaseReport.Designer.cs">
-      <DependentUpon>frmEquipmentPurchaseReport.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmEvent.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1204,9 +1144,6 @@
     <Compile Include="FrmExpensesSlip.Designer.cs">
       <DependentUpon>FrmExpensesSlip.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmSavingsReport.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="rptAttendanceIndividualMember.cs">
       <DependentUpon>rptAttendanceIndividualMember.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -1231,53 +1168,11 @@
       <DependentUpon>rptBalanceSheet.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="rptShareCapitalSlip.cs">
-      <DependentUpon>rptShareCapitalSlip.rpt</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <SubType>Component</SubType>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <Compile Include="rptRepaymentSlip.cs">
       <DependentUpon>rptRepaymentSlip.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
       <SubType>Component</SubType>
       <DesignTime>True</DesignTime>
-    </Compile>
-    <Compile Include="rptLoanScheduleSlip.cs">
-      <DependentUpon>rptLoanScheduleSlip.rpt</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <SubType>Component</SubType>
-      <DesignTime>True</DesignTime>
-    </Compile>
-    <Compile Include="rptLoanSchedule.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>rptLoanSchedule.rpt</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="rptLoansDetails.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>rptLoansDetails.rpt</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="rptLoansmember.cs">
-      <DependentUpon>rptLoansmember.rpt</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <SubType>Component</SubType>
-      <DesignTime>True</DesignTime>
-    </Compile>
-    <Compile Include="rptLoansIssue.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>rptLoansIssue.rpt</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="rptLoansRepayment.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>rptLoansRepayment.rpt</DependentUpon>
-      <SubType>Component</SubType>
     </Compile>
     <Compile Include="rptExpensesSlip.cs">
       <DependentUpon>rptExpensesSlip.rpt</DependentUpon>
@@ -1303,59 +1198,11 @@
       <DependentUpon>rptSummaryReport.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="rptpaidLoans.cs">
-      <DependentUpon>rptpaidLoans.rpt</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <SubType>Component</SubType>
-      <DesignTime>True</DesignTime>
-    </Compile>
-    <Compile Include="rptUpaidLoans.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>rptUpaidLoans.rpt</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="rptDeposit.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>rptDeposit.rpt</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="rptDepositAll.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>rptDepositAll.rpt</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="rptDepositaccount.cs">
-      <DependentUpon>rptDepositaccount.rpt</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <SubType>Component</SubType>
-      <DesignTime>True</DesignTime>
-    </Compile>
-    <Compile Include="rptDepositMember.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>rptDepositMember.rpt</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="rptMemberRegistrationall.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>rptMemberRegistrationall.rpt</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="frmMemberRegistrationRecord.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmMemberRegistrationRecord.Designer.cs">
       <DependentUpon>frmMemberRegistrationRecord.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmMemberRegistratioReport.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmMemberRegistratioReport.Designer.cs">
-      <DependentUpon>frmMemberRegistratioReport.cs</DependentUpon>
     </Compile>
     <Compile Include="frmRecoveryPassword.cs">
       <SubType>Form</SubType>
@@ -1455,41 +1302,11 @@
       <SubType>Component</SubType>
       <DesignTime>True</DesignTime>
     </Compile>
-    <Compile Include="rptEquipmentPurchase.cs">
-      <DependentUpon>rptEquipmentPurchase.rpt</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <SubType>Component</SubType>
-      <DesignTime>True</DesignTime>
-    </Compile>
-    <Compile Include="rptEquipmentPurchaseAll.cs">
-      <DependentUpon>rptEquipmentPurchaseAll.rpt</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <SubType>Component</SubType>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <Compile Include="rptEvents.cs">
       <DependentUpon>rptEvents.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
       <SubType>Component</SubType>
       <DesignTime>True</DesignTime>
-    </Compile>
-    <Compile Include="rptExpenses.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>rptExpenses.rpt</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="rptExpensesAll.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>rptExpensesAll.rpt</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="rptMemberRegistration.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>rptMemberRegistration.rpt</DependentUpon>
-      <SubType>Component</SubType>
     </Compile>
     <Compile Include="rptSalaryPayment1.cs">
       <DependentUpon>rptSalaryPayment1.rpt</DependentUpon>
@@ -1520,6 +1337,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmAssets.resx">
       <DependentUpon>FrmAssets.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmAutoSavingsToLoansWork.resx">
+      <DependentUpon>FrmAutoSavingsToLoansWork.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmAutoSavingsToLoans.resx">
       <DependentUpon>frmAutoSavingsToLoans.cs</DependentUpon>
@@ -1701,6 +1521,9 @@
     <EmbeddedResource Include="frmMoneyTransfer.resx">
       <DependentUpon>frmMoneyTransfer.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmAutoLoanFinesWork.resx">
+      <DependentUpon>FrmAutoLoanFinesWork.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmPaymentSchedule.resx">
       <DependentUpon>frmPaymentSchedule.cs</DependentUpon>
     </EmbeddedResource>
@@ -1776,12 +1599,11 @@
     <EmbeddedResource Include="frmPlant.resx">
       <DependentUpon>frmPlant.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmInvestorDebit.resx">
+      <DependentUpon>FrmInvestorDebit.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Receipt.resx">
       <DependentUpon>Receipt.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ReceiptLoanIssued.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>ReceiptLoanIssued.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="rptCashFlowStatement.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -1811,25 +1633,9 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptLoanRepaymentSchedule.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="rptLoansIssued.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>rptLoansIssued.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="rptLoansPaid.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>rptLoansPaid.cs</LastGenOutput>
-    </EmbeddedResource>
     <EmbeddedResource Include="rptLoansRepaymentReport.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptLoansRepaymentReport.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="rptReceiptAccountClear.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>rptReceiptAccountClear.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="rptReceiptAccountClear3.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>rptReceiptAccountClear3.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="rptReceiptAll3.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -1842,22 +1648,6 @@
     <EmbeddedResource Include="rptReceiptAll.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptReceiptAll.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="rptReceiptClearAll.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>rptReceiptClearAll.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="rptReceiptClearAll3.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>rptReceiptClearAll3.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="rptReceiptDeposit.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>rptReceiptDeposit.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="rptReceiptDeposit3.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>rptReceiptDeposit3.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="rptReceiptLoanRepayment.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -1878,18 +1668,6 @@
     <EmbeddedResource Include="rptSalaryReceipt.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptSalaryReceipt.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="rptSavingsByAccount.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>rptSavingsByAccount.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="rptSavingsbyDate.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>rptSavingsbyDate.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="rptSavingsByMember.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>rptSavingsByMember.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="rptStaffPaymentGeneral.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -1999,9 +1777,6 @@
     <EmbeddedResource Include="frmEquipmentPurchase.resx">
       <DependentUpon>frmEquipmentPurchase.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmEquipmentPurchaseReport.resx">
-      <DependentUpon>frmEquipmentPurchaseReport.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="frmEvent.resx">
       <DependentUpon>frmEvent.cs</DependentUpon>
     </EmbeddedResource>
@@ -2056,9 +1831,6 @@
     <EmbeddedResource Include="FrmExpensesSlip.resx">
       <DependentUpon>FrmExpensesSlip.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmSavingsReport.resx">
-      <DependentUpon>frmSavingsReport.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="rptAttendanceIndividualMember.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptAttendanceIndividualMember.cs</LastGenOutput>
@@ -2075,37 +1847,9 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptBalanceSheet.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="rptShareCapitalSlip.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>rptShareCapitalSlip.cs</LastGenOutput>
-    </EmbeddedResource>
     <EmbeddedResource Include="rptRepaymentSlip.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptRepaymentSlip.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="rptLoanScheduleSlip.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>rptLoanScheduleSlip.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="rptLoanSchedule.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>rptLoanSchedule.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="rptLoansDetails.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>rptLoansDetails.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="rptLoansmember.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>rptLoansmember.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="rptLoansIssue.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>rptLoansIssue.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="rptLoansRepayment.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>rptLoansRepayment.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="rptExpensesSlip.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -2123,39 +1867,8 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptSummaryReport.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="rptpaidLoans.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>rptpaidLoans.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="rptUpaidLoans.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>rptUpaidLoans.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="rptDeposit.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>rptDeposit.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="rptDepositAll.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>rptDepositAll.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="rptDepositaccount.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>rptDepositaccount.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="rptDepositMember.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>rptDepositMember.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="rptMemberRegistrationall.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>rptMemberRegistrationall.cs</LastGenOutput>
-    </EmbeddedResource>
     <EmbeddedResource Include="frmMemberRegistrationRecord.resx">
       <DependentUpon>frmMemberRegistrationRecord.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmMemberRegistratioReport.resx">
-      <DependentUpon>frmMemberRegistratioReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmRecoveryPassword.resx">
       <DependentUpon>frmRecoveryPassword.cs</DependentUpon>
@@ -2220,29 +1933,9 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptEmployeePay.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="rptEquipmentPurchase.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>rptEquipmentPurchase.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="rptEquipmentPurchaseAll.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>rptEquipmentPurchaseAll.cs</LastGenOutput>
-    </EmbeddedResource>
     <EmbeddedResource Include="rptEvents.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptEvents.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="rptExpenses.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>rptExpenses.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="rptExpensesAll.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>rptExpensesAll.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="rptMemberRegistration.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>rptMemberRegistration.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="rptSalaryPayment1.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -2357,6 +2050,7 @@
     <None Include="Attendances.xss">
       <DependentUpon>Attendances.xsd</DependentUpon>
     </None>
+    <None Include="Banking System Money Lender_TemporaryKey.pfx" />
     <None Include="DataSet3.xsc">
       <DependentUpon>DataSet3.xsd</DependentUpon>
     </None>

@@ -243,7 +243,7 @@ namespace Banking_System
             {
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
-                string cb = "update RepaymentSchedule set PaymentStatus=@d1 where LoanID=@d2 and BalanceExist > 0";
+                string cb = "update RepaymentSchedule set PaymentStatus=@d1 where LoanID=@d2 and BalanceExist > 0 and PaymentStatus !='Rescheduled'";
                 cmd = new SqlCommand(cb);
                 cmd.Connection = con;
                 cmd.Parameters.Add(new SqlParameter("@d1", System.Data.SqlDbType.NChar, 15, "PaymentStatus"));
@@ -329,7 +329,7 @@ namespace Banking_System
 
                         con = new SqlConnection(cs.DBConn);
                         con.Open();
-                        string cb = "insert into RepaymentSchedule(LoanID,AccountNumber,Months,PaymentDate,TotalAmmount,AmmountPay,Interest,BalanceExist,BeginningBalance,AccountName) VALUES (@d1,@d2,@d3,@d4,@d5,@d6,@d7,@d8,@d9,@d10)";
+                        string cb = "insert into RepaymentSchedule(LoanID,AccountNumber,Months,PaymentDate,TotalAmmount,AmmountPay,Interest,BalanceExist,BeginningBalance,AccountName,IntrestType,Rates) VALUES (@d1,@d2,@d3,@d4,@d5,@d6,@d7,@d8,@d9,@d10,@d11,@d12)";
                         cmd = new SqlCommand(cb);
                         cmd.Connection = con;
                         cmd.Parameters.Add(new SqlParameter("@d1", System.Data.SqlDbType.NChar, 15, "LoanID"));
@@ -342,6 +342,8 @@ namespace Banking_System
                         cmd.Parameters.Add(new SqlParameter("@d8", System.Data.SqlDbType.Float, 20, "BalanceExist"));
                         cmd.Parameters.Add(new SqlParameter("@d9", System.Data.SqlDbType.Float, 20, "BeginningBalance"));
                         cmd.Parameters.Add(new SqlParameter("@d10", System.Data.SqlDbType.NChar, 100, "AccountName"));
+                        cmd.Parameters.Add(new SqlParameter("@d11", System.Data.SqlDbType.NChar, 20, "IntrestType"));
+                        cmd.Parameters.Add(new SqlParameter("@d12", System.Data.SqlDbType.Float, 20, "Rates"));
                         cmd.Parameters["@d1"].Value = LoanID.Text;
                         cmd.Parameters["@d2"].Value = AccountNumber.Text;
                         cmd.Parameters["@d3"].Value = repaymentmonths;
@@ -352,6 +354,8 @@ namespace Banking_System
                         cmd.Parameters["@d8"].Value = repaymentammount;
                         cmd.Parameters["@d9"].Value = begginingbalance;
                         cmd.Parameters["@d10"].Value = AccountName.Text;
+                        cmd.Parameters["@d11"].Value = AmortisationMethod.Text;
+                        cmd.Parameters["@d12"].Value = Interest.Text;
                         cmd.ExecuteNonQuery();
                         con.Close();
                        
@@ -436,7 +440,7 @@ namespace Banking_System
                         }
                         con = new SqlConnection(cs.DBConn);
                         con.Open();
-                        string cb = "insert into RepaymentSchedule(LoanID,AccountNumber,Months,PaymentDate,TotalAmmount,AmmountPay,Interest,BalanceExist,BeginningBalance,AccountName) VALUES (@d1,@d2,@d3,@d4,@d5,@d6,@d7,@d8,@d9,@d10)";
+                        string cb = "insert into RepaymentSchedule(LoanID,AccountNumber,Months,PaymentDate,TotalAmmount,AmmountPay,Interest,BalanceExist,BeginningBalance,AccountName,IntrestType,Rates) VALUES (@d1,@d2,@d3,@d4,@d5,@d6,@d7,@d8,@d9,@d10,@d11,@d12)";
                         cmd = new SqlCommand(cb);
                         cmd.Connection = con;
                         cmd.Parameters.Add(new SqlParameter("@d1", System.Data.SqlDbType.NChar, 15, "LoanID"));
@@ -449,6 +453,8 @@ namespace Banking_System
                         cmd.Parameters.Add(new SqlParameter("@d8", System.Data.SqlDbType.Float, 20, "BalanceExist"));
                         cmd.Parameters.Add(new SqlParameter("@d9", System.Data.SqlDbType.Float, 20, "BeginningBalance"));
                         cmd.Parameters.Add(new SqlParameter("@d10", System.Data.SqlDbType.NChar, 100, "AccountName"));
+                        cmd.Parameters.Add(new SqlParameter("@d11", System.Data.SqlDbType.NChar, 20, "IntrestType"));
+                        cmd.Parameters.Add(new SqlParameter("@d12", System.Data.SqlDbType.Float, 20, "Rates"));
                         cmd.Parameters["@d1"].Value = LoanID.Text;
                         cmd.Parameters["@d2"].Value = AccountNumber.Text;
                         cmd.Parameters["@d3"].Value = repaymentmonths;
@@ -459,6 +465,8 @@ namespace Banking_System
                         cmd.Parameters["@d8"].Value = repaymentammount;
                         cmd.Parameters["@d9"].Value = begginingbalance;
                         cmd.Parameters["@d10"].Value = AccountName.Text;
+                        cmd.Parameters["@d11"].Value = AmortisationMethod.Text;
+                        cmd.Parameters["@d12"].Value = Interest.Text;
                         cmd.ExecuteNonQuery();
                         con.Close();
                     }

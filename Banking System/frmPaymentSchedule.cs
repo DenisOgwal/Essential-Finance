@@ -9,7 +9,6 @@ namespace Banking_System
 {
     public partial class frmPaymentSchedule : DevComponents.DotNetBar.Office2007Form
     {
-        SqlDataReader rdr = null;
         DataTable dtable = new DataTable();
         SqlConnection con = null;
         DataSet ds = new DataSet();
@@ -63,7 +62,7 @@ namespace Banking_System
                 string repaymentdates = dt.ToString("dd/MMM/yyyy");
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
-                cmd = new SqlCommand("select RTRIM(LoanID)[Loan ID],RTRIM(AccountNumber)[Account Number], RTRIM(AccountName)[Account Name], RTRIM(Months)[Repayment Months], (TotalAmmount)[Amount Payable],(AmmountPay)[Principal], (Interest)[Interest],(BalanceExist)[Balance Pending],RTRIM(PaymentDate)[Payment Date],RTRIM(PaymentStatus)[Payment Status],RTRIM(Rates)[Rate],RTRIM(IntrestType)[Intrest Type],RTRIM(Accrued)[Accrued] from RepaymentSchedule where PaymentStatus='Pending' and PaymentDate < @date1 order by ID ASC", con);
+                cmd = new SqlCommand("select RTRIM(LoanID)[Loan ID],RTRIM(AccountNumber)[Account Number], RTRIM(AccountName)[Account Name], RTRIM(Months)[Repayment Installment], (TotalAmmount)[Amount Payable],(AmmountPay)[Principal], (Interest)[Interest],(BalanceExist)[Balance Pending],RTRIM(PaymentDate)[Payment Date],RTRIM(PaymentStatus)[Payment Status],RTRIM(Rates)[Rate],RTRIM(IntrestType)[Intrest Type],RTRIM(Accrued)[Accrued] from RepaymentSchedule where PaymentStatus='Pending' and PaymentDate < @date1 order by ID ASC", con);
                 cmd.Parameters.Add("@date1", SqlDbType.DateTime, 30, "PaymentDate").Value = DateTime.Parse(repaymentdates).Date;
                 cmd.Parameters.Add("@date2", SqlDbType.DateTime, 30, "PaymentDate").Value = DateTo.Value.Date;
                 SqlDataAdapter myDA = new SqlDataAdapter(cmd);
@@ -121,116 +120,32 @@ namespace Banking_System
                                 }
                                 else if (row.Cells[11].Value.ToString().Trim() == "Reducing Balance" && row.Cells[12].Value.ToString().Trim() == "No")
                                 {
-                                    int[] monthscount = new int[100];
-                                    double begginingbalance = 0;
-                                    double repaymentammount = 0;
-                                    double principal = 0;
-                                    double intrest = 0;
-                                    double interest = 0;
-                                    double balanceexist = 0;
-                                    int totalrepayments = 0;
-                                    int totalrepaymentss = 0;
-                                    double emi = 0;
-                                    string repaymentmonths = null;
+                                    float creditperiod = 1;
+                                    string repaymentmonths = row.Cells[3].Value.ToString();
+                                    double intrestrate = Convert.ToDouble(row.Cells[10].Value);
+                                    double realammount = Convert.ToDouble(row.Cells[4].Value);
+                                    double principal = realammount / creditperiod;
+                                    double interest = ((intrestrate / (100)) * principal);
+                                    double repaymentammount = principal + interest;
                                     con = new SqlConnection(cs.DBConn);
                                     con.Open();
-                                    string kt2 = "select BeginningBalance,BalanceExist,Rates from RepaymentSchedule where LoanID='" + row.Cells[0].Value.ToString().Trim() + "' and PaymentStatus='Pending' and Accrued='No' order by ID Asc";
-                                    cmd = new SqlCommand(kt2);
+                                    string cb = "UPDATE RepaymentSchedule SET TotalAmmount=@d5,AmmountPay=@d6,Interest=@d7,BalanceExist=@d9 where LoanID=@d1 and Months=@d3";
+                                    cmd = new SqlCommand(cb);
                                     cmd.Connection = con;
-                                    rdr = cmd.ExecuteReader();
-                                    if (rdr.Read())
-                                    {
-                                        begginingbalance = Convert.ToDouble(rdr["BeginningBalance"]);
-                                        balanceexist = Convert.ToDouble(rdr["BalanceExist"]);
-                                        intrest = Convert.ToDouble(rdr["Rates"]);
-
-                                    }
-                                    con = new SqlConnection(cs.DBConn);
-                                    con.Open();
-                                    cmd = new SqlCommand("select Count(BeginningBalance) from RepaymentSchedule where LoanID='" + row.Cells[0].Value.ToString().Trim() + "' and PaymentStatus='Pending' and Accrued='No'", con);
-                                    totalrepayments = Convert.ToInt32(cmd.ExecuteScalar().ToString());
+                                    cmd.Parameters.Add(new SqlParameter("@d1", System.Data.SqlDbType.NChar, 15, "LoanID"));
+                                    cmd.Parameters.Add(new SqlParameter("@d3", System.Data.SqlDbType.NChar, 10, "Months"));
+                                    cmd.Parameters.Add(new SqlParameter("@d5", System.Data.SqlDbType.Float, 20, "TotalAmmount"));
+                                    cmd.Parameters.Add(new SqlParameter("@d6", System.Data.SqlDbType.Float, 20, "AmmountPay"));
+                                    cmd.Parameters.Add(new SqlParameter("@d7", System.Data.SqlDbType.Float, 20, "Interest"));
+                                    cmd.Parameters.Add(new SqlParameter("@d9", System.Data.SqlDbType.Float, 20, "BalanceExist"));
+                                    cmd.Parameters["@d1"].Value = row.Cells[0].Value.ToString();
+                                    cmd.Parameters["@d3"].Value = repaymentmonths;
+                                    cmd.Parameters["@d5"].Value = repaymentammount;
+                                    cmd.Parameters["@d6"].Value = principal;
+                                    cmd.Parameters["@d7"].Value = interest;
+                                    cmd.Parameters["@d9"].Value = repaymentammount;
+                                    cmd.ExecuteNonQuery();
                                     con.Close();
-                                    con = new SqlConnection(cs.DBConn);
-                                    con.Open();
-                                    cmd = new SqlCommand("select Count(BeginningBalance) from RepaymentSchedule where LoanID='" + row.Cells[0].Value.ToString().Trim() + "' and PaymentStatus='Paid'", con);
-                                    totalrepaymentss = Convert.ToInt32(cmd.ExecuteScalar().ToString());
-                                    con.Close();
-                                    //MessageBox.Show(totalrepayments.ToString() + " " + totalrepaymentss.ToString());
-
-                                    double totalbalance = begginingbalance + balanceexist;
-                                    int totalrep = totalrepaymentss + totalrepayments;
-                                    int totalrepaymentsss = totalrepaymentss + 1;
-                                    int K = totalrepaymentsss;
-                                    int i = totalrepaymentsss;
-                                    int N = totalrepaymentsss;
-                                    emi = totalbalance / totalrepayments;
-                                    while (K <= totalrep)
-                                    {
-                                        monthscount[K] = K;
-                                        K++;
-                                    }
-                                    for (i = totalrepaymentsss; i <= totalrep; i++)
-                                    {
-                                        repaymentmonths = monthscount[i] + "Months";
-                                        if (N == i)
-                                        {
-                                            interest = totalbalance * (intrest / 100);
-                                            principal = emi;
-                                            repaymentammount = emi + interest;
-                                            begginingbalance = totalbalance - principal;
-                                            con = new SqlConnection(cs.DBConn);
-                                            con.Open();
-                                            string cb7 = "UPDATE RepaymentSchedule SET Accrued='Yes' where LoanID='" + row.Cells[0].Value.ToString().Trim() + "' and Months='" + repaymentmonths + "'";
-                                            cmd = new SqlCommand(cb7);
-                                            cmd.Connection = con;
-                                            cmd.ExecuteNonQuery();
-                                            con.Close();
-                                        }
-                                        else
-                                        {
-                                            string repmon = monthscount[i - 1] + "Months";
-                                            con = new SqlConnection(cs.DBConn);
-                                            con.Open();
-                                            string kt = "select BeginningBalance from RepaymentSchedule where LoanID='" + row.Cells[0].Value.ToString().Trim() + "' and PaymentStatus='Pending' and Months='" + repmon + "'";
-                                            cmd = new SqlCommand(kt);
-                                            cmd.Connection = con;
-                                            rdr = cmd.ExecuteReader();
-                                            if (rdr.Read())
-                                            {
-                                                Double totals6 = Convert.ToDouble(rdr[0]);
-                                                interest = totals6 * (intrest / 100);
-                                                principal = emi;
-                                                repaymentammount = emi + interest;
-                                                begginingbalance = totals6 - principal;
-                                                con.Close();
-                                            }
-                                        }
-                                        con = new SqlConnection(cs.DBConn);
-                                        con.Open();
-                                        string cb = "UPDATE RepaymentSchedule SET TotalAmmount=@d5,AmmountPay=@d6,Interest=@d7,BalanceExist=@d9,BeginningBalance=@d11 where LoanID=@d1 and Months=@d3";
-                                        cmd = new SqlCommand(cb);
-                                        cmd.Connection = con;
-                                        cmd.Parameters.Add(new SqlParameter("@d1", System.Data.SqlDbType.NChar, 15, "LoanID"));
-                                        cmd.Parameters.Add(new SqlParameter("@d3", System.Data.SqlDbType.NChar, 10, "Months"));
-                                        cmd.Parameters.Add(new SqlParameter("@d5", System.Data.SqlDbType.Float, 20, "TotalAmmount"));
-                                        cmd.Parameters.Add(new SqlParameter("@d6", System.Data.SqlDbType.Float, 20, "AmmountPay"));
-                                        cmd.Parameters.Add(new SqlParameter("@d7", System.Data.SqlDbType.Float, 20, "Interest"));
-                                        cmd.Parameters.Add(new SqlParameter("@d9", System.Data.SqlDbType.Float, 20, "BalanceExist"));
-                                        cmd.Parameters.Add(new SqlParameter("@d11", System.Data.SqlDbType.Float, 20, "BeginningBalance"));
-                                        cmd.Parameters["@d1"].Value = row.Cells[0].Value.ToString();
-                                        cmd.Parameters["@d3"].Value = repaymentmonths;
-                                        cmd.Parameters["@d5"].Value = repaymentammount;
-                                        cmd.Parameters["@d6"].Value = principal;
-                                        cmd.Parameters["@d7"].Value = interest;
-                                        cmd.Parameters["@d9"].Value = repaymentammount;
-                                        cmd.Parameters["@d11"].Value = begginingbalance;
-                                        cmd.ExecuteNonQuery();
-                                        con.Close();
-
-                                    }
-
-
-
 
                                 }
                             }
@@ -276,7 +191,7 @@ namespace Banking_System
             {
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
-                cmd = new SqlCommand("select RTRIM(Months)[Repayment Months], (TotalAmmount)[Ammount Payable],(AmmountPay)[Principal], (Interest)[Interest],(BalanceExist)[Balance Pending],RTRIM(PaymentDate)[Payment Date],RTRIM(PaymentStatus)[Payment Status] from RepaymentSchedule where LoanID='"+ loanid.Text +"' order by ID ASC", con);
+                cmd = new SqlCommand("select RTRIM(Months)[Repayment Months], (TotalAmmount)[Ammount Payable],(AmmountPay)[Principal], (Interest)[Interest],(BalanceExist)[Balance Pending],RTRIM(PaymentDate)[Payment Date],RTRIM(PaymentStatus)[Payment Status] from RepaymentSchedule where LoanID='" + loanid.Text + "' order by ID ASC", con);
                 SqlDataAdapter myDA = new SqlDataAdapter(cmd);
                 DataSet myDataSet = new DataSet();
                 myDA.Fill(myDataSet, "RepaymentSchedule");
@@ -301,7 +216,7 @@ namespace Banking_System
             {
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
-                cmd = new SqlCommand("select RTRIM(LoanID)[Loan ID],RTRIM(AccountNumber)[Account Number], RTRIM(AccountName)[Account Name], RTRIM(Months)[Repayment Months], RTRIM(TotalAmmount)[Ammount Payable],RTRIM(AmmountPay)[Principal], RTRIM(Interest)[Interest],RTRIM(BalanceExist)[Balance Pending],RTRIM(PaymentDate)[Payment Date],RTRIM(PaymentStatus)[Payment Status] from RepaymentSchedule where PaymentDate between @date1 and @date2 order by ID ASC", con);
+                cmd = new SqlCommand("select RTRIM(LoanID)[Loan ID],RTRIM(AccountNumber)[Account Number], RTRIM(AccountName)[Account Name], RTRIM(Months)[Repayment Installment], RTRIM(TotalAmmount)[Ammount Payable],RTRIM(AmmountPay)[Principal], RTRIM(Interest)[Interest],RTRIM(BalanceExist)[Balance Pending],RTRIM(PaymentDate)[Payment Date],RTRIM(PaymentStatus)[Payment Status] from RepaymentSchedule where PaymentDate between @date1 and @date2 order by ID ASC", con);
                 cmd.Parameters.Add("@date1", SqlDbType.DateTime, 30, "PaymentDate").Value = DateFrom.Value.Date;
                 cmd.Parameters.Add("@date2", SqlDbType.DateTime, 30, "PaymentDate").Value = DateTo.Value.Date;
                 SqlDataAdapter myDA = new SqlDataAdapter(cmd);

@@ -66,12 +66,6 @@
             this.ribbonBar3 = new DevComponents.DotNetBar.RibbonBar();
             this.buttonItem35 = new DevComponents.DotNetBar.ButtonItem();
             this.buttonItem36 = new DevComponents.DotNetBar.ButtonItem();
-            this.ribbonPanel5 = new DevComponents.DotNetBar.RibbonPanel();
-            this.ribbonBar17 = new DevComponents.DotNetBar.RibbonBar();
-            this.buttonItem100 = new DevComponents.DotNetBar.ButtonItem();
-            this.ribbonBar12 = new DevComponents.DotNetBar.RibbonBar();
-            this.buttonItem24 = new DevComponents.DotNetBar.ButtonItem();
-            this.buttonItem25 = new DevComponents.DotNetBar.ButtonItem();
             this.ribbonPanel9 = new DevComponents.DotNetBar.RibbonPanel();
             this.ribbonBar23 = new DevComponents.DotNetBar.RibbonBar();
             this.buttonItem106 = new DevComponents.DotNetBar.ButtonItem();
@@ -81,6 +75,15 @@
             this.buttonItem50 = new DevComponents.DotNetBar.ButtonItem();
             this.buttonItem70 = new DevComponents.DotNetBar.ButtonItem();
             this.buttonItem34 = new DevComponents.DotNetBar.ButtonItem();
+            this.ribbonPanel3 = new DevComponents.DotNetBar.RibbonPanel();
+            this.ribbonBar16 = new DevComponents.DotNetBar.RibbonBar();
+            this.buttonItem99 = new DevComponents.DotNetBar.ButtonItem();
+            this.ribbonBar1 = new DevComponents.DotNetBar.RibbonBar();
+            this.buttonItem30 = new DevComponents.DotNetBar.ButtonItem();
+            this.buttonItem37 = new DevComponents.DotNetBar.ButtonItem();
+            this.buttonItem95 = new DevComponents.DotNetBar.ButtonItem();
+            this.buttonItem96 = new DevComponents.DotNetBar.ButtonItem();
+            this.buttonItem110 = new DevComponents.DotNetBar.ButtonItem();
             this.ribbonPanel6 = new DevComponents.DotNetBar.RibbonPanel();
             this.ribbonBar21 = new DevComponents.DotNetBar.RibbonBar();
             this.buttonItem104 = new DevComponents.DotNetBar.ButtonItem();
@@ -88,6 +91,20 @@
             this.buttonItem21 = new DevComponents.DotNetBar.ButtonItem();
             this.buttonItem28 = new DevComponents.DotNetBar.ButtonItem();
             this.buttonItem29 = new DevComponents.DotNetBar.ButtonItem();
+            this.ribbonPanel8 = new DevComponents.DotNetBar.RibbonPanel();
+            this.ribbonBar22 = new DevComponents.DotNetBar.RibbonBar();
+            this.buttonItem105 = new DevComponents.DotNetBar.ButtonItem();
+            this.ribbonBar8 = new DevComponents.DotNetBar.RibbonBar();
+            this.buttonItem8 = new DevComponents.DotNetBar.ButtonItem();
+            this.buttonItem9 = new DevComponents.DotNetBar.ButtonItem();
+            this.buttonItem10 = new DevComponents.DotNetBar.ButtonItem();
+            this.buttonItem120 = new DevComponents.DotNetBar.ButtonItem();
+            this.ribbonPanel5 = new DevComponents.DotNetBar.RibbonPanel();
+            this.ribbonBar17 = new DevComponents.DotNetBar.RibbonBar();
+            this.buttonItem100 = new DevComponents.DotNetBar.ButtonItem();
+            this.ribbonBar12 = new DevComponents.DotNetBar.RibbonBar();
+            this.buttonItem24 = new DevComponents.DotNetBar.ButtonItem();
+            this.buttonItem25 = new DevComponents.DotNetBar.ButtonItem();
             this.ribbonPanel2 = new DevComponents.DotNetBar.RibbonPanel();
             this.ribbonBar19 = new DevComponents.DotNetBar.RibbonBar();
             this.buttonItem102 = new DevComponents.DotNetBar.ButtonItem();
@@ -100,23 +117,6 @@
             this.buttonItem41 = new DevComponents.DotNetBar.ButtonItem();
             this.buttonItem14 = new DevComponents.DotNetBar.ButtonItem();
             this.buttonItem121 = new DevComponents.DotNetBar.ButtonItem();
-            this.ribbonPanel8 = new DevComponents.DotNetBar.RibbonPanel();
-            this.ribbonBar22 = new DevComponents.DotNetBar.RibbonBar();
-            this.buttonItem105 = new DevComponents.DotNetBar.ButtonItem();
-            this.ribbonBar8 = new DevComponents.DotNetBar.RibbonBar();
-            this.buttonItem8 = new DevComponents.DotNetBar.ButtonItem();
-            this.buttonItem9 = new DevComponents.DotNetBar.ButtonItem();
-            this.buttonItem10 = new DevComponents.DotNetBar.ButtonItem();
-            this.buttonItem120 = new DevComponents.DotNetBar.ButtonItem();
-            this.ribbonPanel3 = new DevComponents.DotNetBar.RibbonPanel();
-            this.ribbonBar16 = new DevComponents.DotNetBar.RibbonBar();
-            this.buttonItem99 = new DevComponents.DotNetBar.ButtonItem();
-            this.ribbonBar1 = new DevComponents.DotNetBar.RibbonBar();
-            this.buttonItem30 = new DevComponents.DotNetBar.ButtonItem();
-            this.buttonItem37 = new DevComponents.DotNetBar.ButtonItem();
-            this.buttonItem95 = new DevComponents.DotNetBar.ButtonItem();
-            this.buttonItem96 = new DevComponents.DotNetBar.ButtonItem();
-            this.buttonItem110 = new DevComponents.DotNetBar.ButtonItem();
             this.Settings = new DevComponents.DotNetBar.RibbonTabItem();
             this.ribbonTabItem3 = new DevComponents.DotNetBar.RibbonTabItem();
             this.ribbonTabItem5 = new DevComponents.DotNetBar.RibbonTabItem();
@@ -221,12 +221,12 @@
             this.ribbonControl1.SuspendLayout();
             this.ribbonPanel4.SuspendLayout();
             this.ribbonPanel7.SuspendLayout();
-            this.ribbonPanel5.SuspendLayout();
             this.ribbonPanel9.SuspendLayout();
-            this.ribbonPanel6.SuspendLayout();
-            this.ribbonPanel2.SuspendLayout();
-            this.ribbonPanel8.SuspendLayout();
             this.ribbonPanel3.SuspendLayout();
+            this.ribbonPanel6.SuspendLayout();
+            this.ribbonPanel8.SuspendLayout();
+            this.ribbonPanel5.SuspendLayout();
+            this.ribbonPanel2.SuspendLayout();
             this.groupPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
@@ -252,14 +252,14 @@
             this.ribbonControl1.BackgroundStyle.Class = "";
             this.ribbonControl1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.ribbonControl1.CaptionVisible = true;
-            this.ribbonControl1.Controls.Add(this.ribbonPanel9);
-            this.ribbonControl1.Controls.Add(this.ribbonPanel7);
             this.ribbonControl1.Controls.Add(this.ribbonPanel4);
-            this.ribbonControl1.Controls.Add(this.ribbonPanel5);
-            this.ribbonControl1.Controls.Add(this.ribbonPanel6);
-            this.ribbonControl1.Controls.Add(this.ribbonPanel2);
-            this.ribbonControl1.Controls.Add(this.ribbonPanel8);
+            this.ribbonControl1.Controls.Add(this.ribbonPanel7);
+            this.ribbonControl1.Controls.Add(this.ribbonPanel9);
             this.ribbonControl1.Controls.Add(this.ribbonPanel3);
+            this.ribbonControl1.Controls.Add(this.ribbonPanel6);
+            this.ribbonControl1.Controls.Add(this.ribbonPanel8);
+            this.ribbonControl1.Controls.Add(this.ribbonPanel5);
+            this.ribbonControl1.Controls.Add(this.ribbonPanel2);
             this.ribbonControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.ribbonControl1.Font = new System.Drawing.Font("Palatino Linotype", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ribbonControl1.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
@@ -330,7 +330,6 @@
             this.ribbonPanel4.StyleMouseOver.Class = "";
             this.ribbonPanel4.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.ribbonPanel4.TabIndex = 4;
-            this.ribbonPanel4.Visible = false;
             // 
             // ribbonBar7
             // 
@@ -842,135 +841,6 @@
             this.buttonItem36.Text = "Deposit";
             this.buttonItem36.Click += new System.EventHandler(this.buttonItem36_Click_1);
             // 
-            // ribbonPanel5
-            // 
-            this.ribbonPanel5.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.ribbonPanel5.Controls.Add(this.ribbonBar17);
-            this.ribbonPanel5.Controls.Add(this.ribbonBar12);
-            this.ribbonPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ribbonPanel5.Location = new System.Drawing.Point(0, 0);
-            this.ribbonPanel5.Name = "ribbonPanel5";
-            this.ribbonPanel5.Padding = new System.Windows.Forms.Padding(3, 0, 3, 3);
-            this.ribbonPanel5.Size = new System.Drawing.Size(1012, 165);
-            // 
-            // 
-            // 
-            this.ribbonPanel5.Style.Class = "";
-            this.ribbonPanel5.Style.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            // 
-            // 
-            // 
-            this.ribbonPanel5.StyleMouseDown.Class = "";
-            this.ribbonPanel5.StyleMouseDown.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            // 
-            // 
-            // 
-            this.ribbonPanel5.StyleMouseOver.Class = "";
-            this.ribbonPanel5.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.ribbonPanel5.TabIndex = 5;
-            this.ribbonPanel5.Visible = false;
-            // 
-            // ribbonBar17
-            // 
-            this.ribbonBar17.AutoOverflowEnabled = true;
-            // 
-            // 
-            // 
-            this.ribbonBar17.BackgroundMouseOverStyle.Class = "";
-            this.ribbonBar17.BackgroundMouseOverStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            // 
-            // 
-            // 
-            this.ribbonBar17.BackgroundStyle.Class = "";
-            this.ribbonBar17.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.ribbonBar17.ContainerControlProcessDialogKey = true;
-            this.ribbonBar17.Dock = System.Windows.Forms.DockStyle.Left;
-            this.ribbonBar17.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
-            this.buttonItem100});
-            this.ribbonBar17.Location = new System.Drawing.Point(133, 0);
-            this.ribbonBar17.Name = "ribbonBar17";
-            this.ribbonBar17.Size = new System.Drawing.Size(71, 162);
-            this.ribbonBar17.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.ribbonBar17.TabIndex = 2;
-            // 
-            // 
-            // 
-            this.ribbonBar17.TitleStyle.Class = "";
-            this.ribbonBar17.TitleStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            // 
-            // 
-            // 
-            this.ribbonBar17.TitleStyleMouseOver.Class = "";
-            this.ribbonBar17.TitleStyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            // 
-            // buttonItem100
-            // 
-            this.buttonItem100.ColorTable = DevComponents.DotNetBar.eButtonColor.BlueWithBackground;
-            this.buttonItem100.Image = global::Banking_System.Properties.Resources.logout;
-            this.buttonItem100.ImageFixedSize = new System.Drawing.Size(50, 50);
-            this.buttonItem100.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
-            this.buttonItem100.Name = "buttonItem100";
-            this.buttonItem100.SubItemsExpandWidth = 14;
-            this.buttonItem100.Text = "LogOut";
-            this.buttonItem100.Click += new System.EventHandler(this.buttonItem100_Click);
-            // 
-            // ribbonBar12
-            // 
-            this.ribbonBar12.AutoOverflowEnabled = true;
-            // 
-            // 
-            // 
-            this.ribbonBar12.BackgroundMouseOverStyle.Class = "";
-            this.ribbonBar12.BackgroundMouseOverStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            // 
-            // 
-            // 
-            this.ribbonBar12.BackgroundStyle.Class = "";
-            this.ribbonBar12.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.ribbonBar12.ContainerControlProcessDialogKey = true;
-            this.ribbonBar12.Dock = System.Windows.Forms.DockStyle.Left;
-            this.ribbonBar12.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
-            this.buttonItem24,
-            this.buttonItem25});
-            this.ribbonBar12.Location = new System.Drawing.Point(3, 0);
-            this.ribbonBar12.Name = "ribbonBar12";
-            this.ribbonBar12.Size = new System.Drawing.Size(130, 162);
-            this.ribbonBar12.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.ribbonBar12.TabIndex = 1;
-            this.ribbonBar12.Text = "Account";
-            // 
-            // 
-            // 
-            this.ribbonBar12.TitleStyle.Class = "";
-            this.ribbonBar12.TitleStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            // 
-            // 
-            // 
-            this.ribbonBar12.TitleStyleMouseOver.Class = "";
-            this.ribbonBar12.TitleStyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            // 
-            // buttonItem24
-            // 
-            this.buttonItem24.ColorTable = DevComponents.DotNetBar.eButtonColor.BlueWithBackground;
-            this.buttonItem24.Image = global::Banking_System.Properties.Resources.Business_Man_Add_02;
-            this.buttonItem24.ImageFixedSize = new System.Drawing.Size(50, 50);
-            this.buttonItem24.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
-            this.buttonItem24.Name = "buttonItem24";
-            this.buttonItem24.SubItemsExpandWidth = 14;
-            this.buttonItem24.Text = "Create";
-            this.buttonItem24.Click += new System.EventHandler(this.buttonItem24_Click_1);
-            // 
-            // buttonItem25
-            // 
-            this.buttonItem25.ColorTable = DevComponents.DotNetBar.eButtonColor.BlueWithBackground;
-            this.buttonItem25.Image = global::Banking_System.Properties.Resources.Savings1;
-            this.buttonItem25.ImageFixedSize = new System.Drawing.Size(50, 50);
-            this.buttonItem25.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
-            this.buttonItem25.Name = "buttonItem25";
-            this.buttonItem25.SubItemsExpandWidth = 14;
-            this.buttonItem25.Text = "Deposit";
-            this.buttonItem25.Click += new System.EventHandler(this.buttonItem25_Click_1);
-            // 
             // ribbonPanel9
             // 
             this.ribbonPanel9.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -998,6 +868,7 @@
             this.ribbonPanel9.StyleMouseOver.Class = "";
             this.ribbonPanel9.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.ribbonPanel9.TabIndex = 9;
+            this.ribbonPanel9.Visible = false;
             // 
             // ribbonBar23
             // 
@@ -1157,6 +1028,171 @@
             this.buttonItem34.Text = "Schedule";
             this.buttonItem34.Click += new System.EventHandler(this.buttonItem34_Click_1);
             // 
+            // ribbonPanel3
+            // 
+            this.ribbonPanel3.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.ribbonPanel3.Controls.Add(this.ribbonBar16);
+            this.ribbonPanel3.Controls.Add(this.ribbonBar1);
+            this.ribbonPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ribbonPanel3.Location = new System.Drawing.Point(0, 58);
+            this.ribbonPanel3.Name = "ribbonPanel3";
+            this.ribbonPanel3.Padding = new System.Windows.Forms.Padding(3, 0, 3, 3);
+            this.ribbonPanel3.Size = new System.Drawing.Size(1012, 107);
+            // 
+            // 
+            // 
+            this.ribbonPanel3.Style.Class = "";
+            this.ribbonPanel3.Style.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            // 
+            // 
+            // 
+            this.ribbonPanel3.StyleMouseDown.Class = "";
+            this.ribbonPanel3.StyleMouseDown.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            // 
+            // 
+            // 
+            this.ribbonPanel3.StyleMouseOver.Class = "";
+            this.ribbonPanel3.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.ribbonPanel3.TabIndex = 3;
+            this.ribbonPanel3.Visible = false;
+            // 
+            // ribbonBar16
+            // 
+            this.ribbonBar16.AutoOverflowEnabled = true;
+            // 
+            // 
+            // 
+            this.ribbonBar16.BackgroundMouseOverStyle.Class = "";
+            this.ribbonBar16.BackgroundMouseOverStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            // 
+            // 
+            // 
+            this.ribbonBar16.BackgroundStyle.Class = "";
+            this.ribbonBar16.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.ribbonBar16.ContainerControlProcessDialogKey = true;
+            this.ribbonBar16.Dock = System.Windows.Forms.DockStyle.Left;
+            this.ribbonBar16.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
+            this.buttonItem99});
+            this.ribbonBar16.Location = new System.Drawing.Point(389, 0);
+            this.ribbonBar16.Name = "ribbonBar16";
+            this.ribbonBar16.Size = new System.Drawing.Size(69, 104);
+            this.ribbonBar16.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.ribbonBar16.TabIndex = 2;
+            // 
+            // 
+            // 
+            this.ribbonBar16.TitleStyle.Class = "";
+            this.ribbonBar16.TitleStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            // 
+            // 
+            // 
+            this.ribbonBar16.TitleStyleMouseOver.Class = "";
+            this.ribbonBar16.TitleStyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            // 
+            // buttonItem99
+            // 
+            this.buttonItem99.ColorTable = DevComponents.DotNetBar.eButtonColor.BlueWithBackground;
+            this.buttonItem99.Image = global::Banking_System.Properties.Resources.logout;
+            this.buttonItem99.ImageFixedSize = new System.Drawing.Size(50, 50);
+            this.buttonItem99.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
+            this.buttonItem99.Name = "buttonItem99";
+            this.buttonItem99.SubItemsExpandWidth = 14;
+            this.buttonItem99.Text = "LogOut";
+            this.buttonItem99.Click += new System.EventHandler(this.buttonItem99_Click);
+            // 
+            // ribbonBar1
+            // 
+            this.ribbonBar1.AutoOverflowEnabled = true;
+            // 
+            // 
+            // 
+            this.ribbonBar1.BackgroundMouseOverStyle.Class = "";
+            this.ribbonBar1.BackgroundMouseOverStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            // 
+            // 
+            // 
+            this.ribbonBar1.BackgroundStyle.Class = "";
+            this.ribbonBar1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.ribbonBar1.ContainerControlProcessDialogKey = true;
+            this.ribbonBar1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.ribbonBar1.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
+            this.buttonItem30,
+            this.buttonItem37,
+            this.buttonItem95,
+            this.buttonItem96,
+            this.buttonItem110});
+            this.ribbonBar1.Location = new System.Drawing.Point(3, 0);
+            this.ribbonBar1.Name = "ribbonBar1";
+            this.ribbonBar1.Size = new System.Drawing.Size(386, 104);
+            this.ribbonBar1.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.ribbonBar1.TabIndex = 1;
+            this.ribbonBar1.Text = "Staff";
+            // 
+            // 
+            // 
+            this.ribbonBar1.TitleStyle.Class = "";
+            this.ribbonBar1.TitleStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            // 
+            // 
+            // 
+            this.ribbonBar1.TitleStyleMouseOver.Class = "";
+            this.ribbonBar1.TitleStyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            // 
+            // buttonItem30
+            // 
+            this.buttonItem30.ColorTable = DevComponents.DotNetBar.eButtonColor.BlueWithBackground;
+            this.buttonItem30.Image = global::Banking_System.Properties.Resources.Register_by_Device;
+            this.buttonItem30.ImageFixedSize = new System.Drawing.Size(50, 50);
+            this.buttonItem30.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
+            this.buttonItem30.Name = "buttonItem30";
+            this.buttonItem30.SubItemsExpandWidth = 14;
+            this.buttonItem30.Text = "Registration";
+            this.buttonItem30.Click += new System.EventHandler(this.buttonItem30_Click_1);
+            // 
+            // buttonItem37
+            // 
+            this.buttonItem37.ColorTable = DevComponents.DotNetBar.eButtonColor.BlueWithBackground;
+            this.buttonItem37.Image = global::Banking_System.Properties.Resources.Identity_Card;
+            this.buttonItem37.ImageFixedSize = new System.Drawing.Size(50, 50);
+            this.buttonItem37.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
+            this.buttonItem37.Name = "buttonItem37";
+            this.buttonItem37.SubItemsExpandWidth = 14;
+            this.buttonItem37.Text = "Attendance";
+            this.buttonItem37.Click += new System.EventHandler(this.buttonItem37_Click_1);
+            // 
+            // buttonItem95
+            // 
+            this.buttonItem95.ColorTable = DevComponents.DotNetBar.eButtonColor.BlueWithBackground;
+            this.buttonItem95.Image = global::Banking_System.Properties.Resources.Payments;
+            this.buttonItem95.ImageFixedSize = new System.Drawing.Size(50, 50);
+            this.buttonItem95.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
+            this.buttonItem95.Name = "buttonItem95";
+            this.buttonItem95.SubItemsExpandWidth = 14;
+            this.buttonItem95.Text = "Payments";
+            this.buttonItem95.Click += new System.EventHandler(this.buttonItem95_Click);
+            // 
+            // buttonItem96
+            // 
+            this.buttonItem96.ColorTable = DevComponents.DotNetBar.eButtonColor.BlueWithBackground;
+            this.buttonItem96.Image = global::Banking_System.Properties.Resources.Day;
+            this.buttonItem96.ImageFixedSize = new System.Drawing.Size(50, 50);
+            this.buttonItem96.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
+            this.buttonItem96.Name = "buttonItem96";
+            this.buttonItem96.SubItemsExpandWidth = 14;
+            this.buttonItem96.Text = "Events";
+            this.buttonItem96.Click += new System.EventHandler(this.buttonItem96_Click);
+            // 
+            // buttonItem110
+            // 
+            this.buttonItem110.ColorTable = DevComponents.DotNetBar.eButtonColor.BlueWithBackground;
+            this.buttonItem110.Image = global::Banking_System.Properties.Resources.Locker;
+            this.buttonItem110.ImageFixedSize = new System.Drawing.Size(50, 40);
+            this.buttonItem110.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
+            this.buttonItem110.Name = "buttonItem110";
+            this.buttonItem110.SubItemsExpandWidth = 14;
+            this.buttonItem110.Text = "Safe Trasnsactions";
+            this.buttonItem110.Click += new System.EventHandler(this.buttonItem110_Click);
+            // 
             // ribbonPanel6
             // 
             this.ribbonPanel6.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -1297,6 +1333,288 @@
             this.buttonItem29.SubItemsExpandWidth = 14;
             this.buttonItem29.Text = "Other Incomes";
             this.buttonItem29.Click += new System.EventHandler(this.buttonItem29_Click_1);
+            // 
+            // ribbonPanel8
+            // 
+            this.ribbonPanel8.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.ribbonPanel8.Controls.Add(this.ribbonBar22);
+            this.ribbonPanel8.Controls.Add(this.ribbonBar8);
+            this.ribbonPanel8.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ribbonPanel8.Location = new System.Drawing.Point(0, 58);
+            this.ribbonPanel8.Name = "ribbonPanel8";
+            this.ribbonPanel8.Padding = new System.Windows.Forms.Padding(3, 0, 3, 3);
+            this.ribbonPanel8.Size = new System.Drawing.Size(1012, 107);
+            // 
+            // 
+            // 
+            this.ribbonPanel8.Style.Class = "";
+            this.ribbonPanel8.Style.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            // 
+            // 
+            // 
+            this.ribbonPanel8.StyleMouseDown.Class = "";
+            this.ribbonPanel8.StyleMouseDown.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            // 
+            // 
+            // 
+            this.ribbonPanel8.StyleMouseOver.Class = "";
+            this.ribbonPanel8.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.ribbonPanel8.TabIndex = 8;
+            this.ribbonPanel8.Visible = false;
+            // 
+            // ribbonBar22
+            // 
+            this.ribbonBar22.AutoOverflowEnabled = true;
+            // 
+            // 
+            // 
+            this.ribbonBar22.BackgroundMouseOverStyle.Class = "";
+            this.ribbonBar22.BackgroundMouseOverStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            // 
+            // 
+            // 
+            this.ribbonBar22.BackgroundStyle.Class = "";
+            this.ribbonBar22.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.ribbonBar22.ContainerControlProcessDialogKey = true;
+            this.ribbonBar22.Dock = System.Windows.Forms.DockStyle.Left;
+            this.ribbonBar22.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
+            this.buttonItem105});
+            this.ribbonBar22.Location = new System.Drawing.Point(278, 0);
+            this.ribbonBar22.Name = "ribbonBar22";
+            this.ribbonBar22.Size = new System.Drawing.Size(65, 104);
+            this.ribbonBar22.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.ribbonBar22.TabIndex = 1;
+            // 
+            // 
+            // 
+            this.ribbonBar22.TitleStyle.Class = "";
+            this.ribbonBar22.TitleStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            // 
+            // 
+            // 
+            this.ribbonBar22.TitleStyleMouseOver.Class = "";
+            this.ribbonBar22.TitleStyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            // 
+            // buttonItem105
+            // 
+            this.buttonItem105.ColorTable = DevComponents.DotNetBar.eButtonColor.BlueWithBackground;
+            this.buttonItem105.Image = global::Banking_System.Properties.Resources.logout;
+            this.buttonItem105.ImageFixedSize = new System.Drawing.Size(50, 50);
+            this.buttonItem105.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
+            this.buttonItem105.Name = "buttonItem105";
+            this.buttonItem105.SubItemsExpandWidth = 14;
+            this.buttonItem105.Text = "Logout";
+            this.buttonItem105.Click += new System.EventHandler(this.buttonItem105_Click);
+            // 
+            // ribbonBar8
+            // 
+            this.ribbonBar8.AutoOverflowEnabled = true;
+            // 
+            // 
+            // 
+            this.ribbonBar8.BackgroundMouseOverStyle.Class = "";
+            this.ribbonBar8.BackgroundMouseOverStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            // 
+            // 
+            // 
+            this.ribbonBar8.BackgroundStyle.Class = "";
+            this.ribbonBar8.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.ribbonBar8.ContainerControlProcessDialogKey = true;
+            this.ribbonBar8.Dock = System.Windows.Forms.DockStyle.Left;
+            this.ribbonBar8.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
+            this.buttonItem8,
+            this.buttonItem9,
+            this.buttonItem10,
+            this.buttonItem120});
+            this.ribbonBar8.Location = new System.Drawing.Point(3, 0);
+            this.ribbonBar8.Name = "ribbonBar8";
+            this.ribbonBar8.Size = new System.Drawing.Size(275, 104);
+            this.ribbonBar8.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.ribbonBar8.TabIndex = 0;
+            this.ribbonBar8.Text = "Out Flows";
+            // 
+            // 
+            // 
+            this.ribbonBar8.TitleStyle.Class = "";
+            this.ribbonBar8.TitleStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            // 
+            // 
+            // 
+            this.ribbonBar8.TitleStyleMouseOver.Class = "";
+            this.ribbonBar8.TitleStyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            // 
+            // buttonItem8
+            // 
+            this.buttonItem8.ColorTable = DevComponents.DotNetBar.eButtonColor.BlueWithBackground;
+            this.buttonItem8.Image = global::Banking_System.Properties.Resources.spend_Money;
+            this.buttonItem8.ImageFixedSize = new System.Drawing.Size(50, 50);
+            this.buttonItem8.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
+            this.buttonItem8.Name = "buttonItem8";
+            this.buttonItem8.SubItemsExpandWidth = 14;
+            this.buttonItem8.Text = "Expenses";
+            this.buttonItem8.Click += new System.EventHandler(this.buttonItem8_Click_1);
+            // 
+            // buttonItem9
+            // 
+            this.buttonItem9.ColorTable = DevComponents.DotNetBar.eButtonColor.BlueWithBackground;
+            this.buttonItem9.Image = global::Banking_System.Properties.Resources.Shopping_Bag;
+            this.buttonItem9.ImageFixedSize = new System.Drawing.Size(50, 50);
+            this.buttonItem9.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
+            this.buttonItem9.Name = "buttonItem9";
+            this.buttonItem9.SubItemsExpandWidth = 14;
+            this.buttonItem9.Text = "Purchases";
+            this.buttonItem9.Click += new System.EventHandler(this.buttonItem9_Click_1);
+            // 
+            // buttonItem10
+            // 
+            this.buttonItem10.ColorTable = DevComponents.DotNetBar.eButtonColor.BlueWithBackground;
+            this.buttonItem10.Image = global::Banking_System.Properties.Resources.Pie_Chart;
+            this.buttonItem10.ImageFixedSize = new System.Drawing.Size(50, 50);
+            this.buttonItem10.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
+            this.buttonItem10.Name = "buttonItem10";
+            this.buttonItem10.SubItemsExpandWidth = 14;
+            this.buttonItem10.Text = "Dividends";
+            this.buttonItem10.Click += new System.EventHandler(this.buttonItem10_Click_1);
+            // 
+            // buttonItem120
+            // 
+            this.buttonItem120.ColorTable = DevComponents.DotNetBar.eButtonColor.BlueWithBackground;
+            this.buttonItem120.Image = global::Banking_System.Properties.Resources.Account_Payable;
+            this.buttonItem120.ImageFixedSize = new System.Drawing.Size(50, 40);
+            this.buttonItem120.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
+            this.buttonItem120.Name = "buttonItem120";
+            this.buttonItem120.SubItemsExpandWidth = 14;
+            this.buttonItem120.Text = "Supplier\r\nBalances";
+            this.buttonItem120.Click += new System.EventHandler(this.buttonItem120_Click);
+            // 
+            // ribbonPanel5
+            // 
+            this.ribbonPanel5.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.ribbonPanel5.Controls.Add(this.ribbonBar17);
+            this.ribbonPanel5.Controls.Add(this.ribbonBar12);
+            this.ribbonPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ribbonPanel5.Location = new System.Drawing.Point(0, 58);
+            this.ribbonPanel5.Name = "ribbonPanel5";
+            this.ribbonPanel5.Padding = new System.Windows.Forms.Padding(3, 0, 3, 3);
+            this.ribbonPanel5.Size = new System.Drawing.Size(1012, 107);
+            // 
+            // 
+            // 
+            this.ribbonPanel5.Style.Class = "";
+            this.ribbonPanel5.Style.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            // 
+            // 
+            // 
+            this.ribbonPanel5.StyleMouseDown.Class = "";
+            this.ribbonPanel5.StyleMouseDown.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            // 
+            // 
+            // 
+            this.ribbonPanel5.StyleMouseOver.Class = "";
+            this.ribbonPanel5.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.ribbonPanel5.TabIndex = 5;
+            this.ribbonPanel5.Visible = false;
+            // 
+            // ribbonBar17
+            // 
+            this.ribbonBar17.AutoOverflowEnabled = true;
+            // 
+            // 
+            // 
+            this.ribbonBar17.BackgroundMouseOverStyle.Class = "";
+            this.ribbonBar17.BackgroundMouseOverStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            // 
+            // 
+            // 
+            this.ribbonBar17.BackgroundStyle.Class = "";
+            this.ribbonBar17.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.ribbonBar17.ContainerControlProcessDialogKey = true;
+            this.ribbonBar17.Dock = System.Windows.Forms.DockStyle.Left;
+            this.ribbonBar17.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
+            this.buttonItem100});
+            this.ribbonBar17.Location = new System.Drawing.Point(133, 0);
+            this.ribbonBar17.Name = "ribbonBar17";
+            this.ribbonBar17.Size = new System.Drawing.Size(71, 104);
+            this.ribbonBar17.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.ribbonBar17.TabIndex = 2;
+            // 
+            // 
+            // 
+            this.ribbonBar17.TitleStyle.Class = "";
+            this.ribbonBar17.TitleStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            // 
+            // 
+            // 
+            this.ribbonBar17.TitleStyleMouseOver.Class = "";
+            this.ribbonBar17.TitleStyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            // 
+            // buttonItem100
+            // 
+            this.buttonItem100.ColorTable = DevComponents.DotNetBar.eButtonColor.BlueWithBackground;
+            this.buttonItem100.Image = global::Banking_System.Properties.Resources.logout;
+            this.buttonItem100.ImageFixedSize = new System.Drawing.Size(50, 50);
+            this.buttonItem100.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
+            this.buttonItem100.Name = "buttonItem100";
+            this.buttonItem100.SubItemsExpandWidth = 14;
+            this.buttonItem100.Text = "LogOut";
+            this.buttonItem100.Click += new System.EventHandler(this.buttonItem100_Click);
+            // 
+            // ribbonBar12
+            // 
+            this.ribbonBar12.AutoOverflowEnabled = true;
+            // 
+            // 
+            // 
+            this.ribbonBar12.BackgroundMouseOverStyle.Class = "";
+            this.ribbonBar12.BackgroundMouseOverStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            // 
+            // 
+            // 
+            this.ribbonBar12.BackgroundStyle.Class = "";
+            this.ribbonBar12.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.ribbonBar12.ContainerControlProcessDialogKey = true;
+            this.ribbonBar12.Dock = System.Windows.Forms.DockStyle.Left;
+            this.ribbonBar12.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
+            this.buttonItem24,
+            this.buttonItem25});
+            this.ribbonBar12.Location = new System.Drawing.Point(3, 0);
+            this.ribbonBar12.Name = "ribbonBar12";
+            this.ribbonBar12.Size = new System.Drawing.Size(130, 104);
+            this.ribbonBar12.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.ribbonBar12.TabIndex = 1;
+            this.ribbonBar12.Text = "Account";
+            // 
+            // 
+            // 
+            this.ribbonBar12.TitleStyle.Class = "";
+            this.ribbonBar12.TitleStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            // 
+            // 
+            // 
+            this.ribbonBar12.TitleStyleMouseOver.Class = "";
+            this.ribbonBar12.TitleStyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            // 
+            // buttonItem24
+            // 
+            this.buttonItem24.ColorTable = DevComponents.DotNetBar.eButtonColor.BlueWithBackground;
+            this.buttonItem24.Image = global::Banking_System.Properties.Resources.Business_Man_Add_02;
+            this.buttonItem24.ImageFixedSize = new System.Drawing.Size(50, 50);
+            this.buttonItem24.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
+            this.buttonItem24.Name = "buttonItem24";
+            this.buttonItem24.SubItemsExpandWidth = 14;
+            this.buttonItem24.Text = "Create";
+            this.buttonItem24.Click += new System.EventHandler(this.buttonItem24_Click_1);
+            // 
+            // buttonItem25
+            // 
+            this.buttonItem25.ColorTable = DevComponents.DotNetBar.eButtonColor.BlueWithBackground;
+            this.buttonItem25.Image = global::Banking_System.Properties.Resources.Savings1;
+            this.buttonItem25.ImageFixedSize = new System.Drawing.Size(50, 50);
+            this.buttonItem25.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
+            this.buttonItem25.Name = "buttonItem25";
+            this.buttonItem25.SubItemsExpandWidth = 14;
+            this.buttonItem25.Text = "Deposit";
+            this.buttonItem25.Click += new System.EventHandler(this.buttonItem25_Click_1);
             // 
             // ribbonPanel2
             // 
@@ -1499,326 +1817,9 @@
             this.buttonItem121.Text = "Savings For Loans";
             this.buttonItem121.Click += new System.EventHandler(this.buttonItem121_Click);
             // 
-            // ribbonPanel8
-            // 
-            this.ribbonPanel8.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.ribbonPanel8.Controls.Add(this.ribbonBar22);
-            this.ribbonPanel8.Controls.Add(this.ribbonBar8);
-            this.ribbonPanel8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ribbonPanel8.Location = new System.Drawing.Point(0, 58);
-            this.ribbonPanel8.Name = "ribbonPanel8";
-            this.ribbonPanel8.Padding = new System.Windows.Forms.Padding(3, 0, 3, 3);
-            this.ribbonPanel8.Size = new System.Drawing.Size(1012, 107);
-            // 
-            // 
-            // 
-            this.ribbonPanel8.Style.Class = "";
-            this.ribbonPanel8.Style.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            // 
-            // 
-            // 
-            this.ribbonPanel8.StyleMouseDown.Class = "";
-            this.ribbonPanel8.StyleMouseDown.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            // 
-            // 
-            // 
-            this.ribbonPanel8.StyleMouseOver.Class = "";
-            this.ribbonPanel8.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.ribbonPanel8.TabIndex = 8;
-            this.ribbonPanel8.Visible = false;
-            // 
-            // ribbonBar22
-            // 
-            this.ribbonBar22.AutoOverflowEnabled = true;
-            // 
-            // 
-            // 
-            this.ribbonBar22.BackgroundMouseOverStyle.Class = "";
-            this.ribbonBar22.BackgroundMouseOverStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            // 
-            // 
-            // 
-            this.ribbonBar22.BackgroundStyle.Class = "";
-            this.ribbonBar22.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.ribbonBar22.ContainerControlProcessDialogKey = true;
-            this.ribbonBar22.Dock = System.Windows.Forms.DockStyle.Left;
-            this.ribbonBar22.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
-            this.buttonItem105});
-            this.ribbonBar22.Location = new System.Drawing.Point(278, 0);
-            this.ribbonBar22.Name = "ribbonBar22";
-            this.ribbonBar22.Size = new System.Drawing.Size(65, 104);
-            this.ribbonBar22.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.ribbonBar22.TabIndex = 1;
-            // 
-            // 
-            // 
-            this.ribbonBar22.TitleStyle.Class = "";
-            this.ribbonBar22.TitleStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            // 
-            // 
-            // 
-            this.ribbonBar22.TitleStyleMouseOver.Class = "";
-            this.ribbonBar22.TitleStyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            // 
-            // buttonItem105
-            // 
-            this.buttonItem105.ColorTable = DevComponents.DotNetBar.eButtonColor.BlueWithBackground;
-            this.buttonItem105.Image = global::Banking_System.Properties.Resources.logout;
-            this.buttonItem105.ImageFixedSize = new System.Drawing.Size(50, 50);
-            this.buttonItem105.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
-            this.buttonItem105.Name = "buttonItem105";
-            this.buttonItem105.SubItemsExpandWidth = 14;
-            this.buttonItem105.Text = "Logout";
-            this.buttonItem105.Click += new System.EventHandler(this.buttonItem105_Click);
-            // 
-            // ribbonBar8
-            // 
-            this.ribbonBar8.AutoOverflowEnabled = true;
-            // 
-            // 
-            // 
-            this.ribbonBar8.BackgroundMouseOverStyle.Class = "";
-            this.ribbonBar8.BackgroundMouseOverStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            // 
-            // 
-            // 
-            this.ribbonBar8.BackgroundStyle.Class = "";
-            this.ribbonBar8.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.ribbonBar8.ContainerControlProcessDialogKey = true;
-            this.ribbonBar8.Dock = System.Windows.Forms.DockStyle.Left;
-            this.ribbonBar8.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
-            this.buttonItem8,
-            this.buttonItem9,
-            this.buttonItem10,
-            this.buttonItem120});
-            this.ribbonBar8.Location = new System.Drawing.Point(3, 0);
-            this.ribbonBar8.Name = "ribbonBar8";
-            this.ribbonBar8.Size = new System.Drawing.Size(275, 104);
-            this.ribbonBar8.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.ribbonBar8.TabIndex = 0;
-            this.ribbonBar8.Text = "Out Flows";
-            // 
-            // 
-            // 
-            this.ribbonBar8.TitleStyle.Class = "";
-            this.ribbonBar8.TitleStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            // 
-            // 
-            // 
-            this.ribbonBar8.TitleStyleMouseOver.Class = "";
-            this.ribbonBar8.TitleStyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            // 
-            // buttonItem8
-            // 
-            this.buttonItem8.ColorTable = DevComponents.DotNetBar.eButtonColor.BlueWithBackground;
-            this.buttonItem8.Image = global::Banking_System.Properties.Resources.spend_Money;
-            this.buttonItem8.ImageFixedSize = new System.Drawing.Size(50, 50);
-            this.buttonItem8.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
-            this.buttonItem8.Name = "buttonItem8";
-            this.buttonItem8.SubItemsExpandWidth = 14;
-            this.buttonItem8.Text = "Expenses";
-            this.buttonItem8.Click += new System.EventHandler(this.buttonItem8_Click_1);
-            // 
-            // buttonItem9
-            // 
-            this.buttonItem9.ColorTable = DevComponents.DotNetBar.eButtonColor.BlueWithBackground;
-            this.buttonItem9.Image = global::Banking_System.Properties.Resources.Shopping_Bag;
-            this.buttonItem9.ImageFixedSize = new System.Drawing.Size(50, 50);
-            this.buttonItem9.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
-            this.buttonItem9.Name = "buttonItem9";
-            this.buttonItem9.SubItemsExpandWidth = 14;
-            this.buttonItem9.Text = "Purchases";
-            this.buttonItem9.Click += new System.EventHandler(this.buttonItem9_Click_1);
-            // 
-            // buttonItem10
-            // 
-            this.buttonItem10.ColorTable = DevComponents.DotNetBar.eButtonColor.BlueWithBackground;
-            this.buttonItem10.Image = global::Banking_System.Properties.Resources.Pie_Chart;
-            this.buttonItem10.ImageFixedSize = new System.Drawing.Size(50, 50);
-            this.buttonItem10.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
-            this.buttonItem10.Name = "buttonItem10";
-            this.buttonItem10.SubItemsExpandWidth = 14;
-            this.buttonItem10.Text = "Dividends";
-            this.buttonItem10.Click += new System.EventHandler(this.buttonItem10_Click_1);
-            // 
-            // buttonItem120
-            // 
-            this.buttonItem120.ColorTable = DevComponents.DotNetBar.eButtonColor.BlueWithBackground;
-            this.buttonItem120.Image = global::Banking_System.Properties.Resources.Account_Payable;
-            this.buttonItem120.ImageFixedSize = new System.Drawing.Size(50, 40);
-            this.buttonItem120.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
-            this.buttonItem120.Name = "buttonItem120";
-            this.buttonItem120.SubItemsExpandWidth = 14;
-            this.buttonItem120.Text = "Supplier\r\nBalances";
-            this.buttonItem120.Click += new System.EventHandler(this.buttonItem120_Click);
-            // 
-            // ribbonPanel3
-            // 
-            this.ribbonPanel3.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.ribbonPanel3.Controls.Add(this.ribbonBar16);
-            this.ribbonPanel3.Controls.Add(this.ribbonBar1);
-            this.ribbonPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ribbonPanel3.Location = new System.Drawing.Point(0, 58);
-            this.ribbonPanel3.Name = "ribbonPanel3";
-            this.ribbonPanel3.Padding = new System.Windows.Forms.Padding(3, 0, 3, 3);
-            this.ribbonPanel3.Size = new System.Drawing.Size(1012, 107);
-            // 
-            // 
-            // 
-            this.ribbonPanel3.Style.Class = "";
-            this.ribbonPanel3.Style.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            // 
-            // 
-            // 
-            this.ribbonPanel3.StyleMouseDown.Class = "";
-            this.ribbonPanel3.StyleMouseDown.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            // 
-            // 
-            // 
-            this.ribbonPanel3.StyleMouseOver.Class = "";
-            this.ribbonPanel3.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.ribbonPanel3.TabIndex = 3;
-            this.ribbonPanel3.Visible = false;
-            // 
-            // ribbonBar16
-            // 
-            this.ribbonBar16.AutoOverflowEnabled = true;
-            // 
-            // 
-            // 
-            this.ribbonBar16.BackgroundMouseOverStyle.Class = "";
-            this.ribbonBar16.BackgroundMouseOverStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            // 
-            // 
-            // 
-            this.ribbonBar16.BackgroundStyle.Class = "";
-            this.ribbonBar16.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.ribbonBar16.ContainerControlProcessDialogKey = true;
-            this.ribbonBar16.Dock = System.Windows.Forms.DockStyle.Left;
-            this.ribbonBar16.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
-            this.buttonItem99});
-            this.ribbonBar16.Location = new System.Drawing.Point(389, 0);
-            this.ribbonBar16.Name = "ribbonBar16";
-            this.ribbonBar16.Size = new System.Drawing.Size(69, 104);
-            this.ribbonBar16.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.ribbonBar16.TabIndex = 2;
-            // 
-            // 
-            // 
-            this.ribbonBar16.TitleStyle.Class = "";
-            this.ribbonBar16.TitleStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            // 
-            // 
-            // 
-            this.ribbonBar16.TitleStyleMouseOver.Class = "";
-            this.ribbonBar16.TitleStyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            // 
-            // buttonItem99
-            // 
-            this.buttonItem99.ColorTable = DevComponents.DotNetBar.eButtonColor.BlueWithBackground;
-            this.buttonItem99.Image = global::Banking_System.Properties.Resources.logout;
-            this.buttonItem99.ImageFixedSize = new System.Drawing.Size(50, 50);
-            this.buttonItem99.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
-            this.buttonItem99.Name = "buttonItem99";
-            this.buttonItem99.SubItemsExpandWidth = 14;
-            this.buttonItem99.Text = "LogOut";
-            this.buttonItem99.Click += new System.EventHandler(this.buttonItem99_Click);
-            // 
-            // ribbonBar1
-            // 
-            this.ribbonBar1.AutoOverflowEnabled = true;
-            // 
-            // 
-            // 
-            this.ribbonBar1.BackgroundMouseOverStyle.Class = "";
-            this.ribbonBar1.BackgroundMouseOverStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            // 
-            // 
-            // 
-            this.ribbonBar1.BackgroundStyle.Class = "";
-            this.ribbonBar1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.ribbonBar1.ContainerControlProcessDialogKey = true;
-            this.ribbonBar1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.ribbonBar1.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
-            this.buttonItem30,
-            this.buttonItem37,
-            this.buttonItem95,
-            this.buttonItem96,
-            this.buttonItem110});
-            this.ribbonBar1.Location = new System.Drawing.Point(3, 0);
-            this.ribbonBar1.Name = "ribbonBar1";
-            this.ribbonBar1.Size = new System.Drawing.Size(386, 104);
-            this.ribbonBar1.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.ribbonBar1.TabIndex = 1;
-            this.ribbonBar1.Text = "Staff";
-            // 
-            // 
-            // 
-            this.ribbonBar1.TitleStyle.Class = "";
-            this.ribbonBar1.TitleStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            // 
-            // 
-            // 
-            this.ribbonBar1.TitleStyleMouseOver.Class = "";
-            this.ribbonBar1.TitleStyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            // 
-            // buttonItem30
-            // 
-            this.buttonItem30.ColorTable = DevComponents.DotNetBar.eButtonColor.BlueWithBackground;
-            this.buttonItem30.Image = global::Banking_System.Properties.Resources.Register_by_Device;
-            this.buttonItem30.ImageFixedSize = new System.Drawing.Size(50, 50);
-            this.buttonItem30.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
-            this.buttonItem30.Name = "buttonItem30";
-            this.buttonItem30.SubItemsExpandWidth = 14;
-            this.buttonItem30.Text = "Registration";
-            this.buttonItem30.Click += new System.EventHandler(this.buttonItem30_Click_1);
-            // 
-            // buttonItem37
-            // 
-            this.buttonItem37.ColorTable = DevComponents.DotNetBar.eButtonColor.BlueWithBackground;
-            this.buttonItem37.Image = global::Banking_System.Properties.Resources.Identity_Card;
-            this.buttonItem37.ImageFixedSize = new System.Drawing.Size(50, 50);
-            this.buttonItem37.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
-            this.buttonItem37.Name = "buttonItem37";
-            this.buttonItem37.SubItemsExpandWidth = 14;
-            this.buttonItem37.Text = "Attendance";
-            this.buttonItem37.Click += new System.EventHandler(this.buttonItem37_Click_1);
-            // 
-            // buttonItem95
-            // 
-            this.buttonItem95.ColorTable = DevComponents.DotNetBar.eButtonColor.BlueWithBackground;
-            this.buttonItem95.Image = global::Banking_System.Properties.Resources.Payments;
-            this.buttonItem95.ImageFixedSize = new System.Drawing.Size(50, 50);
-            this.buttonItem95.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
-            this.buttonItem95.Name = "buttonItem95";
-            this.buttonItem95.SubItemsExpandWidth = 14;
-            this.buttonItem95.Text = "Payments";
-            this.buttonItem95.Click += new System.EventHandler(this.buttonItem95_Click);
-            // 
-            // buttonItem96
-            // 
-            this.buttonItem96.ColorTable = DevComponents.DotNetBar.eButtonColor.BlueWithBackground;
-            this.buttonItem96.Image = global::Banking_System.Properties.Resources.Day;
-            this.buttonItem96.ImageFixedSize = new System.Drawing.Size(50, 50);
-            this.buttonItem96.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
-            this.buttonItem96.Name = "buttonItem96";
-            this.buttonItem96.SubItemsExpandWidth = 14;
-            this.buttonItem96.Text = "Events";
-            this.buttonItem96.Click += new System.EventHandler(this.buttonItem96_Click);
-            // 
-            // buttonItem110
-            // 
-            this.buttonItem110.ColorTable = DevComponents.DotNetBar.eButtonColor.BlueWithBackground;
-            this.buttonItem110.Image = global::Banking_System.Properties.Resources.Locker;
-            this.buttonItem110.ImageFixedSize = new System.Drawing.Size(50, 40);
-            this.buttonItem110.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
-            this.buttonItem110.Name = "buttonItem110";
-            this.buttonItem110.SubItemsExpandWidth = 14;
-            this.buttonItem110.Text = "Safe Trasnsactions";
-            this.buttonItem110.Click += new System.EventHandler(this.buttonItem110_Click);
-            // 
             // Settings
             // 
+            this.Settings.Checked = true;
             this.Settings.Name = "Settings";
             this.Settings.Panel = this.ribbonPanel4;
             this.Settings.Text = "Settings";
@@ -1868,7 +1869,6 @@
             // 
             // ribbonTabItem8
             // 
-            this.ribbonTabItem8.Checked = true;
             this.ribbonTabItem8.Name = "ribbonTabItem8";
             this.ribbonTabItem8.Panel = this.ribbonPanel9;
             this.ribbonTabItem8.Text = "External Borrowing";
@@ -2286,7 +2286,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.ribbonClientPanel1.CanvasColor = System.Drawing.SystemColors.Control;
-            this.ribbonClientPanel1.Location = new System.Drawing.Point(3, 33);
+            this.ribbonClientPanel1.Location = new System.Drawing.Point(3, 32);
             this.ribbonClientPanel1.Name = "ribbonClientPanel1";
             this.ribbonClientPanel1.Size = new System.Drawing.Size(997, 14);
             // 
@@ -2321,7 +2321,7 @@
             this.groupPanel1.Controls.Add(this.pictureBox1);
             this.groupPanel1.Location = new System.Drawing.Point(3, 3);
             this.groupPanel1.Name = "groupPanel1";
-            this.groupPanel1.Size = new System.Drawing.Size(997, 24);
+            this.groupPanel1.Size = new System.Drawing.Size(997, 23);
             // 
             // 
             // 
@@ -2379,7 +2379,7 @@
             this.User.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.User.Location = new System.Drawing.Point(59, 4);
             this.User.Name = "User";
-            this.User.Size = new System.Drawing.Size(157, 11);
+            this.User.Size = new System.Drawing.Size(157, 10);
             this.User.TabIndex = 6;
             this.User.Text = "User";
             // 
@@ -2396,7 +2396,7 @@
             this.Time.Font = new System.Drawing.Font("Palatino Linotype", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Time.Location = new System.Drawing.Point(812, 4);
             this.Time.Name = "Time";
-            this.Time.Size = new System.Drawing.Size(176, 11);
+            this.Time.Size = new System.Drawing.Size(176, 10);
             this.Time.TabIndex = 5;
             this.Time.Text = "labelX17";
             // 
@@ -2419,7 +2419,7 @@
             this.pictureBox1.Image = global::Banking_System.Properties.Resources.User_Login;
             this.pictureBox1.Location = new System.Drawing.Point(3, 4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(50, 17);
+            this.pictureBox1.Size = new System.Drawing.Size(50, 16);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
@@ -2443,7 +2443,7 @@
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1003, 284);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1003, 276);
             this.tableLayoutPanel1.TabIndex = 25;
             // 
             // tableLayoutPanel3
@@ -2462,7 +2462,7 @@
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(796, 278);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(796, 270);
             this.tableLayoutPanel3.TabIndex = 1;
             // 
             // tableLayoutPanel5
@@ -2481,7 +2481,7 @@
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(232, 272);
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(232, 264);
             this.tableLayoutPanel5.TabIndex = 1;
             // 
             // reports
@@ -2497,10 +2497,10 @@
             this.reports.Image = global::Banking_System.Properties.Resources.Recover_Deleted_Items;
             this.reports.ImageFixedSize = new System.Drawing.Size(60, 50);
             this.reports.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
-            this.reports.Location = new System.Drawing.Point(3, 93);
+            this.reports.Location = new System.Drawing.Point(3, 91);
             this.reports.Name = "reports";
             this.reports.Shape = new DevComponents.DotNetBar.RoundRectangleShapeDescriptor();
-            this.reports.Size = new System.Drawing.Size(226, 84);
+            this.reports.Size = new System.Drawing.Size(226, 82);
             this.reports.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.reports.TabIndex = 15;
             this.reports.Text = "Loan Recovery";
@@ -2522,7 +2522,7 @@
             this.invetory.Location = new System.Drawing.Point(3, 3);
             this.invetory.Name = "invetory";
             this.invetory.Shape = new DevComponents.DotNetBar.RoundRectangleShapeDescriptor();
-            this.invetory.Size = new System.Drawing.Size(226, 84);
+            this.invetory.Size = new System.Drawing.Size(226, 82);
             this.invetory.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.invetory.TabIndex = 14;
             this.invetory.Text = "Loan Application";
@@ -2541,10 +2541,10 @@
             this.accounts.Image = global::Banking_System.Properties.Resources.Note_Memo_01;
             this.accounts.ImageFixedSize = new System.Drawing.Size(60, 50);
             this.accounts.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
-            this.accounts.Location = new System.Drawing.Point(3, 183);
+            this.accounts.Location = new System.Drawing.Point(3, 179);
             this.accounts.Name = "accounts";
             this.accounts.Shape = new DevComponents.DotNetBar.RoundRectangleShapeDescriptor();
-            this.accounts.Size = new System.Drawing.Size(226, 86);
+            this.accounts.Size = new System.Drawing.Size(226, 82);
             this.accounts.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.accounts.TabIndex = 13;
             this.accounts.Text = "Loan Write Off";
@@ -2566,7 +2566,7 @@
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(232, 272);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(232, 264);
             this.tableLayoutPanel4.TabIndex = 0;
             // 
             // schedule
@@ -2582,10 +2582,10 @@
             this.schedule.Image = global::Banking_System.Properties.Resources.Savings2;
             this.schedule.ImageFixedSize = new System.Drawing.Size(60, 50);
             this.schedule.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
-            this.schedule.Location = new System.Drawing.Point(3, 93);
+            this.schedule.Location = new System.Drawing.Point(3, 91);
             this.schedule.Name = "schedule";
             this.schedule.Shape = new DevComponents.DotNetBar.RoundRectangleShapeDescriptor();
-            this.schedule.Size = new System.Drawing.Size(226, 84);
+            this.schedule.Size = new System.Drawing.Size(226, 82);
             this.schedule.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.schedule.TabIndex = 14;
             this.schedule.Text = "Savings Deposit";
@@ -2605,7 +2605,7 @@
             this.administration.Location = new System.Drawing.Point(3, 3);
             this.administration.Name = "administration";
             this.administration.Shape = new DevComponents.DotNetBar.RoundRectangleShapeDescriptor();
-            this.administration.Size = new System.Drawing.Size(226, 84);
+            this.administration.Size = new System.Drawing.Size(226, 82);
             this.administration.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.administration.TabIndex = 12;
             this.administration.Text = "Savings Account";
@@ -2624,10 +2624,10 @@
             this.records.Image = global::Banking_System.Properties.Resources.Gold;
             this.records.ImageFixedSize = new System.Drawing.Size(60, 50);
             this.records.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
-            this.records.Location = new System.Drawing.Point(3, 183);
+            this.records.Location = new System.Drawing.Point(3, 179);
             this.records.Name = "records";
             this.records.Shape = new DevComponents.DotNetBar.RoundRectangleShapeDescriptor();
-            this.records.Size = new System.Drawing.Size(226, 86);
+            this.records.Size = new System.Drawing.Size(226, 82);
             this.records.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.records.TabIndex = 13;
             this.records.Text = "Investor Account    ";
@@ -2650,7 +2650,7 @@
             this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(314, 272);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(314, 264);
             this.tableLayoutPanel2.TabIndex = 2;
             // 
             // buttonX1
@@ -2665,7 +2665,7 @@
             this.buttonX1.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
             this.buttonX1.Location = new System.Drawing.Point(3, 3);
             this.buttonX1.Name = "buttonX1";
-            this.buttonX1.Size = new System.Drawing.Size(151, 130);
+            this.buttonX1.Size = new System.Drawing.Size(151, 126);
             this.buttonX1.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.buttonX1.TabIndex = 0;
             this.buttonX1.Text = "Normal Settlement";
@@ -2683,7 +2683,7 @@
             this.buttonX2.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
             this.buttonX2.Location = new System.Drawing.Point(160, 3);
             this.buttonX2.Name = "buttonX2";
-            this.buttonX2.Size = new System.Drawing.Size(151, 130);
+            this.buttonX2.Size = new System.Drawing.Size(151, 126);
             this.buttonX2.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.buttonX2.TabIndex = 1;
             this.buttonX2.Text = "Early Loan Settlement";
@@ -2699,9 +2699,9 @@
             this.buttonX3.Image = global::Banking_System.Properties.Resources.For_This_Week;
             this.buttonX3.ImageFixedSize = new System.Drawing.Size(80, 80);
             this.buttonX3.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
-            this.buttonX3.Location = new System.Drawing.Point(3, 139);
+            this.buttonX3.Location = new System.Drawing.Point(3, 135);
             this.buttonX3.Name = "buttonX3";
-            this.buttonX3.Size = new System.Drawing.Size(151, 130);
+            this.buttonX3.Size = new System.Drawing.Size(151, 126);
             this.buttonX3.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.buttonX3.TabIndex = 2;
             this.buttonX3.Text = "Loan Reschedule";
@@ -2717,9 +2717,9 @@
             this.buttonX4.Image = global::Banking_System.Properties.Resources.Accounting_01;
             this.buttonX4.ImageFixedSize = new System.Drawing.Size(80, 80);
             this.buttonX4.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
-            this.buttonX4.Location = new System.Drawing.Point(160, 139);
+            this.buttonX4.Location = new System.Drawing.Point(160, 135);
             this.buttonX4.Name = "buttonX4";
-            this.buttonX4.Size = new System.Drawing.Size(151, 130);
+            this.buttonX4.Size = new System.Drawing.Size(151, 126);
             this.buttonX4.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.buttonX4.TabIndex = 3;
             this.buttonX4.Text = "Loan Top Up";
@@ -2737,8 +2737,8 @@
             this.tableLayoutPanel6.Name = "tableLayoutPanel6";
             this.tableLayoutPanel6.RowCount = 1;
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 279F));
-            this.tableLayoutPanel6.Size = new System.Drawing.Size(195, 278);
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 272F));
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(195, 270);
             this.tableLayoutPanel6.TabIndex = 2;
             // 
             // expandablePanel1
@@ -2752,7 +2752,7 @@
             this.expandablePanel1.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.expandablePanel1.Location = new System.Drawing.Point(3, 3);
             this.expandablePanel1.Name = "expandablePanel1";
-            this.expandablePanel1.Size = new System.Drawing.Size(189, 272);
+            this.expandablePanel1.Size = new System.Drawing.Size(189, 264);
             this.expandablePanel1.Style.Alignment = System.Drawing.StringAlignment.Center;
             this.expandablePanel1.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
             this.expandablePanel1.Style.BackColor2.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
@@ -2798,7 +2798,7 @@
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11F));
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11F));
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12F));
-            this.tableLayoutPanel9.Size = new System.Drawing.Size(186, 246);
+            this.tableLayoutPanel9.Size = new System.Drawing.Size(186, 238);
             this.tableLayoutPanel9.TabIndex = 1;
             // 
             // buttonX5
@@ -2811,7 +2811,7 @@
             this.buttonX5.ImageFixedSize = new System.Drawing.Size(20, 20);
             this.buttonX5.Location = new System.Drawing.Point(3, 3);
             this.buttonX5.Name = "buttonX5";
-            this.buttonX5.Size = new System.Drawing.Size(180, 21);
+            this.buttonX5.Size = new System.Drawing.Size(180, 20);
             this.buttonX5.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.buttonX5.TabIndex = 0;
             this.buttonX5.Text = "Account Records";
@@ -2825,9 +2825,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonX6.Image = global::Banking_System.Properties.Resources.Savings;
             this.buttonX6.ImageFixedSize = new System.Drawing.Size(20, 20);
-            this.buttonX6.Location = new System.Drawing.Point(3, 30);
+            this.buttonX6.Location = new System.Drawing.Point(3, 29);
             this.buttonX6.Name = "buttonX6";
-            this.buttonX6.Size = new System.Drawing.Size(180, 21);
+            this.buttonX6.Size = new System.Drawing.Size(180, 20);
             this.buttonX6.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.buttonX6.TabIndex = 1;
             this.buttonX6.Text = "Savings Records";
@@ -2841,9 +2841,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonX7.Image = global::Banking_System.Properties.Resources.Finance_02;
             this.buttonX7.ImageFixedSize = new System.Drawing.Size(20, 20);
-            this.buttonX7.Location = new System.Drawing.Point(3, 57);
+            this.buttonX7.Location = new System.Drawing.Point(3, 55);
             this.buttonX7.Name = "buttonX7";
-            this.buttonX7.Size = new System.Drawing.Size(180, 21);
+            this.buttonX7.Size = new System.Drawing.Size(180, 20);
             this.buttonX7.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.buttonX7.TabIndex = 2;
             this.buttonX7.Text = "Loan Records";
@@ -2857,9 +2857,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonX8.Image = global::Banking_System.Properties.Resources.Clear;
             this.buttonX8.ImageFixedSize = new System.Drawing.Size(20, 20);
-            this.buttonX8.Location = new System.Drawing.Point(3, 84);
+            this.buttonX8.Location = new System.Drawing.Point(3, 81);
             this.buttonX8.Name = "buttonX8";
-            this.buttonX8.Size = new System.Drawing.Size(180, 21);
+            this.buttonX8.Size = new System.Drawing.Size(180, 20);
             this.buttonX8.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.buttonX8.TabIndex = 3;
             this.buttonX8.Text = "Loan Repayments";
@@ -2873,9 +2873,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonX9.Image = global::Banking_System.Properties.Resources.Transaction_Fee;
             this.buttonX9.ImageFixedSize = new System.Drawing.Size(20, 20);
-            this.buttonX9.Location = new System.Drawing.Point(3, 111);
+            this.buttonX9.Location = new System.Drawing.Point(3, 107);
             this.buttonX9.Name = "buttonX9";
-            this.buttonX9.Size = new System.Drawing.Size(180, 21);
+            this.buttonX9.Size = new System.Drawing.Size(180, 20);
             this.buttonX9.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.buttonX9.TabIndex = 4;
             this.buttonX9.Text = "External Borrowing";
@@ -2889,9 +2889,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonX10.Image = global::Banking_System.Properties.Resources.Gold;
             this.buttonX10.ImageFixedSize = new System.Drawing.Size(20, 20);
-            this.buttonX10.Location = new System.Drawing.Point(3, 138);
+            this.buttonX10.Location = new System.Drawing.Point(3, 133);
             this.buttonX10.Name = "buttonX10";
-            this.buttonX10.Size = new System.Drawing.Size(180, 21);
+            this.buttonX10.Size = new System.Drawing.Size(180, 20);
             this.buttonX10.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.buttonX10.TabIndex = 5;
             this.buttonX10.Text = "Investor Records";
@@ -2905,9 +2905,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonX11.Image = global::Banking_System.Properties.Resources.Bank;
             this.buttonX11.ImageFixedSize = new System.Drawing.Size(20, 20);
-            this.buttonX11.Location = new System.Drawing.Point(3, 165);
+            this.buttonX11.Location = new System.Drawing.Point(3, 159);
             this.buttonX11.Name = "buttonX11";
-            this.buttonX11.Size = new System.Drawing.Size(180, 21);
+            this.buttonX11.Size = new System.Drawing.Size(180, 20);
             this.buttonX11.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.buttonX11.TabIndex = 6;
             this.buttonX11.Text = "Inflows Records";
@@ -2921,9 +2921,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonX12.Image = global::Banking_System.Properties.Resources.Banking_Transaction;
             this.buttonX12.ImageFixedSize = new System.Drawing.Size(20, 20);
-            this.buttonX12.Location = new System.Drawing.Point(3, 192);
+            this.buttonX12.Location = new System.Drawing.Point(3, 185);
             this.buttonX12.Name = "buttonX12";
-            this.buttonX12.Size = new System.Drawing.Size(180, 21);
+            this.buttonX12.Size = new System.Drawing.Size(180, 20);
             this.buttonX12.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.buttonX12.TabIndex = 7;
             this.buttonX12.Text = "Outflows Records";
@@ -2937,7 +2937,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonX13.Image = global::Banking_System.Properties.Resources.Register_by_Device;
             this.buttonX13.ImageFixedSize = new System.Drawing.Size(20, 20);
-            this.buttonX13.Location = new System.Drawing.Point(3, 219);
+            this.buttonX13.Location = new System.Drawing.Point(3, 211);
             this.buttonX13.Name = "buttonX13";
             this.buttonX13.Size = new System.Drawing.Size(180, 24);
             this.buttonX13.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -2954,12 +2954,12 @@
             this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel7.Controls.Add(this.groupPanel1, 0, 0);
             this.tableLayoutPanel7.Controls.Add(this.ribbonClientPanel1, 0, 1);
-            this.tableLayoutPanel7.Location = new System.Drawing.Point(3, 293);
+            this.tableLayoutPanel7.Location = new System.Drawing.Point(3, 285);
             this.tableLayoutPanel7.Name = "tableLayoutPanel7";
             this.tableLayoutPanel7.RowCount = 2;
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60F));
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40F));
-            this.tableLayoutPanel7.Size = new System.Drawing.Size(1003, 50);
+            this.tableLayoutPanel7.Size = new System.Drawing.Size(1003, 49);
             this.tableLayoutPanel7.TabIndex = 26;
             // 
             // tableLayoutPanel8
@@ -2977,7 +2977,7 @@
             this.tableLayoutPanel8.RowCount = 2;
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 83.85827F));
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.14173F));
-            this.tableLayoutPanel8.Size = new System.Drawing.Size(1009, 346);
+            this.tableLayoutPanel8.Size = new System.Drawing.Size(1009, 337);
             this.tableLayoutPanel8.TabIndex = 27;
             // 
             // statusStrip1
@@ -2988,7 +2988,7 @@
             this.toolStripStatusLabel1,
             this.toolStripStatusLabel3,
             this.toolStripStatusLabel2});
-            this.statusStrip1.Location = new System.Drawing.Point(5, 519);
+            this.statusStrip1.Location = new System.Drawing.Point(5, 510);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(1012, 23);
             this.statusStrip1.TabIndex = 28;
@@ -3029,7 +3029,6 @@
             this.buttonItem73.Name = "buttonItem73";
             this.buttonItem73.Text = "Member Reports";
             this.buttonItem73.Visible = false;
-            this.buttonItem73.Click += new System.EventHandler(this.buttonItem73_Click);
             // 
             // buttonItem75
             // 
@@ -3039,7 +3038,6 @@
             this.buttonItem75.Name = "buttonItem75";
             this.buttonItem75.Text = "Savings Reports";
             this.buttonItem75.Visible = false;
-            this.buttonItem75.Click += new System.EventHandler(this.buttonItem75_Click);
             // 
             // buttonItem76
             // 
@@ -3147,7 +3145,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = global::Banking_System.Properties.Settings.Default.usercolor;
-            this.ClientSize = new System.Drawing.Size(1022, 544);
+            this.ClientSize = new System.Drawing.Size(1022, 535);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.tableLayoutPanel8);
             this.Controls.Add(this.ribbonControl1);
@@ -3162,12 +3160,12 @@
             this.ribbonControl1.PerformLayout();
             this.ribbonPanel4.ResumeLayout(false);
             this.ribbonPanel7.ResumeLayout(false);
-            this.ribbonPanel5.ResumeLayout(false);
             this.ribbonPanel9.ResumeLayout(false);
-            this.ribbonPanel6.ResumeLayout(false);
-            this.ribbonPanel2.ResumeLayout(false);
-            this.ribbonPanel8.ResumeLayout(false);
             this.ribbonPanel3.ResumeLayout(false);
+            this.ribbonPanel6.ResumeLayout(false);
+            this.ribbonPanel8.ResumeLayout(false);
+            this.ribbonPanel5.ResumeLayout(false);
+            this.ribbonPanel2.ResumeLayout(false);
             this.groupPanel1.ResumeLayout(false);
             this.groupPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

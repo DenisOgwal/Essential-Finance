@@ -56,9 +56,7 @@
             this.crystalReportViewer1 = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
             this.tabItem1 = new DevComponents.DotNetBar.TabItem(this.components);
             this.rptexpensesbydate1 = new Banking_System.rptexpensesbydate();
-            this.rptExpenses1 = new Banking_System.rptExpenses();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.rptExpensesAll1 = new Banking_System.rptExpensesAll();
             this.rptExpensesByMonths1 = new Banking_System.rptExpensesByMonths();
             ((System.ComponentModel.ISupportInitialize)(this.tabControl1)).BeginInit();
             this.tabControl1.SuspendLayout();
@@ -570,8 +568,6 @@
         public System.Windows.Forms.DateTimePicker year;
         private CrystalDecisions.Windows.Forms.CrystalReportViewer crystalReportViewer1;
         private CrystalDecisions.Windows.Forms.CrystalReportViewer crystalReportViewer2;
-        private rptExpensesAll rptExpensesAll1;
-        private rptExpenses rptExpenses1;
         private System.Windows.Forms.Timer timer1;
         public System.Windows.Forms.Label label2;
         public System.Windows.Forms.Label label1;

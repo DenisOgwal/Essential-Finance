@@ -30,6 +30,23 @@ namespace Banking_System
             {
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
+                cmd = con.CreateCommand();
+                cmd.CommandText = "SELECT ProcessingPercentage FROM LoanProcessing Order by ID DESC";
+                rdr = cmd.ExecuteReader();
+                if (rdr.Read())
+                {
+                    AmountPayable.Text = rdr[0].ToString();
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            try
+            {
+                con = new SqlConnection(cs.DBConn);
+                con.Open();
                 cmd = new SqlCommand("select RTRIM(AccountNo)[Account No.],RTRIM(AccountName)[Account Name],RTRIM(LoanID)[Loan ID] from Loan where FirstApproval='Pending' order by ID DESC", con);
                 SqlDataAdapter myDA = new SqlDataAdapter(cmd);
                 DataSet myDataSet = new DataSet();

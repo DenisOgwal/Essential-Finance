@@ -667,8 +667,7 @@ namespace Banking_System
             {
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
-                string cb = "update Expenses set Comment=@d2,ManagerID=@d3,ManagerName=@d4 where ExpenseID=@d1 and Months=@d6 and Year=@d5";
-                cmd = new SqlCommand(cb);
+                cmd = new SqlCommand("update Expenses set Comment=@d2,ManagerID=@d3,ManagerName=@d4 where ExpenseID=@d1 and Months=@d6 and Year=@d5");
                 cmd.Connection = con;
                 cmd.Parameters.Add(new SqlParameter("@d1", System.Data.SqlDbType.NChar, 15, "ExpenseID"));
                 cmd.Parameters.Add(new SqlParameter("@d2", System.Data.SqlDbType.NChar, 15, "Comment"));
@@ -801,8 +800,7 @@ namespace Banking_System
                     string staffids = rdr["StaffID"].ToString().Trim();
                     con = new SqlConnection(cs.DBConn);
                     con.Open();
-                    string ct = "SELECT UserName,StaffID FROM ApprovalRights WHERE StaffID='" + staffids + "' and ExpensesApplication='Yes'";
-                    cmd2 = new SqlCommand(ct);
+                    cmd2 = new SqlCommand("SELECT UserName,StaffID FROM ApprovalRights WHERE StaffID='" + staffids + "' and ExpensesApplication='Yes'");
                     cmd2.Connection = con;
                     rdr2 = cmd2.ExecuteReader();
                     if (rdr2.Read())
@@ -1150,7 +1148,7 @@ namespace Banking_System
                     SqlConnection myConnection = default(SqlConnection);
                     SqlCommand MyCommand = new SqlCommand();
                     SqlDataAdapter myDA = new SqlDataAdapter();
-                    AExpensesDataSet myDS = new AExpensesDataSet(); //The DataSet you created.
+                    DataSet myDS = new DataSet(); //The DataSet you created.
                     Receipt frm = new Receipt();
                     myConnection = new SqlConnection(cs.DBConn);
                     MyCommand.Connection = myConnection;
@@ -1198,180 +1196,8 @@ namespace Banking_System
             frm2.label1.Text = label1.Text;
             frm2.label2.Text = label2.Text;
             frm2.ShowDialog();
-            /*try
-            {
-
-                //this.Hide();
-                Cursor = Cursors.WaitCursor;
-                timer1.Enabled = true;
-                rptReceiptExpenses rpt = new rptReceiptExpenses(); //The report you created.
-                SqlConnection myConnection = default(SqlConnection);
-                SqlCommand MyCommand = new SqlCommand();
-                SqlDataAdapter myDA = new SqlDataAdapter();
-                AExpensesDataSet myDS = new AExpensesDataSet(); //The DataSet you created.
-                Receipt frm = new Receipt();
-                myConnection = new SqlConnection(cs.DBConn);
-                MyCommand.Connection = myConnection;
-                MyCommand.CommandText = "select * from Expenses";
-                MyCommand.CommandType = CommandType.Text;
-                myDA.SelectCommand = MyCommand;
-                myDA.Fill(myDS, "Expenses");
-                //myDA.Fill(myDS, "Rights");
-                rpt.SetDataSource(myDS);
-                rpt.SetParameterValue("paymentid", expenseid.Text);
-                rpt.SetParameterValue("paidto",names.Text);
-                rpt.SetParameterValue("paidfor", service.Text);
-                rpt.SetParameterValue("ammount", cost.Text);
-                rpt.SetParameterValue("totalpaid", totalpaid.Text);
-                rpt.SetParameterValue("duepayment", duepayment.Text);
-                rpt.SetParameterValue("issuedby", cashiername.Text);
-                frm.crystalReportViewer1.ReportSource = rpt;
-                frm.Show();
-                rpt.PrintToPrinter(1, true, 1, 2);
-                frm.Hide();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }*/
+           
         }
 
-        private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
-        {
-            try
-            {
-                float x = 10;
-                float y = 5;
-
-                float width = 260.0F; // max width I found through trial and error
-                float height = 0F;
-
-                Font drawFontArial12Bold = new Font("Arial", 12, FontStyle.Bold);
-                Font drawFontArial10Regular = new Font("Arial", 10, FontStyle.Regular);
-                Font drawFontArial10italic = new Font("Arial", 10, FontStyle.Italic);
-                Font drawFontArial10Bold = new Font("Arial", 10, FontStyle.Bold);
-                Font drawFontArial6Regular = new Font("Arial", 6, FontStyle.Regular);
-                SolidBrush drawBrush = new SolidBrush(Color.Black);
-
-                // Set format of string.
-                StringFormat drawFormatCenter = new StringFormat();
-                drawFormatCenter.Alignment = StringAlignment.Center;
-                StringFormat drawFormatLeft = new StringFormat();
-                drawFormatLeft.Alignment = StringAlignment.Near;
-                StringFormat drawFormatRight = new StringFormat();
-                drawFormatRight.Alignment = StringAlignment.Far;
-
-                // Draw string to screen.
-                string text = "KIBUKU CONSTITUENCY DEVELOPMENT SACCO LTD";
-                e.Graphics.DrawString(text, drawFontArial12Bold, drawBrush, new RectangleF(x, y, width, height), drawFormatCenter);
-                y += e.Graphics.MeasureString(text, drawFontArial12Bold).Height;
-                text = " ";
-                e.Graphics.DrawString(text, drawFontArial10Regular, drawBrush, new RectangleF(x, y, width, height), drawFormatCenter);
-                y += e.Graphics.MeasureString(text, drawFontArial10Regular).Height;
-
-                text = "i save for my future, What about you? ";
-                e.Graphics.DrawString(text, drawFontArial10italic, drawBrush, new RectangleF(x, y, width, height), drawFormatCenter);
-                y += e.Graphics.MeasureString(text, drawFontArial10italic).Height;
-
-                text = " ";
-                e.Graphics.DrawString(text, drawFontArial10Regular, drawBrush, new RectangleF(x, y, width, height), drawFormatCenter);
-                y += e.Graphics.MeasureString(text, drawFontArial10Regular).Height;
-
-                text = "P.O.BOX 150, MBALE.";
-                e.Graphics.DrawString(text, drawFontArial10Regular, drawBrush, new RectangleF(x, y, width, height), drawFormatCenter);
-                y += e.Graphics.MeasureString(text, drawFontArial10Regular).Height;
-
-                text = "KIBUKU TOWN COUNCIL, BUSETA ROAD";
-                e.Graphics.DrawString(text, drawFontArial10Regular, drawBrush, new RectangleF(x, y, width, height), drawFormatCenter);
-                y += e.Graphics.MeasureString(text, drawFontArial10Regular).Height;
-                text = " ";
-                e.Graphics.DrawString(text, drawFontArial10Regular, drawBrush, new RectangleF(x, y, width, height), drawFormatCenter);
-                y += e.Graphics.MeasureString(text, drawFontArial10Regular).Height;
-
-                text = "TEL: 0393216208";
-                e.Graphics.DrawString(text, drawFontArial10Regular, drawBrush, new RectangleF(x, y, width, height), drawFormatCenter);
-                y += e.Graphics.MeasureString(text, drawFontArial10Regular).Height;
-
-                text = "-----------------------------------------------------";
-                e.Graphics.DrawString(text, drawFontArial10Regular, drawBrush, new RectangleF(x, y, width, height), drawFormatCenter);
-                y += e.Graphics.MeasureString(text, drawFontArial10Regular).Height;
-
-                text = " ";
-                e.Graphics.DrawString(text, drawFontArial10Regular, drawBrush, new RectangleF(x, y, width, height), drawFormatCenter);
-                y += e.Graphics.MeasureString(text, drawFontArial10Regular).Height;
-
-                text = "Payment ID: " + expenseid.Text;
-                e.Graphics.DrawString(text, drawFontArial10Bold, drawBrush, new RectangleF(x, y, width, height), drawFormatCenter);
-                y += e.Graphics.MeasureString(text, drawFontArial10Bold).Height;
-
-                text = "Date: " + DateTime.Now.ToString();
-                e.Graphics.DrawString(text, drawFontArial10Regular, drawBrush, new RectangleF(x, y, width, height), drawFormatCenter);
-                y += e.Graphics.MeasureString(text, drawFontArial10Regular).Height;
-
-                text = " ";
-                e.Graphics.DrawString(text, drawFontArial10Regular, drawBrush, new RectangleF(x, y, width, height), drawFormatCenter);
-                y += e.Graphics.MeasureString(text, drawFontArial10Regular).Height;
-
-
-
-                text = "Paid For:  Expense";
-                e.Graphics.DrawString(text, drawFontArial10Bold, drawBrush, new RectangleF(x, y, width, height), drawFormatCenter);
-                y += e.Graphics.MeasureString(text, drawFontArial10Bold).Height;
-                text = "Paid To: " +names.Text ;
-                e.Graphics.DrawString(text, drawFontArial10Bold, drawBrush, new RectangleF(x, y, width, height), drawFormatCenter);
-                y += e.Graphics.MeasureString(text, drawFontArial10Bold).Height;
-                text = "-----------------------------------------------------";
-                e.Graphics.DrawString(text, drawFontArial10Regular, drawBrush, new RectangleF(x, y, width, height), drawFormatCenter);
-                y += e.Graphics.MeasureString(text, drawFontArial10Regular).Height;
-
-                text = " ";
-                e.Graphics.DrawString(text, drawFontArial10Regular, drawBrush, new RectangleF(x, y, width, height), drawFormatCenter);
-                y += e.Graphics.MeasureString(text, drawFontArial10Regular).Height;
-
-                text = "Total Ammount: UGX." + string.Format("{0:n0}",Convert.ToInt32(cost.Text));
-                e.Graphics.DrawString(text, drawFontArial10Bold, drawBrush, new RectangleF(x, y, width, height), drawFormatCenter);
-                y += e.Graphics.MeasureString(text, drawFontArial10Bold).Height;
-
-                text = "Total Paid: UGX." + string.Format("{0:n0}",Convert.ToInt32(totalpaid.Text));
-                e.Graphics.DrawString(text, drawFontArial10Bold, drawBrush, new RectangleF(x, y, width, height), drawFormatCenter);
-                y += e.Graphics.MeasureString(text, drawFontArial10Bold).Height;
-
-                text = "Due Payment: UGX." + string.Format("{0:n0}",Convert.ToInt32(duepayment.Text));
-                e.Graphics.DrawString(text, drawFontArial10Bold, drawBrush, new RectangleF(x, y, width, height), drawFormatCenter);
-                y += e.Graphics.MeasureString(text, drawFontArial10Bold).Height;
-                text = "-----------------------------------------------------";
-                e.Graphics.DrawString(text, drawFontArial10Regular, drawBrush, new RectangleF(x, y, width, height), drawFormatCenter);
-                y += e.Graphics.MeasureString(text, drawFontArial10Regular).Height;
-
-                text = "Issued By: " + cashiername.Text;
-                e.Graphics.DrawString(text, drawFontArial10Regular, drawBrush, new RectangleF(x, y, width, height), drawFormatCenter);
-                y += e.Graphics.MeasureString(text, drawFontArial10Regular).Height;
-
-                text = " ";
-                e.Graphics.DrawString(text, drawFontArial10Regular, drawBrush, new RectangleF(x, y, width, height), drawFormatCenter);
-                y += e.Graphics.MeasureString(text, drawFontArial10Regular).Height;
-
-                text = "THANK YOU, COME AGAIN";
-                e.Graphics.DrawString(text, drawFontArial10Bold, drawBrush, new RectangleF(x, y, width, height), drawFormatCenter);
-                y += e.Graphics.MeasureString(text, drawFontArial10Bold).Height;
-
-                text = " ";
-                e.Graphics.DrawString(text, drawFontArial10Regular, drawBrush, new RectangleF(x, y, width, height), drawFormatCenter);
-                y += e.Graphics.MeasureString(text, drawFontArial10Regular).Height;
-
-                text = "Powered by: www.essentialsystems.atwebpages.com +256787045644";
-                e.Graphics.DrawString(text, drawFontArial6Regular, drawBrush, new RectangleF(x, y, width, height), drawFormatCenter);
-                y += e.Graphics.MeasureString(text, drawFontArial6Regular).Height;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void groupPanel5_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

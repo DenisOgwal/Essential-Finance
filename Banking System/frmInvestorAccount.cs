@@ -598,10 +598,16 @@ namespace Banking_System
         {
             try
             {
-                /*Left = Top = 0;
-                this.Width = Screen.PrimaryScreen.WorkingArea.Width;
-                this.Height = Screen.PrimaryScreen.WorkingArea.Height;
-                this.MaximumSize = Screen.PrimaryScreen.WorkingArea.Size;*/
+                con = new SqlConnection(cs.DBConn);
+                con.Open();
+                cmd = con.CreateCommand();
+                cmd.CommandText = "SELECT AccountName FROM InvestorAccountTypes";
+                rdr = cmd.ExecuteReader();
+                while (rdr.Read())
+                {
+                    AccountType.Items.Add(rdr[0].ToString().Trim());
+                }
+               
             }
             catch (Exception ex)
             {

@@ -164,49 +164,6 @@ namespace Banking_System
             //expenseid.Text = "";
         }
 
-        private void expenseid_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            company();
-           /* if (expenseid.Text == "")
-            {
-                MessageBox.Show("Please Select Expense ID", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                expenseid.Focus();
-                return;
-            }*/
-            try
-            {
-                Cursor = Cursors.WaitCursor;
-                timer1.Enabled = true;
-                //The report you created.
-                SqlConnection myConnection = default(SqlConnection);
-                SqlCommand MyCommand = new SqlCommand();
-                SqlDataAdapter myDA = new SqlDataAdapter();
-                DataSet myDS = new DataSet();
-                rptExpenses rpt = new rptExpenses();
-                //The DataSet you created.
-                myConnection = new SqlConnection(cs.DBConn);
-                myConnection.Open();
-                MyCommand.Connection = myConnection;
-                MyCommand.CommandText = "select Rights.StaffName,Expenses.Email,ExpenseID,Year,Months,Date,Expense, Cost,TotalPaid,Duepayment,Description,Payee,Telephone,Address,ManagerName,Comment from Expenses,Rights  where Expenses.CashierID=Rights.AuthorisationID and ExpenseID";
-                MyCommand.CommandType = CommandType.Text;
-                myDA.SelectCommand = MyCommand;
-                myDA.Fill(myDS, "Expenses");
-                myDA.Fill(myDS, "Rights");
-                rpt.SetDataSource(myDS);
-                rpt.SetParameterValue("comanyname", companyname);
-                rpt.SetParameterValue("companyemail", companyemail);
-                rpt.SetParameterValue("companycontact", companycontact);
-                rpt.SetParameterValue("companyslogan", companyslogan);
-                rpt.SetParameterValue("companyaddress", companyaddress);
-                rpt.SetParameterValue("picpath", "logo.jpg");
-                //crystalReportViewer3.ReportSource = rpt;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
         private void buttonX4_Click(object sender, EventArgs e)
         {
             crystalReportViewer1.ReportSource = null;

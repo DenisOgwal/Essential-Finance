@@ -89,7 +89,7 @@ namespace Banking_System
                     con = new SqlConnection(cs.DBConn);
                     con.Open();
                     cmd = con.CreateCommand();
-                    cmd.CommandText = "SELECT distinct RTRIM(ContactNo) FROM MemberRegistration where MemberID='" + memberid.Text + "'";
+                    cmd.CommandText = "SELECT distinct RTRIM(ContactNo) FROM Account where AccountNumber='" + memberid.Text + "'";
                     rdr = cmd.ExecuteReader();
                     if (rdr.Read())
                     {

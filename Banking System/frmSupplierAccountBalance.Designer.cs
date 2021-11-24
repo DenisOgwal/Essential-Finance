@@ -51,8 +51,6 @@
             this.label28 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.description = new System.Windows.Forms.TextBox();
-            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
-            this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
             this.reason = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
             this.transactionid = new System.Windows.Forms.ComboBox();
@@ -113,7 +111,6 @@
             this.accountnumber.Name = "accountnumber";
             this.accountnumber.Size = new System.Drawing.Size(216, 30);
             this.accountnumber.TabIndex = 20;
-            this.accountnumber.SelectedIndexChanged += new System.EventHandler(this.accountnumber_SelectedIndexChanged);
             this.accountnumber.TextChanged += new System.EventHandler(this.accountnumber_TextChanged);
             this.accountnumber.Click += new System.EventHandler(this.accountnumber_Click);
             // 
@@ -318,21 +315,6 @@
             this.description.Size = new System.Drawing.Size(274, 57);
             this.description.TabIndex = 112;
             // 
-            // printDocument1
-            // 
-            this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
-            // 
-            // printPreviewDialog1
-            // 
-            this.printPreviewDialog1.AutoScrollMargin = new System.Drawing.Size(0, 0);
-            this.printPreviewDialog1.AutoScrollMinSize = new System.Drawing.Size(0, 0);
-            this.printPreviewDialog1.ClientSize = new System.Drawing.Size(400, 300);
-            this.printPreviewDialog1.DataBindings.Add(new System.Windows.Forms.Binding("TopMost", global::Banking_System.Properties.Settings.Default, "trues", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.printPreviewDialog1.Enabled = true;
-            this.printPreviewDialog1.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog1.Icon")));
-            this.printPreviewDialog1.Name = "printPreviewDialog1";
-            this.printPreviewDialog1.Visible = false;
-            // 
             // reason
             // 
             this.reason.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
@@ -343,8 +325,7 @@
             this.reason.Name = "reason";
             this.reason.Size = new System.Drawing.Size(216, 30);
             this.reason.TabIndex = 114;
-            this.reason.SelectedIndexChanged += new System.EventHandler(this.reason_SelectedIndexChanged);
-            // 
+           
             // label9
             // 
             this.label9.AutoSize = true;
@@ -644,8 +625,6 @@
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.Label label8;
         public System.Windows.Forms.TextBox description;
-        private System.Drawing.Printing.PrintDocument printDocument1;
-        private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;

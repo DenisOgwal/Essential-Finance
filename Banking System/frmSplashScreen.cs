@@ -1,17 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
-using System.Data.SqlClient;
-using System.Security.Cryptography;
-using System.Drawing.Printing;
-using System.Globalization;
 using System.Reflection;
 namespace Banking_System
 {
@@ -54,42 +44,6 @@ namespace Banking_System
         {
             this.labelX4.Text = String.Format("Version {0}", AssemblyVersion);
             this.labelX1.Text = AssemblyCopyright;
-           
-            try
-            {
-                string fileName = "BS.MDF";
-                string fileName2 = "BS.LDF";
-                //string userName = "Denia";
-                string userName = Environment.UserName;
-                String filePath = @"\Users\" + userName + "\\Documents\\Dither Technologies";
-                DirectoryInfo di = Directory.CreateDirectory(filePath);
-
-                String filePath1 = @"\Users\" + userName + "\\Documents\\Dither Technologies\\SACCO";
-                DirectoryInfo di1 = Directory.CreateDirectory(filePath1);
-
-                // string sourceFile = Path.GetDirectoryName(Application.ExecutablePath);
-                string sourceFile = @"\Users\" + userName + "\\Desktop\\Essential Finance\\SACCO";
-                bool exists = System.IO.Directory.Exists(sourceFile);
-
-                if (exists)
-                {
-
-                    string sourceFile1 = Path.Combine(sourceFile, fileName);
-                    string destFile = Path.Combine(filePath1, fileName);
-                    File.Copy(sourceFile1, destFile, true);
-                    File.SetAttributes(destFile, FileAttributes.Normal);
-
-                    string destFile2 = Path.Combine(filePath1, fileName2);
-                    string sourceFile2 = Path.Combine(sourceFile, fileName2);
-                    File.Copy(sourceFile2, destFile2, true);
-                    File.SetAttributes(destFile2, FileAttributes.Normal);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            
             try
             {
                 
@@ -138,45 +92,30 @@ namespace Banking_System
                 try
                 {
 
-                    if (days == "1" || days == "2")
-                    {
-                        string monthlychargesetting = Properties.Settings.Default.monthlycharge;
-                        if (monthlychargesetting == "No")
+                        string autoloansoption = Properties.Settings.Default.autoloanfines;
+                        string autosavingstoloanoption = Properties.Settings.Default.autotransfer;
+                        if (autoloansoption == "Automatic")
                         {
-                            frmLogin frm = new frmLogin();
-                            frm.Show();
                             timer1.Enabled = false;
+                            FrmAutoLoanFinesWork frm = new FrmAutoLoanFinesWork();
+                            frm.Show();
                             this.Hide();
                         }
-                        else if (monthlychargesetting == "Yes")
+                       else if (autosavingstoloanoption == "Automatic")
                         {
-                       /* timer1.Enabled = false;
-                        frmmonthlydatagrid frm1 = new frmmonthlydatagrid();
-                        frm1.Show();
-                        this.Hide();*/
+                            timer1.Enabled = false;
+                            FrmAutoSavingsToLoansWork frm = new FrmAutoSavingsToLoansWork();
+                            frm.Show();
+                            this.Hide();
                         }
                         else
                         {
-                            frmLogin frm = new frmLogin();
-                            frm.Show();
                             timer1.Enabled = false;
+                            FrmInvestorDebit frm = new FrmInvestorDebit();
+                            frm.Show();
                             this.Hide();
                         }
-                    }else if (days == "3" && monthss == "12")
-                    {
-                       /* timer1.Enabled = false;
-                        frmyeardatagrid frm1 = new frmyeardatagrid();
-                        frm1.Show();
-                        this.Hide();*/
-                    }
-                    else
-                    {
-                        frmLogin frm = new frmLogin();
-                        frm.Show();
-                        timer1.Enabled = false;
-                        this.Hide();
-                    }
-                  
+
                 }
                 catch (Exception ex)
                 {
