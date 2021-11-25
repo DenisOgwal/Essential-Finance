@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
 using System.Windows.Forms;
 using Excel = Microsoft.Office.Interop.Excel;
 namespace Banking_System
 {
-    public partial class FrmSavingsRecord : Form
+    public partial class FrmInflowsRecords : Form
     {
         DataTable dtable = new DataTable();
         SqlConnection con = null;
@@ -14,24 +13,56 @@ namespace Banking_System
         SqlCommand cmd = null;
         DataTable dt = new DataTable();
         ConnectionString cs = new ConnectionString();
-        public FrmSavingsRecord()
+        public FrmInflowsRecords()
         {
             InitializeComponent();
         }
 
-        private void tabControlPanel1_Click(object sender, EventArgs e)
+        private void FrmInflowsRecords_FormClosing(object sender, FormClosingEventArgs e)
         {
-
+            this.Hide();
+            frmMainMenu frm = new frmMainMenu();
+            frm.User.Text = label1.Text;
+            frm.UserType.Text = label2.Text;
+            frm.Show();
         }
 
-        private void buttonX4_Click(object sender, EventArgs e)
+        private void FrmInflowsRecords_Load(object sender, EventArgs e)
+        {
+            Left = Top = 0;
+            this.Width = Screen.PrimaryScreen.WorkingArea.Width;
+            this.Height = Screen.PrimaryScreen.WorkingArea.Height;
+        }
+
+        private void buttonX1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                con = new SqlConnection(cs.DBConn);
+                con.Open();
+                cmd = new SqlCommand("select RTrim(PaymentID)[Payment ID], RTRIM(MemberID)[Account No.], RTRIM(Year)[Year], RTRIM(Months)[Months], RTRIM(Date)[Payment Date],RTRIM(CashierName)[Recieved By], RTRIM(FineFee)[Ammount Paid], RTRIM(Reason)[Reason]from Fines where  Date between @date1 and @date2 order by Date", con);
+                cmd.Parameters.Add("@date1", SqlDbType.DateTime, 30, "Date").Value = datefrom.Value.Date;
+                cmd.Parameters.Add("@date2", SqlDbType.DateTime, 30, "Date").Value = dateto.Value.Date;
+                SqlDataAdapter myDA = new SqlDataAdapter(cmd);
+                DataSet myDataSet = new DataSet();
+                myDA.Fill(myDataSet, "Fines");
+                dataGridView1.DataSource = myDataSet.Tables["Fines"].DefaultView;
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void buttonX3_Click(object sender, EventArgs e)
         {
             dataGridView1.DataSource = null;
-            savingsfrom.Text = DateTime.Today.ToString();
-            savingsto.Text = DateTime.Today.ToString();
+            datefrom.Text = DateTime.Today.ToString();
+            dateto.Text = DateTime.Today.ToString();
         }
 
-        private void buttonX5_Click(object sender, EventArgs e)
+        private void buttonX2_Click(object sender, EventArgs e)
         {
             if (dataGridView1.DataSource == null)
             {
@@ -88,19 +119,17 @@ namespace Banking_System
             }
         }
 
-        private void buttonX6_Click(object sender, EventArgs e)
+        private void accountsearch_TextChanged(object sender, EventArgs e)
         {
             try
             {
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
-                cmd = new SqlCommand("select RTrim(AccountNo)[Account Number], RTRIM(AccountName)[Account Names], RTRIM(Date)[Transaction Date], RTRIM(SavingsID)[Savings ID],RTRIM(Deposit)[Amount], RTRIM(Transactions)[Transaction], RTRIM(Accountbalance)[Account Balance], RTRIM(SubmittedBy)[Submitted By], RTRIM(CashierName)[Staff Name], RTRIM(ModeOfPayment)[Payment Mode] from Savings where  Date between @date1 and @date2 order by ID DESC", con);
-                cmd.Parameters.Add("@date1", SqlDbType.DateTime, 30, "Date").Value = savingsfrom.Value.Date;
-                cmd.Parameters.Add("@date2", SqlDbType.DateTime, 30, "Date").Value = savingsto.Value.Date;
+                cmd = new SqlCommand("select RTrim(PaymentID)[Payment ID], RTRIM(MemberID)[Account Number], RTRIM(Year)[Year], RTRIM(Months)[Months], RTRIM(Date)[Payment Date],RTRIM(CashierName)[Recieved By], RTRIM(FineFee)[Ammount Paid], RTRIM(Reason)[Reason] from Fines where MemberID like '" + accountsearch.Text + "%' OR Reason like '" + accountsearch.Text + "%' OR PaymentID like '" + accountsearch.Text + "%' Or FineFee like '" + accountsearch.Text + "%' order by ID Desc", con);
                 SqlDataAdapter myDA = new SqlDataAdapter(cmd);
                 DataSet myDataSet = new DataSet();
-                myDA.Fill(myDataSet, "Savings");
-                dataGridView1.DataSource = myDataSet.Tables["Savings"].DefaultView;
+                myDA.Fill(myDataSet, "Fines");
+                dataGridView1.DataSource = myDataSet.Tables["Fines"].DefaultView;
                 con.Close();
             }
             catch (Exception ex)
@@ -109,31 +138,14 @@ namespace Banking_System
             }
         }
 
-        private void SavingsSearch_TextChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                con = new SqlConnection(cs.DBConn);
-                con.Open();
-                cmd = new SqlCommand("select RTrim(AccountNo)[Account Number], RTRIM(AccountName)[Account Names], RTRIM(Date)[Transaction Date], RTRIM(SavingsID)[Savings ID],RTRIM(Deposit)[Amount], RTRIM(Transactions)[Transaction], RTRIM(Accountbalance)[Account Balance], RTRIM(SubmittedBy)[Submitted By], RTRIM(CashierName)[Staff Name], RTRIM(ModeOfPayment)[Payment Mode] from Savings where  SavingsID Like '" + SavingsSearch.Text + "%' OR AccountNo Like '" + SavingsSearch.Text + "%' OR AccountName Like '" + SavingsSearch.Text + "%' OR CashierName Like '" + SavingsSearch.Text + "%' OR Date Like '" + SavingsSearch.Text + "%' OR Deposit Like '" + SavingsSearch.Text + "%' OR Transactions Like '" + SavingsSearch.Text + "%' OR SubmittedBy Like '" + SavingsSearch.Text + "%' OR ModeOfPayment Like '" + SavingsSearch.Text + "%' OR Accountbalance Like '" + SavingsSearch.Text + "%' order by ID DESC", con);
-                SqlDataAdapter myDA = new SqlDataAdapter(cmd);
-                DataSet myDataSet = new DataSet();
-                myDA.Fill(myDataSet, "Savings");
-                dataGridView1.DataSource = myDataSet.Tables["Savings"].DefaultView;
-                con.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void buttonX7_Click(object sender, EventArgs e)
+        private void buttonX4_Click(object sender, EventArgs e)
         {
             dataGridView2.DataSource = null;
+            grantsfrom.Text = DateTime.Today.ToString();
+            grantsto.Text = DateTime.Today.ToString();
         }
 
-        private void buttonX8_Click(object sender, EventArgs e)
+        private void buttonX5_Click(object sender, EventArgs e)
         {
             if (dataGridView2.DataSource == null)
             {
@@ -190,17 +202,19 @@ namespace Banking_System
             }
         }
 
-        private void buttonX9_Click(object sender, EventArgs e)
+        private void buttonX6_Click(object sender, EventArgs e)
         {
             try
             {
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
-                cmd = new SqlCommand("select RTRIM(Savings.AccountNo)[Account Number], RTRIM(AccountName)[Account Name], RTRIM(Date)[Date],RTRIM(Accountbalance)[Account Balance] from Savings  INNER JOIN (SELECT AccountNo, Max(ID) as ID from Savings group by AccountNo) AS b ON Savings.AccountNo=b.AccountNo and Savings.ID=b.ID ", con);
+                cmd = new SqlCommand("select RTrim(PaymentID)[Payment ID], RTRIM(GrantedBy)[Granted By], RTRIM(Year)[Year], RTRIM(Months)[Months], RTRIM(Date)[Payment Date],RTRIM(CashierName)[Recieved By], RTRIM(GrantFee)[Granted Fee], RTRIM(Reason)[Reason] from GrantFees where  Date between @date1 and @date2 order by Date", con);
+                cmd.Parameters.Add("@date1", SqlDbType.DateTime, 30, "Date").Value = grantsfrom.Value.Date;
+                cmd.Parameters.Add("@date2", SqlDbType.DateTime, 30, "Date").Value = grantsto.Value.Date;
                 SqlDataAdapter myDA = new SqlDataAdapter(cmd);
                 DataSet myDataSet = new DataSet();
-                myDA.Fill(myDataSet, "Savings");
-                dataGridView2.DataSource = myDataSet.Tables["Savings"].DefaultView;
+                myDA.Fill(myDataSet, "Grantfees");
+                dataGridView2.DataSource = myDataSet.Tables["GrantFees"].DefaultView;
                 con.Close();
             }
             catch (Exception ex)
@@ -209,15 +223,35 @@ namespace Banking_System
             }
         }
 
-        private void buttonX1_Click(object sender, EventArgs e)
+        private void grantsearch_TextChanged(object sender, EventArgs e)
         {
-            dataGridView3.DataSource = null;
-            transactiontype.Text = "";
-            datefrom.Text = DateTime.Today.ToString();
-            dateto.Text = DateTime.Today.ToString();
+            try
+            {
+                con = new SqlConnection(cs.DBConn);
+                con.Open();
+                cmd = new SqlCommand("select RTrim(PaymentID)[Payment ID], RTRIM(GrantedBy)[Granted By], RTRIM(Year)[Year], RTRIM(Months)[Months], RTRIM(Date)[Payment Date],RTRIM(CashierName)[Recieved By], RTRIM(GrantFee)[Granted Fee], RTRIM(Reason)[Reason] from GrantFees where  Date like '"+ grantsearch.Text+ "%' OR GrantedBy like '" + grantsearch.Text + "%' OR PaymentID like '" + grantsearch.Text + "%' OR GrantFee like '" + grantsearch.Text + "%' OR Reason like '" + grantsearch.Text + "%' order by Date", con);
+                cmd.Parameters.Add("@date1", SqlDbType.DateTime, 30, "Date").Value = grantsfrom.Value.Date;
+                cmd.Parameters.Add("@date2", SqlDbType.DateTime, 30, "Date").Value = grantsto.Value.Date;
+                SqlDataAdapter myDA = new SqlDataAdapter(cmd);
+                DataSet myDataSet = new DataSet();
+                myDA.Fill(myDataSet, "Grantfees");
+                dataGridView2.DataSource = myDataSet.Tables["GrantFees"].DefaultView;
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
-        private void buttonX2_Click(object sender, EventArgs e)
+        private void buttonX7_Click(object sender, EventArgs e)
+        {
+            dataGridView3.DataSource = null;
+            othersfrom.Text = DateTime.Today.ToString();
+            othersto.Text = DateTime.Today.ToString();
+        }
+
+        private void buttonX8_Click(object sender, EventArgs e)
         {
             if (dataGridView3.DataSource == null)
             {
@@ -274,19 +308,19 @@ namespace Banking_System
             }
         }
 
-        private void buttonX3_Click(object sender, EventArgs e)
+        private void buttonX9_Click(object sender, EventArgs e)
         {
             try
             {
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
-                cmd = new SqlCommand("select RTrim(AccountNo)[Account Number], RTRIM(AccountName)[Account Names], RTRIM(Date)[Transaction Date], RTRIM(SavingsID)[Savings ID],RTRIM(Deposit)[Amount], RTRIM(Transactions)[Transaction], RTRIM(Accountbalance)[Account Balance], RTRIM(SubmittedBy)[Submitted By], RTRIM(CashierName)[Staff Name], RTRIM(ModeOfPayment)[Payment Mode] from Savings where  Date between @date1 and @date2 and Transactions='"+transactiontype.Text+"' order by ID DESC", con);
-                cmd.Parameters.Add("@date1", SqlDbType.DateTime, 30, "Date").Value = datefrom.Value.Date;
-                cmd.Parameters.Add("@date2", SqlDbType.DateTime, 30, "Date").Value = dateto.Value.Date;
+                cmd = new SqlCommand("select RTRIM(Comment)[Comment], RTRIM(PaymentID)[Income ID], RTRIM(CashierName)[Cashier Name],RTRIM(Year)[Year], RTRIM(Months)[Months], RTRIM(Date)[Date],RTRIM(Income)[Paid For],RTRIM(OtherFee)[Total Paid],RTRIM(Reason)[Reason], RTRIM(PaidBy)[Paid By],RTRIM(Telephone)[Telephone No. ], RTRIM(Address)[ Address] from OtherIncomes where Date between @date1 and @date2 order by ID DESC", con);
+                cmd.Parameters.Add("@date1", SqlDbType.DateTime, 30, " Date").Value =othersfrom.Value.Date;
+                cmd.Parameters.Add("@date2", SqlDbType.DateTime, 30, " Date").Value = othersto.Value.Date;
                 SqlDataAdapter myDA = new SqlDataAdapter(cmd);
                 DataSet myDataSet = new DataSet();
-                myDA.Fill(myDataSet, "Savings");
-                dataGridView3.DataSource = myDataSet.Tables["Savings"].DefaultView;
+                myDA.Fill(myDataSet, "OtherIncomes");
+                dataGridView3.DataSource = myDataSet.Tables["OtherIncomes"].DefaultView;
                 con.Close();
             }
             catch (Exception ex)
@@ -295,40 +329,25 @@ namespace Banking_System
             }
         }
 
-        private void FrmSavingsRecord_Load(object sender, EventArgs e)
+        private void otherssearch_TextChanged(object sender, EventArgs e)
         {
-            Left = Top = 0;
-            this.Width = Screen.PrimaryScreen.WorkingArea.Width;
-            this.Height = Screen.PrimaryScreen.WorkingArea.Height;
-            this.MaximumSize = Screen.PrimaryScreen.WorkingArea.Size;
-
             try
             {
-                SqlDataReader rdr = null;
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
-                string ct2 = "select Distinct Transactions from Savings";
-                cmd = new SqlCommand(ct2);
-                cmd.Connection = con;
-                rdr = cmd.ExecuteReader();
-                while (rdr.Read())
-                {
-                    transactiontype.Items.Add(rdr[0].ToString().Trim());
-                }
+                cmd = new SqlCommand("select RTRIM(Comment)[Comment], RTRIM(PaymentID)[Income ID], RTRIM(CashierName)[Cashier Name],RTRIM(Year)[Year], RTRIM(Months)[Months], RTRIM(Date)[Date],RTRIM(Income)[Paid For],RTRIM(OtherFee)[Total Paid],RTRIM(Reason)[Reason], RTRIM(PaidBy)[Paid By],RTRIM(Telephone)[Telephone No. ], RTRIM(Address)[ Address] from OtherIncomes where Date like '"+otherssearch.Text+ "%' OR PaymentID like '" + otherssearch.Text + "%' OR PaidBy like '" + otherssearch.Text + "%' OR Telephone like '" + otherssearch.Text + "%' OR Comment like '" + otherssearch.Text + "%' OR Reason like '" + otherssearch.Text + "%' OR Months like '" + otherssearch.Text + "%' OR OtherFee like '" + otherssearch.Text + "%' order by ID DESC", con);
+                cmd.Parameters.Add("@date1", SqlDbType.DateTime, 30, " Date").Value = othersfrom.Value.Date;
+                cmd.Parameters.Add("@date2", SqlDbType.DateTime, 30, " Date").Value = othersto.Value.Date;
+                SqlDataAdapter myDA = new SqlDataAdapter(cmd);
+                DataSet myDataSet = new DataSet();
+                myDA.Fill(myDataSet, "OtherIncomes");
+                dataGridView3.DataSource = myDataSet.Tables["OtherIncomes"].DefaultView;
+                con.Close();
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }
-
-        private void FrmSavingsRecord_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            this.Hide();
-            frmMainMenu frm = new frmMainMenu();
-            frm.User.Text = label1.Text;
-            frm.UserType.Text = label2.Text;
-            frm.Show();
         }
     }
 }

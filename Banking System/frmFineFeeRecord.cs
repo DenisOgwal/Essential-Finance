@@ -27,7 +27,7 @@ namespace Banking_System
             {
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
-                cmd = new SqlCommand("select RTrim(PaymentID)[Payment ID], RTRIM(MemberID)[Member ID], RTRIM(Year)[Year], RTRIM(Months)[Months], RTRIM(Date)[Payment Date],RTRIM(CashierName)[Recieved By], RTRIM(FineFee)[Ammount Paid], RTRIM(Reason)[Reason]from Fines where MemberID= '" + cmbStaffName.Text + "' order by ID Desc", con);
+                cmd = new SqlCommand("select RTrim(PaymentID)[Payment ID], RTRIM(MemberID)[Account Number], RTRIM(Year)[Year], RTRIM(Months)[Months], RTRIM(Date)[Payment Date],RTRIM(CashierName)[Recieved By], RTRIM(FineFee)[Ammount Paid], RTRIM(Reason)[Reason] from Fines where MemberID= '" + cmbStaffName.Text + "' order by ID Desc", con);
                 SqlDataAdapter myDA = new SqlDataAdapter(cmd);
                 DataSet myDataSet = new DataSet();
                 myDA.Fill(myDataSet, "Fines");

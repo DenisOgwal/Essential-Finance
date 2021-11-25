@@ -389,31 +389,12 @@ namespace Banking_System
             frm.label2.Text = UserType.Text;
             frm.Show();
         }
-
-        private void recordreglink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            this.Hide();
-            frmMemberRegistrationRecord frm = new frmMemberRegistrationRecord();
-            frm.label5.Text = User.Text;
-            frm.label8.Text = UserType.Text;
-            frm.Show();
-        }
-
         private void recordpaylink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             this.Hide();
             frmSalaryPaymentRecord frm = new frmSalaryPaymentRecord();
             frm.label4.Text = User.Text;
             frm.label5.Text = UserType.Text;
-            frm.Show();
-        }
-
-        private void recordreffflink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            this.Hide();
-            frmSavingsRecord frm = new frmSavingsRecord();
-            frm.label1.Text = User.Text;
-            frm.label2.Text = UserType.Text;
             frm.Show();
         }
 
@@ -2078,6 +2059,126 @@ namespace Banking_System
         private void buttonItem40_Click(object sender, EventArgs e)
         {
             frmInvestorAccountTypes frm = new frmInvestorAccountTypes();
+            frm.ShowDialog();
+        }
+
+        private void buttonX5_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FrmAccountRecords frm = new FrmAccountRecords();
+            frm.label1.Text = User.Text;
+            frm.label2.Text = UserType.Text;
+            frm.Show();
+        }
+
+        private void buttonX6_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FrmSavingsRecord frm = new FrmSavingsRecord();
+            frm.label1.Text = User.Text;
+            frm.label2.Text = UserType.Text;
+            frm.Show();
+        }
+
+        private void buttonX7_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FrmLoanRecords frm = new FrmLoanRecords();
+            frm.label1.Text = User.Text;
+            frm.label2.Text = UserType.Text;
+            frm.Show();
+        }
+
+        private void buttonX9_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FrmExternalBorrowingRecord frm = new FrmExternalBorrowingRecord();
+            frm.label1.Text = User.Text;
+            frm.label2.Text = UserType.Text;
+            frm.Show();
+        }
+
+        private void buttonX10_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FrmInvestorRecords frm = new FrmInvestorRecords();
+            frm.label1.Text = User.Text;
+            frm.label2.Text = User.Text;
+            frm.Show();
+        }
+
+        private void buttonX11_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FrmInflowsRecords frm = new FrmInflowsRecords();
+            frm.label1.Text = User.Text;
+            frm.label2.Text = User.Text;
+            frm.Show();
+        }
+
+        private void buttonX12_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FrmOutflowsRecords frm = new FrmOutflowsRecords();
+            frm.label1.Text = User.Text;
+            frm.label2.Text = User.Text;
+            frm.Show();
+        }
+
+        private void buttonX13_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FrmHRRecords frm = new FrmHRRecords();
+            frm.label1.Text = User.Text;
+            frm.label2.Text = User.Text;
+            frm.Show();
+        }
+
+        private void landTitleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmLandTitle frm = new FrmLandTitle();
+            frm.label1.Text = User.Text;
+            frm.label2.Text = UserType.Text;
+            frm.ShowDialog();
+        }
+
+        private void kibanjaPropertyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmKibanjaProperty frm = new FrmKibanjaProperty();
+            frm.label1.Text = User.Text;
+            frm.label2.Text = UserType.Text;
+            frm.ShowDialog();
+        }
+
+        private void salaryToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmSalaryEarners frm = new FrmSalaryEarners();
+            frm.label1.Text = User.Text;
+            frm.label2.Text = UserType.Text;
+            frm.ShowDialog();
+        }
+
+        private void rideToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmRide frm = new FrmRide();
+            frm.label1.Text = User.Text;
+            frm.label2.Text = UserType.Text;
+            frm.ShowDialog();
+        }
+
+        private void businessCompanyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmBusiness frm = new FrmBusiness();
+            frm.label1.Text = User.Text;
+            frm.label2.Text = UserType.Text;
+            frm.ShowDialog();
+        }
+
+        private void assetToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmAssets frm = new FrmAssets();
+            frm.label1.Text = User.Text;
+            frm.label2.Text = UserType.Text;
             frm.ShowDialog();
         }
     }
