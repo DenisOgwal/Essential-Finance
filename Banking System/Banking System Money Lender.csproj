@@ -680,12 +680,6 @@
     <Compile Include="frmLoanInsurance.Designer.cs">
       <DependentUpon>frmLoanInsurance.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmFormPassBookLedger.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmFormPassBookLedger.Designer.cs">
-      <DependentUpon>frmFormPassBookLedger.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmExpensesType.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1604,9 +1598,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmLoanInsurance.resx">
       <DependentUpon>frmLoanInsurance.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmFormPassBookLedger.resx">
-      <DependentUpon>frmFormPassBookLedger.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmExpensesType.resx">
       <DependentUpon>frmExpensesType.cs</DependentUpon>

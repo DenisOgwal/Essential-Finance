@@ -100,7 +100,11 @@
             // 
             this.groupPanel1.CanvasColor = System.Drawing.SystemColors.Control;
             this.groupPanel1.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
+            this.groupPanel1.Controls.Add(this.label12);
+            this.groupPanel1.Controls.Add(this.label11);
             this.groupPanel1.Controls.Add(this.txtTotalPaid);
+            this.groupPanel1.Controls.Add(this.label7);
+            this.groupPanel1.Controls.Add(this.label1);
             this.groupPanel1.Controls.Add(this.staffname);
             this.groupPanel1.Controls.Add(this.labelX3);
             this.groupPanel1.Controls.Add(this.staffid);
@@ -523,7 +527,7 @@
             this.groupPanel5.Controls.Add(this.buttonX2);
             this.groupPanel5.Location = new System.Drawing.Point(775, 66);
             this.groupPanel5.Name = "groupPanel5";
-            this.groupPanel5.Size = new System.Drawing.Size(179, 307);
+            this.groupPanel5.Size = new System.Drawing.Size(179, 500);
             // 
             // 
             // 
@@ -561,11 +565,11 @@
             // 
             this.buttonX5.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.buttonX5.Enabled = false;
-            this.buttonX5.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonX5.Font = new System.Drawing.Font("Palatino Linotype", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonX5.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.buttonX5.Location = new System.Drawing.Point(16, 217);
+            this.buttonX5.Location = new System.Drawing.Point(16, 381);
             this.buttonX5.Name = "buttonX5";
-            this.buttonX5.Size = new System.Drawing.Size(136, 55);
+            this.buttonX5.Size = new System.Drawing.Size(136, 103);
             this.buttonX5.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.buttonX5.TabIndex = 3;
             this.buttonX5.Text = "&Update";
@@ -575,11 +579,11 @@
             // 
             this.buttonX4.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.buttonX4.Enabled = false;
-            this.buttonX4.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonX4.Font = new System.Drawing.Font("Palatino Linotype", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonX4.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.buttonX4.Location = new System.Drawing.Point(16, 156);
+            this.buttonX4.Location = new System.Drawing.Point(16, 262);
             this.buttonX4.Name = "buttonX4";
-            this.buttonX4.Size = new System.Drawing.Size(136, 55);
+            this.buttonX4.Size = new System.Drawing.Size(136, 98);
             this.buttonX4.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.buttonX4.TabIndex = 2;
             this.buttonX4.Text = "&Delete";
@@ -588,11 +592,11 @@
             // buttonX3
             // 
             this.buttonX3.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.buttonX3.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonX3.Font = new System.Drawing.Font("Palatino Linotype", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonX3.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.buttonX3.Location = new System.Drawing.Point(16, 86);
+            this.buttonX3.Location = new System.Drawing.Point(16, 142);
             this.buttonX3.Name = "buttonX3";
-            this.buttonX3.Size = new System.Drawing.Size(136, 60);
+            this.buttonX3.Size = new System.Drawing.Size(136, 103);
             this.buttonX3.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.buttonX3.TabIndex = 1;
             this.buttonX3.Text = "&Save";
@@ -601,11 +605,11 @@
             // buttonX2
             // 
             this.buttonX2.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.buttonX2.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonX2.Font = new System.Drawing.Font("Palatino Linotype", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonX2.ForeColor = System.Drawing.SystemColors.ControlText;
             this.buttonX2.Location = new System.Drawing.Point(16, 26);
             this.buttonX2.Name = "buttonX2";
-            this.buttonX2.Size = new System.Drawing.Size(136, 54);
+            this.buttonX2.Size = new System.Drawing.Size(136, 97);
             this.buttonX2.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.buttonX2.TabIndex = 0;
             this.buttonX2.Text = "&New";
@@ -703,7 +707,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(810, 531);
+            this.label11.Location = new System.Drawing.Point(646, 36);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(41, 13);
             this.label11.TabIndex = 67;
@@ -787,7 +791,7 @@
             this.label12.AutoSize = true;
             this.label12.BackColor = System.Drawing.Color.Transparent;
             this.label12.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label12.Location = new System.Drawing.Point(859, 376);
+            this.label12.Location = new System.Drawing.Point(627, 11);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(41, 13);
             this.label12.TabIndex = 72;
@@ -799,7 +803,7 @@
             this.label7.AutoSize = true;
             this.label7.BackColor = System.Drawing.Color.Transparent;
             this.label7.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label7.Location = new System.Drawing.Point(819, 376);
+            this.label7.Location = new System.Drawing.Point(587, 11);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(35, 13);
             this.label7.TabIndex = 71;
@@ -809,7 +813,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(833, 376);
+            this.label1.Location = new System.Drawing.Point(601, 11);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(35, 13);
             this.label1.TabIndex = 73;
@@ -823,11 +827,7 @@
             this.BackColor = global::Banking_System.Properties.Settings.Default.usercolor;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(981, 621);
-            this.Controls.Add(this.label12);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.ribbonClientPanel1);
-            this.Controls.Add(this.label11);
             this.Controls.Add(this.groupPanel6);
             this.Controls.Add(this.groupPanel5);
             this.Controls.Add(this.groupPanel4);

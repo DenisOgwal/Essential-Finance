@@ -351,7 +351,7 @@
             this.groupPanel2.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.groupPanel2.TabIndex = 8;
             this.groupPanel2.Text = "Equipment Details";
-           
+            // 
             // totalcost
             // 
             // 
@@ -536,7 +536,7 @@
             this.labelX20.Size = new System.Drawing.Size(117, 23);
             this.labelX20.TabIndex = 34;
             this.labelX20.Text = "Descriptions";
-            
+            // 
             // model
             // 
             this.model.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -663,9 +663,9 @@
             this.groupPanel4.Controls.Add(this.buttonX4);
             this.groupPanel4.Controls.Add(this.buttonX3);
             this.groupPanel4.Controls.Add(this.buttonX2);
-            this.groupPanel4.Location = new System.Drawing.Point(858, 15);
+            this.groupPanel4.Location = new System.Drawing.Point(858, 6);
             this.groupPanel4.Name = "groupPanel4";
-            this.groupPanel4.Size = new System.Drawing.Size(140, 329);
+            this.groupPanel4.Size = new System.Drawing.Size(140, 377);
             // 
             // 
             // 
@@ -702,10 +702,10 @@
             // buttonX7
             // 
             this.buttonX7.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.buttonX7.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonX7.Location = new System.Drawing.Point(17, 264);
+            this.buttonX7.Font = new System.Drawing.Font("Palatino Linotype", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonX7.Location = new System.Drawing.Point(3, 311);
             this.buttonX7.Name = "buttonX7";
-            this.buttonX7.Size = new System.Drawing.Size(95, 52);
+            this.buttonX7.Size = new System.Drawing.Size(128, 57);
             this.buttonX7.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.buttonX7.TabIndex = 7;
             this.buttonX7.Text = "&Report";
@@ -715,10 +715,10 @@
             // 
             this.buttonX6.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.buttonX6.Enabled = false;
-            this.buttonX6.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonX6.Location = new System.Drawing.Point(17, 210);
+            this.buttonX6.Font = new System.Drawing.Font("Palatino Linotype", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonX6.Location = new System.Drawing.Point(3, 247);
             this.buttonX6.Name = "buttonX6";
-            this.buttonX6.Size = new System.Drawing.Size(95, 48);
+            this.buttonX6.Size = new System.Drawing.Size(128, 58);
             this.buttonX6.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.buttonX6.TabIndex = 4;
             this.buttonX6.Text = "&Get Details";
@@ -728,10 +728,10 @@
             // 
             this.buttonX5.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.buttonX5.Enabled = false;
-            this.buttonX5.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonX5.Location = new System.Drawing.Point(17, 154);
+            this.buttonX5.Font = new System.Drawing.Font("Palatino Linotype", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonX5.Location = new System.Drawing.Point(3, 182);
             this.buttonX5.Name = "buttonX5";
-            this.buttonX5.Size = new System.Drawing.Size(95, 50);
+            this.buttonX5.Size = new System.Drawing.Size(128, 57);
             this.buttonX5.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.buttonX5.TabIndex = 3;
             this.buttonX5.Text = "&Update";
@@ -741,10 +741,10 @@
             // 
             this.buttonX4.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.buttonX4.Enabled = false;
-            this.buttonX4.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonX4.Location = new System.Drawing.Point(17, 102);
+            this.buttonX4.Font = new System.Drawing.Font("Palatino Linotype", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonX4.Location = new System.Drawing.Point(3, 122);
             this.buttonX4.Name = "buttonX4";
-            this.buttonX4.Size = new System.Drawing.Size(95, 46);
+            this.buttonX4.Size = new System.Drawing.Size(128, 53);
             this.buttonX4.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.buttonX4.TabIndex = 2;
             this.buttonX4.Text = "&Delete";
@@ -753,10 +753,10 @@
             // buttonX3
             // 
             this.buttonX3.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.buttonX3.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonX3.Location = new System.Drawing.Point(17, 54);
+            this.buttonX3.Font = new System.Drawing.Font("Palatino Linotype", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonX3.Location = new System.Drawing.Point(3, 65);
             this.buttonX3.Name = "buttonX3";
-            this.buttonX3.Size = new System.Drawing.Size(95, 42);
+            this.buttonX3.Size = new System.Drawing.Size(128, 51);
             this.buttonX3.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.buttonX3.TabIndex = 22;
             this.buttonX3.Text = "&Save";
@@ -765,10 +765,10 @@
             // buttonX2
             // 
             this.buttonX2.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.buttonX2.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonX2.Location = new System.Drawing.Point(17, 3);
+            this.buttonX2.Font = new System.Drawing.Font("Palatino Linotype", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonX2.Location = new System.Drawing.Point(3, 3);
             this.buttonX2.Name = "buttonX2";
-            this.buttonX2.Size = new System.Drawing.Size(95, 45);
+            this.buttonX2.Size = new System.Drawing.Size(128, 56);
             this.buttonX2.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.buttonX2.TabIndex = 0;
             this.buttonX2.Text = "&New";

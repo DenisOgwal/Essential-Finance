@@ -126,5 +126,13 @@ namespace Banking_System
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void LoanID_Click(object sender, EventArgs e)
+        {
+            frmClientDetails4 frm = new frmClientDetails4();
+            frm.ShowDialog();
+            this.LoanID.Text = frm.LoanID.Text;
+            return;
+        }
     }
 }

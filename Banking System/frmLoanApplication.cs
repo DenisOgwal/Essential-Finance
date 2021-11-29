@@ -273,7 +273,7 @@ namespace Banking_System
                     collateralsuccess = frm.label10.Text;
                     if (collateralsuccess == "1")
                     {
-                        MessageBox.Show("Successful", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        InsertApplication();
                     }
                     else
                     {

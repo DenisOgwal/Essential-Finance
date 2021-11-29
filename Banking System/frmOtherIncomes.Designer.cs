@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmOtherIncomes));
             this.groupPanel1 = new DevComponents.DotNetBar.Controls.GroupPanel();
             this.cmbModeOfPayment = new System.Windows.Forms.ComboBox();
@@ -673,14 +673,14 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridViewX1.BackgroundColor = global::Banking_System.Properties.Settings.Default.usercolor;
             this.dataGridViewX1.DataBindings.Add(new System.Windows.Forms.Binding("BackgroundColor", global::Banking_System.Properties.Settings.Default, "usercolor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewX1.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewX1.DefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewX1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(213)))), ((int)(((byte)(245)))));
             this.dataGridViewX1.Location = new System.Drawing.Point(3, 83);
             this.dataGridViewX1.Name = "dataGridViewX1";
@@ -915,7 +915,7 @@
             this.groupPanel5.Controls.Add(this.buttonX6);
             this.groupPanel5.Location = new System.Drawing.Point(3, 3);
             this.groupPanel5.Name = "groupPanel5";
-            this.groupPanel5.Size = new System.Drawing.Size(475, 74);
+            this.groupPanel5.Size = new System.Drawing.Size(529, 74);
             // 
             // 
             // 
@@ -952,11 +952,11 @@
             // buttonX7
             // 
             this.buttonX7.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.buttonX7.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonX7.Font = new System.Drawing.Font("Palatino Linotype", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonX7.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.buttonX7.Location = new System.Drawing.Point(373, 14);
+            this.buttonX7.Location = new System.Drawing.Point(424, 3);
             this.buttonX7.Name = "buttonX7";
-            this.buttonX7.Size = new System.Drawing.Size(75, 42);
+            this.buttonX7.Size = new System.Drawing.Size(91, 63);
             this.buttonX7.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.buttonX7.TabIndex = 4;
             this.buttonX7.Text = "Print";
@@ -966,11 +966,11 @@
             // 
             this.buttonX4.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.buttonX4.Enabled = false;
-            this.buttonX4.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonX4.Font = new System.Drawing.Font("Palatino Linotype", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonX4.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.buttonX4.Location = new System.Drawing.Point(292, 14);
+            this.buttonX4.Location = new System.Drawing.Point(320, 3);
             this.buttonX4.Name = "buttonX4";
-            this.buttonX4.Size = new System.Drawing.Size(75, 42);
+            this.buttonX4.Size = new System.Drawing.Size(98, 63);
             this.buttonX4.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.buttonX4.TabIndex = 3;
             this.buttonX4.Text = "&Update";
@@ -980,11 +980,11 @@
             // 
             this.buttonX3.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.buttonX3.Enabled = false;
-            this.buttonX3.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonX3.Font = new System.Drawing.Font("Palatino Linotype", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonX3.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.buttonX3.Location = new System.Drawing.Point(207, 14);
+            this.buttonX3.Location = new System.Drawing.Point(219, 3);
             this.buttonX3.Name = "buttonX3";
-            this.buttonX3.Size = new System.Drawing.Size(75, 43);
+            this.buttonX3.Size = new System.Drawing.Size(95, 64);
             this.buttonX3.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.buttonX3.TabIndex = 2;
             this.buttonX3.Text = "&Delete";
@@ -993,11 +993,11 @@
             // buttonX5
             // 
             this.buttonX5.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.buttonX5.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonX5.Font = new System.Drawing.Font("Palatino Linotype", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonX5.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.buttonX5.Location = new System.Drawing.Point(117, 14);
+            this.buttonX5.Location = new System.Drawing.Point(117, 3);
             this.buttonX5.Name = "buttonX5";
-            this.buttonX5.Size = new System.Drawing.Size(75, 42);
+            this.buttonX5.Size = new System.Drawing.Size(96, 63);
             this.buttonX5.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.buttonX5.TabIndex = 1;
             this.buttonX5.Text = "&Save";
@@ -1006,11 +1006,11 @@
             // buttonX6
             // 
             this.buttonX6.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.buttonX6.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonX6.Font = new System.Drawing.Font("Palatino Linotype", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonX6.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.buttonX6.Location = new System.Drawing.Point(26, 14);
+            this.buttonX6.Location = new System.Drawing.Point(16, 3);
             this.buttonX6.Name = "buttonX6";
-            this.buttonX6.Size = new System.Drawing.Size(75, 43);
+            this.buttonX6.Size = new System.Drawing.Size(95, 64);
             this.buttonX6.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.buttonX6.TabIndex = 0;
             this.buttonX6.Text = "&New";

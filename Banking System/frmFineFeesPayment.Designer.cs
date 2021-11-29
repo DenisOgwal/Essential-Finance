@@ -695,7 +695,7 @@
             this.buttonX6.Size = new System.Drawing.Size(136, 77);
             this.buttonX6.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.buttonX6.TabIndex = 4;
-            this.buttonX6.Text = "&Payment Slip";
+            this.buttonX6.Text = "&Slip";
             this.buttonX6.Click += new System.EventHandler(this.buttonX6_Click);
             // 
             // buttonX5

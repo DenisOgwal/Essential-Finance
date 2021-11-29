@@ -13,7 +13,6 @@ namespace Banking_System
         SqlCommand cmd = null;
         DataTable dt = new DataTable();
         ConnectionString cs = new ConnectionString();
-        SqlDataAdapter adp;
         public FrmOutflowsRecords()
         {
             InitializeComponent();

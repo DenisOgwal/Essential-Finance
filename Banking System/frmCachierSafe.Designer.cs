@@ -70,16 +70,6 @@
             this.dataGridViewX1 = new DevComponents.DotNetBar.Controls.DataGridViewX();
             this.groupPanel4 = new DevComponents.DotNetBar.Controls.GroupPanel();
             this.tabControl1 = new DevComponents.DotNetBar.TabControl();
-            this.tabControlPanel2 = new DevComponents.DotNetBar.TabControlPanel();
-            this.transactionid = new DevComponents.DotNetBar.Controls.ComboBoxEx();
-            this.memberid2 = new DevComponents.DotNetBar.Controls.ComboBoxEx();
-            this.labelX8 = new DevComponents.DotNetBar.LabelX();
-            this.buttonX9 = new DevComponents.DotNetBar.ButtonX();
-            this.buttonX10 = new DevComponents.DotNetBar.ButtonX();
-            this.membername2 = new System.Windows.Forms.TextBox();
-            this.labelX6 = new DevComponents.DotNetBar.LabelX();
-            this.labelX7 = new DevComponents.DotNetBar.LabelX();
-            this.tabItem2 = new DevComponents.DotNetBar.TabItem(this.components);
             this.tabControlPanel1 = new DevComponents.DotNetBar.TabControlPanel();
             this.memberid1 = new DevComponents.DotNetBar.Controls.ComboBoxEx();
             this.buttonX7 = new DevComponents.DotNetBar.ButtonX();
@@ -92,6 +82,16 @@
             this.Dateto = new System.Windows.Forms.DateTimePicker();
             this.labelX2 = new DevComponents.DotNetBar.LabelX();
             this.tabItem1 = new DevComponents.DotNetBar.TabItem(this.components);
+            this.tabControlPanel2 = new DevComponents.DotNetBar.TabControlPanel();
+            this.transactionid = new DevComponents.DotNetBar.Controls.ComboBoxEx();
+            this.memberid2 = new DevComponents.DotNetBar.Controls.ComboBoxEx();
+            this.labelX8 = new DevComponents.DotNetBar.LabelX();
+            this.buttonX9 = new DevComponents.DotNetBar.ButtonX();
+            this.buttonX10 = new DevComponents.DotNetBar.ButtonX();
+            this.membername2 = new System.Windows.Forms.TextBox();
+            this.labelX6 = new DevComponents.DotNetBar.LabelX();
+            this.labelX7 = new DevComponents.DotNetBar.LabelX();
+            this.tabItem2 = new DevComponents.DotNetBar.TabItem(this.components);
             this.groupPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cashoutflow)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cashinflow)).BeginInit();
@@ -102,8 +102,8 @@
             this.groupPanel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tabControl1)).BeginInit();
             this.tabControl1.SuspendLayout();
-            this.tabControlPanel2.SuspendLayout();
             this.tabControlPanel1.SuspendLayout();
+            this.tabControlPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupPanel3
@@ -589,9 +589,9 @@
             this.groupPanel1.Controls.Add(this.buttonX4);
             this.groupPanel1.Controls.Add(this.buttonX3);
             this.groupPanel1.Controls.Add(this.buttonX2);
-            this.groupPanel1.Location = new System.Drawing.Point(608, 12);
+            this.groupPanel1.Location = new System.Drawing.Point(585, 12);
             this.groupPanel1.Name = "groupPanel1";
-            this.groupPanel1.Size = new System.Drawing.Size(369, 76);
+            this.groupPanel1.Size = new System.Drawing.Size(409, 76);
             // 
             // 
             // 
@@ -638,10 +638,11 @@
             // buttonX6
             // 
             this.buttonX6.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.buttonX6.Font = new System.Drawing.Font("Palatino Linotype", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonX6.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.buttonX6.Location = new System.Drawing.Point(250, 10);
+            this.buttonX6.Location = new System.Drawing.Point(273, 3);
             this.buttonX6.Name = "buttonX6";
-            this.buttonX6.Size = new System.Drawing.Size(102, 43);
+            this.buttonX6.Size = new System.Drawing.Size(125, 64);
             this.buttonX6.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.buttonX6.TabIndex = 4;
             this.buttonX6.Text = "&Export to Excel";
@@ -661,10 +662,11 @@
             // 
             this.buttonX4.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.buttonX4.Enabled = false;
+            this.buttonX4.Font = new System.Drawing.Font("Palatino Linotype", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonX4.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.buttonX4.Location = new System.Drawing.Point(169, 10);
+            this.buttonX4.Location = new System.Drawing.Point(182, 3);
             this.buttonX4.Name = "buttonX4";
-            this.buttonX4.Size = new System.Drawing.Size(75, 43);
+            this.buttonX4.Size = new System.Drawing.Size(84, 64);
             this.buttonX4.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.buttonX4.TabIndex = 2;
             this.buttonX4.Text = "&Delete";
@@ -674,10 +676,11 @@
             // 
             this.buttonX3.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.buttonX3.Enabled = false;
+            this.buttonX3.Font = new System.Drawing.Font("Palatino Linotype", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonX3.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.buttonX3.Location = new System.Drawing.Point(88, 10);
+            this.buttonX3.Location = new System.Drawing.Point(88, 3);
             this.buttonX3.Name = "buttonX3";
-            this.buttonX3.Size = new System.Drawing.Size(75, 43);
+            this.buttonX3.Size = new System.Drawing.Size(88, 64);
             this.buttonX3.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.buttonX3.TabIndex = 1;
             this.buttonX3.Text = "&Save";
@@ -686,10 +689,11 @@
             // buttonX2
             // 
             this.buttonX2.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.buttonX2.Font = new System.Drawing.Font("Palatino Linotype", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonX2.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.buttonX2.Location = new System.Drawing.Point(7, 10);
+            this.buttonX2.Location = new System.Drawing.Point(7, 3);
             this.buttonX2.Name = "buttonX2";
-            this.buttonX2.Size = new System.Drawing.Size(75, 43);
+            this.buttonX2.Size = new System.Drawing.Size(75, 64);
             this.buttonX2.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.buttonX2.TabIndex = 0;
             this.buttonX2.Text = "&New";
@@ -825,149 +829,6 @@
             this.tabControl1.Tabs.Add(this.tabItem1);
             this.tabControl1.Tabs.Add(this.tabItem2);
             this.tabControl1.Text = "tabControl1";
-            // 
-            // tabControlPanel2
-            // 
-            this.tabControlPanel2.Controls.Add(this.transactionid);
-            this.tabControlPanel2.Controls.Add(this.memberid2);
-            this.tabControlPanel2.Controls.Add(this.labelX8);
-            this.tabControlPanel2.Controls.Add(this.buttonX9);
-            this.tabControlPanel2.Controls.Add(this.buttonX10);
-            this.tabControlPanel2.Controls.Add(this.membername2);
-            this.tabControlPanel2.Controls.Add(this.labelX6);
-            this.tabControlPanel2.Controls.Add(this.labelX7);
-            this.tabControlPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControlPanel2.Location = new System.Drawing.Point(0, 28);
-            this.tabControlPanel2.Name = "tabControlPanel2";
-            this.tabControlPanel2.Padding = new System.Windows.Forms.Padding(1);
-            this.tabControlPanel2.Size = new System.Drawing.Size(405, 141);
-            this.tabControlPanel2.Style.BackColor1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(179)))), ((int)(((byte)(231)))));
-            this.tabControlPanel2.Style.BackColor2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(237)))), ((int)(((byte)(254)))));
-            this.tabControlPanel2.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
-            this.tabControlPanel2.Style.BorderColor.Color = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(97)))), ((int)(((byte)(156)))));
-            this.tabControlPanel2.Style.BorderSide = ((DevComponents.DotNetBar.eBorderSide)(((DevComponents.DotNetBar.eBorderSide.Left | DevComponents.DotNetBar.eBorderSide.Right) 
-            | DevComponents.DotNetBar.eBorderSide.Bottom)));
-            this.tabControlPanel2.Style.GradientAngle = 90;
-            this.tabControlPanel2.TabIndex = 2;
-            this.tabControlPanel2.TabItem = this.tabItem2;
-            // 
-            // transactionid
-            // 
-            this.transactionid.DisplayMember = "Text";
-            this.transactionid.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.transactionid.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.transactionid.FormattingEnabled = true;
-            this.transactionid.ItemHeight = 23;
-            this.transactionid.Location = new System.Drawing.Point(150, 105);
-            this.transactionid.Name = "transactionid";
-            this.transactionid.Size = new System.Drawing.Size(164, 29);
-            this.transactionid.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.transactionid.TabIndex = 41;
-            this.transactionid.SelectedIndexChanged += new System.EventHandler(this.transactionid_SelectedIndexChanged);
-            // 
-            // memberid2
-            // 
-            this.memberid2.DisplayMember = "Text";
-            this.memberid2.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.memberid2.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.memberid2.FormattingEnabled = true;
-            this.memberid2.ItemHeight = 23;
-            this.memberid2.Location = new System.Drawing.Point(150, 12);
-            this.memberid2.Name = "memberid2";
-            this.memberid2.Size = new System.Drawing.Size(164, 29);
-            this.memberid2.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.memberid2.TabIndex = 40;
-            this.memberid2.SelectedIndexChanged += new System.EventHandler(this.memberid2_SelectedIndexChanged);
-            // 
-            // labelX8
-            // 
-            this.labelX8.BackColor = System.Drawing.Color.Transparent;
-            // 
-            // 
-            // 
-            this.labelX8.BackgroundStyle.Class = "";
-            this.labelX8.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX8.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelX8.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.labelX8.Location = new System.Drawing.Point(27, 105);
-            this.labelX8.Name = "labelX8";
-            this.labelX8.Size = new System.Drawing.Size(117, 23);
-            this.labelX8.TabIndex = 38;
-            this.labelX8.Text = " Transaction ID";
-            this.labelX8.Click += new System.EventHandler(this.labelX8_Click);
-            // 
-            // buttonX9
-            // 
-            this.buttonX9.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.buttonX9.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonX9.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.buttonX9.Location = new System.Drawing.Point(321, 61);
-            this.buttonX9.Name = "buttonX9";
-            this.buttonX9.Size = new System.Drawing.Size(75, 32);
-            this.buttonX9.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.buttonX9.TabIndex = 37;
-            this.buttonX9.Text = "&Reset";
-            this.buttonX9.Click += new System.EventHandler(this.buttonX9_Click);
-            // 
-            // buttonX10
-            // 
-            this.buttonX10.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.buttonX10.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonX10.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.buttonX10.Location = new System.Drawing.Point(321, 12);
-            this.buttonX10.Name = "buttonX10";
-            this.buttonX10.Size = new System.Drawing.Size(75, 37);
-            this.buttonX10.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.buttonX10.TabIndex = 36;
-            this.buttonX10.Text = "&View";
-            this.buttonX10.Click += new System.EventHandler(this.buttonX10_Click);
-            // 
-            // membername2
-            // 
-            this.membername2.Enabled = false;
-            this.membername2.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.membername2.Location = new System.Drawing.Point(150, 62);
-            this.membername2.Name = "membername2";
-            this.membername2.Size = new System.Drawing.Size(164, 29);
-            this.membername2.TabIndex = 35;
-            // 
-            // labelX6
-            // 
-            this.labelX6.BackColor = System.Drawing.Color.Transparent;
-            // 
-            // 
-            // 
-            this.labelX6.BackgroundStyle.Class = "";
-            this.labelX6.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX6.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelX6.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.labelX6.Location = new System.Drawing.Point(27, 14);
-            this.labelX6.Name = "labelX6";
-            this.labelX6.Size = new System.Drawing.Size(85, 23);
-            this.labelX6.TabIndex = 33;
-            this.labelX6.Text = "Staff ID";
-            // 
-            // labelX7
-            // 
-            this.labelX7.BackColor = System.Drawing.Color.Transparent;
-            // 
-            // 
-            // 
-            this.labelX7.BackgroundStyle.Class = "";
-            this.labelX7.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX7.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelX7.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.labelX7.Location = new System.Drawing.Point(27, 64);
-            this.labelX7.Name = "labelX7";
-            this.labelX7.Size = new System.Drawing.Size(117, 23);
-            this.labelX7.TabIndex = 32;
-            this.labelX7.Text = "Staff Name";
-            // 
-            // tabItem2
-            // 
-            this.tabItem2.AttachedControl = this.tabControlPanel2;
-            this.tabItem2.Name = "tabItem2";
-            this.tabItem2.Text = "By Staff ID";
             // 
             // tabControlPanel1
             // 
@@ -1136,6 +997,149 @@
             this.tabItem1.Name = "tabItem1";
             this.tabItem1.Text = "By Date";
             // 
+            // tabControlPanel2
+            // 
+            this.tabControlPanel2.Controls.Add(this.transactionid);
+            this.tabControlPanel2.Controls.Add(this.memberid2);
+            this.tabControlPanel2.Controls.Add(this.labelX8);
+            this.tabControlPanel2.Controls.Add(this.buttonX9);
+            this.tabControlPanel2.Controls.Add(this.buttonX10);
+            this.tabControlPanel2.Controls.Add(this.membername2);
+            this.tabControlPanel2.Controls.Add(this.labelX6);
+            this.tabControlPanel2.Controls.Add(this.labelX7);
+            this.tabControlPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControlPanel2.Location = new System.Drawing.Point(0, 28);
+            this.tabControlPanel2.Name = "tabControlPanel2";
+            this.tabControlPanel2.Padding = new System.Windows.Forms.Padding(1);
+            this.tabControlPanel2.Size = new System.Drawing.Size(405, 141);
+            this.tabControlPanel2.Style.BackColor1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(179)))), ((int)(((byte)(231)))));
+            this.tabControlPanel2.Style.BackColor2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(237)))), ((int)(((byte)(254)))));
+            this.tabControlPanel2.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
+            this.tabControlPanel2.Style.BorderColor.Color = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(97)))), ((int)(((byte)(156)))));
+            this.tabControlPanel2.Style.BorderSide = ((DevComponents.DotNetBar.eBorderSide)(((DevComponents.DotNetBar.eBorderSide.Left | DevComponents.DotNetBar.eBorderSide.Right) 
+            | DevComponents.DotNetBar.eBorderSide.Bottom)));
+            this.tabControlPanel2.Style.GradientAngle = 90;
+            this.tabControlPanel2.TabIndex = 2;
+            this.tabControlPanel2.TabItem = this.tabItem2;
+            // 
+            // transactionid
+            // 
+            this.transactionid.DisplayMember = "Text";
+            this.transactionid.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.transactionid.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.transactionid.FormattingEnabled = true;
+            this.transactionid.ItemHeight = 23;
+            this.transactionid.Location = new System.Drawing.Point(150, 105);
+            this.transactionid.Name = "transactionid";
+            this.transactionid.Size = new System.Drawing.Size(164, 29);
+            this.transactionid.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.transactionid.TabIndex = 41;
+            this.transactionid.SelectedIndexChanged += new System.EventHandler(this.transactionid_SelectedIndexChanged);
+            // 
+            // memberid2
+            // 
+            this.memberid2.DisplayMember = "Text";
+            this.memberid2.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.memberid2.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.memberid2.FormattingEnabled = true;
+            this.memberid2.ItemHeight = 23;
+            this.memberid2.Location = new System.Drawing.Point(150, 12);
+            this.memberid2.Name = "memberid2";
+            this.memberid2.Size = new System.Drawing.Size(164, 29);
+            this.memberid2.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.memberid2.TabIndex = 40;
+            this.memberid2.SelectedIndexChanged += new System.EventHandler(this.memberid2_SelectedIndexChanged);
+            // 
+            // labelX8
+            // 
+            this.labelX8.BackColor = System.Drawing.Color.Transparent;
+            // 
+            // 
+            // 
+            this.labelX8.BackgroundStyle.Class = "";
+            this.labelX8.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX8.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelX8.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.labelX8.Location = new System.Drawing.Point(27, 105);
+            this.labelX8.Name = "labelX8";
+            this.labelX8.Size = new System.Drawing.Size(117, 23);
+            this.labelX8.TabIndex = 38;
+            this.labelX8.Text = " Transaction ID";
+            this.labelX8.Click += new System.EventHandler(this.labelX8_Click);
+            // 
+            // buttonX9
+            // 
+            this.buttonX9.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.buttonX9.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonX9.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.buttonX9.Location = new System.Drawing.Point(321, 61);
+            this.buttonX9.Name = "buttonX9";
+            this.buttonX9.Size = new System.Drawing.Size(75, 32);
+            this.buttonX9.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.buttonX9.TabIndex = 37;
+            this.buttonX9.Text = "&Reset";
+            this.buttonX9.Click += new System.EventHandler(this.buttonX9_Click);
+            // 
+            // buttonX10
+            // 
+            this.buttonX10.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.buttonX10.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonX10.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.buttonX10.Location = new System.Drawing.Point(321, 12);
+            this.buttonX10.Name = "buttonX10";
+            this.buttonX10.Size = new System.Drawing.Size(75, 37);
+            this.buttonX10.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.buttonX10.TabIndex = 36;
+            this.buttonX10.Text = "&View";
+            this.buttonX10.Click += new System.EventHandler(this.buttonX10_Click);
+            // 
+            // membername2
+            // 
+            this.membername2.Enabled = false;
+            this.membername2.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.membername2.Location = new System.Drawing.Point(150, 62);
+            this.membername2.Name = "membername2";
+            this.membername2.Size = new System.Drawing.Size(164, 29);
+            this.membername2.TabIndex = 35;
+            // 
+            // labelX6
+            // 
+            this.labelX6.BackColor = System.Drawing.Color.Transparent;
+            // 
+            // 
+            // 
+            this.labelX6.BackgroundStyle.Class = "";
+            this.labelX6.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX6.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelX6.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.labelX6.Location = new System.Drawing.Point(27, 14);
+            this.labelX6.Name = "labelX6";
+            this.labelX6.Size = new System.Drawing.Size(85, 23);
+            this.labelX6.TabIndex = 33;
+            this.labelX6.Text = "Staff ID";
+            // 
+            // labelX7
+            // 
+            this.labelX7.BackColor = System.Drawing.Color.Transparent;
+            // 
+            // 
+            // 
+            this.labelX7.BackgroundStyle.Class = "";
+            this.labelX7.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX7.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelX7.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.labelX7.Location = new System.Drawing.Point(27, 64);
+            this.labelX7.Name = "labelX7";
+            this.labelX7.Size = new System.Drawing.Size(117, 23);
+            this.labelX7.TabIndex = 32;
+            this.labelX7.Text = "Staff Name";
+            // 
+            // tabItem2
+            // 
+            this.tabItem2.AttachedControl = this.tabControlPanel2;
+            this.tabItem2.Name = "tabItem2";
+            this.tabItem2.Text = "By Staff ID";
+            // 
             // frmCashierSafe
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
@@ -1168,10 +1172,10 @@
             this.groupPanel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.tabControl1)).EndInit();
             this.tabControl1.ResumeLayout(false);
-            this.tabControlPanel2.ResumeLayout(false);
-            this.tabControlPanel2.PerformLayout();
             this.tabControlPanel1.ResumeLayout(false);
             this.tabControlPanel1.PerformLayout();
+            this.tabControlPanel2.ResumeLayout(false);
+            this.tabControlPanel2.PerformLayout();
             this.ResumeLayout(false);
 
         }

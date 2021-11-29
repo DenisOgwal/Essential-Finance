@@ -745,12 +745,6 @@ namespace Banking_System
             frmLoanInsurance frm = new frmLoanInsurance();
             frm.ShowDialog();
         }
-        private void buttonItem68_Click(object sender, EventArgs e)
-        {
-            frmFormPassBookLedger frm = new frmFormPassBookLedger();
-            frm.ShowDialog();
-        }
-
         private void buttonItem69_Click(object sender, EventArgs e)
         {
             frmExpensesType frm = new frmExpensesType();
@@ -2133,13 +2127,22 @@ namespace Banking_System
             frm.label2.Text = User.Text;
             frm.Show();
         }
-
+        string collateralsuccess = "";
         private void landTitleToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FrmLandTitle frm = new FrmLandTitle();
             frm.label1.Text = User.Text;
             frm.label2.Text = UserType.Text;
             frm.ShowDialog();
+            collateralsuccess = frm.label15.Text;
+            if (collateralsuccess == "1")
+            {
+                MessageBox.Show("Successful", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Try Again and Save Collateral", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         private void kibanjaPropertyToolStripMenuItem_Click(object sender, EventArgs e)
@@ -2148,6 +2151,15 @@ namespace Banking_System
             frm.label1.Text = User.Text;
             frm.label2.Text = UserType.Text;
             frm.ShowDialog();
+            collateralsuccess = frm.label15.Text;
+            if (collateralsuccess == "1")
+            {
+                MessageBox.Show("Successful", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Try Again and Save Collateral", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         private void salaryToolStripMenuItem_Click(object sender, EventArgs e)
@@ -2156,6 +2168,15 @@ namespace Banking_System
             frm.label1.Text = User.Text;
             frm.label2.Text = UserType.Text;
             frm.ShowDialog();
+            collateralsuccess = frm.label13.Text;
+            if (collateralsuccess == "1")
+            {
+                MessageBox.Show("Successful", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Try Again and Save Collateral", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         private void rideToolStripMenuItem_Click(object sender, EventArgs e)
@@ -2164,6 +2185,15 @@ namespace Banking_System
             frm.label1.Text = User.Text;
             frm.label2.Text = UserType.Text;
             frm.ShowDialog();
+            collateralsuccess = frm.label9.Text;
+            if (collateralsuccess == "1")
+            {
+                MessageBox.Show("Successful", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Try Again and Save Collateral", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         private void businessCompanyToolStripMenuItem_Click(object sender, EventArgs e)
@@ -2172,6 +2202,15 @@ namespace Banking_System
             frm.label1.Text = User.Text;
             frm.label2.Text = UserType.Text;
             frm.ShowDialog();
+            collateralsuccess = frm.label14.Text;
+            if (collateralsuccess == "1")
+            {
+                MessageBox.Show("Successful", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Try Again and Save Collateral", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         private void assetToolStripMenuItem_Click(object sender, EventArgs e)
@@ -2180,6 +2219,15 @@ namespace Banking_System
             frm.label1.Text = User.Text;
             frm.label2.Text = UserType.Text;
             frm.ShowDialog();
+            collateralsuccess = frm.label10.Text;
+            if (collateralsuccess == "1")
+            {
+                MessageBox.Show("Successful", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Try Again and Save Collateral", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
     }
 }

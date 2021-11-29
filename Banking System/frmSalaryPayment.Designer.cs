@@ -29,14 +29,16 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSalaryPayment));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label6 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.groupPanel1 = new DevComponents.DotNetBar.Controls.GroupPanel();
+            this.Duepayment = new DevComponents.Editors.IntegerInput();
+            this.txtTotalPaid = new DevComponents.Editors.IntegerInput();
             this.label10 = new System.Windows.Forms.Label();
             this.txtDeduction = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -48,6 +50,9 @@
             this.label16 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.groupPanel2 = new DevComponents.DotNetBar.Controls.GroupPanel();
+            this.payee = new DevComponents.Editors.IntegerInput();
+            this.nssf = new DevComponents.Editors.IntegerInput();
+            this.txtBasicSalary = new DevComponents.Editors.IntegerInput();
             this.paye = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.cmbStaffID = new System.Windows.Forms.ComboBox();
@@ -60,22 +65,24 @@
             this.txtPaymentID = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.groupPanel4 = new DevComponents.DotNetBar.Controls.GroupPanel();
+            this.label14 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
+            this.outlet = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
             this.labelX1 = new DevComponents.DotNetBar.LabelX();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
             this.groupPanel5 = new DevComponents.DotNetBar.Controls.GroupPanel();
             this.buttonX6 = new DevComponents.DotNetBar.ButtonX();
             this.buttonX5 = new DevComponents.DotNetBar.ButtonX();
             this.buttonX4 = new DevComponents.DotNetBar.ButtonX();
             this.buttonX3 = new DevComponents.DotNetBar.ButtonX();
             this.buttonX2 = new DevComponents.DotNetBar.ButtonX();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
             this.groupPanel6 = new DevComponents.DotNetBar.Controls.GroupPanel();
             this.Year = new System.Windows.Forms.DateTimePicker();
             this.months = new System.Windows.Forms.DateTimePicker();
             this.label9 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.ribbonClientPanel1 = new DevComponents.DotNetBar.Ribbon.RibbonClientPanel();
@@ -85,16 +92,14 @@
             this.printDialog1 = new System.Windows.Forms.PrintDialog();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
-            this.outlet = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.txtBasicSalary = new DevComponents.Editors.IntegerInput();
-            this.nssf = new DevComponents.Editors.IntegerInput();
-            this.payee = new DevComponents.Editors.IntegerInput();
-            this.txtTotalPaid = new DevComponents.Editors.IntegerInput();
-            this.Duepayment = new DevComponents.Editors.IntegerInput();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Duepayment)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTotalPaid)).BeginInit();
             this.groupPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.payee)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nssf)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtBasicSalary)).BeginInit();
             this.groupPanel3.SuspendLayout();
             this.groupPanel4.SuspendLayout();
             this.groupPanel5.SuspendLayout();
@@ -102,11 +107,6 @@
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.ribbonClientPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtBasicSalary)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nssf)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.payee)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtTotalPaid)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Duepayment)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -117,35 +117,35 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dataGridView1.BackgroundColor = global::Banking_System.Properties.Settings.Default.usercolor;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Palatino Linotype", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Palatino Linotype", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.DataBindings.Add(new System.Windows.Forms.Binding("BackgroundColor", global::Banking_System.Properties.Settings.Default, "usercolor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Palatino Linotype", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Palatino Linotype", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.GridColor = System.Drawing.Color.Black;
             this.dataGridView1.Location = new System.Drawing.Point(529, 3);
             this.dataGridView1.Name = "dataGridView1";
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Palatino Linotype", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Palatino Linotype", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView1.Size = new System.Drawing.Size(220, 551);
             this.dataGridView1.TabIndex = 3;
             this.dataGridView1.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_RowHeaderMouseClick);
@@ -219,6 +219,42 @@
             this.groupPanel1.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.groupPanel1.TabIndex = 60;
             this.groupPanel1.Text = "Payment Details";
+            // 
+            // Duepayment
+            // 
+            this.Duepayment.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            // 
+            // 
+            // 
+            this.Duepayment.BackgroundStyle.Class = "DateTimeInputBackground";
+            this.Duepayment.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.Duepayment.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2;
+            this.Duepayment.DisplayFormat = "N0";
+            this.Duepayment.Enabled = false;
+            this.Duepayment.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Duepayment.Location = new System.Drawing.Point(195, 203);
+            this.Duepayment.Name = "Duepayment";
+            this.Duepayment.Size = new System.Drawing.Size(294, 29);
+            this.Duepayment.TabIndex = 204;
+            // 
+            // txtTotalPaid
+            // 
+            this.txtTotalPaid.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            // 
+            // 
+            // 
+            this.txtTotalPaid.BackgroundStyle.Class = "DateTimeInputBackground";
+            this.txtTotalPaid.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtTotalPaid.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2;
+            this.txtTotalPaid.DisplayFormat = "N0";
+            this.txtTotalPaid.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTotalPaid.Location = new System.Drawing.Point(195, 170);
+            this.txtTotalPaid.Name = "txtTotalPaid";
+            this.txtTotalPaid.Size = new System.Drawing.Size(294, 29);
+            this.txtTotalPaid.TabIndex = 203;
+            this.txtTotalPaid.ValueChanged += new System.EventHandler(this.txtTotalPaid_ValueChanged);
             // 
             // label10
             // 
@@ -401,6 +437,60 @@
             this.groupPanel2.TabIndex = 61;
             this.groupPanel2.Text = "Staff Details";
             // 
+            // payee
+            // 
+            this.payee.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            // 
+            // 
+            // 
+            this.payee.BackgroundStyle.Class = "DateTimeInputBackground";
+            this.payee.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.payee.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2;
+            this.payee.DisplayFormat = "N0";
+            this.payee.Enabled = false;
+            this.payee.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.payee.Location = new System.Drawing.Point(132, 148);
+            this.payee.Name = "payee";
+            this.payee.Size = new System.Drawing.Size(357, 29);
+            this.payee.TabIndex = 82;
+            // 
+            // nssf
+            // 
+            this.nssf.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            // 
+            // 
+            // 
+            this.nssf.BackgroundStyle.Class = "DateTimeInputBackground";
+            this.nssf.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.nssf.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2;
+            this.nssf.DisplayFormat = "N0";
+            this.nssf.Enabled = false;
+            this.nssf.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nssf.Location = new System.Drawing.Point(132, 112);
+            this.nssf.Name = "nssf";
+            this.nssf.Size = new System.Drawing.Size(357, 29);
+            this.nssf.TabIndex = 81;
+            // 
+            // txtBasicSalary
+            // 
+            this.txtBasicSalary.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            // 
+            // 
+            // 
+            this.txtBasicSalary.BackgroundStyle.Class = "DateTimeInputBackground";
+            this.txtBasicSalary.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtBasicSalary.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2;
+            this.txtBasicSalary.DisplayFormat = "N0";
+            this.txtBasicSalary.Enabled = false;
+            this.txtBasicSalary.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBasicSalary.Location = new System.Drawing.Point(132, 74);
+            this.txtBasicSalary.Name = "txtBasicSalary";
+            this.txtBasicSalary.Size = new System.Drawing.Size(357, 29);
+            this.txtBasicSalary.TabIndex = 80;
+            // 
             // paye
             // 
             this.paye.AutoSize = true;
@@ -582,8 +672,13 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupPanel4.CanvasColor = System.Drawing.SystemColors.Control;
             this.groupPanel4.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
+            this.groupPanel4.Controls.Add(this.label14);
             this.groupPanel4.Controls.Add(this.label13);
+            this.groupPanel4.Controls.Add(this.outlet);
+            this.groupPanel4.Controls.Add(this.label11);
             this.groupPanel4.Controls.Add(this.labelX1);
+            this.groupPanel4.Controls.Add(this.label7);
+            this.groupPanel4.Controls.Add(this.label12);
             this.groupPanel4.Location = new System.Drawing.Point(12, 4);
             this.groupPanel4.Name = "groupPanel4";
             this.groupPanel4.Size = new System.Drawing.Size(904, 44);
@@ -620,6 +715,16 @@
             this.groupPanel4.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.groupPanel4.TabIndex = 63;
             // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(779, 15);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(41, 13);
+            this.label14.TabIndex = 243;
+            this.label14.Text = "label14";
+            this.label14.Visible = false;
+            // 
             // label13
             // 
             this.label13.AutoSize = true;
@@ -629,6 +734,26 @@
             this.label13.TabIndex = 1;
             this.label13.Text = "label13";
             this.label13.Visible = false;
+            // 
+            // outlet
+            // 
+            this.outlet.AutoSize = true;
+            this.outlet.Location = new System.Drawing.Point(664, -24);
+            this.outlet.Name = "outlet";
+            this.outlet.Size = new System.Drawing.Size(33, 13);
+            this.outlet.TabIndex = 242;
+            this.outlet.Text = "outlet";
+            this.outlet.Visible = false;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(705, 25);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(41, 13);
+            this.label11.TabIndex = 67;
+            this.label11.Text = "label11";
+            this.label11.Visible = false;
             // 
             // labelX1
             // 
@@ -650,6 +775,30 @@
             this.labelX1.Text = "SALARY PAYMENT";
             this.labelX1.TextAlignment = System.Drawing.StringAlignment.Center;
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.BackColor = System.Drawing.Color.Transparent;
+            this.label7.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label7.Location = new System.Drawing.Point(638, 15);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(35, 13);
+            this.label7.TabIndex = 3;
+            this.label7.Text = "label7";
+            this.label7.Visible = false;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.BackColor = System.Drawing.Color.Transparent;
+            this.label12.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label12.Location = new System.Drawing.Point(678, 15);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(41, 13);
+            this.label12.TabIndex = 4;
+            this.label12.Text = "label12";
+            this.label12.Visible = false;
+            // 
             // groupPanel5
             // 
             this.groupPanel5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -662,7 +811,7 @@
             this.groupPanel5.Controls.Add(this.buttonX2);
             this.groupPanel5.Location = new System.Drawing.Point(770, 57);
             this.groupPanel5.Name = "groupPanel5";
-            this.groupPanel5.Size = new System.Drawing.Size(146, 248);
+            this.groupPanel5.Size = new System.Drawing.Size(146, 554);
             // 
             // 
             // 
@@ -699,23 +848,23 @@
             // buttonX6
             // 
             this.buttonX6.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.buttonX6.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonX6.Location = new System.Drawing.Point(15, 187);
+            this.buttonX6.Font = new System.Drawing.Font("Palatino Linotype", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonX6.Location = new System.Drawing.Point(3, 433);
             this.buttonX6.Name = "buttonX6";
-            this.buttonX6.Size = new System.Drawing.Size(111, 41);
+            this.buttonX6.Size = new System.Drawing.Size(134, 95);
             this.buttonX6.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.buttonX6.TabIndex = 4;
-            this.buttonX6.Text = "&Payment Slip";
+            this.buttonX6.Text = "&Slip";
             this.buttonX6.Click += new System.EventHandler(this.buttonX6_Click);
             // 
             // buttonX5
             // 
             this.buttonX5.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.buttonX5.Enabled = false;
-            this.buttonX5.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonX5.Location = new System.Drawing.Point(15, 142);
+            this.buttonX5.Font = new System.Drawing.Font("Palatino Linotype", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonX5.Location = new System.Drawing.Point(3, 317);
             this.buttonX5.Name = "buttonX5";
-            this.buttonX5.Size = new System.Drawing.Size(111, 39);
+            this.buttonX5.Size = new System.Drawing.Size(134, 91);
             this.buttonX5.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.buttonX5.TabIndex = 3;
             this.buttonX5.Text = "&Update";
@@ -725,10 +874,10 @@
             // 
             this.buttonX4.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.buttonX4.Enabled = false;
-            this.buttonX4.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonX4.Location = new System.Drawing.Point(15, 95);
+            this.buttonX4.Font = new System.Drawing.Font("Palatino Linotype", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonX4.Location = new System.Drawing.Point(3, 205);
             this.buttonX4.Name = "buttonX4";
-            this.buttonX4.Size = new System.Drawing.Size(111, 39);
+            this.buttonX4.Size = new System.Drawing.Size(134, 90);
             this.buttonX4.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.buttonX4.TabIndex = 2;
             this.buttonX4.Text = "&Delete";
@@ -737,10 +886,10 @@
             // buttonX3
             // 
             this.buttonX3.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.buttonX3.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonX3.Location = new System.Drawing.Point(15, 49);
+            this.buttonX3.Font = new System.Drawing.Font("Palatino Linotype", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonX3.Location = new System.Drawing.Point(3, 105);
             this.buttonX3.Name = "buttonX3";
-            this.buttonX3.Size = new System.Drawing.Size(111, 40);
+            this.buttonX3.Size = new System.Drawing.Size(134, 86);
             this.buttonX3.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.buttonX3.TabIndex = 1;
             this.buttonX3.Text = "&Save";
@@ -749,38 +898,14 @@
             // buttonX2
             // 
             this.buttonX2.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.buttonX2.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonX2.Location = new System.Drawing.Point(15, 6);
+            this.buttonX2.Font = new System.Drawing.Font("Palatino Linotype", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonX2.Location = new System.Drawing.Point(3, 7);
             this.buttonX2.Name = "buttonX2";
-            this.buttonX2.Size = new System.Drawing.Size(111, 40);
+            this.buttonX2.Size = new System.Drawing.Size(134, 78);
             this.buttonX2.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.buttonX2.TabIndex = 0;
             this.buttonX2.Text = "&New";
             this.buttonX2.Click += new System.EventHandler(this.buttonX2_Click);
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.BackColor = System.Drawing.Color.Transparent;
-            this.label12.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label12.Location = new System.Drawing.Point(858, 432);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(41, 13);
-            this.label12.TabIndex = 4;
-            this.label12.Text = "label12";
-            this.label12.Visible = false;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.BackColor = System.Drawing.Color.Transparent;
-            this.label7.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label7.Location = new System.Drawing.Point(818, 432);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(35, 13);
-            this.label7.TabIndex = 3;
-            this.label7.Text = "label7";
-            this.label7.Visible = false;
             // 
             // groupPanel6
             // 
@@ -875,15 +1000,6 @@
             this.label4.Size = new System.Drawing.Size(62, 22);
             this.label4.TabIndex = 4;
             this.label4.Text = "Months";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(810, 531);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(41, 13);
-            this.label11.TabIndex = 67;
-            this.label11.Text = "label11";
             // 
             // tableLayoutPanel1
             // 
@@ -1015,116 +1131,6 @@
             this.printPreviewDialog1.Name = "printPreviewDialog1";
             this.printPreviewDialog1.Visible = false;
             // 
-            // outlet
-            // 
-            this.outlet.AutoSize = true;
-            this.outlet.Location = new System.Drawing.Point(844, 393);
-            this.outlet.Name = "outlet";
-            this.outlet.Size = new System.Drawing.Size(33, 13);
-            this.outlet.TabIndex = 242;
-            this.outlet.Text = "outlet";
-            this.outlet.Visible = false;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(780, 325);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(41, 13);
-            this.label14.TabIndex = 243;
-            this.label14.Text = "label14";
-            this.label14.Visible = false;
-            // 
-            // txtBasicSalary
-            // 
-            this.txtBasicSalary.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            // 
-            // 
-            // 
-            this.txtBasicSalary.BackgroundStyle.Class = "DateTimeInputBackground";
-            this.txtBasicSalary.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtBasicSalary.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2;
-            this.txtBasicSalary.DisplayFormat = "N0";
-            this.txtBasicSalary.Enabled = false;
-            this.txtBasicSalary.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBasicSalary.Location = new System.Drawing.Point(132, 74);
-            this.txtBasicSalary.Name = "txtBasicSalary";
-            this.txtBasicSalary.Size = new System.Drawing.Size(357, 29);
-            this.txtBasicSalary.TabIndex = 80;
-            // 
-            // nssf
-            // 
-            this.nssf.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            // 
-            // 
-            // 
-            this.nssf.BackgroundStyle.Class = "DateTimeInputBackground";
-            this.nssf.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.nssf.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2;
-            this.nssf.DisplayFormat = "N0";
-            this.nssf.Enabled = false;
-            this.nssf.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nssf.Location = new System.Drawing.Point(132, 112);
-            this.nssf.Name = "nssf";
-            this.nssf.Size = new System.Drawing.Size(357, 29);
-            this.nssf.TabIndex = 81;
-            // 
-            // payee
-            // 
-            this.payee.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            // 
-            // 
-            // 
-            this.payee.BackgroundStyle.Class = "DateTimeInputBackground";
-            this.payee.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.payee.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2;
-            this.payee.DisplayFormat = "N0";
-            this.payee.Enabled = false;
-            this.payee.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.payee.Location = new System.Drawing.Point(132, 148);
-            this.payee.Name = "payee";
-            this.payee.Size = new System.Drawing.Size(357, 29);
-            this.payee.TabIndex = 82;
-            // 
-            // txtTotalPaid
-            // 
-            this.txtTotalPaid.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            // 
-            // 
-            // 
-            this.txtTotalPaid.BackgroundStyle.Class = "DateTimeInputBackground";
-            this.txtTotalPaid.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtTotalPaid.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2;
-            this.txtTotalPaid.DisplayFormat = "N0";
-            this.txtTotalPaid.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTotalPaid.Location = new System.Drawing.Point(195, 170);
-            this.txtTotalPaid.Name = "txtTotalPaid";
-            this.txtTotalPaid.Size = new System.Drawing.Size(294, 29);
-            this.txtTotalPaid.TabIndex = 203;
-            this.txtTotalPaid.ValueChanged += new System.EventHandler(this.txtTotalPaid_ValueChanged);
-            // 
-            // Duepayment
-            // 
-            this.Duepayment.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            // 
-            // 
-            // 
-            this.Duepayment.BackgroundStyle.Class = "DateTimeInputBackground";
-            this.Duepayment.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.Duepayment.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2;
-            this.Duepayment.DisplayFormat = "N0";
-            this.Duepayment.Enabled = false;
-            this.Duepayment.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Duepayment.Location = new System.Drawing.Point(195, 203);
-            this.Duepayment.Name = "Duepayment";
-            this.Duepayment.Size = new System.Drawing.Size(294, 29);
-            this.Duepayment.TabIndex = 204;
-            // 
             // frmSalaryPayment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1132,13 +1138,8 @@
             this.BackColor = global::Banking_System.Properties.Settings.Default.usercolor;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(928, 673);
-            this.Controls.Add(this.label14);
-            this.Controls.Add(this.outlet);
             this.Controls.Add(this.ribbonClientPanel1);
-            this.Controls.Add(this.label12);
             this.Controls.Add(this.tableLayoutPanel1);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.label11);
             this.Controls.Add(this.groupPanel5);
             this.Controls.Add(this.groupPanel4);
             this.Controls.Add(this.label6);
@@ -1155,8 +1156,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupPanel1.ResumeLayout(false);
             this.groupPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Duepayment)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTotalPaid)).EndInit();
             this.groupPanel2.ResumeLayout(false);
             this.groupPanel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.payee)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nssf)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtBasicSalary)).EndInit();
             this.groupPanel3.ResumeLayout(false);
             this.groupPanel3.PerformLayout();
             this.groupPanel4.ResumeLayout(false);
@@ -1168,11 +1174,6 @@
             this.tableLayoutPanel2.ResumeLayout(false);
             this.ribbonClientPanel1.ResumeLayout(false);
             this.ribbonClientPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtBasicSalary)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nssf)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.payee)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtTotalPaid)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Duepayment)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

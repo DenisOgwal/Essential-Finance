@@ -172,6 +172,7 @@ namespace Banking_System
             this.LoanID.Name = "LoanID";
             this.LoanID.Size = new System.Drawing.Size(222, 29);
             this.LoanID.TabIndex = 38;
+            this.LoanID.Click += new System.EventHandler(this.LoanID_Click);
             // 
             // label14
             // 
@@ -297,7 +298,7 @@ namespace Banking_System
             // 
             this.buttonX2.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.buttonX2.Font = new System.Drawing.Font("Palatino Linotype", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonX2.Location = new System.Drawing.Point(591, 389);
+            this.buttonX2.Location = new System.Drawing.Point(591, 384);
             this.buttonX2.Name = "buttonX2";
             this.buttonX2.Size = new System.Drawing.Size(111, 56);
             this.buttonX2.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -309,7 +310,7 @@ namespace Banking_System
             // 
             this.buttonX1.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.buttonX1.Font = new System.Drawing.Font("Palatino Linotype", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonX1.Location = new System.Drawing.Point(481, 389);
+            this.buttonX1.Location = new System.Drawing.Point(481, 384);
             this.buttonX1.Name = "buttonX1";
             this.buttonX1.Size = new System.Drawing.Size(104, 56);
             this.buttonX1.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -332,7 +333,7 @@ namespace Banking_System
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = global::Banking_System.Properties.Settings.Default.usercolor;
-            this.ClientSize = new System.Drawing.Size(722, 451);
+            this.ClientSize = new System.Drawing.Size(722, 447);
             this.Controls.Add(this.label15);
             this.Controls.Add(this.buttonX2);
             this.Controls.Add(this.buttonX1);
