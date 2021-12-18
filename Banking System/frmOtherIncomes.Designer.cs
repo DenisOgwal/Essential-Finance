@@ -425,7 +425,7 @@
             this.address.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.address.Location = new System.Drawing.Point(99, 90);
             this.address.Name = "address";
-            this.address.Size = new System.Drawing.Size(246, 29);
+            this.address.Size = new System.Drawing.Size(302, 29);
             this.address.TabIndex = 7;
             // 
             // tel
@@ -441,7 +441,7 @@
             this.tel.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tel.Location = new System.Drawing.Point(99, 48);
             this.tel.Name = "tel";
-            this.tel.Size = new System.Drawing.Size(168, 29);
+            this.tel.Size = new System.Drawing.Size(301, 29);
             this.tel.TabIndex = 5;
             // 
             // names
@@ -456,7 +456,7 @@
             this.names.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.names.Location = new System.Drawing.Point(100, 3);
             this.names.Name = "names";
-            this.names.Size = new System.Drawing.Size(167, 29);
+            this.names.Size = new System.Drawing.Size(300, 29);
             this.names.TabIndex = 4;
             // 
             // labelX15

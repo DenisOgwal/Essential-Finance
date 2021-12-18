@@ -147,7 +147,7 @@ namespace Banking_System
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            try
+           /* try
             {
                 SqlConnection CN = new SqlConnection(cs.DBConn);
                 CN.Open();
@@ -165,7 +165,7 @@ namespace Banking_System
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            }*/
         }
 
 
@@ -892,20 +892,20 @@ namespace Banking_System
                 try
                 {
                     //this.Hide();
-                  /*  Cursor = Cursors.WaitCursor;
+                    Cursor = Cursors.WaitCursor;
                     //timer1.Enabled = true;
                     rptReceiptAll2 rpt = new rptReceiptAll2(); //The report you created.
                     SqlConnection myConnection = default(SqlConnection);
                     SqlCommand MyCommand = new SqlCommand();
                     SqlDataAdapter myDA = new SqlDataAdapter();
-                    AllPaymentsDataset myDS = new AllPaymentsDataset(); //The DataSet you created.
+                    DataSet myDS = new DataSet(); //The DataSet you created.
                     Receipt frm = new Receipt();
                     myConnection = new SqlConnection(cs.DBConn);
                     MyCommand.Connection = myConnection;
-                    MyCommand.CommandText = "select * from AnnualFeesPayment";
+                    MyCommand.CommandText = "select * from LoanInsuranceFees";
                     MyCommand.CommandType = CommandType.Text;
                     myDA.SelectCommand = MyCommand;
-                    myDA.Fill(myDS, "AnnualFeesPayment");
+                    myDA.Fill(myDS, "LoanInsuranceFees");
                     //myDA.Fill(myDS, "Rights");
                     rpt.SetDataSource(myDS);
                     rpt.SetParameterValue("paymentid", txtPaymentID.Text);
@@ -924,10 +924,10 @@ namespace Banking_System
                     rpt.SetParameterValue("companyaddress", companyaddress);
                     rpt.SetParameterValue("picpath", "logo.jpg");
                     frm.crystalReportViewer1.ReportSource = rpt;
-                    //frm.Show();
-                    BarPrinter = Properties.Settings.Default.frontendprinter;
-                    rpt.PrintOptions.PrinterName = BarPrinter;
-                    rpt.PrintToPrinter(1, true, 1, 1);*/
+                    frm.ShowDialog();
+                    //BarPrinter = Properties.Settings.Default.frontendprinter;
+                    //rpt.PrintOptions.PrinterName = BarPrinter;
+                    //rpt.PrintToPrinter(1, true, 1, 1);
                 }
                 catch (Exception ex)
                 {

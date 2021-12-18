@@ -843,10 +843,10 @@ namespace Banking_System
                     Receipt frm = new Receipt();
                     myConnection = new SqlConnection(cs.DBConn);
                     MyCommand.Connection = myConnection;
-                    MyCommand.CommandText = "select * from AnnualFeesPayment";
+                    MyCommand.CommandText = "select * from Employee";
                     MyCommand.CommandType = CommandType.Text;
                     myDA.SelectCommand = MyCommand;
-                    myDA.Fill(myDS, "AnnualFeesPayment");
+                    myDA.Fill(myDS, "Employee");
                     //myDA.Fill(myDS, "Rights");
                     rpt.SetDataSource(myDS);
                     rpt.SetParameterValue("paymentid", txtPaymentID.Text);
@@ -865,11 +865,11 @@ namespace Banking_System
                     rpt.SetParameterValue("companyaddress", companyaddress);
                     rpt.SetParameterValue("picpath", "logo.jpg");
                     frm.crystalReportViewer1.ReportSource = rpt;
-                    //frm.Show();
+                    frm.ShowDialog();
                     //BarPrinter = Properties.Settings.Default.frontendprinter;
                     //rpt.PrintOptions.PrinterName = BarPrinter;
-                    rpt.PrintToPrinter(1, true, 1, 1);
-                    this.Hide();
+                    //rpt.PrintToPrinter(1, true, 1, 1);
+                    //this.Hide();
                 }
                 catch (Exception ex)
                 {

@@ -26,11 +26,11 @@ namespace Banking_System
 
         private void FrmExpensesSlip_FormClosing(object sender, FormClosingEventArgs e)
         {
-            this.Hide();
+            /*this.Hide();
             frmOtherIncomes frm = new frmOtherIncomes();
             frm.label1.Text = label1.Text;
             frm.label2.Text = label2.Text;
-            frm.Show();
+            frm.Show();*/
         }
 
     }

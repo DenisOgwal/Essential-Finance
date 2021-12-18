@@ -85,6 +85,7 @@ namespace Banking_System
             frm.label1.Text = label1.Text;
             frm.label2.Text = label2.Text;
             frm.ShowDialog();
+            
         }
 
         private void buttonX4_Click(object sender, EventArgs e)
@@ -532,10 +533,19 @@ namespace Banking_System
                         }
                         double val1 = 0;
                         double.TryParse(LoanAmount.Value.ToString(), out val1);
-                        principal = val1 / ServicingPeriod.Value;
+                        principal = val1 ;
                         interest = ((Convert.ToDouble(InterestRate.Value) / (100)) * val1);
-                        repaymentammount = principal + interest;
-                        begginingbalance = val1;
+                        if (i == ServicingPeriod.Value)
+                        {
+                            repaymentammount = val1 + interest;
+                            begginingbalance = 0;
+                        }
+                        else
+                        {
+                            repaymentammount = interest;
+                            begginingbalance = val1;
+                        }
+                       
 
                         con = new SqlConnection(cs.DBConn);
                         con.Open();
@@ -575,8 +585,19 @@ namespace Banking_System
                         monthscount[K] = K;
                         K++;
                     }
+  
                     string repaymentdate1 = null;
                     DateTime startdate = DateTime.Parse(ApplicationDate.Text).Date;
+                    double val1 = 0;
+                    double.TryParse(LoanAmount.Value.ToString(), out val1);
+                    double r = Convert.ToDouble(InterestRate.Value) / 100;
+                    int n = ServicingPeriod.Value;
+                    double firstint = Math.Pow((1 + r), n);
+                    double secondint = Math.Pow((1 + r), n);
+                    double emi = (val1*r* Math.Pow((1+r), n)) / ((Math.Pow((1+r), n)) - 1);
+                    //MessageBox.Show("emi"+ emi);
+                    //MessageBox.Show("firstint" + firstint);
+                    ///MessageBox.Show("r" + r);
                     for (i = 1; i <= ServicingPeriod.Value; i++)
                     {
                         if (RepaymentInterval.Text == "Monthly")
@@ -601,15 +622,12 @@ namespace Banking_System
                             repaymentdate = dt.ToString("dd/MMM/yyyy");
 
                         }
-                            double val1 = 0;
-                            double.TryParse(LoanAmount.Value.ToString(), out val1);
-                            double emi = val1 / ServicingPeriod.Value;
-
+                          
                         if (repaymentmonths == "1Months" || repaymentmonths == "1Week" || repaymentmonths == "1Day")
                         {
                             interest = val1 * (Convert.ToDouble(InterestRate.Value) / 100);
-                            principal = emi;
-                            repaymentammount = emi + interest;
+                            principal = emi- interest;
+                            repaymentammount = emi;
                             begginingbalance = val1 - principal;
                         }
                         else
@@ -624,8 +642,8 @@ namespace Banking_System
                             {
                                 Double totals6 = Convert.ToDouble(rdr[0]);
                                 interest = totals6 * (Convert.ToDouble(InterestRate.Value) / 100);
-                                principal = emi;
-                                repaymentammount = emi + interest;
+                                principal = emi - interest;
+                                repaymentammount = emi;
                                 begginingbalance = totals6 - principal;
                                 con.Close();
                             }
@@ -660,7 +678,7 @@ namespace Banking_System
                         con.Close();
                     }
                 }
-                MessageBox.Show("Successfully Submitted Application","Information",MessageBoxButtons.OK,MessageBoxIcon.Information);
+               MessageBox.Show("Successfully Submitted Application","Information",MessageBoxButtons.OK,MessageBoxIcon.Information);
                 DialogResult dialog = MessageBox.Show("Do you want to View Amortisation Schedule", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (dialog == System.Windows.Forms.DialogResult.Yes)
                 {

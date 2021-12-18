@@ -456,8 +456,6 @@ namespace Banking_System
             // 
             // Relationship
             // 
-            this.Relationship.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.Relationship.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Relationship.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.Relationship.Location = new System.Drawing.Point(166, 336);
@@ -479,8 +477,6 @@ namespace Banking_System
             // 
             // Residence
             // 
-            this.Residence.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.Residence.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Residence.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.Residence.Location = new System.Drawing.Point(166, 301);
@@ -502,8 +498,6 @@ namespace Banking_System
             // 
             // GuarantorName
             // 
-            this.GuarantorName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.GuarantorName.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.GuarantorName.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.GuarantorName.Location = new System.Drawing.Point(166, 264);
@@ -871,7 +865,7 @@ namespace Banking_System
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = global::Banking_System.Properties.Settings.Default.usercolor;
-            this.ClientSize = new System.Drawing.Size(1008, 680);
+            this.ClientSize = new System.Drawing.Size(1008, 678);
             this.Controls.Add(this.AmortisationMethod);
             this.Controls.Add(this.label25);
             this.Controls.Add(this.LoanID);

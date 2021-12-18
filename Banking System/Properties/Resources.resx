@@ -163,11 +163,17 @@
   <data name="Reward-07" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Reward-07.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Savings" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Savings.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Finance-021" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Finance-021.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Password-Text-01" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Password-Text-01.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Cash" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Cash.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ToggleButtonOn-Windows" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ToggleButtonOn-Windows.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -199,8 +205,8 @@
   <data name="Banking-Transaction" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Banking-Transaction.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Percentage" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Percentage.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Orientation-Landscape" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Orientation-Landscape.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Month" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Month.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -253,8 +259,8 @@
   <data name="Key-Access" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Key-Access.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="smooth-navy-blue-user" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\smooth-navy-blue-user.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Percentage" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Percentage.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ChangePassword" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ChangePassword.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -262,13 +268,13 @@
   <data name="Financial Nest Egg" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Financial Nest Egg.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Savings" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Savings.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="smooth-navy-blue-user" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\smooth-navy-blue-user.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Gold" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Gold.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Orientation-Landscape" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Orientation-Landscape.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Summary P and L" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Summary P and L.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

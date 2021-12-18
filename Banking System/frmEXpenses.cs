@@ -1172,11 +1172,11 @@ namespace Banking_System
                     rpt.SetParameterValue("companyaddress", companyaddress);
                     rpt.SetParameterValue("picpath", "logo.jpg");
                     frm.crystalReportViewer1.ReportSource = rpt;
-                    //frm.ShowDialog();
+                    frm.ShowDialog();
                      //BarPrinter = Properties.Settings.Default.frontendprinter;
                      //rpt.PrintOptions.PrinterName = BarPrinter;
-                     rpt.PrintToPrinter(1, true, 1, 1);
-                     frm.Hide();
+                     //rpt.PrintToPrinter(1, true, 1, 1);
+                     //frm.Hide();
                 }
                 catch (Exception ex)
                 {

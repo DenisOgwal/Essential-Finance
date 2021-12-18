@@ -480,7 +480,7 @@ namespace Banking_System
                         SqlCommand MyCommand = new SqlCommand();
                         SqlDataAdapter myDA = new SqlDataAdapter();
                         DataSet myDS = new DataSet(); //The DataSet you created.
-                        FrmExpensesSlip frm = new FrmExpensesSlip();
+                        FrmSalarySlip frm = new FrmSalarySlip();
                         myConnection = new SqlConnection(cs.DBConn);
                         MyCommand.Connection = myConnection;
                         MyCommand.CommandText = "select * from EmployeePayment where PaymentID='" + txtPaymentID.Text + "' ";
@@ -511,7 +511,7 @@ namespace Banking_System
                         SqlCommand MyCommand = new SqlCommand();
                         SqlDataAdapter myDA = new SqlDataAdapter();
                         DataSet myDS = new DataSet(); //The DataSet you created.
-                        FrmExpensesSlip frm = new FrmExpensesSlip();
+                        FrmSalarySlip frm = new FrmSalarySlip();
                         myConnection = new SqlConnection(cs.DBConn);
                         MyCommand.Connection = myConnection;
                         MyCommand.CommandText = "select * from EmployeePayment where PaymentID='"+txtPaymentID.Text+"' ";

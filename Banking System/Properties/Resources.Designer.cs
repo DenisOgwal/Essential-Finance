@@ -133,6 +133,16 @@ namespace Banking_System.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Cash {
+            get {
+                object obj = ResourceManager.GetObject("Cash", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ChangePassword {
             get {
                 object obj = ResourceManager.GetObject("ChangePassword", resourceCulture);
@@ -536,6 +546,16 @@ namespace Banking_System.Properties {
         internal static System.Drawing.Bitmap Start_screen {
             get {
                 object obj = ResourceManager.GetObject("Start screen", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Summary_P_and_L {
+            get {
+                object obj = ResourceManager.GetObject("Summary P and L", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

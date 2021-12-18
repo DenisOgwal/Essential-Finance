@@ -19,6 +19,11 @@ namespace Banking_System
         SqlDataReader rdr = null;
         SqlCommand cmd2 = null;
         SqlDataReader rdr2 = null;
+        string companyname = null;
+        string companyemail = null;
+        string companyaddress = null;
+        string companycontact = null;
+        string companyslogan = null;
         public FrmLoanApplicationPayment()
         {
             InitializeComponent();
@@ -167,7 +172,35 @@ namespace Banking_System
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+        public void company()
+        {
+            try
+            {
+                SqlDataReader rdr = null;
+                con = new SqlConnection(cs.DBConn);
+                con.Open();
+                string ct6 = "select * from CompanyNames";
+                cmd = new SqlCommand(ct6);
+                cmd.Connection = con;
+                rdr = cmd.ExecuteReader();
+                if (rdr.Read())
+                {
+                    companyname = rdr.GetString(1).Trim();
+                    companyaddress = rdr.GetString(5).Trim();
+                    companyslogan = rdr.GetString(2).Trim();
+                    companycontact = rdr.GetString(4).Trim();
+                    companyemail = rdr.GetString(3).Trim();
+                }
+                else
+                {
 
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             try
@@ -250,6 +283,51 @@ namespace Banking_System
                 cmd.ExecuteNonQuery();
                 con.Close();
                 MessageBox.Show("Successfully Posted", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                company();
+                try
+                {
+                    //this.Hide();
+                    Cursor = Cursors.WaitCursor;
+                    //timer1.Enabled = true;
+                    rptReceiptAll rpt = new rptReceiptAll(); //The report you created.
+                    SqlConnection myConnection = default(SqlConnection);
+                    SqlCommand MyCommand = new SqlCommand();
+                    SqlDataAdapter myDA = new SqlDataAdapter();
+                    DataSet myDS = new DataSet(); //The DataSet you created.
+                    Receipt frm2 = new Receipt();
+                    myConnection = new SqlConnection(cs.DBConn);
+                    MyCommand.Connection = myConnection;
+                    MyCommand.CommandText = "select * from LoanInsuranceFees";
+                    MyCommand.CommandType = CommandType.Text;
+                    myDA.SelectCommand = MyCommand;
+                    myDA.Fill(myDS, "LoanInsuranceFees");
+                    //myDA.Fill(myDS, "Rights");
+                    rpt.SetDataSource(myDS);
+                    rpt.SetParameterValue("paymentid", "AP"+LoanID.Text);
+                    rpt.SetParameterValue("accountno", AccountNumber.Text);
+                    rpt.SetParameterValue("membernames", AccountName.Text);
+                    rpt.SetParameterValue("ammount", AmountPayable.Value);
+                    rpt.SetParameterValue("totalpaid", AmountPayable.Value);
+                    rpt.SetParameterValue("issuedby", label1.Text);
+                    rpt.SetParameterValue("Transactions", "Loan Application Fees Receipt");
+                    rpt.SetParameterValue("addons", 0);
+                    rpt.SetParameterValue("duepayment", 0);
+                    rpt.SetParameterValue("comanyname", companyname);
+                    rpt.SetParameterValue("companyemail", companyemail);
+                    rpt.SetParameterValue("companycontact", companycontact);
+                    rpt.SetParameterValue("companyslogan", companyslogan);
+                    rpt.SetParameterValue("companyaddress", companyaddress);
+                    rpt.SetParameterValue("picpath", "logo.jpg");
+                    frm2.crystalReportViewer1.ReportSource = rpt;
+                    frm2.ShowDialog();
+                    //BarPrinter = Properties.Settings.Default.frontendprinter;
+                    //rpt.PrintOptions.PrinterName = BarPrinter;
+                    //rpt.PrintToPrinter(1, true, 1, 1);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
                 this.Hide();
                 FrmLoanApplicationPayment frm = new FrmLoanApplicationPayment();
                 frm.label1.Text = label1.Text;

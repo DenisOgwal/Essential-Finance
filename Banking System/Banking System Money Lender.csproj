@@ -194,6 +194,12 @@
     <Compile Include="FrmAccountRecords.Designer.cs">
       <DependentUpon>FrmAccountRecords.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmAccountReports.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAccountReports.Designer.cs">
+      <DependentUpon>FrmAccountReports.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmApprovalRights.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -338,6 +344,12 @@
     <Compile Include="FrmExternalBorrowingRecord.Designer.cs">
       <DependentUpon>FrmExternalBorrowingRecord.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmExternalBorrowingReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmExternalBorrowingReport.Designer.cs">
+      <DependentUpon>FrmExternalBorrowingReport.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmExternalFineFeeRecord.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -362,17 +374,35 @@
     <Compile Include="FrmHRRecords.Designer.cs">
       <DependentUpon>FrmHRRecords.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmHumanResourceReports.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmHumanResourceReports.Designer.cs">
+      <DependentUpon>FrmHumanResourceReports.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmInflowsRecords.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmInflowsRecords.Designer.cs">
       <DependentUpon>FrmInflowsRecords.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmInflowsReports.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmInflowsReports.Designer.cs">
+      <DependentUpon>FrmInflowsReports.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmInvestorRecords.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmInvestorRecords.Designer.cs">
       <DependentUpon>FrmInvestorRecords.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmInvestorReports.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmInvestorReports.Designer.cs">
+      <DependentUpon>FrmInvestorReports.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmKibanjaProperty.cs">
       <SubType>Form</SubType>
@@ -421,6 +451,12 @@
     </Compile>
     <Compile Include="FrmLoanRecords.Designer.cs">
       <DependentUpon>FrmLoanRecords.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmLoanReports.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmLoanReports.Designer.cs">
+      <DependentUpon>FrmLoanReports.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmLoanScheduleReport.cs">
       <SubType>Form</SubType>
@@ -620,6 +656,12 @@
     <Compile Include="FrmOutflowsRecords.Designer.cs">
       <DependentUpon>FrmOutflowsRecords.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmOutflowsReports.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmOutflowsReports.Designer.cs">
+      <DependentUpon>FrmOutflowsReports.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmPaymentSchedule.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -710,6 +752,12 @@
     <Compile Include="FrmSavingsRecord.Designer.cs">
       <DependentUpon>FrmSavingsRecord.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmSavingsReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSavingsReport.Designer.cs">
+      <DependentUpon>FrmSavingsReport.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmSavingsToLoans.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -745,6 +793,12 @@
     </Compile>
     <Compile Include="frmSupplierDetails.Designer.cs">
       <DependentUpon>frmSupplierDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmTransactionsReports.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmTransactionsReports.Designer.cs">
+      <DependentUpon>FrmTransactionsReports.cs</DependentUpon>
     </Compile>
     <Compile Include="frmUserTypes.cs">
       <SubType>Form</SubType>
@@ -1356,6 +1410,9 @@
     <EmbeddedResource Include="FrmAccountRecords.resx">
       <DependentUpon>FrmAccountRecords.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmAccountReports.resx">
+      <DependentUpon>FrmAccountReports.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmApprovalRights.resx">
       <DependentUpon>frmApprovalRights.cs</DependentUpon>
     </EmbeddedResource>
@@ -1428,6 +1485,9 @@
     <EmbeddedResource Include="FrmExternalBorrowingRecord.resx">
       <DependentUpon>FrmExternalBorrowingRecord.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmExternalBorrowingReport.resx">
+      <DependentUpon>FrmExternalBorrowingReport.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmExternalFineFeeRecord.resx">
       <DependentUpon>frmExternalFineFeeRecord.cs</DependentUpon>
     </EmbeddedResource>
@@ -1440,11 +1500,20 @@
     <EmbeddedResource Include="FrmHRRecords.resx">
       <DependentUpon>FrmHRRecords.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmHumanResourceReports.resx">
+      <DependentUpon>FrmHumanResourceReports.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmInflowsRecords.resx">
       <DependentUpon>FrmInflowsRecords.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmInflowsReports.resx">
+      <DependentUpon>FrmInflowsReports.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmInvestorRecords.resx">
       <DependentUpon>FrmInvestorRecords.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmInvestorReports.resx">
+      <DependentUpon>FrmInvestorReports.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmKibanjaProperty.resx">
       <DependentUpon>FrmKibanjaProperty.cs</DependentUpon>
@@ -1469,6 +1538,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmLoanRecords.resx">
       <DependentUpon>FrmLoanRecords.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmLoanReports.resx">
+      <DependentUpon>FrmLoanReports.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmLoanScheduleReport.resx">
       <DependentUpon>FrmLoanScheduleReport.cs</DependentUpon>
@@ -1569,6 +1641,9 @@
     <EmbeddedResource Include="FrmOutflowsRecords.resx">
       <DependentUpon>FrmOutflowsRecords.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmOutflowsReports.resx">
+      <DependentUpon>FrmOutflowsReports.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmPaymentSchedule.resx">
       <DependentUpon>frmPaymentSchedule.cs</DependentUpon>
     </EmbeddedResource>
@@ -1614,6 +1689,9 @@
     <EmbeddedResource Include="FrmSavingsRecord.resx">
       <DependentUpon>FrmSavingsRecord.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmSavingsReport.resx">
+      <DependentUpon>FrmSavingsReport.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmSavingsToLoans.resx">
       <DependentUpon>frmSavingsToLoans.cs</DependentUpon>
     </EmbeddedResource>
@@ -1631,6 +1709,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmSupplierDetails.resx">
       <DependentUpon>frmSupplierDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmTransactionsReports.resx">
+      <DependentUpon>FrmTransactionsReports.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmUserTypes.resx">
       <DependentUpon>frmUserTypes.cs</DependentUpon>
@@ -2121,6 +2202,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Financial.ico" />
+    <None Include="Resources\Summary P and L.png" />
+    <None Include="Resources\Cash.png" />
     <None Include="Resources\Orientation-Landscape.png" />
     <None Include="Resources\Month.png" />
     <None Include="Resources\Payment-02.png" />

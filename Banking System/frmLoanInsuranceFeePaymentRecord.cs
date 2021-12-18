@@ -89,12 +89,10 @@ namespace Banking_System
             try
             {
                 DataGridViewRow dr = DGV.SelectedRows[0];
-                this.Hide();
+               
                 frmLoanInsuranceFeesPayment frm = new frmLoanInsuranceFeesPayment();
                 // or simply use column name instead of index
                 //dr.Cells["id"].Value.ToString();
-                frm.ShowDialog();
-
                 frm.txtPaymentID.Text = dr.Cells[0].Value.ToString();
                 frm.cmbStaffID.Text = dr.Cells[1].Value.ToString();
                 frm.txtTotalPaid.Text = dr.Cells[6].Value.ToString();
@@ -113,11 +111,14 @@ namespace Banking_System
                     frm.label12.Text = label5.Text;
 
                 }
+                frm.ShowDialog();
+                this.Hide();
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
         }
 
         private void dataGridView1_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -125,17 +126,15 @@ namespace Banking_System
              try
             {
                 DataGridViewRow dr = dataGridView1.SelectedRows[0];
-                this.Hide();
+
                 frmLoanInsuranceFeesPayment frm = new frmLoanInsuranceFeesPayment();
-               
-                frm.ShowDialog();
                 frm.txtPaymentID.Text = dr.Cells[0].Value.ToString();
                 frm.cmbStaffID.Text = dr.Cells[1].Value.ToString();
                 frm.txtTotalPaid.Text = dr.Cells[6].Value.ToString();
                 frm.staffname.Text = dr.Cells[5].Value.ToString();
                 frm.Duepayment.Text = dr.Cells[7].Value.ToString();
 
-                if (label5.Text == "Manager" || label5.Text == "Chairman")
+                if (label5.Text == "ADMIN")
                 {
                     frm.label7.Text = label4.Text;
                     frm.label12.Text = label5.Text;
@@ -148,6 +147,8 @@ namespace Banking_System
                     frm.label12.Text = label5.Text;
                    
                 }
+                frm.ShowDialog();
+                this.Hide();
             }
              catch (Exception ex)
              {
@@ -334,26 +335,14 @@ namespace Banking_System
             try
             {
                 DataGridViewRow dr = DGV.SelectedRows[0];
-                this.Hide();
-                frmLoanInsuranceFeesPayment frm = new frmLoanInsuranceFeesPayment();
 
-                frm.Show();
+                frmLoanInsuranceFeesPayment frm = new frmLoanInsuranceFeesPayment();
                 frm.txtPaymentID.Text = dr.Cells[0].Value.ToString();
                 frm.cmbStaffID.Text = dr.Cells[1].Value.ToString();
-
-                if (label5.Text == "Manager" || label5.Text == "Chairman")
-                {
-                    frm.label7.Text = label4.Text;
-                    frm.label12.Text = label5.Text;
-                    frm.buttonX4.Enabled = true;
-                    frm.buttonX5.Enabled = true;
-                }
-                else
-                {
-                    frm.label7.Text = label4.Text;
-                    frm.label12.Text = label5.Text;
-
-                }
+                frm.label7.Text = label4.Text;
+                frm.label12.Text = label5.Text;
+                frm.ShowDialog();
+                this.Hide();
             }
             catch (Exception ex)
             {
@@ -366,14 +355,11 @@ namespace Banking_System
             try
             {
                 DataGridViewRow dr = dataGridView1.SelectedRows[0];
-                this.Hide();
                 frmLoanInsuranceFeesPayment frm = new frmLoanInsuranceFeesPayment();
-
-                frm.Show();
                 frm.txtPaymentID.Text = dr.Cells[0].Value.ToString();
                 frm.cmbStaffID.Text = dr.Cells[1].Value.ToString();
 
-                if (label5.Text == "Manager" || label5.Text == "Chairman")
+                if (label5.Text == "ADMIN")
                 {
                     frm.label7.Text = label4.Text;
                     frm.label12.Text = label5.Text;
@@ -386,6 +372,8 @@ namespace Banking_System
                     frm.label12.Text = label5.Text;
 
                 }
+                frm.ShowDialog();
+                this.Hide();
             }
             catch (Exception ex)
             {

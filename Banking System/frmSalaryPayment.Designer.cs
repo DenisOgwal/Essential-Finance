@@ -314,6 +314,10 @@
             this.cmbModeOfPayment.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbModeOfPayment.ForeColor = System.Drawing.SystemColors.Highlight;
             this.cmbModeOfPayment.FormattingEnabled = true;
+            this.cmbModeOfPayment.Items.AddRange(new object[] {
+            "Cash",
+            "Bank",
+            "Mobile Money"});
             this.cmbModeOfPayment.Location = new System.Drawing.Point(195, 42);
             this.cmbModeOfPayment.Name = "cmbModeOfPayment";
             this.cmbModeOfPayment.Size = new System.Drawing.Size(294, 30);

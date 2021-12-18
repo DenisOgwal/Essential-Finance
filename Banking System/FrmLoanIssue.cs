@@ -20,9 +20,6 @@ namespace Banking_System
         SqlCommand cmd2 = null;
         SqlDataReader rdr2 = null;
         int[] monthscount = new int[100];
-        double principal = 0.00;
-        double interest = 0.00;
-        double repaymentammount = 0;
         string repaymentmonths = null;
         string repaymentdate = null;
         string companyname = null;
@@ -282,6 +279,9 @@ namespace Banking_System
                 }
                 if (AmortisationMethod.Text.Trim() == "Flat Rate")
                 {
+                    double principal = 0.00;
+                    double interest = 0.00;
+                    double repaymentammount = 0;
                     int K = 1;
                     int i = 1;
                     while (K <= (Convert.ToInt32(ServicingPeriod.Text) / PaymentInterval.Value))
@@ -317,15 +317,19 @@ namespace Banking_System
                         }
                         double val1 = 0;
                         double.TryParse(Amount.Value.ToString(), out val1);
-                        principal = val1 / (Convert.ToInt32(ServicingPeriod.Text));
-                        interest = ((Convert.ToDouble(Interest.Text) / (100)) * val1);
-                        double intre = 0;
-                        for (int m = 0; m < PaymentInterval.Value; m++)
+                        principal = val1;
+                        interest = Convert.ToDouble(PaymentInterval.Value)*((Convert.ToDouble(Interest.Text) / (100)) * val1);  
+                        if (i == (Convert.ToInt32(ServicingPeriod.Text)/ PaymentInterval.Value))
                         {
-                            intre += (principal + interest);
+                            repaymentammount = val1 + interest;
+                            begginingbalance = 0;
                         }
-                        repaymentammount = intre;
-                        begginingbalance = val1;
+                        else
+                        {
+                            repaymentammount = interest;
+                            begginingbalance = val1;
+                        }
+                      
 
                         con = new SqlConnection(cs.DBConn);
                         con.Open();
@@ -370,10 +374,14 @@ namespace Banking_System
                         monthscount[K] = K;
                         K++;
                     }
+                    int ids = 0;
                     string repaymentdate1 = null;
                     DateTime startdate = DateTime.Parse(ApplicationDate.Text).Date;
                     for (i = 1; i <= (Convert.ToInt32(ServicingPeriod.Text) / PaymentInterval.Value); i++)
                     {
+                        double principal = 0.00;
+                        double interest = 0.00;
+                        double repaymentammount = 0;
                         if (ScheduleInterval.Text.Trim() == "Monthly")
                         {
                             repaymentmonths = "Installment " + monthscount[i];
@@ -396,47 +404,43 @@ namespace Banking_System
                             repaymentdate = dt.ToString("dd/MMM/yyyy");
 
                         }
-                        double val1 = 0;
-                        double.TryParse(Amount.Value.ToString(), out val1);
-                        double emi = val1 / (Convert.ToInt32(ServicingPeriod.Text) / PaymentInterval.Value);
-                        double emi2= val1 / (Convert.ToInt32(ServicingPeriod.Text));
                         if (repaymentmonths == "Installment 1")
                         {
-                            double intre = 0;
-                            for (int m=0;m< PaymentInterval.Value;m++)
+                            //interest = val1 * (Convert.ToDouble(Interest.Text) / 100);
+                            //principal = emi - interest;
+                            //repaymentammount = emi;
+                            //begginingbalance = val1 - principal;
+                            con = new SqlConnection(cs.DBConn);
+                            con.Open();
+                            cmd = new SqlCommand("select TOP ("+PaymentInterval.Value+") AmmountPay,Interest,TotalAmmount,BeginningBalance,ID from AmortisationSchedule where LoanID='" + LoanID.Text + "' order by ID ASC" , con);
+                            rdr = cmd.ExecuteReader();
+                            while (rdr.Read()==true)
                             {
-                                double newinterest= ((val1 - (m*emi2))) * (Convert.ToDouble(Interest.Text) / 100);
-                                intre += newinterest;
+                                interest += Convert.ToDouble(rdr[1]);
+                                principal += Convert.ToDouble(rdr[0]);
+                                repaymentammount += Convert.ToDouble(rdr[2]);
+                                begginingbalance = Convert.ToDouble(rdr[3]);
+                                ids = Convert.ToInt32(rdr[4]);
+                                //con.Close();
                             }
-                            interest = intre;
-                            principal = emi;
-                            repaymentammount = emi + interest;
-                            begginingbalance = val1 - principal;
+                           
                         }
                         else
                         {
                             con = new SqlConnection(cs.DBConn);
                             con.Open();
-                            string kt = "select BeginningBalance from RepaymentSchedule where LoanID='" + LoanID.Text + "' order by ID Desc";
-                            cmd = new SqlCommand(kt);
-                            cmd.Connection = con;
+                            cmd = new SqlCommand("select TOP (" + PaymentInterval.Value + ") AmmountPay,Interest,TotalAmmount,BeginningBalance,ID from AmortisationSchedule where LoanID='" + LoanID.Text + "' and ID > "+ids+" order by ID ASC", con);
                             rdr = cmd.ExecuteReader();
-                            if (rdr.Read())
+                            while (rdr.Read() == true)
                             {
-                                Double totals6 = Convert.ToDouble(rdr[0]);
-                                double intre = 0;
-                                for (int m = 0; m < PaymentInterval.Value; m++)
-                                {
-                                    double newinterest = ((totals6 - (m * emi2))) * (Convert.ToDouble(Interest.Text) / 100);
-                                    intre += newinterest;
-                                }
-                                interest = intre;
-                                principal = emi;
-                                repaymentammount = emi + interest;
-                                begginingbalance = totals6 - principal;
-                                con.Close();
+                                interest += Convert.ToDouble(rdr[1]);
+                                principal += Convert.ToDouble(rdr[0]);
+                                repaymentammount += Convert.ToDouble(rdr[2]);
+                                begginingbalance = Convert.ToDouble(rdr[3]);
+                                ids = Convert.ToInt32(rdr[4]);
+                                //con.Close();
                             }
-
+                           
                         }
                         con = new SqlConnection(cs.DBConn);
                         con.Open();
@@ -566,41 +570,25 @@ namespace Banking_System
         {
             if (LoanID.Text == "")
             {
-                MessageBox.Show("Please Fill Loan ID", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Please Fill Loan ID First", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 LoanID.Focus();
                 return;
             }
-            company();
-            try
+            if (AccountNumber.Text == "")
             {
-
-                SqlConnection myConnection = default(SqlConnection);
-                SqlCommand MyCommand = new SqlCommand();
-                SqlDataAdapter myDA = new SqlDataAdapter();
-                DataSet myDS = new DataSet();
-                FrmLoanScheduleReport frm = new FrmLoanScheduleReport();
-                rptLoanRepaymentSchedule rpt = new rptLoanRepaymentSchedule();
-                myConnection = new SqlConnection(cs.DBConn);
-                myConnection.Open();
-                MyCommand.Connection = myConnection;
-                MyCommand.CommandText = "select  * from RepaymentSchedule where LoanID='" + LoanID.Text + "' order by ID Asc ";
-                MyCommand.CommandType = CommandType.Text;
-                myDA.SelectCommand = MyCommand;
-                myDA.Fill(myDS, "RepaymentSchedule");
-                rpt.SetDataSource(myDS);
-                rpt.SetParameterValue("comanyname", companyname);
-                rpt.SetParameterValue("companyemail", companyemail);
-                rpt.SetParameterValue("companycontact", companycontact);
-                rpt.SetParameterValue("companyslogan", companyslogan);
-                rpt.SetParameterValue("companyaddress", companyaddress);
-                rpt.SetParameterValue("picpath", "logo.jpg");
-                frm.crystalReportViewer1.ReportSource = rpt;
-                frm.ShowDialog();
+                MessageBox.Show("Please Fill Account Number", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                AccountNumber.Focus();
+                return;
             }
-            catch (Exception ex)
+            if (AccountName.Text == "")
             {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Please Fill Account Name", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                AccountName.Focus();
+                return;
             }
+            FrmLoanAmortisationReport frm = new FrmLoanAmortisationReport();
+            frm.label1.Text = LoanID.Text;
+            frm.ShowDialog();
         }
     }
 }

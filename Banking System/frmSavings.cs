@@ -21,8 +21,6 @@ namespace Banking_System
         DataTable dt = new DataTable();
         SqlCommand cmd2 = null;
         ConnectionString cs = new ConnectionString();
-
-        string BarPrinter = null;
         string companyname = null;
         string companyemail = null;
         string companyaddress = null;
@@ -586,11 +584,11 @@ namespace Banking_System
                     rpt.SetParameterValue("companyaddress", companyaddress);
                     rpt.SetParameterValue("picpath", "logo.jpg");
                     frm.crystalReportViewer1.ReportSource = rpt;
-                    //frm.ShowDialog();
-                    BarPrinter = Properties.Settings.Default.frontendprinter;
-                    rpt.PrintOptions.PrinterName = BarPrinter;
-                    rpt.PrintToPrinter(1, true, 1, 1);
-                    this.Hide();
+                    frm.ShowDialog();
+                    //BarPrinter = Properties.Settings.Default.frontendprinter;
+                    //rpt.PrintOptions.PrinterName = BarPrinter;
+                    //rpt.PrintToPrinter(1, true, 1, 1);
+                    //this.Hide();
                 }
                 catch (Exception ex)
                 {

@@ -854,7 +854,7 @@ namespace Banking_System
                         SqlConnection myConnection = default(SqlConnection);
                         SqlCommand MyCommand = new SqlCommand();
                         SqlDataAdapter myDA = new SqlDataAdapter();
-                        AExpensesDataSet myDS = new AExpensesDataSet(); //The DataSet you created.
+                        DataSet myDS = new DataSet(); //The DataSet you created.
                         Receipt frm = new Receipt();
                         myConnection = new SqlConnection(cs.DBConn);
                         MyCommand.Connection = myConnection;
@@ -879,10 +879,10 @@ namespace Banking_System
                         rpt.SetParameterValue("companyaddress", companyaddress);
                         rpt.SetParameterValue("picpath", "logo.jpg");
                         frm.crystalReportViewer1.ReportSource = rpt;
-                        //frm.ShowDialog();
+                        frm.ShowDialog();
                         //BarPrinter = Properties.Settings.Default.frontendprinter;
                         //rpt.PrintOptions.PrinterName = BarPrinter;
-                        rpt.PrintToPrinter(1, true, 1, 1);
+                        //rpt.PrintToPrinter(1, true, 1, 1);
                     }
                     catch (Exception ex)
                     {

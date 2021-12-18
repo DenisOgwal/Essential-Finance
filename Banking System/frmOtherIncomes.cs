@@ -258,16 +258,44 @@ namespace Banking_System
                     con.Close();
                 }
                 MessageBox.Show("Successfully saved", "Record", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                printPreviewDialog1.Document = printDocument1;
-                printPreviewDialog1.ShowDialog();
-                buttonX5.Enabled = false;
+                //printPreviewDialog1.Document = printDocument1;
+                //printPreviewDialog1.ShowDialog();
+                //buttonX5.Enabled = false;
+                try
+                {
+
+                    //this.Hide();
+                    Cursor = Cursors.WaitCursor;
+                    timer1.Enabled = true;
+                    rptOtherIncomesSlip rpt = new rptOtherIncomesSlip(); //The report you created.
+                    SqlConnection myConnection = default(SqlConnection);
+                    SqlCommand MyCommand = new SqlCommand();
+                    SqlDataAdapter myDA = new SqlDataAdapter();
+                    DataSet myDS = new DataSet(); //The DataSet you created.
+                    FrmOtherIncomesSlip frm3 = new FrmOtherIncomesSlip();
+                    frm3.label1.Text = label1.Text;
+                    frm3.label2.Text = label2.Text;
+                    myConnection = new SqlConnection(cs.DBConn);
+                    MyCommand.Connection = myConnection;
+                    MyCommand.CommandText = "select * from OtherIncomes where PaymentID='" + expenseid.Text + "'";
+                    MyCommand.CommandType = CommandType.Text;
+                    myDA.SelectCommand = MyCommand;
+                    myDA.Fill(myDS, "OtherIncomes");
+                    rpt.SetDataSource(myDS);
+                    frm3.crystalReportViewer1.ReportSource = rpt;
+                    frm3.ShowDialog();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
                 dataload();
                 con.Close();
                 this.Hide();
                 frmOtherIncomes frm = new frmOtherIncomes();
                 frm.label1.Text = label1.Text;
                 frm.label2.Text = label2.Text;
-                frm.Show();
+                frm.ShowDialog();
             }
             catch (Exception ex)
             {
@@ -690,27 +718,26 @@ namespace Banking_System
             try
             {
 
-                this.Hide();
+                //this.Hide();
                 Cursor = Cursors.WaitCursor;
                 timer1.Enabled = true;
                 rptOtherIncomesSlip rpt = new rptOtherIncomesSlip(); //The report you created.
                 SqlConnection myConnection = default(SqlConnection);
                 SqlCommand MyCommand = new SqlCommand();
                 SqlDataAdapter myDA = new SqlDataAdapter();
-                AExpensesDataSet myDS = new AExpensesDataSet(); //The DataSet you created.
-                FrmOtherIncomesSlip frm = new FrmOtherIncomesSlip();
-                frm.label1.Text = label1.Text;
-                frm.label2.Text = label2.Text;
+                DataSet myDS = new DataSet(); //The DataSet you created.
+                FrmOtherIncomesSlip frm3 = new FrmOtherIncomesSlip();
+                frm3.label1.Text = label1.Text;
+                frm3.label2.Text = label2.Text;
                 myConnection = new SqlConnection(cs.DBConn);
                 MyCommand.Connection = myConnection;
-                MyCommand.CommandText = "select * from Expenses,Rights where Expenses.CashierID=Rights.AuthorisationID and ExpenseID='" + expenseid.Text + "'";
+                MyCommand.CommandText = "select * from OtherIncomes where PaymentID='" + expenseid.Text + "'";
                 MyCommand.CommandType = CommandType.Text;
                 myDA.SelectCommand = MyCommand;
-                myDA.Fill(myDS, "Expenses");
-                myDA.Fill(myDS, "Rights");
+                myDA.Fill(myDS, "OtherIncomes");
                 rpt.SetDataSource(myDS);
-                frm.crystalReportViewer1.ReportSource = rpt;
-                frm.Show();
+                frm3.crystalReportViewer1.ReportSource = rpt;
+                frm3.ShowDialog();
             }
             catch (Exception ex)
             {
