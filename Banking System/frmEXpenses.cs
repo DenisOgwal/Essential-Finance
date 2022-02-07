@@ -159,8 +159,6 @@ namespace Banking_System
             expensedate.Text = DateTime.Today.ToString();
             description.Text = "";
             cost.Text = null;
-            totalpaid.Text = null;
-            duepayment.Text = null;
             names.Text = "";
             address.Text = "";
             tel.Text = null;
@@ -169,7 +167,6 @@ namespace Banking_System
             managername.Text = "";
             comment.Text = "";
             service.Text = "";
-            Paid.Text = "";
             expensetype.Text = "";
             buttonX5.Enabled = true;
         }
@@ -256,33 +253,11 @@ namespace Banking_System
                 cost.Focus();
                 return;
             }
-            if (totalpaid.Text == "")
-            {
-                MessageBox.Show("Please enter total paid", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                totalpaid.Focus();
-                return;
-            }
             if (year.Text == "")
             {
                 MessageBox.Show("Please enter Year", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 year.Focus();
                 return;
-            }
-            if (duepayment.Text == "")
-            {
-                MessageBox.Show("Please enter Duepayment", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                duepayment.Focus();
-                return;
-            }
-            if (Paid.Text == "")
-            {
-                MessageBox.Show("Please Select Paid", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Paid.Focus();
-                return;
-            }
-            if (duepayment.Text != "0")
-            {
-                MessageBox.Show("Pay this fee in not more than two installments for better accounts", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             try
             {
@@ -326,7 +301,7 @@ namespace Banking_System
                     cmd.Parameters["@d5"].Value = expensedate.Text.Trim();
                     cmd.Parameters["@d6"].Value = service.Text.Trim();
                     cmd.Parameters["@d7"].Value = Convert.ToInt32(cost.Value);
-                    cmd.Parameters["@d8"].Value = Convert.ToInt32(totalpaid.Value);
+                    cmd.Parameters["@d8"].Value = Convert.ToInt32(cost.Value);
                     cmd.Parameters["@d9"].Value = Convert.ToInt32(0);
                     cmd.Parameters["@d10"].Value = description.Text;
                     cmd.Parameters["@d11"].Value = names.Text.Trim();
@@ -363,15 +338,15 @@ namespace Banking_System
                     cmd.Parameters["@d5"].Value = expensedate.Text.Trim();
                     cmd.Parameters["@d6"].Value = service.Text.Trim();
                     cmd.Parameters["@d7"].Value = Convert.ToInt32(0);
-                    cmd.Parameters["@d8"].Value = Convert.ToInt32(totalpaid.Value);
-                    cmd.Parameters["@d9"].Value = Convert.ToInt32(duepayment.Value);
+                    cmd.Parameters["@d8"].Value = Convert.ToInt32(cost.Value);
+                    cmd.Parameters["@d9"].Value = 0;
                     cmd.Parameters["@d10"].Value = description.Text;
                     cmd.Parameters["@d11"].Value = names.Text.Trim();
                     cmd.Parameters["@d12"].Value = tel.Text;
                     cmd.Parameters["@d13"].Value = email.Text;
                     cmd.Parameters["@d14"].Value = address.Text;
                     cmd.Parameters["@d15"].Value = "Pending Approval";
-                    cmd.Parameters["@d16"].Value = Paid.Text;
+                    cmd.Parameters["@d16"].Value = Convert.ToInt32(cost.Value);
                     cmd.Parameters["@d17"].Value = expensetype.Text;
                     cmd.ExecuteNonQuery();
                     SqlDataReader rdr = null;
@@ -385,7 +360,7 @@ namespace Banking_System
                     if (rdr.Read())
                     {
                         totalaamount = Convert.ToInt32(rdr["AmountAvailable"]);
-                        int newtotalammount = totalaamount - Convert.ToInt32(totalpaid.Value);
+                        int newtotalammount = totalaamount -Convert.ToInt32(cost.Value);
                         con = new SqlConnection(cs.DBConn);
                         con.Open();
                         string cb2 = "UPDate BankAccounts Set AmountAvailable='" + newtotalammount + "', Date='" + expensedate.Text + "' where AccountNumber='" + cmbModeOfPayment.Text + "'";
@@ -435,15 +410,15 @@ namespace Banking_System
                     cmd.Parameters["@d5"].Value = expensedate.Text.Trim();
                     cmd.Parameters["@d6"].Value = service.Text.Trim();
                     cmd.Parameters["@d7"].Value = Convert.ToInt32(cost.Value);
-                    cmd.Parameters["@d8"].Value = Convert.ToInt32(totalpaid.Value);
-                    cmd.Parameters["@d9"].Value = Convert.ToInt32(duepayment.Value);
+                    cmd.Parameters["@d8"].Value = Convert.ToInt32(cost.Value);
+                    cmd.Parameters["@d9"].Value = 0;
                     cmd.Parameters["@d10"].Value = description.Text;
                     cmd.Parameters["@d11"].Value = names.Text.Trim();
                     cmd.Parameters["@d12"].Value = tel.Text;
                     cmd.Parameters["@d13"].Value = email.Text;
                     cmd.Parameters["@d14"].Value = address.Text;
                     cmd.Parameters["@d15"].Value = "Pending Approval";
-                    cmd.Parameters["@d16"].Value = Paid.Text;
+                    cmd.Parameters["@d16"].Value = Convert.ToInt32(cost.Value);
                     cmd.Parameters["@d17"].Value = expensetype.Text;
                     cmd.ExecuteNonQuery();
                     SqlDataReader rdr = null;
@@ -457,7 +432,7 @@ namespace Banking_System
                     if (rdr.Read())
                     {
                         totalaamount = Convert.ToInt32(rdr["AmountAvailable"]);
-                        int newtotalammount = totalaamount - Convert.ToInt32(totalpaid.Value);
+                        int newtotalammount = totalaamount - Convert.ToInt32(cost.Value);
                         con = new SqlConnection(cs.DBConn);
                         con.Open();
                         string cb2 = "UPDate BankAccounts Set AmountAvailable='" + newtotalammount + "', Date='" + expensedate.Text + "' where AccountNumber='" + cmbModeOfPayment.Text + "'";
@@ -585,8 +560,8 @@ namespace Banking_System
                 cmd.Parameters["@d5"].Value = expensedate.Text.Trim();
                 cmd.Parameters["@d6"].Value = service.Text.Trim();
                 cmd.Parameters["@d7"].Value = Convert.ToInt32(cost.Value);
-                cmd.Parameters["@d8"].Value = Convert.ToInt32(totalpaid.Value);
-                cmd.Parameters["@d9"].Value = Convert.ToInt32(duepayment.Value);
+                cmd.Parameters["@d8"].Value = Convert.ToInt32(cost.Value);
+                cmd.Parameters["@d9"].Value = 0;
                 cmd.Parameters["@d10"].Value = description.Text;
                 cmd.Parameters["@d11"].Value = names.Text.Trim();
                 cmd.Parameters["@d12"].Value = Convert.ToInt32(tel.Text);
@@ -595,47 +570,6 @@ namespace Banking_System
                 cmd.ExecuteNonQuery();
                 MessageBox.Show("Successfully Updated", "Expense Record", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 con.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void totalpaid_ValueChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                con = new SqlConnection(cs.DBConn);
-                con.Open();
-                string ct = "select Duepayment from Expenses where ExpenseID='"+expenseid.Text+"'order by ID Desc";
-                cmd = new SqlCommand(ct);
-                cmd.Connection = con;
-                rdr = cmd.ExecuteReader();
-                if (rdr.Read())
-                {
-                    labelX19.Text = rdr["Duepayment"].ToString();
-                    int val4 = 0;
-                    int val6 = 0;
-                    int.TryParse(labelX19.Text, out val4);
-                    int.TryParse(totalpaid.Value.ToString(), out val6);
-                    int I = (val4 - val6);
-                    duepayment.Text = I.ToString();
-                    if ((rdr != null))
-                    {
-                        rdr.Close();
-                    }
-                    return;
-                }
-                else
-                {
-                    int val1 = 0;
-                    int val3 = 0;
-                    int.TryParse(cost.Value.ToString(), out val1);
-                    int.TryParse(totalpaid.Value.ToString(), out val3);
-                    int I = (val1 - val3);
-                    duepayment.Text = I.ToString();
-                }
             }
             catch (Exception ex)
             {
@@ -699,19 +633,12 @@ namespace Banking_System
             try
             {
                 DataGridViewRow dr = dataGridViewX1.SelectedRows[0];
-                //this.Hide();
-                //frmEXpenses frm = new frmEXpenses();
-                //frm.Show();
                 comment.Text = dr.Cells[0].Value.ToString();
                 expenseid.Text = dr.Cells[1].Value.ToString();
                 cashiername.Text = dr.Cells[2].Value.ToString();
-                //frm.year.Text = dr.Cells[3].Value.ToString();
-                //frm.months.Text = dr.Cells[4].Value.ToString();
                 expensedate.Text = dr.Cells[5].Value.ToString();
                 service.Text = dr.Cells[6].Value.ToString();
                 cost.Text = dr.Cells[7].Value.ToString();
-                totalpaid.Text = dr.Cells[8].Value.ToString();
-                duepayment.Text = dr.Cells[9].Value.ToString();
                 description.Text = dr.Cells[10].Value.ToString();
                 names.Text = dr.Cells[11].Value.ToString();
                 tel.Text = dr.Cells[12].Value.ToString();
@@ -923,33 +850,11 @@ namespace Banking_System
                 cost.Focus();
                 return;
             }
-            if (totalpaid.Text == "")
-            {
-                MessageBox.Show("Please enter total paid", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                totalpaid.Focus();
-                return;
-            }
             if (year.Text == "")
             {
                 MessageBox.Show("Please enter Year", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 year.Focus();
                 return;
-            }
-            if (duepayment.Text == "")
-            {
-                MessageBox.Show("Please enter Duepayment", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                duepayment.Focus();
-                return;
-            }
-            if (Paid.Text == "")
-            {
-                MessageBox.Show("Please Select Paid", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Paid.Focus();
-                return;
-            }
-            if (duepayment.Text != "0")
-            {
-                MessageBox.Show("Pay this fee in not more than two installments for better accounts", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             try
             {
@@ -993,7 +898,7 @@ namespace Banking_System
                     cmd.Parameters["@d5"].Value = expensedate.Text.Trim();
                     cmd.Parameters["@d6"].Value = service.Text.Trim();
                     cmd.Parameters["@d7"].Value = Convert.ToInt32(cost.Value);
-                    cmd.Parameters["@d8"].Value = Convert.ToInt32(totalpaid.Value);
+                    cmd.Parameters["@d8"].Value = Convert.ToInt32(cost.Value);
                     cmd.Parameters["@d9"].Value = Convert.ToInt32(0);
                     cmd.Parameters["@d10"].Value = description.Text;
                     cmd.Parameters["@d11"].Value = names.Text.Trim();
@@ -1030,15 +935,15 @@ namespace Banking_System
                     cmd.Parameters["@d5"].Value = expensedate.Text.Trim();
                     cmd.Parameters["@d6"].Value = service.Text.Trim();
                     cmd.Parameters["@d7"].Value = Convert.ToInt32(0);
-                    cmd.Parameters["@d8"].Value = Convert.ToInt32(totalpaid.Value);
-                    cmd.Parameters["@d9"].Value = Convert.ToInt32(duepayment.Value);
+                    cmd.Parameters["@d8"].Value = Convert.ToInt32(cost.Value);
+                    cmd.Parameters["@d9"].Value = 0;
                     cmd.Parameters["@d10"].Value = description.Text;
                     cmd.Parameters["@d11"].Value = names.Text.Trim();
                     cmd.Parameters["@d12"].Value = tel.Text;
                     cmd.Parameters["@d13"].Value = email.Text;
                     cmd.Parameters["@d14"].Value = address.Text;
                     cmd.Parameters["@d15"].Value = "Pending Approval";
-                    cmd.Parameters["@d16"].Value = Paid.Text;
+                    cmd.Parameters["@d16"].Value = Convert.ToInt32(cost.Value);
                     cmd.Parameters["@d17"].Value = expensetype.Text;
                     cmd.ExecuteNonQuery();
                     con.Close();
@@ -1053,7 +958,7 @@ namespace Banking_System
                     if (rdr.Read())
                     {
                         totalaamount = Convert.ToInt32(rdr["AmountAvailable"]);
-                        int newtotalammount = totalaamount - Convert.ToInt32(totalpaid.Value);
+                        int newtotalammount = totalaamount - Convert.ToInt32(cost.Value);
                         con = new SqlConnection(cs.DBConn);
                         con.Open();
                         string cb2 = "UPDate BankAccounts Set AmountAvailable='" + newtotalammount + "', Date='" + expensedate.Text + "' where AccountNumber='" + cmbModeOfPayment.Text + "'";
@@ -1103,15 +1008,15 @@ namespace Banking_System
                     cmd.Parameters["@d5"].Value = expensedate.Text.Trim();
                     cmd.Parameters["@d6"].Value = service.Text.Trim();
                     cmd.Parameters["@d7"].Value = Convert.ToInt32(cost.Value);
-                    cmd.Parameters["@d8"].Value = Convert.ToInt32(totalpaid.Value);
-                    cmd.Parameters["@d9"].Value = Convert.ToInt32(duepayment.Value);
+                    cmd.Parameters["@d8"].Value = Convert.ToInt32(cost.Value);
+                    cmd.Parameters["@d9"].Value = 0;
                     cmd.Parameters["@d10"].Value = description.Text;
                     cmd.Parameters["@d11"].Value = names.Text.Trim();
                     cmd.Parameters["@d12"].Value = tel.Text;
                     cmd.Parameters["@d13"].Value = email.Text;
                     cmd.Parameters["@d14"].Value = address.Text;
                     cmd.Parameters["@d15"].Value = "Pending Approval";
-                    cmd.Parameters["@d16"].Value = Paid.Text;
+                    cmd.Parameters["@d16"].Value = Convert.ToInt32(cost.Value);
                     cmd.Parameters["@d17"].Value = expensetype.Text;
                     cmd.ExecuteNonQuery();
                     SqlDataReader rdr = null;
@@ -1125,7 +1030,7 @@ namespace Banking_System
                     if (rdr.Read())
                     {
                         totalaamount = Convert.ToInt32(rdr["AmountAvailable"]);
-                        int newtotalammount = totalaamount - Convert.ToInt32(totalpaid.Value);
+                        int newtotalammount = totalaamount - Convert.ToInt32(cost.Value); 
                         con = new SqlConnection(cs.DBConn);
                         con.Open();
                         string cb2 = "UPDate BankAccounts Set AmountAvailable='" + newtotalammount + "', Date='" + expensedate.Text + "' where AccountNumber='" + cmbModeOfPayment.Text + "'";
@@ -1162,8 +1067,8 @@ namespace Banking_System
                     rpt.SetParameterValue("paidto", names.Text);
                     rpt.SetParameterValue("paidfor", service.Text);
                     rpt.SetParameterValue("ammount", cost.Value);
-                    rpt.SetParameterValue("totalpaid", totalpaid.Value);
-                    rpt.SetParameterValue("duepayment", duepayment.Value);
+                    rpt.SetParameterValue("totalpaid", Convert.ToInt32(cost.Value));
+                    rpt.SetParameterValue("duepayment", 0);
                     rpt.SetParameterValue("issuedby", cashiername.Text);
                     rpt.SetParameterValue("comanyname", companyname);
                     rpt.SetParameterValue("companyemail", companyemail);

@@ -35,6 +35,11 @@
             this.ribbonClientPanel1 = new DevComponents.DotNetBar.Ribbon.RibbonClientPanel();
             this.labelX18 = new DevComponents.DotNetBar.LabelX();
             this.groupPanel1 = new DevComponents.DotNetBar.Controls.GroupPanel();
+            this.accbank = new System.Windows.Forms.TextBox();
+            this.label28 = new System.Windows.Forms.Label();
+            this.accountnames = new System.Windows.Forms.TextBox();
+            this.label27 = new System.Windows.Forms.Label();
+            this.outlet = new System.Windows.Forms.Label();
             this.department = new System.Windows.Forms.ComboBox();
             this.label26 = new System.Windows.Forms.Label();
             this.accno = new System.Windows.Forms.TextBox();
@@ -97,7 +102,6 @@
             this.buttonX4 = new DevComponents.DotNetBar.ButtonX();
             this.buttonX3 = new DevComponents.DotNetBar.ButtonX();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.outlet = new System.Windows.Forms.Label();
             this.styleManager1 = new DevComponents.DotNetBar.StyleManager(this.components);
             this.ribbonClientPanel1.SuspendLayout();
             this.groupPanel1.SuspendLayout();
@@ -134,7 +138,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.ribbonClientPanel1.CanvasColor = System.Drawing.SystemColors.Control;
             this.ribbonClientPanel1.Controls.Add(this.labelX18);
-            this.ribbonClientPanel1.Location = new System.Drawing.Point(5, 634);
+            this.ribbonClientPanel1.Location = new System.Drawing.Point(5, 630);
             this.ribbonClientPanel1.Name = "ribbonClientPanel1";
             this.ribbonClientPanel1.Size = new System.Drawing.Size(1011, 64);
             // 
@@ -181,6 +185,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupPanel1.CanvasColor = System.Drawing.SystemColors.Control;
             this.groupPanel1.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
+            this.groupPanel1.Controls.Add(this.accbank);
+            this.groupPanel1.Controls.Add(this.label28);
+            this.groupPanel1.Controls.Add(this.accountnames);
+            this.groupPanel1.Controls.Add(this.label27);
             this.groupPanel1.Controls.Add(this.outlet);
             this.groupPanel1.Controls.Add(this.department);
             this.groupPanel1.Controls.Add(this.label26);
@@ -202,7 +210,7 @@
             this.groupPanel1.Controls.Add(this.Label15);
             this.groupPanel1.Location = new System.Drawing.Point(511, 3);
             this.groupPanel1.Name = "groupPanel1";
-            this.groupPanel1.Size = new System.Drawing.Size(334, 387);
+            this.groupPanel1.Size = new System.Drawing.Size(334, 484);
             // 
             // 
             // 
@@ -236,6 +244,70 @@
             this.groupPanel1.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.groupPanel1.TabIndex = 61;
             this.groupPanel1.Text = "Other Details";
+            // 
+            // accbank
+            // 
+            this.accbank.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.accbank.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.accbank.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.accbank.Location = new System.Drawing.Point(164, 124);
+            this.accbank.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.accbank.Name = "accbank";
+            this.accbank.Size = new System.Drawing.Size(143, 29);
+            this.accbank.TabIndex = 245;
+            // 
+            // label28
+            // 
+            this.label28.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label28.AutoSize = true;
+            this.label28.BackColor = System.Drawing.Color.Transparent;
+            this.label28.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label28.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label28.Location = new System.Drawing.Point(11, 133);
+            this.label28.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(75, 22);
+            this.label28.TabIndex = 246;
+            this.label28.Text = "Acc Bank";
+            // 
+            // accountnames
+            // 
+            this.accountnames.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.accountnames.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.accountnames.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.accountnames.Location = new System.Drawing.Point(164, 89);
+            this.accountnames.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.accountnames.Name = "accountnames";
+            this.accountnames.Size = new System.Drawing.Size(143, 29);
+            this.accountnames.TabIndex = 243;
+            // 
+            // label27
+            // 
+            this.label27.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label27.AutoSize = true;
+            this.label27.BackColor = System.Drawing.Color.Transparent;
+            this.label27.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label27.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label27.Location = new System.Drawing.Point(11, 98);
+            this.label27.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(87, 22);
+            this.label27.TabIndex = 244;
+            this.label27.Text = "Acc Names";
+            // 
+            // outlet
+            // 
+            this.outlet.AutoSize = true;
+            this.outlet.Location = new System.Drawing.Point(103, 423);
+            this.outlet.Name = "outlet";
+            this.outlet.Size = new System.Drawing.Size(33, 13);
+            this.outlet.TabIndex = 242;
+            this.outlet.Text = "outlet";
+            this.outlet.Visible = false;
             // 
             // department
             // 
@@ -308,7 +380,7 @@
             this.txtOtherDeductions.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2;
             this.txtOtherDeductions.DisplayFormat = "N0";
             this.txtOtherDeductions.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtOtherDeductions.Location = new System.Drawing.Point(165, 317);
+            this.txtOtherDeductions.Location = new System.Drawing.Point(164, 394);
             this.txtOtherDeductions.Name = "txtOtherDeductions";
             this.txtOtherDeductions.Size = new System.Drawing.Size(143, 29);
             this.txtOtherDeductions.TabIndex = 122;
@@ -325,7 +397,7 @@
             this.txtLoans.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2;
             this.txtLoans.DisplayFormat = "N0";
             this.txtLoans.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtLoans.Location = new System.Drawing.Point(166, 277);
+            this.txtLoans.Location = new System.Drawing.Point(165, 354);
             this.txtLoans.Name = "txtLoans";
             this.txtLoans.Size = new System.Drawing.Size(142, 29);
             this.txtLoans.TabIndex = 121;
@@ -342,7 +414,7 @@
             this.txtFamilyBenefitFund.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2;
             this.txtFamilyBenefitFund.DisplayFormat = "N0";
             this.txtFamilyBenefitFund.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFamilyBenefitFund.Location = new System.Drawing.Point(166, 236);
+            this.txtFamilyBenefitFund.Location = new System.Drawing.Point(165, 313);
             this.txtFamilyBenefitFund.Name = "txtFamilyBenefitFund";
             this.txtFamilyBenefitFund.Size = new System.Drawing.Size(142, 29);
             this.txtFamilyBenefitFund.TabIndex = 120;
@@ -359,7 +431,7 @@
             this.txtGrpInsurance.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2;
             this.txtGrpInsurance.DisplayFormat = "N0";
             this.txtGrpInsurance.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtGrpInsurance.Location = new System.Drawing.Point(165, 202);
+            this.txtGrpInsurance.Location = new System.Drawing.Point(164, 279);
             this.txtGrpInsurance.Name = "txtGrpInsurance";
             this.txtGrpInsurance.Size = new System.Drawing.Size(143, 29);
             this.txtGrpInsurance.TabIndex = 119;
@@ -377,7 +449,7 @@
             this.txtIncomeTax.DisplayFormat = "N0";
             this.txtIncomeTax.Enabled = false;
             this.txtIncomeTax.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIncomeTax.Location = new System.Drawing.Point(165, 164);
+            this.txtIncomeTax.Location = new System.Drawing.Point(164, 241);
             this.txtIncomeTax.Name = "txtIncomeTax";
             this.txtIncomeTax.Size = new System.Drawing.Size(143, 29);
             this.txtIncomeTax.TabIndex = 138;
@@ -395,7 +467,7 @@
             this.txtLIC.DisplayFormat = "N0";
             this.txtLIC.Enabled = false;
             this.txtLIC.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtLIC.Location = new System.Drawing.Point(165, 128);
+            this.txtLIC.Location = new System.Drawing.Point(164, 205);
             this.txtLIC.Name = "txtLIC";
             this.txtLIC.Size = new System.Drawing.Size(143, 29);
             this.txtLIC.TabIndex = 137;
@@ -412,7 +484,7 @@
             this.txtBasicSalary.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2;
             this.txtBasicSalary.DisplayFormat = "N0";
             this.txtBasicSalary.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBasicSalary.Location = new System.Drawing.Point(165, 89);
+            this.txtBasicSalary.Location = new System.Drawing.Point(164, 166);
             this.txtBasicSalary.Name = "txtBasicSalary";
             this.txtBasicSalary.Size = new System.Drawing.Size(143, 29);
             this.txtBasicSalary.TabIndex = 116;
@@ -426,7 +498,7 @@
             this.Label22.BackColor = System.Drawing.Color.Transparent;
             this.Label22.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Label22.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.Label22.Location = new System.Drawing.Point(12, 100);
+            this.Label22.Location = new System.Drawing.Point(11, 177);
             this.Label22.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.Label22.Name = "Label22";
             this.Label22.Size = new System.Drawing.Size(93, 22);
@@ -441,7 +513,7 @@
             this.Label20.BackColor = System.Drawing.Color.Transparent;
             this.Label20.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Label20.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.Label20.Location = new System.Drawing.Point(13, 317);
+            this.Label20.Location = new System.Drawing.Point(12, 394);
             this.Label20.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.Label20.Name = "Label20";
             this.Label20.Size = new System.Drawing.Size(124, 22);
@@ -456,7 +528,7 @@
             this.Label19.BackColor = System.Drawing.Color.Transparent;
             this.Label19.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Label19.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.Label19.Location = new System.Drawing.Point(12, 279);
+            this.Label19.Location = new System.Drawing.Point(11, 356);
             this.Label19.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.Label19.Name = "Label19";
             this.Label19.Size = new System.Drawing.Size(51, 22);
@@ -471,7 +543,7 @@
             this.Label18.BackColor = System.Drawing.Color.Transparent;
             this.Label18.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Label18.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.Label18.Location = new System.Drawing.Point(12, 242);
+            this.Label18.Location = new System.Drawing.Point(11, 319);
             this.Label18.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.Label18.Name = "Label18";
             this.Label18.Size = new System.Drawing.Size(149, 22);
@@ -486,7 +558,7 @@
             this.Label17.BackColor = System.Drawing.Color.Transparent;
             this.Label17.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Label17.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.Label17.Location = new System.Drawing.Point(12, 207);
+            this.Label17.Location = new System.Drawing.Point(11, 284);
             this.Label17.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.Label17.Name = "Label17";
             this.Label17.Size = new System.Drawing.Size(124, 22);
@@ -501,7 +573,7 @@
             this.Label16.BackColor = System.Drawing.Color.Transparent;
             this.Label16.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Label16.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.Label16.Location = new System.Drawing.Point(12, 171);
+            this.Label16.Location = new System.Drawing.Point(11, 248);
             this.Label16.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.Label16.Name = "Label16";
             this.Label16.Size = new System.Drawing.Size(142, 22);
@@ -516,7 +588,7 @@
             this.Label15.BackColor = System.Drawing.Color.Transparent;
             this.Label15.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Label15.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.Label15.Location = new System.Drawing.Point(12, 136);
+            this.Label15.Location = new System.Drawing.Point(11, 221);
             this.Label15.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.Label15.Name = "Label15";
             this.Label15.Size = new System.Drawing.Size(50, 22);
@@ -567,7 +639,7 @@
             this.groupPanel2.Controls.Add(this.Label8);
             this.groupPanel2.Location = new System.Drawing.Point(3, 3);
             this.groupPanel2.Name = "groupPanel2";
-            this.groupPanel2.Size = new System.Drawing.Size(502, 551);
+            this.groupPanel2.Size = new System.Drawing.Size(502, 547);
             // 
             // 
             // 
@@ -1198,18 +1270,8 @@
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(848, 557);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(848, 553);
             this.tableLayoutPanel1.TabIndex = 66;
-            // 
-            // outlet
-            // 
-            this.outlet.AutoSize = true;
-            this.outlet.Location = new System.Drawing.Point(104, 346);
-            this.outlet.Name = "outlet";
-            this.outlet.Size = new System.Drawing.Size(33, 13);
-            this.outlet.TabIndex = 242;
-            this.outlet.Text = "outlet";
-            this.outlet.Visible = false;
             // 
             // styleManager1
             // 
@@ -1222,7 +1284,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = global::Banking_System.Properties.Settings.Default.usercolor;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1021, 701);
+            this.ClientSize = new System.Drawing.Size(1021, 697);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.groupPanel3);
             this.Controls.Add(this.label23);
@@ -1327,5 +1389,9 @@
         private System.Windows.Forms.ComboBox comboBox3;
         public System.Windows.Forms.ComboBox department;
         internal System.Windows.Forms.Label label26;
+        public System.Windows.Forms.TextBox accbank;
+        internal System.Windows.Forms.Label label28;
+        public System.Windows.Forms.TextBox accountnames;
+        internal System.Windows.Forms.Label label27;
     }
 }

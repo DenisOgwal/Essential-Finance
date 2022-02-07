@@ -281,7 +281,7 @@ namespace Banking_System
                 cmd.Parameters.Add(new SqlParameter("@d8", System.Data.SqlDbType.NChar, 20, "NationalityStatus"));
                 cmd.Parameters.Add(new SqlParameter("@d9", System.Data.SqlDbType.NChar, 20, "IDForm"));
                 cmd.Parameters.Add(new SqlParameter("@d10", System.Data.SqlDbType.NChar, 30, "ClientID"));
-                cmd.Parameters.Add(new SqlParameter("@d11", System.Data.SqlDbType.NChar, 10, "ContactNo"));
+                cmd.Parameters.Add(new SqlParameter("@d11", System.Data.SqlDbType.Int, 10, "ContactNo"));
                 cmd.Parameters.Add(new SqlParameter("@d12", System.Data.SqlDbType.NChar, 10, "ContactNo1"));
                 cmd.Parameters.Add(new SqlParameter("@d13", System.Data.SqlDbType.NChar, 10, "OfficeNo"));
                 cmd.Parameters.Add(new SqlParameter("@d14", System.Data.SqlDbType.NChar, 50, "Email"));
@@ -639,28 +639,40 @@ namespace Banking_System
         {
             try
             {
-                int RowsAffected = 0;
-                con = new SqlConnection(cs.DBConn);
-                con.Open();
-                string cq = "delete  from  Account where AccountNumber=@DELETE1;";
-                cmd = new SqlCommand(cq);
-                cmd.Connection = con;
-                cmd.Parameters.Add(new SqlParameter("@DELETE1", System.Data.SqlDbType.NChar, 15, "AccountNumber"));
-                cmd.Parameters["@DELETE1"].Value = accountnumber.Text;
-                RowsAffected = cmd.ExecuteNonQuery();
-                if (RowsAffected > 0)
+                DialogResult dialog = MessageBox.Show("Do you really want to Delete this Account?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (dialog == System.Windows.Forms.DialogResult.Yes)
                 {
-                    MessageBox.Show("Successfully deleted", "Record", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    Reset();
-                }
-                else
-                {
-                    MessageBox.Show("No Record found", "Sorry", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    Reset();
-                }
-                if (con.State == ConnectionState.Open)
-                {
-                    con.Close();
+                    int RowsAffected = 0;
+                    con = new SqlConnection(cs.DBConn);
+                    con.Open();
+                    string cq = "delete  from  Account where AccountNumber=@DELETE1;";
+                    cmd = new SqlCommand(cq);
+                    cmd.Connection = con;
+                    cmd.Parameters.Add(new SqlParameter("@DELETE1", System.Data.SqlDbType.NChar, 15, "AccountNumber"));
+                    cmd.Parameters["@DELETE1"].Value = accountnumber.Text;
+                    RowsAffected = cmd.ExecuteNonQuery();
+                    if (RowsAffected > 0)
+                    {
+                        MessageBox.Show("Successfully deleted", "Record", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.Hide();
+                        frmMemberRegistration frm = new frmMemberRegistration();
+                        frm.label33.Text = label33.Text;
+                        frm.label34.Text = label34.Text;
+                        frm.ShowDialog();
+                    }
+                    else
+                    {
+                        MessageBox.Show("No Record found", "Sorry", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.Hide();
+                        frmMemberRegistration frm = new frmMemberRegistration();
+                        frm.label33.Text = label33.Text;
+                        frm.label34.Text = label34.Text;
+                        frm.ShowDialog();
+                    }
+                    if (con.State == ConnectionState.Open)
+                    {
+                        con.Close();
+                    }
                 }
             }
             catch (Exception ex)

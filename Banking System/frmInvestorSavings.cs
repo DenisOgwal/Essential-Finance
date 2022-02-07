@@ -57,7 +57,7 @@ namespace Banking_System
             int realid = 0;
             con = new SqlConnection(cs.DBConn);
             con.Open();
-            cmd = new SqlCommand("select ID from InvestorSavings where Date=@date1 Order By ID DESC",con);
+            cmd = new SqlCommand("select ID from InvestorSavings where Date=@date1 Order By ID DESC", con);
             cmd.Parameters.Add("@date1", SqlDbType.DateTime, 30, "Date").Value = date2.Value.Date;
             cmd.Connection = con;
             rdr = cmd.ExecuteReader();
@@ -74,7 +74,47 @@ namespace Banking_System
                 realid = 1;
             }
             string years = yearss.Substring(2, 2);
-            savingsid.Text = "I-" + years + monthss + days +realid;
+            if (investmentplan.Text == "Silver Extra")
+            {
+                savingsid.Text = "SE-" + years + monthss + days + realid;
+            }
+            else if (investmentplan.Text == "Premium")
+            {
+                savingsid.Text = "P-" + years + monthss + days + realid;
+            }
+            else if (investmentplan.Text == "Premium Extra")
+            {
+                savingsid.Text = "PE-" + years + monthss + days + realid;
+            }
+            else if (investmentplan.Text == "Silver")
+            {
+                savingsid.Text = "S-" + years + monthss + days + realid;
+            }
+
+        }
+        private void auto()
+        {
+            int realid = 0;
+            con = new SqlConnection(cs.DBConn);
+            con.Open();
+            cmd = new SqlCommand("select ID from InvestmentAppreciation where Date=@date1 Order By ID DESC", con);
+            cmd.Parameters.Add("@date1", SqlDbType.DateTime, 30, "Date").Value = date2.Value.Date;
+            cmd.Connection = con;
+            rdr = cmd.ExecuteReader();
+            if (rdr.Read())
+            {
+                con = new SqlConnection(cs.DBConn);
+                con.Open();
+                cmd = new SqlCommand("select COUNT(AccountNo) from InvestmentAppreciation where Date=@date1", con);
+                cmd.Parameters.Add("@date1", SqlDbType.DateTime, 30, "Date").Value = date2.Value.Date;
+                realid = Convert.ToInt32(cmd.ExecuteScalar()) + 1;
+            }
+            else
+            {
+                realid = 1;
+            }
+            string years = yearss.Substring(2, 2);
+            Depositid.Text =years + monthss + days + realid;
         }
         private void frmSavings_Load(object sender, EventArgs e)
         {
@@ -92,6 +132,25 @@ namespace Banking_System
                 {
                     accountnumber.Items.Add(drow[0].ToString());
                 }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            try
+            {
+                SqlConnection CN = new SqlConnection(cs.DBConn);
+                CN.Open();
+                adp = new SqlDataAdapter();
+                adp.SelectCommand = new SqlCommand("SELECT distinct RTRIM(AccountNumber),RTRIM(AccountNames) FROM BankAccounts", CN);
+                ds = new DataSet("ds");
+                adp.Fill(ds);
+                dtable = ds.Tables[0];
+                foreach (DataRow drow in dtable.Rows)
+                {
+                    cmbModeOfPayment.Items.Add(drow[0].ToString());
+                }
+
             }
             catch (Exception ex)
             {
@@ -119,7 +178,7 @@ namespace Banking_System
                 }
                 else
                 {
-                   
+
                 }
             }
             catch (Exception ex)
@@ -142,37 +201,37 @@ namespace Banking_System
             string numbers = null;
             try
             {
-                    using (var client2 = new WebClient())
-                    using (client2.OpenRead("http://client3.google.com/generate_204"))
+                using (var client2 = new WebClient())
+                using (client2.OpenRead("http://client3.google.com/generate_204"))
+                {
+                    con = new SqlConnection(cs.DBConn);
+                    con.Open();
+                    cmd = con.CreateCommand();
+                    cmd.CommandText = "SELECT distinct RTRIM(ContactNo) FROM InvestorAccount where AccountNumber='" + accountnumber.Text + "'";
+                    rdr = cmd.ExecuteReader();
+                    if (rdr.Read())
                     {
-                        con = new SqlConnection(cs.DBConn);
-                        con.Open();
-                        cmd = con.CreateCommand();
-                        cmd.CommandText = "SELECT distinct RTRIM(ContactNo) FROM InvestorAccount where AccountNumber='" + accountnumber.Text + "'";
-                        rdr = cmd.ExecuteReader();
-                        if (rdr.Read())
-                        {
-                            numberphone = rdr.GetString(0);
-                        }
-                        if ((rdr != null))
-                        {
-                            rdr.Close();
-                        }
-                        if (con.State == ConnectionState.Open)
-                        {
-                            con.Close();
-                        }
-
-                        string usernamess = Properties.Settings.Default.smsusername;
-                        string passwordss = Properties.Settings.Default.smspassword;
-                        numbers = "+256" + numberphone;
-                        messages = " A deposit of " + depositammount.Text + " Has been made on your account No. " + accountnumber.Text + ", Accout Name"+accountname.Text+"  and your account balance is " + accountbalance.Text;
-
-                        WebClient client = new WebClient();
-                        string baseURL = "http://geniussmsgroup.com/api/http/messagesService/get?username="+usernamess +"&password="+passwordss+"&senderid=Geniussms&message=" + messages + "&numbers=" + numbers;
-                        client.OpenRead(baseURL);
-                        //MessageBox.Show("Successfully sent message");
+                        numberphone = rdr.GetString(0);
                     }
+                    if ((rdr != null))
+                    {
+                        rdr.Close();
+                    }
+                    if (con.State == ConnectionState.Open)
+                    {
+                        con.Close();
+                    }
+
+                    string usernamess = Properties.Settings.Default.smsusername;
+                    string passwordss = Properties.Settings.Default.smspassword;
+                    numbers = "+256" + numberphone;
+                    messages = " A deposit of " + depositammount.Text + " Has been made on your account No. " + accountnumber.Text + ", Accout Name" + accountname.Text + "  and your account balance is " + accountbalance.Text;
+
+                    WebClient client = new WebClient();
+                    string baseURL = "http://geniussmsgroup.com/api/http/messagesService/get?username=" + usernamess + "&password=" + passwordss + "&senderid=Geniussms&message=" + messages + "&numbers=" + numbers;
+                    client.OpenRead(baseURL);
+                    //MessageBox.Show("Successfully sent message");
+                }
             }
             catch (Exception)
             {
@@ -181,7 +240,11 @@ namespace Banking_System
         }
         private void buttonX5_Click(object sender, EventArgs e)
         {
-            auto2();
+            if (savingsid.Text == "")
+            {
+                auto2();
+            }
+            auto();
             if (accountnumber.Text == "")
             {
                 MessageBox.Show("Please enter Account Number", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -230,51 +293,187 @@ namespace Banking_System
                 MaturityPeriod.Focus();
                 return;
             }
+            if (depositinterval.Text == "")
+            {
+                MessageBox.Show("Please Select Deposit Interval", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                depositinterval.Focus();
+                return;
+            }
+            if (installment.Text == "")
+            {
+                MessageBox.Show("Please Enter Installment", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                installment.Focus();
+                return;
+            }
             try
             {
-                string appreciationDate = null;
-                
-                DateTime startdate = DateTime.Parse(date2.Text).Date;
-                appreciationDate = (startdate.AddMonths(MaturityPeriod.Value)).ToShortDateString();
-                DateTime dt = DateTime.Parse(appreciationDate);
-                string ConvertedappreciationDate = dt.ToString("dd/MMM/yyyy");
+                string nextappreciation = null;
+                DateTime startdates = DateTime.Parse(date2.Text).Date;
+                nextappreciation = (startdates.AddMonths(1)).ToShortDateString();
+                DateTime dts = DateTime.Parse(nextappreciation);
+                string nextConvertedappreciationDate = dts.ToString("dd/MMM/yyyy");
+
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
-                string cb = "insert into InvestorSavings(SavingsID,AccountNo,AccountName,CashierName,Date,Deposit,Accountbalance,SubmittedBy,Transactions,ModeOfPayment,InterestRate,MaturityPeriod,MaturityDate) VALUES (@d1,@d2,@d3,@d4,@d5,@d6,@d7,@d8,@d9,@d10,@d11,@d12,@d13)";
-                cmd = new SqlCommand(cb);
+                string ct = "select Deposit,AccountBalance,DepositedInstallmentNo from InvestorSavings where SavingsID='" + savingsid.Text + "'order by ID Desc";
+                cmd = new SqlCommand(ct);
                 cmd.Connection = con;
-                cmd.Parameters.Add(new SqlParameter("@d1", System.Data.SqlDbType.NChar, 15, "SavingsID"));
-                cmd.Parameters.Add(new SqlParameter("@d2", System.Data.SqlDbType.NChar, 20, "AccountNo"));
-                cmd.Parameters.Add(new SqlParameter("@d3", System.Data.SqlDbType.NChar, 100, "AccountName"));
-                cmd.Parameters.Add(new SqlParameter("@d4", System.Data.SqlDbType.NChar, 40, "CashierName"));
-                cmd.Parameters.Add(new SqlParameter("@d5", System.Data.SqlDbType.NChar, 20, "Date"));
-                cmd.Parameters.Add(new SqlParameter("@d6", System.Data.SqlDbType.Int, 10, "Deposit"));
-                cmd.Parameters.Add(new SqlParameter("@d7", System.Data.SqlDbType.Int, 10, "Accountbalance"));
-                cmd.Parameters.Add(new SqlParameter("@d8", System.Data.SqlDbType.NChar, 40, "SubmittedBy"));
-                cmd.Parameters.Add(new SqlParameter("@d9", System.Data.SqlDbType.NChar, 30, "Transactions"));
-                cmd.Parameters.Add(new SqlParameter("@d10", System.Data.SqlDbType.NChar, 30, "ModeOfPayment"));
-                cmd.Parameters.Add(new SqlParameter("@d11", System.Data.SqlDbType.Int, 20, "InterestRate"));
-                cmd.Parameters.Add(new SqlParameter("@d12", System.Data.SqlDbType.Int, 20, "MaturityPeriod"));
-                cmd.Parameters.Add(new SqlParameter("@d13", System.Data.SqlDbType.NChar, 20, "MaturityDate"));
-                cmd.Parameters["@d1"].Value = savingsid.Text.Trim();
-                cmd.Parameters["@d2"].Value = accountnumber.Text.Trim();
-                cmd.Parameters["@d3"].Value = accountname.Text;
-                cmd.Parameters["@d4"].Value = cashiername.Text.Trim();
-                cmd.Parameters["@d5"].Value = date2.Text.Trim();
-                cmd.Parameters["@d6"].Value = Convert.ToInt32(depositammount.Value);
-                cmd.Parameters["@d7"].Value = accountbalance.Value;
-                cmd.Parameters["@d8"].Value = submittedby.Text;
-                cmd.Parameters["@d9"].Value = "Deposit";
-                cmd.Parameters["@d10"].Value = cmbModeOfPayment.Text;
-                cmd.Parameters["@d11"].Value = IntrestRate.Text;
-                cmd.Parameters["@d12"].Value = MaturityPeriod.Text;
-                cmd.Parameters["@d13"].Value = ConvertedappreciationDate;
-                cmd.ExecuteNonQuery();
+                rdr = cmd.ExecuteReader();
+                if (rdr.Read())
+                { 
+                    int accountbalances = Convert.ToInt32(rdr[1]);
+                    int newaccountbalance = accountbalances + depositammount.Value;
+                    int depositedno = Convert.ToInt32(rdr[2]);
+                    int newdeositno = depositedno + 1;
+                    int appreciationnos = Convert.ToInt32(MaturityPeriod.Value) - newdeositno;
+
+                    string nextappreciationss = null;
+                    DateTime startdatess = DateTime.Parse(date2.Text).Date;
+                    nextappreciationss = (startdatess.AddMonths(1)).ToShortDateString();
+                    DateTime dtsss = DateTime.Parse(nextappreciationss);
+                    string nextConvertedappreciationDatess = dtsss.ToString("dd/MMM/yyyy"); 
+
+                   
+
+                    con = new SqlConnection(cs.DBConn);
+                    con.Open();
+                    string cb = "insert into InvestmentAppreciation(SavingsID,AccountNo,AccountName,CashierName,Date,Deposit,Accountbalance,InterestRate,AppreciationNo,NextAppreciationDate,DepositID,Interval,Credit) VALUES (@d1,@d2,@d3,@d4,@d5,@d6,@d7,@d8,@d9,@d10,@d11,@d12,'CR')";
+                    cmd = new SqlCommand(cb);
+                    cmd.Connection = con;
+                    cmd.Parameters.Add(new SqlParameter("@d1", System.Data.SqlDbType.NChar, 15, "SavingsID"));
+                    cmd.Parameters.Add(new SqlParameter("@d2", System.Data.SqlDbType.NChar, 20, "AccountNo"));
+                    cmd.Parameters.Add(new SqlParameter("@d3", System.Data.SqlDbType.NChar, 100, "AccountName"));
+                    cmd.Parameters.Add(new SqlParameter("@d4", System.Data.SqlDbType.NChar, 40, "CashierName"));
+                    cmd.Parameters.Add(new SqlParameter("@d5", System.Data.SqlDbType.NChar, 20, "Date"));
+                    cmd.Parameters.Add(new SqlParameter("@d6", System.Data.SqlDbType.Int, 10, "Deposit"));
+                    cmd.Parameters.Add(new SqlParameter("@d7", System.Data.SqlDbType.Int, 10, "Accountbalance"));
+                    cmd.Parameters.Add(new SqlParameter("@d8", System.Data.SqlDbType.Float, 12, "InterestRate"));
+                    cmd.Parameters.Add(new SqlParameter("@d9", System.Data.SqlDbType.Int, 30, "AppreciationNo"));
+                    cmd.Parameters.Add(new SqlParameter("@d10", System.Data.SqlDbType.NChar, 20, "NextAppreciationDate"));
+                    cmd.Parameters.Add(new SqlParameter("@d11", System.Data.SqlDbType.Float, 20, "DepositID"));
+                    cmd.Parameters.Add(new SqlParameter("@d12", System.Data.SqlDbType.NChar, 20, "Interval"));
+          
+                    cmd.Parameters["@d1"].Value = savingsid.Text.Trim();
+                    cmd.Parameters["@d2"].Value = accountnumber.Text.Trim();
+                    cmd.Parameters["@d3"].Value = accountname.Text;
+                    cmd.Parameters["@d4"].Value = cashiername.Text.Trim();
+                    cmd.Parameters["@d5"].Value = date2.Text.Trim();
+                    cmd.Parameters["@d6"].Value = Convert.ToInt32(depositammount.Value);
+                    cmd.Parameters["@d7"].Value = accountbalance.Value;
+                    cmd.Parameters["@d8"].Value = IntrestRate.Text;
+                    cmd.Parameters["@d9"].Value = appreciationnos;
+                    cmd.Parameters["@d10"].Value = nextConvertedappreciationDate;
+                    cmd.Parameters["@d11"].Value = Depositid.Text;
+                    cmd.Parameters["@d12"].Value = depositinterval.Text;
+                    cmd.ExecuteNonQuery();
+                }
+                else
+                {
+                    string ConvertedappreciationDatess = null;
+                    if (depositinterval.Text == "One Off")
+                    {
+                        string appreciationDatess = null;
+                        DateTime startdatess = DateTime.Parse(date2.Text).Date;
+                        appreciationDatess = (startdatess.AddMonths(MaturityPeriod.Value)).ToShortDateString();
+                        DateTime dtss = DateTime.Parse(appreciationDatess);
+                        ConvertedappreciationDatess = dtss.ToString("dd/MMM/yyyy");
+                    }
+                    else
+                    {
+                        string appreciationDatess = null;
+                        DateTime startdatess = DateTime.Parse(date2.Text).Date;
+                        appreciationDatess = (startdatess.AddMonths(1)).ToShortDateString();
+                        DateTime dtss = DateTime.Parse(appreciationDatess);
+                        ConvertedappreciationDatess = dtss.ToString("dd/MMM/yyyy");
+                    }
+                    string appreciationDate = null;
+                    DateTime startdate = DateTime.Parse(date2.Text).Date;
+                    appreciationDate = (startdate.AddMonths(MaturityPeriod.Value)).ToShortDateString();
+                    DateTime dt = DateTime.Parse(appreciationDate);
+                    string ConvertedappreciationDate = dt.ToString("dd/MMM/yyyy");
+
+                    string appreciationDatesss = null;
+                    DateTime startdatesss = DateTime.Parse(date2.Text).Date;
+                    appreciationDatesss = (startdatesss.AddMonths(MaturityPeriod.Value)).ToShortDateString();
+                    DateTime dtsss = DateTime.Parse(appreciationDatesss);
+                    string ConvertedappreciationDatesss = dtsss.ToString("dd/MMM/yyyy");
+                    con = new SqlConnection(cs.DBConn);
+                    con.Open();
+                    string cb3 = "insert into InvestorSavings(SavingsID,AccountNo,AccountName,CashierName,Date,Deposit,Accountbalance,SubmittedBy,Transactions,ModeOfPayment,InterestRate,MaturityPeriod,MaturityDate,InvestmentPlan,DepositInterval,DepositedInstallmentNo,OtherMaturityDate,NextDepositDate) VALUES (@d1,@d2,@d3,@d4,@d5,@d6,@d7,@d8,@d9,@d10,@d11,@d12,@d13,@d14,@d15,1,@d16,'"+ ConvertedappreciationDatess+ "')";
+                    cmd = new SqlCommand(cb3);
+                    cmd.Connection = con;
+                    cmd.Parameters.Add(new SqlParameter("@d1", System.Data.SqlDbType.NChar, 15, "SavingsID"));
+                    cmd.Parameters.Add(new SqlParameter("@d2", System.Data.SqlDbType.NChar, 20, "AccountNo"));
+                    cmd.Parameters.Add(new SqlParameter("@d3", System.Data.SqlDbType.NChar, 100, "AccountName"));
+                    cmd.Parameters.Add(new SqlParameter("@d4", System.Data.SqlDbType.NChar, 40, "CashierName"));
+                    cmd.Parameters.Add(new SqlParameter("@d5", System.Data.SqlDbType.NChar, 20, "Date"));
+                    cmd.Parameters.Add(new SqlParameter("@d6", System.Data.SqlDbType.Int, 10, "Deposit"));
+                    cmd.Parameters.Add(new SqlParameter("@d7", System.Data.SqlDbType.Int, 10, "Accountbalance"));
+                    cmd.Parameters.Add(new SqlParameter("@d8", System.Data.SqlDbType.NChar, 40, "SubmittedBy"));
+                    cmd.Parameters.Add(new SqlParameter("@d9", System.Data.SqlDbType.NChar, 30, "Transactions"));
+                    cmd.Parameters.Add(new SqlParameter("@d10", System.Data.SqlDbType.NChar, 30, "ModeOfPayment"));
+                    cmd.Parameters.Add(new SqlParameter("@d11", System.Data.SqlDbType.Float, 20, "InterestRate"));
+                    cmd.Parameters.Add(new SqlParameter("@d12", System.Data.SqlDbType.Int, 20, "MaturityPeriod"));
+                    cmd.Parameters.Add(new SqlParameter("@d13", System.Data.SqlDbType.NChar, 20, "MaturityDate"));
+                    cmd.Parameters.Add(new SqlParameter("@d14", System.Data.SqlDbType.NChar, 30, "InvestmentPlan"));
+                    cmd.Parameters.Add(new SqlParameter("@d15", System.Data.SqlDbType.NChar, 20, "DepositInterval"));
+                    cmd.Parameters.Add(new SqlParameter("@d16", System.Data.SqlDbType.NChar, 20, "OtherMaturiyDate"));
+                    cmd.Parameters["@d1"].Value = savingsid.Text.Trim();
+                    cmd.Parameters["@d2"].Value = accountnumber.Text.Trim();
+                    cmd.Parameters["@d3"].Value = accountname.Text;
+                    cmd.Parameters["@d4"].Value = cashiername.Text.Trim();
+                    cmd.Parameters["@d5"].Value = date2.Text.Trim();
+                    cmd.Parameters["@d6"].Value = Convert.ToInt32(depositammount.Value);
+                    cmd.Parameters["@d7"].Value = 0;
+                    cmd.Parameters["@d8"].Value = "N/A";
+                    cmd.Parameters["@d9"].Value = "Deposit";
+                    cmd.Parameters["@d10"].Value = cmbModeOfPayment.Text;
+                    cmd.Parameters["@d11"].Value = IntrestRate.Text;
+                    cmd.Parameters["@d12"].Value = MaturityPeriod.Value;
+                    cmd.Parameters["@d13"].Value = ConvertedappreciationDate;
+                    cmd.Parameters["@d14"].Value = investmentplan.Text;
+                    cmd.Parameters["@d15"].Value = depositinterval.Text;
+                    cmd.Parameters["@d16"].Value = ConvertedappreciationDate;
+                    cmd.ExecuteNonQuery();
+                    con = new SqlConnection(cs.DBConn);
+                    con.Open();
+                    string cb5 = "insert into InvestmentAppreciation(SavingsID,AccountNo,AccountName,CashierName,Date,Deposit,Accountbalance,InterestRate,AppreciationNo,NextAppreciationDate,DepositID,Interval,Credit) VALUES (@d1,@d2,@d3,@d4,@d5,@d6,@d7,@d8,@d9,@d10,@d11,@d12,'CR')";
+                    cmd = new SqlCommand(cb5);
+                    cmd.Connection = con;
+                    cmd.Parameters.Add(new SqlParameter("@d1", System.Data.SqlDbType.NChar, 15, "SavingsID"));
+                    cmd.Parameters.Add(new SqlParameter("@d2", System.Data.SqlDbType.NChar, 20, "AccountNo"));
+                    cmd.Parameters.Add(new SqlParameter("@d3", System.Data.SqlDbType.NChar, 100, "AccountName"));
+                    cmd.Parameters.Add(new SqlParameter("@d4", System.Data.SqlDbType.NChar, 40, "CashierName"));
+                    cmd.Parameters.Add(new SqlParameter("@d5", System.Data.SqlDbType.NChar, 20, "Date"));
+                    cmd.Parameters.Add(new SqlParameter("@d6", System.Data.SqlDbType.Int, 10, "Deposit"));
+                    cmd.Parameters.Add(new SqlParameter("@d7", System.Data.SqlDbType.Int, 10, "Accountbalance"));
+                    cmd.Parameters.Add(new SqlParameter("@d8", System.Data.SqlDbType.Float, 12, "InterestRate"));
+                    cmd.Parameters.Add(new SqlParameter("@d9", System.Data.SqlDbType.Int, 30, "AppreciationNo"));
+                    cmd.Parameters.Add(new SqlParameter("@d10", System.Data.SqlDbType.NChar, 20, "NextAppreciationDate"));
+                    cmd.Parameters.Add(new SqlParameter("@d11", System.Data.SqlDbType.Float, 20, "DepositID"));
+                    cmd.Parameters.Add(new SqlParameter("@d12", System.Data.SqlDbType.NChar, 20, "Interval"));
+
+                    cmd.Parameters["@d1"].Value = savingsid.Text.Trim();
+                    cmd.Parameters["@d2"].Value = accountnumber.Text.Trim();
+                    cmd.Parameters["@d3"].Value = accountname.Text;
+                    cmd.Parameters["@d4"].Value = cashiername.Text.Trim();
+                    cmd.Parameters["@d5"].Value = date2.Text.Trim();
+                    cmd.Parameters["@d6"].Value = Convert.ToInt32(depositammount.Value);
+                    cmd.Parameters["@d7"].Value = accountbalance.Value;
+                    cmd.Parameters["@d8"].Value = IntrestRate.Text;
+                    cmd.Parameters["@d9"].Value = MaturityPeriod.Value;
+                    cmd.Parameters["@d10"].Value = ConvertedappreciationDatesss;
+                    cmd.Parameters["@d11"].Value = Depositid.Text;
+                    cmd.Parameters["@d12"].Value = depositinterval.Text;
+                    cmd.ExecuteNonQuery();
+                }
+
+
                 MessageBox.Show("Successfully saved", "Investment Record", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 string smsallow = Properties.Settings.Default.smsallow;
                 if (smsallow == "Yes")
                 {
-                    sendmessage();
+                    //sendmessage();
                 }
                 buttonX5.Enabled = false;
                 con.Close();
@@ -289,19 +488,19 @@ namespace Banking_System
             frm2.label2.Text = label2.Text;
             frm2.ShowDialog();
         }
-       
+
         private void buttonX7_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void frmSavings_FormClosing(object sender, FormClosingEventArgs e)
         {
-           /* this.Hide();
-            frmMainMenu frm = new frmMainMenu();
-            frm.User.Text = label1.Text;
-            frm.UserType.Text = label2.Text;
-            frm.Show();*/
+            /* this.Hide();
+             frmMainMenu frm = new frmMainMenu();
+             frm.User.Text = label1.Text;
+             frm.UserType.Text = label2.Text;
+             frm.Show();*/
         }
         private void cashierid_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -353,6 +552,31 @@ namespace Banking_System
                 {
                     con.Close();
                 }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            try
+            {
+                con = new SqlConnection(cs.DBConn);
+                con.Open();
+                cmd = con.CreateCommand();
+                cmd.CommandText = "SELECT distinct RTRIM(SavingsID) FROM InvestorSavings where AccountNo='" + accountnumber.Text + "'";
+                rdr = cmd.ExecuteReader();
+                savingsid.Items.Clear();
+                while (rdr.Read() == true)
+                {
+                    savingsid.Items.Add(rdr.GetString(0).Trim());
+                }
+                /*if ((rdr != null))
+                {
+                    rdr.Close();
+                }
+                if (con.State == ConnectionState.Open)
+                {
+                    con.Close();
+                }*/
             }
             catch (Exception ex)
             {
@@ -426,7 +650,7 @@ namespace Banking_System
                     string staffids = rdr["StaffID"].ToString().Trim();
                     con = new SqlConnection(cs.DBConn);
                     con.Open();
-                    string ct = "SELECT UserName,StaffID FROM ApprovalRights WHERE StaffID='" + staffids + "' and IncomesApproval='Yes'";
+                    string ct = "SELECT UserName,StaffID FROM ApprovalRights WHERE StaffID='" + staffids + "' and InvestorDeposit='Yes'";
                     cmd2 = new SqlCommand(ct);
                     cmd2.Connection = con;
                     rdr2 = cmd2.ExecuteReader();
@@ -459,7 +683,8 @@ namespace Banking_System
         }
         private void depositammount_ValueChanged_1(object sender, EventArgs e)
         {
-            try {
+            try
+            {
                 if (depositammount.Text == "") { }
                 else
                 {
@@ -467,7 +692,7 @@ namespace Banking_System
                     con.Open();
                     int val4 = 0;
                     int val5 = 0;
-                    string ct2 = "select Accountbalance from InvestorSavings where  AccountNo= '" + accountnumber.Text + "' order by ID Desc";
+                    string ct2 = "select Accountbalance from InvestorSavings where  SavingsID= '" + savingsid.Text + "' order by ID Desc";
                     cmd = new SqlCommand(ct2);
                     cmd.Connection = con;
                     rdr2 = cmd.ExecuteReader();
@@ -486,7 +711,7 @@ namespace Banking_System
                     {
                         int val1 = 0;
                         int.TryParse(depositammount.Value.ToString(), out val1);
-                        accountbalance.Value = val1 ;
+                        accountbalance.Value = val1;
                     }
                 }
             }
@@ -494,17 +719,21 @@ namespace Banking_System
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        
+
         }
 
         private void buttonX9_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void buttonX2_Click_1(object sender, EventArgs e)
         {
-            auto2();
+            if (savingsid.Text == "")
+            {
+                auto2();
+            }
+            auto();
             if (accountnumber.Text == "")
             {
                 MessageBox.Show("Please enter Account Number", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -543,42 +772,167 @@ namespace Banking_System
             }
             try
             {
+                string nextappreciation = null;
+                DateTime startdates = DateTime.Parse(date2.Text).Date;
+                nextappreciation = (startdates.AddMonths(1)).ToShortDateString();
+                DateTime dts = DateTime.Parse(nextappreciation);
+                string nextConvertedappreciationDate = dts.ToString("dd/MMM/yyyy");
+
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
-                string cb = "insert into InvestorSavings(SavingsID,AccountNo,AccountName,CashierName,Date,Deposit,Accountbalance,SubmittedBy,Transactions,ModeOfPayment,InterestRate,MaturityPeriod) VALUES (@d1,@d2,@d3,@d4,@d5,@d6,@d7,@d8,@d9,@d10,@d11,@d12)";
-                cmd = new SqlCommand(cb);
+                string ct = "select Deposit,AccountBalance,DepositedInstallmentNo from InvestorSavings where SavingsID='" + savingsid.Text + "'order by ID Desc";
+                cmd = new SqlCommand(ct);
                 cmd.Connection = con;
-                cmd.Parameters.Add(new SqlParameter("@d1", System.Data.SqlDbType.NChar, 15, "SavingsID"));
-                cmd.Parameters.Add(new SqlParameter("@d2", System.Data.SqlDbType.NChar, 20, "AccountNo"));
-                cmd.Parameters.Add(new SqlParameter("@d3", System.Data.SqlDbType.NChar, 100, "AccountName"));
-                cmd.Parameters.Add(new SqlParameter("@d4", System.Data.SqlDbType.NChar, 40, "CashierName"));
-                cmd.Parameters.Add(new SqlParameter("@d5", System.Data.SqlDbType.NChar, 20, "Date"));
-                cmd.Parameters.Add(new SqlParameter("@d6", System.Data.SqlDbType.Int, 10, "Deposit"));
-                cmd.Parameters.Add(new SqlParameter("@d7", System.Data.SqlDbType.Int, 10, "Accountbalance"));
-                cmd.Parameters.Add(new SqlParameter("@d8", System.Data.SqlDbType.NChar, 40, "SubmittedBy"));
-                cmd.Parameters.Add(new SqlParameter("@d9", System.Data.SqlDbType.NChar, 30, "Transactions"));
-                cmd.Parameters.Add(new SqlParameter("@d10", System.Data.SqlDbType.NChar, 30, "ModeOfPayment"));
-                cmd.Parameters.Add(new SqlParameter("@d11", System.Data.SqlDbType.Int, 20, "InterestRate"));
-                cmd.Parameters.Add(new SqlParameter("@d12", System.Data.SqlDbType.Int, 20, "MaturityPeriod"));
-                cmd.Parameters["@d1"].Value = savingsid.Text.Trim();
-                cmd.Parameters["@d2"].Value = accountnumber.Text.Trim();
-                cmd.Parameters["@d3"].Value = accountname.Text;
-                cmd.Parameters["@d4"].Value = cashiername.Text.Trim();
-                cmd.Parameters["@d5"].Value = date2.Text.Trim();
-                cmd.Parameters["@d6"].Value = Convert.ToInt32(depositammount.Value);
-                cmd.Parameters["@d7"].Value = accountbalance.Value;
-                cmd.Parameters["@d8"].Value = submittedby.Text;
-                cmd.Parameters["@d9"].Value = "Deposit";
-                cmd.Parameters["@d10"].Value = cmbModeOfPayment.Text;
-                cmd.Parameters["@d11"].Value = IntrestRate.Text;
-                cmd.Parameters["@d12"].Value = MaturityPeriod.Text;
-                cmd.ExecuteNonQuery();
+                rdr = cmd.ExecuteReader();
+                if (rdr.Read())
+                {
+
+                    int accountbalances = Convert.ToInt32(rdr[1]);
+                    int newaccountbalance = accountbalances + depositammount.Value;
+                    int depositedno = Convert.ToInt32(rdr[2]);
+                    int newdeositno = depositedno + 1;
+                    int appreciationnos = Convert.ToInt32(MaturityPeriod.Value) - newdeositno;
+
+                    string nextappreciationss = null;
+                    DateTime startdatess = DateTime.Parse(date2.Text).Date;
+                    nextappreciationss = (startdatess.AddMonths(appreciationnos)).ToShortDateString();
+                    DateTime dtsss = DateTime.Parse(nextappreciationss);
+                    string nextConvertedappreciationDatess = dtsss.ToString("dd/MMM/yyyy");
+
+                    con = new SqlConnection(cs.DBConn);
+                    con.Open();
+                    string cb3 = "update InvestorSavings set OtherMaturityDate=@d4,AccountBalance =@d2,DepositedInstallmentNo=@d3 where SavingsID=@d1";
+                    cmd = new SqlCommand(cb3);
+                    cmd.Connection = con;
+                    cmd.Parameters.Add(new SqlParameter("@d1", System.Data.SqlDbType.NChar, 15, "SavingsID"));
+                    cmd.Parameters.Add(new SqlParameter("@d2", System.Data.SqlDbType.Int, 15, "AccountBalance"));
+                    cmd.Parameters.Add(new SqlParameter("@d3", System.Data.SqlDbType.Int, 15, "DepositedInstallmentNo"));
+                    cmd.Parameters.Add(new SqlParameter("@d4", System.Data.SqlDbType.NChar, 20, "OtherMaturityDate"));
+                    cmd.Parameters["@d1"].Value = savingsid.Text.Trim();
+                    cmd.Parameters["@d2"].Value = newaccountbalance;
+                    cmd.Parameters["@d3"].Value = newdeositno;
+                    cmd.Parameters["@d4"].Value = nextConvertedappreciationDatess;
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+
+                    con = new SqlConnection(cs.DBConn);
+                    con.Open();
+                    string cb = "insert into InvestmentAppreciation(SavingsID,AccountNo,AccountName,CashierName,Date,Deposit,Accountbalance,InterestRate,AppreciationNo,NextAppreciationDate,DepositID,Interval) VALUES (@d1,@d2,@d3,@d4,@d5,@d6,@d7,@d8,@d9,@d10,@d11,@d12)";
+                    cmd = new SqlCommand(cb);
+                    cmd.Connection = con;
+                    cmd.Parameters.Add(new SqlParameter("@d1", System.Data.SqlDbType.NChar, 15, "SavingsID"));
+                    cmd.Parameters.Add(new SqlParameter("@d2", System.Data.SqlDbType.NChar, 20, "AccountNo"));
+                    cmd.Parameters.Add(new SqlParameter("@d3", System.Data.SqlDbType.NChar, 100, "AccountName"));
+                    cmd.Parameters.Add(new SqlParameter("@d4", System.Data.SqlDbType.NChar, 40, "CashierName"));
+                    cmd.Parameters.Add(new SqlParameter("@d5", System.Data.SqlDbType.NChar, 20, "Date"));
+                    cmd.Parameters.Add(new SqlParameter("@d6", System.Data.SqlDbType.Int, 10, "Deposit"));
+                    cmd.Parameters.Add(new SqlParameter("@d7", System.Data.SqlDbType.Int, 10, "Accountbalance"));
+                    cmd.Parameters.Add(new SqlParameter("@d8", System.Data.SqlDbType.Float, 12, "InterestRate"));
+                    cmd.Parameters.Add(new SqlParameter("@d9", System.Data.SqlDbType.Int, 30, "AppreciationNo"));
+                    cmd.Parameters.Add(new SqlParameter("@d10", System.Data.SqlDbType.NChar, 20, "NextAppreciationDate"));
+                    cmd.Parameters.Add(new SqlParameter("@d11", System.Data.SqlDbType.Float, 20, "DepositID"));
+                    cmd.Parameters.Add(new SqlParameter("@d12", System.Data.SqlDbType.NChar, 20, "Interval"));
+
+                    cmd.Parameters["@d1"].Value = savingsid.Text.Trim();
+                    cmd.Parameters["@d2"].Value = accountnumber.Text.Trim();
+                    cmd.Parameters["@d3"].Value = accountname.Text;
+                    cmd.Parameters["@d4"].Value = cashiername.Text.Trim();
+                    cmd.Parameters["@d5"].Value = date2.Text.Trim();
+                    cmd.Parameters["@d6"].Value = Convert.ToInt32(depositammount.Value);
+                    cmd.Parameters["@d7"].Value = accountbalance.Value;
+                    cmd.Parameters["@d8"].Value = IntrestRate.Text;
+                    cmd.Parameters["@d9"].Value = appreciationnos;
+                    cmd.Parameters["@d10"].Value = nextConvertedappreciationDate;
+                    cmd.Parameters["@d11"].Value = Depositid.Text;
+                    cmd.Parameters["@d12"].Value = depositinterval.Text;
+                    cmd.ExecuteNonQuery();
+                }
+                else
+                {
+                    string appreciationDate = null;
+                    DateTime startdate = DateTime.Parse(date2.Text).Date;
+                    appreciationDate = (startdate.AddMonths(MaturityPeriod.Value)).ToShortDateString();
+                    DateTime dt = DateTime.Parse(appreciationDate);
+                    string ConvertedappreciationDate = dt.ToString("dd/MMM/yyyy");
+                    con = new SqlConnection(cs.DBConn);
+                    con.Open();
+                    string cb = "insert into InvestorSavings(SavingsID,AccountNo,AccountName,CashierName,Date,Deposit,Accountbalance,SubmittedBy,Transactions,ModeOfPayment,InterestRate,MaturityPeriod,MaturityDate,InvestmentPlan,DepositInterval,DepositedInstallmentNo,OtherMaturityDate) VALUES (@d1,@d2,@d3,@d4,@d5,@d6,@d7,@d8,@d9,@d10,@d11,@d12,@d13,@d14,@d15,1,@d16)";
+                    cmd = new SqlCommand(cb);
+                    cmd.Connection = con;
+                    cmd.Parameters.Add(new SqlParameter("@d1", System.Data.SqlDbType.NChar, 15, "SavingsID"));
+                    cmd.Parameters.Add(new SqlParameter("@d2", System.Data.SqlDbType.NChar, 20, "AccountNo"));
+                    cmd.Parameters.Add(new SqlParameter("@d3", System.Data.SqlDbType.NChar, 100, "AccountName"));
+                    cmd.Parameters.Add(new SqlParameter("@d4", System.Data.SqlDbType.NChar, 40, "CashierName"));
+                    cmd.Parameters.Add(new SqlParameter("@d5", System.Data.SqlDbType.NChar, 20, "Date"));
+                    cmd.Parameters.Add(new SqlParameter("@d6", System.Data.SqlDbType.Int, 10, "Deposit"));
+                    cmd.Parameters.Add(new SqlParameter("@d7", System.Data.SqlDbType.Int, 10, "Accountbalance"));
+                    cmd.Parameters.Add(new SqlParameter("@d8", System.Data.SqlDbType.NChar, 40, "SubmittedBy"));
+                    cmd.Parameters.Add(new SqlParameter("@d9", System.Data.SqlDbType.NChar, 30, "Transactions"));
+                    cmd.Parameters.Add(new SqlParameter("@d10", System.Data.SqlDbType.NChar, 30, "ModeOfPayment"));
+                    cmd.Parameters.Add(new SqlParameter("@d11", System.Data.SqlDbType.Float, 20, "InterestRate"));
+                    cmd.Parameters.Add(new SqlParameter("@d12", System.Data.SqlDbType.Int, 20, "MaturityPeriod"));
+                    cmd.Parameters.Add(new SqlParameter("@d13", System.Data.SqlDbType.NChar, 20, "MaturityDate"));
+                    cmd.Parameters.Add(new SqlParameter("@d14", System.Data.SqlDbType.NChar, 30, "InvestmentPlan"));
+                    cmd.Parameters.Add(new SqlParameter("@d15", System.Data.SqlDbType.NChar, 20, "DepositInterval"));
+                    cmd.Parameters.Add(new SqlParameter("@d16", System.Data.SqlDbType.NChar, 20, "OtherMaturiyDate"));
+                    cmd.Parameters["@d1"].Value = savingsid.Text.Trim();
+                    cmd.Parameters["@d2"].Value = accountnumber.Text.Trim();
+                    cmd.Parameters["@d3"].Value = accountname.Text;
+                    cmd.Parameters["@d4"].Value = cashiername.Text.Trim();
+                    cmd.Parameters["@d5"].Value = date2.Text.Trim();
+                    cmd.Parameters["@d6"].Value = Convert.ToInt32(depositammount.Value);
+                    cmd.Parameters["@d7"].Value = accountbalance.Value;
+                    cmd.Parameters["@d8"].Value = submittedby.Text;
+                    cmd.Parameters["@d9"].Value = "Deposit";
+                    cmd.Parameters["@d10"].Value = cmbModeOfPayment.Text;
+                    cmd.Parameters["@d11"].Value = IntrestRate.Text;
+                    cmd.Parameters["@d12"].Value = MaturityPeriod.Value;
+                    cmd.Parameters["@d13"].Value = ConvertedappreciationDate;
+                    cmd.Parameters["@d14"].Value = investmentplan.Text;
+                    cmd.Parameters["@d15"].Value = depositinterval.Text;
+                    cmd.Parameters["@d16"].Value = ConvertedappreciationDate;
+                    cmd.ExecuteNonQuery();
+
+                    con = new SqlConnection(cs.DBConn);
+                    con.Open();
+                    string cb3 = "insert into InvestmentAppreciation(SavingsID,AccountNo,AccountName,CashierName,Date,Deposit,Accountbalance,InterestRate,AppreciationNo,NextAppreciationDate,DepositID,Interval) VALUES (@d1,@d2,@d3,@d4,@d5,@d6,@d7,@d8,@d9,@d10,@d11,@d12)";
+                    cmd = new SqlCommand(cb3);
+                    cmd.Connection = con;
+                    cmd.Parameters.Add(new SqlParameter("@d1", System.Data.SqlDbType.NChar, 15, "SavingsID"));
+                    cmd.Parameters.Add(new SqlParameter("@d2", System.Data.SqlDbType.NChar, 20, "AccountNo"));
+                    cmd.Parameters.Add(new SqlParameter("@d3", System.Data.SqlDbType.NChar, 100, "AccountName"));
+                    cmd.Parameters.Add(new SqlParameter("@d4", System.Data.SqlDbType.NChar, 40, "CashierName"));
+                    cmd.Parameters.Add(new SqlParameter("@d5", System.Data.SqlDbType.NChar, 20, "Date"));
+                    cmd.Parameters.Add(new SqlParameter("@d6", System.Data.SqlDbType.Int, 10, "Deposit"));
+                    cmd.Parameters.Add(new SqlParameter("@d7", System.Data.SqlDbType.Int, 10, "Accountbalance"));
+                    cmd.Parameters.Add(new SqlParameter("@d8", System.Data.SqlDbType.Float, 12, "InterestRate"));
+                    cmd.Parameters.Add(new SqlParameter("@d9", System.Data.SqlDbType.Int, 30, "AppreciationNo"));
+                    cmd.Parameters.Add(new SqlParameter("@d10", System.Data.SqlDbType.NChar, 20, "NextAppreciationDate"));
+                    cmd.Parameters.Add(new SqlParameter("@d11", System.Data.SqlDbType.Float, 20, "DepositID"));
+                    cmd.Parameters.Add(new SqlParameter("@d12", System.Data.SqlDbType.NChar, 20, "Interval"));
+
+                    cmd.Parameters["@d1"].Value = savingsid.Text.Trim();
+                    cmd.Parameters["@d2"].Value = accountnumber.Text.Trim();
+                    cmd.Parameters["@d3"].Value = accountname.Text;
+                    cmd.Parameters["@d4"].Value = cashiername.Text.Trim();
+                    cmd.Parameters["@d5"].Value = date2.Text.Trim();
+                    cmd.Parameters["@d6"].Value = Convert.ToInt32(depositammount.Value);
+                    cmd.Parameters["@d7"].Value = accountbalance.Value;
+                    cmd.Parameters["@d8"].Value = IntrestRate.Text;
+                    cmd.Parameters["@d9"].Value = MaturityPeriod.Value;
+                    cmd.Parameters["@d10"].Value = nextConvertedappreciationDate;
+                    cmd.Parameters["@d11"].Value = Depositid.Text;
+                    cmd.Parameters["@d12"].Value = depositinterval.Text;
+                    cmd.ExecuteNonQuery();
+                }
                 MessageBox.Show("Successfully saved", "Investment Record", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 string smsallow = Properties.Settings.Default.smsallow;
                 if (smsallow == "Yes")
                 {
                     sendmessage();
                 }
+                buttonX5.Enabled = false;
+                con.Close();
                 company();
                 try
                 {
@@ -629,12 +983,12 @@ namespace Banking_System
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-               
-                this.Hide();
-                frmInvestorSavings frm2 = new frmInvestorSavings();
-                frm2.label1.Text = label1.Text;
-                frm2.label2.Text = label2.Text;
-                frm2.ShowDialog();
+
+            this.Hide();
+            frmInvestorSavings frm2 = new frmInvestorSavings();
+            frm2.label1.Text = label1.Text;
+            frm2.label2.Text = label2.Text;
+            frm2.ShowDialog();
         }
         private void accountnumber2_Click(object sender, EventArgs e)
         {
@@ -652,11 +1006,11 @@ namespace Banking_System
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
                 cmd = con.CreateCommand();
-                cmd.CommandText = "SELECT AccountType FROM InvestorAccount where AccountNumber='"+accountnumber.Text+"'";
+                cmd.CommandText = "SELECT AccountType FROM InvestorAccount where AccountNumber='" + accountnumber.Text + "'";
                 rdr = cmd.ExecuteReader();
                 if (rdr.Read())
                 {
-                    label3.Text=rdr[0].ToString().Trim();
+                    label3.Text = rdr[0].ToString().Trim();
                 }
 
             }
@@ -681,6 +1035,82 @@ namespace Banking_System
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void MaturityPeriod_ValueChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (MaturityPeriod.Text == " ")
+                {
+                    return;
+                }
+                else
+                {
+                    DateTime target = DateTime.Parse(date2.Text.ToString()).Date;
+                    target = target.AddMonths(MaturityPeriod.Value);
+                    maturitydate.Text = target.ToString("dd/MMM/yyyy");
+                }
+            }
+            catch (Exception)
+            {
+                MaturityPeriod.Text = "";
+            }
+        }
+
+        private void savingsid_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                con = new SqlConnection(cs.DBConn);
+                con.Open();
+                string ct = "select * from InvestorSavings where SavingsID='" + savingsid.Text + "'order by ID Desc";
+                cmd = new SqlCommand(ct);
+                cmd.Connection = con;
+                rdr = cmd.ExecuteReader();
+                if (rdr.Read())
+                {
+                    depositammount.Value = Convert.ToInt32(rdr["Deposit"]);
+                    investmentplan.Text = rdr["InvestmentPlan"].ToString();
+                    IntrestRate.Text = rdr["InterestRate"].ToString();
+                    //accountbalance.Text = rdr["AccountBalance"].ToString();   
+                    depositinterval.Text= rdr["DepositInterval"].ToString();
+                    maturitydate.Text = rdr["OtherMaturityDate"].ToString();
+                }
+            }
+            catch (Exception Ex)
+            {
+                MessageBox.Show(Ex.Message,"Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
+            }
+
+            try
+            {
+                con = new SqlConnection(cs.DBConn);
+                con.Open();
+                string ct = "select Months,AccrualMonths from InvestmentSchedule where InvestmentID='" + savingsid.Text + "' and PaymentStatus='Pending' order by ID Asc";
+                cmd = new SqlCommand(ct);
+                cmd.Connection = con;
+                rdr = cmd.ExecuteReader();
+                if (rdr.Read())
+                {
+                    installment.Text = rdr["Months"].ToString();
+                    MaturityPeriod.Text = rdr["AccrualMonths"].ToString();
+                }
+                else
+                {
+                    installment.Text = "";
+                }
+                depositammount.Enabled = false;
+                IntrestRate.Enabled = false;
+                investmentplan.Enabled = false;
+                MaturityPeriod.Enabled = false;
+                depositinterval.Enabled = false;
+
+            }
+            catch (Exception Ex)
+            {
+                MessageBox.Show(Ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

@@ -209,7 +209,7 @@ namespace Banking_System
             {
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
-                cmd = new SqlCommand("select RTrim(AccountNo)[Account Number], RTRIM(AccountName)[Account Names], RTRIM(Date)[Transaction Date], RTRIM(SavingsID)[Savings ID],RTRIM(Deposit)[Amount], RTRIM(Transactions)[Transaction], RTRIM(Accountbalance)[Account Balance], RTRIM(SubmittedBy)[Submitted By], RTRIM(CashierName)[Staff Name], RTRIM(ModeOfPayment)[Payment Mode] from Savings where  Date between @date1 and @date2 order by ID DESC", con);
+                cmd = new SqlCommand("select RTrim(AccountNo)[Account Number], RTRIM(AccountName)[Account Names], RTRIM(Date)[Transaction Date], RTRIM(DepositDate)[DepositDate], RTRIM(SavingsID)[Savings ID],RTRIM(Deposit)[Amount], RTRIM(Transactions)[Transaction], RTRIM(Accountbalance)[Account Balance], RTRIM(SubmittedBy)[Submitted By], RTRIM(CashierName)[Staff Name], RTRIM(ModeOfPayment)[Payment Mode], RTRIM(Debit)[Debit], RTRIM(Credit)[Credit], RTRIM(Approval)[Approval], RTRIM(ApprovedBy)[Approved By] from Savings where  Date between @date1 and @date2 order by ID DESC", con);
                 cmd.Parameters.Add("@date1", SqlDbType.DateTime, 30, "Date").Value = savingsfrom.Value.Date;
                 cmd.Parameters.Add("@date2", SqlDbType.DateTime, 30, "Date").Value = savingsto.Value.Date;
                 SqlDataAdapter myDA = new SqlDataAdapter(cmd);
@@ -230,7 +230,7 @@ namespace Banking_System
             {
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
-                cmd = new SqlCommand("select RTrim(AccountNo)[Account Number], RTRIM(AccountName)[Account Names], RTRIM(Date)[Transaction Date], RTRIM(SavingsID)[Savings ID],RTRIM(Deposit)[Amount], RTRIM(Transactions)[Transaction], RTRIM(Accountbalance)[Account Balance], RTRIM(SubmittedBy)[Submitted By], RTRIM(CashierName)[Staff Name], RTRIM(ModeOfPayment)[Payment Mode] from Savings where  SavingsID Like '"+SavingsSearch.Text+ "%' OR AccountNo Like '" + SavingsSearch.Text + "%' OR AccountName Like '" + SavingsSearch.Text + "%' OR CashierName Like '" + SavingsSearch.Text + "%' OR Date Like '" + SavingsSearch.Text + "%' OR Deposit Like '" + SavingsSearch.Text + "%' OR Transactions Like '" + SavingsSearch.Text + "%' OR SubmittedBy Like '" + SavingsSearch.Text + "%' OR ModeOfPayment Like '" + SavingsSearch.Text + "%' OR Accountbalance Like '" + SavingsSearch.Text + "%' order by ID DESC", con);
+                cmd = new SqlCommand("select RTrim(AccountNo)[Account Number], RTRIM(AccountName)[Account Names], RTRIM(Date)[Transaction Date], RTRIM(DepositDate)[DepositDate], RTRIM(SavingsID)[Savings ID],RTRIM(Deposit)[Amount], RTRIM(Transactions)[Transaction], RTRIM(Accountbalance)[Account Balance], RTRIM(SubmittedBy)[Submitted By], RTRIM(CashierName)[Staff Name], RTRIM(ModeOfPayment)[Payment Mode], RTRIM(Debit)[Debit], RTRIM(Credit)[Credit], RTRIM(Approval)[Approval], RTRIM(ApprovedBy)[Approved By] from Savings where  SavingsID Like '" + SavingsSearch.Text+ "%' OR AccountNo Like '" + SavingsSearch.Text + "%' OR AccountName Like '" + SavingsSearch.Text + "%' OR CashierName Like '" + SavingsSearch.Text + "%' OR Date Like '" + SavingsSearch.Text + "%' OR Deposit Like '" + SavingsSearch.Text + "%' OR Transactions Like '" + SavingsSearch.Text + "%' OR SubmittedBy Like '" + SavingsSearch.Text + "%' OR ModeOfPayment Like '" + SavingsSearch.Text + "%' OR Accountbalance Like '" + SavingsSearch.Text + "%' OR Approval Like '" + SavingsSearch.Text + "%' order by ID DESC", con);
                 SqlDataAdapter myDA = new SqlDataAdapter(cmd);
                 DataSet myDataSet = new DataSet();
                 myDA.Fill(myDataSet, "Savings");
@@ -331,7 +331,7 @@ namespace Banking_System
             {
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
-                cmd = new SqlCommand("select RTRIM(Savings.AccountNo)[Account Number], RTRIM(AccountName)[Account Name], RTRIM(Date)[Date],RTRIM(Accountbalance)[Account Balance] from Savings  INNER JOIN (SELECT AccountNo, Max(ID) as ID from Savings group by AccountNo) AS b ON Savings.AccountNo=b.AccountNo and Savings.ID=b.ID ", con);
+                cmd = new SqlCommand("select RTRIM(Savings.AccountNo)[Account Number], RTRIM(AccountName)[Account Name], RTRIM(Date)[Date],RTRIM(Accountbalance)[Account Balance] from Savings  INNER JOIN (SELECT AccountNo, Max(ID) as ID from Savings group by AccountNo) AS b ON Savings.AccountNo=b.AccountNo and Savings.ID=b.ID", con);
                 SqlDataAdapter myDA = new SqlDataAdapter(cmd);
                 DataSet myDataSet = new DataSet();
                 myDA.Fill(myDataSet, "Savings");
@@ -413,7 +413,7 @@ namespace Banking_System
             {
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
-                cmd = new SqlCommand("select RTrim(AccountNo)[Account Number], RTRIM(AccountName)[Account Names], RTRIM(Date)[Transaction Date], RTRIM(SavingsID)[Savings ID],RTRIM(Deposit)[Amount], RTRIM(Transactions)[Transaction], RTRIM(Accountbalance)[Account Balance], RTRIM(SubmittedBy)[Submitted By], RTRIM(CashierName)[Staff Name], RTRIM(ModeOfPayment)[Payment Mode] from Savings where  AccountNo Like '" + searchtransactions.Text + "%' order by ID DESC", con);
+                cmd = new SqlCommand("select RTrim(AccountNo)[Account Number], RTRIM(AccountName)[Account Names], RTRIM(Date)[Transaction Date], RTRIM(DepositDate)[DepositDate], RTRIM(SavingsID)[Savings ID],RTRIM(Deposit)[Amount], RTRIM(Transactions)[Transaction], RTRIM(Accountbalance)[Account Balance], RTRIM(SubmittedBy)[Submitted By], RTRIM(CashierName)[Staff Name], RTRIM(ModeOfPayment)[Payment Mode], RTRIM(Debit)[Debit], RTRIM(Credit)[Credit], RTRIM(Approval)[Approval], RTRIM(ApprovedBy)[Approved By] from Savings where  AccountNo Like '" + searchtransactions.Text + "%' order by ID DESC", con);
                 SqlDataAdapter myDA = new SqlDataAdapter(cmd);
                 DataSet myDataSet = new DataSet();
                 myDA.Fill(myDataSet, "Savings");
@@ -495,7 +495,7 @@ namespace Banking_System
             {
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
-                cmd = new SqlCommand("select RTrim(AccountNumber)[Account Number], RTRIM(AccountName)[Account Names], RTRIM(LoanID)[Loan ID], RTRIM(PaymentDate)[Repayment Date], RTRIM(Months)[Installment],RTRIM(AmmountPay)[Principal], RTRIM(Interest)[Interest], RTRIM(TotalAmmount)[Total Amount], RTRIM(BalanceExist)[Balance Exist], RTRIM(PaymentStatus)[Payment Status] from RepaymentSchedule where  AccountNumber Like '" + loanschedulesearch.Text + "%' order by ID Asc", con);
+                cmd = new SqlCommand("select RTrim(AccountNumber)[Account Number], RTRIM(AccountName)[Account Names], RTRIM(LoanID)[Loan ID], RTRIM(PaymentDate)[Repayment Date], RTRIM(Months)[Installment],RTRIM(AmmountPay)[Principal], RTRIM(Interest)[Interest], RTRIM(TotalAmmount)[Total Amount], RTRIM(BalanceExist)[Balance Exist], RTRIM(PaymentStatus)[Payment Status], RTRIM(Fines)[Fines], RTRIM(Waivered)[Waivered] from RepaymentSchedule where  AccountNumber Like '" + loanschedulesearch.Text + "%' order by ID Asc", con);
                 SqlDataAdapter myDA = new SqlDataAdapter(cmd);
                 DataSet myDataSet = new DataSet();
                 myDA.Fill(myDataSet, "RepaymentSchedule");
@@ -578,7 +578,7 @@ namespace Banking_System
             {
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
-                cmd = new SqlCommand("select RTRIM(AccountNo)[Account No.],RTRIM(AccountName)[Account Name],RTRIM(LoanID)[Loan ID],RTRIM(LoanAmount)[Loan Amount],RTRIM(ApplicationDate)[Application Date],RTRIM(ServicingPeriod)[Servicing Period],RTRIM(RepaymentInterval)[Repayment Interval] ,RTRIM(Interest)[Interest Rate],RTRIM(RefereeName)[Referee Name],RTRIM(RefereeTel)[Referee Tel],RTRIM(RefereeAddress)[Referee Address],RTRIM(RefereeRelationShip)[Referee Relationship] from Loan where  AccountNo Like '" + issuedloanssearch.Text + "%' order by ID Asc", con);
+                cmd = new SqlCommand("select RTRIM(AccountNo)[Account No.],RTRIM(AccountName)[Account Name],RTRIM(LoanID)[Loan ID],RTRIM(LoanAmount)[Loan Amount],RTRIM(ApplicationDate)[Application Date],RTRIM(ServicingPeriod)[Servicing Period],RTRIM(RepaymentInterval)[Repayment Interval] ,RTRIM(Interest)[Interest Rate],RTRIM(RefereeName)[Referee Name],RTRIM(RefereeTel)[Referee Tel],RTRIM(RefereeAddress)[Referee Address],RTRIM(RefereeRelationShip)[Referee Relationship],RTRIM(FirstApproval)[1st Approval],(ApprovalComment)[Approval Comment],RTRIM(FinalApproval)[Final Approval],(FinalApprovalComment)[Final Approval Comment],RTRIM(FinalApprovalDate)[Final Approval Date],RTRIM(FinalApprovedBy)[Approved By],RTRIM(LoanType)[LoanType],RTRIM(IssueType)[Issue Method],RTRIM(Issued)[Issued] from Loan where  AccountNo Like '" + issuedloanssearch.Text + "%' order by ID Asc", con);
                 SqlDataAdapter myDA = new SqlDataAdapter(cmd);
                 DataSet myDataSet = new DataSet();
                 myDA.Fill(myDataSet, "Loan");

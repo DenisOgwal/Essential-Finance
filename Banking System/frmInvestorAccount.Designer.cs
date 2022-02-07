@@ -30,8 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmInvestorAccount));
             this.groupPanel1 = new DevComponents.DotNetBar.Controls.GroupPanel();
-            this.AccountType = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.accountnumber = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.BankAccountName = new System.Windows.Forms.TextBox();
             this.label18 = new System.Windows.Forms.Label();
@@ -113,8 +111,6 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupPanel1.CanvasColor = System.Drawing.SystemColors.Control;
             this.groupPanel1.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
-            this.groupPanel1.Controls.Add(this.AccountType);
-            this.groupPanel1.Controls.Add(this.label1);
             this.groupPanel1.Controls.Add(this.accountnumber);
             this.groupPanel1.Controls.Add(this.BankAccountName);
             this.groupPanel1.Controls.Add(this.label18);
@@ -195,35 +191,6 @@
             this.groupPanel1.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.groupPanel1.TabIndex = 63;
             // 
-            // AccountType
-            // 
-            this.AccountType.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.AccountType.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
-            this.AccountType.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.AccountType.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AccountType.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.AccountType.FormattingEnabled = true;
-            this.AccountType.ItemHeight = 22;
-            this.AccountType.Location = new System.Drawing.Point(451, 40);
-            this.AccountType.Name = "AccountType";
-            this.AccountType.Size = new System.Drawing.Size(150, 30);
-            this.AccountType.TabIndex = 224;
-            // 
-            // label1
-            // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label1.Location = new System.Drawing.Point(339, 42);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(104, 22);
-            this.label1.TabIndex = 223;
-            this.label1.Text = "Account Type";
-            // 
             // accountnumber
             // 
             this.accountnumber.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -296,7 +263,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.OfficeNo.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.OfficeNo.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.OfficeNo.Location = new System.Drawing.Point(451, 261);
+            this.OfficeNo.Location = new System.Drawing.Point(451, 224);
             this.OfficeNo.Mask = "0000000000";
             this.OfficeNo.Name = "OfficeNo";
             this.OfficeNo.Size = new System.Drawing.Size(150, 29);
@@ -310,7 +277,7 @@
             this.label11.BackColor = System.Drawing.Color.Transparent;
             this.label11.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label11.Location = new System.Drawing.Point(339, 268);
+            this.label11.Location = new System.Drawing.Point(339, 231);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(80, 22);
             this.label11.TabIndex = 217;
@@ -346,7 +313,7 @@
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label5.Location = new System.Drawing.Point(339, 192);
+            this.label5.Location = new System.Drawing.Point(339, 154);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(100, 22);
@@ -364,7 +331,7 @@
             this.NIN.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.NIN.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.NIN.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.NIN.Location = new System.Drawing.Point(451, 189);
+            this.NIN.Location = new System.Drawing.Point(451, 151);
             this.NIN.Name = "NIN";
             this.NIN.Size = new System.Drawing.Size(150, 29);
             this.NIN.TabIndex = 11;
@@ -528,7 +495,7 @@
             this.maritalstatus.Items.AddRange(new object[] {
             "Single",
             "Married"});
-            this.maritalstatus.Location = new System.Drawing.Point(451, 120);
+            this.maritalstatus.Location = new System.Drawing.Point(451, 82);
             this.maritalstatus.Name = "maritalstatus";
             this.maritalstatus.Size = new System.Drawing.Size(150, 30);
             this.maritalstatus.TabIndex = 7;
@@ -539,7 +506,7 @@
             this.label16.BackColor = System.Drawing.Color.Transparent;
             this.label16.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label16.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label16.Location = new System.Drawing.Point(339, 125);
+            this.label16.Location = new System.Drawing.Point(339, 87);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(106, 22);
             this.label16.TabIndex = 84;
@@ -559,7 +526,7 @@
             "Resident Individual",
             "Non-resident",
             "Foreign National"});
-            this.nationalitystatus.Location = new System.Drawing.Point(451, 156);
+            this.nationalitystatus.Location = new System.Drawing.Point(451, 118);
             this.nationalitystatus.Name = "nationalitystatus";
             this.nationalitystatus.Size = new System.Drawing.Size(150, 30);
             this.nationalitystatus.TabIndex = 56;
@@ -570,7 +537,7 @@
             this.label15.BackColor = System.Drawing.Color.Transparent;
             this.label15.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label15.Location = new System.Drawing.Point(339, 160);
+            this.label15.Location = new System.Drawing.Point(339, 122);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(52, 22);
             this.label15.TabIndex = 83;
@@ -582,7 +549,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.Email.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Email.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.Email.Location = new System.Drawing.Point(451, 224);
+            this.Email.Location = new System.Drawing.Point(451, 185);
             this.Email.Name = "Email";
             this.Email.Size = new System.Drawing.Size(150, 29);
             this.Email.TabIndex = 15;
@@ -623,7 +590,7 @@
             this.Gender.Items.AddRange(new object[] {
             "Male",
             "Female"});
-            this.Gender.Location = new System.Drawing.Point(451, 80);
+            this.Gender.Location = new System.Drawing.Point(451, 42);
             this.Gender.Name = "Gender";
             this.Gender.Size = new System.Drawing.Size(150, 30);
             this.Gender.TabIndex = 55;
@@ -678,7 +645,7 @@
             this.label28.BackColor = System.Drawing.Color.Transparent;
             this.label28.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label28.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label28.Location = new System.Drawing.Point(339, 227);
+            this.label28.Location = new System.Drawing.Point(339, 188);
             this.label28.Name = "label28";
             this.label28.Size = new System.Drawing.Size(50, 22);
             this.label28.TabIndex = 79;
@@ -780,7 +747,7 @@
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label4.Location = new System.Drawing.Point(339, 78);
+            this.label4.Location = new System.Drawing.Point(339, 40);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(60, 22);
             this.label4.TabIndex = 54;
@@ -1210,7 +1177,5 @@
         public System.Windows.Forms.Label label34;
         public System.Windows.Forms.Label label33;
         public DevComponents.DotNetBar.Controls.TextBoxX accountnumber;
-        public System.Windows.Forms.ComboBox AccountType;
-        private System.Windows.Forms.Label label1;
     }
 }

@@ -273,5 +273,10 @@ namespace Banking_System
         {
 
         }
+
+        private void groupPanel3_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

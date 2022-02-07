@@ -61,14 +61,15 @@
             this.buttonX3 = new DevComponents.DotNetBar.ButtonX();
             this.buttonX4 = new DevComponents.DotNetBar.ButtonX();
             this.buttonX5 = new DevComponents.DotNetBar.ButtonX();
-            this.cmbModeOfPayment = new System.Windows.Forms.ComboBox();
-            this.label18 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.accountbalance = new DevComponents.Editors.IntegerInput();
+            this.labelX11 = new DevComponents.DotNetBar.LabelX();
             ((System.ComponentModel.ISupportInitialize)(this.balance)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ammountpaid)).BeginInit();
             this.groupPanel5.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.accountbalance)).BeginInit();
             this.SuspendLayout();
             // 
             // label2
@@ -124,6 +125,7 @@
             // 
             // memberid
             // 
+            this.memberid.AcceptsReturn = true;
             // 
             // 
             // 
@@ -330,7 +332,7 @@
             this.balance.Enabled = false;
             this.balance.Font = new System.Drawing.Font("Palatino Linotype", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.balance.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.balance.Location = new System.Drawing.Point(580, 308);
+            this.balance.Location = new System.Drawing.Point(579, 267);
             this.balance.Name = "balance";
             this.balance.Size = new System.Drawing.Size(223, 44);
             this.balance.TabIndex = 66;
@@ -346,7 +348,7 @@
             this.ammountpaid.DisplayFormat = "N0";
             this.ammountpaid.Font = new System.Drawing.Font("Palatino Linotype", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ammountpaid.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.ammountpaid.Location = new System.Drawing.Point(579, 258);
+            this.ammountpaid.Location = new System.Drawing.Point(578, 217);
             this.ammountpaid.Name = "ammountpaid";
             this.ammountpaid.Size = new System.Drawing.Size(224, 44);
             this.ammountpaid.TabIndex = 65;
@@ -396,9 +398,9 @@
             this.labelX6.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.labelX6.Location = new System.Drawing.Point(431, 359);
             this.labelX6.Name = "labelX6";
-            this.labelX6.Size = new System.Drawing.Size(86, 23);
+            this.labelX6.Size = new System.Drawing.Size(116, 23);
             this.labelX6.TabIndex = 62;
-            this.labelX6.Text = "ApprovalID";
+            this.labelX6.Text = "Approval ID";
             // 
             // labelX5
             // 
@@ -410,11 +412,11 @@
             this.labelX5.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.labelX5.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelX5.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.labelX5.Location = new System.Drawing.Point(434, 317);
+            this.labelX5.Location = new System.Drawing.Point(433, 276);
             this.labelX5.Name = "labelX5";
-            this.labelX5.Size = new System.Drawing.Size(72, 23);
+            this.labelX5.Size = new System.Drawing.Size(113, 23);
             this.labelX5.TabIndex = 61;
-            this.labelX5.Text = "Balance";
+            this.labelX5.Text = "Loan Balance";
             // 
             // labelX4
             // 
@@ -426,7 +428,7 @@
             this.labelX4.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.labelX4.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelX4.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.labelX4.Location = new System.Drawing.Point(431, 267);
+            this.labelX4.Location = new System.Drawing.Point(430, 226);
             this.labelX4.Name = "labelX4";
             this.labelX4.Size = new System.Drawing.Size(97, 23);
             this.labelX4.TabIndex = 60;
@@ -600,35 +602,6 @@
             this.buttonX5.Text = "Cancel";
             this.buttonX5.Click += new System.EventHandler(this.buttonX5_Click);
             // 
-            // cmbModeOfPayment
-            // 
-            this.cmbModeOfPayment.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.cmbModeOfPayment.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cmbModeOfPayment.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbModeOfPayment.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.cmbModeOfPayment.FormattingEnabled = true;
-            this.cmbModeOfPayment.Items.AddRange(new object[] {
-            "Cash",
-            "Bank",
-            "Mobile Money"});
-            this.cmbModeOfPayment.Location = new System.Drawing.Point(579, 216);
-            this.cmbModeOfPayment.Name = "cmbModeOfPayment";
-            this.cmbModeOfPayment.Size = new System.Drawing.Size(224, 30);
-            this.cmbModeOfPayment.TabIndex = 80;
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.BackColor = System.Drawing.Color.Transparent;
-            this.label18.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label18.Location = new System.Drawing.Point(427, 219);
-            this.label18.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(136, 22);
-            this.label18.TabIndex = 81;
-            this.label18.Text = "Mode Of Payment";
-            // 
             // dataGridView1
             // 
             this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -643,15 +616,48 @@
             this.dataGridView1.TabIndex = 82;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
+            // accountbalance
+            // 
+            // 
+            // 
+            // 
+            this.accountbalance.BackgroundStyle.Class = "DateTimeInputBackground";
+            this.accountbalance.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.accountbalance.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2;
+            this.accountbalance.DisplayFormat = "N0";
+            this.accountbalance.Enabled = false;
+            this.accountbalance.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.accountbalance.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.accountbalance.Location = new System.Drawing.Point(579, 317);
+            this.accountbalance.Name = "accountbalance";
+            this.accountbalance.Size = new System.Drawing.Size(223, 29);
+            this.accountbalance.TabIndex = 84;
+            // 
+            // labelX11
+            // 
+            this.labelX11.BackColor = System.Drawing.Color.Transparent;
+            // 
+            // 
+            // 
+            this.labelX11.BackgroundStyle.Class = "";
+            this.labelX11.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX11.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelX11.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.labelX11.Location = new System.Drawing.Point(434, 323);
+            this.labelX11.Name = "labelX11";
+            this.labelX11.Size = new System.Drawing.Size(139, 23);
+            this.labelX11.TabIndex = 83;
+            this.labelX11.Text = "Account Balance";
+            // 
             // frmRepaymentForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = global::Banking_System.Properties.Settings.Default.usercolor;
-            this.ClientSize = new System.Drawing.Size(820, 571);
+            this.ClientSize = new System.Drawing.Size(820, 570);
+            this.Controls.Add(this.accountbalance);
+            this.Controls.Add(this.labelX11);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.cmbModeOfPayment);
-            this.Controls.Add(this.label18);
             this.Controls.Add(this.groupPanel5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -688,6 +694,7 @@
             this.groupPanel5.ResumeLayout(false);
             this.tableLayoutPanel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.accountbalance)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -726,8 +733,8 @@
         private DevComponents.DotNetBar.ButtonX buttonX4;
         private DevComponents.DotNetBar.ButtonX buttonX5;
         private DevComponents.DotNetBar.ButtonX buttonX7;
-        public System.Windows.Forms.ComboBox cmbModeOfPayment;
-        private System.Windows.Forms.Label label18;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private DevComponents.Editors.IntegerInput accountbalance;
+        private DevComponents.DotNetBar.LabelX labelX11;
     }
 }

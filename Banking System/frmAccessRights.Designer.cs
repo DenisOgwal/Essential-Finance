@@ -39,6 +39,43 @@
             this.buttonX23 = new DevComponents.DotNetBar.ButtonX();
             this.buttonX24 = new DevComponents.DotNetBar.ButtonX();
             this.expandablePanel2 = new DevComponents.DotNetBar.ExpandablePanel();
+            this.itemPanel3 = new DevComponents.DotNetBar.ItemPanel();
+            this.checkBoxItem45 = new DevComponents.DotNetBar.CheckBoxItem();
+            this.checkBoxItem46 = new DevComponents.DotNetBar.CheckBoxItem();
+            this.checkBoxItem47 = new DevComponents.DotNetBar.CheckBoxItem();
+            this.checkBoxItem48 = new DevComponents.DotNetBar.CheckBoxItem();
+            this.checkBoxItem49 = new DevComponents.DotNetBar.CheckBoxItem();
+            this.checkBoxItem50 = new DevComponents.DotNetBar.CheckBoxItem();
+            this.checkBoxItem51 = new DevComponents.DotNetBar.CheckBoxItem();
+            this.checkBoxItem52 = new DevComponents.DotNetBar.CheckBoxItem();
+            this.checkBoxItem53 = new DevComponents.DotNetBar.CheckBoxItem();
+            this.checkBoxItem54 = new DevComponents.DotNetBar.CheckBoxItem();
+            this.checkBoxItem55 = new DevComponents.DotNetBar.CheckBoxItem();
+            this.checkBoxItem56 = new DevComponents.DotNetBar.CheckBoxItem();
+            this.checkBoxItem57 = new DevComponents.DotNetBar.CheckBoxItem();
+            this.itemPanel2 = new DevComponents.DotNetBar.ItemPanel();
+            this.checkBoxItem23 = new DevComponents.DotNetBar.CheckBoxItem();
+            this.checkBoxItem24 = new DevComponents.DotNetBar.CheckBoxItem();
+            this.checkBoxItem25 = new DevComponents.DotNetBar.CheckBoxItem();
+            this.checkBoxItem26 = new DevComponents.DotNetBar.CheckBoxItem();
+            this.checkBoxItem27 = new DevComponents.DotNetBar.CheckBoxItem();
+            this.checkBoxItem28 = new DevComponents.DotNetBar.CheckBoxItem();
+            this.checkBoxItem29 = new DevComponents.DotNetBar.CheckBoxItem();
+            this.checkBoxItem30 = new DevComponents.DotNetBar.CheckBoxItem();
+            this.checkBoxItem31 = new DevComponents.DotNetBar.CheckBoxItem();
+            this.checkBoxItem32 = new DevComponents.DotNetBar.CheckBoxItem();
+            this.checkBoxItem33 = new DevComponents.DotNetBar.CheckBoxItem();
+            this.checkBoxItem34 = new DevComponents.DotNetBar.CheckBoxItem();
+            this.checkBoxItem35 = new DevComponents.DotNetBar.CheckBoxItem();
+            this.checkBoxItem36 = new DevComponents.DotNetBar.CheckBoxItem();
+            this.checkBoxItem37 = new DevComponents.DotNetBar.CheckBoxItem();
+            this.checkBoxItem38 = new DevComponents.DotNetBar.CheckBoxItem();
+            this.checkBoxItem39 = new DevComponents.DotNetBar.CheckBoxItem();
+            this.checkBoxItem40 = new DevComponents.DotNetBar.CheckBoxItem();
+            this.checkBoxItem41 = new DevComponents.DotNetBar.CheckBoxItem();
+            this.checkBoxItem42 = new DevComponents.DotNetBar.CheckBoxItem();
+            this.checkBoxItem43 = new DevComponents.DotNetBar.CheckBoxItem();
+            this.checkBoxItem44 = new DevComponents.DotNetBar.CheckBoxItem();
             this.itemPanel1 = new DevComponents.DotNetBar.ItemPanel();
             this.checkBoxItem1 = new DevComponents.DotNetBar.CheckBoxItem();
             this.checkBoxItem2 = new DevComponents.DotNetBar.CheckBoxItem();
@@ -57,6 +94,11 @@
             this.checkBoxItem15 = new DevComponents.DotNetBar.CheckBoxItem();
             this.checkBoxItem16 = new DevComponents.DotNetBar.CheckBoxItem();
             this.checkBoxItem17 = new DevComponents.DotNetBar.CheckBoxItem();
+            this.checkBoxItem18 = new DevComponents.DotNetBar.CheckBoxItem();
+            this.checkBoxItem19 = new DevComponents.DotNetBar.CheckBoxItem();
+            this.checkBoxItem20 = new DevComponents.DotNetBar.CheckBoxItem();
+            this.checkBoxItem21 = new DevComponents.DotNetBar.CheckBoxItem();
+            this.checkBoxItem22 = new DevComponents.DotNetBar.CheckBoxItem();
             this.expandablePanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewX2)).BeginInit();
             this.ribbonClientPanel2.SuspendLayout();
@@ -69,9 +111,9 @@
             this.expandablePanel1.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.expandablePanel1.Controls.Add(this.dataGridViewX2);
             this.expandablePanel1.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.expandablePanel1.Location = new System.Drawing.Point(17, 13);
+            this.expandablePanel1.Location = new System.Drawing.Point(5, 13);
             this.expandablePanel1.Name = "expandablePanel1";
-            this.expandablePanel1.Size = new System.Drawing.Size(522, 629);
+            this.expandablePanel1.Size = new System.Drawing.Size(361, 629);
             this.expandablePanel1.Style.Alignment = System.Drawing.StringAlignment.Center;
             this.expandablePanel1.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
             this.expandablePanel1.Style.BackColor2.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
@@ -112,7 +154,7 @@
             this.dataGridViewX2.RowTemplate.Height = 40;
             this.dataGridViewX2.RowTemplate.ReadOnly = true;
             this.dataGridViewX2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewX2.Size = new System.Drawing.Size(516, 597);
+            this.dataGridViewX2.Size = new System.Drawing.Size(355, 597);
             this.dataGridViewX2.TabIndex = 2;
             this.dataGridViewX2.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewX2_CellClick);
             // 
@@ -127,7 +169,7 @@
             this.ribbonClientPanel2.Controls.Add(this.label3);
             this.ribbonClientPanel2.Location = new System.Drawing.Point(5, 648);
             this.ribbonClientPanel2.Name = "ribbonClientPanel2";
-            this.ribbonClientPanel2.Size = new System.Drawing.Size(795, 79);
+            this.ribbonClientPanel2.Size = new System.Drawing.Size(1008, 40);
             // 
             // 
             // 
@@ -172,7 +214,7 @@
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Palatino Linotype", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label3.Location = new System.Drawing.Point(232, 15);
+            this.label3.Location = new System.Drawing.Point(398, 12);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(275, 18);
             this.label3.TabIndex = 0;
@@ -182,7 +224,7 @@
             // 
             this.buttonX23.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.buttonX23.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.buttonX23.Location = new System.Drawing.Point(24, 581);
+            this.buttonX23.Location = new System.Drawing.Point(456, 584);
             this.buttonX23.Name = "buttonX23";
             this.buttonX23.Size = new System.Drawing.Size(87, 45);
             this.buttonX23.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -194,7 +236,7 @@
             // 
             this.buttonX24.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.buttonX24.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.buttonX24.Location = new System.Drawing.Point(117, 582);
+            this.buttonX24.Location = new System.Drawing.Point(549, 584);
             this.buttonX24.Name = "buttonX24";
             this.buttonX24.Size = new System.Drawing.Size(87, 45);
             this.buttonX24.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -206,13 +248,15 @@
             // 
             this.expandablePanel2.CanvasColor = System.Drawing.SystemColors.Control;
             this.expandablePanel2.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.expandablePanel2.Controls.Add(this.itemPanel3);
+            this.expandablePanel2.Controls.Add(this.itemPanel2);
             this.expandablePanel2.Controls.Add(this.itemPanel1);
             this.expandablePanel2.Controls.Add(this.buttonX24);
             this.expandablePanel2.Controls.Add(this.buttonX23);
             this.expandablePanel2.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.expandablePanel2.Location = new System.Drawing.Point(556, 13);
+            this.expandablePanel2.Location = new System.Drawing.Point(369, 13);
             this.expandablePanel2.Name = "expandablePanel2";
-            this.expandablePanel2.Size = new System.Drawing.Size(229, 629);
+            this.expandablePanel2.Size = new System.Drawing.Size(644, 629);
             this.expandablePanel2.Style.Alignment = System.Drawing.StringAlignment.Center;
             this.expandablePanel2.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
             this.expandablePanel2.Style.BackColor2.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
@@ -230,6 +274,250 @@
             this.expandablePanel2.TitleStyle.GradientAngle = 90;
             this.expandablePanel2.TitleText = "Rights";
             // 
+            // itemPanel3
+            // 
+            // 
+            // 
+            // 
+            this.itemPanel3.BackgroundStyle.Class = "ItemPanel";
+            this.itemPanel3.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.itemPanel3.ContainerControlProcessDialogKey = true;
+            this.itemPanel3.Font = new System.Drawing.Font("Palatino Linotype", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.itemPanel3.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
+            this.checkBoxItem45,
+            this.checkBoxItem46,
+            this.checkBoxItem47,
+            this.checkBoxItem48,
+            this.checkBoxItem49,
+            this.checkBoxItem50,
+            this.checkBoxItem51,
+            this.checkBoxItem52,
+            this.checkBoxItem53,
+            this.checkBoxItem54,
+            this.checkBoxItem55,
+            this.checkBoxItem56,
+            this.checkBoxItem57});
+            this.itemPanel3.LayoutOrientation = DevComponents.DotNetBar.eOrientation.Vertical;
+            this.itemPanel3.Location = new System.Drawing.Point(414, 29);
+            this.itemPanel3.Name = "itemPanel3";
+            this.itemPanel3.Size = new System.Drawing.Size(227, 553);
+            this.itemPanel3.TabIndex = 25;
+            this.itemPanel3.Text = "itemPanel3";
+            // 
+            // checkBoxItem45
+            // 
+            this.checkBoxItem45.Name = "checkBoxItem45";
+            this.checkBoxItem45.Text = "Investor Debit 2nd Approval";
+            // 
+            // checkBoxItem46
+            // 
+            this.checkBoxItem46.Name = "checkBoxItem46";
+            this.checkBoxItem46.Text = "Investor Withdraw Issue";
+            // 
+            // checkBoxItem47
+            // 
+            this.checkBoxItem47.Name = "checkBoxItem47";
+            this.checkBoxItem47.Text = "Account Reports";
+            // 
+            // checkBoxItem48
+            // 
+            this.checkBoxItem48.Name = "checkBoxItem48";
+            this.checkBoxItem48.Text = "Savings Reports";
+            // 
+            // checkBoxItem49
+            // 
+            this.checkBoxItem49.Name = "checkBoxItem49";
+            this.checkBoxItem49.Text = "Loans Reports";
+            // 
+            // checkBoxItem50
+            // 
+            this.checkBoxItem50.Name = "checkBoxItem50";
+            this.checkBoxItem50.Text = "External Borrowing Reports";
+            // 
+            // checkBoxItem51
+            // 
+            this.checkBoxItem51.Name = "checkBoxItem51";
+            this.checkBoxItem51.Text = "Investor Reports";
+            // 
+            // checkBoxItem52
+            // 
+            this.checkBoxItem52.Name = "checkBoxItem52";
+            this.checkBoxItem52.Text = "Human Resource Reports";
+            // 
+            // checkBoxItem53
+            // 
+            this.checkBoxItem53.Name = "checkBoxItem53";
+            this.checkBoxItem53.Text = "Transaction Reports";
+            // 
+            // checkBoxItem54
+            // 
+            this.checkBoxItem54.Name = "checkBoxItem54";
+            this.checkBoxItem54.Text = "Fiancial Summaries";
+            // 
+            // checkBoxItem55
+            // 
+            this.checkBoxItem55.Name = "checkBoxItem55";
+            this.checkBoxItem55.Text = "Add Menu";
+            // 
+            // checkBoxItem56
+            // 
+            this.checkBoxItem56.Name = "checkBoxItem56";
+            this.checkBoxItem56.Text = "Money Transfer";
+            // 
+            // checkBoxItem57
+            // 
+            this.checkBoxItem57.Name = "checkBoxItem57";
+            this.checkBoxItem57.Text = "Bank Accounts Create";
+            // 
+            // itemPanel2
+            // 
+            // 
+            // 
+            // 
+            this.itemPanel2.BackgroundStyle.Class = "ItemPanel";
+            this.itemPanel2.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.itemPanel2.ContainerControlProcessDialogKey = true;
+            this.itemPanel2.Font = new System.Drawing.Font("Palatino Linotype", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.itemPanel2.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
+            this.checkBoxItem23,
+            this.checkBoxItem24,
+            this.checkBoxItem25,
+            this.checkBoxItem26,
+            this.checkBoxItem27,
+            this.checkBoxItem28,
+            this.checkBoxItem29,
+            this.checkBoxItem30,
+            this.checkBoxItem31,
+            this.checkBoxItem32,
+            this.checkBoxItem33,
+            this.checkBoxItem34,
+            this.checkBoxItem35,
+            this.checkBoxItem36,
+            this.checkBoxItem37,
+            this.checkBoxItem38,
+            this.checkBoxItem39,
+            this.checkBoxItem40,
+            this.checkBoxItem41,
+            this.checkBoxItem42,
+            this.checkBoxItem43,
+            this.checkBoxItem44});
+            this.itemPanel2.LayoutOrientation = DevComponents.DotNetBar.eOrientation.Vertical;
+            this.itemPanel2.Location = new System.Drawing.Point(199, 29);
+            this.itemPanel2.Name = "itemPanel2";
+            this.itemPanel2.Size = new System.Drawing.Size(209, 553);
+            this.itemPanel2.TabIndex = 24;
+            this.itemPanel2.Text = "itemPanel2";
+            // 
+            // checkBoxItem23
+            // 
+            this.checkBoxItem23.Name = "checkBoxItem23";
+            this.checkBoxItem23.Text = "Fines";
+            // 
+            // checkBoxItem24
+            // 
+            this.checkBoxItem24.Name = "checkBoxItem24";
+            this.checkBoxItem24.Text = "Grants";
+            // 
+            // checkBoxItem25
+            // 
+            this.checkBoxItem25.Name = "checkBoxItem25";
+            this.checkBoxItem25.Text = "Other Incomes";
+            // 
+            // checkBoxItem26
+            // 
+            this.checkBoxItem26.Name = "checkBoxItem26";
+            this.checkBoxItem26.Text = "Expenses";
+            // 
+            // checkBoxItem27
+            // 
+            this.checkBoxItem27.Name = "checkBoxItem27";
+            this.checkBoxItem27.Text = "Purchases";
+            // 
+            // checkBoxItem28
+            // 
+            this.checkBoxItem28.Name = "checkBoxItem28";
+            this.checkBoxItem28.Text = "Dividends";
+            // 
+            // checkBoxItem29
+            // 
+            this.checkBoxItem29.Name = "checkBoxItem29";
+            this.checkBoxItem29.Text = "Supplier Balances";
+            // 
+            // checkBoxItem30
+            // 
+            this.checkBoxItem30.Name = "checkBoxItem30";
+            this.checkBoxItem30.Text = "Savings Withdraw";
+            // 
+            // checkBoxItem31
+            // 
+            this.checkBoxItem31.Name = "checkBoxItem31";
+            this.checkBoxItem31.Text = "Credit Approval";
+            // 
+            // checkBoxItem32
+            // 
+            this.checkBoxItem32.Name = "checkBoxItem32";
+            this.checkBoxItem32.Text = "Debit Approval";
+            // 
+            // checkBoxItem33
+            // 
+            this.checkBoxItem33.Name = "checkBoxItem33";
+            this.checkBoxItem33.Text = "Add Collateral";
+            // 
+            // checkBoxItem34
+            // 
+            this.checkBoxItem34.Name = "checkBoxItem34";
+            this.checkBoxItem34.Text = "Add Insurance && Processing";
+            // 
+            // checkBoxItem35
+            // 
+            this.checkBoxItem35.Name = "checkBoxItem35";
+            this.checkBoxItem35.Text = "Issue Loan";
+            // 
+            // checkBoxItem36
+            // 
+            this.checkBoxItem36.Name = "checkBoxItem36";
+            this.checkBoxItem36.Text = "Loan Schedule";
+            // 
+            // checkBoxItem37
+            // 
+            this.checkBoxItem37.Name = "checkBoxItem37";
+            this.checkBoxItem37.Text = "Savings For Loans";
+            // 
+            // checkBoxItem38
+            // 
+            this.checkBoxItem38.Name = "checkBoxItem38";
+            this.checkBoxItem38.Text = "External Loan Application";
+            // 
+            // checkBoxItem39
+            // 
+            this.checkBoxItem39.Name = "checkBoxItem39";
+            this.checkBoxItem39.Text = "External Loan Fines";
+            // 
+            // checkBoxItem40
+            // 
+            this.checkBoxItem40.Name = "checkBoxItem40";
+            this.checkBoxItem40.Text = "External Loan Schedule";
+            // 
+            // checkBoxItem41
+            // 
+            this.checkBoxItem41.Name = "checkBoxItem41";
+            this.checkBoxItem41.Text = "External Loan Repayment";
+            // 
+            // checkBoxItem42
+            // 
+            this.checkBoxItem42.Name = "checkBoxItem42";
+            this.checkBoxItem42.Text = "Investor Withdraw Application";
+            // 
+            // checkBoxItem43
+            // 
+            this.checkBoxItem43.Name = "checkBoxItem43";
+            this.checkBoxItem43.Text = "Investor Credit Approval";
+            // 
+            // checkBoxItem44
+            // 
+            this.checkBoxItem44.Name = "checkBoxItem44";
+            this.checkBoxItem44.Text = "Investor Debit 1st Approval";
+            // 
             // itemPanel1
             // 
             // 
@@ -238,6 +526,7 @@
             this.itemPanel1.BackgroundStyle.Class = "ItemPanel";
             this.itemPanel1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.itemPanel1.ContainerControlProcessDialogKey = true;
+            this.itemPanel1.Font = new System.Drawing.Font("Palatino Linotype", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.itemPanel1.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
             this.checkBoxItem1,
             this.checkBoxItem2,
@@ -255,11 +544,16 @@
             this.checkBoxItem14,
             this.checkBoxItem15,
             this.checkBoxItem16,
-            this.checkBoxItem17});
+            this.checkBoxItem17,
+            this.checkBoxItem18,
+            this.checkBoxItem19,
+            this.checkBoxItem20,
+            this.checkBoxItem21,
+            this.checkBoxItem22});
             this.itemPanel1.LayoutOrientation = DevComponents.DotNetBar.eOrientation.Vertical;
             this.itemPanel1.Location = new System.Drawing.Point(3, 29);
             this.itemPanel1.Name = "itemPanel1";
-            this.itemPanel1.Size = new System.Drawing.Size(223, 546);
+            this.itemPanel1.Size = new System.Drawing.Size(190, 553);
             this.itemPanel1.TabIndex = 23;
             this.itemPanel1.Text = "itemPanel1";
             // 
@@ -278,79 +572,79 @@
             // checkBoxItem3
             // 
             this.checkBoxItem3.Name = "checkBoxItem3";
-            this.checkBoxItem3.Text = "Accounts Creation";
+            this.checkBoxItem3.Text = "Savings Accounts Creation";
             this.checkBoxItem3.TextColor = System.Drawing.SystemColors.ActiveCaptionText;
             // 
             // checkBoxItem4
             // 
             this.checkBoxItem4.Name = "checkBoxItem4";
-            this.checkBoxItem4.Text = "Savings";
+            this.checkBoxItem4.Text = "Savings Deposit";
             this.checkBoxItem4.TextColor = System.Drawing.SystemColors.ActiveCaptionText;
             // 
             // checkBoxItem5
             // 
             this.checkBoxItem5.Name = "checkBoxItem5";
-            this.checkBoxItem5.Text = "Loans";
+            this.checkBoxItem5.Text = "Investor Account Creation";
             this.checkBoxItem5.TextColor = System.Drawing.SystemColors.ActiveCaptionText;
             // 
             // checkBoxItem6
             // 
             this.checkBoxItem6.Name = "checkBoxItem6";
-            this.checkBoxItem6.Text = "Investors";
+            this.checkBoxItem6.Text = "Loan Application";
             this.checkBoxItem6.TextColor = System.Drawing.SystemColors.ActiveCaptionText;
             // 
             // checkBoxItem7
             // 
             this.checkBoxItem7.Name = "checkBoxItem7";
-            this.checkBoxItem7.Text = "Inflows";
+            this.checkBoxItem7.Text = "Loan Recovery";
             this.checkBoxItem7.TextColor = System.Drawing.SystemColors.ActiveCaptionText;
             // 
             // checkBoxItem8
             // 
             this.checkBoxItem8.Name = "checkBoxItem8";
-            this.checkBoxItem8.Text = "Outflows";
+            this.checkBoxItem8.Text = "Loan Writeoff";
             this.checkBoxItem8.TextColor = System.Drawing.SystemColors.ActiveCaptionText;
             // 
             // checkBoxItem9
             // 
             this.checkBoxItem9.Name = "checkBoxItem9";
-            this.checkBoxItem9.Text = "External Borrowing";
+            this.checkBoxItem9.Text = "Normal Settlement";
             this.checkBoxItem9.TextColor = System.Drawing.SystemColors.ActiveCaptionText;
             // 
             // checkBoxItem10
             // 
             this.checkBoxItem10.Name = "checkBoxItem10";
-            this.checkBoxItem10.Text = "Safe Transactions";
+            this.checkBoxItem10.Text = "Early Loan Settlement";
             this.checkBoxItem10.TextColor = System.Drawing.SystemColors.ActiveCaptionText;
             // 
             // checkBoxItem11
             // 
             this.checkBoxItem11.Name = "checkBoxItem11";
-            this.checkBoxItem11.Text = "Expenses";
+            this.checkBoxItem11.Text = "Loan Reschedule";
             this.checkBoxItem11.TextColor = System.Drawing.SystemColors.ActiveCaptionText;
             // 
             // checkBoxItem12
             // 
             this.checkBoxItem12.Name = "checkBoxItem12";
-            this.checkBoxItem12.Text = "Financial Summary";
+            this.checkBoxItem12.Text = "Loan Top Up";
             this.checkBoxItem12.TextColor = System.Drawing.SystemColors.ActiveCaptionText;
             // 
             // checkBoxItem13
             // 
             this.checkBoxItem13.Name = "checkBoxItem13";
-            this.checkBoxItem13.Text = "Records";
+            this.checkBoxItem13.Text = "Account Records";
             this.checkBoxItem13.TextColor = System.Drawing.SystemColors.ActiveCaptionText;
             // 
             // checkBoxItem14
             // 
             this.checkBoxItem14.Name = "checkBoxItem14";
-            this.checkBoxItem14.Text = "Reports";
+            this.checkBoxItem14.Text = "Savings Records";
             this.checkBoxItem14.TextColor = System.Drawing.SystemColors.ActiveCaptionText;
             // 
             // checkBoxItem15
             // 
             this.checkBoxItem15.Name = "checkBoxItem15";
-            this.checkBoxItem15.Text = "Additions";
+            this.checkBoxItem15.Text = "Loan Records";
             this.checkBoxItem15.TextColor = System.Drawing.SystemColors.ActiveCaptionText;
             // 
             // checkBoxItem16
@@ -365,12 +659,37 @@
             this.checkBoxItem17.Text = "Update";
             this.checkBoxItem17.TextColor = System.Drawing.SystemColors.ActiveCaptionText;
             // 
+            // checkBoxItem18
+            // 
+            this.checkBoxItem18.Name = "checkBoxItem18";
+            this.checkBoxItem18.Text = "External Borrowing Records";
+            // 
+            // checkBoxItem19
+            // 
+            this.checkBoxItem19.Name = "checkBoxItem19";
+            this.checkBoxItem19.Text = "Investor Records";
+            // 
+            // checkBoxItem20
+            // 
+            this.checkBoxItem20.Name = "checkBoxItem20";
+            this.checkBoxItem20.Text = "Inflows Records";
+            // 
+            // checkBoxItem21
+            // 
+            this.checkBoxItem21.Name = "checkBoxItem21";
+            this.checkBoxItem21.Text = "Outflows Records";
+            // 
+            // checkBoxItem22
+            // 
+            this.checkBoxItem22.Name = "checkBoxItem22";
+            this.checkBoxItem22.Text = "HR Records";
+            // 
             // frmAccessRights
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = global::Banking_System.Properties.Settings.Default.usercolor;
-            this.ClientSize = new System.Drawing.Size(803, 733);
+            this.ClientSize = new System.Drawing.Size(1016, 694);
             this.Controls.Add(this.ribbonClientPanel2);
             this.Controls.Add(this.expandablePanel2);
             this.Controls.Add(this.expandablePanel1);
@@ -419,5 +738,47 @@
         private DevComponents.DotNetBar.CheckBoxItem checkBoxItem15;
         private DevComponents.DotNetBar.CheckBoxItem checkBoxItem16;
         private DevComponents.DotNetBar.CheckBoxItem checkBoxItem17;
+        private DevComponents.DotNetBar.ItemPanel itemPanel2;
+        private DevComponents.DotNetBar.CheckBoxItem checkBoxItem23;
+        private DevComponents.DotNetBar.CheckBoxItem checkBoxItem24;
+        private DevComponents.DotNetBar.CheckBoxItem checkBoxItem25;
+        private DevComponents.DotNetBar.CheckBoxItem checkBoxItem26;
+        private DevComponents.DotNetBar.CheckBoxItem checkBoxItem27;
+        private DevComponents.DotNetBar.CheckBoxItem checkBoxItem28;
+        private DevComponents.DotNetBar.CheckBoxItem checkBoxItem29;
+        private DevComponents.DotNetBar.CheckBoxItem checkBoxItem30;
+        private DevComponents.DotNetBar.CheckBoxItem checkBoxItem31;
+        private DevComponents.DotNetBar.CheckBoxItem checkBoxItem32;
+        private DevComponents.DotNetBar.CheckBoxItem checkBoxItem33;
+        private DevComponents.DotNetBar.CheckBoxItem checkBoxItem34;
+        private DevComponents.DotNetBar.CheckBoxItem checkBoxItem35;
+        private DevComponents.DotNetBar.CheckBoxItem checkBoxItem36;
+        private DevComponents.DotNetBar.CheckBoxItem checkBoxItem37;
+        private DevComponents.DotNetBar.CheckBoxItem checkBoxItem38;
+        private DevComponents.DotNetBar.CheckBoxItem checkBoxItem39;
+        private DevComponents.DotNetBar.CheckBoxItem checkBoxItem40;
+        private DevComponents.DotNetBar.CheckBoxItem checkBoxItem41;
+        private DevComponents.DotNetBar.CheckBoxItem checkBoxItem18;
+        private DevComponents.DotNetBar.CheckBoxItem checkBoxItem19;
+        private DevComponents.DotNetBar.CheckBoxItem checkBoxItem20;
+        private DevComponents.DotNetBar.CheckBoxItem checkBoxItem21;
+        private DevComponents.DotNetBar.CheckBoxItem checkBoxItem22;
+        private DevComponents.DotNetBar.CheckBoxItem checkBoxItem42;
+        private DevComponents.DotNetBar.CheckBoxItem checkBoxItem43;
+        private DevComponents.DotNetBar.CheckBoxItem checkBoxItem44;
+        private DevComponents.DotNetBar.ItemPanel itemPanel3;
+        private DevComponents.DotNetBar.CheckBoxItem checkBoxItem45;
+        private DevComponents.DotNetBar.CheckBoxItem checkBoxItem46;
+        private DevComponents.DotNetBar.CheckBoxItem checkBoxItem47;
+        private DevComponents.DotNetBar.CheckBoxItem checkBoxItem48;
+        private DevComponents.DotNetBar.CheckBoxItem checkBoxItem49;
+        private DevComponents.DotNetBar.CheckBoxItem checkBoxItem50;
+        private DevComponents.DotNetBar.CheckBoxItem checkBoxItem51;
+        private DevComponents.DotNetBar.CheckBoxItem checkBoxItem52;
+        private DevComponents.DotNetBar.CheckBoxItem checkBoxItem53;
+        private DevComponents.DotNetBar.CheckBoxItem checkBoxItem54;
+        private DevComponents.DotNetBar.CheckBoxItem checkBoxItem55;
+        private DevComponents.DotNetBar.CheckBoxItem checkBoxItem56;
+        private DevComponents.DotNetBar.CheckBoxItem checkBoxItem57;
     }
 }

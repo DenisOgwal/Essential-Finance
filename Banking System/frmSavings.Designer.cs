@@ -30,6 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSavings));
             this.groupPanel3 = new DevComponents.DotNetBar.Controls.GroupPanel();
+            this.labelX3 = new DevComponents.DotNetBar.LabelX();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.submittedby = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.labelX2 = new DevComponents.DotNetBar.LabelX();
             this.labelX1 = new DevComponents.DotNetBar.LabelX();
@@ -54,7 +56,6 @@
             this.labelX12 = new DevComponents.DotNetBar.LabelX();
             this.labelX11 = new DevComponents.DotNetBar.LabelX();
             this.groupPanel5 = new DevComponents.DotNetBar.Controls.GroupPanel();
-            this.buttonX2 = new DevComponents.DotNetBar.ButtonX();
             this.buttonX5 = new DevComponents.DotNetBar.ButtonX();
             this.buttonX6 = new DevComponents.DotNetBar.ButtonX();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
@@ -76,6 +77,8 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupPanel3.CanvasColor = System.Drawing.SystemColors.Control;
             this.groupPanel3.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
+            this.groupPanel3.Controls.Add(this.labelX3);
+            this.groupPanel3.Controls.Add(this.dateTimePicker1);
             this.groupPanel3.Controls.Add(this.submittedby);
             this.groupPanel3.Controls.Add(this.labelX2);
             this.groupPanel3.Controls.Add(this.labelX1);
@@ -101,7 +104,7 @@
             this.groupPanel3.Controls.Add(this.labelX11);
             this.groupPanel3.Location = new System.Drawing.Point(3, 3);
             this.groupPanel3.Name = "groupPanel3";
-            this.groupPanel3.Size = new System.Drawing.Size(735, 236);
+            this.groupPanel3.Size = new System.Drawing.Size(735, 284);
             // 
             // 
             // 
@@ -135,6 +138,32 @@
             this.groupPanel3.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.groupPanel3.TabIndex = 2;
             this.groupPanel3.Text = "Savings Deposit";
+            // 
+            // labelX3
+            // 
+            this.labelX3.BackColor = System.Drawing.Color.Transparent;
+            // 
+            // 
+            // 
+            this.labelX3.BackgroundStyle.Class = "";
+            this.labelX3.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX3.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelX3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.labelX3.Location = new System.Drawing.Point(3, 218);
+            this.labelX3.Name = "labelX3";
+            this.labelX3.Size = new System.Drawing.Size(148, 23);
+            this.labelX3.TabIndex = 85;
+            this.labelX3.Text = "Deposit Date";
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.CustomFormat = "dd/MMM/yyyy";
+            this.dateTimePicker1.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePicker1.Location = new System.Drawing.Point(157, 214);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(205, 29);
+            this.dateTimePicker1.TabIndex = 84;
             // 
             // submittedby
             // 
@@ -188,10 +217,6 @@
             this.cmbModeOfPayment.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbModeOfPayment.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.cmbModeOfPayment.FormattingEnabled = true;
-            this.cmbModeOfPayment.Items.AddRange(new object[] {
-            "Cash",
-            "Bank",
-            "Mobile Money"});
             this.cmbModeOfPayment.Location = new System.Drawing.Point(509, 42);
             this.cmbModeOfPayment.Name = "cmbModeOfPayment";
             this.cmbModeOfPayment.Size = new System.Drawing.Size(205, 30);
@@ -330,6 +355,7 @@
             // date2
             // 
             this.date2.CustomFormat = "dd/MMM/yyyy";
+            this.date2.Enabled = false;
             this.date2.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.date2.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.date2.Location = new System.Drawing.Point(157, 122);
@@ -383,7 +409,6 @@
             this.accountname.Name = "accountname";
             this.accountname.Size = new System.Drawing.Size(205, 29);
             this.accountname.TabIndex = 1;
-            this.accountname.TextChanged += new System.EventHandler(this.membername2_TextChanged);
             // 
             // accountnumber
             // 
@@ -481,7 +506,7 @@
             this.labelX11.Name = "labelX11";
             this.labelX11.Size = new System.Drawing.Size(148, 23);
             this.labelX11.TabIndex = 0;
-            this.labelX11.Text = "Cashier Approval ID";
+            this.labelX11.Text = "Approval ID";
             // 
             // groupPanel5
             // 
@@ -490,12 +515,11 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupPanel5.CanvasColor = System.Drawing.SystemColors.Control;
             this.groupPanel5.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
-            this.groupPanel5.Controls.Add(this.buttonX2);
             this.groupPanel5.Controls.Add(this.buttonX5);
             this.groupPanel5.Controls.Add(this.buttonX6);
-            this.groupPanel5.Location = new System.Drawing.Point(76, 3);
+            this.groupPanel5.Location = new System.Drawing.Point(150, 3);
             this.groupPanel5.Name = "groupPanel5";
-            this.groupPanel5.Size = new System.Drawing.Size(582, 96);
+            this.groupPanel5.Size = new System.Drawing.Size(435, 96);
             // 
             // 
             // 
@@ -529,25 +553,13 @@
             this.groupPanel5.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.groupPanel5.TabIndex = 68;
             // 
-            // buttonX2
-            // 
-            this.buttonX2.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.buttonX2.Font = new System.Drawing.Font("Palatino Linotype", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonX2.Location = new System.Drawing.Point(371, 5);
-            this.buttonX2.Name = "buttonX2";
-            this.buttonX2.Size = new System.Drawing.Size(202, 82);
-            this.buttonX2.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.buttonX2.TabIndex = 7;
-            this.buttonX2.Text = "&Save+Print";
-            this.buttonX2.Click += new System.EventHandler(this.buttonX2_Click_1);
-            // 
             // buttonX5
             // 
             this.buttonX5.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.buttonX5.Font = new System.Drawing.Font("Palatino Linotype", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonX5.Location = new System.Drawing.Point(187, 4);
+            this.buttonX5.Location = new System.Drawing.Point(221, 4);
             this.buttonX5.Name = "buttonX5";
-            this.buttonX5.Size = new System.Drawing.Size(178, 83);
+            this.buttonX5.Size = new System.Drawing.Size(193, 83);
             this.buttonX5.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.buttonX5.TabIndex = 6;
             this.buttonX5.Text = "&Save";
@@ -557,9 +569,9 @@
             // 
             this.buttonX6.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.buttonX6.Font = new System.Drawing.Font("Palatino Linotype", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonX6.Location = new System.Drawing.Point(3, 4);
+            this.buttonX6.Location = new System.Drawing.Point(20, 4);
             this.buttonX6.Name = "buttonX6";
-            this.buttonX6.Size = new System.Drawing.Size(178, 83);
+            this.buttonX6.Size = new System.Drawing.Size(192, 83);
             this.buttonX6.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.buttonX6.TabIndex = 8;
             this.buttonX6.Text = "&New";
@@ -578,7 +590,7 @@
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(747, 356);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(747, 404);
             this.tableLayoutPanel1.TabIndex = 74;
             // 
             // tableLayoutPanel2
@@ -593,9 +605,9 @@
             this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 2;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 69.14286F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 30.85714F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(741, 350);
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 73.11558F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 26.88442F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(741, 398);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // tableLayoutPanel4
@@ -604,11 +616,11 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel4.ColumnCount = 3;
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 80F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel4.Controls.Add(this.groupPanel5, 1, 0);
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 245);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 293);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 1;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -620,7 +632,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = global::Banking_System.Properties.Settings.Default.usercolor;
-            this.ClientSize = new System.Drawing.Size(754, 361);
+            this.ClientSize = new System.Drawing.Size(754, 409);
             this.Controls.Add(this.tableLayoutPanel1);
             this.DataBindings.Add(new System.Windows.Forms.Binding("BackColor", global::Banking_System.Properties.Settings.Default, "usercolor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.DoubleBuffered = true;
@@ -628,7 +640,7 @@
             this.MaximizeBox = false;
             this.Name = "frmSavings";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Savings";
+            this.Text = "Savings Deposit";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmSavings_FormClosing);
             this.Load += new System.EventHandler(this.frmSavings_Load);
             this.groupPanel3.ResumeLayout(false);
@@ -670,11 +682,12 @@
         private DevComponents.Editors.IntegerInput depositammount;
         private DevComponents.DotNetBar.LabelX labelX26;
         private DevComponents.Editors.IntegerInput accountbalance;
-        public DevComponents.DotNetBar.ButtonX buttonX2;
         public System.Windows.Forms.ComboBox cmbModeOfPayment;
         private System.Windows.Forms.Label label18;
         private DevComponents.DotNetBar.LabelX labelX1;
         private DevComponents.DotNetBar.Controls.TextBoxX submittedby;
         private DevComponents.DotNetBar.LabelX labelX2;
+        private DevComponents.DotNetBar.LabelX labelX3;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
     }
 }

@@ -147,7 +147,7 @@ namespace Banking_System
                     string staffids = rdr["StaffID"].ToString().Trim();
                     con = new SqlConnection(cs.DBConn);
                     con.Open();
-                    string ct = "SELECT UserName,StaffID FROM ApprovalRights WHERE StaffID='" + staffids + "' and LoansFinalApproval='Yes'";
+                    string ct = "SELECT UserName,StaffID FROM ApprovalRights WHERE StaffID='" + staffids + "' and ManagingDirector='Yes'";
                     cmd2 = new SqlCommand(ct);
                     cmd2.Connection = con;
                     rdr2 = cmd2.ExecuteReader();
@@ -319,16 +319,18 @@ namespace Banking_System
                         }
                         double val1 = 0;
                         double.TryParse(Amount.Value.ToString(), out val1);
-                        principal = val1 / (Convert.ToInt32(ServicingPeriod.Text));
-                        interest = ((Convert.ToDouble(Interest.Text) / (100)) * val1);
-                        double intre = 0;
-                        for (int m = 0; m < PaymentInterval.Value; m++)
+                        principal = val1;
+                        interest = Convert.ToDouble(PaymentInterval.Value) * ((Convert.ToDouble(Interest.Text) / (100)) * val1);
+                        if (i == (Convert.ToInt32(ServicingPeriod.Text) / PaymentInterval.Value))
                         {
-                            intre += (principal + interest);
+                            repaymentammount = val1 + interest;
+                            begginingbalance = 0;
                         }
-                        repaymentammount = intre;
-                        begginingbalance = val1;
-
+                        else
+                        {
+                            repaymentammount = interest;
+                            begginingbalance = val1;
+                        }
                         con = new SqlConnection(cs.DBConn);
                         con.Open();
                         string cb2 = "insert into ExternalRepaymentSchedule(LoanID,Months,PaymentDate,TotalAmmount,AmmountPay,Interest,BalanceExist,BeginningBalance) VALUES (@d1,@d2,@d3,@d4,@d5,@d6,@d7,@d8)";
@@ -365,6 +367,13 @@ namespace Banking_System
                     }
                     string repaymentdate1 = null;
                     DateTime startdate = DateTime.Parse(ApplicationDate.Text).Date;
+                    double val1 = 0;
+                    double.TryParse(Amount.Value.ToString(), out val1);
+                    double r = Convert.ToDouble(Interest.Text) / 100;
+                    int n = Convert.ToInt32(ServicingPeriod.Text);
+                    double firstint = Math.Pow((1 + r), n);
+                    double secondint = Math.Pow((1 + r), n);
+                    double emi = (val1 * r * Math.Pow((1 + r), n)) / ((Math.Pow((1 + r), n)) - 1);
                     for (i = 1; i <= (Convert.ToInt32(ServicingPeriod.Text) / PaymentInterval.Value); i++)
                     {
                         if (RepaymentInterval.Text.Trim() == "Monthly")
@@ -389,48 +398,34 @@ namespace Banking_System
                             repaymentdate = dt.ToString("dd/MMM/yyyy");
 
                         }
-                        double val1 = 0;
-                        double.TryParse(Amount.Value.ToString(), out val1);
-                        double emi = val1 / (Convert.ToInt32(ServicingPeriod.Text) / PaymentInterval.Value);
-                        double emi2 = val1 / (Convert.ToInt32(ServicingPeriod.Text));
-                        if (repaymentmonths == "Installment 1")
+
+                        if (repaymentmonths == "1Months" || repaymentmonths == "1Week" || repaymentmonths == "1Day")
                         {
-                            double intre = 0;
-                            for (int m = 0; m < PaymentInterval.Value; m++)
-                            {
-                                double newinterest = ((val1 - (m * emi2))) * (Convert.ToDouble(Interest.Text) / 100);
-                                intre += newinterest;
-                            }
-                            interest = intre;
-                            principal = emi;
-                            repaymentammount = emi + interest;
+                            interest = val1 * (Convert.ToDouble(Interest.Text) / 100);
+                            principal = emi - interest;
+                            repaymentammount = emi;
                             begginingbalance = val1 - principal;
                         }
                         else
                         {
                             con = new SqlConnection(cs.DBConn);
                             con.Open();
-                            string kt = "select BeginningBalance from  ExternalRepaymentSchedule where LoanID='" + LoanID.Text + "' order by ID Desc";
+                            string kt = "select BeginningBalance from ExternalRepaymentSchedule where LoanID='" + LoanID.Text + "' order by ID Desc";
                             cmd = new SqlCommand(kt);
                             cmd.Connection = con;
                             rdr = cmd.ExecuteReader();
                             if (rdr.Read())
                             {
                                 Double totals6 = Convert.ToDouble(rdr[0]);
-                                double intre = 0;
-                                for (int m = 0; m < PaymentInterval.Value; m++)
-                                {
-                                    double newinterest = ((totals6 - (m * emi2))) * (Convert.ToDouble(Interest.Text) / 100);
-                                    intre += newinterest;
-                                }
-                                interest = intre;
-                                principal = emi;
-                                repaymentammount = emi + interest;
+                                interest = totals6 * (Convert.ToDouble(Interest.Text) / 100);
+                                principal = emi - interest;
+                                repaymentammount = emi;
                                 begginingbalance = totals6 - principal;
                                 con.Close();
                             }
 
                         }
+                       
                         con = new SqlConnection(cs.DBConn);
                         con.Open();
                         string cb2 = "insert into ExternalRepaymentSchedule(LoanID,Months,PaymentDate,TotalAmmount,AmmountPay,Interest,BalanceExist,BeginningBalance) VALUES (@d1,@d2,@d3,@d4,@d5,@d6,@d7,@d8)";

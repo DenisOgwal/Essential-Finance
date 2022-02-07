@@ -722,5 +722,10 @@ namespace Banking_System
                 MessageBox.Show(Ex.Message, "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
+
+        private void cmbStaffID_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

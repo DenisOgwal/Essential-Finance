@@ -134,7 +134,7 @@ namespace Banking_System
                     string staffids = rdr["StaffID"].ToString().Trim();
                     con = new SqlConnection(cs.DBConn);
                     con.Open();
-                    string ct = "SELECT UserName,StaffID FROM ApprovalRights WHERE StaffID='" + staffids + "' and IncomesApproval='Yes'";
+                    string ct = "SELECT UserName,StaffID FROM ApprovalRights WHERE StaffID='" + staffids + "'";
                     cmd2 = new SqlCommand(ct);
                     cmd2.Connection = con;
                     rdr2 = cmd2.ExecuteReader();

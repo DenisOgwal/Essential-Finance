@@ -69,6 +69,7 @@ namespace Banking_System
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label16 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
@@ -91,13 +92,21 @@ namespace Banking_System
             this.buttonX9 = new DevComponents.DotNetBar.ButtonX();
             this.buttonX10 = new DevComponents.DotNetBar.ButtonX();
             this.buttonX11 = new DevComponents.DotNetBar.ButtonX();
-            this.InterestRate = new DevComponents.Editors.IntegerInput();
             this.label23 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
             this.ApplicationDate = new System.Windows.Forms.DateTimePicker();
             this.LoanID = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.label25 = new System.Windows.Forms.Label();
             this.AmortisationMethod = new System.Windows.Forms.ComboBox();
+            this.buttonX12 = new DevComponents.DotNetBar.ButtonX();
+            this.label26 = new System.Windows.Forms.Label();
+            this.MemberID = new System.Windows.Forms.TextBox();
+            this.InterestRate = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.label27 = new System.Windows.Forms.Label();
+            this.businesstype = new DevComponents.DotNetBar.Controls.ComboBoxEx();
+            this.comboItem4 = new DevComponents.Editors.ComboItem();
+            this.comboItem5 = new DevComponents.Editors.ComboItem();
+            this.comboItem6 = new DevComponents.Editors.ComboItem();
             ((System.ComponentModel.ISupportInitialize)(this.LoanAmount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ServicingPeriod)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CollateralValue)).BeginInit();
@@ -106,13 +115,12 @@ namespace Banking_System
             ((System.ComponentModel.ISupportInitialize)(this.Outstanding)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Duration)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.InterestRate)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(594, 56);
+            this.label1.Location = new System.Drawing.Point(594, 40);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(50, 22);
@@ -123,7 +131,7 @@ namespace Banking_System
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(651, 56);
+            this.label2.Location = new System.Drawing.Point(651, 40);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(50, 22);
             this.label2.TabIndex = 1;
@@ -154,7 +162,7 @@ namespace Banking_System
             // 
             this.label5.AutoSize = true;
             this.label5.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label5.Location = new System.Drawing.Point(22, 79);
+            this.label5.Location = new System.Drawing.Point(22, 63);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(104, 22);
             this.label5.TabIndex = 4;
@@ -164,7 +172,7 @@ namespace Banking_System
             // 
             this.label6.AutoSize = true;
             this.label6.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label6.Location = new System.Drawing.Point(286, 78);
+            this.label6.Location = new System.Drawing.Point(286, 62);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(120, 22);
             this.label6.TabIndex = 5;
@@ -201,7 +209,7 @@ namespace Banking_System
             this.LoanAmount.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.LoanAmount.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2;
             this.LoanAmount.DisplayFormat = "N0";
-            this.LoanAmount.Location = new System.Drawing.Point(132, 72);
+            this.LoanAmount.Location = new System.Drawing.Point(132, 56);
             this.LoanAmount.Name = "LoanAmount";
             this.LoanAmount.Size = new System.Drawing.Size(151, 29);
             this.LoanAmount.TabIndex = 1;
@@ -214,7 +222,7 @@ namespace Banking_System
             this.ServicingPeriod.BackgroundStyle.Class = "DateTimeInputBackground";
             this.ServicingPeriod.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.ServicingPeriod.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2;
-            this.ServicingPeriod.Location = new System.Drawing.Point(414, 71);
+            this.ServicingPeriod.Location = new System.Drawing.Point(414, 55);
             this.ServicingPeriod.Name = "ServicingPeriod";
             this.ServicingPeriod.Size = new System.Drawing.Size(162, 29);
             this.ServicingPeriod.TabIndex = 2;
@@ -223,7 +231,7 @@ namespace Banking_System
             // 
             this.label7.AutoSize = true;
             this.label7.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label7.Location = new System.Drawing.Point(587, 78);
+            this.label7.Location = new System.Drawing.Point(587, 62);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(144, 22);
             this.label7.TabIndex = 10;
@@ -233,7 +241,7 @@ namespace Banking_System
             // 
             this.label8.AutoSize = true;
             this.label8.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label8.Location = new System.Drawing.Point(22, 131);
+            this.label8.Location = new System.Drawing.Point(22, 104);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(75, 22);
             this.label8.TabIndex = 11;
@@ -243,7 +251,7 @@ namespace Banking_System
             // 
             this.label9.AutoSize = true;
             this.label9.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label9.Location = new System.Drawing.Point(289, 130);
+            this.label9.Location = new System.Drawing.Point(289, 102);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(117, 22);
             this.label9.TabIndex = 12;
@@ -256,7 +264,7 @@ namespace Banking_System
             "Daily",
             "Weekly",
             "Monthly"});
-            this.RepaymentInterval.Location = new System.Drawing.Point(737, 75);
+            this.RepaymentInterval.Location = new System.Drawing.Point(737, 59);
             this.RepaymentInterval.Name = "RepaymentInterval";
             this.RepaymentInterval.Size = new System.Drawing.Size(118, 30);
             this.RepaymentInterval.TabIndex = 3;
@@ -271,7 +279,7 @@ namespace Banking_System
             "Business / company",
             "Asset",
             "Salary"});
-            this.Collateral.Location = new System.Drawing.Point(132, 123);
+            this.Collateral.Location = new System.Drawing.Point(132, 96);
             this.Collateral.Name = "Collateral";
             this.Collateral.Size = new System.Drawing.Size(151, 30);
             this.Collateral.TabIndex = 5;
@@ -285,7 +293,7 @@ namespace Banking_System
             this.CollateralValue.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.CollateralValue.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2;
             this.CollateralValue.DisplayFormat = "N0";
-            this.CollateralValue.Location = new System.Drawing.Point(414, 122);
+            this.CollateralValue.Location = new System.Drawing.Point(414, 95);
             this.CollateralValue.Name = "CollateralValue";
             this.CollateralValue.Size = new System.Drawing.Size(162, 29);
             this.CollateralValue.TabIndex = 6;
@@ -312,9 +320,9 @@ namespace Banking_System
             this.groupPanel1.Controls.Add(this.label13);
             this.groupPanel1.Controls.Add(this.label12);
             this.groupPanel1.Controls.Add(this.label11);
-            this.groupPanel1.Location = new System.Drawing.Point(287, 157);
+            this.groupPanel1.Location = new System.Drawing.Point(26, 168);
             this.groupPanel1.Name = "groupPanel1";
-            this.groupPanel1.Size = new System.Drawing.Size(568, 101);
+            this.groupPanel1.Size = new System.Drawing.Size(829, 72);
             // 
             // 
             // 
@@ -351,40 +359,40 @@ namespace Banking_System
             // 
             // RefRelationship
             // 
-            this.RefRelationship.Location = new System.Drawing.Point(379, 35);
+            this.RefRelationship.Location = new System.Drawing.Point(729, 0);
             this.RefRelationship.Name = "RefRelationship";
-            this.RefRelationship.Size = new System.Drawing.Size(168, 29);
+            this.RefRelationship.Size = new System.Drawing.Size(91, 29);
             this.RefRelationship.TabIndex = 10;
             // 
             // RefAddress
             // 
-            this.RefAddress.Location = new System.Drawing.Point(379, 0);
+            this.RefAddress.Location = new System.Drawing.Point(287, 3);
             this.RefAddress.Name = "RefAddress";
-            this.RefAddress.Size = new System.Drawing.Size(168, 29);
+            this.RefAddress.Size = new System.Drawing.Size(155, 29);
             this.RefAddress.TabIndex = 9;
             // 
             // ContactNo
             // 
             this.ContactNo.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ContactNo.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.ContactNo.Location = new System.Drawing.Point(103, 35);
+            this.ContactNo.Location = new System.Drawing.Point(532, 0);
             this.ContactNo.Mask = "0000000000";
             this.ContactNo.Name = "ContactNo";
-            this.ContactNo.Size = new System.Drawing.Size(173, 29);
+            this.ContactNo.Size = new System.Drawing.Size(92, 29);
             this.ContactNo.TabIndex = 8;
             // 
             // RefName
             // 
-            this.RefName.Location = new System.Drawing.Point(103, 0);
+            this.RefName.Location = new System.Drawing.Point(61, 3);
             this.RefName.Name = "RefName";
-            this.RefName.Size = new System.Drawing.Size(173, 29);
+            this.RefName.Size = new System.Drawing.Size(150, 29);
             this.RefName.TabIndex = 7;
             // 
             // label14
             // 
             this.label14.AutoSize = true;
             this.label14.BackColor = System.Drawing.Color.Transparent;
-            this.label14.Location = new System.Drawing.Point(282, 38);
+            this.label14.Location = new System.Drawing.Point(630, 3);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(93, 22);
             this.label14.TabIndex = 3;
@@ -394,7 +402,7 @@ namespace Banking_System
             // 
             this.label13.AutoSize = true;
             this.label13.BackColor = System.Drawing.Color.Transparent;
-            this.label13.Location = new System.Drawing.Point(282, 0);
+            this.label13.Location = new System.Drawing.Point(217, 3);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(64, 22);
             this.label13.TabIndex = 2;
@@ -404,7 +412,7 @@ namespace Banking_System
             // 
             this.label12.AutoSize = true;
             this.label12.BackColor = System.Drawing.Color.Transparent;
-            this.label12.Location = new System.Drawing.Point(10, 38);
+            this.label12.Location = new System.Drawing.Point(448, 3);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(78, 22);
             this.label12.TabIndex = 1;
@@ -414,7 +422,7 @@ namespace Banking_System
             // 
             this.label11.AutoSize = true;
             this.label11.BackColor = System.Drawing.Color.Transparent;
-            this.label11.Location = new System.Drawing.Point(10, 0);
+            this.label11.Location = new System.Drawing.Point(3, 3);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(52, 22);
             this.label11.TabIndex = 0;
@@ -424,7 +432,7 @@ namespace Banking_System
             // 
             this.telno.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.telno.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.telno.Location = new System.Drawing.Point(166, 371);
+            this.telno.Location = new System.Drawing.Point(152, 349);
             this.telno.Mask = "0000000000";
             this.telno.Name = "telno";
             this.telno.Size = new System.Drawing.Size(226, 29);
@@ -436,7 +444,7 @@ namespace Banking_System
             this.label15.BackColor = System.Drawing.Color.Transparent;
             this.label15.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label15.Location = new System.Drawing.Point(23, 374);
+            this.label15.Location = new System.Drawing.Point(23, 352);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(68, 22);
             this.label15.TabIndex = 99;
@@ -448,7 +456,7 @@ namespace Banking_System
             this.label17.BackColor = System.Drawing.Color.Transparent;
             this.label17.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label17.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label17.Location = new System.Drawing.Point(24, 339);
+            this.label17.Location = new System.Drawing.Point(24, 317);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(93, 22);
             this.label17.TabIndex = 96;
@@ -458,7 +466,7 @@ namespace Banking_System
             // 
             this.Relationship.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Relationship.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.Relationship.Location = new System.Drawing.Point(166, 336);
+            this.Relationship.Location = new System.Drawing.Point(152, 314);
             this.Relationship.Name = "Relationship";
             this.Relationship.Size = new System.Drawing.Size(226, 29);
             this.Relationship.TabIndex = 13;
@@ -469,7 +477,7 @@ namespace Banking_System
             this.label19.BackColor = System.Drawing.Color.Transparent;
             this.label19.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label19.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label19.Location = new System.Drawing.Point(24, 304);
+            this.label19.Location = new System.Drawing.Point(24, 282);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(76, 22);
             this.label19.TabIndex = 92;
@@ -479,7 +487,7 @@ namespace Banking_System
             // 
             this.Residence.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Residence.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.Residence.Location = new System.Drawing.Point(166, 301);
+            this.Residence.Location = new System.Drawing.Point(152, 279);
             this.Residence.Name = "Residence";
             this.Residence.Size = new System.Drawing.Size(226, 29);
             this.Residence.TabIndex = 12;
@@ -490,7 +498,7 @@ namespace Banking_System
             this.label20.BackColor = System.Drawing.Color.Transparent;
             this.label20.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label20.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label20.Location = new System.Drawing.Point(24, 267);
+            this.label20.Location = new System.Drawing.Point(24, 245);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(127, 22);
             this.label20.TabIndex = 90;
@@ -500,7 +508,7 @@ namespace Banking_System
             // 
             this.GuarantorName.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.GuarantorName.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.GuarantorName.Location = new System.Drawing.Point(166, 264);
+            this.GuarantorName.Location = new System.Drawing.Point(152, 242);
             this.GuarantorName.Name = "GuarantorName";
             this.GuarantorName.Size = new System.Drawing.Size(226, 29);
             this.GuarantorName.TabIndex = 11;
@@ -515,11 +523,12 @@ namespace Banking_System
             this.Column3,
             this.Column4,
             this.Column6,
-            this.Column9});
+            this.Column9,
+            this.Column7});
             this.dataGridView1.DataBindings.Add(new System.Windows.Forms.Binding("BackgroundColor", global::Banking_System.Properties.Settings.Default, "usercolor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.dataGridView1.Location = new System.Drawing.Point(414, 264);
+            this.dataGridView1.Location = new System.Drawing.Point(384, 239);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(441, 185);
+            this.dataGridView1.Size = new System.Drawing.Size(471, 223);
             this.dataGridView1.TabIndex = 101;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -543,11 +552,16 @@ namespace Banking_System
             this.Column9.HeaderText = "Telephone ";
             this.Column9.Name = "Column9";
             // 
+            // Column7
+            // 
+            this.Column7.HeaderText = "ID No.";
+            this.Column7.Name = "Column7";
+            // 
             // label16
             // 
             this.label16.AutoSize = true;
             this.label16.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label16.Location = new System.Drawing.Point(128, 452);
+            this.label16.Location = new System.Drawing.Point(128, 465);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(636, 22);
             this.label16.TabIndex = 102;
@@ -678,7 +692,7 @@ namespace Banking_System
             // 
             this.buttonX3.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.buttonX3.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonX3.Location = new System.Drawing.Point(208, 406);
+            this.buttonX3.Location = new System.Drawing.Point(180, 419);
             this.buttonX3.Name = "buttonX3";
             this.buttonX3.Size = new System.Drawing.Size(87, 43);
             this.buttonX3.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -690,7 +704,7 @@ namespace Banking_System
             // 
             this.buttonX4.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.buttonX4.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonX4.Location = new System.Drawing.Point(301, 406);
+            this.buttonX4.Location = new System.Drawing.Point(273, 419);
             this.buttonX4.Name = "buttonX4";
             this.buttonX4.Size = new System.Drawing.Size(93, 43);
             this.buttonX4.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -782,24 +796,11 @@ namespace Banking_System
             this.buttonX11.Text = "&CANCEL";
             this.buttonX11.Click += new System.EventHandler(this.buttonX11_Click);
             // 
-            // InterestRate
-            // 
-            // 
-            // 
-            // 
-            this.InterestRate.BackgroundStyle.Class = "DateTimeInputBackground";
-            this.InterestRate.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.InterestRate.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2;
-            this.InterestRate.Location = new System.Drawing.Point(717, 122);
-            this.InterestRate.Name = "InterestRate";
-            this.InterestRate.Size = new System.Drawing.Size(138, 29);
-            this.InterestRate.TabIndex = 4;
-            // 
             // label23
             // 
             this.label23.AutoSize = true;
             this.label23.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label23.Location = new System.Drawing.Point(587, 126);
+            this.label23.Location = new System.Drawing.Point(587, 99);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(94, 22);
             this.label23.TabIndex = 122;
@@ -809,7 +810,7 @@ namespace Banking_System
             // 
             this.label24.AutoSize = true;
             this.label24.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label24.Location = new System.Drawing.Point(25, 227);
+            this.label24.Location = new System.Drawing.Point(291, 132);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(42, 22);
             this.label24.TabIndex = 123;
@@ -820,9 +821,9 @@ namespace Banking_System
             this.ApplicationDate.CustomFormat = "dd/MMM/yyyy";
             this.ApplicationDate.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ApplicationDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.ApplicationDate.Location = new System.Drawing.Point(132, 222);
+            this.ApplicationDate.Location = new System.Drawing.Point(414, 133);
             this.ApplicationDate.Name = "ApplicationDate";
-            this.ApplicationDate.Size = new System.Drawing.Size(151, 29);
+            this.ApplicationDate.Size = new System.Drawing.Size(162, 29);
             this.ApplicationDate.TabIndex = 124;
             // 
             // LoanID
@@ -832,9 +833,9 @@ namespace Banking_System
             // 
             this.LoanID.Border.Class = "TextBoxBorder";
             this.LoanID.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.LoanID.Location = new System.Drawing.Point(655, 17);
+            this.LoanID.Location = new System.Drawing.Point(687, 17);
             this.LoanID.Name = "LoanID";
-            this.LoanID.Size = new System.Drawing.Size(200, 29);
+            this.LoanID.Size = new System.Drawing.Size(168, 29);
             this.LoanID.TabIndex = 125;
             this.LoanID.WatermarkText = "This is Auto Generated";
             this.LoanID.Click += new System.EventHandler(this.LoanID_Click);
@@ -843,7 +844,7 @@ namespace Banking_System
             // 
             this.label25.AutoSize = true;
             this.label25.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label25.Location = new System.Drawing.Point(25, 169);
+            this.label25.Location = new System.Drawing.Point(23, 125);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(98, 44);
             this.label25.TabIndex = 126;
@@ -855,23 +856,117 @@ namespace Banking_System
             this.AmortisationMethod.Items.AddRange(new object[] {
             "Reducing Balance",
             "Flat Rate"});
-            this.AmortisationMethod.Location = new System.Drawing.Point(132, 176);
+            this.AmortisationMethod.Location = new System.Drawing.Point(127, 132);
             this.AmortisationMethod.Name = "AmortisationMethod";
-            this.AmortisationMethod.Size = new System.Drawing.Size(151, 30);
+            this.AmortisationMethod.Size = new System.Drawing.Size(156, 30);
             this.AmortisationMethod.TabIndex = 127;
+            // 
+            // buttonX12
+            // 
+            this.buttonX12.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.buttonX12.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonX12.Location = new System.Drawing.Point(33, 419);
+            this.buttonX12.Name = "buttonX12";
+            this.buttonX12.Size = new System.Drawing.Size(141, 43);
+            this.buttonX12.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.buttonX12.TabIndex = 128;
+            this.buttonX12.Text = "&Check Guarantor";
+            this.buttonX12.Click += new System.EventHandler(this.buttonX12_Click);
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.BackColor = System.Drawing.Color.Transparent;
+            this.label26.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label26.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label26.Location = new System.Drawing.Point(25, 385);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(56, 22);
+            this.label26.TabIndex = 130;
+            this.label26.Text = "ID No.";
+            // 
+            // MemberID
+            // 
+            this.MemberID.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.MemberID.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MemberID.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.MemberID.Location = new System.Drawing.Point(152, 384);
+            this.MemberID.Name = "MemberID";
+            this.MemberID.Size = new System.Drawing.Size(226, 29);
+            this.MemberID.TabIndex = 129;
+            // 
+            // InterestRate
+            // 
+            // 
+            // 
+            // 
+            this.InterestRate.Border.Class = "TextBoxBorder";
+            this.InterestRate.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.InterestRate.Location = new System.Drawing.Point(687, 96);
+            this.InterestRate.Name = "InterestRate";
+            this.InterestRate.Size = new System.Drawing.Size(168, 29);
+            this.InterestRate.TabIndex = 131;
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label27.Location = new System.Drawing.Point(587, 140);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(83, 22);
+            this.label27.TabIndex = 132;
+            this.label27.Text = "Loan Type";
+            // 
+            // businesstype
+            // 
+            this.businesstype.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.businesstype.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.businesstype.DisplayMember = "Text";
+            this.businesstype.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.businesstype.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.businesstype.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.businesstype.FormattingEnabled = true;
+            this.businesstype.ItemHeight = 23;
+            this.businesstype.Items.AddRange(new object[] {
+            this.comboItem4,
+            this.comboItem5,
+            this.comboItem6});
+            this.businesstype.Location = new System.Drawing.Point(687, 133);
+            this.businesstype.Name = "businesstype";
+            this.businesstype.Size = new System.Drawing.Size(168, 29);
+            this.businesstype.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.businesstype.TabIndex = 133;
+            // 
+            // comboItem4
+            // 
+            this.comboItem4.Text = "Daily";
+            // 
+            // comboItem5
+            // 
+            this.comboItem5.Text = "Monthly";
+            // 
+            // comboItem6
+            // 
+            this.comboItem6.Text = "Yearly";
             // 
             // frmLoanApplication
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = global::Banking_System.Properties.Settings.Default.usercolor;
-            this.ClientSize = new System.Drawing.Size(1008, 678);
+            this.ClientSize = new System.Drawing.Size(1008, 672);
+            this.Controls.Add(this.businesstype);
+            this.Controls.Add(this.label27);
+            this.Controls.Add(this.InterestRate);
+            this.Controls.Add(this.label26);
+            this.Controls.Add(this.MemberID);
+            this.Controls.Add(this.buttonX12);
             this.Controls.Add(this.AmortisationMethod);
             this.Controls.Add(this.label25);
             this.Controls.Add(this.LoanID);
             this.Controls.Add(this.ApplicationDate);
             this.Controls.Add(this.label24);
-            this.Controls.Add(this.InterestRate);
             this.Controls.Add(this.label23);
             this.Controls.Add(this.buttonX11);
             this.Controls.Add(this.buttonX10);
@@ -938,7 +1033,6 @@ namespace Banking_System
             ((System.ComponentModel.ISupportInitialize)(this.Outstanding)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Duration)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.InterestRate)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -978,10 +1072,6 @@ namespace Banking_System
         private System.Windows.Forms.Label label20;
         public System.Windows.Forms.TextBox GuarantorName;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label21;
@@ -1006,12 +1096,25 @@ namespace Banking_System
         private DevComponents.DotNetBar.ButtonX buttonX9;
         private DevComponents.DotNetBar.ButtonX buttonX10;
         private DevComponents.DotNetBar.ButtonX buttonX11;
-        private DevComponents.Editors.IntegerInput InterestRate;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.DateTimePicker ApplicationDate;
         private DevComponents.DotNetBar.Controls.TextBoxX LoanID;
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.ComboBox AmortisationMethod;
+        private DevComponents.DotNetBar.ButtonX buttonX12;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
+        private System.Windows.Forms.Label label26;
+        public System.Windows.Forms.TextBox MemberID;
+        private DevComponents.DotNetBar.Controls.TextBoxX InterestRate;
+        private System.Windows.Forms.Label label27;
+        public DevComponents.DotNetBar.Controls.ComboBoxEx businesstype;
+        private DevComponents.Editors.ComboItem comboItem4;
+        private DevComponents.Editors.ComboItem comboItem5;
+        private DevComponents.Editors.ComboItem comboItem6;
     }
 }

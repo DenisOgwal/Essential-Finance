@@ -247,12 +247,6 @@ namespace Banking_System
                 Relationship.Focus();
                 return;
             }
-            if (AccountType.Text == "")
-            {
-                MessageBox.Show("Please Select Account Type", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                AccountType.Focus();
-                return;
-            }
             try
             {
                 con = new SqlConnection(cs.DBConn);
@@ -270,7 +264,7 @@ namespace Banking_System
                 cmd.Parameters.Add(new SqlParameter("@d8", System.Data.SqlDbType.NChar, 20, "NationalityStatus"));
                 cmd.Parameters.Add(new SqlParameter("@d9", System.Data.SqlDbType.NChar, 20, "IDForm"));
                 cmd.Parameters.Add(new SqlParameter("@d10", System.Data.SqlDbType.NChar, 30, "ClientID"));
-                cmd.Parameters.Add(new SqlParameter("@d11", System.Data.SqlDbType.NChar, 10, "ContactNo"));
+                cmd.Parameters.Add(new SqlParameter("@d11", System.Data.SqlDbType.Int, 10, "ContactNo"));
                 cmd.Parameters.Add(new SqlParameter("@d12", System.Data.SqlDbType.NChar, 10, "ContactNo1"));
                 cmd.Parameters.Add(new SqlParameter("@d13", System.Data.SqlDbType.NChar, 10, "OfficeNo"));
                 cmd.Parameters.Add(new SqlParameter("@d14", System.Data.SqlDbType.NChar, 50, "Email"));
@@ -309,7 +303,7 @@ namespace Banking_System
                 cmd.Parameters["@d22"].Value = GuardianAddress.Text;
                 cmd.Parameters["@d23"].Value = Relationship.Text;
                 cmd.Parameters["@d33"].Value = label33.Text;
-                cmd.Parameters["@d36"].Value = AccountType.Text;
+                cmd.Parameters["@d36"].Value = "N/A";
                 MemoryStream ms = new MemoryStream();
                 Bitmap bmpImage = new Bitmap(pictureBox1.Image);
                 bmpImage.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
@@ -531,7 +525,7 @@ namespace Banking_System
                 cmd.Parameters["@d22"].Value = GuardianAddress.Text;
                 cmd.Parameters["@d23"].Value = Relationship.Text;
                 cmd.Parameters["@d33"].Value = label33.Text;
-                cmd.Parameters["@d36"].Value = AccountType.Text;
+                cmd.Parameters["@d36"].Value = "N/A";
                 MemoryStream ms = new MemoryStream();
                 Bitmap bmpImage = new Bitmap(pictureBox1.Image);
                 bmpImage.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
@@ -596,7 +590,7 @@ namespace Banking_System
         }
         private void frmPatientRegistration_Load(object sender, EventArgs e)
         {
-            try
+            /*try
             {
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
@@ -612,7 +606,7 @@ namespace Banking_System
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            }*/
             try
             {
                 string prices = null;
@@ -782,7 +776,7 @@ namespace Banking_System
                         GuardianContactNo.Text = rdr["NOKContactNo"].ToString();
                         GuardianAddress.Text = rdr["NOKAddress"].ToString();
                         Relationship.Text = rdr["NOKRelationship"].ToString();
-                        AccountType.Text = rdr["AccountType"].ToString();
+                        //AccountType.Text = rdr["AccountType"].ToString();
                         byte[] data = (byte[])rdr["AccountPicture"];
                         MemoryStream ms = new MemoryStream(data);
                         pictureBox1.Image = Image.FromStream(ms);

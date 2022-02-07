@@ -103,6 +103,7 @@ namespace Banking_System
             this.LoanID.Name = "LoanID";
             this.LoanID.Size = new System.Drawing.Size(264, 29);
             this.LoanID.TabIndex = 130;
+            this.LoanID.TextChanged += new System.EventHandler(this.LoanID_TextChanged);
             // 
             // label7
             // 
@@ -202,7 +203,7 @@ namespace Banking_System
             this.buttonX2.Size = new System.Drawing.Size(121, 83);
             this.buttonX2.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.buttonX2.TabIndex = 4;
-            this.buttonX2.Text = "&Save";
+            this.buttonX2.Text = "&Approve";
             this.buttonX2.Click += new System.EventHandler(this.buttonX2_Click);
             // 
             // buttonX1
@@ -317,7 +318,7 @@ namespace Banking_System
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = global::Banking_System.Properties.Settings.Default.usercolor;
-            this.ClientSize = new System.Drawing.Size(861, 427);
+            this.ClientSize = new System.Drawing.Size(861, 425);
             this.Controls.Add(this.approvals);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.buttonX6);

@@ -197,7 +197,7 @@ namespace Banking_System
             this.buttonX2.Font = new System.Drawing.Font("Palatino Linotype", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonX2.Location = new System.Drawing.Point(588, 333);
             this.buttonX2.Name = "buttonX2";
-            this.buttonX2.Size = new System.Drawing.Size(121, 83);
+            this.buttonX2.Size = new System.Drawing.Size(131, 83);
             this.buttonX2.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.buttonX2.TabIndex = 4;
             this.buttonX2.Text = "&Save";
@@ -207,9 +207,9 @@ namespace Banking_System
             // 
             this.buttonX1.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.buttonX1.Font = new System.Drawing.Font("Palatino Linotype", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonX1.Location = new System.Drawing.Point(715, 333);
+            this.buttonX1.Location = new System.Drawing.Point(728, 333);
             this.buttonX1.Name = "buttonX1";
-            this.buttonX1.Size = new System.Drawing.Size(129, 83);
+            this.buttonX1.Size = new System.Drawing.Size(116, 83);
             this.buttonX1.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.buttonX1.TabIndex = 6;
             this.buttonX1.Text = "&Cancel";
@@ -294,7 +294,7 @@ namespace Banking_System
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = global::Banking_System.Properties.Settings.Default.usercolor;
-            this.ClientSize = new System.Drawing.Size(861, 427);
+            this.ClientSize = new System.Drawing.Size(861, 425);
             this.Controls.Add(this.buttonX6);
             this.Controls.Add(this.buttonX5);
             this.Controls.Add(this.Records);

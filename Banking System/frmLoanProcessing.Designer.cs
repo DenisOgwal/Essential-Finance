@@ -316,7 +316,7 @@
             this.labelX1.Name = "labelX1";
             this.labelX1.Size = new System.Drawing.Size(160, 23);
             this.labelX1.TabIndex = 0;
-            this.labelX1.Text = "Loan Application Fees";
+            this.labelX1.Text = "Loan Application (%)";
             // 
             // groupPanel3
             // 

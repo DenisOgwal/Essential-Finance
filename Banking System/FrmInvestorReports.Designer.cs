@@ -34,17 +34,14 @@ namespace Banking_System
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.tabControl1 = new DevComponents.DotNetBar.TabControl();
-            this.tabControlPanel4 = new DevComponents.DotNetBar.TabControlPanel();
-            this.groupPanel8 = new DevComponents.DotNetBar.Controls.GroupPanel();
-            this.buttonX10 = new DevComponents.DotNetBar.ButtonX();
-            this.buttonX11 = new DevComponents.DotNetBar.ButtonX();
-            this.tabItem3 = new DevComponents.DotNetBar.TabItem(this.components);
             this.tabControlPanel3 = new DevComponents.DotNetBar.TabControlPanel();
+            this.crystalReportViewer3 = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
             this.groupPanel6 = new DevComponents.DotNetBar.Controls.GroupPanel();
             this.buttonX7 = new DevComponents.DotNetBar.ButtonX();
             this.buttonX9 = new DevComponents.DotNetBar.ButtonX();
             this.tabItem2 = new DevComponents.DotNetBar.TabItem(this.components);
             this.tabControlPanel2 = new DevComponents.DotNetBar.TabControlPanel();
+            this.crystalReportViewer2 = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
             this.groupPanel4 = new DevComponents.DotNetBar.Controls.GroupPanel();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -54,6 +51,7 @@ namespace Banking_System
             this.savingsfrom = new System.Windows.Forms.DateTimePicker();
             this.Investments = new DevComponents.DotNetBar.TabItem(this.components);
             this.tabControlPanel1 = new DevComponents.DotNetBar.TabControlPanel();
+            this.crystalReportViewer1 = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
             this.groupPanel1 = new DevComponents.DotNetBar.Controls.GroupPanel();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -62,20 +60,29 @@ namespace Banking_System
             this.dateto = new System.Windows.Forms.DateTimePicker();
             this.datefrom = new System.Windows.Forms.DateTimePicker();
             this.tabItem1 = new DevComponents.DotNetBar.TabItem(this.components);
-            this.crystalReportViewer1 = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
-            this.crystalReportViewer2 = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
-            this.crystalReportViewer3 = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
+            this.tabControlPanel4 = new DevComponents.DotNetBar.TabControlPanel();
             this.crystalReportViewer4 = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
+            this.groupPanel8 = new DevComponents.DotNetBar.Controls.GroupPanel();
+            this.buttonX10 = new DevComponents.DotNetBar.ButtonX();
+            this.buttonX11 = new DevComponents.DotNetBar.ButtonX();
+            this.tabItem3 = new DevComponents.DotNetBar.TabItem(this.components);
+            this.rptInvestorAccount1 = new Banking_System.rptInvestorAccount();
+            this.rptInvestments1 = new Banking_System.rptInvestments();
+            this.rptInvestorAccountBalance1 = new Banking_System.rptInvestorAccountBalance();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.transactionsto = new System.Windows.Forms.DateTimePicker();
+            this.transactionsfrom = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.tabControl1)).BeginInit();
             this.tabControl1.SuspendLayout();
-            this.tabControlPanel4.SuspendLayout();
-            this.groupPanel8.SuspendLayout();
             this.tabControlPanel3.SuspendLayout();
             this.groupPanel6.SuspendLayout();
             this.tabControlPanel2.SuspendLayout();
             this.groupPanel4.SuspendLayout();
             this.tabControlPanel1.SuspendLayout();
             this.groupPanel1.SuspendLayout();
+            this.tabControlPanel4.SuspendLayout();
+            this.groupPanel8.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -103,10 +110,10 @@ namespace Banking_System
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControl1.BackColor = System.Drawing.SystemColors.Highlight;
             this.tabControl1.CanReorderTabs = true;
-            this.tabControl1.Controls.Add(this.tabControlPanel1);
             this.tabControl1.Controls.Add(this.tabControlPanel4);
-            this.tabControl1.Controls.Add(this.tabControlPanel3);
             this.tabControl1.Controls.Add(this.tabControlPanel2);
+            this.tabControl1.Controls.Add(this.tabControlPanel3);
+            this.tabControl1.Controls.Add(this.tabControlPanel1);
             this.tabControl1.Location = new System.Drawing.Point(2, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedTabFont = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Bold);
@@ -119,95 +126,6 @@ namespace Banking_System
             this.tabControl1.Tabs.Add(this.tabItem2);
             this.tabControl1.Tabs.Add(this.tabItem3);
             this.tabControl1.Text = "tabControl1";
-            // 
-            // tabControlPanel4
-            // 
-            this.tabControlPanel4.Controls.Add(this.crystalReportViewer4);
-            this.tabControlPanel4.Controls.Add(this.groupPanel8);
-            this.tabControlPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControlPanel4.Location = new System.Drawing.Point(0, 32);
-            this.tabControlPanel4.Name = "tabControlPanel4";
-            this.tabControlPanel4.Padding = new System.Windows.Forms.Padding(1);
-            this.tabControlPanel4.Size = new System.Drawing.Size(871, 362);
-            this.tabControlPanel4.Style.BackColor1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(179)))), ((int)(((byte)(231)))));
-            this.tabControlPanel4.Style.BackColor2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(237)))), ((int)(((byte)(254)))));
-            this.tabControlPanel4.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
-            this.tabControlPanel4.Style.BorderColor.Color = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(97)))), ((int)(((byte)(156)))));
-            this.tabControlPanel4.Style.BorderSide = ((DevComponents.DotNetBar.eBorderSide)(((DevComponents.DotNetBar.eBorderSide.Left | DevComponents.DotNetBar.eBorderSide.Right) 
-            | DevComponents.DotNetBar.eBorderSide.Bottom)));
-            this.tabControlPanel4.Style.GradientAngle = 90;
-            this.tabControlPanel4.TabIndex = 4;
-            this.tabControlPanel4.TabItem = this.tabItem3;
-            // 
-            // groupPanel8
-            // 
-            this.groupPanel8.CanvasColor = System.Drawing.SystemColors.Control;
-            this.groupPanel8.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
-            this.groupPanel8.Controls.Add(this.buttonX10);
-            this.groupPanel8.Controls.Add(this.buttonX11);
-            this.groupPanel8.Location = new System.Drawing.Point(3, 0);
-            this.groupPanel8.Name = "groupPanel8";
-            this.groupPanel8.Size = new System.Drawing.Size(216, 76);
-            // 
-            // 
-            // 
-            this.groupPanel8.Style.BackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
-            this.groupPanel8.Style.BackColorGradientAngle = 90;
-            this.groupPanel8.Style.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
-            this.groupPanel8.Style.BorderBottom = DevComponents.DotNetBar.eStyleBorderType.Solid;
-            this.groupPanel8.Style.BorderBottomWidth = 1;
-            this.groupPanel8.Style.BorderColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
-            this.groupPanel8.Style.BorderLeft = DevComponents.DotNetBar.eStyleBorderType.Solid;
-            this.groupPanel8.Style.BorderLeftWidth = 1;
-            this.groupPanel8.Style.BorderRight = DevComponents.DotNetBar.eStyleBorderType.Solid;
-            this.groupPanel8.Style.BorderRightWidth = 1;
-            this.groupPanel8.Style.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Solid;
-            this.groupPanel8.Style.BorderTopWidth = 1;
-            this.groupPanel8.Style.Class = "";
-            this.groupPanel8.Style.CornerDiameter = 4;
-            this.groupPanel8.Style.CornerType = DevComponents.DotNetBar.eCornerType.Rounded;
-            this.groupPanel8.Style.TextAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Center;
-            this.groupPanel8.Style.TextColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
-            this.groupPanel8.Style.TextLineAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Near;
-            // 
-            // 
-            // 
-            this.groupPanel8.StyleMouseDown.Class = "";
-            this.groupPanel8.StyleMouseDown.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            // 
-            // 
-            // 
-            this.groupPanel8.StyleMouseOver.Class = "";
-            this.groupPanel8.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.groupPanel8.TabIndex = 11;
-            // 
-            // buttonX10
-            // 
-            this.buttonX10.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.buttonX10.Font = new System.Drawing.Font("Palatino Linotype", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonX10.Location = new System.Drawing.Point(108, 3);
-            this.buttonX10.Name = "buttonX10";
-            this.buttonX10.Size = new System.Drawing.Size(98, 64);
-            this.buttonX10.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.buttonX10.TabIndex = 110;
-            this.buttonX10.Text = "&Reset";
-            // 
-            // buttonX11
-            // 
-            this.buttonX11.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.buttonX11.Font = new System.Drawing.Font("Palatino Linotype", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonX11.Location = new System.Drawing.Point(4, 3);
-            this.buttonX11.Name = "buttonX11";
-            this.buttonX11.Size = new System.Drawing.Size(98, 64);
-            this.buttonX11.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.buttonX11.TabIndex = 109;
-            this.buttonX11.Text = "&View";
-            // 
-            // tabItem3
-            // 
-            this.tabItem3.AttachedControl = this.tabControlPanel4;
-            this.tabItem3.Name = "tabItem3";
-            this.tabItem3.Text = "Account Transactions";
             // 
             // tabControlPanel3
             // 
@@ -227,6 +145,19 @@ namespace Banking_System
             this.tabControlPanel3.Style.GradientAngle = 90;
             this.tabControlPanel3.TabIndex = 3;
             this.tabControlPanel3.TabItem = this.tabItem2;
+            // 
+            // crystalReportViewer3
+            // 
+            this.crystalReportViewer3.ActiveViewIndex = -1;
+            this.crystalReportViewer3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.crystalReportViewer3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.crystalReportViewer3.Cursor = System.Windows.Forms.Cursors.Default;
+            this.crystalReportViewer3.Location = new System.Drawing.Point(0, 77);
+            this.crystalReportViewer3.Name = "crystalReportViewer3";
+            this.crystalReportViewer3.Size = new System.Drawing.Size(871, 285);
+            this.crystalReportViewer3.TabIndex = 10;
             // 
             // groupPanel6
             // 
@@ -280,6 +211,7 @@ namespace Banking_System
             this.buttonX7.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.buttonX7.TabIndex = 110;
             this.buttonX7.Text = "&Reset";
+            this.buttonX7.Click += new System.EventHandler(this.buttonX7_Click);
             // 
             // buttonX9
             // 
@@ -291,6 +223,7 @@ namespace Banking_System
             this.buttonX9.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.buttonX9.TabIndex = 108;
             this.buttonX9.Text = "&View";
+            this.buttonX9.Click += new System.EventHandler(this.buttonX9_Click);
             // 
             // tabItem2
             // 
@@ -316,6 +249,19 @@ namespace Banking_System
             this.tabControlPanel2.Style.GradientAngle = 90;
             this.tabControlPanel2.TabIndex = 2;
             this.tabControlPanel2.TabItem = this.Investments;
+            // 
+            // crystalReportViewer2
+            // 
+            this.crystalReportViewer2.ActiveViewIndex = -1;
+            this.crystalReportViewer2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.crystalReportViewer2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.crystalReportViewer2.Cursor = System.Windows.Forms.Cursors.Default;
+            this.crystalReportViewer2.Location = new System.Drawing.Point(0, 72);
+            this.crystalReportViewer2.Name = "crystalReportViewer2";
+            this.crystalReportViewer2.Size = new System.Drawing.Size(871, 290);
+            this.crystalReportViewer2.TabIndex = 6;
             // 
             // groupPanel4
             // 
@@ -393,6 +339,7 @@ namespace Banking_System
             this.buttonX4.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.buttonX4.TabIndex = 110;
             this.buttonX4.Text = "&Reset";
+            this.buttonX4.Click += new System.EventHandler(this.buttonX4_Click);
             // 
             // buttonX6
             // 
@@ -404,6 +351,7 @@ namespace Banking_System
             this.buttonX6.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.buttonX6.TabIndex = 108;
             this.buttonX6.Text = "&View";
+            this.buttonX6.Click += new System.EventHandler(this.buttonX6_Click);
             // 
             // savingsto
             // 
@@ -455,6 +403,19 @@ namespace Banking_System
             this.tabControlPanel1.Style.GradientAngle = 90;
             this.tabControlPanel1.TabIndex = 1;
             this.tabControlPanel1.TabItem = this.tabItem1;
+            // 
+            // crystalReportViewer1
+            // 
+            this.crystalReportViewer1.ActiveViewIndex = -1;
+            this.crystalReportViewer1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.crystalReportViewer1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.crystalReportViewer1.Cursor = System.Windows.Forms.Cursors.Default;
+            this.crystalReportViewer1.Location = new System.Drawing.Point(0, 79);
+            this.crystalReportViewer1.Name = "crystalReportViewer1";
+            this.crystalReportViewer1.Size = new System.Drawing.Size(871, 283);
+            this.crystalReportViewer1.TabIndex = 4;
             // 
             // groupPanel1
             // 
@@ -532,6 +493,7 @@ namespace Banking_System
             this.buttonX3.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.buttonX3.TabIndex = 110;
             this.buttonX3.Text = "&Reset";
+            this.buttonX3.Click += new System.EventHandler(this.buttonX3_Click);
             // 
             // buttonX1
             // 
@@ -543,6 +505,7 @@ namespace Banking_System
             this.buttonX1.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.buttonX1.TabIndex = 108;
             this.buttonX1.Text = "&View";
+            this.buttonX1.Click += new System.EventHandler(this.buttonX1_Click);
             // 
             // dateto
             // 
@@ -576,44 +539,24 @@ namespace Banking_System
             this.tabItem1.Name = "tabItem1";
             this.tabItem1.Text = "Account";
             // 
-            // crystalReportViewer1
+            // tabControlPanel4
             // 
-            this.crystalReportViewer1.ActiveViewIndex = -1;
-            this.crystalReportViewer1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.crystalReportViewer1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.crystalReportViewer1.Cursor = System.Windows.Forms.Cursors.Default;
-            this.crystalReportViewer1.Location = new System.Drawing.Point(0, 79);
-            this.crystalReportViewer1.Name = "crystalReportViewer1";
-            this.crystalReportViewer1.Size = new System.Drawing.Size(871, 283);
-            this.crystalReportViewer1.TabIndex = 4;
-            // 
-            // crystalReportViewer2
-            // 
-            this.crystalReportViewer2.ActiveViewIndex = -1;
-            this.crystalReportViewer2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.crystalReportViewer2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.crystalReportViewer2.Cursor = System.Windows.Forms.Cursors.Default;
-            this.crystalReportViewer2.Location = new System.Drawing.Point(0, 72);
-            this.crystalReportViewer2.Name = "crystalReportViewer2";
-            this.crystalReportViewer2.Size = new System.Drawing.Size(871, 290);
-            this.crystalReportViewer2.TabIndex = 6;
-            // 
-            // crystalReportViewer3
-            // 
-            this.crystalReportViewer3.ActiveViewIndex = -1;
-            this.crystalReportViewer3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.crystalReportViewer3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.crystalReportViewer3.Cursor = System.Windows.Forms.Cursors.Default;
-            this.crystalReportViewer3.Location = new System.Drawing.Point(0, 77);
-            this.crystalReportViewer3.Name = "crystalReportViewer3";
-            this.crystalReportViewer3.Size = new System.Drawing.Size(871, 285);
-            this.crystalReportViewer3.TabIndex = 10;
+            this.tabControlPanel4.Controls.Add(this.crystalReportViewer4);
+            this.tabControlPanel4.Controls.Add(this.groupPanel8);
+            this.tabControlPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControlPanel4.Location = new System.Drawing.Point(0, 32);
+            this.tabControlPanel4.Name = "tabControlPanel4";
+            this.tabControlPanel4.Padding = new System.Windows.Forms.Padding(1);
+            this.tabControlPanel4.Size = new System.Drawing.Size(871, 362);
+            this.tabControlPanel4.Style.BackColor1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(179)))), ((int)(((byte)(231)))));
+            this.tabControlPanel4.Style.BackColor2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(237)))), ((int)(((byte)(254)))));
+            this.tabControlPanel4.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
+            this.tabControlPanel4.Style.BorderColor.Color = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(97)))), ((int)(((byte)(156)))));
+            this.tabControlPanel4.Style.BorderSide = ((DevComponents.DotNetBar.eBorderSide)(((DevComponents.DotNetBar.eBorderSide.Left | DevComponents.DotNetBar.eBorderSide.Right) 
+            | DevComponents.DotNetBar.eBorderSide.Bottom)));
+            this.tabControlPanel4.Style.GradientAngle = 90;
+            this.tabControlPanel4.TabIndex = 4;
+            this.tabControlPanel4.TabItem = this.tabItem3;
             // 
             // crystalReportViewer4
             // 
@@ -627,6 +570,128 @@ namespace Banking_System
             this.crystalReportViewer4.Name = "crystalReportViewer4";
             this.crystalReportViewer4.Size = new System.Drawing.Size(871, 285);
             this.crystalReportViewer4.TabIndex = 12;
+            // 
+            // groupPanel8
+            // 
+            this.groupPanel8.CanvasColor = System.Drawing.SystemColors.Control;
+            this.groupPanel8.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
+            this.groupPanel8.Controls.Add(this.label7);
+            this.groupPanel8.Controls.Add(this.label8);
+            this.groupPanel8.Controls.Add(this.transactionsto);
+            this.groupPanel8.Controls.Add(this.transactionsfrom);
+            this.groupPanel8.Controls.Add(this.buttonX10);
+            this.groupPanel8.Controls.Add(this.buttonX11);
+            this.groupPanel8.Location = new System.Drawing.Point(3, 0);
+            this.groupPanel8.Name = "groupPanel8";
+            this.groupPanel8.Size = new System.Drawing.Size(512, 76);
+            // 
+            // 
+            // 
+            this.groupPanel8.Style.BackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
+            this.groupPanel8.Style.BackColorGradientAngle = 90;
+            this.groupPanel8.Style.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
+            this.groupPanel8.Style.BorderBottom = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.groupPanel8.Style.BorderBottomWidth = 1;
+            this.groupPanel8.Style.BorderColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
+            this.groupPanel8.Style.BorderLeft = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.groupPanel8.Style.BorderLeftWidth = 1;
+            this.groupPanel8.Style.BorderRight = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.groupPanel8.Style.BorderRightWidth = 1;
+            this.groupPanel8.Style.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.groupPanel8.Style.BorderTopWidth = 1;
+            this.groupPanel8.Style.Class = "";
+            this.groupPanel8.Style.CornerDiameter = 4;
+            this.groupPanel8.Style.CornerType = DevComponents.DotNetBar.eCornerType.Rounded;
+            this.groupPanel8.Style.TextAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Center;
+            this.groupPanel8.Style.TextColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
+            this.groupPanel8.Style.TextLineAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Near;
+            // 
+            // 
+            // 
+            this.groupPanel8.StyleMouseDown.Class = "";
+            this.groupPanel8.StyleMouseDown.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            // 
+            // 
+            // 
+            this.groupPanel8.StyleMouseOver.Class = "";
+            this.groupPanel8.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.groupPanel8.TabIndex = 11;
+            // 
+            // buttonX10
+            // 
+            this.buttonX10.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.buttonX10.Font = new System.Drawing.Font("Palatino Linotype", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonX10.Location = new System.Drawing.Point(399, 4);
+            this.buttonX10.Name = "buttonX10";
+            this.buttonX10.Size = new System.Drawing.Size(98, 64);
+            this.buttonX10.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.buttonX10.TabIndex = 110;
+            this.buttonX10.Text = "&Reset";
+            this.buttonX10.Click += new System.EventHandler(this.buttonX10_Click);
+            // 
+            // buttonX11
+            // 
+            this.buttonX11.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.buttonX11.Font = new System.Drawing.Font("Palatino Linotype", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonX11.Location = new System.Drawing.Point(295, 4);
+            this.buttonX11.Name = "buttonX11";
+            this.buttonX11.Size = new System.Drawing.Size(98, 64);
+            this.buttonX11.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.buttonX11.TabIndex = 109;
+            this.buttonX11.Text = "&View";
+            this.buttonX11.Click += new System.EventHandler(this.buttonX11_Click);
+            // 
+            // tabItem3
+            // 
+            this.tabItem3.AttachedControl = this.tabControlPanel4;
+            this.tabItem3.Name = "tabItem3";
+            this.tabItem3.Text = "Account Transactions";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.BackColor = System.Drawing.Color.Transparent;
+            this.label7.Location = new System.Drawing.Point(150, 10);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(27, 22);
+            this.label7.TabIndex = 118;
+            this.label7.Text = "To";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.BackColor = System.Drawing.Color.Transparent;
+            this.label8.Location = new System.Drawing.Point(4, 10);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(47, 22);
+            this.label8.TabIndex = 117;
+            this.label8.Text = "From";
+            // 
+            // transactionsto
+            // 
+            this.transactionsto.CalendarForeColor = System.Drawing.SystemColors.Highlight;
+            this.transactionsto.CalendarTitleBackColor = System.Drawing.SystemColors.ControlText;
+            this.transactionsto.CalendarTitleForeColor = System.Drawing.SystemColors.Highlight;
+            this.transactionsto.CustomFormat = "dd/MMM/yyyy";
+            this.transactionsto.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.transactionsto.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.transactionsto.Location = new System.Drawing.Point(154, 35);
+            this.transactionsto.Name = "transactionsto";
+            this.transactionsto.Size = new System.Drawing.Size(135, 29);
+            this.transactionsto.TabIndex = 116;
+            // 
+            // transactionsfrom
+            // 
+            this.transactionsfrom.CalendarForeColor = System.Drawing.SystemColors.Highlight;
+            this.transactionsfrom.CalendarTitleBackColor = System.Drawing.SystemColors.ControlText;
+            this.transactionsfrom.CalendarTitleForeColor = System.Drawing.SystemColors.Highlight;
+            this.transactionsfrom.CustomFormat = "dd/MMM/yyyy";
+            this.transactionsfrom.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.transactionsfrom.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.transactionsfrom.Location = new System.Drawing.Point(8, 35);
+            this.transactionsfrom.Name = "transactionsfrom";
+            this.transactionsfrom.Size = new System.Drawing.Size(145, 29);
+            this.transactionsfrom.TabIndex = 115;
             // 
             // FrmInvestorReports
             // 
@@ -646,8 +711,6 @@ namespace Banking_System
             this.Load += new System.EventHandler(this.FrmInvestorReports_Load);
             ((System.ComponentModel.ISupportInitialize)(this.tabControl1)).EndInit();
             this.tabControl1.ResumeLayout(false);
-            this.tabControlPanel4.ResumeLayout(false);
-            this.groupPanel8.ResumeLayout(false);
             this.tabControlPanel3.ResumeLayout(false);
             this.groupPanel6.ResumeLayout(false);
             this.tabControlPanel2.ResumeLayout(false);
@@ -656,6 +719,9 @@ namespace Banking_System
             this.tabControlPanel1.ResumeLayout(false);
             this.groupPanel1.ResumeLayout(false);
             this.groupPanel1.PerformLayout();
+            this.tabControlPanel4.ResumeLayout(false);
+            this.groupPanel8.ResumeLayout(false);
+            this.groupPanel8.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -698,5 +764,12 @@ namespace Banking_System
         public System.Windows.Forms.DateTimePicker savingsto;
         public System.Windows.Forms.DateTimePicker savingsfrom;
         private DevComponents.DotNetBar.TabItem Investments;
+        private rptInvestorAccount rptInvestorAccount1;
+        private rptInvestments rptInvestments1;
+        private rptInvestorAccountBalance rptInvestorAccountBalance1;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
+        public System.Windows.Forms.DateTimePicker transactionsto;
+        public System.Windows.Forms.DateTimePicker transactionsfrom;
     }
 }

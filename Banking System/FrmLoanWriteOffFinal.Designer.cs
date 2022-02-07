@@ -261,7 +261,7 @@ namespace Banking_System
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = global::Banking_System.Properties.Settings.Default.usercolor;
-            this.ClientSize = new System.Drawing.Size(861, 333);
+            this.ClientSize = new System.Drawing.Size(861, 331);
             this.Controls.Add(this.buttonX5);
             this.Controls.Add(this.Records);
             this.Controls.Add(this.label2);

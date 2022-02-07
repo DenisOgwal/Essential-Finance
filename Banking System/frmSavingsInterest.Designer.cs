@@ -327,7 +327,7 @@
             this.labelX1.Name = "labelX1";
             this.labelX1.Size = new System.Drawing.Size(100, 47);
             this.labelX1.TabIndex = 0;
-            this.labelX1.Text = "Intrest Rate\r\n(Per Months)";
+            this.labelX1.Text = "Interest Rate\r\n(Per Months)";
             // 
             // groupPanel1
             // 

@@ -133,6 +133,9 @@
   <data name="Start screen" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Start screen.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Summary P and L" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Summary P and L.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Transaction-Fee" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Transaction-Fee.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -160,11 +163,11 @@
   <data name="Note-Memo-01" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Note-Memo-01.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Clear" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Clear.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Reward-07" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Reward-07.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Savings" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Savings.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Finance-021" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Finance-021.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -183,6 +186,9 @@
   </data>
   <data name="Register by Device" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Register by Device.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Debit" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Debit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="User-Login" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\User-Login.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -253,8 +259,8 @@
   <data name="Savings2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Savings2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Clear" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Clear.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="smooth-navy-blue-user" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\smooth-navy-blue-user.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Key-Access" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Key-Access.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -268,13 +274,13 @@
   <data name="Financial Nest Egg" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Financial Nest Egg.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="smooth-navy-blue-user" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\smooth-navy-blue-user.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Savings" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Savings.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Gold" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Gold.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Summary P and L" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Summary P and L.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Login-Door" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Login-Door.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

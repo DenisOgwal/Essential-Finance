@@ -501,6 +501,7 @@
             this.cmbStaffID.Name = "cmbStaffID";
             this.cmbStaffID.Size = new System.Drawing.Size(242, 30);
             this.cmbStaffID.TabIndex = 70;
+            this.cmbStaffID.SelectedIndexChanged += new System.EventHandler(this.cmbStaffID_SelectedIndexChanged);
             this.cmbStaffID.TextChanged += new System.EventHandler(this.cmbStaffID_TextChanged);
             this.cmbStaffID.Click += new System.EventHandler(this.cmbStaffID_Click);
             // 

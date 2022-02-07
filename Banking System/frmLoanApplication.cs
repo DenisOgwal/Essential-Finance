@@ -11,6 +11,7 @@ namespace Banking_System
         SqlConnection con = null;
         DataSet ds = new DataSet();
         SqlCommand cmd = null;
+        SqlDataAdapter adp;
         DataTable dt = new DataTable();
         ConnectionString cs = new ConnectionString();
         SqlDataReader rdr = null;
@@ -61,11 +62,30 @@ namespace Banking_System
                 convertedid = "" + realid;
             }
             string years = yearss.Substring(2, 2);
-            LoanID.Text = "LA" + years + monthss + days + convertedid;
+          string initialletters = businesstype.Text.Substring(0, 2);
+            LoanID.Text = initialletters + years + monthss + days + convertedid;
         }
         private void frmLoanApplication_Load(object sender, EventArgs e)
         {
-
+            try
+            {
+                SqlConnection CN = new SqlConnection(cs.DBConn);
+                CN.Open();
+                adp = new SqlDataAdapter();
+                adp.SelectCommand = new SqlCommand("SELECT distinct RTRIM(Loantypess) FROM LoanTypes", CN);
+                ds = new DataSet("ds");
+                adp.Fill(ds);
+                dtable = ds.Tables[0];
+                businesstype.Items.Clear();
+                foreach (DataRow drow in dtable.Rows)
+                {
+                    businesstype.Items.Add(drow[0].ToString());
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -110,7 +130,7 @@ namespace Banking_System
                     Relationship.Focus();
                     return;
                 }
-                dataGridView1.Rows.Add(GuarantorName.Text, Residence.Text, Relationship.Text, telno.Text);
+                dataGridView1.Rows.Add(GuarantorName.Text, Residence.Text, Relationship.Text, telno.Text,MemberID.Text);
                 Reset();
             }catch(Exception Ex)
             {
@@ -184,6 +204,13 @@ namespace Banking_System
         {
             try
             {
+
+                if (AmortisationMethod.Text == "Reducing Balance" && InterestRate.Text == "0")
+                {
+                    MessageBox.Show("You Can not  use 0% Interrest on Reducing Balance", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    InterestRate.Focus();
+                    return;
+                }
                 if (AccountNo.Text == "")
                 {
                     MessageBox.Show("Please Fill Account Number", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -388,7 +415,7 @@ namespace Banking_System
             {
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
-                string cb = "insert into Loan(AccountNo,AccountName,LoanID,ServicingPeriod,RepaymentInterval,Interest,Collateral,CollateralValue,RefereeName,RefereeTel,RefereeAddress,RefereeRelationship,ApplicationDate,LoanAmount,IssueType) VALUES (@d1,@d2,@d3,@d4,@d5,@d6,@d7,@d8,@d9,@d10,@d11,@d12,@d13,@d14,@d15)";
+                string cb = "insert into Loan(AccountNo,AccountName,LoanID,ServicingPeriod,RepaymentInterval,Interest,Collateral,CollateralValue,RefereeName,RefereeTel,RefereeAddress,RefereeRelationship,ApplicationDate,LoanAmount,IssueType,LoanType) VALUES (@d1,@d2,@d3,@d4,@d5,@d6,@d7,@d8,@d9,@d10,@d11,@d12,@d13,@d14,@d15,'"+businesstype.Text+"')";
                 cmd = new SqlCommand(cb);
                 cmd.Connection = con;
                 cmd.Parameters.Add(new SqlParameter("@d1", System.Data.SqlDbType.NChar, 20, "AccountNo"));
@@ -432,7 +459,7 @@ namespace Banking_System
             {
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
-                string cb = "insert into Guarantor(Names,LoanID,Residence,Relationship,Date,TELNo) VALUES (@d1,@d2,@d3,@d4,@d5,@d6)";
+                string cb = "insert into Guarantor(Names,LoanID,Residence,Relationship,Date,TELNo,IDNo) VALUES (@d1,@d2,@d3,@d4,@d5,@d6,@d7)";
                 cmd = new SqlCommand(cb);
                 cmd.Connection = con;
                 cmd.Parameters.Add(new SqlParameter("@d1", System.Data.SqlDbType.NChar, 60, "Names"));
@@ -440,7 +467,8 @@ namespace Banking_System
                 cmd.Parameters.Add(new SqlParameter("@d3", System.Data.SqlDbType.NChar, 60, "Residence"));
                 cmd.Parameters.Add(new SqlParameter("@d4", System.Data.SqlDbType.NChar, 40, "Relationship"));
                 cmd.Parameters.Add(new SqlParameter("@d5", System.Data.SqlDbType.NChar, 20, "Date"));
-                cmd.Parameters.Add(new SqlParameter("@d6", System.Data.SqlDbType.NChar, 30, "TELNo"));
+                cmd.Parameters.Add(new SqlParameter("@d6", System.Data.SqlDbType.Int, 10, "TELNo"));
+                cmd.Parameters.Add(new SqlParameter("@d7", System.Data.SqlDbType.NChar, 20, "IDNo"));
                 foreach (DataGridViewRow row in dataGridView1.Rows)
                 {
                     if (!row.IsNewRow)
@@ -453,6 +481,7 @@ namespace Banking_System
                             cmd.Parameters["@d4"].Value = row.Cells[2].Value;
                             cmd.Parameters["@d5"].Value = ApplicationDate.Text;
                             cmd.Parameters["@d6"].Value = row.Cells[3].Value;
+                            cmd.Parameters["@d7"].Value = row.Cells[4].Value;
                             cmd.ExecuteNonQuery();
                         }
                     }
@@ -534,7 +563,14 @@ namespace Banking_System
                         double val1 = 0;
                         double.TryParse(LoanAmount.Value.ToString(), out val1);
                         principal = val1 ;
-                        interest = ((Convert.ToDouble(InterestRate.Value) / (100)) * val1);
+                        if (InterestRate.Text == "0")
+                        {
+                            interest = 0.00;
+                        }
+                        else
+                        {
+                            interest = ((Convert.ToDouble(InterestRate.Text) / (100)) * val1);
+                        }
                         if (i == ServicingPeriod.Value)
                         {
                             repaymentammount = val1 + interest;
@@ -590,7 +626,7 @@ namespace Banking_System
                     DateTime startdate = DateTime.Parse(ApplicationDate.Text).Date;
                     double val1 = 0;
                     double.TryParse(LoanAmount.Value.ToString(), out val1);
-                    double r = Convert.ToDouble(InterestRate.Value) / 100;
+                    double r = Convert.ToDouble(InterestRate.Text) / 100;
                     int n = ServicingPeriod.Value;
                     double firstint = Math.Pow((1 + r), n);
                     double secondint = Math.Pow((1 + r), n);
@@ -625,7 +661,15 @@ namespace Banking_System
                           
                         if (repaymentmonths == "1Months" || repaymentmonths == "1Week" || repaymentmonths == "1Day")
                         {
-                            interest = val1 * (Convert.ToDouble(InterestRate.Value) / 100);
+
+                            if (InterestRate.Text == "0")
+                            {
+                                interest = 0.00;
+                            }
+                            else
+                            {
+                                interest = val1 * (Convert.ToDouble(InterestRate.Text) / 100);
+                            }
                             principal = emi- interest;
                             repaymentammount = emi;
                             begginingbalance = val1 - principal;
@@ -641,7 +685,14 @@ namespace Banking_System
                             if (rdr.Read())
                             {
                                 Double totals6 = Convert.ToDouble(rdr[0]);
-                                interest = totals6 * (Convert.ToDouble(InterestRate.Value) / 100);
+                                if (InterestRate.Text == "0")
+                                {
+                                    interest = 0.00;
+                                }
+                                else
+                                {
+                                    interest = totals6 * (Convert.ToDouble(InterestRate.Text) / 100);
+                                }
                                 principal = emi - interest;
                                 repaymentammount = emi;
                                 begginingbalance = totals6 - principal;
@@ -814,6 +865,12 @@ namespace Banking_System
             FrmLoanFinalApproval frm = new FrmLoanFinalApproval();
             frm.label1.Text = label1.Text;
             frm.label2.Text = label2.Text;
+            frm.ShowDialog();
+        }
+
+        private void buttonX12_Click(object sender, EventArgs e)
+        {
+            FrmGuarantors frm = new FrmGuarantors();
             frm.ShowDialog();
         }
     }

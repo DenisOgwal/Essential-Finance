@@ -176,7 +176,10 @@
             this.bankno.Items.AddRange(new object[] {
             "Bank 1",
             "Bank 2",
-            "Bank 3"});
+            "Bank 3",
+            "Bank 4",
+            "Bank 5",
+            "Bank 6"});
             this.bankno.Location = new System.Drawing.Point(139, 10);
             this.bankno.Name = "bankno";
             this.bankno.Size = new System.Drawing.Size(231, 30);
@@ -361,7 +364,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = global::Banking_System.Properties.Settings.Default.usercolor;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(581, 299);
+            this.ClientSize = new System.Drawing.Size(581, 297);
             this.Controls.Add(this.groupPanel2);
             this.Controls.Add(this.groupPanel1);
             this.Controls.Add(this.ribbonControl1);

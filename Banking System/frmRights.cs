@@ -29,6 +29,35 @@ namespace Banking_System
             authorisedid.Text = "";
             category.Text = "";
         }
+        private void usertypescomplete()
+        {
+            try
+            {
+               
+                con = new SqlConnection(cs.DBConn);
+                con.Open();
+                cmd = con.CreateCommand();
+                cmd.CommandText = "SELECT * FROM UserTypes ";
+                rdr = cmd.ExecuteReader();
+                while (rdr.Read())
+                {
+                    category.Items.Add(rdr["UserType"]);
+                }
+
+                if ((rdr != null))
+                {
+                    rdr.Close();
+                }
+                if (con.State == ConnectionState.Open)
+                {
+                    con.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
         private void Rights_Load(object sender, EventArgs e)
         {
             try
@@ -50,6 +79,8 @@ namespace Banking_System
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            usertypescomplete();
+
         }
 
         private void buttonX1_Click(object sender, EventArgs e)

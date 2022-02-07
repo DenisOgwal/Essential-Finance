@@ -79,7 +79,7 @@ namespace Banking_System
             this.dataGridView1.Location = new System.Drawing.Point(10, 16);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.Size = new System.Drawing.Size(310, 533);
+            this.dataGridView1.Size = new System.Drawing.Size(310, 556);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
@@ -160,7 +160,7 @@ namespace Banking_System
             // ApprovalName
             // 
             this.ApprovalName.Enabled = false;
-            this.ApprovalName.Location = new System.Drawing.Point(493, 431);
+            this.ApprovalName.Location = new System.Drawing.Point(493, 427);
             this.ApprovalName.Name = "ApprovalName";
             this.ApprovalName.Size = new System.Drawing.Size(282, 29);
             this.ApprovalName.TabIndex = 137;
@@ -198,9 +198,9 @@ namespace Banking_System
             // 
             this.buttonX3.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.buttonX3.Font = new System.Drawing.Font("Palatino Linotype", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonX3.Location = new System.Drawing.Point(331, 466);
+            this.buttonX3.Location = new System.Drawing.Point(327, 507);
             this.buttonX3.Name = "buttonX3";
-            this.buttonX3.Size = new System.Drawing.Size(108, 83);
+            this.buttonX3.Size = new System.Drawing.Size(108, 65);
             this.buttonX3.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.buttonX3.TabIndex = 5;
             this.buttonX3.Text = "&New";
@@ -210,9 +210,9 @@ namespace Banking_System
             // 
             this.buttonX2.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.buttonX2.Font = new System.Drawing.Font("Palatino Linotype", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonX2.Location = new System.Drawing.Point(445, 466);
+            this.buttonX2.Location = new System.Drawing.Point(441, 507);
             this.buttonX2.Name = "buttonX2";
-            this.buttonX2.Size = new System.Drawing.Size(100, 83);
+            this.buttonX2.Size = new System.Drawing.Size(100, 65);
             this.buttonX2.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.buttonX2.TabIndex = 4;
             this.buttonX2.Text = "&Save";
@@ -222,9 +222,9 @@ namespace Banking_System
             // 
             this.buttonX1.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.buttonX1.Font = new System.Drawing.Font("Palatino Linotype", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonX1.Location = new System.Drawing.Point(669, 466);
+            this.buttonX1.Location = new System.Drawing.Point(665, 507);
             this.buttonX1.Name = "buttonX1";
-            this.buttonX1.Size = new System.Drawing.Size(104, 83);
+            this.buttonX1.Size = new System.Drawing.Size(104, 65);
             this.buttonX1.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.buttonX1.TabIndex = 6;
             this.buttonX1.Text = "&Cancel";
@@ -328,9 +328,9 @@ namespace Banking_System
             // 
             this.buttonX4.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.buttonX4.Font = new System.Drawing.Font("Palatino Linotype", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonX4.Location = new System.Drawing.Point(551, 466);
+            this.buttonX4.Location = new System.Drawing.Point(547, 507);
             this.buttonX4.Name = "buttonX4";
-            this.buttonX4.Size = new System.Drawing.Size(112, 83);
+            this.buttonX4.Size = new System.Drawing.Size(112, 65);
             this.buttonX4.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.buttonX4.TabIndex = 6;
             this.buttonX4.Text = "&Schedule";
@@ -432,7 +432,7 @@ namespace Banking_System
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = global::Banking_System.Properties.Settings.Default.usercolor;
-            this.ClientSize = new System.Drawing.Size(784, 572);
+            this.ClientSize = new System.Drawing.Size(790, 584);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.IssuableAmount);
             this.Controls.Add(this.label17);

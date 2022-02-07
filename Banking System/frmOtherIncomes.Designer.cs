@@ -807,10 +807,10 @@
             this.managername.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.managername.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.managername.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.managername.Location = new System.Drawing.Point(374, 30);
+            this.managername.Location = new System.Drawing.Point(402, 30);
             this.managername.Name = "managername";
             this.managername.ReadOnly = true;
-            this.managername.Size = new System.Drawing.Size(124, 29);
+            this.managername.Size = new System.Drawing.Size(156, 29);
             this.managername.TabIndex = 5;
             this.managername.TextChanged += new System.EventHandler(this.managername_TextChanged);
             // 
@@ -827,7 +827,7 @@
             this.comment.Items.AddRange(new object[] {
             this.comboItem1,
             this.comboItem2});
-            this.comment.Location = new System.Drawing.Point(601, 30);
+            this.comment.Location = new System.Drawing.Point(651, 28);
             this.comment.Name = "comment";
             this.comment.Size = new System.Drawing.Size(236, 29);
             this.comment.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -847,7 +847,7 @@
             this.buttonX2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonX2.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonX2.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.buttonX2.Location = new System.Drawing.Point(856, 30);
+            this.buttonX2.Location = new System.Drawing.Point(893, 28);
             this.buttonX2.Name = "buttonX2";
             this.buttonX2.Size = new System.Drawing.Size(75, 31);
             this.buttonX2.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -866,7 +866,7 @@
             this.labelX18.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.labelX18.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelX18.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.labelX18.Location = new System.Drawing.Point(520, 32);
+            this.labelX18.Location = new System.Drawing.Point(564, 34);
             this.labelX18.Name = "labelX18";
             this.labelX18.Size = new System.Drawing.Size(75, 23);
             this.labelX18.TabIndex = 2;
@@ -884,7 +884,7 @@
             this.labelX17.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.labelX17.Location = new System.Drawing.Point(325, 33);
             this.labelX17.Name = "labelX17";
-            this.labelX17.Size = new System.Drawing.Size(42, 23);
+            this.labelX17.Size = new System.Drawing.Size(71, 23);
             this.labelX17.TabIndex = 1;
             this.labelX17.Text = "Name";
             // 

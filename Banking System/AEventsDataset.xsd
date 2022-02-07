@@ -2,9 +2,10 @@
 <xs:schema id="AEventsDataset" targetNamespace="http://tempuri.org/AEventsDataset.xsd" xmlns:mstns="http://tempuri.org/AEventsDataset.xsd" xmlns="http://tempuri.org/AEventsDataset.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
   <xs:annotation>
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
-      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="1" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
         <Connections>
           <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="BSConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="BSConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.Banking_System.Properties.Settings.GlobalReference.Default.BSConnectionString" Provider="System.Data.SqlClient" />
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="LendingConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="LendingConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.Banking_System.Properties.Settings.GlobalReference.Default.LendingConnectionString" Provider="System.Data.SqlClient" />
         </Connections>
         <Tables>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="EventTableAdapter" GeneratorDataComponentClassName="EventTableAdapter" Name="Event" UserDataComponentName="EventTableAdapter">
@@ -94,6 +95,363 @@ SELECT EventID, EventName, StartingDate, StartingTime, EndingDate, EndingTime, M
             </Mappings>
             <Sources />
           </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="InvestorAccountTableAdapter" GeneratorDataComponentClassName="InvestorAccountTableAdapter" Name="InvestorAccount" UserDataComponentName="InvestorAccountTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="LendingConnectionString (Settings)" DbObjectName="Lending.dbo.InvestorAccount" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>DELETE FROM [dbo].[InvestorAccount] WHERE (([ID] = @Original_ID) AND ([AccountNumber] = @Original_AccountNumber) AND ((@IsNull_AccountNames = 1 AND [AccountNames] IS NULL) OR ([AccountNames] = @Original_AccountNames)) AND ((@IsNull_RegistrationDate = 1 AND [RegistrationDate] IS NULL) OR ([RegistrationDate] = @Original_RegistrationDate)) AND ((@IsNull_Gender = 1 AND [Gender] IS NULL) OR ([Gender] = @Original_Gender)) AND ((@IsNull_DOB = 1 AND [DOB] IS NULL) OR ([DOB] = @Original_DOB)) AND ((@IsNull_MaritalStatus = 1 AND [MaritalStatus] IS NULL) OR ([MaritalStatus] = @Original_MaritalStatus)) AND ((@IsNull_Nationality = 1 AND [Nationality] IS NULL) OR ([Nationality] = @Original_Nationality)) AND ((@IsNull_NationalityStatus = 1 AND [NationalityStatus] IS NULL) OR ([NationalityStatus] = @Original_NationalityStatus)) AND ((@IsNull_IDForm = 1 AND [IDForm] IS NULL) OR ([IDForm] = @Original_IDForm)) AND ((@IsNull_ClientID = 1 AND [ClientID] IS NULL) OR ([ClientID] = @Original_ClientID)) AND ((@IsNull_ContactNo = 1 AND [ContactNo] IS NULL) OR ([ContactNo] = @Original_ContactNo)) AND ((@IsNull_ContactNo1 = 1 AND [ContactNo1] IS NULL) OR ([ContactNo1] = @Original_ContactNo1)) AND ((@IsNull_OfficeNo = 1 AND [OfficeNo] IS NULL) OR ([OfficeNo] = @Original_OfficeNo)) AND ((@IsNull_Email = 1 AND [Email] IS NULL) OR ([Email] = @Original_Email)) AND ((@IsNull_PhysicalAddress = 1 AND [PhysicalAddress] IS NULL) OR ([PhysicalAddress] = @Original_PhysicalAddress)) AND ((@IsNull_PostalAddress = 1 AND [PostalAddress] IS NULL) OR ([PostalAddress] = @Original_PostalAddress)) AND ((@IsNull_BankName = 1 AND [BankName] IS NULL) OR ([BankName] = @Original_BankName)) AND ((@IsNull_BankAccountName = 1 AND [BankAccountName] IS NULL) OR ([BankAccountName] = @Original_BankAccountName)) AND ((@IsNull_BankAccountNumber = 1 AND [BankAccountNumber] IS NULL) OR ([BankAccountNumber] = @Original_BankAccountNumber)) AND ((@IsNull_NOKName = 1 AND [NOKName] IS NULL) OR ([NOKName] = @Original_NOKName)) AND ((@IsNull_NOKContactNo = 1 AND [NOKContactNo] IS NULL) OR ([NOKContactNo] = @Original_NOKContactNo)) AND ((@IsNull_NOKAddress = 1 AND [NOKAddress] IS NULL) OR ([NOKAddress] = @Original_NOKAddress)) AND ((@IsNull_NOKRelationship = 1 AND [NOKRelationship] IS NULL) OR ([NOKRelationship] = @Original_NOKRelationship)) AND ((@IsNull_CreatedBy = 1 AND [CreatedBy] IS NULL) OR ([CreatedBy] = @Original_CreatedBy)) AND ((@IsNull_AccountType = 1 AND [AccountType] IS NULL) OR ([AccountType] = @Original_AccountType)))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_ID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="ID" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Original_AccountNumber" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="AccountNumber" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_AccountNames" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="AccountNames" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Original_AccountNames" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="AccountNames" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_RegistrationDate" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="RegistrationDate" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Original_RegistrationDate" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="RegistrationDate" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Gender" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Gender" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Original_Gender" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="Gender" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_DOB" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="DOB" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Original_DOB" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="DOB" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_MaritalStatus" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="MaritalStatus" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Original_MaritalStatus" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="MaritalStatus" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Nationality" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Nationality" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Original_Nationality" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="Nationality" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_NationalityStatus" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="NationalityStatus" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Original_NationalityStatus" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="NationalityStatus" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_IDForm" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="IDForm" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Original_IDForm" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="IDForm" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_ClientID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="ClientID" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Original_ClientID" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="ClientID" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_ContactNo" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="ContactNo" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Original_ContactNo" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="ContactNo" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_ContactNo1" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="ContactNo1" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Original_ContactNo1" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="ContactNo1" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_OfficeNo" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="OfficeNo" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Original_OfficeNo" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="OfficeNo" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Email" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Email" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Original_Email" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="Email" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_PhysicalAddress" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="PhysicalAddress" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Original_PhysicalAddress" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="PhysicalAddress" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_PostalAddress" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="PostalAddress" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Original_PostalAddress" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="PostalAddress" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_BankName" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="BankName" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Original_BankName" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="BankName" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_BankAccountName" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="BankAccountName" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Original_BankAccountName" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="BankAccountName" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_BankAccountNumber" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="BankAccountNumber" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Original_BankAccountNumber" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="BankAccountNumber" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_NOKName" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="NOKName" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Original_NOKName" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="NOKName" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_NOKContactNo" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="NOKContactNo" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Original_NOKContactNo" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="NOKContactNo" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_NOKAddress" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="NOKAddress" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Original_NOKAddress" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="NOKAddress" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_NOKRelationship" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="NOKRelationship" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Original_NOKRelationship" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="NOKRelationship" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_CreatedBy" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="CreatedBy" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Original_CreatedBy" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="CreatedBy" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_AccountType" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="AccountType" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Original_AccountType" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="AccountType" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>INSERT INTO [dbo].[InvestorAccount] ([AccountNumber], [AccountNames], [RegistrationDate], [Gender], [DOB], [MaritalStatus], [Nationality], [NationalityStatus], [IDForm], [ClientID], [ContactNo], [ContactNo1], [OfficeNo], [Email], [PhysicalAddress], [PostalAddress], [BankName], [BankAccountName], [BankAccountNumber], [NOKName], [NOKContactNo], [NOKAddress], [NOKRelationship], [AccountPicture], [Signature], [CreatedBy], [AccountType]) VALUES (@AccountNumber, @AccountNames, @RegistrationDate, @Gender, @DOB, @MaritalStatus, @Nationality, @NationalityStatus, @IDForm, @ClientID, @ContactNo, @ContactNo1, @OfficeNo, @Email, @PhysicalAddress, @PostalAddress, @BankName, @BankAccountName, @BankAccountNumber, @NOKName, @NOKContactNo, @NOKAddress, @NOKRelationship, @AccountPicture, @Signature, @CreatedBy, @AccountType);
+SELECT ID, AccountNumber, AccountNames, RegistrationDate, Gender, DOB, MaritalStatus, Nationality, NationalityStatus, IDForm, ClientID, ContactNo, ContactNo1, OfficeNo, Email, PhysicalAddress, PostalAddress, BankName, BankAccountName, BankAccountNumber, NOKName, NOKContactNo, NOKAddress, NOKRelationship, AccountPicture, Signature, CreatedBy, AccountType FROM InvestorAccount WHERE (AccountNumber = @AccountNumber)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@AccountNumber" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="AccountNumber" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@AccountNames" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="AccountNames" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@RegistrationDate" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="RegistrationDate" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Gender" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="Gender" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@DOB" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="DOB" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@MaritalStatus" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="MaritalStatus" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Nationality" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="Nationality" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@NationalityStatus" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="NationalityStatus" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@IDForm" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="IDForm" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@ClientID" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="ClientID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@ContactNo" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="ContactNo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@ContactNo1" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="ContactNo1" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@OfficeNo" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="OfficeNo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Email" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="Email" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@PhysicalAddress" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="PhysicalAddress" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@PostalAddress" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="PostalAddress" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@BankName" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="BankName" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@BankAccountName" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="BankAccountName" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@BankAccountNumber" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="BankAccountNumber" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@NOKName" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="NOKName" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@NOKContactNo" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="NOKContactNo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@NOKAddress" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="NOKAddress" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@NOKRelationship" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="NOKRelationship" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Binary" Direction="Input" ParameterName="@AccountPicture" Precision="0" ProviderType="Image" Scale="0" Size="0" SourceColumn="AccountPicture" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Binary" Direction="Input" ParameterName="@Signature" Precision="0" ProviderType="Image" Scale="0" Size="0" SourceColumn="Signature" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@CreatedBy" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="CreatedBy" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@AccountType" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="AccountType" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT ID, AccountNumber, AccountNames, RegistrationDate, Gender, DOB, MaritalStatus, Nationality, NationalityStatus, IDForm, ClientID, ContactNo, ContactNo1, OfficeNo, Email, PhysicalAddress, PostalAddress, BankName, BankAccountName, BankAccountNumber, NOKName, NOKContactNo, NOKAddress, NOKRelationship, AccountPicture, Signature, CreatedBy, AccountType FROM dbo.InvestorAccount</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>UPDATE [dbo].[InvestorAccount] SET [AccountNumber] = @AccountNumber, [AccountNames] = @AccountNames, [RegistrationDate] = @RegistrationDate, [Gender] = @Gender, [DOB] = @DOB, [MaritalStatus] = @MaritalStatus, [Nationality] = @Nationality, [NationalityStatus] = @NationalityStatus, [IDForm] = @IDForm, [ClientID] = @ClientID, [ContactNo] = @ContactNo, [ContactNo1] = @ContactNo1, [OfficeNo] = @OfficeNo, [Email] = @Email, [PhysicalAddress] = @PhysicalAddress, [PostalAddress] = @PostalAddress, [BankName] = @BankName, [BankAccountName] = @BankAccountName, [BankAccountNumber] = @BankAccountNumber, [NOKName] = @NOKName, [NOKContactNo] = @NOKContactNo, [NOKAddress] = @NOKAddress, [NOKRelationship] = @NOKRelationship, [AccountPicture] = @AccountPicture, [Signature] = @Signature, [CreatedBy] = @CreatedBy, [AccountType] = @AccountType WHERE (([ID] = @Original_ID) AND ([AccountNumber] = @Original_AccountNumber) AND ((@IsNull_AccountNames = 1 AND [AccountNames] IS NULL) OR ([AccountNames] = @Original_AccountNames)) AND ((@IsNull_RegistrationDate = 1 AND [RegistrationDate] IS NULL) OR ([RegistrationDate] = @Original_RegistrationDate)) AND ((@IsNull_Gender = 1 AND [Gender] IS NULL) OR ([Gender] = @Original_Gender)) AND ((@IsNull_DOB = 1 AND [DOB] IS NULL) OR ([DOB] = @Original_DOB)) AND ((@IsNull_MaritalStatus = 1 AND [MaritalStatus] IS NULL) OR ([MaritalStatus] = @Original_MaritalStatus)) AND ((@IsNull_Nationality = 1 AND [Nationality] IS NULL) OR ([Nationality] = @Original_Nationality)) AND ((@IsNull_NationalityStatus = 1 AND [NationalityStatus] IS NULL) OR ([NationalityStatus] = @Original_NationalityStatus)) AND ((@IsNull_IDForm = 1 AND [IDForm] IS NULL) OR ([IDForm] = @Original_IDForm)) AND ((@IsNull_ClientID = 1 AND [ClientID] IS NULL) OR ([ClientID] = @Original_ClientID)) AND ((@IsNull_ContactNo = 1 AND [ContactNo] IS NULL) OR ([ContactNo] = @Original_ContactNo)) AND ((@IsNull_ContactNo1 = 1 AND [ContactNo1] IS NULL) OR ([ContactNo1] = @Original_ContactNo1)) AND ((@IsNull_OfficeNo = 1 AND [OfficeNo] IS NULL) OR ([OfficeNo] = @Original_OfficeNo)) AND ((@IsNull_Email = 1 AND [Email] IS NULL) OR ([Email] = @Original_Email)) AND ((@IsNull_PhysicalAddress = 1 AND [PhysicalAddress] IS NULL) OR ([PhysicalAddress] = @Original_PhysicalAddress)) AND ((@IsNull_PostalAddress = 1 AND [PostalAddress] IS NULL) OR ([PostalAddress] = @Original_PostalAddress)) AND ((@IsNull_BankName = 1 AND [BankName] IS NULL) OR ([BankName] = @Original_BankName)) AND ((@IsNull_BankAccountName = 1 AND [BankAccountName] IS NULL) OR ([BankAccountName] = @Original_BankAccountName)) AND ((@IsNull_BankAccountNumber = 1 AND [BankAccountNumber] IS NULL) OR ([BankAccountNumber] = @Original_BankAccountNumber)) AND ((@IsNull_NOKName = 1 AND [NOKName] IS NULL) OR ([NOKName] = @Original_NOKName)) AND ((@IsNull_NOKContactNo = 1 AND [NOKContactNo] IS NULL) OR ([NOKContactNo] = @Original_NOKContactNo)) AND ((@IsNull_NOKAddress = 1 AND [NOKAddress] IS NULL) OR ([NOKAddress] = @Original_NOKAddress)) AND ((@IsNull_NOKRelationship = 1 AND [NOKRelationship] IS NULL) OR ([NOKRelationship] = @Original_NOKRelationship)) AND ((@IsNull_CreatedBy = 1 AND [CreatedBy] IS NULL) OR ([CreatedBy] = @Original_CreatedBy)) AND ((@IsNull_AccountType = 1 AND [AccountType] IS NULL) OR ([AccountType] = @Original_AccountType)));
+SELECT ID, AccountNumber, AccountNames, RegistrationDate, Gender, DOB, MaritalStatus, Nationality, NationalityStatus, IDForm, ClientID, ContactNo, ContactNo1, OfficeNo, Email, PhysicalAddress, PostalAddress, BankName, BankAccountName, BankAccountNumber, NOKName, NOKContactNo, NOKAddress, NOKRelationship, AccountPicture, Signature, CreatedBy, AccountType FROM InvestorAccount WHERE (AccountNumber = @AccountNumber)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@AccountNumber" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="AccountNumber" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@AccountNames" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="AccountNames" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@RegistrationDate" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="RegistrationDate" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Gender" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="Gender" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@DOB" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="DOB" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@MaritalStatus" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="MaritalStatus" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Nationality" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="Nationality" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@NationalityStatus" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="NationalityStatus" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@IDForm" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="IDForm" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@ClientID" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="ClientID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@ContactNo" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="ContactNo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@ContactNo1" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="ContactNo1" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@OfficeNo" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="OfficeNo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Email" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="Email" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@PhysicalAddress" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="PhysicalAddress" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@PostalAddress" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="PostalAddress" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@BankName" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="BankName" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@BankAccountName" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="BankAccountName" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@BankAccountNumber" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="BankAccountNumber" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@NOKName" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="NOKName" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@NOKContactNo" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="NOKContactNo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@NOKAddress" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="NOKAddress" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@NOKRelationship" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="NOKRelationship" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Binary" Direction="Input" ParameterName="@AccountPicture" Precision="0" ProviderType="Image" Scale="0" Size="0" SourceColumn="AccountPicture" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Binary" Direction="Input" ParameterName="@Signature" Precision="0" ProviderType="Image" Scale="0" Size="0" SourceColumn="Signature" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@CreatedBy" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="CreatedBy" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@AccountType" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="AccountType" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_ID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="ID" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Original_AccountNumber" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="AccountNumber" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_AccountNames" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="AccountNames" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Original_AccountNames" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="AccountNames" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_RegistrationDate" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="RegistrationDate" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Original_RegistrationDate" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="RegistrationDate" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Gender" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Gender" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Original_Gender" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="Gender" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_DOB" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="DOB" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Original_DOB" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="DOB" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_MaritalStatus" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="MaritalStatus" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Original_MaritalStatus" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="MaritalStatus" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Nationality" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Nationality" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Original_Nationality" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="Nationality" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_NationalityStatus" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="NationalityStatus" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Original_NationalityStatus" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="NationalityStatus" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_IDForm" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="IDForm" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Original_IDForm" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="IDForm" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_ClientID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="ClientID" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Original_ClientID" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="ClientID" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_ContactNo" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="ContactNo" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Original_ContactNo" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="ContactNo" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_ContactNo1" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="ContactNo1" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Original_ContactNo1" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="ContactNo1" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_OfficeNo" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="OfficeNo" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Original_OfficeNo" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="OfficeNo" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Email" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Email" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Original_Email" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="Email" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_PhysicalAddress" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="PhysicalAddress" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Original_PhysicalAddress" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="PhysicalAddress" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_PostalAddress" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="PostalAddress" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Original_PostalAddress" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="PostalAddress" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_BankName" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="BankName" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Original_BankName" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="BankName" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_BankAccountName" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="BankAccountName" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Original_BankAccountName" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="BankAccountName" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_BankAccountNumber" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="BankAccountNumber" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Original_BankAccountNumber" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="BankAccountNumber" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_NOKName" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="NOKName" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Original_NOKName" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="NOKName" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_NOKContactNo" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="NOKContactNo" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Original_NOKContactNo" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="NOKContactNo" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_NOKAddress" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="NOKAddress" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Original_NOKAddress" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="NOKAddress" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_NOKRelationship" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="NOKRelationship" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Original_NOKRelationship" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="NOKRelationship" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_CreatedBy" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="CreatedBy" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Original_CreatedBy" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="CreatedBy" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_AccountType" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="AccountType" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Original_AccountType" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="AccountType" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="ID" DataSetColumn="ID" />
+              <Mapping SourceColumn="AccountNumber" DataSetColumn="AccountNumber" />
+              <Mapping SourceColumn="AccountNames" DataSetColumn="AccountNames" />
+              <Mapping SourceColumn="RegistrationDate" DataSetColumn="RegistrationDate" />
+              <Mapping SourceColumn="Gender" DataSetColumn="Gender" />
+              <Mapping SourceColumn="DOB" DataSetColumn="DOB" />
+              <Mapping SourceColumn="MaritalStatus" DataSetColumn="MaritalStatus" />
+              <Mapping SourceColumn="Nationality" DataSetColumn="Nationality" />
+              <Mapping SourceColumn="NationalityStatus" DataSetColumn="NationalityStatus" />
+              <Mapping SourceColumn="IDForm" DataSetColumn="IDForm" />
+              <Mapping SourceColumn="ClientID" DataSetColumn="ClientID" />
+              <Mapping SourceColumn="ContactNo" DataSetColumn="ContactNo" />
+              <Mapping SourceColumn="ContactNo1" DataSetColumn="ContactNo1" />
+              <Mapping SourceColumn="OfficeNo" DataSetColumn="OfficeNo" />
+              <Mapping SourceColumn="Email" DataSetColumn="Email" />
+              <Mapping SourceColumn="PhysicalAddress" DataSetColumn="PhysicalAddress" />
+              <Mapping SourceColumn="PostalAddress" DataSetColumn="PostalAddress" />
+              <Mapping SourceColumn="BankName" DataSetColumn="BankName" />
+              <Mapping SourceColumn="BankAccountName" DataSetColumn="BankAccountName" />
+              <Mapping SourceColumn="BankAccountNumber" DataSetColumn="BankAccountNumber" />
+              <Mapping SourceColumn="NOKName" DataSetColumn="NOKName" />
+              <Mapping SourceColumn="NOKContactNo" DataSetColumn="NOKContactNo" />
+              <Mapping SourceColumn="NOKAddress" DataSetColumn="NOKAddress" />
+              <Mapping SourceColumn="NOKRelationship" DataSetColumn="NOKRelationship" />
+              <Mapping SourceColumn="AccountPicture" DataSetColumn="AccountPicture" />
+              <Mapping SourceColumn="Signature" DataSetColumn="Signature" />
+              <Mapping SourceColumn="CreatedBy" DataSetColumn="CreatedBy" />
+              <Mapping SourceColumn="AccountType" DataSetColumn="AccountType" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="InvestorSavingsTableAdapter" GeneratorDataComponentClassName="InvestorSavingsTableAdapter" Name="InvestorSavings" UserDataComponentName="InvestorSavingsTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="LendingConnectionString (Settings)" DbObjectName="Lending.dbo.InvestorSavings" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>DELETE FROM [dbo].[InvestorSavings] WHERE (([ID] = @Original_ID) AND ([SavingsID] = @Original_SavingsID) AND ((@IsNull_AccountNo = 1 AND [AccountNo] IS NULL) OR ([AccountNo] = @Original_AccountNo)) AND ((@IsNull_AccountName = 1 AND [AccountName] IS NULL) OR ([AccountName] = @Original_AccountName)) AND ((@IsNull_CashierName = 1 AND [CashierName] IS NULL) OR ([CashierName] = @Original_CashierName)) AND ((@IsNull_Date = 1 AND [Date] IS NULL) OR ([Date] = @Original_Date)) AND ((@IsNull_Deposit = 1 AND [Deposit] IS NULL) OR ([Deposit] = @Original_Deposit)) AND ((@IsNull_Transactions = 1 AND [Transactions] IS NULL) OR ([Transactions] = @Original_Transactions)) AND ((@IsNull_Accountbalance = 1 AND [Accountbalance] IS NULL) OR ([Accountbalance] = @Original_Accountbalance)) AND ((@IsNull_SubmittedBy = 1 AND [SubmittedBy] IS NULL) OR ([SubmittedBy] = @Original_SubmittedBy)) AND ((@IsNull_ModeOfPayment = 1 AND [ModeOfPayment] IS NULL) OR ([ModeOfPayment] = @Original_ModeOfPayment)) AND ((@IsNull_InterestRate = 1 AND [InterestRate] IS NULL) OR ([InterestRate] = @Original_InterestRate)) AND ((@IsNull_MaturityPeriod = 1 AND [MaturityPeriod] IS NULL) OR ([MaturityPeriod] = @Original_MaturityPeriod)) AND ((@IsNull_MaturityDate = 1 AND [MaturityDate] IS NULL) OR ([MaturityDate] = @Original_MaturityDate)) AND ((@IsNull_Appreciated = 1 AND [Appreciated] IS NULL) OR ([Appreciated] = @Original_Appreciated)))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_ID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="ID" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Original_SavingsID" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="SavingsID" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_AccountNo" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="AccountNo" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Original_AccountNo" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="AccountNo" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_AccountName" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="AccountName" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Original_AccountName" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="AccountName" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_CashierName" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="CashierName" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Original_CashierName" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="CashierName" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Date" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Date" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Original_Date" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="Date" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Deposit" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Deposit" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_Deposit" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Deposit" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Transactions" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Transactions" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Original_Transactions" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="Transactions" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Accountbalance" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Accountbalance" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_Accountbalance" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Accountbalance" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_SubmittedBy" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="SubmittedBy" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Original_SubmittedBy" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="SubmittedBy" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_ModeOfPayment" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="ModeOfPayment" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Original_ModeOfPayment" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="ModeOfPayment" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_InterestRate" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="InterestRate" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_InterestRate" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="InterestRate" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_MaturityPeriod" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="MaturityPeriod" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_MaturityPeriod" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="MaturityPeriod" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_MaturityDate" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="MaturityDate" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Original_MaturityDate" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="MaturityDate" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Appreciated" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Appreciated" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Original_Appreciated" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="Appreciated" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>INSERT INTO [dbo].[InvestorSavings] ([SavingsID], [AccountNo], [AccountName], [CashierName], [Date], [Deposit], [Transactions], [Accountbalance], [SubmittedBy], [ModeOfPayment], [InterestRate], [MaturityPeriod], [MaturityDate], [Appreciated]) VALUES (@SavingsID, @AccountNo, @AccountName, @CashierName, @Date, @Deposit, @Transactions, @Accountbalance, @SubmittedBy, @ModeOfPayment, @InterestRate, @MaturityPeriod, @MaturityDate, @Appreciated);
+SELECT ID, SavingsID, AccountNo, AccountName, CashierName, Date, Deposit, Transactions, Accountbalance, SubmittedBy, ModeOfPayment, InterestRate, MaturityPeriod, MaturityDate, Appreciated FROM InvestorSavings WHERE (SavingsID = @SavingsID)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@SavingsID" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="SavingsID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@AccountNo" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="AccountNo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@AccountName" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="AccountName" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@CashierName" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="CashierName" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Date" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="Date" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Deposit" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Deposit" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Transactions" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="Transactions" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Accountbalance" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Accountbalance" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@SubmittedBy" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="SubmittedBy" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@ModeOfPayment" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="ModeOfPayment" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@InterestRate" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="InterestRate" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@MaturityPeriod" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="MaturityPeriod" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@MaturityDate" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="MaturityDate" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Appreciated" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="Appreciated" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT ID, SavingsID, AccountNo, AccountName, CashierName, Date, Deposit, Transactions, Accountbalance, SubmittedBy, ModeOfPayment, InterestRate, MaturityPeriod, MaturityDate, Appreciated FROM dbo.InvestorSavings</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>UPDATE [dbo].[InvestorSavings] SET [SavingsID] = @SavingsID, [AccountNo] = @AccountNo, [AccountName] = @AccountName, [CashierName] = @CashierName, [Date] = @Date, [Deposit] = @Deposit, [Transactions] = @Transactions, [Accountbalance] = @Accountbalance, [SubmittedBy] = @SubmittedBy, [ModeOfPayment] = @ModeOfPayment, [InterestRate] = @InterestRate, [MaturityPeriod] = @MaturityPeriod, [MaturityDate] = @MaturityDate, [Appreciated] = @Appreciated WHERE (([ID] = @Original_ID) AND ([SavingsID] = @Original_SavingsID) AND ((@IsNull_AccountNo = 1 AND [AccountNo] IS NULL) OR ([AccountNo] = @Original_AccountNo)) AND ((@IsNull_AccountName = 1 AND [AccountName] IS NULL) OR ([AccountName] = @Original_AccountName)) AND ((@IsNull_CashierName = 1 AND [CashierName] IS NULL) OR ([CashierName] = @Original_CashierName)) AND ((@IsNull_Date = 1 AND [Date] IS NULL) OR ([Date] = @Original_Date)) AND ((@IsNull_Deposit = 1 AND [Deposit] IS NULL) OR ([Deposit] = @Original_Deposit)) AND ((@IsNull_Transactions = 1 AND [Transactions] IS NULL) OR ([Transactions] = @Original_Transactions)) AND ((@IsNull_Accountbalance = 1 AND [Accountbalance] IS NULL) OR ([Accountbalance] = @Original_Accountbalance)) AND ((@IsNull_SubmittedBy = 1 AND [SubmittedBy] IS NULL) OR ([SubmittedBy] = @Original_SubmittedBy)) AND ((@IsNull_ModeOfPayment = 1 AND [ModeOfPayment] IS NULL) OR ([ModeOfPayment] = @Original_ModeOfPayment)) AND ((@IsNull_InterestRate = 1 AND [InterestRate] IS NULL) OR ([InterestRate] = @Original_InterestRate)) AND ((@IsNull_MaturityPeriod = 1 AND [MaturityPeriod] IS NULL) OR ([MaturityPeriod] = @Original_MaturityPeriod)) AND ((@IsNull_MaturityDate = 1 AND [MaturityDate] IS NULL) OR ([MaturityDate] = @Original_MaturityDate)) AND ((@IsNull_Appreciated = 1 AND [Appreciated] IS NULL) OR ([Appreciated] = @Original_Appreciated)));
+SELECT ID, SavingsID, AccountNo, AccountName, CashierName, Date, Deposit, Transactions, Accountbalance, SubmittedBy, ModeOfPayment, InterestRate, MaturityPeriod, MaturityDate, Appreciated FROM InvestorSavings WHERE (SavingsID = @SavingsID)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@SavingsID" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="SavingsID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@AccountNo" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="AccountNo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@AccountName" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="AccountName" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@CashierName" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="CashierName" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Date" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="Date" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Deposit" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Deposit" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Transactions" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="Transactions" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Accountbalance" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Accountbalance" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@SubmittedBy" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="SubmittedBy" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@ModeOfPayment" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="ModeOfPayment" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@InterestRate" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="InterestRate" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@MaturityPeriod" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="MaturityPeriod" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@MaturityDate" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="MaturityDate" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Appreciated" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="Appreciated" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_ID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="ID" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Original_SavingsID" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="SavingsID" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_AccountNo" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="AccountNo" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Original_AccountNo" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="AccountNo" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_AccountName" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="AccountName" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Original_AccountName" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="AccountName" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_CashierName" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="CashierName" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Original_CashierName" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="CashierName" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Date" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Date" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Original_Date" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="Date" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Deposit" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Deposit" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_Deposit" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Deposit" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Transactions" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Transactions" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Original_Transactions" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="Transactions" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Accountbalance" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Accountbalance" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_Accountbalance" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Accountbalance" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_SubmittedBy" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="SubmittedBy" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Original_SubmittedBy" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="SubmittedBy" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_ModeOfPayment" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="ModeOfPayment" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Original_ModeOfPayment" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="ModeOfPayment" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_InterestRate" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="InterestRate" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_InterestRate" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="InterestRate" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_MaturityPeriod" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="MaturityPeriod" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_MaturityPeriod" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="MaturityPeriod" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_MaturityDate" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="MaturityDate" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Original_MaturityDate" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="MaturityDate" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Appreciated" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Appreciated" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Original_Appreciated" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="Appreciated" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="ID" DataSetColumn="ID" />
+              <Mapping SourceColumn="SavingsID" DataSetColumn="SavingsID" />
+              <Mapping SourceColumn="AccountNo" DataSetColumn="AccountNo" />
+              <Mapping SourceColumn="AccountName" DataSetColumn="AccountName" />
+              <Mapping SourceColumn="CashierName" DataSetColumn="CashierName" />
+              <Mapping SourceColumn="Date" DataSetColumn="Date" />
+              <Mapping SourceColumn="Deposit" DataSetColumn="Deposit" />
+              <Mapping SourceColumn="Transactions" DataSetColumn="Transactions" />
+              <Mapping SourceColumn="Accountbalance" DataSetColumn="Accountbalance" />
+              <Mapping SourceColumn="SubmittedBy" DataSetColumn="SubmittedBy" />
+              <Mapping SourceColumn="ModeOfPayment" DataSetColumn="ModeOfPayment" />
+              <Mapping SourceColumn="InterestRate" DataSetColumn="InterestRate" />
+              <Mapping SourceColumn="MaturityPeriod" DataSetColumn="MaturityPeriod" />
+              <Mapping SourceColumn="MaturityDate" DataSetColumn="MaturityDate" />
+              <Mapping SourceColumn="Appreciated" DataSetColumn="Appreciated" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
         </Tables>
         <Sources />
       </DataSource>
@@ -102,7 +460,7 @@ SELECT EventID, EventName, StartingDate, StartingTime, EndingDate, EndingTime, M
   <xs:element name="AEventsDataset" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="AEventsDataset" msprop:Generator_UserDSName="AEventsDataset">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="Event" msprop:Generator_TableClassName="EventDataTable" msprop:Generator_TableVarName="tableEvent" msprop:Generator_TablePropName="Event" msprop:Generator_RowDeletingName="EventRowDeleting" msprop:Generator_RowChangingName="EventRowChanging" msprop:Generator_RowEvHandlerName="EventRowChangeEventHandler" msprop:Generator_RowDeletedName="EventRowDeleted" msprop:Generator_UserTableName="Event" msprop:Generator_RowChangedName="EventRowChanged" msprop:Generator_RowEvArgName="EventRowChangeEvent" msprop:Generator_RowClassName="EventRow">
+        <xs:element name="Event" msprop:Generator_TableClassName="EventDataTable" msprop:Generator_TableVarName="tableEvent" msprop:Generator_RowChangedName="EventRowChanged" msprop:Generator_TablePropName="Event" msprop:Generator_RowDeletingName="EventRowDeleting" msprop:Generator_RowChangingName="EventRowChanging" msprop:Generator_RowEvHandlerName="EventRowChangeEventHandler" msprop:Generator_RowDeletedName="EventRowDeleted" msprop:Generator_RowClassName="EventRow" msprop:Generator_UserTableName="Event" msprop:Generator_RowEvArgName="EventRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="EventID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnEventID" msprop:Generator_ColumnPropNameInRow="EventID" msprop:Generator_ColumnPropNameInTable="EventIDColumn" msprop:Generator_UserColumnName="EventID" type="xs:int" />
@@ -158,11 +516,284 @@ SELECT EventID, EventName, StartingDate, StartingTime, EndingDate, EndingTime, M
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element name="InvestorAccount" msprop:Generator_TableClassName="InvestorAccountDataTable" msprop:Generator_TableVarName="tableInvestorAccount" msprop:Generator_TablePropName="InvestorAccount" msprop:Generator_RowDeletingName="InvestorAccountRowDeleting" msprop:Generator_RowChangingName="InvestorAccountRowChanging" msprop:Generator_RowEvHandlerName="InvestorAccountRowChangeEventHandler" msprop:Generator_RowDeletedName="InvestorAccountRowDeleted" msprop:Generator_UserTableName="InvestorAccount" msprop:Generator_RowChangedName="InvestorAccountRowChanged" msprop:Generator_RowEvArgName="InvestorAccountRowChangeEvent" msprop:Generator_RowClassName="InvestorAccountRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" />
+              <xs:element name="AccountNumber" msprop:Generator_ColumnVarNameInTable="columnAccountNumber" msprop:Generator_ColumnPropNameInRow="AccountNumber" msprop:Generator_ColumnPropNameInTable="AccountNumberColumn" msprop:Generator_UserColumnName="AccountNumber">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="15" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="AccountNames" msprop:Generator_ColumnVarNameInTable="columnAccountNames" msprop:Generator_ColumnPropNameInRow="AccountNames" msprop:Generator_ColumnPropNameInTable="AccountNamesColumn" msprop:Generator_UserColumnName="AccountNames" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="RegistrationDate" msprop:Generator_ColumnVarNameInTable="columnRegistrationDate" msprop:Generator_ColumnPropNameInRow="RegistrationDate" msprop:Generator_ColumnPropNameInTable="RegistrationDateColumn" msprop:Generator_UserColumnName="RegistrationDate" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Gender" msprop:Generator_ColumnVarNameInTable="columnGender" msprop:Generator_ColumnPropNameInRow="Gender" msprop:Generator_ColumnPropNameInTable="GenderColumn" msprop:Generator_UserColumnName="Gender" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DOB" msprop:Generator_ColumnVarNameInTable="columnDOB" msprop:Generator_ColumnPropNameInRow="DOB" msprop:Generator_ColumnPropNameInTable="DOBColumn" msprop:Generator_UserColumnName="DOB" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="MaritalStatus" msprop:Generator_ColumnVarNameInTable="columnMaritalStatus" msprop:Generator_ColumnPropNameInRow="MaritalStatus" msprop:Generator_ColumnPropNameInTable="MaritalStatusColumn" msprop:Generator_UserColumnName="MaritalStatus" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Nationality" msprop:Generator_ColumnVarNameInTable="columnNationality" msprop:Generator_ColumnPropNameInRow="Nationality" msprop:Generator_ColumnPropNameInTable="NationalityColumn" msprop:Generator_UserColumnName="Nationality" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NationalityStatus" msprop:Generator_ColumnVarNameInTable="columnNationalityStatus" msprop:Generator_ColumnPropNameInRow="NationalityStatus" msprop:Generator_ColumnPropNameInTable="NationalityStatusColumn" msprop:Generator_UserColumnName="NationalityStatus" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="IDForm" msprop:Generator_ColumnVarNameInTable="columnIDForm" msprop:Generator_ColumnPropNameInRow="IDForm" msprop:Generator_ColumnPropNameInTable="IDFormColumn" msprop:Generator_UserColumnName="IDForm" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ClientID" msprop:Generator_ColumnVarNameInTable="columnClientID" msprop:Generator_ColumnPropNameInRow="ClientID" msprop:Generator_ColumnPropNameInTable="ClientIDColumn" msprop:Generator_UserColumnName="ClientID" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ContactNo" msprop:Generator_ColumnVarNameInTable="columnContactNo" msprop:Generator_ColumnPropNameInRow="ContactNo" msprop:Generator_ColumnPropNameInTable="ContactNoColumn" msprop:Generator_UserColumnName="ContactNo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ContactNo1" msprop:Generator_ColumnVarNameInTable="columnContactNo1" msprop:Generator_ColumnPropNameInRow="ContactNo1" msprop:Generator_ColumnPropNameInTable="ContactNo1Column" msprop:Generator_UserColumnName="ContactNo1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="OfficeNo" msprop:Generator_ColumnVarNameInTable="columnOfficeNo" msprop:Generator_ColumnPropNameInRow="OfficeNo" msprop:Generator_ColumnPropNameInTable="OfficeNoColumn" msprop:Generator_UserColumnName="OfficeNo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Email" msprop:Generator_ColumnVarNameInTable="columnEmail" msprop:Generator_ColumnPropNameInRow="Email" msprop:Generator_ColumnPropNameInTable="EmailColumn" msprop:Generator_UserColumnName="Email" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="PhysicalAddress" msprop:Generator_ColumnVarNameInTable="columnPhysicalAddress" msprop:Generator_ColumnPropNameInRow="PhysicalAddress" msprop:Generator_ColumnPropNameInTable="PhysicalAddressColumn" msprop:Generator_UserColumnName="PhysicalAddress" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="PostalAddress" msprop:Generator_ColumnVarNameInTable="columnPostalAddress" msprop:Generator_ColumnPropNameInRow="PostalAddress" msprop:Generator_ColumnPropNameInTable="PostalAddressColumn" msprop:Generator_UserColumnName="PostalAddress" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BankName" msprop:Generator_ColumnVarNameInTable="columnBankName" msprop:Generator_ColumnPropNameInRow="BankName" msprop:Generator_ColumnPropNameInTable="BankNameColumn" msprop:Generator_UserColumnName="BankName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BankAccountName" msprop:Generator_ColumnVarNameInTable="columnBankAccountName" msprop:Generator_ColumnPropNameInRow="BankAccountName" msprop:Generator_ColumnPropNameInTable="BankAccountNameColumn" msprop:Generator_UserColumnName="BankAccountName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BankAccountNumber" msprop:Generator_ColumnVarNameInTable="columnBankAccountNumber" msprop:Generator_ColumnPropNameInRow="BankAccountNumber" msprop:Generator_ColumnPropNameInTable="BankAccountNumberColumn" msprop:Generator_UserColumnName="BankAccountNumber" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NOKName" msprop:Generator_ColumnVarNameInTable="columnNOKName" msprop:Generator_ColumnPropNameInRow="NOKName" msprop:Generator_ColumnPropNameInTable="NOKNameColumn" msprop:Generator_UserColumnName="NOKName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NOKContactNo" msprop:Generator_ColumnVarNameInTable="columnNOKContactNo" msprop:Generator_ColumnPropNameInRow="NOKContactNo" msprop:Generator_ColumnPropNameInTable="NOKContactNoColumn" msprop:Generator_UserColumnName="NOKContactNo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NOKAddress" msprop:Generator_ColumnVarNameInTable="columnNOKAddress" msprop:Generator_ColumnPropNameInRow="NOKAddress" msprop:Generator_ColumnPropNameInTable="NOKAddressColumn" msprop:Generator_UserColumnName="NOKAddress" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NOKRelationship" msprop:Generator_ColumnVarNameInTable="columnNOKRelationship" msprop:Generator_ColumnPropNameInRow="NOKRelationship" msprop:Generator_ColumnPropNameInTable="NOKRelationshipColumn" msprop:Generator_UserColumnName="NOKRelationship" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="AccountPicture" msprop:Generator_ColumnVarNameInTable="columnAccountPicture" msprop:Generator_ColumnPropNameInRow="AccountPicture" msprop:Generator_ColumnPropNameInTable="AccountPictureColumn" msprop:Generator_UserColumnName="AccountPicture" type="xs:base64Binary" minOccurs="0" />
+              <xs:element name="Signature" msprop:Generator_ColumnVarNameInTable="columnSignature" msprop:Generator_ColumnPropNameInRow="Signature" msprop:Generator_ColumnPropNameInTable="SignatureColumn" msprop:Generator_UserColumnName="Signature" type="xs:base64Binary" minOccurs="0" />
+              <xs:element name="CreatedBy" msprop:Generator_ColumnVarNameInTable="columnCreatedBy" msprop:Generator_ColumnPropNameInRow="CreatedBy" msprop:Generator_ColumnPropNameInTable="CreatedByColumn" msprop:Generator_UserColumnName="CreatedBy" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="AccountType" msprop:Generator_ColumnVarNameInTable="columnAccountType" msprop:Generator_ColumnPropNameInRow="AccountType" msprop:Generator_ColumnPropNameInTable="AccountTypeColumn" msprop:Generator_UserColumnName="AccountType" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="InvestorSavings" msprop:Generator_TableClassName="InvestorSavingsDataTable" msprop:Generator_TableVarName="tableInvestorSavings" msprop:Generator_TablePropName="InvestorSavings" msprop:Generator_RowDeletingName="InvestorSavingsRowDeleting" msprop:Generator_RowChangingName="InvestorSavingsRowChanging" msprop:Generator_RowEvHandlerName="InvestorSavingsRowChangeEventHandler" msprop:Generator_RowDeletedName="InvestorSavingsRowDeleted" msprop:Generator_UserTableName="InvestorSavings" msprop:Generator_RowChangedName="InvestorSavingsRowChanged" msprop:Generator_RowEvArgName="InvestorSavingsRowChangeEvent" msprop:Generator_RowClassName="InvestorSavingsRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" />
+              <xs:element name="SavingsID" msprop:Generator_ColumnVarNameInTable="columnSavingsID" msprop:Generator_ColumnPropNameInRow="SavingsID" msprop:Generator_ColumnPropNameInTable="SavingsIDColumn" msprop:Generator_UserColumnName="SavingsID">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="15" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="AccountNo" msprop:Generator_ColumnVarNameInTable="columnAccountNo" msprop:Generator_ColumnPropNameInRow="AccountNo" msprop:Generator_ColumnPropNameInTable="AccountNoColumn" msprop:Generator_UserColumnName="AccountNo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="AccountName" msprop:Generator_ColumnVarNameInTable="columnAccountName" msprop:Generator_ColumnPropNameInRow="AccountName" msprop:Generator_ColumnPropNameInTable="AccountNameColumn" msprop:Generator_UserColumnName="AccountName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CashierName" msprop:Generator_ColumnVarNameInTable="columnCashierName" msprop:Generator_ColumnPropNameInRow="CashierName" msprop:Generator_ColumnPropNameInTable="CashierNameColumn" msprop:Generator_UserColumnName="CashierName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Date" msprop:Generator_ColumnVarNameInTable="columnDate" msprop:Generator_ColumnPropNameInRow="Date" msprop:Generator_ColumnPropNameInTable="DateColumn" msprop:Generator_UserColumnName="Date" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Deposit" msprop:Generator_ColumnVarNameInTable="columnDeposit" msprop:Generator_ColumnPropNameInRow="Deposit" msprop:Generator_ColumnPropNameInTable="DepositColumn" msprop:Generator_UserColumnName="Deposit" type="xs:int" minOccurs="0" />
+              <xs:element name="Transactions" msprop:Generator_ColumnVarNameInTable="columnTransactions" msprop:Generator_ColumnPropNameInRow="Transactions" msprop:Generator_ColumnPropNameInTable="TransactionsColumn" msprop:Generator_UserColumnName="Transactions" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Accountbalance" msprop:Generator_ColumnVarNameInTable="columnAccountbalance" msprop:Generator_ColumnPropNameInRow="Accountbalance" msprop:Generator_ColumnPropNameInTable="AccountbalanceColumn" msprop:Generator_UserColumnName="Accountbalance" type="xs:int" minOccurs="0" />
+              <xs:element name="SubmittedBy" msprop:Generator_ColumnVarNameInTable="columnSubmittedBy" msprop:Generator_ColumnPropNameInRow="SubmittedBy" msprop:Generator_ColumnPropNameInTable="SubmittedByColumn" msprop:Generator_UserColumnName="SubmittedBy" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ModeOfPayment" msprop:Generator_ColumnVarNameInTable="columnModeOfPayment" msprop:Generator_ColumnPropNameInRow="ModeOfPayment" msprop:Generator_ColumnPropNameInTable="ModeOfPaymentColumn" msprop:Generator_UserColumnName="ModeOfPayment" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="15" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="InterestRate" msprop:Generator_ColumnVarNameInTable="columnInterestRate" msprop:Generator_ColumnPropNameInRow="InterestRate" msprop:Generator_ColumnPropNameInTable="InterestRateColumn" msprop:Generator_UserColumnName="InterestRate" type="xs:int" minOccurs="0" />
+              <xs:element name="MaturityPeriod" msprop:Generator_ColumnVarNameInTable="columnMaturityPeriod" msprop:Generator_ColumnPropNameInRow="MaturityPeriod" msprop:Generator_ColumnPropNameInTable="MaturityPeriodColumn" msprop:Generator_UserColumnName="MaturityPeriod" type="xs:int" minOccurs="0" />
+              <xs:element name="MaturityDate" msprop:Generator_ColumnVarNameInTable="columnMaturityDate" msprop:Generator_ColumnPropNameInRow="MaturityDate" msprop:Generator_ColumnPropNameInTable="MaturityDateColumn" msprop:Generator_UserColumnName="MaturityDate" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Appreciated" msprop:Generator_ColumnVarNameInTable="columnAppreciated" msprop:Generator_ColumnPropNameInRow="Appreciated" msprop:Generator_ColumnPropNameInTable="AppreciatedColumn" msprop:Generator_UserColumnName="Appreciated" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
       </xs:choice>
     </xs:complexType>
     <xs:unique name="Constraint1" msdata:PrimaryKey="true">
       <xs:selector xpath=".//mstns:Event" />
       <xs:field xpath="mstns:EventID" />
+    </xs:unique>
+    <xs:unique name="InvestorAccount_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:InvestorAccount" />
+      <xs:field xpath="mstns:AccountNumber" />
+    </xs:unique>
+    <xs:unique name="InvestorSavings_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:InvestorSavings" />
+      <xs:field xpath="mstns:SavingsID" />
     </xs:unique>
   </xs:element>
 </xs:schema>

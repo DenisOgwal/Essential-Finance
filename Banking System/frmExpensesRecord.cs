@@ -67,27 +67,11 @@ namespace Banking_System
                 frm.expensedate.Text = dr.Cells[6].Value.ToString();
                 frm.service.Text = dr.Cells[7].Value.ToString();
                 frm.cost.Text = dr.Cells[8].Value.ToString();
-                frm.totalpaid.Text = dr.Cells[9].Value.ToString();
-                frm.duepayment.Text = dr.Cells[10].Value.ToString();
                 frm.description.Text = dr.Cells[11].Value.ToString();
                 frm.names.Text = dr.Cells[12].Value.ToString();
                 frm.tel.Text = dr.Cells[13].Value.ToString();
                 frm.email.Text = dr.Cells[14].Value.ToString();
                 frm.address.Text = dr.Cells[15].Value.ToString();
-                if (label2.Text == "Manager")
-                {
-                    frm.buttonX4.Enabled = true;
-                    frm.buttonX3.Enabled = true;
-                    frm.label1.Text = label1.Text;
-                    frm.label2.Text = label2.Text;
-                }
-                else
-                {
-                    frm.buttonX4.Enabled = false;
-                    frm.buttonX3.Enabled = false;
-                    frm.label1.Text = label1.Text;
-                    frm.label2.Text = label2.Text;
-                }
             }
             catch (Exception ex)
             {
@@ -282,27 +266,12 @@ namespace Banking_System
                 frm.expensedate.Text = dr.Cells[6].Value.ToString();
                 frm.service.Text = dr.Cells[7].Value.ToString();
                 frm.cost.Text = dr.Cells[8].Value.ToString();
-                frm.totalpaid.Text = dr.Cells[9].Value.ToString();
-                frm.duepayment.Text = dr.Cells[10].Value.ToString();
                 frm.description.Text = dr.Cells[11].Value.ToString();
                 frm.names.Text = dr.Cells[12].Value.ToString();
                 frm.tel.Text = dr.Cells[13].Value.ToString();
                 frm.email.Text = dr.Cells[14].Value.ToString();
                 frm.address.Text = dr.Cells[15].Value.ToString();
-                if (label2.Text == "Manager")
-                {
-                    frm.buttonX4.Enabled = true;
-                    frm.buttonX3.Enabled = true;
-                    frm.label1.Text = label1.Text;
-                    frm.label2.Text = label2.Text;
-                }
-                else
-                {
-                    frm.buttonX4.Enabled = false;
-                    frm.buttonX3.Enabled = false;
-                    frm.label1.Text = label1.Text;
-                    frm.label2.Text = label2.Text;
-                }
+               
             }
             catch (Exception ex)
             {

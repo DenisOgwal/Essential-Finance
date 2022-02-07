@@ -191,7 +191,7 @@
             this.labelX2.Name = "labelX2";
             this.labelX2.Size = new System.Drawing.Size(102, 57);
             this.labelX2.TabIndex = 83;
-            this.labelX2.Text = "Chairperson\r\n Approval ID";
+            this.labelX2.Text = "Approval ID";
             // 
             // txtTotalPaid
             // 

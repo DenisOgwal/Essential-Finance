@@ -23,7 +23,7 @@ namespace Banking_System
             {
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
-                cmd = new SqlCommand("select RTRIM(MemberID)[Client ID],RTRIM(MemberName)[Client Name] ,RTRIM(Account)[Account No] from Account order by ID DESC", con);
+                cmd = new SqlCommand("select RTRIM(AccountNumber)[Account Number],RTRIM(AccountNames)[Client Name]  from Account order by ID DESC", con);
                 SqlDataAdapter myDA = new SqlDataAdapter(cmd);
                 DataSet myDataSet = new DataSet();
                 myDA.Fill(myDataSet, "Account");
@@ -63,7 +63,7 @@ namespace Banking_System
             {
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
-                cmd = new SqlCommand("select RTRIM(MemberID)[Client ID],RTRIM(MemberName)[Client Name] ,RTRIM(Account)[Account No] from Account where MemberID like '" + textBoxX1.Text + "%' OR MemberName Like '" + textBoxX1.Text + "%' OR Account Like '" + textBoxX1.Text + "%'  order by ID DESC", con);
+                cmd = new SqlCommand("select RTRIM(AccountNumber)[Account Number],RTRIM(AccountNames)[Client Name] from Account where AccountNumber like '" + textBoxX1.Text + "%' OR AccountNames Like '" + textBoxX1.Text + "%' order by ID DESC", con);
                 SqlDataAdapter myDA = new SqlDataAdapter(cmd);
                 DataSet myDataSet = new DataSet();
                 myDA.Fill(myDataSet, "Account");
@@ -82,7 +82,7 @@ namespace Banking_System
             DataGridViewRow dr = dataGridView1.CurrentRow;
             clientnames.Text=dr.Cells[0].Value.ToString();
             Accountnames.Text = dr.Cells[1].Value.ToString();
-            Accountnumber.Text = dr.Cells[2].Value.ToString();
+            Accountnumber.Text = dr.Cells[0].Value.ToString();
              }
             catch (Exception ex)
             {
@@ -110,7 +110,7 @@ namespace Banking_System
                     DataGridViewRow dr = dataGridView1.CurrentRow;
                     clientnames.Text = dr.Cells[0].Value.ToString();
                     Accountnames.Text = dr.Cells[1].Value.ToString();
-                    Accountnumber.Text = dr.Cells[2].Value.ToString();
+                    Accountnumber.Text = dr.Cells[0].Value.ToString();
                     buttonX1.Focus();
                 }
                 catch (Exception ex)

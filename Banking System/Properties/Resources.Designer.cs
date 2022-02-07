@@ -203,6 +203,16 @@ namespace Banking_System.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Debit {
+            get {
+                object obj = ResourceManager.GetObject("Debit", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Filter_Add {
             get {
                 object obj = ResourceManager.GetObject("Filter-Add", resourceCulture);
@@ -306,6 +316,16 @@ namespace Banking_System.Properties {
         internal static System.Drawing.Bitmap Locker {
             get {
                 object obj = ResourceManager.GetObject("Locker", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Login_Door {
+            get {
+                object obj = ResourceManager.GetObject("Login-Door", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

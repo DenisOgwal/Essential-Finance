@@ -56,7 +56,7 @@ namespace Banking_System
             {
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
-                cmd = new SqlCommand("select RTrim(LoanID)[Loan ID], RTRIM(AccountNumber)[Account Number],RTRIM(AccountName)[Account Names],RTRIM(Months)[Installment],RTRIM(PaymentDate)[Payment Date],RTRIM(TotalAmmount)[TotalAmmount], RTRIM(AmmountPay)[Principal], RTRIM(Interest)[Interest] from RepaymentSchedule where  PaymentDate <= @date1 and PaymentStatus='Pending' ORDER BY ID ASC", con);
+                cmd = new SqlCommand("select RTrim(LoanID)[Loan ID], RTRIM(AccountNumber)[Account Number],RTRIM(AccountName)[Account Names],RTRIM(Months)[Installment],RTRIM(PaymentDate)[Payment Date],RTRIM(TotalAmmount)[TotalAmmount], RTRIM(AmmountPay)[Principal], RTRIM(Interest)[Interest] , RTRIM(BalanceExist)[Balance Exist] from RepaymentSchedule where  PaymentDate <= @date1 and BalanceExist >0 ORDER BY ID ASC", con);
                 cmd.Parameters.Add("@date1", SqlDbType.DateTime, 30, "PaymentDate").Value = dateTimePicker1.Value.Date;
                 SqlDataAdapter myDA = new SqlDataAdapter(cmd);
                 DataSet myDataSet = new DataSet();
@@ -88,13 +88,13 @@ namespace Banking_System
                     {
                         if ((row.Cells[0].Value) != null)
                         {
-
+                           // RTrim(LoanID)[Loan ID], RTRIM(AccountNumber)[Account Number],RTRIM(AccountName)[Account Names],RTRIM(Months)[Installment],RTRIM(PaymentDate)[Payment Date],RTRIM(TotalAmmount)[TotalAmmount], RTRIM(AmmountPay)[Principal], RTRIM(Interest)[Interest] , RTRIM(BalanceExist)[Balance Exist]
                             string loanid = row.Cells[0].Value.ToString().Trim();
                             string Accountno = row.Cells[1].Value.ToString().Trim();
                             string installment = row.Cells[3].Value.ToString().Trim();
-                            int totalammount = Convert.ToInt32(row.Cells[5].Value);
-                            int Principal = Convert.ToInt32(row.Cells[6].Value);
-                            int interest = Convert.ToInt32(row.Cells[7].Value);
+                            int totalammount = Convert.ToInt32(Convert.ToDouble(row.Cells[8].Value.ToString()));
+                            int Principal = Convert.ToInt32(Convert.ToDouble(row.Cells[6].Value));
+                            int interest = Convert.ToInt32(Convert.ToDouble(row.Cells[7].Value));
                             int Accountbalance = 0;
                             int NewAccountBalance = 0;
 
@@ -117,8 +117,8 @@ namespace Banking_System
                             {
                                 Accountbalance = 0;
                             }
-                            if (Accountbalance >= totalammount)
-                            {
+                            //if (Accountbalance >= totalammount)
+                            //{
                                 NewAccountBalance = Accountbalance - totalammount;
                                 try
                                 {
@@ -144,12 +144,12 @@ namespace Banking_System
                                     cmd.Parameters["@d6"].Value = totalammount;
                                     cmd.Parameters["@d7"].Value = "Auto";
                                     cmd.Parameters["@d8"].Value = "Auto Transfer From Savings to Clear Loan";
-                                    cmd.ExecuteReader();
+                                    //cmd.ExecuteReader();
                                     con.Close();
 
                                     con = new SqlConnection(cs.DBConn);
                                     con.Open();
-                                    string cb2 = "insert into Savings(AccountNo,SavingsID,SubmittedBy,Date,Deposit,Accountbalance,Transactions,ModeOfPayment,AccountName,CashierName) VALUES (@d1,@d2,@d3,@d4,@d5,@d6,@d7,@d8,@d9,@d10)";
+                                    string cb2 = "insert into Savings(AccountNo,SavingsID,SubmittedBy,Date,Deposit,Accountbalance,Transactions,ModeOfPayment,AccountName,CashierName,Debit,DepositDate,Approval,ApprovedBy) VALUES (@d1,@d2,@d3,@d4,@d5,@d6,@d7,@d8,@d9,@d10,@d5,'" + dateTimePicker1.Text + "','Approved','Auto')";
                                     cmd = new SqlCommand(cb2);
                                     cmd.Connection = con;
                                     cmd.Parameters.Add(new SqlParameter("@d1", System.Data.SqlDbType.NChar, 20, "AccountNo"));
@@ -172,7 +172,7 @@ namespace Banking_System
                                     cmd.Parameters["@d8"].Value = "Transfer";
                                     cmd.Parameters["@d9"].Value = row.Cells[2].Value.ToString().Trim();
                                     cmd.Parameters["@d10"].Value = "Auto";
-                                    cmd.ExecuteNonQuery();
+                                    //cmd.ExecuteNonQuery();
                                     con.Close();
                                     con = new SqlConnection(cs.DBConn);
                                     con.Open();
@@ -205,7 +205,7 @@ namespace Banking_System
                                     cmd.Parameters["@d11"].Value = totalammount;
                                     cmd.Parameters["@d12"].Value = row.Cells[2].Value.ToString().Trim();
                                     cmd.Parameters["@d13"].Value = "Transfer";
-                                    cmd.ExecuteNonQuery();
+                                    //cmd.ExecuteNonQuery();
                                     con.Close();
 
                                     con = new SqlConnection(cs.DBConn);
@@ -223,7 +223,7 @@ namespace Banking_System
                                     cmd.Parameters["@d3"].Value = 0;
                                     cmd.Parameters["@d4"].Value = dateTimePicker1.Text;
                                     cmd.Parameters["@d5"].Value = installment;
-                                    cmd.ExecuteNonQuery();
+                                    //cmd.ExecuteNonQuery();
                                     con.Close();
                                 }
                                 catch (Exception Ex)
@@ -231,7 +231,7 @@ namespace Banking_System
                                     MessageBox.Show(Ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                     return;
                                 }
-                            }
+                            //}
                         }
 
                     }

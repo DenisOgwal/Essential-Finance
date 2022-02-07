@@ -38,22 +38,26 @@ namespace Banking_System
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.LoanID = new System.Windows.Forms.TextBox();
             this.AccountNumber = new System.Windows.Forms.TextBox();
             this.AccountName = new System.Windows.Forms.TextBox();
             this.ApplicationDate = new System.Windows.Forms.DateTimePicker();
-            this.PaymentMode = new System.Windows.Forms.ComboBox();
             this.AmountPayable = new DevComponents.Editors.IntegerInput();
             this.ApprovalID = new System.Windows.Forms.TextBox();
             this.ApprovalName = new System.Windows.Forms.TextBox();
             this.buttonX1 = new DevComponents.DotNetBar.ButtonX();
             this.buttonX2 = new DevComponents.DotNetBar.ButtonX();
             this.buttonX3 = new DevComponents.DotNetBar.ButtonX();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.accountbalance = new DevComponents.Editors.IntegerInput();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.AmountPayable)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.accountbalance)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -122,7 +126,7 @@ namespace Banking_System
             // 
             this.label6.AutoSize = true;
             this.label6.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label6.Location = new System.Drawing.Point(338, 199);
+            this.label6.Location = new System.Drawing.Point(338, 163);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(100, 22);
             this.label6.TabIndex = 6;
@@ -138,21 +142,11 @@ namespace Banking_System
             this.label7.TabIndex = 7;
             this.label7.Text = "Payment Date";
             // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label8.Location = new System.Drawing.Point(338, 166);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(114, 22);
-            this.label8.TabIndex = 8;
-            this.label8.Text = "Payment Mode";
-            // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label9.Location = new System.Drawing.Point(338, 237);
+            this.label9.Location = new System.Drawing.Point(338, 235);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(94, 22);
             this.label9.TabIndex = 9;
@@ -162,7 +156,7 @@ namespace Banking_System
             // 
             this.label10.AutoSize = true;
             this.label10.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label10.Location = new System.Drawing.Point(338, 272);
+            this.label10.Location = new System.Drawing.Point(338, 270);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(119, 22);
             this.label10.TabIndex = 10;
@@ -183,6 +177,7 @@ namespace Banking_System
             this.AccountNumber.Name = "AccountNumber";
             this.AccountNumber.Size = new System.Drawing.Size(229, 29);
             this.AccountNumber.TabIndex = 12;
+            this.AccountNumber.TextChanged += new System.EventHandler(this.AccountNumber_TextChanged);
             // 
             // AccountName
             // 
@@ -202,18 +197,6 @@ namespace Banking_System
             this.ApplicationDate.Size = new System.Drawing.Size(229, 29);
             this.ApplicationDate.TabIndex = 125;
             // 
-            // PaymentMode
-            // 
-            this.PaymentMode.FormattingEnabled = true;
-            this.PaymentMode.Items.AddRange(new object[] {
-            "Cash",
-            "Bank",
-            "Mobile Money"});
-            this.PaymentMode.Location = new System.Drawing.Point(476, 163);
-            this.PaymentMode.Name = "PaymentMode";
-            this.PaymentMode.Size = new System.Drawing.Size(229, 30);
-            this.PaymentMode.TabIndex = 1;
-            // 
             // AmountPayable
             // 
             // 
@@ -224,14 +207,15 @@ namespace Banking_System
             this.AmountPayable.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2;
             this.AmountPayable.DisplayFormat = "N0";
             this.AmountPayable.Enabled = false;
-            this.AmountPayable.Location = new System.Drawing.Point(476, 199);
+            this.AmountPayable.Location = new System.Drawing.Point(476, 163);
             this.AmountPayable.Name = "AmountPayable";
             this.AmountPayable.Size = new System.Drawing.Size(229, 29);
             this.AmountPayable.TabIndex = 2;
+            this.AmountPayable.ValueChanged += new System.EventHandler(this.AmountPayable_ValueChanged);
             // 
             // ApprovalID
             // 
-            this.ApprovalID.Location = new System.Drawing.Point(476, 234);
+            this.ApprovalID.Location = new System.Drawing.Point(476, 232);
             this.ApprovalID.Name = "ApprovalID";
             this.ApprovalID.PasswordChar = '*';
             this.ApprovalID.Size = new System.Drawing.Size(229, 29);
@@ -241,7 +225,7 @@ namespace Banking_System
             // ApprovalName
             // 
             this.ApprovalName.Enabled = false;
-            this.ApprovalName.Location = new System.Drawing.Point(476, 269);
+            this.ApprovalName.Location = new System.Drawing.Point(476, 267);
             this.ApprovalName.Name = "ApprovalName";
             this.ApprovalName.Size = new System.Drawing.Size(229, 29);
             this.ApprovalName.TabIndex = 129;
@@ -282,26 +266,84 @@ namespace Banking_System
             this.buttonX3.Text = "&New";
             this.buttonX3.Click += new System.EventHandler(this.buttonX3_Click);
             // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(408, 385);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(58, 22);
+            this.label11.TabIndex = 133;
+            this.label11.Text = "label11";
+            this.label11.Visible = false;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(345, 385);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(58, 22);
+            this.label12.TabIndex = 134;
+            this.label12.Text = "label12";
+            this.label12.Visible = false;
+            // 
+            // accountbalance
+            // 
+            // 
+            // 
+            // 
+            this.accountbalance.BackgroundStyle.Class = "DateTimeInputBackground";
+            this.accountbalance.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.accountbalance.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2;
+            this.accountbalance.DisplayFormat = "N0";
+            this.accountbalance.Enabled = false;
+            this.accountbalance.Location = new System.Drawing.Point(476, 198);
+            this.accountbalance.Name = "accountbalance";
+            this.accountbalance.Size = new System.Drawing.Size(229, 29);
+            this.accountbalance.TabIndex = 135;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label8.Location = new System.Drawing.Point(338, 198);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(96, 22);
+            this.label8.TabIndex = 136;
+            this.label8.Text = "Account Bal.";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(584, 385);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(58, 22);
+            this.label13.TabIndex = 137;
+            this.label13.Text = "label13";
+            this.label13.Visible = false;
+            // 
             // FrmLoanApplicationPayment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = global::Banking_System.Properties.Settings.Default.usercolor;
-            this.ClientSize = new System.Drawing.Size(722, 409);
+            this.ClientSize = new System.Drawing.Size(722, 403);
+            this.Controls.Add(this.label13);
+            this.Controls.Add(this.accountbalance);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.label12);
+            this.Controls.Add(this.label11);
             this.Controls.Add(this.buttonX3);
             this.Controls.Add(this.buttonX2);
             this.Controls.Add(this.buttonX1);
             this.Controls.Add(this.ApprovalName);
             this.Controls.Add(this.ApprovalID);
             this.Controls.Add(this.AmountPayable);
-            this.Controls.Add(this.PaymentMode);
             this.Controls.Add(this.ApplicationDate);
             this.Controls.Add(this.AccountName);
             this.Controls.Add(this.AccountNumber);
             this.Controls.Add(this.LoanID);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
@@ -322,6 +364,7 @@ namespace Banking_System
             this.Load += new System.EventHandler(this.FrmLoanApplicationPayment_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.AmountPayable)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.accountbalance)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -337,19 +380,22 @@ namespace Banking_System
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox LoanID;
         private System.Windows.Forms.TextBox AccountNumber;
         private System.Windows.Forms.TextBox AccountName;
         private System.Windows.Forms.DateTimePicker ApplicationDate;
-        private System.Windows.Forms.ComboBox PaymentMode;
         private DevComponents.Editors.IntegerInput AmountPayable;
         private System.Windows.Forms.TextBox ApprovalID;
         private System.Windows.Forms.TextBox ApprovalName;
         private DevComponents.DotNetBar.ButtonX buttonX1;
         private DevComponents.DotNetBar.ButtonX buttonX2;
         private DevComponents.DotNetBar.ButtonX buttonX3;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label12;
+        private DevComponents.Editors.IntegerInput accountbalance;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label13;
     }
 }

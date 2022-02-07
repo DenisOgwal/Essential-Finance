@@ -33,9 +33,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.category = new DevComponents.DotNetBar.Controls.ComboBoxEx();
-            this.comboItem1 = new DevComponents.Editors.ComboItem();
-            this.comboItem2 = new DevComponents.Editors.ComboItem();
-            this.comboItem3 = new DevComponents.Editors.ComboItem();
             this.authorisedid = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.Staffname = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.Staffid = new DevComponents.DotNetBar.Controls.ComboBoxEx();
@@ -138,27 +135,11 @@
             this.category.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.category.FormattingEnabled = true;
             this.category.ItemHeight = 23;
-            this.category.Items.AddRange(new object[] {
-            this.comboItem1,
-            this.comboItem2,
-            this.comboItem3});
             this.category.Location = new System.Drawing.Point(151, 202);
             this.category.Name = "category";
             this.category.Size = new System.Drawing.Size(234, 29);
             this.category.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.category.TabIndex = 10;
-            // 
-            // comboItem1
-            // 
-            this.comboItem1.Text = "Cashier";
-            // 
-            // comboItem2
-            // 
-            this.comboItem2.Text = "Manager";
-            // 
-            // comboItem3
-            // 
-            this.comboItem3.Text = "ChairPerson";
             // 
             // authorisedid
             // 
@@ -433,9 +414,6 @@
         private DevComponents.DotNetBar.LabelX labelX4;
         private DevComponents.DotNetBar.LabelX labelX3;
         private DevComponents.DotNetBar.LabelX labelX2;
-        private DevComponents.Editors.ComboItem comboItem1;
-        private DevComponents.Editors.ComboItem comboItem2;
-        private DevComponents.Editors.ComboItem comboItem3;
         public System.Windows.Forms.Label label2;
         public System.Windows.Forms.Label label1;
     }

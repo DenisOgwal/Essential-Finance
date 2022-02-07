@@ -73,9 +73,9 @@
             this.label2.ForeColor = System.Drawing.SystemColors.Control;
             this.label2.Location = new System.Drawing.Point(168, 73);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(236, 37);
+            this.label2.Size = new System.Drawing.Size(230, 37);
             this.label2.TabIndex = 9;
-            this.label2.Text = "DEVINE CREDIT";
+            this.label2.Text = "DIVINE CREDIT";
             // 
             // labelX1
             // 

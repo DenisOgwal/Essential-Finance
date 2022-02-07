@@ -211,7 +211,7 @@ namespace Banking_System
             {
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
-                cmd = new SqlCommand("select RTrim(AccountNo)[Account Number], RTRIM(AccountName)[Account Names], RTRIM(Date)[Transaction Date], RTRIM(SavingsID)[Savings ID],RTRIM(Deposit)[Amount], RTRIM(Transactions)[Transaction], RTRIM(Accountbalance)[Account Balance], RTRIM(SubmittedBy)[Submitted By], RTRIM(CashierName)[Staff Name], RTRIM(InterestRate)[Interest Rate], RTRIM(MaturityPeriod)[Maturity Period], RTRIM(MaturityDate)[Maturity Date], RTRIM(ModeOfPayment)[Payment Mode], RTRIM(Appreciated)[Appreciated] from InvestorSavings where  Date between @date1 and @date2 order by ID DESC", con);
+                cmd = new SqlCommand("select RTrim(AccountNo)[Account Number], RTRIM(AccountName)[Account Names], RTRIM(SavingsID)[Savings ID], RTRIM(Date)[Plan Start Date],RTRIM(Deposit)[Amount], RTRIM(InvestmentPlan)[Investment Plan], RTRIM(DepositInterval)[Deposit Interval], RTRIM(DepositedInstallmentNo)[No. of Deposit], RTRIM(Accountbalance)[Account Balance], RTRIM(SubmittedBy)[Submitted By], RTRIM(CashierName)[Staff Name], RTRIM(InterestRate)[Interest Rate], RTRIM(MaturityPeriod)[Maturity Period], RTRIM(MaturityDate)[Maturity Date], RTRIM(ModeOfPayment)[Payment Mode], RTRIM(Appreciated)[Appreciated] from InvestorSavings where  Date between @date1 and @date2 order by ID DESC", con);
                 cmd.Parameters.Add("@date1", SqlDbType.DateTime, 30, "Date").Value = savingsfrom.Value.Date;
                 cmd.Parameters.Add("@date2", SqlDbType.DateTime, 30, "Date").Value = savingsto.Value.Date;
                 SqlDataAdapter myDA = new SqlDataAdapter(cmd);
@@ -232,7 +232,7 @@ namespace Banking_System
             {
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
-                cmd = new SqlCommand("select RTrim(AccountNo)[Account Number], RTRIM(AccountName)[Account Names], RTRIM(Date)[Transaction Date], RTRIM(SavingsID)[Savings ID],RTRIM(Deposit)[Amount], RTRIM(Transactions)[Transaction], RTRIM(Accountbalance)[Account Balance], RTRIM(SubmittedBy)[Submitted By], RTRIM(CashierName)[Staff Name], RTRIM(InterestRate)[Interest Rate], RTRIM(MaturityPeriod)[Maturity Period], RTRIM(MaturityDate)[Maturity Date], RTRIM(ModeOfPayment)[Payment Mode], RTRIM(Appreciated)[Appreciated] from InvestorSavings where  SavingsID Like '" + SavingsSearch.Text + "%' OR AccountNo Like '" + SavingsSearch.Text + "%' OR AccountName Like '" + SavingsSearch.Text + "%' OR CashierName Like '" + SavingsSearch.Text + "%' OR Date Like '" + SavingsSearch.Text + "%' OR Deposit Like '" + SavingsSearch.Text + "%' OR Transactions Like '" + SavingsSearch.Text + "%' OR SubmittedBy Like '" + SavingsSearch.Text + "%' OR ModeOfPayment Like '" + SavingsSearch.Text + "%' OR Accountbalance Like '" + SavingsSearch.Text + "%'  OR MaturityDate Like '" + SavingsSearch.Text + "%'  OR MaturityPeriod ='" + SavingsSearch.Text + "' order by ID DESC", con);
+                cmd = new SqlCommand("select RTrim(AccountNo)[Account Number], RTRIM(AccountName)[Account Names], RTRIM(SavingsID)[Savings ID], RTRIM(Date)[Plan Start Date],RTRIM(Deposit)[Amount],RTRIM(InvestmentPlan)[Investment Plan] ,RTRIM(DepositInterval)[Interval], RTRIM(DepositedInstallmentNo)[No. of Deposit], RTRIM(Accountbalance)[Account Balance], RTRIM(SubmittedBy)[Submitted By], RTRIM(CashierName)[Staff Name], RTRIM(InterestRate)[Interest Rate], RTRIM(MaturityPeriod)[Maturity Period], RTRIM(MaturityDate)[Maturity Date], RTRIM(ModeOfPayment)[Payment Mode], RTRIM(Appreciated)[Appreciated] from InvestorSavings where  SavingsID Like '" + SavingsSearch.Text + "%' OR AccountNo Like '" + SavingsSearch.Text + "%' OR AccountName Like '" + SavingsSearch.Text + "%' OR CashierName Like '" + SavingsSearch.Text + "%' OR Date Like '" + SavingsSearch.Text + "%' OR Transactions Like '" + SavingsSearch.Text + "%' OR SubmittedBy Like '" + SavingsSearch.Text + "%' OR ModeOfPayment Like '" + SavingsSearch.Text + "%' OR MaturityDate Like '" + SavingsSearch.Text + "%' OR InvestmentPlan Like '" + SavingsSearch.Text + "%'  order by ID DESC", con);
                 cmd.Parameters.Add("@date1", SqlDbType.DateTime, 30, "Date").Value = savingsfrom.Value.Date;
                 cmd.Parameters.Add("@date2", SqlDbType.DateTime, 30, "Date").Value = savingsto.Value.Date;
                 SqlDataAdapter myDA = new SqlDataAdapter(cmd);
@@ -316,7 +316,7 @@ namespace Banking_System
             {
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
-                cmd = new SqlCommand("select RTRIM(InvestorSavings.AccountNo)[Account Number], RTRIM(AccountName)[Account Name], RTRIM(Date)[Date],RTRIM(Accountbalance)[Account Balance] from InvestorSavings  INNER JOIN (SELECT AccountNo, Max(ID) as ID from InvestorSavings group by AccountNo) AS b ON InvestorSavings.AccountNo=b.AccountNo and InvestorSavings.ID=b.ID ", con);
+                cmd = new SqlCommand("select RTRIM(InvestorSavings.AccountNo)[Account Number], RTRIM(AccountName)[Account Name], RTRIM(SavingsID)[Savings ID], RTRIM(Date)[Date],RTRIM(Accountbalance)[Account Balance] from InvestorSavings ", con);
                 SqlDataAdapter myDA = new SqlDataAdapter(cmd);
                 DataSet myDataSet = new DataSet();
                 myDA.Fill(myDataSet, "InvestorSavings");
@@ -335,7 +335,7 @@ namespace Banking_System
             {
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
-                cmd = new SqlCommand("select RTRIM(InvestorSavings.AccountNo)[Account Number],  RTRIM(AccountName)[Account Name], RTRIM(Date)[Date],RTRIM(Accountbalance)[Account Balance] from InvestorSavings  INNER JOIN (SELECT AccountNo, Max(ID) as ID from InvestorSavings group by AccountNo) AS b ON InvestorSavings.AccountNo=b.AccountNo and InvestorSavings.ID=b.ID and InvestorSavings.AccountNo like '" + textBoxX1.Text + "%'  ", con);
+                cmd = new SqlCommand("select RTRIM(InvestorSavings.AccountNo)[Account Number],  RTRIM(AccountName)[Account Name], RTRIM(SavingsID)[Savings ID], RTRIM(Date)[Date],RTRIM(Accountbalance)[Account Balance] from InvestorSavings   where SavingsID like '" + textBoxX1.Text + "%'  ", con);
                 SqlDataAdapter myDA = new SqlDataAdapter(cmd);
                 DataSet myDataSet = new DataSet();
                 myDA.Fill(myDataSet, "InvestorSavings");
@@ -417,11 +417,11 @@ namespace Banking_System
             {
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
-                cmd = new SqlCommand("select RTrim(AccountNo)[Account Number], RTRIM(AccountName)[Account Names], RTRIM(Date)[Transaction Date], RTRIM(SavingsID)[Savings ID],RTRIM(Deposit)[Amount], RTRIM(Transactions)[Transaction], RTRIM(Accountbalance)[Account Balance], RTRIM(SubmittedBy)[Submitted By], RTRIM(CashierName)[Staff Name], RTRIM(InterestRate)[Interest Rate], RTRIM(MaturityPeriod)[Maturity Period], RTRIM(MaturityDate)[Maturity Date], RTRIM(ModeOfPayment)[Payment Mode], RTRIM(Appreciated)[Appreciated] from InvestorSavings where  AccountNo Like '" + searchtransactions.Text + "%' order by ID DESC", con);
+                cmd = new SqlCommand("select RTrim(AccountNo)[Account Number], RTRIM(AccountName)[Account Names], RTRIM(Date)[Transaction Date], RTRIM(SavingsID)[Savings ID],RTRIM(Deposit)[Amount],RTRIM(AppreciationAmount)[Appreciation Amount],RTRIM(AppreciationNo)[Appreciation No.], RTRIM(Accountbalance)[Account Balance], RTRIM(CashierName)[Staff Name], RTRIM(InterestRate)[Interest Rate], RTRIM(Appreciated)[Appreciated],RTRIM(Approved)[Approved],RTRIM(ApprovedBy)[ApprovedBy],RTRIM(Debit)[Debit],RTRIM(Credit)[Credit],RTRIM(PaidOut)[PaidOut] from InvestmentAppreciation where  AccountNo Like '" + searchtransactions.Text + "%' order by ID DESC", con);
                 SqlDataAdapter myDA = new SqlDataAdapter(cmd);
                 DataSet myDataSet = new DataSet();
-                myDA.Fill(myDataSet, "InvestorSavings");
-                dataGridView4.DataSource = myDataSet.Tables["InvestorSavings"].DefaultView;
+                myDA.Fill(myDataSet, "InvestmentAppreciation");
+                dataGridView4.DataSource = myDataSet.Tables["InvestmentAppreciation"].DefaultView;
                 con.Close();
             }
             catch (Exception ex)

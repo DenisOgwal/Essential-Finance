@@ -46,8 +46,6 @@ namespace Banking_System
             this.labelX1.Text = AssemblyCopyright;
             try
             {
-                
-
                string sourceFile = Path.GetDirectoryName(Application.ExecutablePath);
                String filePath = @"\EssentialFinanceFIles";
                DirectoryInfo di = Directory.CreateDirectory(filePath);

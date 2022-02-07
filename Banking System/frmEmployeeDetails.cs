@@ -386,6 +386,18 @@ namespace Banking_System
                     txtStaffID.Focus();
                     return;
                 }
+                if (accountnames.Text == "")
+                {
+                    MessageBox.Show("Please Enter Staff Account Number", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    accountnames.Focus();
+                    return;
+                }
+                if (accbank.Text == "")
+                {
+                    MessageBox.Show("Please Enter Staff Account Bank", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    accbank.Focus();
+                    return;
+                }
                 if (pictureBox1.Image == null)
                 {
                     MessageBox.Show("Please browse & select photo", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -394,7 +406,7 @@ namespace Banking_System
                // auto();
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
-                string cb = "insert into Employee(Staffid,staffname,gender,fathername,permanentaddress,temporaryaddress,phoneno,mobileno,dateofjoining,qualification,yearofexperience,designation,email,Basicsalary,lic,groupinsurance,familybenefitfund,loans,otherdeductions,IncomeTax,picture,DOB,Nokphone,AccNo,Department) values(@d1,@d2,@d4,@d5,@d6,@d7,@d8,@d9,@d10,@d11,@d12,@d13,@d14,@d15,@d16,@d17,@d18,@d19,@d20,@d21,@d22,@d23,@d25,@d26,@d27)";
+                string cb = "insert into Employee(Staffid,staffname,gender,fathername,permanentaddress,temporaryaddress,phoneno,mobileno,dateofjoining,qualification,yearofexperience,designation,email,Basicsalary,lic,groupinsurance,familybenefitfund,loans,otherdeductions,IncomeTax,picture,DOB,Nokphone,AccNo,Department,AccountNames,AccountBank) values(@d1,@d2,@d4,@d5,@d6,@d7,@d8,@d9,@d10,@d11,@d12,@d13,@d14,@d15,@d16,@d17,@d18,@d19,@d20,@d21,@d22,@d23,@d25,@d26,@d27,@d28,@d29)";
 
                 cmd = new SqlCommand(cb);
                 cmd.Connection = con;
@@ -422,6 +434,8 @@ namespace Banking_System
                 cmd.Parameters.Add(new SqlParameter("@d25", System.Data.SqlDbType.NChar, 15, "Nokphone"));
                 cmd.Parameters.Add(new SqlParameter("@d26", System.Data.SqlDbType.NChar, 30, "AccNo"));
                 cmd.Parameters.Add(new SqlParameter("@d27", System.Data.SqlDbType.NChar, 100, "Department"));
+                cmd.Parameters.Add(new SqlParameter("@d28", System.Data.SqlDbType.NChar, 50, "AccountNames"));
+                cmd.Parameters.Add(new SqlParameter("@d29", System.Data.SqlDbType.NChar, 50, "AccountBank"));
                 cmd.Parameters["@d1"].Value = txtStaffID.Text;
                 cmd.Parameters["@d2"].Value = txtStaffName.Text;
                 cmd.Parameters["@d4"].Value = cmbGender.Text;
@@ -439,6 +453,8 @@ namespace Banking_System
                 cmd.Parameters["@d25"].Value = nokphone.Text;
                 cmd.Parameters["@d26"].Value = accno.Text;
                 cmd.Parameters["@d27"].Value = department.Text;
+                cmd.Parameters["@d28"].Value = accountnames.Text;
+                cmd.Parameters["@d29"].Value = accbank.Text;
                 if (txtLIC.Text == "")
                 {
                     cmd.Parameters["@d16"].Value = 0;
@@ -537,7 +553,7 @@ namespace Banking_System
             {
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
-                string cb = "update Employee set Nokphone=@d25,Department=@d27,staffname=@d2,gender=@d4,fathername=@d5,permanentaddress=@d6,temporaryaddress=@d7,phoneno=@d8,mobileno=@d9,dateofjoining=@d10,qualification=@d11,yearofexperience=@d12,designation=@d13,email=@d14,Basicsalary=@d15,lic=@d16,groupinsurance=@d17,familybenefitfund=@d18,loans=@d19,otherdeductions=@d20,IncomeTax=@d21,picture=@d22,DOB=@d23 where staffid=@d1";
+                string cb = "update Employee set AccountNames=@d28,AccountBank=@d29,Nokphone=@d25,Department=@d27,staffname=@d2,gender=@d4,fathername=@d5,permanentaddress=@d6,temporaryaddress=@d7,phoneno=@d8,mobileno=@d9,dateofjoining=@d10,qualification=@d11,yearofexperience=@d12,designation=@d13,email=@d14,Basicsalary=@d15,lic=@d16,groupinsurance=@d17,familybenefitfund=@d18,loans=@d19,otherdeductions=@d20,IncomeTax=@d21,picture=@d22,DOB=@d23 where staffid=@d1";
 
                 cmd = new SqlCommand(cb);
                 cmd.Connection = con;
@@ -565,6 +581,8 @@ namespace Banking_System
                 cmd.Parameters.Add(new SqlParameter("@d25", System.Data.SqlDbType.NChar, 15, "Nokphone"));
                 cmd.Parameters.Add(new SqlParameter("@d26", System.Data.SqlDbType.NChar, 30, "AccNo"));
                 cmd.Parameters.Add(new SqlParameter("@d27", System.Data.SqlDbType.NChar, 100, "Department"));
+                cmd.Parameters.Add(new SqlParameter("@d28", System.Data.SqlDbType.NChar, 50, "AccountNames"));
+                cmd.Parameters.Add(new SqlParameter("@d29", System.Data.SqlDbType.NChar, 50, "AccountBank"));
                 cmd.Parameters["@d1"].Value = txtStaffID.Text;
                 cmd.Parameters["@d2"].Value = txtStaffName.Text;
                 cmd.Parameters["@d4"].Value = cmbGender.Text;
@@ -582,6 +600,8 @@ namespace Banking_System
                 cmd.Parameters["@d25"].Value = nokphone.Text;
                 cmd.Parameters["@d26"].Value = accno.Text;
                 cmd.Parameters["@d27"].Value = department.Text;
+                cmd.Parameters["@d28"].Value = accountnames.Text;
+                cmd.Parameters["@d29"].Value = accbank.Text;
                 if (txtLIC.Text == "")
                 {
                     cmd.Parameters["@d16"].Value = 0;

@@ -83,8 +83,8 @@ namespace Banking_System
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControl1.BackColor = System.Drawing.SystemColors.Highlight;
             this.tabControl1.CanReorderTabs = true;
-            this.tabControl1.Controls.Add(this.tabControlPanel1);
             this.tabControl1.Controls.Add(this.tabControlPanel2);
+            this.tabControl1.Controls.Add(this.tabControlPanel1);
             this.tabControl1.Location = new System.Drawing.Point(2, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedTabFont = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Bold);
@@ -180,6 +180,7 @@ namespace Banking_System
             this.buttonX7.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.buttonX7.TabIndex = 110;
             this.buttonX7.Text = "&Reset";
+            this.buttonX7.Click += new System.EventHandler(this.buttonX7_Click);
             // 
             // buttonX9
             // 
@@ -191,6 +192,7 @@ namespace Banking_System
             this.buttonX9.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.buttonX9.TabIndex = 108;
             this.buttonX9.Text = "&View";
+            this.buttonX9.Click += new System.EventHandler(this.buttonX9_Click);
             // 
             // tabItem1
             // 
@@ -306,6 +308,7 @@ namespace Banking_System
             this.buttonX4.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.buttonX4.TabIndex = 110;
             this.buttonX4.Text = "&Reset";
+            this.buttonX4.Click += new System.EventHandler(this.buttonX4_Click);
             // 
             // buttonX6
             // 
@@ -317,6 +320,7 @@ namespace Banking_System
             this.buttonX6.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.buttonX6.TabIndex = 108;
             this.buttonX6.Text = "&View";
+            this.buttonX6.Click += new System.EventHandler(this.buttonX6_Click);
             // 
             // savingsto
             // 

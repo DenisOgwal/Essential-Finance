@@ -134,7 +134,7 @@ namespace Banking_System
                     string staffids = rdr["StaffID"].ToString().Trim();
                     con = new SqlConnection(cs.DBConn);
                     con.Open();
-                    string ct = "SELECT UserName,StaffID FROM ApprovalRights WHERE StaffID='" + staffids + "' and LoansFinalApproval='Yes'";
+                    string ct = "SELECT UserName,StaffID FROM ApprovalRights WHERE StaffID='" + staffids + "'";
                     cmd2 = new SqlCommand(ct);
                     cmd2.Connection = con;
                     rdr2 = cmd2.ExecuteReader();
@@ -187,27 +187,35 @@ namespace Banking_System
             }
             try
             {
+
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
-                string cb = "update RepaymentSchedule set PaymentStatus=@d1 where LoanID=@d2 and BalanceExist > 0 and PaymentStatus !='Rescheduled' and PaymentStatus !='ToppedUp'";
+                string cb = "insert into Recovery(LoanID,AccountNumber,AccountNames,RequestDate,RequestedBy) VALUES (@d1,@d2,@d3,@d4,@d5)";
                 cmd = new SqlCommand(cb);
                 cmd.Connection = con;
-                cmd.Parameters.Add(new SqlParameter("@d1", System.Data.SqlDbType.NChar, 15, "PaymentStatus"));
-                cmd.Parameters.Add(new SqlParameter("@d2", System.Data.SqlDbType.NChar, 15, "LoanID"));
-                cmd.Parameters["@d1"].Value = "Recovery";
-                cmd.Parameters["@d2"].Value = LoanID.Text;
+                cmd.Parameters.Add(new SqlParameter("@d1", System.Data.SqlDbType.NChar, 20, "LoanID"));
+                cmd.Parameters.Add(new SqlParameter("@d2", System.Data.SqlDbType.NChar, 15, "AccountNumber"));
+                cmd.Parameters.Add(new SqlParameter("@d3", System.Data.SqlDbType.NChar, 100, "AccountNames"));
+                cmd.Parameters.Add(new SqlParameter("@d4", System.Data.SqlDbType.NChar, 20, "RequestDate"));
+                cmd.Parameters.Add(new SqlParameter("@d5", System.Data.SqlDbType.NChar, 40, "RequestedBy"));
+                cmd.Parameters["@d1"].Value = LoanID.Text;
+                cmd.Parameters["@d2"].Value = AccountNumber.Text;
+                cmd.Parameters["@d3"].Value = AccountName.Text;
+                cmd.Parameters["@d4"].Value = ApplicationDate.Text;
+                cmd.Parameters["@d5"].Value = ApprovalName.Text;
                 cmd.ExecuteNonQuery();
                 con.Close();
-                MessageBox.Show("Successfuly Paused", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Successful", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Hide();
                 FrmLoanRecovery frm = new FrmLoanRecovery();
                 frm.label1.Text = label1.Text;
                 frm.label2.Text = label2.Text;
                 frm.ShowDialog();
             }
-            catch (Exception Ex)
+            catch (Exception ex)
             {
-                MessageBox.Show(Ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            } 
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void Records_Click(object sender, EventArgs e)
@@ -239,6 +247,24 @@ namespace Banking_System
             frm.expensetype.Text = "Loan Recovery";
             frm.ShowDialog();
            
+        }
+
+        private void buttonX4_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FrmLoanRecoveryApproval frm = new FrmLoanRecoveryApproval();
+            frm.label1.Text = label1.Text;
+            frm.label2.Text = label2.Text;
+            frm.ShowDialog();
+        }
+
+        private void buttonX6_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FrmLoanRecoveryFinal frm = new FrmLoanRecoveryFinal();
+            frm.label1.Text = label1.Text;
+            frm.label2.Text = label2.Text;
+            frm.ShowDialog();
         }
     }
 }

@@ -279,6 +279,28 @@ namespace Banking_System
                     frm.User.Text = txtUserName.Text;
                     frm.UserType.Text = "ADMIN";
                     frm.label1.Text = "jesus@lord1";
+
+                    DateTime dt = DateTime.Today.Date;
+                    string dts = DateTime.Now.ToLongTimeString();
+                    string currentdate = dt.ToString("dd/MMM/yyyy");
+                    string computername = Environment.MachineName;
+                    con = new SqlConnection(cs.DBConn);
+                    con.Open();
+                    string cb = "insert into Logins(UserName,FullNames,Date,Time,ComputerName,Success) VALUES (@d1,@d2,@d3,@d4,@d5,'Successful')";
+                    cmd = new SqlCommand(cb);
+                    cmd.Connection = con;
+                    cmd.Parameters.Add(new SqlParameter("@d1", System.Data.SqlDbType.NChar, 20, "UserName"));
+                    cmd.Parameters.Add(new SqlParameter("@d2", System.Data.SqlDbType.NChar, 50, "FullNames"));
+                    cmd.Parameters.Add(new SqlParameter("@d3", System.Data.SqlDbType.NChar, 30, "Date"));
+                    cmd.Parameters.Add(new SqlParameter("@d4", System.Data.SqlDbType.NChar, 20, "Time"));
+                    cmd.Parameters.Add(new SqlParameter("@d5", System.Data.SqlDbType.NChar, 50, "ComputerName"));
+                    cmd.Parameters["@d1"].Value = txtUserName.Text;
+                    cmd.Parameters["@d2"].Value = txtUserName.Text;
+                    cmd.Parameters["@d3"].Value = currentdate;
+                    cmd.Parameters["@d4"].Value = dts;
+                    cmd.Parameters["@d5"].Value = computername;
+                    cmd.ExecuteNonQuery();
+                    con.Close();
                     this.Hide();
                     frm.Show();
                 }
@@ -317,7 +339,7 @@ namespace Banking_System
                         string computername = Environment.MachineName;
                         con = new SqlConnection(cs.DBConn);
                         con.Open();
-                        string cb = "insert into Logins(UserName,FullNames,Date,Time,ComputerName) VALUES (@d1,@d2,@d3,@d4,@d5)";
+                        string cb = "insert into Logins(UserName,FullNames,Date,Time,ComputerName,Success) VALUES (@d1,@d2,@d3,@d4,@d5,'Successful')";
                         cmd = new SqlCommand(cb);
                         cmd.Connection = con;
                         cmd.Parameters.Add(new SqlParameter("@d1", System.Data.SqlDbType.NChar, 20, "UserName"));
@@ -351,6 +373,27 @@ namespace Banking_System
                     }
                     else
                     {
+                        DateTime dt = DateTime.Today.Date;
+                        string dts = DateTime.Now.ToLongTimeString();
+                        string currentdate = dt.ToString("dd/MMM/yyyy");
+                        string computername = Environment.MachineName;
+                        con = new SqlConnection(cs.DBConn);
+                        con.Open();
+                        string cb = "insert into Logins(UserName,FullNames,Date,Time,ComputerName,Success) VALUES (@d1,@d2,@d3,@d4,@d5,'Failed')";
+                        cmd = new SqlCommand(cb);
+                        cmd.Connection = con;
+                        cmd.Parameters.Add(new SqlParameter("@d1", System.Data.SqlDbType.NChar, 20, "UserName"));
+                        cmd.Parameters.Add(new SqlParameter("@d2", System.Data.SqlDbType.NChar, 50, "FullNames"));
+                        cmd.Parameters.Add(new SqlParameter("@d3", System.Data.SqlDbType.NChar, 30, "Date"));
+                        cmd.Parameters.Add(new SqlParameter("@d4", System.Data.SqlDbType.NChar, 20, "Time"));
+                        cmd.Parameters.Add(new SqlParameter("@d5", System.Data.SqlDbType.NChar, 50, "ComputerName"));
+                        cmd.Parameters["@d1"].Value = txtUserName.Text;
+                        cmd.Parameters["@d2"].Value = txtUserName.Text;
+                        cmd.Parameters["@d3"].Value = currentdate;
+                        cmd.Parameters["@d4"].Value = dts;
+                        cmd.Parameters["@d5"].Value = computername;
+                        cmd.ExecuteNonQuery();
+                        con.Close();
                         MessageBox.Show("Login Failed...Try again !", "Login Denied", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         txtUserName.Clear();
                         txtPassword.Clear();
