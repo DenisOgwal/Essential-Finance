@@ -13,7 +13,6 @@ namespace Banking_System
     {
         SqlDataReader rdr = null;
         SqlDataReader rdr2 = null;
-        SqlDataAdapter adp;
         DataTable dtable = new DataTable();
         SqlConnection con = null;
         DataSet ds = new DataSet();
@@ -89,6 +88,7 @@ namespace Banking_System
                 {
                    
                 }
+                con.Close();
             }
             catch (Exception ex)
             {
@@ -150,7 +150,7 @@ namespace Banking_System
                 cmd.ExecuteNonQuery();
                 con.Close();
                 MessageBox.Show("Successfully saved", "Investor Withdraw Approval Record", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                con.Close();
+               
             }
             catch (Exception ex)
             {
@@ -360,7 +360,8 @@ namespace Banking_System
                     {
                     investmentid.Items.Add(rdr2["SavingsID"].ToString());   
                     }
-                   
+                con.Close();
+
             }
             catch (Exception ex)
             {
@@ -405,8 +406,10 @@ namespace Banking_System
                 {
                     depositammount.Value = Convert.ToInt32(rdr["Amount"]);
                     investmentid.Text = rdr["SavingsID"].ToString();
-                   
+                    cashier.Text= rdr["CashierName"].ToString();
+
                 }
+                con.Close();
             }
             catch (Exception Ex)
             {

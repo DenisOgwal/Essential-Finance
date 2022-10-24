@@ -40,36 +40,24 @@
             this.groupPanel2 = new DevComponents.DotNetBar.Controls.GroupPanel();
             this.investment = new System.Windows.Forms.TextBox();
             this.labelX28 = new DevComponents.DotNetBar.LabelX();
-            this.monthlycharges = new System.Windows.Forms.TextBox();
-            this.labelX17 = new DevComponents.DotNetBar.LabelX();
-            this.passledger = new System.Windows.Forms.TextBox();
-            this.labelX27 = new DevComponents.DotNetBar.LabelX();
             this.loaninsurance = new System.Windows.Forms.TextBox();
             this.labelX16 = new DevComponents.DotNetBar.LabelX();
-            this.withdrawcharges = new System.Windows.Forms.TextBox();
-            this.Annualsubscription = new System.Windows.Forms.TextBox();
-            this.loanprocessing = new System.Windows.Forms.TextBox();
             this.otherincomes = new System.Windows.Forms.TextBox();
             this.externalloans = new System.Windows.Forms.TextBox();
-            this.labelX24 = new DevComponents.DotNetBar.LabelX();
             this.labelX23 = new DevComponents.DotNetBar.LabelX();
-            this.labelX22 = new DevComponents.DotNetBar.LabelX();
-            this.labelX21 = new DevComponents.DotNetBar.LabelX();
             this.labelX20 = new DevComponents.DotNetBar.LabelX();
             this.Grants = new System.Windows.Forms.TextBox();
             this.TotalFines = new System.Windows.Forms.TextBox();
-            this.Totalregistrationfees = new System.Windows.Forms.TextBox();
-            this.TotalShareCapital = new System.Windows.Forms.TextBox();
+            this.totalapplicationfees = new System.Windows.Forms.TextBox();
             this.Totalsavings = new System.Windows.Forms.TextBox();
             this.loanrepayments = new System.Windows.Forms.TextBox();
             this.labelX19 = new DevComponents.DotNetBar.LabelX();
             this.labelX10 = new DevComponents.DotNetBar.LabelX();
             this.labelX9 = new DevComponents.DotNetBar.LabelX();
-            this.labelX8 = new DevComponents.DotNetBar.LabelX();
             this.labelX7 = new DevComponents.DotNetBar.LabelX();
             this.labelX6 = new DevComponents.DotNetBar.LabelX();
             this.groupPanel3 = new DevComponents.DotNetBar.Controls.GroupPanel();
-            this.investmentcapital = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.investorpayounts = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.labelX29 = new DevComponents.DotNetBar.LabelX();
             this.devidendstext = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.labelX15 = new DevComponents.DotNetBar.LabelX();
@@ -126,6 +114,7 @@
             this.label23 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
+            this.label26 = new System.Windows.Forms.Label();
             this.groupPanel1.SuspendLayout();
             this.groupPanel2.SuspendLayout();
             this.groupPanel3.SuspendLayout();
@@ -207,7 +196,6 @@
             // DateTo
             // 
             this.DateTo.CustomFormat = "dd/MMM/yyyy";
-            this.DateTo.Enabled = false;
             this.DateTo.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DateTo.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.DateTo.Location = new System.Drawing.Point(339, 23);
@@ -267,37 +255,25 @@
             this.groupPanel2.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
             this.groupPanel2.Controls.Add(this.investment);
             this.groupPanel2.Controls.Add(this.labelX28);
-            this.groupPanel2.Controls.Add(this.monthlycharges);
-            this.groupPanel2.Controls.Add(this.labelX17);
-            this.groupPanel2.Controls.Add(this.passledger);
-            this.groupPanel2.Controls.Add(this.labelX27);
             this.groupPanel2.Controls.Add(this.loaninsurance);
             this.groupPanel2.Controls.Add(this.labelX16);
-            this.groupPanel2.Controls.Add(this.withdrawcharges);
-            this.groupPanel2.Controls.Add(this.Annualsubscription);
-            this.groupPanel2.Controls.Add(this.loanprocessing);
             this.groupPanel2.Controls.Add(this.otherincomes);
             this.groupPanel2.Controls.Add(this.externalloans);
-            this.groupPanel2.Controls.Add(this.labelX24);
             this.groupPanel2.Controls.Add(this.labelX23);
-            this.groupPanel2.Controls.Add(this.labelX22);
-            this.groupPanel2.Controls.Add(this.labelX21);
             this.groupPanel2.Controls.Add(this.labelX20);
             this.groupPanel2.Controls.Add(this.Grants);
             this.groupPanel2.Controls.Add(this.TotalFines);
-            this.groupPanel2.Controls.Add(this.Totalregistrationfees);
-            this.groupPanel2.Controls.Add(this.TotalShareCapital);
+            this.groupPanel2.Controls.Add(this.totalapplicationfees);
             this.groupPanel2.Controls.Add(this.Totalsavings);
             this.groupPanel2.Controls.Add(this.loanrepayments);
             this.groupPanel2.Controls.Add(this.labelX19);
             this.groupPanel2.Controls.Add(this.labelX10);
             this.groupPanel2.Controls.Add(this.labelX9);
-            this.groupPanel2.Controls.Add(this.labelX8);
             this.groupPanel2.Controls.Add(this.labelX7);
             this.groupPanel2.Controls.Add(this.labelX6);
             this.groupPanel2.Location = new System.Drawing.Point(3, 3);
             this.groupPanel2.Name = "groupPanel2";
-            this.groupPanel2.Size = new System.Drawing.Size(413, 506);
+            this.groupPanel2.Size = new System.Drawing.Size(413, 395);
             // 
             // 
             // 
@@ -339,7 +315,7 @@
             this.investment.Enabled = false;
             this.investment.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.investment.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.investment.Location = new System.Drawing.Point(212, 446);
+            this.investment.Location = new System.Drawing.Point(212, 301);
             this.investment.Name = "investment";
             this.investment.Size = new System.Drawing.Size(184, 29);
             this.investment.TabIndex = 35;
@@ -354,67 +330,11 @@
             this.labelX28.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.labelX28.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelX28.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.labelX28.Location = new System.Drawing.Point(7, 448);
+            this.labelX28.Location = new System.Drawing.Point(7, 303);
             this.labelX28.Name = "labelX28";
             this.labelX28.Size = new System.Drawing.Size(175, 23);
             this.labelX28.TabIndex = 34;
-            this.labelX28.Text = "Investment Reurns";
-            // 
-            // monthlycharges
-            // 
-            this.monthlycharges.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.monthlycharges.Enabled = false;
-            this.monthlycharges.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.monthlycharges.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.monthlycharges.Location = new System.Drawing.Point(212, 417);
-            this.monthlycharges.Name = "monthlycharges";
-            this.monthlycharges.Size = new System.Drawing.Size(184, 29);
-            this.monthlycharges.TabIndex = 33;
-            // 
-            // labelX17
-            // 
-            this.labelX17.BackColor = System.Drawing.Color.Transparent;
-            // 
-            // 
-            // 
-            this.labelX17.BackgroundStyle.Class = "";
-            this.labelX17.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX17.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelX17.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.labelX17.Location = new System.Drawing.Point(7, 419);
-            this.labelX17.Name = "labelX17";
-            this.labelX17.Size = new System.Drawing.Size(175, 23);
-            this.labelX17.TabIndex = 32;
-            this.labelX17.Text = "Monthly Charges";
-            // 
-            // passledger
-            // 
-            this.passledger.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.passledger.Enabled = false;
-            this.passledger.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.passledger.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.passledger.Location = new System.Drawing.Point(212, 388);
-            this.passledger.Name = "passledger";
-            this.passledger.Size = new System.Drawing.Size(184, 29);
-            this.passledger.TabIndex = 31;
-            // 
-            // labelX27
-            // 
-            this.labelX27.BackColor = System.Drawing.Color.Transparent;
-            // 
-            // 
-            // 
-            this.labelX27.BackgroundStyle.Class = "";
-            this.labelX27.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX27.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelX27.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.labelX27.Location = new System.Drawing.Point(7, 390);
-            this.labelX27.Name = "labelX27";
-            this.labelX27.Size = new System.Drawing.Size(211, 23);
-            this.labelX27.TabIndex = 30;
-            this.labelX27.Text = "Passbook,Ledger,Loan Form";
+            this.labelX28.Text = "Investor Deposits";
             // 
             // loaninsurance
             // 
@@ -423,7 +343,7 @@
             this.loaninsurance.Enabled = false;
             this.loaninsurance.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.loaninsurance.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.loaninsurance.Location = new System.Drawing.Point(212, 357);
+            this.loaninsurance.Location = new System.Drawing.Point(212, 260);
             this.loaninsurance.Name = "loaninsurance";
             this.loaninsurance.Size = new System.Drawing.Size(184, 29);
             this.loaninsurance.TabIndex = 29;
@@ -438,47 +358,11 @@
             this.labelX16.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.labelX16.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelX16.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.labelX16.Location = new System.Drawing.Point(7, 357);
+            this.labelX16.Location = new System.Drawing.Point(7, 260);
             this.labelX16.Name = "labelX16";
             this.labelX16.Size = new System.Drawing.Size(150, 23);
             this.labelX16.TabIndex = 28;
             this.labelX16.Text = "Loan Insurance Fees";
-            // 
-            // withdrawcharges
-            // 
-            this.withdrawcharges.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.withdrawcharges.Enabled = false;
-            this.withdrawcharges.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.withdrawcharges.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.withdrawcharges.Location = new System.Drawing.Point(212, 202);
-            this.withdrawcharges.Name = "withdrawcharges";
-            this.withdrawcharges.Size = new System.Drawing.Size(184, 29);
-            this.withdrawcharges.TabIndex = 27;
-            // 
-            // Annualsubscription
-            // 
-            this.Annualsubscription.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.Annualsubscription.Enabled = false;
-            this.Annualsubscription.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Annualsubscription.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.Annualsubscription.Location = new System.Drawing.Point(212, 326);
-            this.Annualsubscription.Name = "Annualsubscription";
-            this.Annualsubscription.Size = new System.Drawing.Size(184, 29);
-            this.Annualsubscription.TabIndex = 26;
-            // 
-            // loanprocessing
-            // 
-            this.loanprocessing.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.loanprocessing.Enabled = false;
-            this.loanprocessing.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.loanprocessing.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.loanprocessing.Location = new System.Drawing.Point(212, 295);
-            this.loanprocessing.Name = "loanprocessing";
-            this.loanprocessing.Size = new System.Drawing.Size(184, 29);
-            this.loanprocessing.TabIndex = 25;
             // 
             // otherincomes
             // 
@@ -487,7 +371,7 @@
             this.otherincomes.Enabled = false;
             this.otherincomes.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.otherincomes.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.otherincomes.Location = new System.Drawing.Point(212, 264);
+            this.otherincomes.Location = new System.Drawing.Point(212, 225);
             this.otherincomes.Name = "otherincomes";
             this.otherincomes.Size = new System.Drawing.Size(184, 29);
             this.otherincomes.TabIndex = 24;
@@ -499,26 +383,10 @@
             this.externalloans.Enabled = false;
             this.externalloans.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.externalloans.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.externalloans.Location = new System.Drawing.Point(212, 233);
+            this.externalloans.Location = new System.Drawing.Point(212, 190);
             this.externalloans.Name = "externalloans";
             this.externalloans.Size = new System.Drawing.Size(184, 29);
             this.externalloans.TabIndex = 23;
-            // 
-            // labelX24
-            // 
-            this.labelX24.BackColor = System.Drawing.Color.Transparent;
-            // 
-            // 
-            // 
-            this.labelX24.BackgroundStyle.Class = "";
-            this.labelX24.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX24.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelX24.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.labelX24.Location = new System.Drawing.Point(5, 204);
-            this.labelX24.Name = "labelX24";
-            this.labelX24.Size = new System.Drawing.Size(137, 23);
-            this.labelX24.TabIndex = 22;
-            this.labelX24.Text = "Withdraw Charges";
             // 
             // labelX23
             // 
@@ -530,43 +398,11 @@
             this.labelX23.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.labelX23.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelX23.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.labelX23.Location = new System.Drawing.Point(7, 235);
+            this.labelX23.Location = new System.Drawing.Point(7, 192);
             this.labelX23.Name = "labelX23";
             this.labelX23.Size = new System.Drawing.Size(105, 23);
             this.labelX23.TabIndex = 21;
             this.labelX23.Text = "External Loan";
-            // 
-            // labelX22
-            // 
-            this.labelX22.BackColor = System.Drawing.Color.Transparent;
-            // 
-            // 
-            // 
-            this.labelX22.BackgroundStyle.Class = "";
-            this.labelX22.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX22.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelX22.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.labelX22.Location = new System.Drawing.Point(7, 326);
-            this.labelX22.Name = "labelX22";
-            this.labelX22.Size = new System.Drawing.Size(150, 23);
-            this.labelX22.TabIndex = 20;
-            this.labelX22.Text = "Annual Subscription";
-            // 
-            // labelX21
-            // 
-            this.labelX21.BackColor = System.Drawing.Color.Transparent;
-            // 
-            // 
-            // 
-            this.labelX21.BackgroundStyle.Class = "";
-            this.labelX21.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX21.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelX21.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.labelX21.Location = new System.Drawing.Point(5, 295);
-            this.labelX21.Name = "labelX21";
-            this.labelX21.Size = new System.Drawing.Size(150, 23);
-            this.labelX21.TabIndex = 19;
-            this.labelX21.Text = "Loan Processing";
             // 
             // labelX20
             // 
@@ -578,7 +414,7 @@
             this.labelX20.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.labelX20.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelX20.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.labelX20.Location = new System.Drawing.Point(7, 266);
+            this.labelX20.Location = new System.Drawing.Point(7, 227);
             this.labelX20.Name = "labelX20";
             this.labelX20.Size = new System.Drawing.Size(105, 23);
             this.labelX20.TabIndex = 18;
@@ -591,7 +427,7 @@
             this.Grants.Enabled = false;
             this.Grants.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Grants.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.Grants.Location = new System.Drawing.Point(212, 171);
+            this.Grants.Location = new System.Drawing.Point(212, 155);
             this.Grants.Name = "Grants";
             this.Grants.Size = new System.Drawing.Size(184, 29);
             this.Grants.TabIndex = 17;
@@ -603,34 +439,22 @@
             this.TotalFines.Enabled = false;
             this.TotalFines.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TotalFines.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.TotalFines.Location = new System.Drawing.Point(212, 140);
+            this.TotalFines.Location = new System.Drawing.Point(212, 120);
             this.TotalFines.Name = "TotalFines";
             this.TotalFines.Size = new System.Drawing.Size(184, 29);
             this.TotalFines.TabIndex = 16;
             // 
-            // Totalregistrationfees
+            // totalapplicationfees
             // 
-            this.Totalregistrationfees.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.totalapplicationfees.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.Totalregistrationfees.Enabled = false;
-            this.Totalregistrationfees.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Totalregistrationfees.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.Totalregistrationfees.Location = new System.Drawing.Point(212, 109);
-            this.Totalregistrationfees.Name = "Totalregistrationfees";
-            this.Totalregistrationfees.Size = new System.Drawing.Size(184, 29);
-            this.Totalregistrationfees.TabIndex = 15;
-            // 
-            // TotalShareCapital
-            // 
-            this.TotalShareCapital.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.TotalShareCapital.Enabled = false;
-            this.TotalShareCapital.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TotalShareCapital.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.TotalShareCapital.Location = new System.Drawing.Point(212, 78);
-            this.TotalShareCapital.Name = "TotalShareCapital";
-            this.TotalShareCapital.Size = new System.Drawing.Size(184, 29);
-            this.TotalShareCapital.TabIndex = 14;
+            this.totalapplicationfees.Enabled = false;
+            this.totalapplicationfees.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.totalapplicationfees.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.totalapplicationfees.Location = new System.Drawing.Point(212, 82);
+            this.totalapplicationfees.Name = "totalapplicationfees";
+            this.totalapplicationfees.Size = new System.Drawing.Size(184, 29);
+            this.totalapplicationfees.TabIndex = 15;
             // 
             // Totalsavings
             // 
@@ -666,7 +490,7 @@
             this.labelX19.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.labelX19.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelX19.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.labelX19.Location = new System.Drawing.Point(5, 173);
+            this.labelX19.Location = new System.Drawing.Point(5, 157);
             this.labelX19.Name = "labelX19";
             this.labelX19.Size = new System.Drawing.Size(122, 23);
             this.labelX19.TabIndex = 11;
@@ -682,11 +506,11 @@
             this.labelX10.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.labelX10.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelX10.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.labelX10.Location = new System.Drawing.Point(5, 142);
+            this.labelX10.Location = new System.Drawing.Point(5, 122);
             this.labelX10.Name = "labelX10";
-            this.labelX10.Size = new System.Drawing.Size(75, 23);
+            this.labelX10.Size = new System.Drawing.Size(122, 23);
             this.labelX10.TabIndex = 4;
-            this.labelX10.Text = "Total Fine";
+            this.labelX10.Text = "Total Fines Paid";
             // 
             // labelX9
             // 
@@ -698,27 +522,11 @@
             this.labelX9.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.labelX9.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelX9.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.labelX9.Location = new System.Drawing.Point(5, 111);
+            this.labelX9.Location = new System.Drawing.Point(5, 84);
             this.labelX9.Name = "labelX9";
             this.labelX9.Size = new System.Drawing.Size(172, 23);
             this.labelX9.TabIndex = 3;
-            this.labelX9.Text = "Total Registration Fees";
-            // 
-            // labelX8
-            // 
-            this.labelX8.BackColor = System.Drawing.Color.Transparent;
-            // 
-            // 
-            // 
-            this.labelX8.BackgroundStyle.Class = "";
-            this.labelX8.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX8.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelX8.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.labelX8.Location = new System.Drawing.Point(7, 80);
-            this.labelX8.Name = "labelX8";
-            this.labelX8.Size = new System.Drawing.Size(145, 23);
-            this.labelX8.TabIndex = 2;
-            this.labelX8.Text = "Total Share Capital";
+            this.labelX9.Text = "Total Application Fees";
             // 
             // labelX7
             // 
@@ -759,7 +567,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupPanel3.CanvasColor = System.Drawing.SystemColors.Control;
             this.groupPanel3.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
-            this.groupPanel3.Controls.Add(this.investmentcapital);
+            this.groupPanel3.Controls.Add(this.investorpayounts);
             this.groupPanel3.Controls.Add(this.labelX29);
             this.groupPanel3.Controls.Add(this.devidendstext);
             this.groupPanel3.Controls.Add(this.labelX15);
@@ -777,7 +585,7 @@
             this.groupPanel3.Controls.Add(this.labelX3);
             this.groupPanel3.Location = new System.Drawing.Point(422, 3);
             this.groupPanel3.Name = "groupPanel3";
-            this.groupPanel3.Size = new System.Drawing.Size(414, 506);
+            this.groupPanel3.Size = new System.Drawing.Size(414, 395);
             // 
             // 
             // 
@@ -811,23 +619,24 @@
             this.groupPanel3.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.groupPanel3.TabIndex = 3;
             this.groupPanel3.Text = "Out Flows";
+            this.groupPanel3.Click += new System.EventHandler(this.groupPanel3_Click);
             // 
-            // investmentcapital
+            // investorpayounts
             // 
-            this.investmentcapital.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.investorpayounts.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             // 
             // 
             // 
-            this.investmentcapital.Border.Class = "TextBoxBorder";
-            this.investmentcapital.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.investmentcapital.Enabled = false;
-            this.investmentcapital.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.investmentcapital.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.investmentcapital.Location = new System.Drawing.Point(206, 348);
-            this.investmentcapital.Name = "investmentcapital";
-            this.investmentcapital.Size = new System.Drawing.Size(199, 29);
-            this.investmentcapital.TabIndex = 18;
+            this.investorpayounts.Border.Class = "TextBoxBorder";
+            this.investorpayounts.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.investorpayounts.Enabled = false;
+            this.investorpayounts.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.investorpayounts.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.investorpayounts.Location = new System.Drawing.Point(206, 265);
+            this.investorpayounts.Name = "investorpayounts";
+            this.investorpayounts.Size = new System.Drawing.Size(199, 29);
+            this.investorpayounts.TabIndex = 18;
             // 
             // labelX29
             // 
@@ -839,11 +648,11 @@
             this.labelX29.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.labelX29.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelX29.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.labelX29.Location = new System.Drawing.Point(3, 345);
+            this.labelX29.Location = new System.Drawing.Point(3, 262);
             this.labelX29.Name = "labelX29";
             this.labelX29.Size = new System.Drawing.Size(161, 23);
             this.labelX29.TabIndex = 17;
-            this.labelX29.Text = "Investments";
+            this.labelX29.Text = "Investor Payouts";
             // 
             // devidendstext
             // 
@@ -857,7 +666,7 @@
             this.devidendstext.Enabled = false;
             this.devidendstext.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.devidendstext.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.devidendstext.Location = new System.Drawing.Point(206, 302);
+            this.devidendstext.Location = new System.Drawing.Point(206, 230);
             this.devidendstext.Name = "devidendstext";
             this.devidendstext.Size = new System.Drawing.Size(199, 29);
             this.devidendstext.TabIndex = 16;
@@ -872,11 +681,11 @@
             this.labelX15.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.labelX15.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelX15.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.labelX15.Location = new System.Drawing.Point(3, 299);
+            this.labelX15.Location = new System.Drawing.Point(3, 230);
             this.labelX15.Name = "labelX15";
             this.labelX15.Size = new System.Drawing.Size(161, 23);
             this.labelX15.TabIndex = 15;
-            this.labelX15.Text = "Drawings/Devidends";
+            this.labelX15.Text = "Drawings/Dividends";
             // 
             // labelX26
             // 
@@ -888,11 +697,11 @@
             this.labelX26.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.labelX26.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelX26.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.labelX26.Location = new System.Drawing.Point(3, 253);
+            this.labelX26.Location = new System.Drawing.Point(3, 195);
             this.labelX26.Name = "labelX26";
-            this.labelX26.Size = new System.Drawing.Size(180, 23);
+            this.labelX26.Size = new System.Drawing.Size(197, 23);
             this.labelX26.TabIndex = 14;
-            this.labelX26.Text = "External Loan repayment";
+            this.labelX26.Text = "External Loan Repayment";
             // 
             // labelX25
             // 
@@ -904,7 +713,7 @@
             this.labelX25.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.labelX25.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelX25.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.labelX25.Location = new System.Drawing.Point(3, 211);
+            this.labelX25.Location = new System.Drawing.Point(3, 160);
             this.labelX25.Name = "labelX25";
             this.labelX25.Size = new System.Drawing.Size(149, 23);
             this.labelX25.TabIndex = 13;
@@ -922,7 +731,7 @@
             this.externalloanrepayment.Enabled = false;
             this.externalloanrepayment.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.externalloanrepayment.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.externalloanrepayment.Location = new System.Drawing.Point(206, 255);
+            this.externalloanrepayment.Location = new System.Drawing.Point(206, 195);
             this.externalloanrepayment.Name = "externalloanrepayment";
             this.externalloanrepayment.Size = new System.Drawing.Size(199, 29);
             this.externalloanrepayment.TabIndex = 12;
@@ -939,7 +748,7 @@
             this.withdraws.Enabled = false;
             this.withdraws.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.withdraws.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.withdraws.Location = new System.Drawing.Point(206, 211);
+            this.withdraws.Location = new System.Drawing.Point(206, 160);
             this.withdraws.Name = "withdraws";
             this.withdraws.Size = new System.Drawing.Size(199, 29);
             this.withdraws.TabIndex = 11;
@@ -951,7 +760,7 @@
             this.TotalUnpaidLoans.Enabled = false;
             this.TotalUnpaidLoans.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TotalUnpaidLoans.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.TotalUnpaidLoans.Location = new System.Drawing.Point(206, 120);
+            this.TotalUnpaidLoans.Location = new System.Drawing.Point(206, 90);
             this.TotalUnpaidLoans.Name = "TotalUnpaidLoans";
             this.TotalUnpaidLoans.Size = new System.Drawing.Size(199, 29);
             this.TotalUnpaidLoans.TabIndex = 10;
@@ -963,7 +772,7 @@
             this.Totalequipmentpurchase.Enabled = false;
             this.Totalequipmentpurchase.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Totalequipmentpurchase.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.Totalequipmentpurchase.Location = new System.Drawing.Point(206, 76);
+            this.Totalequipmentpurchase.Location = new System.Drawing.Point(206, 49);
             this.Totalequipmentpurchase.Name = "Totalequipmentpurchase";
             this.Totalequipmentpurchase.Size = new System.Drawing.Size(199, 29);
             this.Totalequipmentpurchase.TabIndex = 9;
@@ -975,7 +784,7 @@
             this.Totalexpenses.Enabled = false;
             this.Totalexpenses.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Totalexpenses.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.Totalexpenses.Location = new System.Drawing.Point(206, 30);
+            this.Totalexpenses.Location = new System.Drawing.Point(206, 12);
             this.Totalexpenses.Name = "Totalexpenses";
             this.Totalexpenses.Size = new System.Drawing.Size(199, 29);
             this.Totalexpenses.TabIndex = 8;
@@ -992,10 +801,11 @@
             this.TotalSalaries.Enabled = false;
             this.TotalSalaries.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TotalSalaries.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.TotalSalaries.Location = new System.Drawing.Point(206, 163);
+            this.TotalSalaries.Location = new System.Drawing.Point(206, 125);
             this.TotalSalaries.Name = "TotalSalaries";
             this.TotalSalaries.Size = new System.Drawing.Size(199, 29);
             this.TotalSalaries.TabIndex = 7;
+            this.TotalSalaries.TextChanged += new System.EventHandler(this.TotalSalaries_TextChanged);
             // 
             // labelX11
             // 
@@ -1007,7 +817,7 @@
             this.labelX11.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.labelX11.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelX11.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.labelX11.Location = new System.Drawing.Point(3, 165);
+            this.labelX11.Location = new System.Drawing.Point(3, 127);
             this.labelX11.Name = "labelX11";
             this.labelX11.Size = new System.Drawing.Size(95, 23);
             this.labelX11.TabIndex = 3;
@@ -1023,7 +833,7 @@
             this.labelX5.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.labelX5.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelX5.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.labelX5.Location = new System.Drawing.Point(3, 122);
+            this.labelX5.Location = new System.Drawing.Point(3, 92);
             this.labelX5.Name = "labelX5";
             this.labelX5.Size = new System.Drawing.Size(149, 23);
             this.labelX5.TabIndex = 2;
@@ -1039,7 +849,7 @@
             this.labelX4.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.labelX4.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelX4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.labelX4.Location = new System.Drawing.Point(3, 76);
+            this.labelX4.Location = new System.Drawing.Point(3, 49);
             this.labelX4.Name = "labelX4";
             this.labelX4.Size = new System.Drawing.Size(191, 23);
             this.labelX4.TabIndex = 1;
@@ -1055,7 +865,7 @@
             this.labelX3.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.labelX3.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelX3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.labelX3.Location = new System.Drawing.Point(3, 32);
+            this.labelX3.Location = new System.Drawing.Point(3, 14);
             this.labelX3.Name = "labelX3";
             this.labelX3.Size = new System.Drawing.Size(113, 23);
             this.labelX3.TabIndex = 0;
@@ -1111,6 +921,7 @@
             // buttonX6
             // 
             this.buttonX6.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.buttonX6.Enabled = false;
             this.buttonX6.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonX6.Location = new System.Drawing.Point(3, 330);
             this.buttonX6.Name = "buttonX6";
@@ -1123,6 +934,7 @@
             // buttonX5
             // 
             this.buttonX5.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.buttonX5.Enabled = false;
             this.buttonX5.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonX5.Location = new System.Drawing.Point(3, 269);
             this.buttonX5.Name = "buttonX5";
@@ -1195,9 +1007,9 @@
             this.groupPanel5.Controls.Add(this.labelX13);
             this.groupPanel5.Controls.Add(this.TotalDispensibleincome);
             this.groupPanel5.Controls.Add(this.labelX12);
-            this.groupPanel5.Location = new System.Drawing.Point(8, 613);
+            this.groupPanel5.Location = new System.Drawing.Point(8, 498);
             this.groupPanel5.Name = "groupPanel5";
-            this.groupPanel5.Size = new System.Drawing.Size(988, 67);
+            this.groupPanel5.Size = new System.Drawing.Size(988, 79);
             // 
             // 
             // 
@@ -1295,7 +1107,6 @@
             this.labelX18.Size = new System.Drawing.Size(133, 23);
             this.labelX18.TabIndex = 6;
             this.labelX18.Text = "Income Summary";
-            this.labelX18.Click += new System.EventHandler(this.labelX18_Click);
             // 
             // totaloutflows
             // 
@@ -1342,7 +1153,6 @@
             this.TotalDispensibleincome.Name = "TotalDispensibleincome";
             this.TotalDispensibleincome.Size = new System.Drawing.Size(159, 29);
             this.TotalDispensibleincome.TabIndex = 1;
-            this.TotalDispensibleincome.TextChanged += new System.EventHandler(this.TotalDispensibleincome_TextChanged);
             // 
             // labelX12
             // 
@@ -1374,7 +1184,7 @@
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(839, 512);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(839, 401);
             this.tableLayoutPanel1.TabIndex = 11;
             // 
             // label3
@@ -1607,12 +1417,23 @@
             this.label25.Text = "label25";
             this.label25.Visible = false;
             // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Location = new System.Drawing.Point(932, 22);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(41, 13);
+            this.label26.TabIndex = 35;
+            this.label26.Text = "label26";
+            this.label26.Visible = false;
+            // 
             // frmGeneralReport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = global::Banking_System.Properties.Settings.Default.usercolor;
-            this.ClientSize = new System.Drawing.Size(1008, 692);
+            this.ClientSize = new System.Drawing.Size(1008, 587);
+            this.Controls.Add(this.label26);
             this.Controls.Add(this.label25);
             this.Controls.Add(this.label24);
             this.Controls.Add(this.label23);
@@ -1677,7 +1498,6 @@
         private DevComponents.DotNetBar.Controls.GroupPanel groupPanel5;
         private DevComponents.DotNetBar.LabelX labelX10;
         private DevComponents.DotNetBar.LabelX labelX9;
-        private DevComponents.DotNetBar.LabelX labelX8;
         private DevComponents.DotNetBar.LabelX labelX7;
         private DevComponents.DotNetBar.LabelX labelX6;
         private DevComponents.DotNetBar.LabelX labelX5;
@@ -1698,21 +1518,14 @@
         public DevComponents.DotNetBar.Controls.TextBoxX TotalSalaries;
         private System.Windows.Forms.TextBox Grants;
         private System.Windows.Forms.TextBox TotalFines;
-        private System.Windows.Forms.TextBox Totalregistrationfees;
-        private System.Windows.Forms.TextBox TotalShareCapital;
+        private System.Windows.Forms.TextBox totalapplicationfees;
         private System.Windows.Forms.TextBox Totalsavings;
         private System.Windows.Forms.TextBox loanrepayments;
         private System.Windows.Forms.TextBox TotalUnpaidLoans;
         private System.Windows.Forms.TextBox Totalequipmentpurchase;
         private System.Windows.Forms.TextBox Totalexpenses;
-        private DevComponents.DotNetBar.LabelX labelX24;
         private DevComponents.DotNetBar.LabelX labelX23;
-        private DevComponents.DotNetBar.LabelX labelX22;
-        private DevComponents.DotNetBar.LabelX labelX21;
         private DevComponents.DotNetBar.LabelX labelX20;
-        private System.Windows.Forms.TextBox withdrawcharges;
-        private System.Windows.Forms.TextBox Annualsubscription;
-        private System.Windows.Forms.TextBox loanprocessing;
         private System.Windows.Forms.TextBox otherincomes;
         private System.Windows.Forms.TextBox externalloans;
         private DevComponents.DotNetBar.LabelX labelX26;
@@ -1725,8 +1538,6 @@
         private DevComponents.DotNetBar.ButtonX buttonX4;
         public DevComponents.DotNetBar.Controls.TextBoxX devidendstext;
         private DevComponents.DotNetBar.LabelX labelX15;
-        private System.Windows.Forms.TextBox passledger;
-        private DevComponents.DotNetBar.LabelX labelX27;
         private System.Windows.Forms.TextBox loaninsurance;
         private DevComponents.DotNetBar.LabelX labelX16;
         private DevComponents.DotNetBar.ButtonX buttonX6;
@@ -1752,13 +1563,12 @@
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.TextBox monthlycharges;
-        private DevComponents.DotNetBar.LabelX labelX17;
         private System.Windows.Forms.TextBox investment;
         private DevComponents.DotNetBar.LabelX labelX28;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.Label label25;
-        public DevComponents.DotNetBar.Controls.TextBoxX investmentcapital;
+        public DevComponents.DotNetBar.Controls.TextBoxX investorpayounts;
         private DevComponents.DotNetBar.LabelX labelX29;
+        private System.Windows.Forms.Label label26;
     }
 }

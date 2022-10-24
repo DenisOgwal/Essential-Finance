@@ -64,7 +64,7 @@ namespace Banking_System
                 if (rdr.Read())
                 {
                     companyname = rdr.GetString(1).Trim();
-                    companyaddress = rdr.GetString(5).Trim();
+                    companyaddress = rdr.GetString(7).Trim();
                     companyslogan = rdr.GetString(2).Trim();
                     companycontact = rdr.GetString(4).Trim();
                     companyemail = rdr.GetString(3).Trim();
@@ -310,6 +310,7 @@ namespace Banking_System
         private void buttonX8_Click(object sender, EventArgs e)
         {
             company();
+            company2();
             try
             {
                 if (AccountNumber2.Text == "")
@@ -387,6 +388,10 @@ namespace Banking_System
                         myDA.SelectCommand = MyCommand;
                         myDA.Fill(myDS, "RepaymentSchedule");
                         rpt.SetDataSource(myDS);
+                        rpt.SetParameterValue("accountnumber", accountnumber);
+                        rpt.SetParameterValue("accountnumber1", accountnumber1);
+                        rpt.SetParameterValue("bank1", bank1);
+                        rpt.SetParameterValue("bank2", bank2);
                         rpt.SetParameterValue("comanyname", companyname);
                         rpt.SetParameterValue("companyemail", companyemail);
                         rpt.SetParameterValue("companycontact", companycontact);
@@ -407,7 +412,40 @@ namespace Banking_System
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+        SqlDataReader rdr = null;
+        string accountnumber = "N/A"; string accountnumber1 = "N/A"; string bank1 = "N/A"; string bank2 = "N/A";
+        public void company2()
+        {
+            try
+            {
+                SqlConnection CN1 = new SqlConnection(cs.DBConn);
+                CN1.Open();
+                string SelectCommand1 = "SELECT AccountNumber,BankNo,AccountNames FROM BankAccounts order by ID ASC";
+                cmd = new SqlCommand(SelectCommand1);
+                cmd.Connection = CN1;
+                rdr = cmd.ExecuteReader();
+                while (rdr.Read())
+                {
+                    if (rdr["BankNo"].ToString().Trim() == "Bank 1")
+                    {
+                        accountnumber = rdr["AccountNumber"].ToString().Trim();
+                        bank1 = rdr["AccountNames"].ToString().Trim();
+                    }
+                   
+                    if (rdr["BankNo"].ToString().Trim() == "Bank 2")
+                    {
+                        accountnumber1 = rdr["AccountNumber"].ToString().Trim();
+                        bank2 = rdr["AccountNames"].ToString().Trim();
+                    }
+                  
 
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
         private void AccountNumber2_Click(object sender, EventArgs e)
         {
             try

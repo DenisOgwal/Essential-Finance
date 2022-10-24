@@ -427,6 +427,7 @@
             this.accountnumber.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.accountnumber.TabIndex = 0;
             this.accountnumber.SelectedIndexChanged += new System.EventHandler(this.accountnumber2_SelectedIndexChanged);
+            this.accountnumber.TextChanged += new System.EventHandler(this.accountnumber_TextChanged);
             this.accountnumber.Click += new System.EventHandler(this.accountnumber2_Click);
             // 
             // labelX19

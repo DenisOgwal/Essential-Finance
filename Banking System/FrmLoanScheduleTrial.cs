@@ -17,9 +17,6 @@ namespace Banking_System
         DataTable dt = new DataTable();
         ConnectionString cs = new ConnectionString();
         SqlDataReader rdr = null;
-        SqlCommand cmd2 = null;
-        SqlDataReader rdr2 = null;
-        SqlDataAdapter adp = null;
         int[] monthscount = new int[100];
         string repaymentmonths = null;
         string repaymentdate = null;
@@ -207,6 +204,7 @@ namespace Banking_System
             {
                 realid = 1;
             }
+            con.Close();
             string convertedid = "";
             if (realid < 10)
             {
@@ -437,6 +435,7 @@ namespace Banking_System
                             }
 
                         }
+                        con.Close();
                         con = new SqlConnection(cs.DBConn);
                         con.Open();
                         string cb = "insert into TAmortisationSchedule(LoanID,AccountNumber,Months,PaymentDate,TotalAmmount,AmmountPay,Interest,BalanceExist,BeginningBalance,AccountName) VALUES (@d1,@d2,@d3,@d4,@d5,@d6,@d7,@d8,@d9,@d10)";
@@ -612,7 +611,7 @@ namespace Banking_System
                                 ids = Convert.ToInt32(rdr[4]);
                                 //con.Close();
                             }
-                           
+                            con.Close();
                         }
                         else
                         {
@@ -629,7 +628,7 @@ namespace Banking_System
                                 ids = Convert.ToInt32(rdr[4]);
                                 //con.Close();
                             }
-                           
+                            con.Close();
                         }
                         con = new SqlConnection(cs.DBConn);
                         con.Open();
@@ -693,6 +692,7 @@ namespace Banking_System
                         rpt.SetParameterValue("companyaddress", companyaddress);
                         rpt.SetParameterValue("picpath", "logo.jpg");
                         frm3.crystalReportViewer1.ReportSource = rpt;
+                        myConnection.Close();
                         frm3.ShowDialog();
                     }
                     else if (AmortisationMethod.Text.Trim() == "Flat Rate")
@@ -718,6 +718,7 @@ namespace Banking_System
                             rpt.SetParameterValue("companyaddress", companyaddress);
                             rpt.SetParameterValue("picpath", "logo.jpg");
                             frm3.crystalReportViewer1.ReportSource = rpt;
+                        myConnection.Close();
                             frm3.ShowDialog();
                         }
                 }
@@ -750,7 +751,7 @@ namespace Banking_System
                 if (rdr.Read())
                 {
                     companyname = rdr.GetString(1).Trim();
-                    companyaddress = rdr.GetString(5).Trim();
+                    companyaddress = rdr.GetString(7).Trim();
                     companyslogan = rdr.GetString(2).Trim();
                     companycontact = rdr.GetString(4).Trim();
                     companyemail = rdr.GetString(3).Trim();
@@ -759,6 +760,7 @@ namespace Banking_System
                 {
 
                 }
+                con.Close();
             }
             catch (Exception ex)
             {
@@ -796,6 +798,7 @@ namespace Banking_System
                         rpt.SetParameterValue("companyaddress", companyaddress);
                         rpt.SetParameterValue("picpath", "logo.jpg");
                         frm3.crystalReportViewer1.ReportSource = rpt;
+                        myConnection.Close();
                         frm3.ShowDialog();
                     }
                     else if (AmortisationMethod.Text.Trim() == "Flat Rate")
@@ -821,6 +824,7 @@ namespace Banking_System
                         rpt.SetParameterValue("companyaddress", companyaddress);
                         rpt.SetParameterValue("picpath", "logo.jpg");
                         frm3.crystalReportViewer1.ReportSource = rpt;
+                        myConnection.Close();
                         frm3.ShowDialog();
                     }
                 }

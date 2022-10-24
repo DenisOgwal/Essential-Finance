@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using Excel = Microsoft.Office.Interop.Excel;
@@ -35,7 +31,7 @@ namespace Banking_System
                 frmEmployeeDetails frm = new frmEmployeeDetails();
                 // or simply use column name instead of index
                 //dr.Cells["id"].Value.ToString();
-                frm.Show();
+               
                 frm.txtStaffID.Text = dr.Cells[0].Value.ToString();
                 frm.txtStaffName.Text = dr.Cells[1].Value.ToString();
                 frm.cmbGender.Text = dr.Cells[3].Value.ToString();
@@ -62,6 +58,7 @@ namespace Banking_System
                 frm.pictureBox1.Image = Image.FromStream(ms);
                 frm.label21.Text = label1.Text;
                 frm.label24.Text = label2.Text;
+                frm.ShowDialog();
 
 
             }
@@ -102,6 +99,7 @@ namespace Banking_System
                 {
                     cmbEmployeeName.Items.Add(drow[0].ToString());
                 }
+                CN.Close();
             }
             catch (Exception ex)
             {
@@ -123,7 +121,7 @@ namespace Banking_System
                 DataGridViewRow dr = dataGridView2.SelectedRows[0];
                 this.Hide();
                 frmEmployeeDetails frm = new frmEmployeeDetails();
-                frm.Show();
+               
                 frm.txtStaffID.Text = dr.Cells[0].Value.ToString();
                 frm.txtStaffName.Text = dr.Cells[1].Value.ToString();
                 frm.cmbGender.Text = dr.Cells[3].Value.ToString();
@@ -150,6 +148,7 @@ namespace Banking_System
                 frm.pictureBox1.Image = Image.FromStream(ms);
                 frm.label21.Text = label1.Text;
                 frm.label23.Text = label2.Text;
+                frm.ShowDialog();
 
             }
             catch (Exception ex)

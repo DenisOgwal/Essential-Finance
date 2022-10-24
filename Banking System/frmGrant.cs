@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Data.SqlClient;
@@ -137,7 +133,7 @@ namespace Banking_System
                 auto();
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
-                string cb = "insert into GrantFees (PaymentID,GrantedBy,Year,Months,Date,GrantFee,CashierName,Reason) VALUES (@d1,@d2,@d3,@d4,@d5,@d6,@d7,@d8)";
+                string cb = "insert into GrantFees (PaymentID,GrantedBy,Year,Months,Date,GrantFee,CashierName,Reason,ModeOfPayment) VALUES (@d1,@d2,@d3,@d4,@d5,@d6,@d7,@d8,'"+cmbModeOfPayment.Text+"')";
                 cmd = new SqlCommand(cb);
                 cmd.Connection = con;
                 cmd.Parameters.Add(new SqlParameter("@d1", System.Data.SqlDbType.NChar, 15, "PaymentID"));
@@ -162,7 +158,7 @@ namespace Banking_System
                 int totalaamount = 0;
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
-                string ct2 = "select AmountAvailable from BankAccounts where AccountNumber= '" + cmbModeOfPayment.Text + "' ";
+                string ct2 = "select AmountAvailable from BankAccounts where AccountNames= '" + cmbModeOfPayment.Text + "' ";
                 cmd = new SqlCommand(ct2);
                 cmd.Connection = con;
                 rdr = cmd.ExecuteReader();
@@ -172,12 +168,13 @@ namespace Banking_System
                     int newtotalammount = totalaamount + Convert.ToInt32(txtTotalPaid.Value);
                     con = new SqlConnection(cs.DBConn);
                     con.Open();
-                    string cb2 = "UPDate BankAccounts Set AmountAvailable='" + newtotalammount + "', Date='" + dtpPaymentDate.Text + "' where AccountNumber='" + cmbModeOfPayment.Text + "'";
+                    string cb2 = "UPDate BankAccounts Set AmountAvailable='" + newtotalammount + "', Date='" + dtpPaymentDate.Text + "' where AccountNames='" + cmbModeOfPayment.Text + "'";
                     cmd = new SqlCommand(cb2);
                     cmd.Connection = con;
                     cmd.ExecuteNonQuery();
                     con.Close();
                 }
+                con.Close();
                 MessageBox.Show("Successfully Saved", "Record", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
@@ -339,7 +336,7 @@ namespace Banking_System
                     string staffids = rdr["StaffID"].ToString().Trim();
                     con = new SqlConnection(cs.DBConn);
                     con.Open();
-                    string ct = "SELECT UserName,StaffID FROM ApprovalRights WHERE StaffID='" + staffids + "' and ManagingDirector='Yes'";
+                    string ct = "SELECT UserName,StaffID FROM ApprovalRights WHERE StaffID='" + staffids + "' and AccountantRights='Yes'";
                     cmd2 = new SqlCommand(ct);
                     cmd2.Connection = con;
                     rdr2 = cmd2.ExecuteReader();
@@ -406,6 +403,7 @@ namespace Banking_System
                     buttonX4.Enabled = true;
                     buttonX5.Enabled = true;
                 }
+                con.Close();
             }
             catch (Exception ex)
             {
@@ -422,9 +420,9 @@ namespace Banking_System
                 dtable = ds.Tables[0];
                 foreach (DataRow drow in dtable.Rows)
                 {
-                    cmbModeOfPayment.Items.Add(drow[0].ToString());
+                    cmbModeOfPayment.Items.Add(drow[1].ToString());
                 }
-
+                CN.Close();
             }
             catch (Exception ex)
             {

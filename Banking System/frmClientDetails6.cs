@@ -134,11 +134,5 @@ namespace Banking_System
                 MessageBox.Show(Ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
-        private void clientcontact_TextChanged(object sender, EventArgs e)
-        {
-           
-
-        }
     }
 }

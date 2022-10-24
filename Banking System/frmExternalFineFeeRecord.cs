@@ -27,7 +27,7 @@ namespace Banking_System
             {
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
-                cmd = new SqlCommand("select RTrim(PaymentID)[Payment ID], RTRIM(MemberID)[Loan ID], RTRIM(Year)[Year], RTRIM(Months)[Months], RTRIM(Date)[Payment Date],RTRIM(CashierName)[Recieved By], RTRIM(FineFee)[Ammount Paid], RTRIM(Reason)[Reason] from ExternalLoanFines where MemberID= '" + cmbStaffName.Text + "' order by ID Desc", con);
+                cmd = new SqlCommand("select RTrim(PaymentID)[Payment ID], RTRIM(MemberID)[Loan ID], RTRIM(Year)[Year], RTRIM(Months)[Months], RTRIM(Date)[Payment Date],RTRIM(CashierName)[Recieved By], RTRIM(FineFee)[Amount Paid], RTRIM(Reason)[Reason] from ExternalLoanFines where MemberID= '" + cmbStaffName.Text + "' order by ID Desc", con);
                 SqlDataAdapter myDA = new SqlDataAdapter(cmd);
                 DataSet myDataSet = new DataSet();
                 myDA.Fill(myDataSet, "ExternalLoanFines");
@@ -64,7 +64,7 @@ namespace Banking_System
                 SqlConnection CN = new SqlConnection(cs.DBConn);
                 CN.Open();
                 adp = new SqlDataAdapter();
-                adp.SelectCommand = new SqlCommand("SELECT distinct RTRIM(MemberID) FROM ExternalLoan", CN);
+                adp.SelectCommand = new SqlCommand("SELECT distinct RTRIM(LoansID) FROM ExternalLoans", CN);
                 ds = new DataSet("ds");
                 adp.Fill(ds);
                 dtable = ds.Tables[0];
@@ -73,6 +73,7 @@ namespace Banking_System
                 {
                     cmbStaffName.Items.Add(drow[0].ToString());
                 }
+                CN.Close();
             }
             catch (Exception ex)
             {
@@ -255,7 +256,7 @@ namespace Banking_System
             {
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
-                cmd = new SqlCommand("select RTrim(PaymentID)[Payment ID], RTRIM(MemberID)[Loan ID], RTRIM(Year)[Year], RTRIM(Months)[Months], RTRIM(Date)[Payment Date],RTRIM(CashierName)[Recieved By], RTRIM(FineFee)[Ammount Paid], RTRIM(Reason)[Reason]from ExternalLoanFines where  Date between @date1 and @date2 order by Date", con);
+                cmd = new SqlCommand("select RTrim(PaymentID)[Payment ID], RTRIM(MemberID)[Loan ID], RTRIM(Year)[Year], RTRIM(Months)[Months], RTRIM(Date)[Payment Date],RTRIM(CashierName)[Recieved By], RTRIM(FineFee)[Amount Paid], RTRIM(Reason)[Reason]from ExternalLoanFines where  Date between @date1 and @date2 order by Date", con);
                 cmd.Parameters.Add("@date1", SqlDbType.DateTime, 30, "Date").Value = DateFrom.Value.Date;
                 cmd.Parameters.Add("@date2", SqlDbType.DateTime, 30, "Date").Value = DateTo.Value.Date;
                 SqlDataAdapter myDA = new SqlDataAdapter(cmd);

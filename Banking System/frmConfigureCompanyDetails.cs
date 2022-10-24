@@ -18,16 +18,6 @@ namespace Banking_System
         {
             InitializeComponent();
         }
-
-        private void Button1_Click(object sender, EventArgs e)
-        {
-           
-        }
-
-        private void ChangePassword_FormClosing(object sender, FormClosingEventArgs e)
-        {
-          
-        }
         private void buttonX1_Click(object sender, EventArgs e)
         {
             try
@@ -106,6 +96,7 @@ namespace Banking_System
                     address.Text = rdr["Address"].ToString();
                    
                 }
+                con.Close();
             }
             catch (Exception ex)
             {
@@ -210,6 +201,50 @@ namespace Banking_System
                     textBoxX1.Text = openFileDialog1.FileName;
                     label10.Text = System.IO.Path.GetFileName(openFileDialog1.FileName);
                 }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void textBoxX2_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var _with1 = openFileDialog1;
+                _with1.Filter = ("Document |*.pdf;");
+                _with1.FilterIndex = 4;
+                //Clear the file name
+                openFileDialog1.FileName = "";
+                if (openFileDialog1.ShowDialog() == DialogResult.OK)
+                {
+                    textBoxX2.Text = openFileDialog1.FileName;
+                    label8.Text = System.IO.Path.GetFileName(openFileDialog1.FileName);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void buttonX3_Click_1(object sender, EventArgs e)
+        {
+            try
+            {
+                string sourceFile = textBoxX2.Text;
+                string destfileFile = @"\EssentialFinanceFIles";
+                bool exists = System.IO.Directory.Exists(destfileFile);
+
+                if (exists)
+                {
+                    string destFile = Path.Combine(destfileFile, "Manual.pdf");
+                    File.Copy(sourceFile, destFile, true);
+                    File.SetAttributes(destFile, FileAttributes.Normal);
+                    MessageBox.Show("Successful", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+
             }
             catch (Exception ex)
             {

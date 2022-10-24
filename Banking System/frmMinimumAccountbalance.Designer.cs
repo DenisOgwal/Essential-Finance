@@ -238,7 +238,7 @@
             this.interestrate.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.interestrate.Location = new System.Drawing.Point(223, 21);
             this.interestrate.Name = "interestrate";
-            this.interestrate.Size = new System.Drawing.Size(138, 29);
+            this.interestrate.Size = new System.Drawing.Size(188, 29);
             this.interestrate.TabIndex = 7;
             // 
             // chairperson
@@ -268,7 +268,7 @@
             this.chairpersonid.Location = new System.Drawing.Point(223, 55);
             this.chairpersonid.Name = "chairpersonid";
             this.chairpersonid.PasswordChar = '*';
-            this.chairpersonid.Size = new System.Drawing.Size(138, 29);
+            this.chairpersonid.Size = new System.Drawing.Size(188, 29);
             this.chairpersonid.TabIndex = 5;
             this.chairpersonid.TextChanged += new System.EventHandler(this.chairpersonid_TextChanged);
             // 

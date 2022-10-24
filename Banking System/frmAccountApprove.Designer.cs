@@ -177,8 +177,7 @@
             this.accountnumber.Name = "accountnumber";
             this.accountnumber.Size = new System.Drawing.Size(400, 29);
             this.accountnumber.TabIndex = 8;
-            this.accountnumber.TextChanged += new System.EventHandler(this.accountnumber_TextChanged);
-            // 
+            
             // Accounttype
             // 
             this.Accounttype.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -328,8 +327,7 @@
             this.labelX9.Size = new System.Drawing.Size(97, 23);
             this.labelX9.TabIndex = 0;
             this.labelX9.Text = "Approval ID";
-            this.labelX9.Click += new System.EventHandler(this.labelX9_Click);
-            // 
+            
             // date
             // 
             this.date.CustomFormat = "dd/MMM/yyyy";
@@ -778,8 +776,7 @@
             // 
             // printDocument1
             // 
-            this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
-            // 
+           
             // printPreviewDialog1
             // 
             this.printPreviewDialog1.AutoScrollMargin = new System.Drawing.Size(0, 0);

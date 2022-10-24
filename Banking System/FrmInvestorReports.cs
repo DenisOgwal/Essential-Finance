@@ -59,7 +59,7 @@ namespace Banking_System
                 if (rdr.Read())
                 {
                     companyname = rdr.GetString(1).Trim();
-                    companyaddress = rdr.GetString(5).Trim();
+                    companyaddress = rdr.GetString(7).Trim();
                     companyslogan = rdr.GetString(2).Trim();
                     companycontact = rdr.GetString(4).Trim();
                     companyemail = rdr.GetString(3).Trim();
@@ -68,6 +68,7 @@ namespace Banking_System
                 {
 
                 }
+                con.Close();
             }
             catch (Exception ex)
             {
@@ -104,6 +105,7 @@ namespace Banking_System
                 rpt.SetParameterValue("companyaddress", companyaddress);
                 rpt.SetParameterValue("picpath", "logo.jpg");
                 crystalReportViewer1.ReportSource = rpt;
+                myConnection.Close();
 
             }
             catch (Exception ex)
@@ -149,6 +151,7 @@ namespace Banking_System
                 rpt.SetParameterValue("companyaddress", companyaddress);
                 rpt.SetParameterValue("picpath", "logo.jpg");
                 crystalReportViewer2.ReportSource = rpt;
+                myConnection.Close();
 
             }
             catch (Exception ex)
@@ -188,6 +191,7 @@ namespace Banking_System
                 rpt.SetParameterValue("companyaddress", companyaddress);
                 rpt.SetParameterValue("picpath", "logo.jpg");
                 crystalReportViewer3.ReportSource = rpt;
+                myConnection.Close();
             }
             catch (Exception ex)
             {
@@ -216,12 +220,12 @@ namespace Banking_System
                 myConnection = new SqlConnection(cs.DBConn);
                 myConnection.Open();
                 MyCommand.Connection = myConnection;
-                MyCommand.CommandText = "select  * from InvestorSavings where Date between @date1 and @date2  order by ID ASC ";
+                MyCommand.CommandText = "select  * from InvestmentAppreciation where Date between @date1 and @date2 and Approved='Approved'  order by ID ASC ";
                 MyCommand.Parameters.Add("@date1", SqlDbType.DateTime, 30, "Date").Value = transactionsfrom.Value.Date;
                 MyCommand.Parameters.Add("@date2", SqlDbType.DateTime, 30, "Date").Value = transactionsto.Value.Date;
                 MyCommand.CommandType = CommandType.Text;
                 myDA.SelectCommand = MyCommand;
-                myDA.Fill(myDS, "InvestorSavings");
+                myDA.Fill(myDS, "InvestmentAppreciation");
                 rpt.SetDataSource(myDS);
                 rpt.SetParameterValue("datefrom", transactionsfrom.Text);
                 rpt.SetParameterValue("dateto", transactionsto.Text);
@@ -232,7 +236,286 @@ namespace Banking_System
                 rpt.SetParameterValue("companyaddress", companyaddress);
                 rpt.SetParameterValue("picpath", "logo.jpg");
                 crystalReportViewer4.ReportSource = rpt;
+                myConnection.Close();
 
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void accountnumber_Click(object sender, EventArgs e)
+        {
+            frmClientDetails2 frm = new frmClientDetails2();
+            frm.ShowDialog();
+            this.accountnumber.Text = frm.clientnames.Text;
+            return;
+        }
+        SqlDataReader rdr = null;
+        private void accountnumber_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                con = new SqlConnection(cs.DBConn);
+                con.Open();
+                cmd = con.CreateCommand();
+                cmd.CommandText = "SELECT distinct RTRIM(SavingsID) FROM InvestorSavings where AccountNo='" + accountnumber.Text + "'";
+                rdr = cmd.ExecuteReader();
+                savingsid.Items.Clear();
+                while (rdr.Read() == true)
+                {
+                    savingsid.Items.Add(rdr.GetString(0).Trim());
+                }
+                con.Close();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void buttonX2_Click(object sender, EventArgs e)
+        {
+            crystalReportViewer5.ReportSource = null;
+            accountnumber.Text = "";
+            savingsid.Text = "";
+        }
+        string maturitydate, investmentplan, maturityperiod, investmentrate = null;
+
+        private void accountnumber1_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                con = new SqlConnection(cs.DBConn);
+                con.Open();
+                cmd = con.CreateCommand();
+                cmd.CommandText = "SELECT distinct RTRIM(SavingsID) FROM InvestorSavings where AccountNo='" + accountnumber1.Text + "'";
+                rdr = cmd.ExecuteReader();
+                savingsid1.Items.Clear();
+                while (rdr.Read() == true)
+                {
+                    savingsid1.Items.Add(rdr.GetString(0).Trim());
+                }
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void accountnumber1_Click(object sender, EventArgs e)
+        {
+            frmClientDetails2 frm = new frmClientDetails2();
+            frm.ShowDialog();
+            this.accountnumber1.Text = frm.clientnames.Text;
+            return;
+        }
+
+        private void buttonX25_Click(object sender, EventArgs e)
+        {
+            crystalReportViewer7.ReportSource = null;
+            Daysleft.Text = "";
+            upcomingdate.Text = DateTime.Today.ToString();
+        }
+        int daynum = 0;
+        private void buttonX27_Click(object sender, EventArgs e)
+        {
+            company();
+            try
+            {
+                daynum = Convert.ToInt32(Daysleft.Text);
+                DateTime schedule = DateTime.Parse(upcomingdate.Text).Date;
+                string paymentdates = (schedule.AddDays(daynum)).ToShortDateString();
+                DateTime dt = DateTime.Parse(paymentdates);
+                string repaymentdates = dt.ToString("dd/MMM/yyyy");
+
+                SqlConnection myConnection = default(SqlConnection);
+                SqlCommand MyCommand = new SqlCommand();
+                SqlDataAdapter myDA = new SqlDataAdapter();
+                DataSet myDS = new DataSet();
+                rptInvestmentss rpt = new rptInvestmentss();
+                //The DataSet you created.
+                myConnection = new SqlConnection(cs.DBConn);
+                myConnection.Open();
+                MyCommand.Connection = myConnection;
+                MyCommand.CommandText = "select  * from InvestorSavings where OtherMaturityDate <= @date1 order by ID ASC ";
+                MyCommand.Parameters.Add("@date1", SqlDbType.DateTime, 30, "OtherMaturityDate").Value = DateTime.Parse(repaymentdates).Date;
+                MyCommand.CommandType = CommandType.Text;
+                myDA.SelectCommand = MyCommand;
+                myDA.Fill(myDS, "InvestorSavings");
+                rpt.SetDataSource(myDS);
+                rpt.SetParameterValue("datefrom", repaymentdates);
+                rpt.SetParameterValue("comanyname", companyname);
+                rpt.SetParameterValue("companyemail", companyemail);
+                rpt.SetParameterValue("companycontact", companycontact);
+                rpt.SetParameterValue("companyslogan", companyslogan);
+                rpt.SetParameterValue("companyaddress", companyaddress);
+                rpt.SetParameterValue("picpath", "logo.jpg");
+                crystalReportViewer7.ReportSource = rpt;
+                myConnection.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void accountno4_Click(object sender, EventArgs e)
+        {
+            frmClientDetails2 frm = new frmClientDetails2();
+            frm.ShowDialog();
+            this.accountno4.Text = frm.clientnames.Text;
+            return;
+        }
+
+        private void accountno4_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                con = new SqlConnection(cs.DBConn);
+                con.Open();
+                cmd = con.CreateCommand();
+                cmd.CommandText = "SELECT distinct RTRIM(SavingsID) FROM InvestorSavings where AccountNo='" + accountno4.Text + "'";
+                rdr = cmd.ExecuteReader();
+                savingsid.Items.Clear();
+                while (rdr.Read() == true)
+                {
+                    accounttrans.Items.Add(rdr.GetString(0).Trim());
+                }
+                con.Close();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void buttonX12_Click(object sender, EventArgs e)
+        {
+            company();
+
+            try
+            {
+                con = new SqlConnection(cs.DBConn);
+                con.Open();
+                cmd = con.CreateCommand();
+                cmd.CommandText = "SELECT OtherMaturityDate,MaturityPeriod,InterestRate,InvestmentPlan  FROM InvestorSavings where AccountNo='" + accountnumber1.Text + "' and SavingsID='" + savingsid1.Text + "' ";
+                rdr = cmd.ExecuteReader();
+                savingsid.Items.Clear();
+                if (rdr.Read())
+                {
+                    maturitydate = rdr["OtherMaturityDate"].ToString();
+                    investmentplan = rdr["InvestmentPlan"].ToString();
+                    maturityperiod = rdr["MaturityPeriod"].ToString();
+                    investmentrate = rdr["InterestRate"].ToString();
+                }
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            try
+            {
+                //this.Hide();
+                Cursor = Cursors.WaitCursor;
+                //timer1.Enabled = true;
+                rptLegalCertificate rpt = new rptLegalCertificate(); //The report you created.
+                SqlConnection myConnection = default(SqlConnection);
+                SqlCommand MyCommand = new SqlCommand();
+                SqlDataAdapter myDA = new SqlDataAdapter();
+                DataSet myDS = new DataSet(); //The DataSet you created.
+                myConnection = new SqlConnection(cs.DBConn);
+                MyCommand.Connection = myConnection;
+                MyCommand.CommandText = "select * from InvestmentSchedule where InvestmentID='" + savingsid1.Text + "'";
+                MyCommand.CommandType = CommandType.Text;
+                myDA.SelectCommand = MyCommand;
+                myDA.Fill(myDS, "InvestmentSchedule");
+                rpt.SetDataSource(myDS);
+                rpt.SetParameterValue("investmentterm", maturityperiod);
+                rpt.SetParameterValue("investmentplan", investmentplan);
+                rpt.SetParameterValue("maturitydate", maturitydate);
+                rpt.SetParameterValue("monthlyrate", investmentrate);
+                rpt.SetParameterValue("comanyname", companyname);
+                rpt.SetParameterValue("companyemail", companyemail);
+                rpt.SetParameterValue("companycontact", companycontact);
+                rpt.SetParameterValue("companyslogan", companyslogan);
+                rpt.SetParameterValue("companyaddress", companyaddress);
+                rpt.SetParameterValue("picpath", "logo.jpg");
+                crystalReportViewer6.ReportSource = rpt;
+                myConnection.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void buttonX8_Click(object sender, EventArgs e)
+        {
+            crystalReportViewer6.ReportSource = null;
+            accountnumber1.Text = "";
+            savingsid1.Text = "";
+        }
+
+        private void buttonX5_Click(object sender, EventArgs e)
+        {
+            company();
+
+            try
+            {
+                con = new SqlConnection(cs.DBConn);
+                con.Open();
+                cmd = con.CreateCommand();
+                cmd.CommandText = "SELECT OtherMaturityDate,MaturityPeriod,InterestRate,InvestmentPlan  FROM InvestorSavings where AccountNo='" + accountnumber.Text + "' and SavingsID='"+savingsid.Text+"' ";
+                rdr = cmd.ExecuteReader();
+                savingsid.Items.Clear();
+                if (rdr.Read())
+                {
+                    maturitydate = rdr["OtherMaturityDate"].ToString();
+                    investmentplan = rdr["InvestmentPlan"].ToString();
+                    maturityperiod = rdr["MaturityPeriod"].ToString();
+                    investmentrate = rdr["InterestRate"].ToString();
+                }
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            try
+            {
+                //this.Hide();
+                Cursor = Cursors.WaitCursor;
+                //timer1.Enabled = true;
+                RptInvestmentSchedule rpt = new RptInvestmentSchedule(); //The report you created.
+                SqlConnection myConnection = default(SqlConnection);
+                SqlCommand MyCommand = new SqlCommand();
+                SqlDataAdapter myDA = new SqlDataAdapter();
+                DataSet myDS = new DataSet(); //The DataSet you created.
+                myConnection = new SqlConnection(cs.DBConn);
+                MyCommand.Connection = myConnection;
+                MyCommand.CommandText = "select * from InvestmentSchedule where InvestmentID='" + savingsid.Text + "'";
+                MyCommand.CommandType = CommandType.Text;
+                myDA.SelectCommand = MyCommand;
+                myDA.Fill(myDS, "InvestmentSchedule");
+                rpt.SetDataSource(myDS);
+                rpt.SetParameterValue("investmentterm", maturityperiod);
+                rpt.SetParameterValue("investmentplan", investmentplan);
+                rpt.SetParameterValue("maturitydate", maturitydate);
+                rpt.SetParameterValue("monthlyrate", investmentrate);
+                rpt.SetParameterValue("comanyname", companyname);
+                rpt.SetParameterValue("companyemail", companyemail);
+                rpt.SetParameterValue("companycontact", companycontact);
+                rpt.SetParameterValue("companyslogan", companyslogan);
+                rpt.SetParameterValue("companyaddress", companyaddress);
+                rpt.SetParameterValue("picpath", "logo.jpg");
+                crystalReportViewer5.ReportSource = rpt;
+                myConnection.Close();
             }
             catch (Exception ex)
             {

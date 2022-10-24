@@ -73,6 +73,7 @@ namespace Banking_System
                     staffid.Items.Add(drow[0].ToString());
                     memberid2.Items.Add(drow[0].ToString());
                 }
+                CN.Close();
             }
             catch (Exception ex)
             {
@@ -95,6 +96,7 @@ namespace Banking_System
                 {
                     memberid1.Items.Add(drow[0].ToString());
                 }
+                CN.Close();
             }
             catch (Exception ex)
             {
@@ -126,7 +128,7 @@ namespace Banking_System
             this.Height = Screen.PrimaryScreen.WorkingArea.Height;
             this.MaximumSize = Screen.PrimaryScreen.WorkingArea.Size;
              cashiers();
-            cashiers2();
+             cashiers2();
              dataload();
              try
              {
@@ -149,6 +151,7 @@ namespace Banking_System
                      safebalance.Text = "0";
                      label3.Text = "0";
                  }
+                con.Close();
              }
              catch (Exception ex)
              {
@@ -175,6 +178,7 @@ namespace Banking_System
                      buttonX3.Enabled = true;
                      buttonX4.Enabled = true;
                  }
+                con.Close();
              }
              catch (Exception ex)
              {
@@ -336,6 +340,7 @@ namespace Banking_System
                         cmd.Parameters["@d1"].Value = transferid.Text;
                         cmd.Parameters["@d2"].Value = staffname.Text;         
                         cmd.ExecuteNonQuery();
+                        con.Close();
                     }
                     else
                     {
@@ -406,6 +411,7 @@ namespace Banking_System
                         cmd.Parameters["@d1"].Value = transferid.Text;
                         cmd.Parameters["@d2"].Value = staffname.Text;
                         cmd.ExecuteNonQuery();
+                        con.Close();
                     }
                    
                 }
@@ -513,19 +519,6 @@ namespace Banking_System
             }
            
         }
-
-        
-
-        private void memberid_TextChanged(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void cashierid_TextChanged(object sender, EventArgs e)
-        {
-            
-        }
-
         private void buttonX4_Click(object sender, EventArgs e)
         {
              if (transferid.Text == "")
@@ -635,13 +628,6 @@ namespace Banking_System
             }
             
         }
-
-       
-        private void buttonX5_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void buttonX8_Click(object sender, EventArgs e)
         {
             try
@@ -767,6 +753,7 @@ namespace Banking_System
                 {
                     transactionid.Items.Add(drow[0].ToString());
                 }
+                con.Close();
             }
             catch (Exception ex)
             {
@@ -840,31 +827,6 @@ namespace Banking_System
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }
-
-        private void membername1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void labelX8_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dataGridViewX1_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-           
-        }
-
-        private void withdrawcharge_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void labelX13_Click(object sender, EventArgs e)
-        {
-
         }
         public byte[] AES_Encrypt(byte[] bytesToBeEncrypted, byte[] passwordBytes)
         {
@@ -1000,7 +962,7 @@ namespace Banking_System
                     {
                         con = new SqlConnection(cs.DBConn);
                         con.Open();
-                        cmd = new SqlCommand("select Withdraw from Savings where Date ='" + date2.Text + "'and Transactions ='Withdraw ' and CashierName='" + staffname.Text + "'", con);
+                        cmd = new SqlCommand("select Deposit from Savings where Date ='" + date2.Text + "'and Transactions ='Withdraw ' and CashierName='" + staffname.Text + "'", con);
                         cmd.Connection = con;
                         rdr = cmd.ExecuteReader();
                         if (rdr.Read())
@@ -1013,13 +975,15 @@ namespace Banking_System
 
                             con = new SqlConnection(cs.DBConn);
                             con.Open();
-                            cmd = new SqlCommand("select SUM(Withdraw) from Savings where Date='" + date2.Text + "' and Transactions ='Withdraw ' and CashierName='" + staffname.Text + "'", con);
+                            cmd = new SqlCommand("select SUM(Deposit) from Savings where Date='" + date2.Text + "' and Transactions ='Withdraw ' and CashierName='" + staffname.Text + "'", con);
                             withdraws = Convert.ToInt32(cmd.ExecuteScalar());
+                        con.Close();
                         }
                         else
                         {
                             withdraws = 0;
                         }
+                    con.Close();
                     }
                     catch (Exception ex)
                     {
@@ -1044,104 +1008,21 @@ namespace Banking_System
                             con.Open();
                             cmd = new SqlCommand("select SUM(TotalPaid) from Expenses where  Date='" + date2.Text + "' and CashierID='" + staffname.Text + "'", con);
                             expenses = Convert.ToInt32(cmd.ExecuteScalar());
+                        con.Close();
                         }
                         else
                         {
                             expenses = 0;
                         }
+                    con.Close();
                     }
                     catch (Exception ex)
                     {
                         MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
 
-                    try
-                    {
-                        con = new SqlConnection(cs.DBConn);
-                        con.Open();
-                        cmd = new SqlCommand("select Ammount from IssuedLoans where  Date='" + date2.Text + "' and CashierName='" + staffname.Text + "' ", con);
-                        cmd.Connection = con;
-                        rdr = cmd.ExecuteReader();
-                        if (rdr.Read())
-                        {
-                            if ((rdr != null))
-                            {
-                                rdr.Close();
-                            }
-                            con.Close();
-
-                            con = new SqlConnection(cs.DBConn);
-                            con.Open();
-                            cmd = new SqlCommand("select SUM(Ammount) from IssuedLoans where  Date='" + date2.Text + "' and CashierName='" + staffname.Text + "'", con);
-                            issuedloans = Convert.ToInt32(cmd.ExecuteScalar());
-                        }
-                        else
-                        {
-                            issuedloans = 0;
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                    try
-                    {
-                        con = new SqlConnection(cs.DBConn);
-                        con.Open();
-                        cmd = new SqlCommand("select PassLedgerLoanAmmount from PassLedgerLoanFees where Date='" + date2.Text + "' and CashierName='" + staffname.Text + "' ", con);
-                        cmd.Connection = con;
-                        rdr = cmd.ExecuteReader();
-                        if (rdr.Read())
-                        {
-                            if ((rdr != null))
-                            {
-                                rdr.Close();
-                            }
-                            con.Close();
-
-                            con = new SqlConnection(cs.DBConn);
-                            con.Open();
-                            cmd = new SqlCommand("select SUM(PassLedgerLoanAmmount) from PassLedgerLoanFees where Date='" + date2.Text + "'and CashierName='" + staffname.Text + "'", con);
-                            passledgerform = Convert.ToInt32(cmd.ExecuteScalar());
-                        }
-                        else
-                        {
-                            passledgerform = 0;
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                    try
-                    {
-                        con = new SqlConnection(cs.DBConn);
-                        con.Open();
-                        cmd = new SqlCommand("select InsuranceAmmount from LoanInsuranceFees where Date='" + date2.Text + "'and CashierName='" + staffname.Text + "' ", con);
-                        cmd.Connection = con;
-                        rdr = cmd.ExecuteReader();
-                        if (rdr.Read())
-                        {
-                            if ((rdr != null))
-                            {
-                                rdr.Close();
-                            }
-                            con.Close();
-
-                            con = new SqlConnection(cs.DBConn);
-                            con.Open();
-                            cmd = new SqlCommand("select SUM(InsuranceAmmount) from LoanInsuranceFees where Date='" + date2.Text + "'and CashierName='" + staffname.Text + "'", con);
-                            loaninsurance = Convert.ToInt32(cmd.ExecuteScalar());
-                        }
-                        else
-                        {
-                            loaninsurance = 0;
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
+                  
+                   
                     try
                     {
                         con = new SqlConnection(cs.DBConn);
@@ -1161,11 +1042,13 @@ namespace Banking_System
                             con.Open();
                             cmd = new SqlCommand("select SUM(AmmountPaid) from Loanrepayment where Repaymentdate='" + date2.Text + "'and CashierName='" + staffname.Text + "'", con);
                             loanrepayment = Convert.ToInt32(cmd.ExecuteScalar());
+                        con.Close();
                         }
                         else
                         {
                             loanrepayment = 0;
                         }
+                    con.Close();
                     }
                     catch (Exception ex)
                     {
@@ -1190,75 +1073,19 @@ namespace Banking_System
                             con.Open();
                             cmd = new SqlCommand("select SUM(OtherFee) from OtherIncomes where Date='" + date2.Text + "' and CashierName='" + staffname.Text + "'", con);
                             otherincomes = Convert.ToInt32(cmd.ExecuteScalar());
+                        con.Close();
                         }
                         else
                         {
                             otherincomes = 0;
                         }
+                    con.Close();
                     }
                     catch (Exception ex)
                     {
                         MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
-                    try
-                    {
-                        con = new SqlConnection(cs.DBConn);
-                        con.Open();
-                        cmd = new SqlCommand("select RegistrationAmmount from LoanProcessingFees where Date='" + date2.Text + "' and CashierName='" + staffname.Text + "' ", con);
-                        cmd.Connection = con;
-                        rdr = cmd.ExecuteReader();
-                        if (rdr.Read())
-                        {
-                            if ((rdr != null))
-                            {
-                                rdr.Close();
-                            }
-                            con.Close();
-
-                            con = new SqlConnection(cs.DBConn);
-                            con.Open();
-                            cmd = new SqlCommand("select SUM(RegistrationAmmount) from LoanProcessingFees where Date='" + date2.Text + "' and CashierName='" + staffname.Text + "'", con);
-                            loanprocessingfees = Convert.ToInt32(cmd.ExecuteScalar());
-                        }
-                        else
-                        {
-                            loanprocessingfees = 0;
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                    try
-                    {
-                        con = new SqlConnection(cs.DBConn);
-                        con.Open();
-                        cmd = new SqlCommand("select AnnualAmmount from AnnualFeesPayment where Date='" + date2.Text + "' and CashierName='" + staffname.Text + "' ", con);
-                        cmd.Connection = con;
-                        rdr = cmd.ExecuteReader();
-                        if (rdr.Read())
-                        {
-                            if ((rdr != null))
-                            {
-                                rdr.Close();
-                            }
-                            con.Close();
-
-                            con = new SqlConnection(cs.DBConn);
-                            con.Open();
-                            cmd = new SqlCommand("select SUM(AnnualAmmount) from AnnualFeesPayment where Date ='" + date2.Text + "' and CashierName='" + staffname.Text + "'", con);
-                            annualfeespayment = Convert.ToInt32(cmd.ExecuteScalar());
-                        }
-                        else
-                        {
-                            annualfeespayment = 0;
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-
+                 
                     //savings
                     try
                     {
@@ -1279,18 +1106,20 @@ namespace Banking_System
                             con.Open();
                             cmd = new SqlCommand("select SUM(Deposit) from Savings where Date='" + date2.Text + "'and Transactions ='Deposit' and CashierName='" + staffname.Text + "'", con);
                             savings = Convert.ToInt32(cmd.ExecuteScalar());
+                        con.Close();
                         }
                         else
                         {
                             savings = 0;
                         }
+                    con.Close();
                     }
                     catch (Exception)
                     {
                         MessageBox.Show("Savings  sum failed", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
-                    //
-                    try
+                    
+                   try
                     {
                         con = new SqlConnection(cs.DBConn);
                         con.Open();
@@ -1309,11 +1138,13 @@ namespace Banking_System
                             con.Open();
                             cmd = new SqlCommand("select SUM(DepositedAmmount) from ShareCapital where Date='" + date2.Text + "' and  DepositedAmmount !='' and CashierName='" + staffname.Text + "'", con);
                             sharecapital = Convert.ToInt32(cmd.ExecuteScalar());
+                        con.Close();
                         }
                         else
                         {
                             sharecapital = 0;
                         }
+                    con.Close();
                     }
                     catch (Exception)
                     {
@@ -1338,45 +1169,19 @@ namespace Banking_System
                             con.Open();
                             cmd = new SqlCommand("select SUM(RegistrationAmmount) from RegistrationFees where Date='" + date2.Text + "' and CashierName='" + staffname.Text + "'", con);
                             registration = Convert.ToInt32(cmd.ExecuteScalar());
+                        con.Close();
                         }
                         else
                         {
                             registration = 0;
                         }
+                    con.Close();
                     }
                     catch (Exception)
                     {
                         MessageBox.Show("Registration fees sum failed", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
-                    try
-                    {
-                        con = new SqlConnection(cs.DBConn);
-                        con.Open();
-                        cmd = new SqlCommand("select Finefee from Fines where Date='" + date2.Text + "' and CashierName='" + staffname.Text + "'", con);
-                        cmd.Connection = con;
-                        rdr = cmd.ExecuteReader();
-                        if (rdr.Read())
-                        {
-                            if ((rdr != null))
-                            {
-                                rdr.Close();
-                            }
-                            con.Close();
-
-                            con = new SqlConnection(cs.DBConn);
-                            con.Open();
-                            cmd = new SqlCommand("select SUM(FineFee) from Fines where Date='" + date2.Text + "' and CashierName='" + staffname.Text + "'", con);
-                            fines = Convert.ToInt32(cmd.ExecuteScalar());
-                        }
-                        else
-                        {
-                            fines = 0;
-                        }
-                    }
-                    catch (Exception)
-                    {
-                        MessageBox.Show("Fine fees sum failed", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
+                   
                     try
                     {
                         con = new SqlConnection(cs.DBConn);
@@ -1396,11 +1201,13 @@ namespace Banking_System
                             con.Open();
                             cmd = new SqlCommand("select SUM(GrantFee) from GrantFees where Date='" + date2.Text + "' and CashierName='" + staffname.Text + "'", con);
                             grantfees = Convert.ToInt32(cmd.ExecuteScalar());
+                        con.Close();
                         }
                         else
                         {
                             grantfees = 0;
                         }
+                    con.Close();
                     }
                     catch (Exception)
                     {

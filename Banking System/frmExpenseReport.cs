@@ -36,7 +36,7 @@ namespace Banking_System
                 if (rdr.Read())
                 {
                     companyname = rdr.GetString(1).Trim();
-                    companyaddress = rdr.GetString(5).Trim();
+                    companyaddress = rdr.GetString(7).Trim();
                     companyslogan = rdr.GetString(2).Trim();
                     companycontact = rdr.GetString(4).Trim();
                     companyemail = rdr.GetString(3).Trim();
@@ -45,6 +45,7 @@ namespace Banking_System
                 {
                    
                 }
+                con.Close();
             }
             catch (Exception ex)
             {
@@ -115,6 +116,7 @@ namespace Banking_System
                 rpt.SetParameterValue("companyaddress", companyaddress);
                 rpt.SetParameterValue("picpath", "logo.jpg");
                 crystalReportViewer2.ReportSource = rpt;
+               myConnection.Close();
             }
             catch (Exception ex)
             {
@@ -151,6 +153,7 @@ namespace Banking_System
                 rpt.SetParameterValue("companyaddress", companyaddress);
                 rpt.SetParameterValue("picpath", "logo.jpg");
                 crystalReportViewer1.ReportSource = rpt;
+                myConnection.Close();
             }
             catch (Exception ex)
             {

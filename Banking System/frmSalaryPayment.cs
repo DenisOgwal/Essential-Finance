@@ -7,6 +7,7 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Security.Cryptography;
 using System.Reflection;
+using System.IO;
 namespace Banking_System
 {
     public partial class frmSalaryPayment : DevComponents.DotNetBar.Office2007Form
@@ -18,6 +19,8 @@ namespace Banking_System
         DataSet ds = new DataSet();
         SqlCommand cmd = null;
         DataTable dt = new DataTable();
+        SqlCommand cmd2 = null;
+        SqlDataReader rdr2 = null;
         ConnectionString cs = new ConnectionString();
         string contacts1 = null;
         string contacts2 = null;
@@ -106,7 +109,7 @@ namespace Banking_System
                 {
                     prices = rdr["deletes"].ToString().Trim();
                     pricess = rdr["updates"].ToString().Trim();
-                    pricesss = rdr["Records"].ToString().Trim();
+                    pricesss = rdr["HRRecords"].ToString().Trim();
                     if (prices == "Yes") { buttonX4.Enabled = true; }
                     if (pricess == "Yes") { buttonX5.Enabled = true; }
                     if (pricesss == "Yes") { buttonX1.Enabled = true; }
@@ -117,6 +120,7 @@ namespace Banking_System
                     buttonX5.Enabled = true;
                     buttonX1.Enabled = true;
                 }
+                con.Close();
             }
             catch (Exception ex)
             {
@@ -187,6 +191,7 @@ namespace Banking_System
                     months.Text = realdate;
                     Year.Text = realdate;
                 }
+                con.Close();
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
                 cmd = con.CreateCommand();
@@ -277,6 +282,7 @@ namespace Banking_System
                 {
                    
                 }
+                con.Close();
             }
             catch (Exception ex)
             {
@@ -297,7 +303,12 @@ namespace Banking_System
                 cmbModeOfPayment.Focus();
                 return;
             }
-           
+            if (cashiername.Text == "")
+            {
+                MessageBox.Show("Please Enter Cashier Name", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                cashiername.Focus();
+                return;
+            }
             try
             {
                 con = new SqlConnection(cs.DBConn);
@@ -373,6 +384,7 @@ namespace Banking_System
                         cmd.ExecuteReader();
                         con.Close();
                     }
+                    con.Close();
                 }
                 else
                 {
@@ -444,11 +456,13 @@ namespace Banking_System
                         cmd.ExecuteReader();
                         con.Close();
                     }
+                    con.Close();
                 }
+                con.Close();
                 int totalaamount = 0;
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
-                string ct2 = "select AmountAvailable from BankAccounts where AccountNumber= '" + cmbModeOfPayment.Text + "' ";
+                string ct2 = "select AmountAvailable from BankAccounts where AccountNames= '" + cmbModeOfPayment.Text + "' ";
                 cmd = new SqlCommand(ct2);
                 cmd.Connection = con;
                 rdr = cmd.ExecuteReader();
@@ -458,12 +472,13 @@ namespace Banking_System
                     int newtotalammount = totalaamount - Convert.ToInt32(txtTotalPaid.Value);
                     con = new SqlConnection(cs.DBConn);
                     con.Open();
-                    string cb2 = "UPDate BankAccounts Set AmountAvailable='" + newtotalammount + "', Date='" + dtpPaymentDate.Text + "' where AccountNumber='" + cmbModeOfPayment.Text + "'";
+                    string cb2 = "UPDate BankAccounts Set AmountAvailable='" + newtotalammount + "', Date='" + dtpPaymentDate.Text + "' where AccountNames='" + cmbModeOfPayment.Text + "'";
                     cmd = new SqlCommand(cb2);
                     cmd.Connection = con;
                     cmd.ExecuteNonQuery();
                     con.Close();
                 }
+                con.Close();
                 MessageBox.Show("Successfully Saved", "Record", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 try
                 {
@@ -498,6 +513,7 @@ namespace Banking_System
                         rpt.SetParameterValue("companyaddress", companyaddress);
                         rpt.SetParameterValue("picpath", "logo.jpg");
                         frm.crystalReportViewer1.ReportSource = rpt;
+                        myConnection.Close();
                         frm.ShowDialog();
                         //BarPrinter = Properties.Settings.Default.frontendprinter;
                         //frm.crystalReportViewer1.PrintReport();
@@ -529,6 +545,7 @@ namespace Banking_System
                         rpt.SetParameterValue("companyaddress", companyaddress);
                         rpt.SetParameterValue("picpath", "logo.jpg");
                         frm.crystalReportViewer1.ReportSource = rpt;
+                        myConnection.Close();
                         frm.ShowDialog();
                         //BarPrinter = Properties.Settings.Default.frontendprinter;
                         //frm.crystalReportViewer1.PrintReport();
@@ -540,6 +557,12 @@ namespace Banking_System
                 {
                     MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+                this.Hide();
+                frmSalaryPayment frms = new frmSalaryPayment();
+                frms.label7.Text = label7.Text;
+                frms.label12.Text = label12.Text;
+                frms.Show();
+
             }
             catch (Exception ex)
             {
@@ -647,6 +670,7 @@ namespace Banking_System
                 {
                     cmbStaffID.Items.Add(drow[0].ToString());
                 }
+                CN.Close();
             }
             catch (Exception ex)
             {
@@ -1020,9 +1044,9 @@ namespace Banking_System
                 dtable = ds.Tables[0];
                 foreach (DataRow drow in dtable.Rows)
                 {
-                    cmbModeOfPayment.Items.Add(drow[0].ToString());
+                    cmbModeOfPayment.Items.Add(drow[1].ToString());
                 }
-
+                CN.Close();
             }
             catch (Exception ex)
             {
@@ -1070,6 +1094,107 @@ namespace Banking_System
                     int.TryParse(txtTotalPaid.Value.ToString(), out val3);
                     int I = (val1 - (val2 + val3));
                     Duepayment.Value = I;
+                }
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void label18_Click(object sender, EventArgs e)
+        {
+
+        }
+        public byte[] AES_Encrypt(byte[] bytesToBeEncrypted, byte[] passwordBytes)
+        {
+            byte[] encryptedBytes = null;
+
+            // Set your salt here, change it to meet your flavor:
+            // The salt bytes must be at least 8 bytes.
+            byte[] saltBytes = new byte[] { 1, 2, 3, 4, 5, 6, 7, 8 };
+
+            using (MemoryStream ms = new MemoryStream())
+            {
+                using (RijndaelManaged AES = new RijndaelManaged())
+                {
+                    AES.KeySize = 256;
+                    AES.BlockSize = 128;
+
+                    var key = new Rfc2898DeriveBytes(passwordBytes, saltBytes, 1000);
+                    AES.Key = key.GetBytes(AES.KeySize / 8);
+                    AES.IV = key.GetBytes(AES.BlockSize / 8);
+
+                    AES.Mode = CipherMode.CBC;
+
+                    using (var cs = new CryptoStream(ms, AES.CreateEncryptor(), CryptoStreamMode.Write))
+                    {
+                        cs.Write(bytesToBeEncrypted, 0, bytesToBeEncrypted.Length);
+                        cs.Close();
+                    }
+                    encryptedBytes = ms.ToArray();
+                }
+            }
+
+            return encryptedBytes;
+        }
+        string result = null;
+        public string EncryptText(string input, string password)
+        {
+            // Get the bytes of the string
+            byte[] bytesToBeEncrypted = Encoding.UTF8.GetBytes(input);
+            byte[] passwordBytes = Encoding.UTF8.GetBytes(password);
+
+            // Hash the password with SHA256
+            passwordBytes = SHA256.Create().ComputeHash(passwordBytes);
+
+            byte[] bytesEncrypted = AES_Encrypt(bytesToBeEncrypted, passwordBytes);
+
+            result = Convert.ToBase64String(bytesEncrypted);
+
+            return result;
+        }
+        private void cashierid_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                EncryptText(cashierid.Text, "essentialfinance");
+                con = new SqlConnection(cs.DBConn);
+                con.Open();
+                cmd = con.CreateCommand();
+                cmd.CommandText = "SELECT StaffName,StaffID FROM Rights WHERE AuthorisationID = '" + result + "'";
+                rdr = cmd.ExecuteReader();
+                if (rdr.Read())
+                {
+                    string staffids = rdr["StaffID"].ToString().Trim();
+                    con = new SqlConnection(cs.DBConn);
+                    con.Open();
+                    string ct = "SELECT UserName,StaffID FROM ApprovalRights WHERE StaffID='" + staffids + "' and StaffPayment='Yes'";
+                    cmd2 = new SqlCommand(ct);
+                    cmd2.Connection = con;
+                    rdr2 = cmd2.ExecuteReader();
+                    if (rdr2.Read())
+                    {
+                        cashiername.Text = rdr2["UserName"].ToString().Trim();
+                    }
+                    else
+                    {
+                        cashiername.Text = "";
+                    }
+                    con.Close();
+                }
+                else
+                {
+                    cashiername.Text = "";
+                }
+                if ((rdr != null))
+                {
+                    rdr.Close();
+                }
+                if (con.State == ConnectionState.Open)
+                {
+                    con.Close();
                 }
             }
             catch (Exception ex)

@@ -106,6 +106,7 @@ namespace Banking_System
                     //buttonX4.Enabled = true;
                     //buttonX5.Enabled = true;
                 }
+                con.Close();
             }
             catch (Exception ex)
             {
@@ -207,6 +208,7 @@ namespace Banking_System
                 {
                    
                 }
+                con.Close();
             }
             catch (Exception ex)
             {
@@ -349,6 +351,7 @@ namespace Banking_System
                 cmd.Parameters["@d4"].Value = dtpPaymentDate.Text;
                 cmd.Parameters["@d5"].Value = repaymonths.Text;
                 cmd.ExecuteNonQuery();
+                con.Close();
                 MessageBox.Show("Successfully Saved", "Record", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 company();
                try
@@ -386,6 +389,7 @@ namespace Banking_System
                     rpt.SetParameterValue("companyaddress", companyaddress);
                     rpt.SetParameterValue("picpath", "logo.jpg");
                     frm.crystalReportViewer1.ReportSource = rpt;
+                    myConnection.Close();
                     frm.ShowDialog();
                     //rpt.PrintToPrinter(1, true, 1, 1);
                     //frm.Hide();
@@ -576,6 +580,7 @@ namespace Banking_System
                 {
                     accountbalance.Text = "0";
                 }
+                con.Close();
             }
             catch (Exception ex)
             {
@@ -612,6 +617,7 @@ namespace Banking_System
                     val7 = Convert.ToInt32(intrests);
                     con.Close();
                 }
+                con.Close();
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
                 string ct = "select ID,AmmountPaid,TotalAmmount from LoanRepayment where  LoanID= '" + loanid.Text + "' and RepayMonths='" + repaymonths.Text + "' order by ID Desc";
@@ -645,6 +651,7 @@ namespace Banking_System
                         balance.Text = "0";
                         label14.Text = "0";
                     }
+                    con.Close();
                 }
                 else
                 {
@@ -673,7 +680,9 @@ namespace Banking_System
                         balance.Text = "0";
                         label14.Text = "0";
                     }
+                    con.Close();
                 }
+                con.Close();
             }
             catch (Exception ex)
             {
@@ -716,6 +725,7 @@ namespace Banking_System
                 {
                     repaymonths.Items.Add(rdr[0]);
                 }
+                con.Close();
             }
             catch (Exception Ex)
             {

@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Data.SqlClient;
@@ -739,10 +737,10 @@ namespace Banking_System
                 {
                     prices = rdr["deletes"].ToString().Trim();
                     pricess = rdr["updates"].ToString().Trim();
-                    pricesss = rdr["Records"].ToString().Trim();
-                    if (prices == "Yes") { buttonX5.Enabled = true; }
-                    if (pricess == "Yes") { buttonX6.Enabled = true; }
-                    if (pricesss == "Yes") { buttonX2.Enabled = true; }
+                    pricesss = rdr["HRRecords"].ToString().Trim();
+                    if (prices == "Yes") { buttonX5.Enabled = true; } else { buttonX5.Enabled = false; }
+                    if (pricess == "Yes") { buttonX6.Enabled = true; } else { buttonX6.Enabled = false; }
+                    if (pricesss == "Yes") { buttonX2.Enabled = true; } else { buttonX2.Enabled = false; }
                 }
                 if (label21.Text == "ADMIN")
                 {
@@ -750,6 +748,7 @@ namespace Banking_System
                     buttonX6.Enabled = true;
                     buttonX2.Enabled = true;
                 }
+                con.Close();
             }
             catch (Exception ex)
             {

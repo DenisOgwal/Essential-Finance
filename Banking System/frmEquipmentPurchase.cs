@@ -198,6 +198,7 @@ namespace Banking_System
                     }
                     return;
                 }
+                con.Close();
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
                 string cb = "insert into EquipmentPurchase(PurchaseID,StaffID,Equipmentname,PurchaseDate,Manufacturer,Quantity,Units,Specifications,UnitCost,TotalCost,Description,Model,InvoiceNo,ModeOfPayment,Supplier) VALUES (@d1,@d2,@d3,@d4,@d9,@d11,@d12,@d15,@d17,@d18,@d20,@d21,@d22,'" + paymentmode.Text + "','"+label3.Text+"')";
@@ -234,7 +235,7 @@ namespace Banking_System
 
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
-                string cb2 = "insert into SupplierAccountTransactions(AccountNumber,TransactionID,Reason,Ammount,Date) VALUES (@d1,@d2,@d3,@d4,@d5)";
+                string cb2 = "insert into SupplierAccountTransactions(AccountNumber,TransactionID,Reason,Ammount,Date,Product,Quantity) VALUES (@d1,@d2,@d3,@d4,@d5,@d6,@d7)";
                 cmd = new SqlCommand(cb2);
                 cmd.Connection = con;
                 cmd.Parameters.Add(new SqlParameter("@d1", System.Data.SqlDbType.NChar, 15, "AccountNumber"));
@@ -242,11 +243,15 @@ namespace Banking_System
                 cmd.Parameters.Add(new SqlParameter("@d3", System.Data.SqlDbType.NChar, 100, "Reason"));
                 cmd.Parameters.Add(new SqlParameter("@d4", System.Data.SqlDbType.Int, 10, "Ammount"));
                 cmd.Parameters.Add(new SqlParameter("@d5", System.Data.SqlDbType.NChar, 20, "Date"));
+                cmd.Parameters.Add(new SqlParameter("@d6", System.Data.SqlDbType.NChar, 50, "Product"));
+                cmd.Parameters.Add(new SqlParameter("@d7", System.Data.SqlDbType.Int, 10, "Quantity"));
                 cmd.Parameters["@d1"].Value = Supplier.Text;
                 cmd.Parameters["@d2"].Value = purchaseid.Text.Trim();
                 cmd.Parameters["@d3"].Value = equipmentname.Text+" Purchase on " + DateTime.Now;
                 cmd.Parameters["@d4"].Value = totalcost.Value;
                 cmd.Parameters["@d5"].Value = purchasedate.Text;
+                cmd.Parameters["@d6"].Value = equipmentname.Text;
+                cmd.Parameters["@d7"].Value = quantity.Text;
                 cmd.ExecuteNonQuery();
                 con.Close();
                 /*
@@ -394,10 +399,10 @@ namespace Banking_System
                 {
                     prices = rdr["deletes"].ToString().Trim();
                     pricess = rdr["updates"].ToString().Trim();
-                    pricesss = rdr["Records"].ToString().Trim();
+                    //pricesss = rdr["Records"].ToString().Trim();
                     if (prices == "Yes") { buttonX4.Enabled = true; }
                     if (pricess == "Yes") { buttonX5.Enabled = true; }
-                    if (pricesss == "Yes") { buttonX6.Enabled = true; }
+                   // if (pricesss == "Yes") { buttonX6.Enabled = true; }
                 }
                 if (label1.Text == "ADMIN")
                 {
@@ -405,6 +410,7 @@ namespace Banking_System
                     buttonX5.Enabled = true;
                     buttonX6.Enabled = true;
                 }
+                con.Close();
             }
             catch (Exception ex)
             {
@@ -439,9 +445,9 @@ namespace Banking_System
                 dtable = ds.Tables[0];
                 foreach (DataRow drow in dtable.Rows)
                 {
-                    paymentmode.Items.Add(drow[0].ToString());
+                    paymentmode.Items.Add(drow[1].ToString());
                 }
-
+                CN.Close();
             }
             catch (Exception ex)
             {
@@ -463,6 +469,11 @@ namespace Banking_System
             int.TryParse(costperunit.Value.ToString(), out val2);
             int I = (val2 * val1);
             totalcost.Text = I.ToString();
+        }
+
+        private void tableLayoutPanel2_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

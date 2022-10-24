@@ -276,7 +276,7 @@
             this.labelX2.Name = "labelX2";
             this.labelX2.Size = new System.Drawing.Size(105, 23);
             this.labelX2.TabIndex = 83;
-            this.labelX2.Text = "Recieved By";
+            this.labelX2.Text = "Paid By";
             // 
             // txtPaymentModeDetails
             // 
@@ -300,10 +300,6 @@
             this.cmbModeOfPayment.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbModeOfPayment.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.cmbModeOfPayment.FormattingEnabled = true;
-            this.cmbModeOfPayment.Items.AddRange(new object[] {
-            "Cash",
-            "Bank",
-            "Mobile Money"});
             this.cmbModeOfPayment.Location = new System.Drawing.Point(215, 43);
             this.cmbModeOfPayment.Name = "cmbModeOfPayment";
             this.cmbModeOfPayment.Size = new System.Drawing.Size(270, 30);

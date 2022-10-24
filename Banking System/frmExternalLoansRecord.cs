@@ -1,16 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 using System.Data.SqlClient;
-using System.IO;
-using CrystalDecisions.CrystalReports.Engine;
-using CrystalDecisions.Shared;
-using System.Security.Cryptography;
 
 namespace Banking_System
 {
@@ -42,7 +33,6 @@ namespace Banking_System
                 DataSet myDataSet = new DataSet();
                 myDA.Fill(myDataSet, "ExternalLoans");
                 dataGridViewX1.DataSource = myDataSet.Tables["ExternalLoans"].DefaultView;
-               
                 con.Close();
             }
             catch (Exception ex)
@@ -72,8 +62,7 @@ namespace Banking_System
                 SqlDataAdapter myDA = new SqlDataAdapter(cmd);
                 DataSet myDataSet = new DataSet();
                 myDA.Fill(myDataSet, "ExternalLoans");
-                dataGridViewX1.DataSource = myDataSet.Tables["ExternalLoans"].DefaultView;
-               
+                dataGridViewX1.DataSource = myDataSet.Tables["ExternalLoans"].DefaultView;       
                 con.Close();
             }
             catch (Exception ex)

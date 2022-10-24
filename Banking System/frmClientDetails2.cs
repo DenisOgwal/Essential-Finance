@@ -6,7 +6,7 @@ namespace Banking_System
 {
     public partial class frmClientDetails2 : DevComponents.DotNetBar.Office2007RibbonForm
     {
-          DataTable dtable = new DataTable();
+        DataTable dtable = new DataTable();
         SqlConnection con = null;
         DataSet ds = new DataSet();
         SqlCommand cmd = null;
@@ -132,12 +132,6 @@ namespace Banking_System
             {
                 MessageBox.Show(Ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }
-
-        private void clientcontact_TextChanged(object sender, EventArgs e)
-        {
-           
-
         }
     }
 }

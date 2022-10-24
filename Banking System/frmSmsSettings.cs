@@ -66,6 +66,10 @@ namespace Banking_System
                 Properties.Settings.Default.Save();
                 Properties.Settings.Default["smspassword"] = passwords.Text;
                 Properties.Settings.Default.Save();
+                Properties.Settings.Default["Smscode"] = smscodes.Text;
+                Properties.Settings.Default.Save();
+                Properties.Settings.Default["phoneinquiry"] = phoneinquiry.Text;
+                Properties.Settings.Default.Save();
                 MessageBox.Show("Successful", "SMS Settings", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)

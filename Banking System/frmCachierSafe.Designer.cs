@@ -463,8 +463,7 @@
             this.labelX13.Size = new System.Drawing.Size(107, 23);
             this.labelX13.TabIndex = 22;
             this.labelX13.Text = "Transaction ID";
-            this.labelX13.Click += new System.EventHandler(this.labelX13_Click);
-            // 
+           
             // transferid
             // 
             this.transferid.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -768,8 +767,7 @@
             this.dataGridViewX1.Size = new System.Drawing.Size(967, 332);
             this.dataGridViewX1.TabIndex = 0;
             this.dataGridViewX1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewX1_CellClick);
-            this.dataGridViewX1.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridViewX1_RowHeaderMouseClick);
-            // 
+           
             // groupPanel4
             // 
             this.groupPanel4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -905,8 +903,7 @@
             this.membername1.Name = "membername1";
             this.membername1.Size = new System.Drawing.Size(164, 29);
             this.membername1.TabIndex = 29;
-            this.membername1.TextChanged += new System.EventHandler(this.membername1_TextChanged);
-            // 
+             
             // labelX4
             // 
             this.labelX4.BackColor = System.Drawing.Color.Transparent;
@@ -1065,8 +1062,7 @@
             this.labelX8.Size = new System.Drawing.Size(117, 23);
             this.labelX8.TabIndex = 38;
             this.labelX8.Text = " Transaction ID";
-            this.labelX8.Click += new System.EventHandler(this.labelX8_Click);
-            // 
+           
             // buttonX9
             // 
             this.buttonX9.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;

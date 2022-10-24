@@ -1,16 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 using System.Data.SqlClient;
-using System.Security.Cryptography;
-using System.Diagnostics;
-using System.Drawing.Printing;
-using System.IO;
 using System.Reflection;
 namespace Banking_System
 {
@@ -87,6 +78,7 @@ namespace Banking_System
                 return TableView;
         }
         string incomesapproval, loansapproval,loansmanagerapproval,loansfinalaaproval, expensesapplication,expensesapproval,settingsapproval,managingdirector,createaccount,investorsavingsdeposit,investorsavingsapproval,investorwithdrawapproval1,investorwithdrawapproval2,writeoff1,writeoff2,accountants= null;
+        string investment,loansettlement, loanissue, staffpayment, otherincomes, Dividends, loaninsurance, addfines, externalloans, externalRepayments, investorissue,loanprocessing = null;
         public void Checkboxes()
         {
             if (checkBoxItem1.Checked == true){incomesapproval = "Yes";}else{ incomesapproval = "No";}
@@ -105,6 +97,19 @@ namespace Banking_System
             if (checkBoxItem14.Checked == true) { writeoff1 = "Yes"; } else { writeoff1 = "No"; }
             if (checkBoxItem15.Checked == true) { writeoff2 = "Yes"; } else { writeoff2 = "No"; }
             if (checkBoxItem16.Checked == true) { accountants = "Yes"; } else { accountants = "No"; }
+
+            if (checkBoxItem17.Checked == true) { loansettlement = "Yes"; } else { loansettlement = "No"; }
+            if (checkBoxItem18.Checked == true) { loanissue = "Yes"; } else { loanissue = "No"; }
+            if (checkBoxItem19.Checked == true) { staffpayment = "Yes"; } else { staffpayment = "No"; }
+            if (checkBoxItem20.Checked == true) { otherincomes = "Yes"; } else { otherincomes = "No"; }
+            if (checkBoxItem21.Checked == true) { Dividends = "Yes"; } else { Dividends = "No"; }
+            if (checkBoxItem22.Checked == true) { loaninsurance = "Yes"; } else { loaninsurance = "No"; }
+            if (checkBoxItem23.Checked == true) { addfines = "Yes"; } else { addfines = "No"; }
+            if (checkBoxItem24.Checked == true) { externalloans = "Yes"; } else { externalloans = "No"; }
+            if (checkBoxItem25.Checked == true) { externalRepayments = "Yes"; } else { externalRepayments = "No"; }
+            if (checkBoxItem26.Checked == true) { investorissue = "Yes"; } else { investorissue = "No"; }
+            if (checkBoxItem27.Checked == true) {loanprocessing = "Yes"; } else { loanprocessing = "No"; }
+            if (checkBoxItem28.Checked == true) {investment = "Yes"; } else { investment = "No"; }
 
         }
         private void buttonX23_Click(object sender, EventArgs e)
@@ -126,7 +131,7 @@ namespace Banking_System
                 {
                     con = new SqlConnection(cs.DBConn);
                     con.Open();
-                    string cb = "update ApprovalRights set WriteOff2=@d17,WriteOff1=@d16,InvestorWithdrawApproval2=@d15,InvestorWithdrawApproval1=@d14,InvestorSavingsApproval=@d13,AccountantRights=@d12,InvestorDeposit=@d11,ManagingDirector=@d10,CreateAccount=@d9,SettingsApproval=@d8, ExpensesApproval=@d7,ExpensesApplication=@d6,LoansFinalApproval=@d5,LoansManagerApproval=@d4, LoansApplication=@d3, IncomesApproval=@d2  where StaffID =@d1";
+                    string cb = "update ApprovalRights set Investments=@d29,LoanProcessing=@d28,InvestorIssue=@d27,ExternalRepayments=@d26,ExternalLoans=@d25,AddFines=@d24,LoanInsurance=@d23,Dividends=@d22,OtherIncomes=@d21,StaffPayment=@d20,LoanIssue=@d19,LoanSettlement=@d18,WriteOff2=@d17,WriteOff1=@d16,InvestorWithdrawApproval2=@d15,InvestorWithdrawApproval1=@d14,InvestorSavingsApproval=@d13,AccountantRights=@d12,InvestorDeposit=@d11,ManagingDirector=@d10,CreateAccount=@d9,SettingsApproval=@d8, ExpensesApproval=@d7,ExpensesApplication=@d6,LoansFinalApproval=@d5,LoansManagerApproval=@d4, LoansApplication=@d3, IncomesApproval=@d2  where StaffID =@d1";
                     cmd = new SqlCommand(cb);
                     cmd.Connection = con;
                     cmd.Parameters.Add(new SqlParameter("@d1", System.Data.SqlDbType.NChar, 15, "StaffID"));
@@ -146,6 +151,19 @@ namespace Banking_System
                     cmd.Parameters.Add(new SqlParameter("@d15", System.Data.SqlDbType.NChar, 10, "InvestorWithdrawApproval2"));
                     cmd.Parameters.Add(new SqlParameter("@d16", System.Data.SqlDbType.NChar, 10, "WriteOff1"));
                     cmd.Parameters.Add(new SqlParameter("@d17", System.Data.SqlDbType.NChar, 10, "WriteOff2"));
+
+                    cmd.Parameters.Add(new SqlParameter("@d18", System.Data.SqlDbType.NChar, 10, "LoanSettlement"));
+                    cmd.Parameters.Add(new SqlParameter("@d19", System.Data.SqlDbType.NChar, 10, "LoanIssue"));
+                    cmd.Parameters.Add(new SqlParameter("@d20", System.Data.SqlDbType.NChar, 10, "StaffPayment"));
+                    cmd.Parameters.Add(new SqlParameter("@d21", System.Data.SqlDbType.NChar, 10, "OtherIncomes"));
+                    cmd.Parameters.Add(new SqlParameter("@d22", System.Data.SqlDbType.NChar, 10, "Dividends"));
+                    cmd.Parameters.Add(new SqlParameter("@d23", System.Data.SqlDbType.NChar, 10, "LoanInsurance"));
+                    cmd.Parameters.Add(new SqlParameter("@d24", System.Data.SqlDbType.NChar, 10, "AddFines"));
+                    cmd.Parameters.Add(new SqlParameter("@d25", System.Data.SqlDbType.NChar, 10, "ExternalLoans"));
+                    cmd.Parameters.Add(new SqlParameter("@d26", System.Data.SqlDbType.NChar, 10, "ExternalRepayments"));
+                    cmd.Parameters.Add(new SqlParameter("@d27", System.Data.SqlDbType.NChar, 10, "InvestorIssue"));
+                    cmd.Parameters.Add(new SqlParameter("@d28", System.Data.SqlDbType.NChar, 10, "LoanProcessing"));
+                    cmd.Parameters.Add(new SqlParameter("@d29", System.Data.SqlDbType.NChar, 10, "Investments"));
                     cmd.Parameters["@d1"].Value = expandablePanel1.TitleText;
                     cmd.Parameters["@d2"].Value = incomesapproval;
                     cmd.Parameters["@d3"].Value = loansapproval;
@@ -163,6 +181,18 @@ namespace Banking_System
                     cmd.Parameters["@d15"].Value = writeoff1;
                     cmd.Parameters["@d16"].Value = writeoff2;
                     cmd.Parameters["@d17"].Value = accountants;
+                    cmd.Parameters["@d18"].Value = loansettlement;
+                    cmd.Parameters["@d19"].Value = loanissue;
+                    cmd.Parameters["@d20"].Value = staffpayment;
+                    cmd.Parameters["@d21"].Value = otherincomes;
+                    cmd.Parameters["@d22"].Value = Dividends;
+                    cmd.Parameters["@d23"].Value = loaninsurance;
+                    cmd.Parameters["@d24"].Value = addfines;
+                    cmd.Parameters["@d25"].Value = externalloans;
+                    cmd.Parameters["@d26"].Value =externalRepayments;
+                    cmd.Parameters["@d27"].Value = investorissue;
+                    cmd.Parameters["@d28"].Value = loanprocessing;
+                    cmd.Parameters["@d29"].Value = investment;
                     cmd.ExecuteReader();
                     con.Close();
                     MessageBox.Show("Successfully updated", "Rights Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -174,7 +204,7 @@ namespace Banking_System
                 {
                     con = new SqlConnection(cs.DBConn);
                     con.Open();
-                    string cb = "Insert Into ApprovalRights (StaffID,IncomesApproval,LoansApplication,LoansManagerApproval,LoansFinalApproval,ExpensesApplication,ExpensesApproval,SettingsApproval,CreateAccount,ManagingDirector,InvestorDeposit,AccountantRights,InvestorSavingsApproval,InvestorWithdrawApproval1,InvestorWithdrawApproval2,WriteOff1,WriteOff2,UserName) Values(@d1,@d2,@d3,@d4,@d5,@d6,@d7,@d8,@d9,@d10,@d11,@d12,@d13,@d14,@d15,@d16,@d17,@d18)";
+                    string cb = "Insert Into ApprovalRights (StaffID,IncomesApproval,LoansApplication,LoansManagerApproval,LoansFinalApproval,ExpensesApplication,ExpensesApproval,SettingsApproval,CreateAccount,ManagingDirector,InvestorDeposit,AccountantRights,InvestorSavingsApproval,InvestorWithdrawApproval1,InvestorWithdrawApproval2,WriteOff1,WriteOff2,UserName,LoanSettlement,LoanIssue,StaffPayment,OtherIncomes,Dividends,LoanInsurance,AddFines,ExternalLoans,ExternalRepayments,InvestorIssue,LoanProcessing,Investments) Values(@d1,@d2,@d3,@d4,@d5,@d6,@d7,@d8,@d9,@d10,@d11,@d12,@d13,@d14,@d15,@d16,@d17,@d28,@d18,@d19,@d20,@d21,@d22,@d23,@d24,@d25,@d26,@d27,@d29,@d30)";
                     cmd = new SqlCommand(cb);
                     cmd.Connection = con;
                     cmd.Parameters.Add(new SqlParameter("@d1", System.Data.SqlDbType.NChar, 15, "StaffID"));
@@ -194,7 +224,19 @@ namespace Banking_System
                     cmd.Parameters.Add(new SqlParameter("@d15", System.Data.SqlDbType.NChar, 10, "InvestorWithdrawApproval2"));
                     cmd.Parameters.Add(new SqlParameter("@d16", System.Data.SqlDbType.NChar, 10, "WriteOff1"));
                     cmd.Parameters.Add(new SqlParameter("@d17", System.Data.SqlDbType.NChar, 10, "WriteOff2"));
-                    cmd.Parameters.Add(new SqlParameter("@d18", System.Data.SqlDbType.NChar, 50, "UserName"));
+                    cmd.Parameters.Add(new SqlParameter("@d18", System.Data.SqlDbType.NChar, 10, "LoanSettlement"));
+                    cmd.Parameters.Add(new SqlParameter("@d19", System.Data.SqlDbType.NChar, 10, "LoanIssue"));
+                    cmd.Parameters.Add(new SqlParameter("@d20", System.Data.SqlDbType.NChar, 10, "StaffPayment"));
+                    cmd.Parameters.Add(new SqlParameter("@d21", System.Data.SqlDbType.NChar, 10, "OtherIncomes"));
+                    cmd.Parameters.Add(new SqlParameter("@d22", System.Data.SqlDbType.NChar, 10, "Dividends"));
+                    cmd.Parameters.Add(new SqlParameter("@d23", System.Data.SqlDbType.NChar, 10, "LoanInsurance"));
+                    cmd.Parameters.Add(new SqlParameter("@d24", System.Data.SqlDbType.NChar, 10, "AddFines"));
+                    cmd.Parameters.Add(new SqlParameter("@d25", System.Data.SqlDbType.NChar, 10, "ExternalLoans"));
+                    cmd.Parameters.Add(new SqlParameter("@d26", System.Data.SqlDbType.NChar, 10, "ExternalRepayments"));
+                    cmd.Parameters.Add(new SqlParameter("@d27", System.Data.SqlDbType.NChar, 10, "InvestorIssue"));
+                    cmd.Parameters.Add(new SqlParameter("@d28", System.Data.SqlDbType.NChar, 50, "UserName"));
+                    cmd.Parameters.Add(new SqlParameter("@d29", System.Data.SqlDbType.NChar, 10, "LoanProcessing"));
+                    cmd.Parameters.Add(new SqlParameter("@d30", System.Data.SqlDbType.NChar, 10, "Investments"));
                     cmd.Parameters["@d1"].Value = expandablePanel1.TitleText;
                     cmd.Parameters["@d2"].Value = incomesapproval;
                     cmd.Parameters["@d3"].Value = loansapproval;
@@ -212,7 +254,19 @@ namespace Banking_System
                     cmd.Parameters["@d15"].Value = writeoff1;
                     cmd.Parameters["@d16"].Value = writeoff2;
                     cmd.Parameters["@d17"].Value = accountants;
-                    cmd.Parameters["@d18"].Value = expandablePanel2.TitleText;
+                    cmd.Parameters["@d18"].Value = loansettlement;
+                    cmd.Parameters["@d19"].Value = loanissue;
+                    cmd.Parameters["@d20"].Value = staffpayment;
+                    cmd.Parameters["@d21"].Value = otherincomes;
+                    cmd.Parameters["@d22"].Value = Dividends;
+                    cmd.Parameters["@d23"].Value = loaninsurance;
+                    cmd.Parameters["@d24"].Value = addfines;
+                    cmd.Parameters["@d25"].Value = externalloans;
+                    cmd.Parameters["@d26"].Value = externalRepayments;
+                    cmd.Parameters["@d27"].Value = investorissue;
+                    cmd.Parameters["@d28"].Value = expandablePanel2.TitleText;
+                    cmd.Parameters["@d29"].Value = loanprocessing;
+                    cmd.Parameters["@d30"].Value = investment;
                     cmd.ExecuteReader();
                     con.Close();
                     MessageBox.Show("Successfully Saved", "User Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -268,6 +322,19 @@ namespace Banking_System
                     writeoff1 = rdr["WriteOff1"].ToString().Trim();
                     writeoff2 = rdr["WriteOff2"].ToString().Trim();
                     accountants = rdr["AccountantRights"].ToString().Trim();
+
+                    loansettlement = rdr["LoanSettlement"].ToString().Trim();
+                    loanissue = rdr["LoanIssue"].ToString().Trim();
+                    staffpayment = rdr["StaffPayment"].ToString().Trim();
+                    otherincomes = rdr["OtherIncomes"].ToString().Trim();
+                    Dividends = rdr["Dividends"].ToString().Trim();
+                    loaninsurance = rdr["LoanInsurance"].ToString().Trim();
+                    addfines = rdr["AddFines"].ToString().Trim();
+                    externalloans = rdr["ExternalLoans"].ToString().Trim();
+                    externalRepayments = rdr["ExternalRepayments"].ToString().Trim();
+                    investorissue = rdr["InvestorIssue"].ToString().Trim();
+                    loanprocessing = rdr["LoanProcessing"].ToString().Trim();
+                    investment = rdr["Investments"].ToString().Trim();
                     if (incomesapproval == "Yes") { checkBoxItem1.Checked = true; } else { checkBoxItem1.Checked = false; }
                     if (loansapproval == "Yes") { checkBoxItem2.Checked = true; } else { checkBoxItem2.Checked = false; }
                     if (loansmanagerapproval == "Yes") { checkBoxItem3.Checked = true; } else { checkBoxItem3.Checked = false; }
@@ -284,6 +351,19 @@ namespace Banking_System
                     if (writeoff1 == "Yes") { checkBoxItem14.Checked = true; } else { checkBoxItem14.Checked = false; }
                     if (writeoff2 == "Yes") { checkBoxItem15.Checked = true; } else { checkBoxItem15.Checked = false; }
                     if (accountants == "Yes") { checkBoxItem16.Checked = true; } else { checkBoxItem16.Checked = false; }
+
+                    if (loansettlement == "Yes") { checkBoxItem17.Checked = true; } else { checkBoxItem17.Checked = false; }
+                    if (loanissue == "Yes") { checkBoxItem18.Checked = true; } else { checkBoxItem18.Checked = false; }
+                    if (staffpayment == "Yes") { checkBoxItem19.Checked = true; } else { checkBoxItem19.Checked = false; }
+                    if (otherincomes == "Yes") { checkBoxItem20.Checked = true; } else { checkBoxItem20.Checked = false; }
+                    if (Dividends == "Yes") { checkBoxItem21.Checked = true; } else { checkBoxItem21.Checked = false; }
+                    if (loaninsurance == "Yes") { checkBoxItem22.Checked = true; } else { checkBoxItem22.Checked = false; }
+                    if (addfines == "Yes") { checkBoxItem23.Checked = true; } else { checkBoxItem23.Checked = false; }
+                    if (externalloans == "Yes") { checkBoxItem24.Checked = true; } else { checkBoxItem24.Checked = false; }
+                    if (externalRepayments == "Yes") { checkBoxItem25.Checked = true; } else { checkBoxItem25.Checked = false; }
+                    if (investorissue == "Yes") { checkBoxItem26.Checked = true; } else { checkBoxItem26.Checked = false; }
+                    if (loanprocessing == "Yes") { checkBoxItem27.Checked = true; } else { checkBoxItem27.Checked = false; }
+                    if (investment == "Yes") { checkBoxItem28.Checked = true; } else { checkBoxItem28.Checked = false; }
                 }
                 else
                 {
@@ -304,7 +384,20 @@ namespace Banking_System
                     checkBoxItem15.Checked = false;
                     checkBoxItem16.Checked = false;
 
+                    checkBoxItem17.Checked = false;
+                    checkBoxItem18.Checked = false;
+                    checkBoxItem19.Checked = false;
+                    checkBoxItem20.Checked = false;
+                    checkBoxItem21.Checked = false;
+                    checkBoxItem22.Checked = false;
+                    checkBoxItem23.Checked = false;
+                    checkBoxItem24.Checked = false;
+                    checkBoxItem25.Checked = false;
+                    checkBoxItem26.Checked = false;
+                    checkBoxItem27.Checked = false;
+                    checkBoxItem28.Checked = false;
                 }
+                con.Close();
             }
             catch (Exception ex)
             {

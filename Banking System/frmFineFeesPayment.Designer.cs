@@ -37,6 +37,8 @@
             this.label6 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.groupPanel1 = new DevComponents.DotNetBar.Controls.GroupPanel();
+            this.totalsavings = new DevComponents.Editors.IntegerInput();
+            this.label10 = new System.Windows.Forms.Label();
             this.txtTotalPaid = new DevComponents.Editors.IntegerInput();
             this.staffname = new System.Windows.Forms.TextBox();
             this.labelX3 = new DevComponents.DotNetBar.LabelX();
@@ -67,6 +69,7 @@
             this.buttonX4 = new DevComponents.DotNetBar.ButtonX();
             this.buttonX3 = new DevComponents.DotNetBar.ButtonX();
             this.buttonX2 = new DevComponents.DotNetBar.ButtonX();
+            this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.groupPanel6 = new DevComponents.DotNetBar.Controls.GroupPanel();
@@ -86,6 +89,7 @@
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.totalsavings)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTotalPaid)).BeginInit();
             this.groupPanel2.SuspendLayout();
             this.groupPanel3.SuspendLayout();
@@ -159,6 +163,8 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupPanel1.CanvasColor = System.Drawing.SystemColors.Control;
             this.groupPanel1.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
+            this.groupPanel1.Controls.Add(this.totalsavings);
+            this.groupPanel1.Controls.Add(this.label10);
             this.groupPanel1.Controls.Add(this.txtTotalPaid);
             this.groupPanel1.Controls.Add(this.staffname);
             this.groupPanel1.Controls.Add(this.labelX3);
@@ -209,6 +215,37 @@
             this.groupPanel1.TabIndex = 60;
             this.groupPanel1.Text = "Payment Details";
             // 
+            // totalsavings
+            // 
+            this.totalsavings.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            // 
+            // 
+            // 
+            this.totalsavings.BackgroundStyle.Class = "DateTimeInputBackground";
+            this.totalsavings.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.totalsavings.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2;
+            this.totalsavings.DisplayFormat = "N0";
+            this.totalsavings.Enabled = false;
+            this.totalsavings.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.totalsavings.Location = new System.Drawing.Point(213, 159);
+            this.totalsavings.Name = "totalsavings";
+            this.totalsavings.Size = new System.Drawing.Size(270, 29);
+            this.totalsavings.TabIndex = 89;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.BackColor = System.Drawing.Color.Transparent;
+            this.label10.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label10.Location = new System.Drawing.Point(14, 166);
+            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(123, 22);
+            this.label10.TabIndex = 88;
+            this.label10.Text = "Account Balance";
+            // 
             // txtTotalPaid
             // 
             this.txtTotalPaid.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -221,10 +258,11 @@
             this.txtTotalPaid.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2;
             this.txtTotalPaid.DisplayFormat = "N0";
             this.txtTotalPaid.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTotalPaid.Location = new System.Drawing.Point(213, 140);
+            this.txtTotalPaid.Location = new System.Drawing.Point(215, 124);
             this.txtTotalPaid.Name = "txtTotalPaid";
             this.txtTotalPaid.Size = new System.Drawing.Size(270, 29);
             this.txtTotalPaid.TabIndex = 87;
+            this.txtTotalPaid.ValueChanged += new System.EventHandler(this.txtTotalPaid_ValueChanged);
             // 
             // staffname
             // 
@@ -233,7 +271,7 @@
             this.staffname.Enabled = false;
             this.staffname.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.staffname.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.staffname.Location = new System.Drawing.Point(272, 190);
+            this.staffname.Location = new System.Drawing.Point(270, 199);
             this.staffname.Name = "staffname";
             this.staffname.Size = new System.Drawing.Size(213, 29);
             this.staffname.TabIndex = 86;
@@ -248,7 +286,7 @@
             this.labelX3.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.labelX3.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelX3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.labelX3.Location = new System.Drawing.Point(222, 192);
+            this.labelX3.Location = new System.Drawing.Point(220, 201);
             this.labelX3.Name = "labelX3";
             this.labelX3.Size = new System.Drawing.Size(44, 23);
             this.labelX3.TabIndex = 85;
@@ -258,7 +296,7 @@
             // 
             this.staffid.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.staffid.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.staffid.Location = new System.Drawing.Point(130, 190);
+            this.staffid.Location = new System.Drawing.Point(128, 199);
             this.staffid.Name = "staffid";
             this.staffid.PasswordChar = '*';
             this.staffid.Size = new System.Drawing.Size(86, 29);
@@ -275,7 +313,7 @@
             this.labelX2.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.labelX2.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelX2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.labelX2.Location = new System.Drawing.Point(14, 192);
+            this.labelX2.Location = new System.Drawing.Point(12, 201);
             this.labelX2.Name = "labelX2";
             this.labelX2.Size = new System.Drawing.Size(105, 23);
             this.labelX2.TabIndex = 83;
@@ -291,7 +329,7 @@
             this.txtPaymentModeDetails.Multiline = true;
             this.txtPaymentModeDetails.Name = "txtPaymentModeDetails";
             this.txtPaymentModeDetails.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtPaymentModeDetails.Size = new System.Drawing.Size(270, 56);
+            this.txtPaymentModeDetails.Size = new System.Drawing.Size(270, 39);
             this.txtPaymentModeDetails.TabIndex = 73;
             // 
             // cmbModeOfPayment
@@ -303,10 +341,6 @@
             this.cmbModeOfPayment.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbModeOfPayment.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.cmbModeOfPayment.FormattingEnabled = true;
-            this.cmbModeOfPayment.Items.AddRange(new object[] {
-            "Cash",
-            "Bank",
-            "Mobile Money"});
             this.cmbModeOfPayment.Location = new System.Drawing.Point(215, 43);
             this.cmbModeOfPayment.Name = "cmbModeOfPayment";
             this.cmbModeOfPayment.Size = new System.Drawing.Size(270, 30);
@@ -343,7 +377,7 @@
             this.label17.BackColor = System.Drawing.Color.Transparent;
             this.label17.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label17.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label17.Location = new System.Drawing.Point(14, 147);
+            this.label17.Location = new System.Drawing.Point(16, 131);
             this.label17.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(78, 22);
@@ -636,6 +670,7 @@
             this.groupPanel5.Controls.Add(this.buttonX4);
             this.groupPanel5.Controls.Add(this.buttonX3);
             this.groupPanel5.Controls.Add(this.buttonX2);
+            this.groupPanel5.Controls.Add(this.label13);
             this.groupPanel5.Location = new System.Drawing.Point(768, 57);
             this.groupPanel5.Name = "groupPanel5";
             this.groupPanel5.Size = new System.Drawing.Size(148, 563);
@@ -676,7 +711,7 @@
             // 
             this.buttonX7.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.buttonX7.Font = new System.Drawing.Font("Palatino Linotype", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonX7.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.buttonX7.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.buttonX7.Location = new System.Drawing.Point(3, 194);
             this.buttonX7.Name = "buttonX7";
             this.buttonX7.Size = new System.Drawing.Size(136, 92);
@@ -689,7 +724,7 @@
             // 
             this.buttonX6.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.buttonX6.Font = new System.Drawing.Font("Palatino Linotype", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonX6.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.buttonX6.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.buttonX6.Location = new System.Drawing.Point(3, 467);
             this.buttonX6.Name = "buttonX6";
             this.buttonX6.Size = new System.Drawing.Size(136, 77);
@@ -703,7 +738,7 @@
             this.buttonX5.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.buttonX5.Enabled = false;
             this.buttonX5.Font = new System.Drawing.Font("Palatino Linotype", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonX5.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.buttonX5.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.buttonX5.Location = new System.Drawing.Point(4, 379);
             this.buttonX5.Name = "buttonX5";
             this.buttonX5.Size = new System.Drawing.Size(136, 82);
@@ -717,7 +752,7 @@
             this.buttonX4.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.buttonX4.Enabled = false;
             this.buttonX4.Font = new System.Drawing.Font("Palatino Linotype", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonX4.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.buttonX4.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.buttonX4.Location = new System.Drawing.Point(3, 292);
             this.buttonX4.Name = "buttonX4";
             this.buttonX4.Size = new System.Drawing.Size(136, 81);
@@ -730,7 +765,7 @@
             // 
             this.buttonX3.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.buttonX3.Font = new System.Drawing.Font("Palatino Linotype", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonX3.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.buttonX3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.buttonX3.Location = new System.Drawing.Point(3, 105);
             this.buttonX3.Name = "buttonX3";
             this.buttonX3.Size = new System.Drawing.Size(136, 83);
@@ -743,7 +778,7 @@
             // 
             this.buttonX2.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.buttonX2.Font = new System.Drawing.Font("Palatino Linotype", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonX2.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.buttonX2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.buttonX2.Location = new System.Drawing.Point(3, 12);
             this.buttonX2.Name = "buttonX2";
             this.buttonX2.Size = new System.Drawing.Size(136, 87);
@@ -751,6 +786,16 @@
             this.buttonX2.TabIndex = 0;
             this.buttonX2.Text = "&New";
             this.buttonX2.Click += new System.EventHandler(this.buttonX2_Click);
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(54, 547);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(41, 13);
+            this.label13.TabIndex = 6;
+            this.label13.Text = "label13";
+            this.label13.Visible = false;
             // 
             // label12
             // 
@@ -1021,13 +1066,13 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(928, 673);
             this.Controls.Add(this.ribbonClientPanel1);
-            this.Controls.Add(this.label12);
             this.Controls.Add(this.tableLayoutPanel1);
-            this.Controls.Add(this.label7);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.groupPanel5);
             this.Controls.Add(this.groupPanel4);
             this.Controls.Add(this.label6);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label12);
             this.DataBindings.Add(new System.Windows.Forms.Binding("BackColor", global::Banking_System.Properties.Settings.Default, "usercolor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.DoubleBuffered = true;
             this.ForeColor = System.Drawing.SystemColors.Highlight;
@@ -1041,6 +1086,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupPanel1.ResumeLayout(false);
             this.groupPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.totalsavings)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTotalPaid)).EndInit();
             this.groupPanel2.ResumeLayout(false);
             this.groupPanel2.PerformLayout();
@@ -1048,6 +1094,7 @@
             this.groupPanel3.PerformLayout();
             this.groupPanel4.ResumeLayout(false);
             this.groupPanel5.ResumeLayout(false);
+            this.groupPanel5.PerformLayout();
             this.groupPanel6.ResumeLayout(false);
             this.groupPanel6.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
@@ -1112,5 +1159,8 @@
         private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
         public DevComponents.DotNetBar.ButtonX buttonX7;
         public DevComponents.Editors.IntegerInput txtTotalPaid;
+        public DevComponents.Editors.IntegerInput totalsavings;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label13;
     }
 }

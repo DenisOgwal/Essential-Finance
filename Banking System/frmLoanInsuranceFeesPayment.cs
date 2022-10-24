@@ -114,6 +114,7 @@ namespace Banking_System
                     buttonX4.Enabled = true;
                     buttonX5.Enabled = true;
                 }
+                con.Close();
             }
             catch (Exception ex)
             {
@@ -141,13 +142,13 @@ namespace Banking_System
                 {
                     txtBasicSalary.Value = 0;
                 }
-
+                con.Close();
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-           /* try
+           try
             {
                 SqlConnection CN = new SqlConnection(cs.DBConn);
                 CN.Open();
@@ -158,14 +159,14 @@ namespace Banking_System
                 dtable = ds.Tables[0];
                 foreach (DataRow drow in dtable.Rows)
                 {
-                    cmbModeOfPayment.Items.Add(drow[0].ToString());
+                    cmbModeOfPayment.Items.Add(drow[1].ToString());
                 }
-
+                CN.Close();
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }*/
+            }
         }
 
 
@@ -189,7 +190,7 @@ namespace Banking_System
         }
         public DataView GetData()
         {
-            dynamic SelectQry = "SELECT RTRIM(LoanID)[Loan ID], RTRIM(LoanAmount)[Loan Amount] from Loan where Issued='Pending' order by ID DESC ";
+            dynamic SelectQry = "SELECT RTRIM(LoanID)[Loan ID], RTRIM(LoanAmount)[Loan Amount],RTRIM(AccountNo)[Account No.],RTRIM(AccountName)[Account Name] from Loan order by ID DESC "; //where Issued = 'Pending'
             DataSet SampleSource = new DataSet();
             DataView TableView = null;
             try
@@ -216,6 +217,8 @@ namespace Banking_System
                 DataGridViewRow dr = dataGridView1.SelectedRows[0];
                 cmbStaffID.Text = dr.Cells[0].Value.ToString();
                 txtStaffName.Value = Convert.ToInt32(dr.Cells[1].Value);
+                AccountNumber.Text = dr.Cells[2].Value.ToString();
+                AccountName.Text = dr.Cells[3].Value.ToString();
             }
             catch (Exception ex)
             {
@@ -263,7 +266,7 @@ namespace Banking_System
                 if (rdr.Read())
                 {
                     companyname = rdr.GetString(1).Trim();
-                    companyaddress = rdr.GetString(5).Trim();
+                    companyaddress = rdr.GetString(7).Trim();
                     companyslogan = rdr.GetString(2).Trim();
                     companycontact = rdr.GetString(4).Trim();
                     companyemail = rdr.GetString(3).Trim();
@@ -272,11 +275,39 @@ namespace Banking_System
                 {
                    
                 }
+                con.Close();
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+      
+        string savingsids = null;
+        private void auto2()
+        {
+            int realid = 0;
+            con = new SqlConnection(cs.DBConn);
+            con.Open();
+            cmd = new SqlCommand("select ID from Savings  Order By ID DESC", con);
+            cmd.Parameters.Add("@date1", SqlDbType.DateTime, 30, "Date").Value = dtpPaymentDate.Text;
+            cmd.Connection = con;
+            rdr = cmd.ExecuteReader();
+            if (rdr.Read())
+            {
+                con = new SqlConnection(cs.DBConn);
+                con.Open();
+                cmd = new SqlCommand("select COUNT(AccountNo) from Savings ", con);
+                cmd.Parameters.Add("@date1", SqlDbType.DateTime, 30, "Date").Value = dtpPaymentDate.Text;
+                realid = Convert.ToInt32(cmd.ExecuteScalar()) + 1;
+            }
+            else
+            {
+                realid = 1;
+            }
+            con.Close();
+            string years = yearss.Substring(2, 2);
+            savingsids = "SA-" + days + realid;
         }
         private void buttonX3_Click(object sender, EventArgs e)
         {
@@ -310,6 +341,35 @@ namespace Banking_System
             }
             try
             {
+                con = new SqlConnection(cs.DBConn);
+                con.Open();
+                string ct = "select Accountbalance from Savings where AccountNo= '" + AccountNumber.Text + "' and Approval='Approved' order by ID DESC";
+                cmd = new SqlCommand(ct);
+                cmd.Connection = con;
+                rdr = cmd.ExecuteReader();
+                if (rdr.Read())
+                {
+                    accountbalance.Text = (Convert.ToInt32(Convert.ToDouble(rdr["Accountbalance"])) - Convert.ToInt32(Convert.ToDouble(txtBasicSalary.Value))).ToString();
+                   
+                    if ((rdr != null))
+                    {
+                        rdr.Close();
+                    }
+                    //return;
+                }
+                else
+                {
+                    accountbalance.Text = (0 - Convert.ToInt32(Convert.ToDouble(txtBasicSalary.Text))).ToString();
+                  
+                }
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            try
+            {
                 SqlDataReader rdr = null;
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
@@ -322,6 +382,39 @@ namespace Banking_System
                     MessageBox.Show("Loan Already Paid for", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
+                con.Close();
+                auto2();
+                con = new SqlConnection(cs.DBConn);
+                con.Open();
+                string cb2 = "insert into Savings(AccountNo,SavingsID,SubmittedBy,Date,Deposit,Accountbalance,Transactions,ModeOfPayment,AccountName,CashierName,DepositDate,Debit,Approval) VALUES (@d1,@d2,@d3,@d4,@d5,@d6,@d7,@d8,@d9,@d10,@d11,@d12,'Approved')";
+                cmd = new SqlCommand(cb2);
+                cmd.Connection = con;
+                cmd.Parameters.Add(new SqlParameter("@d1", System.Data.SqlDbType.NChar, 20, "AccountNo"));
+                cmd.Parameters.Add(new SqlParameter("@d2", System.Data.SqlDbType.NChar, 15, "SavingsID"));
+                cmd.Parameters.Add(new SqlParameter("@d3", System.Data.SqlDbType.NChar, 40, "SubmittedBy"));
+                cmd.Parameters.Add(new SqlParameter("@d4", System.Data.SqlDbType.NChar, 20, "Date"));
+                cmd.Parameters.Add(new SqlParameter("@d5", System.Data.SqlDbType.Int, 20, "Deposit"));
+                cmd.Parameters.Add(new SqlParameter("@d6", System.Data.SqlDbType.Int, 20, "Accountbalance"));
+                cmd.Parameters.Add(new SqlParameter("@d7", System.Data.SqlDbType.NChar, 100, "Transactions"));
+                cmd.Parameters.Add(new SqlParameter("@d8", System.Data.SqlDbType.NChar, 20, "ModeOfPayment"));
+                cmd.Parameters.Add(new SqlParameter("@d9", System.Data.SqlDbType.NChar, 100, "AccountName"));
+                cmd.Parameters.Add(new SqlParameter("@d10", System.Data.SqlDbType.NChar, 60, "CashierName"));
+                cmd.Parameters.Add(new SqlParameter("@d11", System.Data.SqlDbType.NChar, 20, "DepositDate"));
+                cmd.Parameters.Add(new SqlParameter("@d12", System.Data.SqlDbType.Int, 10, "Debit"));
+                cmd.Parameters["@d1"].Value = AccountNumber.Text;
+                cmd.Parameters["@d2"].Value = savingsids;
+                cmd.Parameters["@d3"].Value = staffname.Text;
+                cmd.Parameters["@d4"].Value = dtpPaymentDate.Text;
+                cmd.Parameters["@d5"].Value = txtTotalPaid.Value;
+                cmd.Parameters["@d6"].Value = accountbalance.Text;
+                cmd.Parameters["@d7"].Value = "Paid Loan Insurance Fees";
+                cmd.Parameters["@d8"].Value = "Transfer";
+                cmd.Parameters["@d9"].Value = AccountName.Text;
+                cmd.Parameters["@d10"].Value = staffname.Text;
+                cmd.Parameters["@d11"].Value = dtpPaymentDate.Text;
+                cmd.Parameters["@d12"].Value = txtTotalPaid.Value;
+                cmd.ExecuteNonQuery();
+                con.Close();
                 auto();
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
@@ -350,10 +443,10 @@ namespace Banking_System
                 con.Close();
 
                 //SqlDataReader rdr = null;
-                int totalaamount = 0;
+                /*int totalaamount = 0;
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
-                string ct2 = "select AmountAvailable from BankAccounts where AccountNumber= '" + cmbModeOfPayment.Text + "' ";
+                string ct2 = "select AmountAvailable from BankAccounts where AccountNames= '" + cmbModeOfPayment.Text + "' ";
                 cmd = new SqlCommand(ct2);
                 cmd.Connection = con;
                 rdr = cmd.ExecuteReader();
@@ -363,12 +456,13 @@ namespace Banking_System
                     int newtotalammount = totalaamount + Convert.ToInt32(txtTotalPaid.Value);
                     con = new SqlConnection(cs.DBConn);
                     con.Open();
-                    string cb2 = "UPDate BankAccounts Set AmountAvailable='" + newtotalammount + "', Date='" + dtpPaymentDate.Text + "' where AccountNumber='" + cmbModeOfPayment.Text + "'";
+                    string cb2 = "UPDate BankAccounts Set AmountAvailable='" + newtotalammount + "', Date='" + dtpPaymentDate.Text + "' where AccountNames='" + cmbModeOfPayment.Text + "'";
                     cmd = new SqlCommand(cb2);
                     cmd.Connection = con;
                     cmd.ExecuteNonQuery();
                     con.Close();
                 }
+                con.Close();*/
                 MessageBox.Show("Successfully Saved", "Record", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 
                 this.Hide();
@@ -477,6 +571,7 @@ namespace Banking_System
                 {
                     cmbStaffID.Items.Add(drow[0].ToString());
                 }
+                CN.Close();
             }
             catch (Exception ex)
             {
@@ -588,7 +683,7 @@ namespace Banking_System
                     string staffids = rdr["StaffID"].ToString().Trim();
                     con = new SqlConnection(cs.DBConn);
                     con.Open();
-                    string ct = "SELECT UserName,StaffID FROM ApprovalRights WHERE StaffID='" + staffids + "' and IncomesApproval='Yes'";
+                    string ct = "SELECT UserName,StaffID FROM ApprovalRights WHERE StaffID='" + staffids + "' and LoanInsurance='Yes'";
                     cmd2 = new SqlCommand(ct);
                     cmd2.Connection = con;
                     rdr2 = cmd2.ExecuteReader();
@@ -679,6 +774,7 @@ namespace Banking_System
                         }
                         // return;
                     }
+                    con.Close();
                     con = new SqlConnection(cs.DBConn);
                     con.Open();
                     string ct2 = "select InsurancePercentage from LoanInsurance order by ID DESC";
@@ -696,6 +792,7 @@ namespace Banking_System
                         }
                         // return;
                     }
+                    con.Close();
                     double pervalue = val8 * 0.01;
                     int payablevalue = Convert.ToInt32(pervalue * val7);
                     txtBasicSalary.Value = payablevalue;
@@ -714,7 +811,7 @@ namespace Banking_System
 
         private void cmbStaffID_TextChanged(object sender, EventArgs e)
         {
-            string howto = Properties.Settings.Default.Loanprocessingtype;
+            string howto = Properties.Settings.Default.Loaninsurancetype;
             if (howto == "Figure")
             {
                 try
@@ -722,7 +819,7 @@ namespace Banking_System
                     con = new SqlConnection(cs.DBConn);
                     con.Open();
                     cmd = con.CreateCommand();
-                    cmd.CommandText = "SELECT LoanAmmount from Loans WHERE LoanID = '" + cmbStaffID.Text + "'";
+                    cmd.CommandText = "SELECT LoanAmount from Loan WHERE LoanID = '" + cmbStaffID.Text + "'";
                     rdr = cmd.ExecuteReader();
                     if (rdr.Read())
                     {
@@ -765,6 +862,7 @@ namespace Banking_System
                         }
                         // return;
                     }
+                    con.Close();
                     con = new SqlConnection(cs.DBConn);
                     con.Open();
                     string ct2 = "select InsurancePercentage from LoanInsurance order by ID DESC";
@@ -782,6 +880,7 @@ namespace Banking_System
                         }
                         // return;
                     }
+                    con.Close();
                     double pervalue = val8 * 0.01;
                     int payablevalue = Convert.ToInt32(pervalue * val7);
                     txtBasicSalary.Value = payablevalue;
@@ -838,6 +937,88 @@ namespace Banking_System
                     MessageBox.Show("Loan Already Paid for", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
+                con.Close();
+                try
+                {
+                    con = new SqlConnection(cs.DBConn);
+                    con.Open();
+                    string ct = "select Accountbalance from Savings where AccountNo= '" + AccountNumber.Text + "' and Approval='Approved' order by ID DESC";
+                    cmd = new SqlCommand(ct);
+                    cmd.Connection = con;
+                    rdr = cmd.ExecuteReader();
+                    if (rdr.Read())
+                    {
+                        accountbalance.Text = (Convert.ToInt32(Convert.ToDouble(rdr["Accountbalance"])) - Convert.ToInt32(Convert.ToDouble(txtBasicSalary.Value))).ToString();
+
+                        if ((rdr != null))
+                        {
+                            rdr.Close();
+                        }
+                        //return;
+                    }
+                    else
+                    {
+                        accountbalance.Text = (0 - Convert.ToInt32(Convert.ToDouble(txtBasicSalary.Text))).ToString();
+
+                    }
+                    con.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                try
+                {
+                    
+                    con = new SqlConnection(cs.DBConn);
+                    con.Open();
+                    string ct4 = "select LoanID from LoanInsuranceFees where LoanID= '" + cmbStaffID.Text + "' ";
+                    cmd = new SqlCommand(ct4);
+                    cmd.Connection = con;
+                    rdr = cmd.ExecuteReader();
+                    if (rdr.Read())
+                    {
+                        MessageBox.Show("Loan Already Paid for", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                    con.Close();
+                    auto2();
+                    con = new SqlConnection(cs.DBConn);
+                    con.Open();
+                    string cb2 = "insert into Savings(AccountNo,SavingsID,SubmittedBy,Date,Deposit,Accountbalance,Transactions,ModeOfPayment,AccountName,CashierName,DepositDate,Debit,Approval) VALUES (@d1,@d2,@d3,@d4,@d5,@d6,@d7,@d8,@d9,@d10,@d11,@d12,'Approved')";
+                    cmd = new SqlCommand(cb2);
+                    cmd.Connection = con;
+                    cmd.Parameters.Add(new SqlParameter("@d1", System.Data.SqlDbType.NChar, 20, "AccountNo"));
+                    cmd.Parameters.Add(new SqlParameter("@d2", System.Data.SqlDbType.NChar, 15, "SavingsID"));
+                    cmd.Parameters.Add(new SqlParameter("@d3", System.Data.SqlDbType.NChar, 40, "SubmittedBy"));
+                    cmd.Parameters.Add(new SqlParameter("@d4", System.Data.SqlDbType.NChar, 20, "Date"));
+                    cmd.Parameters.Add(new SqlParameter("@d5", System.Data.SqlDbType.Int, 20, "Deposit"));
+                    cmd.Parameters.Add(new SqlParameter("@d6", System.Data.SqlDbType.Int, 20, "Accountbalance"));
+                    cmd.Parameters.Add(new SqlParameter("@d7", System.Data.SqlDbType.NChar, 100, "Transactions"));
+                    cmd.Parameters.Add(new SqlParameter("@d8", System.Data.SqlDbType.NChar, 20, "ModeOfPayment"));
+                    cmd.Parameters.Add(new SqlParameter("@d9", System.Data.SqlDbType.NChar, 100, "AccountName"));
+                    cmd.Parameters.Add(new SqlParameter("@d10", System.Data.SqlDbType.NChar, 60, "CashierName"));
+                    cmd.Parameters.Add(new SqlParameter("@d11", System.Data.SqlDbType.NChar, 20, "DepositDate"));
+                    cmd.Parameters.Add(new SqlParameter("@d12", System.Data.SqlDbType.Int, 10, "Debit"));
+                    cmd.Parameters["@d1"].Value = AccountNumber.Text;
+                    cmd.Parameters["@d2"].Value = savingsids;
+                    cmd.Parameters["@d3"].Value = staffname.Text;
+                    cmd.Parameters["@d4"].Value = dtpPaymentDate.Text;
+                    cmd.Parameters["@d5"].Value = txtTotalPaid.Value;
+                    cmd.Parameters["@d6"].Value = accountbalance.Text;
+                    cmd.Parameters["@d7"].Value = "Paid Loan Insurance Fees";
+                    cmd.Parameters["@d8"].Value = "Transfer";
+                    cmd.Parameters["@d9"].Value = AccountName.Text;
+                    cmd.Parameters["@d10"].Value = staffname.Text;
+                    cmd.Parameters["@d11"].Value = dtpPaymentDate.Text;
+                    cmd.Parameters["@d12"].Value = txtTotalPaid.Value;
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
                 auto();
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
@@ -868,10 +1049,10 @@ namespace Banking_System
                 }
                 cmd.ExecuteReader();
                 con.Close();
-                int totalaamount = 0;
+                /*int totalaamount = 0;
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
-                string ct2 = "select AmountAvailable from BankAccounts where AccountNumber= '" + cmbModeOfPayment.Text + "' ";
+                string ct2 = "select AmountAvailable from BankAccounts where AccountNames= '" + cmbModeOfPayment.Text + "' ";
                 cmd = new SqlCommand(ct2);
                 cmd.Connection = con;
                 rdr = cmd.ExecuteReader();
@@ -881,12 +1062,13 @@ namespace Banking_System
                     int newtotalammount = totalaamount + Convert.ToInt32(txtTotalPaid.Value);
                     con = new SqlConnection(cs.DBConn);
                     con.Open();
-                    string cb2 = "UPDate BankAccounts Set AmountAvailable='" + newtotalammount + "', Date='" + dtpPaymentDate.Text + "' where AccountNumber='" + cmbModeOfPayment.Text + "'";
+                    string cb2 = "UPDate BankAccounts Set AmountAvailable='" + newtotalammount + "', Date='" + dtpPaymentDate.Text + "' where AccountNames='" + cmbModeOfPayment.Text + "'";
                     cmd = new SqlCommand(cb2);
                     cmd.Connection = con;
                     cmd.ExecuteNonQuery();
                     con.Close();
                 }
+                con.Close();*/
                 MessageBox.Show("Successfully Saved", "Record", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 company();
                 try
@@ -924,6 +1106,7 @@ namespace Banking_System
                     rpt.SetParameterValue("companyaddress", companyaddress);
                     rpt.SetParameterValue("picpath", "logo.jpg");
                     frm.crystalReportViewer1.ReportSource = rpt;
+                    myConnection.Close();
                     frm.ShowDialog();
                     //BarPrinter = Properties.Settings.Default.frontendprinter;
                     //rpt.PrintOptions.PrinterName = BarPrinter;
@@ -984,6 +1167,7 @@ namespace Banking_System
                     int I = ((val1 + val2) - val3);
                     Duepayment.Value = I;
                 }
+                con.Close();
             }
             catch (Exception ex)
             {
@@ -1000,6 +1184,41 @@ namespace Banking_System
                 MessageBox.Show("Can Not pay less than Loan Insurance ammount", "Record", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 txtTotalPaid.Text = null;
                 return;
+            }
+        }
+
+        private void AccountNumber_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                con = new SqlConnection(cs.DBConn);
+                con.Open();
+                string ct = "select Accountbalance from Savings where AccountNo= '" + AccountNumber.Text + "' and Approval='Approved' order by ID DESC";
+                cmd = new SqlCommand(ct);
+                cmd.Connection = con;
+                rdr = cmd.ExecuteReader();
+                if (rdr.Read())
+                {
+                    accountbalance.Text = (Convert.ToInt32(Convert.ToDouble(rdr["Accountbalance"]))- Convert.ToInt32(Convert.ToDouble(txtBasicSalary.Value))).ToString();
+                    txtTotalPaid.Text = (Convert.ToInt32(Convert.ToDouble(txtBasicSalary.Value))).ToString();
+                    txtTotalPaid.Enabled = false;
+                    if ((rdr != null))
+                    {
+                        rdr.Close();
+                    }
+                    return;
+                }
+                else
+                {
+                    accountbalance.Text = (0 - Convert.ToInt32(Convert.ToDouble(txtBasicSalary.Text))).ToString();
+                    txtTotalPaid.Text = (Convert.ToInt32(Convert.ToDouble(txtBasicSalary.Value))).ToString();
+                    txtTotalPaid.Enabled = false;
+                }
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

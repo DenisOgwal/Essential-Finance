@@ -18,6 +18,7 @@ namespace Banking_System
         DataTable dt = new DataTable();
         SqlCommand cmd2 = null;
         SqlDataReader rdr2 = null;
+        SqlDataAdapter adp;
         ConnectionString cs = new ConnectionString();
         string companyname = null;
         string companyemail = null;
@@ -35,25 +36,15 @@ namespace Banking_System
            // loanids();
             try
             {
-                string prices = null;
-                string pricess = null;
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
-                cmd = con.CreateCommand();
-                cmd.CommandText = "SELECT * FROM UserAccess where UserName='" + label1.Text + "' ";
-                rdr = cmd.ExecuteReader();
-                if (rdr.Read())
-                {
-                    prices = rdr["Deletes"].ToString().Trim();
-                    pricess = rdr["Updates"].ToString().Trim();
-                    if (prices == "Yes") { buttonX3.Enabled = true; } else { buttonX3.Enabled = false; }
-                    if (pricess == "Yes") { buttonX4.Enabled = true; } else { buttonX4.Enabled = false; }
-                }
-                if (label1.Text == "ADMIN")
-                {
-                    buttonX3.Enabled = true;
-                    buttonX4.Enabled = true;
-                }
+                cmd = new SqlCommand("select RTRIM(LoanID)[Loan ID],RTRIM(Months)[Installment],RTRIM(BalanceExist)[Amount Payable] from ExternalRepaymentSchedule WHERE PaymentDate <=@date1 and BalanceExist>0 order by ID Asc", con);
+                cmd.Parameters.Add("@date1", SqlDbType.DateTime, 30, "PaymentDate").Value = dateTimePicker1.Value.Date;
+                SqlDataAdapter myDA = new SqlDataAdapter(cmd);
+                DataSet myDataSet = new DataSet();
+                myDA.Fill(myDataSet, "ExternalRepaymentSchedule");
+                dataGridView1.DataSource = myDataSet.Tables["ExternalRepaymentSchedule"].DefaultView;
+                con.Close();
             }
             catch (Exception ex)
             {
@@ -61,15 +52,18 @@ namespace Banking_System
             }
             try
             {
-                con = new SqlConnection(cs.DBConn);
-                con.Open();
-                cmd = new SqlCommand("select RTRIM(LoanID)[Loan ID],RTRIM(Months)[Installment],RTRIM(BalanceExist)[Amount Payable] from ExternalRepaymentSchedule WHERE PaymentDate>=@date1 and BalanceExist>0 order by ID Asc", con);
-                cmd.Parameters.Add("@date1", SqlDbType.DateTime, 30, "PaymentDate").Value = dateTimePicker1.Value.Date;
-                SqlDataAdapter myDA = new SqlDataAdapter(cmd);
-                DataSet myDataSet = new DataSet();
-                myDA.Fill(myDataSet, "ExternalRepaymentSchedule");
-                dataGridView1.DataSource = myDataSet.Tables["ExternalRepaymentSchedule"].DefaultView;
-                con.Close();
+                SqlConnection CN = new SqlConnection(cs.DBConn);
+                CN.Open();
+                adp = new SqlDataAdapter();
+                adp.SelectCommand = new SqlCommand("SELECT distinct RTRIM(AccountNumber),RTRIM(AccountNames) FROM BankAccounts", CN);
+                ds = new DataSet("ds");
+                adp.Fill(ds);
+                dtable = ds.Tables[0];
+                foreach (DataRow drow in dtable.Rows)
+                {
+                    cmbModeOfPayment.Items.Add(drow[1].ToString());
+                }
+                CN.Close();
             }
             catch (Exception ex)
             {
@@ -171,6 +165,7 @@ namespace Banking_System
                 {
                   
                 }
+                con.Close();
             }
             catch (Exception ex)
             {
@@ -223,7 +218,7 @@ namespace Banking_System
                         int.TryParse(totals7.ToString(), out totalaamount);
                         con.Close();
                     }
-
+                    con.Close();
                     con = new SqlConnection(cs.DBConn);
                     con.Open();
                     string cb = "insert into ExternalLoanRepayment(RepaymentID,AmmountPaid,Balance,RepayMonths,LoanID,PaidBy,Repaymentdate,Interest,TotalAmmount,ModeOfPayment) VALUES (@d1,@d2,@d3,@d4,@d5,@d6,@d7,@d8,@d9,@d10)";
@@ -266,42 +261,43 @@ namespace Banking_System
                     cmd.Connection = con;
                     cmd.Parameters.Add(new SqlParameter("@d1", System.Data.SqlDbType.NChar, 15, "PaymentStatus"));
                     cmd.Parameters.Add(new SqlParameter("@d2", System.Data.SqlDbType.NChar, 15, "LoanID"));
-                    cmd.Parameters.Add(new SqlParameter("@d3", System.Data.SqlDbType.NChar, 15, "BalanceExist"));
+                    cmd.Parameters.Add(new SqlParameter("@d3", System.Data.SqlDbType.Float, 15, "BalanceExist"));
                     cmd.Parameters.Add(new SqlParameter("@d4", System.Data.SqlDbType.NChar, 20, "PaymentDate"));
-                    cmd.Parameters.Add(new SqlParameter("@d5", System.Data.SqlDbType.NChar, 15, "Months"));
+                    cmd.Parameters.Add(new SqlParameter("@d5", System.Data.SqlDbType.NChar, 20, "Months"));
                     cmd.Parameters["@d1"].Value = paymentstatus;
                     cmd.Parameters["@d2"].Value = loanid.Text;
                     cmd.Parameters["@d3"].Value = Convert.ToInt32(balance.Value);
                     cmd.Parameters["@d4"].Value = dateTimePicker1.Text.Trim();
                     cmd.Parameters["@d5"].Value = repaymonths.Text;
                     cmd.ExecuteNonQuery();
-
+                    con.Close();
                     SqlDataReader rdr = null;
                     int totalaamount = 0;
                     con = new SqlConnection(cs.DBConn);
                     con.Open();
-                    string ct2 = "select AmountAvailable from BankAccounts where AccountNumber= '" + cmbModeOfPayment.Text + "' ";
+                    string ct2 = "select AmountAvailable from BankAccounts where AccountNames= '" + cmbModeOfPayment.Text + "' ";
                     cmd = new SqlCommand(ct2);
                     cmd.Connection = con;
                     rdr = cmd.ExecuteReader();
                     if (rdr.Read())
                     {
                         totalaamount = Convert.ToInt32(rdr["AmountAvailable"]);
-                        int newtotalammount = totalaamount + Convert.ToInt32(ammountpaid.Value);
+                        int newtotalammount = totalaamount - Convert.ToInt32(ammountpaid.Value);
                         con = new SqlConnection(cs.DBConn);
                         con.Open();
-                        string cb2 = "UPDate BankAccounts Set AmountAvailable='" + newtotalammount + "', Date='" + dateTimePicker1.Text + "' where AccountNumber='" + cmbModeOfPayment.Text + "'";
+                        string cb2 = "UPDate BankAccounts Set AmountAvailable='" + newtotalammount + "', Date='" + dateTimePicker1.Text + "' where AccountNames='" + cmbModeOfPayment.Text + "'";
                         cmd = new SqlCommand(cb2);
                         cmd.Connection = con;
                         cmd.ExecuteNonQuery();
                         con.Close();
                     }
+                    con.Close();
                     MessageBox.Show("Successfully Saved", "Repayment Record", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                     string smsallow = Properties.Settings.Default.smsallow;
+                    /* string smsallow = Properties.Settings.Default.smsallow;
                      if (smsallow == "Yes")
                      {
                          sendmessage();
-                     }
+                     }*/
                   
                     buttonX2.Enabled = true;
                     con.Close();
@@ -385,6 +381,7 @@ namespace Banking_System
                     val6 = Convert.ToInt32(totals);
                     con.Close();
                 }
+                con.Close();
                 try
                 {
                     con = new SqlConnection(cs.DBConn);
@@ -458,6 +455,7 @@ namespace Banking_System
                     val7 = Convert.ToInt32(intrests);
                     con.Close();
                 }
+                con.Close();
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
                 string ct = "select ID,AmmountPaid,TotalAmmount from ExternalLoanRepayment where  LoanID= '" + loanid.Text + "' and RepayMonths='" + repaymonths.Text + "' order by ID Desc";
@@ -504,6 +502,7 @@ namespace Banking_System
                         con.Close();
                     }
                 }
+                con.Close();
             }
             catch (Exception ex)
             {
@@ -649,7 +648,7 @@ namespace Banking_System
                     string staffids = rdr["StaffID"].ToString().Trim();
                     con = new SqlConnection(cs.DBConn);
                     con.Open();
-                    string ct = "SELECT UserName,StaffID FROM ApprovalRights WHERE StaffID='" + staffids + "' and ManagingDirector='Yes'";
+                    string ct = "SELECT UserName,StaffID FROM ApprovalRights WHERE StaffID='" + staffids + "' and ExternalRepayments='Yes'";
                     cmd2 = new SqlCommand(ct);
                     cmd2.Connection = con;
                     rdr2 = cmd2.ExecuteReader();
@@ -706,6 +705,7 @@ namespace Banking_System
                 {
                     Lender.Text = rdr[0].ToString().Trim();
                 }
+                con.Close();
             }
             catch (Exception Ex)
             {
@@ -725,6 +725,7 @@ namespace Banking_System
                 {
                     repaymonths.Items.Add(rdr[0]);
                 }
+                con.Close();
             }
             catch (Exception Ex)
             {

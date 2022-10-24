@@ -159,6 +159,7 @@ namespace Banking_System
                         string[] words = companynames.Split(' ');
                         companyname = words[0].ToLower();
                     }
+                    con.Close();
                     DecryptText(licencekey.Text, "essentialfinance");
                     string[] wordsss = results.Split('/');
                    
@@ -216,6 +217,7 @@ namespace Banking_System
                                 currentdatessss = rdr["Other"].ToString().Trim();
                                 
                             }
+                            con.Close();
                             if (licencecode.Text == currentdatessss && licencekey.Text == currentdatess)
                             {
                                 Properties.Settings.Default["readcon"] = "me";

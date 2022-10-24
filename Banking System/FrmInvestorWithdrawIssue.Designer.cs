@@ -30,6 +30,12 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmInvestorWithdrawIssue));
             this.groupPanel3 = new DevComponents.DotNetBar.Controls.GroupPanel();
+            this.cashier = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.labelX5 = new DevComponents.DotNetBar.LabelX();
+            this.labelX6 = new DevComponents.DotNetBar.LabelX();
+            this.withdrawtype = new DevComponents.DotNetBar.Controls.ComboBoxEx();
+            this.comboItem1 = new DevComponents.Editors.ComboItem();
+            this.comboItem2 = new DevComponents.Editors.ComboItem();
             this.labelX4 = new DevComponents.DotNetBar.LabelX();
             this.investmentid = new DevComponents.DotNetBar.Controls.ComboBoxEx();
             this.labelX3 = new DevComponents.DotNetBar.LabelX();
@@ -82,6 +88,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupPanel3.CanvasColor = System.Drawing.SystemColors.Control;
             this.groupPanel3.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
+            this.groupPanel3.Controls.Add(this.cashier);
+            this.groupPanel3.Controls.Add(this.labelX5);
+            this.groupPanel3.Controls.Add(this.labelX6);
+            this.groupPanel3.Controls.Add(this.withdrawtype);
             this.groupPanel3.Controls.Add(this.labelX4);
             this.groupPanel3.Controls.Add(this.investmentid);
             this.groupPanel3.Controls.Add(this.labelX3);
@@ -146,6 +156,85 @@
             this.groupPanel3.TabIndex = 2;
             this.groupPanel3.Text = "Investment Withdraw";
             // 
+            // cashier
+            // 
+            // 
+            // 
+            // 
+            this.cashier.Border.Class = "TextBoxBorder";
+            this.cashier.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.cashier.Enabled = false;
+            this.cashier.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cashier.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.cashier.Location = new System.Drawing.Point(493, 193);
+            this.cashier.Name = "cashier";
+            this.cashier.Size = new System.Drawing.Size(171, 29);
+            this.cashier.TabIndex = 95;
+            // 
+            // labelX5
+            // 
+            this.labelX5.BackColor = System.Drawing.Color.Transparent;
+            // 
+            // 
+            // 
+            this.labelX5.BackgroundStyle.Class = "";
+            this.labelX5.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX5.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelX5.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.labelX5.Location = new System.Drawing.Point(343, 195);
+            this.labelX5.Name = "labelX5";
+            this.labelX5.Size = new System.Drawing.Size(132, 23);
+            this.labelX5.TabIndex = 94;
+            this.labelX5.Text = "Final Approval By";
+            // 
+            // labelX6
+            // 
+            this.labelX6.BackColor = System.Drawing.Color.Transparent;
+            // 
+            // 
+            // 
+            this.labelX6.BackgroundStyle.Class = "";
+            this.labelX6.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX6.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelX6.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.labelX6.Location = new System.Drawing.Point(3, 125);
+            this.labelX6.Name = "labelX6";
+            this.labelX6.Size = new System.Drawing.Size(129, 23);
+            this.labelX6.TabIndex = 93;
+            this.labelX6.Text = "Withdraw Type";
+            // 
+            // withdrawtype
+            // 
+            this.withdrawtype.AutoCompleteCustomSource.AddRange(new string[] {
+            "Interest Only",
+            "Whole Amount"});
+            this.withdrawtype.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.withdrawtype.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.withdrawtype.DisplayMember = "Text";
+            this.withdrawtype.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.withdrawtype.Enabled = false;
+            this.withdrawtype.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.withdrawtype.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.withdrawtype.FormattingEnabled = true;
+            this.withdrawtype.ItemHeight = 23;
+            this.withdrawtype.Items.AddRange(new object[] {
+            this.comboItem1,
+            this.comboItem2});
+            this.withdrawtype.Location = new System.Drawing.Point(157, 119);
+            this.withdrawtype.Name = "withdrawtype";
+            this.withdrawtype.Size = new System.Drawing.Size(180, 29);
+            this.withdrawtype.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.withdrawtype.TabIndex = 92;
+            this.withdrawtype.TextChanged += new System.EventHandler(this.withdrawtype_TextChanged);
+            // 
+            // comboItem1
+            // 
+            this.comboItem1.Text = "Whole Amount";
+            // 
+            // comboItem2
+            // 
+            this.comboItem2.Text = "Interest Only";
+            // 
             // labelX4
             // 
             this.labelX4.BackColor = System.Drawing.Color.Transparent;
@@ -160,7 +249,7 @@
             this.labelX4.Name = "labelX4";
             this.labelX4.Size = new System.Drawing.Size(111, 23);
             this.labelX4.TabIndex = 87;
-            this.labelX4.Text = "Savings ID";
+            this.labelX4.Text = "Investment ID";
             // 
             // investmentid
             // 
@@ -168,6 +257,7 @@
             this.investmentid.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.investmentid.DisplayMember = "Text";
             this.investmentid.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.investmentid.Enabled = false;
             this.investmentid.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.investmentid.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.investmentid.FormattingEnabled = true;
@@ -177,6 +267,7 @@
             this.investmentid.Size = new System.Drawing.Size(180, 29);
             this.investmentid.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.investmentid.TabIndex = 86;
+            this.investmentid.SelectedIndexChanged += new System.EventHandler(this.investmentid_SelectedIndexChanged);
             this.investmentid.TextChanged += new System.EventHandler(this.investmentid_TextChanged);
             // 
             // labelX3
@@ -189,7 +280,7 @@
             this.labelX3.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.labelX3.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelX3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.labelX3.Location = new System.Drawing.Point(341, 176);
+            this.labelX3.Location = new System.Drawing.Point(343, 160);
             this.labelX3.Name = "labelX3";
             this.labelX3.Size = new System.Drawing.Size(132, 23);
             this.labelX3.TabIndex = 85;
@@ -200,7 +291,7 @@
             this.dateTimePicker1.CustomFormat = "dd/MMM/yyyy";
             this.dateTimePicker1.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker1.Location = new System.Drawing.Point(493, 172);
+            this.dateTimePicker1.Location = new System.Drawing.Point(493, 154);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(171, 29);
             this.dateTimePicker1.TabIndex = 84;
@@ -213,7 +304,7 @@
             this.submittedby.Border.Class = "TextBoxBorder";
             this.submittedby.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.submittedby.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.submittedby.Location = new System.Drawing.Point(493, 89);
+            this.submittedby.Location = new System.Drawing.Point(494, 85);
             this.submittedby.Name = "submittedby";
             this.submittedby.Size = new System.Drawing.Size(171, 29);
             this.submittedby.TabIndex = 4;
@@ -244,7 +335,7 @@
             this.labelX1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.labelX1.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelX1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.labelX1.Location = new System.Drawing.Point(3, 178);
+            this.labelX1.Location = new System.Drawing.Point(3, 193);
             this.labelX1.Name = "labelX1";
             this.labelX1.Size = new System.Drawing.Size(148, 23);
             this.labelX1.TabIndex = 82;
@@ -257,7 +348,7 @@
             this.cmbModeOfPayment.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbModeOfPayment.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.cmbModeOfPayment.FormattingEnabled = true;
-            this.cmbModeOfPayment.Location = new System.Drawing.Point(493, 42);
+            this.cmbModeOfPayment.Location = new System.Drawing.Point(493, 52);
             this.cmbModeOfPayment.Name = "cmbModeOfPayment";
             this.cmbModeOfPayment.Size = new System.Drawing.Size(171, 30);
             this.cmbModeOfPayment.TabIndex = 3;
@@ -268,7 +359,7 @@
             this.label18.BackColor = System.Drawing.Color.Transparent;
             this.label18.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label18.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label18.Location = new System.Drawing.Point(339, 49);
+            this.label18.Location = new System.Drawing.Point(339, 52);
             this.label18.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(136, 22);
@@ -285,7 +376,7 @@
             this.labelX26.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.labelX26.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelX26.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.labelX26.Location = new System.Drawing.Point(341, 133);
+            this.labelX26.Location = new System.Drawing.Point(341, 125);
             this.labelX26.Name = "labelX26";
             this.labelX26.Size = new System.Drawing.Size(146, 23);
             this.labelX26.TabIndex = 30;
@@ -303,7 +394,7 @@
             this.accountbalance.Enabled = false;
             this.accountbalance.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.accountbalance.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.accountbalance.Location = new System.Drawing.Point(493, 127);
+            this.accountbalance.Location = new System.Drawing.Point(493, 119);
             this.accountbalance.Name = "accountbalance";
             this.accountbalance.Size = new System.Drawing.Size(171, 29);
             this.accountbalance.TabIndex = 29;
@@ -317,9 +408,10 @@
             this.depositammount.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.depositammount.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2;
             this.depositammount.DisplayFormat = "N0";
+            this.depositammount.Enabled = false;
             this.depositammount.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.depositammount.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.depositammount.Location = new System.Drawing.Point(157, 127);
+            this.depositammount.Location = new System.Drawing.Point(157, 154);
             this.depositammount.Name = "depositammount";
             this.depositammount.Size = new System.Drawing.Size(180, 29);
             this.depositammount.TabIndex = 2;
@@ -354,7 +446,7 @@
             // 
             this.cashierid.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cashierid.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.cashierid.Location = new System.Drawing.Point(157, 216);
+            this.cashierid.Location = new System.Drawing.Point(157, 231);
             this.cashierid.Name = "cashierid";
             this.cashierid.PasswordChar = '*';
             this.cashierid.Size = new System.Drawing.Size(180, 29);
@@ -387,10 +479,11 @@
             this.savingsid.Enabled = false;
             this.savingsid.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.savingsid.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.savingsid.Location = new System.Drawing.Point(493, 1);
+            this.savingsid.Location = new System.Drawing.Point(494, 8);
             this.savingsid.Name = "savingsid";
             this.savingsid.Size = new System.Drawing.Size(171, 29);
             this.savingsid.TabIndex = 21;
+            this.savingsid.TextChanged += new System.EventHandler(this.savingsid_TextChanged);
             // 
             // date2
             // 
@@ -398,7 +491,7 @@
             this.date2.Enabled = false;
             this.date2.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.date2.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.date2.Location = new System.Drawing.Point(157, 174);
+            this.date2.Location = new System.Drawing.Point(157, 189);
             this.date2.Name = "date2";
             this.date2.Size = new System.Drawing.Size(180, 29);
             this.date2.TabIndex = 6;
@@ -430,7 +523,7 @@
             this.cashiername.Enabled = false;
             this.cashiername.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cashiername.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.cashiername.Location = new System.Drawing.Point(493, 216);
+            this.cashiername.Location = new System.Drawing.Point(493, 231);
             this.cashiername.Name = "cashiername";
             this.cashiername.Size = new System.Drawing.Size(171, 29);
             this.cashiername.TabIndex = 13;
@@ -496,7 +589,7 @@
             this.labelX18.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.labelX18.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelX18.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.labelX18.Location = new System.Drawing.Point(3, 133);
+            this.labelX18.Location = new System.Drawing.Point(3, 160);
             this.labelX18.Name = "labelX18";
             this.labelX18.Size = new System.Drawing.Size(75, 23);
             this.labelX18.TabIndex = 7;
@@ -528,11 +621,11 @@
             this.labelX12.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.labelX12.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelX12.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.labelX12.Location = new System.Drawing.Point(341, 217);
+            this.labelX12.Location = new System.Drawing.Point(343, 233);
             this.labelX12.Name = "labelX12";
             this.labelX12.Size = new System.Drawing.Size(107, 23);
             this.labelX12.TabIndex = 1;
-            this.labelX12.Text = "Cashier Name";
+            this.labelX12.Text = "Name";
             // 
             // labelX11
             // 
@@ -544,7 +637,7 @@
             this.labelX11.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.labelX11.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelX11.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.labelX11.Location = new System.Drawing.Point(3, 218);
+            this.labelX11.Location = new System.Drawing.Point(3, 233);
             this.labelX11.Name = "labelX11";
             this.labelX11.Size = new System.Drawing.Size(148, 23);
             this.labelX11.TabIndex = 0;
@@ -761,5 +854,11 @@
         private DevComponents.DotNetBar.LabelX labelX4;
         private DevComponents.DotNetBar.Controls.ComboBoxEx investmentid;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private DevComponents.DotNetBar.LabelX labelX6;
+        private DevComponents.DotNetBar.Controls.ComboBoxEx withdrawtype;
+        private DevComponents.Editors.ComboItem comboItem1;
+        private DevComponents.Editors.ComboItem comboItem2;
+        private DevComponents.DotNetBar.Controls.TextBoxX cashier;
+        private DevComponents.DotNetBar.LabelX labelX5;
     }
 }

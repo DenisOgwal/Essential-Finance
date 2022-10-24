@@ -99,6 +99,7 @@ namespace Banking_System
                     buttonX3.Enabled = true;
                     buttonX4.Enabled = true;
                 }
+                con.Close();
             }
             catch (Exception ex)
             {
@@ -107,16 +108,6 @@ namespace Banking_System
             
         }
 
-        private void checkBoxX1_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void checkBoxX2_CheckedChanged(object sender, EventArgs e)
-        {
-           
-        }
-       
         private void buttonX6_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -414,26 +405,7 @@ namespace Banking_System
             }
         }
 
-        private void staffid_TextChanged(object sender, EventArgs e)
-        {
-           
-        }
-
-        private void memberid2_TextChanged(object sender, EventArgs e)
-        {
-           
-        }
-
-        private void cashierid_SelectedIndexChanged(object sender, EventArgs e)
-        {
-           
-        }
-
-        private void accountnumber2_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            
-        }
-
+      
         private void dataGridViewX1_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
 
@@ -453,33 +425,6 @@ namespace Banking_System
             }
         }
 
-        private void accountnumber_TextChanged(object sender, EventArgs e)
-        {
-        }
-
-        private void dataGridViewX2_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-        }
-
-        private void depositammount_ValueChanged(object sender, EventArgs e)
-        {
-           
-        }
-
-        private void buttonX1_Click(object sender, EventArgs e)
-        {
-           
-        }
-
-        private void memberid3_TextChanged(object sender, EventArgs e)
-        {
-           
-        }
-
-        private void date3_ValueChanged(object sender, EventArgs e)
-        {
-           
-        }
 
         private void buttonX2_Click(object sender, EventArgs e)
         {
@@ -597,32 +542,10 @@ namespace Banking_System
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
-        private void cashierid_TextChanged(object sender, EventArgs e)
-        {
-           
-        }
-
-        private void labelX9_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void buttonX8_Click(object sender, EventArgs e)
         {
             dataload();
         }
-
-        private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
-        {
-            
-        }
-
-        private void depositammount_ValueChanged_1(object sender, EventArgs e)
-        {
-            
-        }
-
         private void buttonX9_Click(object sender, EventArgs e)
         {
             try { 

@@ -60,13 +60,11 @@ namespace Banking_System
             {
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
-                cmd = new SqlCommand("select RTRIM(Comment)[Comment], RTRIM(PaymentID)[Income ID], RTRIM(CashierName)[Cashier Name],RTRIM(Year)[Year], RTRIM(Months)[Months], RTRIM(Date)[Date],RTRIM(Income)[Paid For],RTRIM(OtherFee)[Total Paid],RTRIM(Reason)[Description], RTRIM(PaidBy)[Names of Payer],RTRIM(Telephone)[Telephone No. ] from OtherIncomes,Rights where OtherIncomes.CashierName=Rights.StaffName  order by OtherIncomes.ID DESC", con);
+                cmd = new SqlCommand("select RTRIM(Comment)[Comment], RTRIM(PaymentID)[Income ID], RTRIM(CashierName)[Cashier Name],RTRIM(Year)[Year], RTRIM(Months)[Months], RTRIM(Date)[Date],RTRIM(Income)[Paid For],RTRIM(OtherFee)[Total Paid],RTRIM(Reason)[Description], RTRIM(PaidBy)[Names of Payer],RTRIM(Telephone)[Telephone No. ],RTRIM(ModeOfPayment)[Payment Mode] from OtherIncomes order by OtherIncomes.ID DESC", con);
                 SqlDataAdapter myDA = new SqlDataAdapter(cmd);
                 DataSet myDataSet = new DataSet();
                 myDA.Fill(myDataSet, "OtherIncomes");
-                myDA.Fill(myDataSet, "Rights");
                 dataGridViewX1.DataSource = myDataSet.Tables["OtherIncomes"].DefaultView;
-                dataGridViewX1.DataSource = myDataSet.Tables["Rights"].DefaultView;
                 con.Close();
             }
             catch (Exception ex)
@@ -102,6 +100,7 @@ namespace Banking_System
                     buttonX3.Enabled = true;
                     buttonX4.Enabled = true;
                 }
+                con.Close();
             }
             catch (Exception ex)
             {
@@ -118,9 +117,9 @@ namespace Banking_System
                 dtable = ds.Tables[0];
                 foreach (DataRow drow in dtable.Rows)
                 {
-                    cmbModeOfPayment.Items.Add(drow[0].ToString());
+                    cmbModeOfPayment.Items.Add(drow[1].ToString());
                 }
-
+                CN.Close();
             }
             catch (Exception ex)
             {
@@ -154,7 +153,7 @@ namespace Banking_System
             frmOtherIncomes frm = new frmOtherIncomes();
             frm.label1.Text = label1.Text;
             frm.label2.Text = label2.Text;
-            frm.Show();
+            frm.ShowDialog();
         }
 
         private void buttonX5_Click(object sender, EventArgs e)
@@ -205,9 +204,10 @@ namespace Banking_System
                     }
                     return;
                 }
+                con.Close();
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
-                string cb = "insert into OtherIncomes(PaymentID,Year,Months,Date,OtherFee,CashierName,Income,PaidBy,Telephone,Address,Reason,Comment) VALUES (@d1,@d2,@d3,@d4,@d5,@d6,@d7,@d8,@d9,@d10,@d11,@d12)";
+                string cb = "insert into OtherIncomes(PaymentID,Year,Months,Date,OtherFee,CashierName,Income,PaidBy,Telephone,Address,Reason,Comment,ModeOfPayment) VALUES (@d1,@d2,@d3,@d4,@d5,@d6,@d7,@d8,@d9,@d10,@d11,@d12,'"+ cmbModeOfPayment.Text+ "')";
                 cmd = new SqlCommand(cb);
                 cmd.Connection = con;
                 cmd.Parameters.Add(new SqlParameter("@d1", System.Data.SqlDbType.NChar, 15, "PaymentID"));
@@ -236,27 +236,8 @@ namespace Banking_System
                 cmd.Parameters["@d11"].Value = description.Text;
                 cmd.Parameters["@d12"].Value = "Pending Approval";
                 cmd.ExecuteNonQuery();
-
-                SqlDataReader rdr3 = null;
-                int totalaamount = 0;
-                con = new SqlConnection(cs.DBConn);
-                con.Open();
-                string ct2 = "select AmountAvailable from BankAccounts where AccountNumber= '" + cmbModeOfPayment.Text + "' ";
-                cmd = new SqlCommand(ct2);
-                cmd.Connection = con;
-                rdr3 = cmd.ExecuteReader();
-                if (rdr3.Read())
-                {
-                    totalaamount = Convert.ToInt32(rdr3["AmountAvailable"]);
-                    int newtotalammount = totalaamount + Convert.ToInt32(totalpaid.Value);
-                    con = new SqlConnection(cs.DBConn);
-                    con.Open();
-                    string cb2 = "UPDate BankAccounts Set AmountAvailable='" + newtotalammount + "', Date='" + expensedate.Text + "' where AccountNumber='" + cmbModeOfPayment.Text + "'";
-                    cmd = new SqlCommand(cb2);
-                    cmd.Connection = con;
-                    cmd.ExecuteNonQuery();
-                    con.Close();
-                }
+                con.Close();
+               
                 MessageBox.Show("Successfully saved", "Record", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 //printPreviewDialog1.Document = printDocument1;
                 //printPreviewDialog1.ShowDialog();
@@ -283,6 +264,7 @@ namespace Banking_System
                     myDA.Fill(myDS, "OtherIncomes");
                     rpt.SetDataSource(myDS);
                     frm3.crystalReportViewer1.ReportSource = rpt;
+                    myConnection.Close();
                     frm3.ShowDialog();
                 }
                 catch (Exception ex)
@@ -395,6 +377,7 @@ namespace Banking_System
                     }
                     return;
                 }
+                con.Close();
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
                 string cb = "update OtherIncomes set Year=@d2,Months=@d3,Date=@d4,OtherFee=@d5,CashierName=@d6,Income=@d7,PaidBy=@d8,Telephone=@d9,Address=@d10,Reason=@d11 where PaymentID=@d1 and Comment!='Approved'";
@@ -455,6 +438,17 @@ namespace Banking_System
                 comment.Focus();
                 return;
             }
+            if (cmbModeOfPayment.Text == "")
+            {
+                MessageBox.Show("Please Select Mode of Payment", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                cmbModeOfPayment.Focus();
+                return;
+            }
+            if (label3.Text.Trim() == "Approved")
+            {
+                MessageBox.Show("Transaction Already Approved", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             try
             {
                 con = new SqlConnection(cs.DBConn);
@@ -475,10 +469,36 @@ namespace Banking_System
                 cmd.Parameters["@d5"].Value = year.Text.Trim();
                 cmd.Parameters["@d6"].Value = months.Text.Trim();
                 cmd.ExecuteNonQuery();
+                con.Close();
+                if (comment.Text == "Approved")
+                {
+                    SqlDataReader rdr3 = null;
+                    int totalaamount = 0;
+                    con = new SqlConnection(cs.DBConn);
+                    con.Open();
+                    string ct2 = "select AmountAvailable from BankAccounts where AccountNames= '" + cmbModeOfPayment.Text + "' ";
+                    cmd = new SqlCommand(ct2);
+                    cmd.Connection = con;
+                    rdr3 = cmd.ExecuteReader();
+                    if (rdr3.Read())
+                    {
+                        totalaamount = Convert.ToInt32(rdr3["AmountAvailable"]);
+                        int newtotalammount = totalaamount + Convert.ToInt32(totalpaid.Value);
+                        con = new SqlConnection(cs.DBConn);
+                        con.Open();
+                        string cb2 = "UPDate BankAccounts Set AmountAvailable='" + newtotalammount + "', Date='" + expensedate.Text + "' where AccountNames='" + cmbModeOfPayment.Text + "'";
+                        cmd = new SqlCommand(cb2);
+                        cmd.Connection = con;
+                        cmd.ExecuteNonQuery();
+                        con.Close();
+                    }
+                    con.Close();
+                    label3.Text = "Approved";
+                }
                 MessageBox.Show("Successful", "Record", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 dataload();
                 //Reset();
-                con.Close();
+                //con.Close();
             }
             catch (Exception ex)
             {
@@ -508,6 +528,7 @@ namespace Banking_System
                 {
                    
                 }
+                con.Close();
             }
             catch (Exception ex)
             {
@@ -520,33 +541,26 @@ namespace Banking_System
             try
             {
                 DataGridViewRow dr = dataGridViewX1.SelectedRows[0];
-               // this.Hide();
+                // this.Hide();
                 //frmOtherIncomes frm = new frmOtherIncomes();
                 //frm.Show();
                 comment.Text = dr.Cells[0].Value.ToString();
                 expenseid.Text = dr.Cells[1].Value.ToString();
                 cashiername.Text = dr.Cells[2].Value.ToString();
-              
+
                 expensedate.Text = dr.Cells[5].Value.ToString();
                 service.Text = dr.Cells[6].Value.ToString();
                 totalpaid.Text = dr.Cells[7].Value.ToString();
                 description.Text = dr.Cells[8].Value.ToString();
                 names.Text = dr.Cells[9].Value.ToString();
-                tel.Text = dr.Cells[10].Value.ToString(); 
-                if (label2.Text == "Manager")
-                {
-                    buttonX4.Enabled = true;
-                    buttonX3.Enabled = true;
-                    label1.Text = label1.Text;
-                    label2.Text = label2.Text;
-                }
-                else
-                {
-                    buttonX4.Enabled = false;
-                    buttonX3.Enabled = false;
-                    label1.Text = label1.Text;
-                    label2.Text = label2.Text;
-                }
+                tel.Text = dr.Cells[10].Value.ToString();
+                cmbModeOfPayment.Text = dr.Cells[11].Value.ToString();
+                label3.Text= dr.Cells[0].Value.ToString();
+                buttonX4.Enabled = true;
+                buttonX3.Enabled = true;
+                label1.Text = label1.Text;
+                label2.Text = label2.Text;
+
             }
             catch (Exception ex)
             {
@@ -681,7 +695,7 @@ namespace Banking_System
                     string staffids = rdr["StaffID"].ToString().Trim();
                     con = new SqlConnection(cs.DBConn);
                     con.Open();
-                    string ct = "SELECT UserName,StaffID FROM ApprovalRights WHERE StaffID='" + staffids + "' and ExpensesApproval='Yes'";
+                    string ct = "SELECT UserName,StaffID FROM ApprovalRights WHERE StaffID='" + staffids + "' and OtherIncomes='Yes'";
                     cmd2 = new SqlCommand(ct);
                     cmd2.Connection = con;
                     rdr2 = cmd2.ExecuteReader();
@@ -737,6 +751,7 @@ namespace Banking_System
                 myDA.Fill(myDS, "OtherIncomes");
                 rpt.SetDataSource(myDS);
                 frm3.crystalReportViewer1.ReportSource = rpt;
+                myConnection.Close();
                 frm3.ShowDialog();
             }
             catch (Exception ex)
@@ -872,6 +887,11 @@ namespace Banking_System
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void groupPanel5_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

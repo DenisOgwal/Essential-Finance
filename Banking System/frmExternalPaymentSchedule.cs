@@ -27,7 +27,7 @@ namespace Banking_System
                 string repaymentdates = dt.ToString("dd/MMM/yyyy");
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
-                cmd = new SqlCommand("select RTRIM(LoanID)[Loan ID], RTRIM(Months)[Repayment Installment], RTRIM(TotalAmmount)[Amount Payable],RTRIM(AmmountPay)[Principal], RTRIM(Interest)[Interest],RTRIM(BalanceExist)[Balance Pending],RTRIM(PaymentDate)[Payment Date],RTRIM(PaymentStatus)[Payment Status] from ExternalRePaymentSchedule where PaymentStatus='Pending' and PaymentDate = @date1 order by ExternalRepaymentSchedule.ID ASC", con);
+                cmd = new SqlCommand("select RTRIM(LoanID)[Loan ID], RTRIM(Months)[Repayment Installment], (TotalAmmount)[Amount Payable],(AmmountPay)[Principal], (Interest)[Interest],(BalanceExist)[Balance Pending],RTRIM(PaymentDate)[Payment Date],RTRIM(PaymentStatus)[Payment Status] from ExternalRePaymentSchedule where PaymentStatus='Pending' and PaymentDate = @date1 order by ExternalRepaymentSchedule.ID ASC", con);
                 cmd.Parameters.Add("@date1", SqlDbType.DateTime, 30, "PaymentDate").Value = DateTime.Parse(repaymentdates).Date;
                 cmd.Parameters.Add("@date2", SqlDbType.DateTime, 30, "PaymentDate").Value = DateTo.Value.Date;
                 SqlDataAdapter myDA = new SqlDataAdapter(cmd);
@@ -56,7 +56,7 @@ namespace Banking_System
             {
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
-                cmd = new SqlCommand("select RTRIM(LoanID)[Loan ID], RTRIM(Months)[Repayment Months], RTRIM(TotalAmmount)[Amount Payable],RTRIM(AmmountPay)[Principal], RTRIM(Interest)[Interest],RTRIM(BalanceExist)[Balance Pending],RTRIM(PaymentDate)[Payment Date],RTRIM(PaymentStatus)[Payment Status] from ExternalRePaymentSchedule where PaymentDate between @date1 and @date2 order by ExternalRepaymentSchedule.ID ASC", con);
+                cmd = new SqlCommand("select RTRIM(LoanID)[Loan ID], RTRIM(Months)[Repayment Months], (TotalAmmount)[Amount Payable],(AmmountPay)[Principal], (Interest)[Interest],(BalanceExist)[Balance Pending],RTRIM(PaymentDate)[Payment Date],RTRIM(PaymentStatus)[Payment Status] from ExternalRePaymentSchedule where PaymentDate between @date1 and @date2 and BalanceExist>0 order by ExternalRepaymentSchedule.ID ASC", con);
                 cmd.Parameters.Add("@date1", SqlDbType.DateTime, 30, "PaymentDate").Value = DateFrom.Value.Date;
                 cmd.Parameters.Add("@date2", SqlDbType.DateTime, 30, "PaymentDate").Value = DateTo.Value.Date;
                 SqlDataAdapter myDA = new SqlDataAdapter(cmd);
@@ -85,7 +85,7 @@ namespace Banking_System
             {
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
-                cmd = new SqlCommand("select RTRIM(Months)[Repayment Months], RTRIM(TotalAmmount)[Amount Payable],RTRIM(AmmountPay)[Principal], RTRIM(Interest)[Interest],RTRIM(BalanceExist)[Balance Pending],RTRIM(PaymentDate)[Payment Date],RTRIM(PaymentStatus)[Payment Status]from ExternalRePaymentSchedule where  LoanID='" + loanid.Text + "' order by ExternalRepaymentSchedule.ID ASC", con);
+                cmd = new SqlCommand("select RTRIM(Months)[Repayment Months],(TotalAmmount)[Amount Payable],(AmmountPay)[Principal],(Interest)[Interest],(BalanceExist)[Balance Pending],RTRIM(PaymentDate)[Payment Date],RTRIM(PaymentStatus)[Payment Status]from ExternalRePaymentSchedule where  LoanID='" + loanid.Text + "' order by ExternalRepaymentSchedule.ID ASC", con);
                 SqlDataAdapter myDA = new SqlDataAdapter(cmd);
                 DataSet myDataSet = new DataSet();
                 myDA.Fill(myDataSet, "ExternalRepaymentSchedule");

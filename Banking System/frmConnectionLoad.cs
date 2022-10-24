@@ -74,7 +74,7 @@ namespace Banking_System
               
                 if (usercon == "Local")
                 {
-                    connectionString = "Data Source=(LocalDB)\\v11.0;AttachDbFilename=" + filePath1 + "\\Lending.mdf;Integrated Security=True;Connect Timeout=30";
+                    connectionString = "Data Source=(LocalDB)\\v11.0;AttachDbFilename=" + filePath1 + "\\BS.mdf;Integrated Security=True;Connect Timeout=300";
                 }
                 else
                 {
@@ -88,7 +88,7 @@ namespace Banking_System
                         MessageBox.Show("Please input Database Name");
                         return;
                     }
-                    connectionString = "Data Source=" + userserver + "\\" + instancenam + ",1433;Initial Catalog=" + userdb + ";User ID=" + servernam + ";Password=" + serverpass+ "";
+                    connectionString = "Data Source=" + userserver + "\\" + instancenam + ",1433;Initial Catalog=" + userdb + ";User ID=" + servernam + ";Password=" + serverpass + "; Connect Timeout = 300";
                 }
 
                 con = new SqlConnection(connectionString);
@@ -111,6 +111,7 @@ namespace Banking_System
                     Properties.Settings.Default["realcon"] = connectionString;
                     Properties.Settings.Default.Save();
                     MessageBox.Show("Successfully Saved");
+                    con.Close();
                     this.Hide();
                     frmConnectionLoad frm = new frmConnectionLoad();
                     frm.Show();
@@ -144,11 +145,11 @@ namespace Banking_System
                 string filePath1 = @"C:\\Users\" + userName + "\\documents\\Dither Technologies\\Lending";
                 if (usercon == "Local")
                 {
-                    connectionString = "Data Source=(LocalDB)\\v11.0;AttachDbFilename=" + filePath1 + "\\Lending.mdf;Integrated Security=True;Connect Timeout=30";
+                    connectionString = "Data Source=(LocalDB)\\v11.0;AttachDbFilename=" + filePath1 + "\\BS.mdf;Integrated Security=True;Connect Timeout=300";
                 }
                 else
                 {
-                    connectionString = "Data Source=" + userserver + "\\" + instancenam + ",1433;Initial Catalog=" + userdb + ";User ID=" + servernam + ";Password=" + serverpass + "";
+                    connectionString = "Data Source=" + userserver + "\\" + instancenam + ",1433;Initial Catalog=" + userdb + ";User ID=" + servernam + ";Password=" + serverpass + "; Connect Timeout = 300";
                 }
                
                 con = new SqlConnection(connectionString);
@@ -156,6 +157,7 @@ namespace Banking_System
                 if (con.State == ConnectionState.Open)
                 {
                     MessageBox.Show("Connection Successful");
+                    con.Close();
                 }
                 else
                 {

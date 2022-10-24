@@ -232,7 +232,7 @@ namespace Banking_System
             {
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
-                cmd = new SqlCommand("select RTRIM(Comment)[Comment], RTRIM(ExpenseID)[Expense ID],  RTRIM(CashierID)[Cashier Name],RTRIM(Year)[Year], RTRIM(Months)[Months], RTRIM(Date)[Date],RTRIM(Expense)[Paid For],RTRIM(Cost)[Cost],RTRIM(TotalPaid)[Total Paid], RTRIM(Duepayment)[Due Payment],RTRIM(Description)[Description], RTRIM(Payee)[Names of Payee],RTRIM(Telephone)[Telephone No. ], RTRIM(Expenses.Email)[Email Address], RTRIM(Expenses.Address)[ Address],RTRIM(ExpenseType)[Expense Type],RTRIM(LoanID)[Loan ID],RTRIM(AccountNumber)[AccountNumber],RTRIM(AccountNames)[Account Names] from Expenses where Date between @date1 and @date2 order by ID DESC", con);
+                cmd = new SqlCommand("select RTRIM(Comment)[Comment], RTRIM(ExpenseID)[Expense ID],  RTRIM(CashierID)[Cashier Name],RTRIM(Year)[Year], RTRIM(Months)[Months], RTRIM(Date)[Date],RTRIM(Expense)[Paid For],(Cost)[Cost],(TotalPaid)[Total Paid], (Duepayment)[Due Payment],RTRIM(Description)[Description], RTRIM(Payee)[Names of Payee],RTRIM(Telephone)[Telephone No. ], RTRIM(Expenses.Email)[Email Address], RTRIM(Expenses.Address)[ Address],RTRIM(ExpenseType)[Expense Type],RTRIM(LoanID)[Loan ID],RTRIM(AccountNumber)[AccountNumber],RTRIM(AccountNames)[Account Names] from Expenses where Date between @date1 and @date2 order by ID DESC", con);
                 cmd.Parameters.Add("@date1", SqlDbType.DateTime, 30, "Date").Value = datefrom.Value.Date;
                 cmd.Parameters.Add("@date2", SqlDbType.DateTime, 30, "Date").Value = dateto.Value.Date;
                 SqlDataAdapter myDA = new SqlDataAdapter(cmd);
@@ -253,7 +253,7 @@ namespace Banking_System
             {
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
-                cmd = new SqlCommand("select RTRIM(Comment)[Comment], RTRIM(ExpenseID)[Expense ID],  RTRIM(CashierID)[Cashier Name],RTRIM(Year)[Year], RTRIM(Months)[Months], RTRIM(Date)[Date],RTRIM(Expense)[Paid For],RTRIM(Cost)[Cost],RTRIM(TotalPaid)[Total Paid], RTRIM(Duepayment)[Due Payment],RTRIM(Description)[Description], RTRIM(Payee)[Names of Payee],RTRIM(Telephone)[Telephone No. ], RTRIM(Expenses.Email)[Email Address], RTRIM(Expenses.Address)[ Address],RTRIM(ExpenseType)[Expense Type],RTRIM(LoanID)[Loan ID],RTRIM(AccountNumber)[AccountNumber],RTRIM(AccountNames)[Account Names] from Expenses where ExpenseID Like '" + accountsearch.Text+ "%' OR Date Like '" + accountsearch.Text + "%' OR Expense Like '" + accountsearch.Text + "%' OR ExpenseType Like '" + accountsearch.Text + "%' OR Payee Like '" + accountsearch.Text + "%' OR Description Like '" + accountsearch.Text + "%' OR LoanID Like '" + accountsearch.Text + "%' OR Telephone Like '" + accountsearch.Text + "%' OR AccountNumber Like '" + accountsearch.Text + "%' OR AccountNames Like '" + accountsearch.Text + "%' OR LoanID Like '" + accountsearch.Text + "%' order by ID DESC", con);
+                cmd = new SqlCommand("select RTRIM(Comment)[Comment], RTRIM(ExpenseID)[Expense ID],  RTRIM(CashierID)[Cashier Name],RTRIM(Year)[Year], RTRIM(Months)[Months], RTRIM(Date)[Date],RTRIM(Expense)[Paid For],(Cost)[Cost],(TotalPaid)[Total Paid],(Duepayment)[Due Payment],RTRIM(Description)[Description], RTRIM(Payee)[Names of Payee],RTRIM(Telephone)[Telephone No. ], RTRIM(Expenses.Email)[Email Address], RTRIM(Expenses.Address)[ Address],RTRIM(ExpenseType)[Expense Type],RTRIM(LoanID)[Loan ID],RTRIM(AccountNumber)[AccountNumber],RTRIM(AccountNames)[Account Names] from Expenses where ExpenseID Like '" + accountsearch.Text+ "%' OR Date Like '" + accountsearch.Text + "%' OR Expense Like '" + accountsearch.Text + "%' OR ExpenseType Like '" + accountsearch.Text + "%' OR Payee Like '" + accountsearch.Text + "%' OR Description Like '" + accountsearch.Text + "%' OR LoanID Like '" + accountsearch.Text + "%' OR Telephone Like '" + accountsearch.Text + "%' OR AccountNumber Like '" + accountsearch.Text + "%' OR AccountNames Like '" + accountsearch.Text + "%' OR LoanID Like '" + accountsearch.Text + "%' order by ID DESC", con);
                 SqlDataAdapter myDA = new SqlDataAdapter(cmd);
                 DataSet myDataSet = new DataSet();
                 myDA.Fill(myDataSet, "Expenses");
@@ -272,7 +272,7 @@ namespace Banking_System
             {
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
-                cmd = new SqlCommand("select RTRIM(PurchaseID)[Purchase ID], RTRIM(Equipmentname)[Equipment Name], RTRIM(Quantity)[Quantity], RTRIM(Units)[Units], RTRIM(UnitCost)[Unit Cost], RTRIM(TotalCost)[Total Cost], RTRIM(InvoiceNo)[Invoice No.], RTRIM(NoPerUnit)[No. Per Unit], RTRIM(SmallUnit)[Minor Units], RTRIM(Specifications)[Specifications], RTRIM(Warnings)[Warnings],RTRIM(PurchaseDate)[Date],RTRIM(Section)[Section],RTRIM(Model)[Model],RTRIM(MfgDate)[Manufacture Date],RTRIM(ExpDate)[Expiry Date], RTRIM(Country)[Origin], RTRIM(BatchNo)[Batch No],RTRIM(Manufacturer)[Manufacturer],RTRIM(Supplier)[Supplier], RTRIM(Description)[Description] from EquipmentPurchase where  PurchaseDate between @date1 and @date2 order by ID Asc", con);
+                cmd = new SqlCommand("select RTRIM(PurchaseID)[Purchase ID], RTRIM(Equipmentname)[Equipment Name], RTRIM(Quantity)[Quantity], RTRIM(Units)[Units], (UnitCost)[Unit Cost], (TotalCost)[Total Cost], RTRIM(InvoiceNo)[Invoice No.], RTRIM(NoPerUnit)[No. Per Unit], RTRIM(SmallUnit)[Minor Units], RTRIM(Specifications)[Specifications], RTRIM(Warnings)[Warnings],RTRIM(PurchaseDate)[Date],RTRIM(Section)[Section],RTRIM(Model)[Model],RTRIM(MfgDate)[Manufacture Date],RTRIM(ExpDate)[Expiry Date], RTRIM(Country)[Origin], RTRIM(BatchNo)[Batch No],RTRIM(Manufacturer)[Manufacturer],RTRIM(Supplier)[Supplier], RTRIM(Description)[Description] from EquipmentPurchase where  PurchaseDate between @date1 and @date2 order by ID Asc", con);
                 cmd.Parameters.Add("@date1", SqlDbType.DateTime, 30, "PurchaseDate").Value = purchasesfrom.Value.Date;
                 cmd.Parameters.Add("@date2", SqlDbType.DateTime, 30, "PurchaseDate").Value = purchasesto.Value.Date;
                 SqlDataAdapter myDA = new SqlDataAdapter(cmd);
@@ -293,7 +293,7 @@ namespace Banking_System
             {
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
-                cmd = new SqlCommand("select RTRIM(PurchaseID)[Purchase ID], RTRIM(Equipmentname)[Equipment Name], RTRIM(Quantity)[Quantity], RTRIM(Units)[Units], RTRIM(UnitCost)[Unit Cost], RTRIM(TotalCost)[Total Cost], RTRIM(InvoiceNo)[Invoice No.], RTRIM(NoPerUnit)[No. Per Unit], RTRIM(SmallUnit)[Minor Units], RTRIM(Specifications)[Specifications], RTRIM(Warnings)[Warnings],RTRIM(PurchaseDate)[Date],RTRIM(Section)[Section],RTRIM(Model)[Model],RTRIM(MfgDate)[Manufacture Date],RTRIM(ExpDate)[Expiry Date], RTRIM(Country)[Origin], RTRIM(BatchNo)[Batch No],RTRIM(Manufacturer)[Manufacturer],RTRIM(Supplier)[Supplier], RTRIM(Description)[Description] from EquipmentPurchase where  PurchaseDate like '" + purchasessearch.Text + "%' OR EquipmentName like '" + purchasessearch.Text + "%' OR PurchaseID like '" + purchasessearch.Text + "%' OR Units like '" + purchasessearch.Text + "%' OR InvoiceNo like '" + purchasessearch.Text + "%' OR SmallUnit like '" + purchasessearch.Text + "%' OR Country like '" + purchasessearch.Text + "%' OR Manufacturer like '" + purchasessearch.Text + "%' OR Model like '" + purchasessearch.Text + "%' OR MfgDate like '" + purchasessearch.Text + "%' OR ExpDate like '" + purchasessearch.Text + "%' OR Supplier like '" + purchasessearch.Text + "%' OR BatchNo like '" + purchasessearch.Text + "%' order by Equipmentname Asc", con);
+                cmd = new SqlCommand("select RTRIM(PurchaseID)[Purchase ID], RTRIM(Equipmentname)[Equipment Name], RTRIM(Quantity)[Quantity], RTRIM(Units)[Units], (UnitCost)[Unit Cost], (TotalCost)[Total Cost], RTRIM(InvoiceNo)[Invoice No.], RTRIM(NoPerUnit)[No. Per Unit], RTRIM(SmallUnit)[Minor Units], RTRIM(Specifications)[Specifications], RTRIM(Warnings)[Warnings],RTRIM(PurchaseDate)[Date],RTRIM(Section)[Section],RTRIM(Model)[Model],RTRIM(MfgDate)[Manufacture Date],RTRIM(ExpDate)[Expiry Date], RTRIM(Country)[Origin], RTRIM(BatchNo)[Batch No],RTRIM(Manufacturer)[Manufacturer],RTRIM(Supplier)[Supplier], RTRIM(Description)[Description] from EquipmentPurchase where  PurchaseDate like '" + purchasessearch.Text + "%' OR EquipmentName like '" + purchasessearch.Text + "%' OR PurchaseID like '" + purchasessearch.Text + "%' OR Units like '" + purchasessearch.Text + "%' OR InvoiceNo like '" + purchasessearch.Text + "%' OR SmallUnit like '" + purchasessearch.Text + "%' OR Country like '" + purchasessearch.Text + "%' OR Manufacturer like '" + purchasessearch.Text + "%' OR Model like '" + purchasessearch.Text + "%' OR MfgDate like '" + purchasessearch.Text + "%' OR ExpDate like '" + purchasessearch.Text + "%' OR Supplier like '" + purchasessearch.Text + "%' OR BatchNo like '" + purchasessearch.Text + "%' order by Equipmentname Asc", con);
                 SqlDataAdapter myDA = new SqlDataAdapter(cmd);
                 DataSet myDataSet = new DataSet();
                 myDA.Fill(myDataSet, "EquipmentPurchase");
@@ -312,7 +312,7 @@ namespace Banking_System
             {
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
-                cmd = new SqlCommand("select RTrim(TransactionID)[Transaction ID], RTRIM(Year)[Year], RTRIM(Months)[Months], RTRIM(Date)[Transaction Date],RTRIM(AuthorisedBy)[Chairman Authorisation], RTRIM(Ammount)[Ammount], RTRIM(TransactionDetails)[Transaction Details]from Drawings where  Date between @date1 and @date2 order by Date", con);
+                cmd = new SqlCommand("select RTrim(TransactionID)[Transaction ID], RTRIM(Year)[Year], RTRIM(Months)[Months], RTRIM(Date)[Transaction Date],RTRIM(AuthorisedBy)[Chairman Authorisation], (Ammount)[Ammount], RTRIM(TransactionDetails)[Transaction Details]from Drawings where  Date between @date1 and @date2 order by Date", con);
                 cmd.Parameters.Add("@date1", SqlDbType.DateTime, 30, " Date").Value =dividendsfrom.Value.Date;
                 cmd.Parameters.Add("@date2", SqlDbType.DateTime, 30, "Date").Value = dividendsto.Value.Date;
                 SqlDataAdapter myDA = new SqlDataAdapter(cmd);
@@ -333,7 +333,7 @@ namespace Banking_System
             {
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
-                cmd = new SqlCommand("select RTrim(TransactionID)[Transaction ID], RTRIM(Year)[Year], RTRIM(Months)[Months], RTRIM(Date)[Transaction Date],RTRIM(AuthorisedBy)[Chairman Authorisation], RTRIM(Ammount)[Ammount], RTRIM(TransactionDetails)[Transaction Details] from Drawings where  Date Like '"+ dividendssearch.Text+ "%' OR TransactionID Like '" + dividendssearch.Text + "%' OR TransactionType Like '" + dividendssearch.Text + "%' OR TransactionDetails Like '" + dividendssearch.Text + "%' order by ID DESC", con);
+                cmd = new SqlCommand("select RTrim(TransactionID)[Transaction ID], RTRIM(Year)[Year], RTRIM(Months)[Months], RTRIM(Date)[Transaction Date],RTRIM(AuthorisedBy)[Chairman Authorisation], (Ammount)[Ammount], RTRIM(TransactionDetails)[Transaction Details] from Drawings where  Date Like '"+ dividendssearch.Text+ "%' OR TransactionID Like '" + dividendssearch.Text + "%' OR TransactionType Like '" + dividendssearch.Text + "%' OR TransactionDetails Like '" + dividendssearch.Text + "%' order by ID DESC", con);
                 SqlDataAdapter myDA = new SqlDataAdapter(cmd);
                 DataSet myDataSet = new DataSet();
                 myDA.Fill(myDataSet, "Drawings");
@@ -344,6 +344,16 @@ namespace Banking_System
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void buttonX12_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBoxX3_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

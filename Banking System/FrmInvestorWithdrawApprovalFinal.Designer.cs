@@ -30,6 +30,10 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmInvestorWithdrawApprovalFinal));
             this.groupPanel3 = new DevComponents.DotNetBar.Controls.GroupPanel();
+            this.firstapprovalby = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.labelX1 = new DevComponents.DotNetBar.LabelX();
+            this.comment2 = new System.Windows.Forms.RichTextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.comment = new System.Windows.Forms.RichTextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.approvals = new System.Windows.Forms.ComboBox();
@@ -60,8 +64,6 @@
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.label5 = new System.Windows.Forms.Label();
-            this.comment2 = new System.Windows.Forms.RichTextBox();
             this.groupPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.depositammount)).BeginInit();
             this.groupPanel5.SuspendLayout();
@@ -78,6 +80,8 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupPanel3.CanvasColor = System.Drawing.SystemColors.Control;
             this.groupPanel3.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
+            this.groupPanel3.Controls.Add(this.firstapprovalby);
+            this.groupPanel3.Controls.Add(this.labelX1);
             this.groupPanel3.Controls.Add(this.comment2);
             this.groupPanel3.Controls.Add(this.label5);
             this.groupPanel3.Controls.Add(this.comment);
@@ -140,11 +144,63 @@
             this.groupPanel3.TabIndex = 2;
             this.groupPanel3.Text = "Investment Withdraw Final Approval";
             // 
+            // firstapprovalby
+            // 
+            // 
+            // 
+            // 
+            this.firstapprovalby.Border.Class = "TextBoxBorder";
+            this.firstapprovalby.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.firstapprovalby.Enabled = false;
+            this.firstapprovalby.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.firstapprovalby.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.firstapprovalby.Location = new System.Drawing.Point(158, 117);
+            this.firstapprovalby.Name = "firstapprovalby";
+            this.firstapprovalby.Size = new System.Drawing.Size(171, 29);
+            this.firstapprovalby.TabIndex = 99;
+            // 
+            // labelX1
+            // 
+            this.labelX1.BackColor = System.Drawing.Color.Transparent;
+            // 
+            // 
+            // 
+            this.labelX1.BackgroundStyle.Class = "";
+            this.labelX1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX1.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelX1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.labelX1.Location = new System.Drawing.Point(4, 121);
+            this.labelX1.Name = "labelX1";
+            this.labelX1.Size = new System.Drawing.Size(138, 23);
+            this.labelX1.TabIndex = 98;
+            this.labelX1.Text = "First Approval By";
+            // 
+            // comment2
+            // 
+            this.comment2.Location = new System.Drawing.Point(488, 152);
+            this.comment2.Name = "comment2";
+            this.comment2.Size = new System.Drawing.Size(171, 73);
+            this.comment2.TabIndex = 97;
+            this.comment2.Text = "";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.Transparent;
+            this.label5.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label5.Location = new System.Drawing.Point(333, 174);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(145, 22);
+            this.label5.TabIndex = 96;
+            this.label5.Text = "Approval Comment";
+            // 
             // comment
             // 
-            this.comment.Location = new System.Drawing.Point(155, 121);
+            this.comment.Location = new System.Drawing.Point(155, 152);
             this.comment.Name = "comment";
-            this.comment.Size = new System.Drawing.Size(171, 104);
+            this.comment.Size = new System.Drawing.Size(171, 73);
             this.comment.TabIndex = 95;
             this.comment.Text = "";
             // 
@@ -154,7 +210,7 @@
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label4.Location = new System.Drawing.Point(-1, 134);
+            this.label4.Location = new System.Drawing.Point(0, 152);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(106, 44);
@@ -203,7 +259,7 @@
             this.labelX4.Name = "labelX4";
             this.labelX4.Size = new System.Drawing.Size(111, 23);
             this.labelX4.TabIndex = 87;
-            this.labelX4.Text = "Savings ID";
+            this.labelX4.Text = "Investment ID";
             // 
             // investmentid
             // 
@@ -608,27 +664,6 @@
             this.dataGridView1.TabIndex = 76;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.Transparent;
-            this.label5.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label5.Location = new System.Drawing.Point(333, 174);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(145, 22);
-            this.label5.TabIndex = 96;
-            this.label5.Text = "Approval Comment";
-            // 
-            // comment2
-            // 
-            this.comment2.Location = new System.Drawing.Point(488, 152);
-            this.comment2.Name = "comment2";
-            this.comment2.Size = new System.Drawing.Size(171, 73);
-            this.comment2.TabIndex = 97;
-            this.comment2.Text = "";
-            // 
             // FrmInvestorWithdrawApprovalFinal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -693,5 +728,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.RichTextBox comment2;
         private System.Windows.Forms.Label label5;
+        private DevComponents.DotNetBar.Controls.TextBoxX firstapprovalby;
+        private DevComponents.DotNetBar.LabelX labelX1;
     }
 }

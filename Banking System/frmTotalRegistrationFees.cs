@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Data.SqlClient;
@@ -81,9 +77,10 @@ namespace Banking_System
                 cmd.Parameters["@d4"].Value = interestrate.Text;
                 cmd.Parameters["@d5"].Value = chairperson.Text.Trim();
                 cmd.ExecuteNonQuery();
-                MessageBox.Show("Successfully saved", "Savings Record", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                Reset();
                 con.Close();
+                MessageBox.Show("Successfully saved", "Record", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Reset();
+                //con.Close();
             }
             catch (Exception ex)
             {

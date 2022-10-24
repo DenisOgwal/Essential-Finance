@@ -86,6 +86,12 @@
             this.labelX5 = new DevComponents.DotNetBar.LabelX();
             this.label8 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.AccountNumber = new System.Windows.Forms.TextBox();
+            this.accountbalance = new System.Windows.Forms.TextBox();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.AccountName = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Duepayment)).BeginInit();
@@ -107,7 +113,7 @@
             this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dataGridView1.BackgroundColor = global::Banking_System.Properties.Settings.Default.usercolor;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
@@ -128,7 +134,7 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.GridColor = System.Drawing.Color.Black;
-            this.dataGridView1.Location = new System.Drawing.Point(516, 3);
+            this.dataGridView1.Location = new System.Drawing.Point(553, 3);
             this.dataGridView1.Name = "dataGridView1";
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
@@ -138,7 +144,7 @@
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.dataGridView1.Size = new System.Drawing.Size(215, 569);
+            this.dataGridView1.Size = new System.Drawing.Size(230, 569);
             this.dataGridView1.TabIndex = 3;
             this.dataGridView1.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_RowHeaderMouseClick);
             // 
@@ -179,9 +185,9 @@
             this.groupPanel1.Controls.Add(this.label17);
             this.groupPanel1.Controls.Add(this.label16);
             this.groupPanel1.Controls.Add(this.label15);
-            this.groupPanel1.Location = new System.Drawing.Point(3, 294);
+            this.groupPanel1.Location = new System.Drawing.Point(3, 324);
             this.groupPanel1.Name = "groupPanel1";
-            this.groupPanel1.Size = new System.Drawing.Size(501, 272);
+            this.groupPanel1.Size = new System.Drawing.Size(538, 242);
             // 
             // 
             // 
@@ -227,7 +233,7 @@
             this.Duepayment.DisplayFormat = "N0";
             this.Duepayment.Enabled = false;
             this.Duepayment.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Duepayment.Location = new System.Drawing.Point(130, 173);
+            this.Duepayment.Location = new System.Drawing.Point(130, 136);
             this.Duepayment.Name = "Duepayment";
             this.Duepayment.Size = new System.Drawing.Size(100, 29);
             this.Duepayment.TabIndex = 88;
@@ -244,9 +250,9 @@
             this.txtTotalPaid.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2;
             this.txtTotalPaid.DisplayFormat = "N0";
             this.txtTotalPaid.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTotalPaid.Location = new System.Drawing.Point(320, 139);
+            this.txtTotalPaid.Location = new System.Drawing.Point(320, 102);
             this.txtTotalPaid.Name = "txtTotalPaid";
-            this.txtTotalPaid.Size = new System.Drawing.Size(172, 29);
+            this.txtTotalPaid.Size = new System.Drawing.Size(209, 29);
             this.txtTotalPaid.TabIndex = 87;
             this.txtTotalPaid.ValueChanged += new System.EventHandler(this.txtTotalPaid_ValueChanged);
             this.txtTotalPaid.Validating += new System.ComponentModel.CancelEventHandler(this.txtTotalPaid_Validating_1);
@@ -258,9 +264,9 @@
             this.staffname.Enabled = false;
             this.staffname.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.staffname.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.staffname.Location = new System.Drawing.Point(312, 210);
+            this.staffname.Location = new System.Drawing.Point(312, 173);
             this.staffname.Name = "staffname";
-            this.staffname.Size = new System.Drawing.Size(180, 29);
+            this.staffname.Size = new System.Drawing.Size(217, 29);
             this.staffname.TabIndex = 86;
             // 
             // labelX3
@@ -273,7 +279,7 @@
             this.labelX3.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.labelX3.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelX3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.labelX3.Location = new System.Drawing.Point(238, 212);
+            this.labelX3.Location = new System.Drawing.Point(238, 175);
             this.labelX3.Name = "labelX3";
             this.labelX3.Size = new System.Drawing.Size(44, 23);
             this.labelX3.TabIndex = 85;
@@ -283,7 +289,7 @@
             // 
             this.staffid.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.staffid.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.staffid.Location = new System.Drawing.Point(130, 210);
+            this.staffid.Location = new System.Drawing.Point(130, 173);
             this.staffid.Name = "staffid";
             this.staffid.PasswordChar = '*';
             this.staffid.Size = new System.Drawing.Size(100, 29);
@@ -300,7 +306,7 @@
             this.labelX2.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.labelX2.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelX2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.labelX2.Location = new System.Drawing.Point(6, 212);
+            this.labelX2.Location = new System.Drawing.Point(6, 175);
             this.labelX2.Name = "labelX2";
             this.labelX2.Size = new System.Drawing.Size(118, 23);
             this.labelX2.TabIndex = 83;
@@ -312,7 +318,7 @@
             this.label10.BackColor = System.Drawing.Color.Transparent;
             this.label10.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label10.Location = new System.Drawing.Point(3, 178);
+            this.label10.Location = new System.Drawing.Point(3, 141);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(103, 22);
             this.label10.TabIndex = 81;
@@ -322,7 +328,7 @@
             // 
             this.txtDeduction.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDeduction.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.txtDeduction.Location = new System.Drawing.Point(130, 138);
+            this.txtDeduction.Location = new System.Drawing.Point(130, 101);
             this.txtDeduction.Name = "txtDeduction";
             this.txtDeduction.Size = new System.Drawing.Size(100, 29);
             this.txtDeduction.TabIndex = 74;
@@ -334,7 +340,7 @@
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label3.Location = new System.Drawing.Point(3, 139);
+            this.label3.Location = new System.Drawing.Point(3, 102);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(71, 22);
@@ -347,11 +353,11 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtPaymentModeDetails.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPaymentModeDetails.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.txtPaymentModeDetails.Location = new System.Drawing.Point(195, 76);
+            this.txtPaymentModeDetails.Location = new System.Drawing.Point(195, 39);
             this.txtPaymentModeDetails.Multiline = true;
             this.txtPaymentModeDetails.Name = "txtPaymentModeDetails";
             this.txtPaymentModeDetails.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtPaymentModeDetails.Size = new System.Drawing.Size(297, 56);
+            this.txtPaymentModeDetails.Size = new System.Drawing.Size(334, 56);
             this.txtPaymentModeDetails.TabIndex = 73;
             // 
             // cmbModeOfPayment
@@ -363,13 +369,9 @@
             this.cmbModeOfPayment.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbModeOfPayment.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.cmbModeOfPayment.FormattingEnabled = true;
-            this.cmbModeOfPayment.Items.AddRange(new object[] {
-            "Cash",
-            "Bank",
-            "Mobile Money"});
-            this.cmbModeOfPayment.Location = new System.Drawing.Point(195, 42);
+            this.cmbModeOfPayment.Location = new System.Drawing.Point(384, 3);
             this.cmbModeOfPayment.Name = "cmbModeOfPayment";
-            this.cmbModeOfPayment.Size = new System.Drawing.Size(157, 30);
+            this.cmbModeOfPayment.Size = new System.Drawing.Size(145, 30);
             this.cmbModeOfPayment.TabIndex = 72;
             // 
             // dtpPaymentDate
@@ -379,9 +381,9 @@
             this.dtpPaymentDate.CustomFormat = "dd/MMM/yyyy";
             this.dtpPaymentDate.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpPaymentDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpPaymentDate.Location = new System.Drawing.Point(195, 12);
+            this.dtpPaymentDate.Location = new System.Drawing.Point(113, 4);
             this.dtpPaymentDate.Name = "dtpPaymentDate";
-            this.dtpPaymentDate.Size = new System.Drawing.Size(157, 29);
+            this.dtpPaymentDate.Size = new System.Drawing.Size(130, 29);
             this.dtpPaymentDate.TabIndex = 71;
             // 
             // label18
@@ -390,7 +392,7 @@
             this.label18.BackColor = System.Drawing.Color.Transparent;
             this.label18.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label18.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label18.Location = new System.Drawing.Point(-1, 49);
+            this.label18.Location = new System.Drawing.Point(250, 9);
             this.label18.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(136, 22);
@@ -403,7 +405,7 @@
             this.label17.BackColor = System.Drawing.Color.Transparent;
             this.label17.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label17.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label17.Location = new System.Drawing.Point(235, 145);
+            this.label17.Location = new System.Drawing.Point(235, 108);
             this.label17.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(78, 22);
@@ -416,7 +418,7 @@
             this.label16.BackColor = System.Drawing.Color.Transparent;
             this.label16.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label16.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label16.Location = new System.Drawing.Point(-1, 93);
+            this.label16.Location = new System.Drawing.Point(-1, 56);
             this.label16.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(164, 22);
@@ -429,7 +431,7 @@
             this.label15.BackColor = System.Drawing.Color.Transparent;
             this.label15.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label15.Location = new System.Drawing.Point(-1, 15);
+            this.label15.Location = new System.Drawing.Point(-1, 6);
             this.label15.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(107, 22);
@@ -443,6 +445,12 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupPanel2.CanvasColor = System.Drawing.SystemColors.Control;
             this.groupPanel2.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
+            this.groupPanel2.Controls.Add(this.AccountName);
+            this.groupPanel2.Controls.Add(this.label21);
+            this.groupPanel2.Controls.Add(this.accountbalance);
+            this.groupPanel2.Controls.Add(this.label20);
+            this.groupPanel2.Controls.Add(this.AccountNumber);
+            this.groupPanel2.Controls.Add(this.label14);
             this.groupPanel2.Controls.Add(this.txtBasicSalary);
             this.groupPanel2.Controls.Add(this.txtStaffName);
             this.groupPanel2.Controls.Add(this.cmbStaffID);
@@ -451,7 +459,7 @@
             this.groupPanel2.Controls.Add(this.label19);
             this.groupPanel2.Location = new System.Drawing.Point(3, 71);
             this.groupPanel2.Name = "groupPanel2";
-            this.groupPanel2.Size = new System.Drawing.Size(501, 144);
+            this.groupPanel2.Size = new System.Drawing.Size(538, 176);
             // 
             // 
             // 
@@ -484,7 +492,7 @@
             this.groupPanel2.StyleMouseOver.Class = "";
             this.groupPanel2.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.groupPanel2.TabIndex = 61;
-            this.groupPanel2.Text = "Member Details";
+            this.groupPanel2.Text = "Account Details";
             // 
             // txtBasicSalary
             // 
@@ -499,9 +507,9 @@
             this.txtBasicSalary.DisplayFormat = "N0";
             this.txtBasicSalary.Enabled = false;
             this.txtBasicSalary.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBasicSalary.Location = new System.Drawing.Point(152, 89);
+            this.txtBasicSalary.Location = new System.Drawing.Point(130, 111);
             this.txtBasicSalary.Name = "txtBasicSalary";
-            this.txtBasicSalary.Size = new System.Drawing.Size(244, 29);
+            this.txtBasicSalary.Size = new System.Drawing.Size(125, 29);
             this.txtBasicSalary.TabIndex = 77;
             // 
             // txtStaffName
@@ -517,9 +525,9 @@
             this.txtStaffName.DisplayFormat = "N0";
             this.txtStaffName.Enabled = false;
             this.txtStaffName.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtStaffName.Location = new System.Drawing.Point(152, 51);
+            this.txtStaffName.Location = new System.Drawing.Point(344, 10);
             this.txtStaffName.Name = "txtStaffName";
-            this.txtStaffName.Size = new System.Drawing.Size(244, 29);
+            this.txtStaffName.Size = new System.Drawing.Size(174, 29);
             this.txtStaffName.TabIndex = 76;
             // 
             // cmbStaffID
@@ -529,9 +537,9 @@
             this.cmbStaffID.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbStaffID.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.cmbStaffID.FormattingEnabled = true;
-            this.cmbStaffID.Location = new System.Drawing.Point(152, 12);
+            this.cmbStaffID.Location = new System.Drawing.Point(80, 10);
             this.cmbStaffID.Name = "cmbStaffID";
-            this.cmbStaffID.Size = new System.Drawing.Size(244, 30);
+            this.cmbStaffID.Size = new System.Drawing.Size(138, 30);
             this.cmbStaffID.TabIndex = 70;
             this.cmbStaffID.SelectedIndexChanged += new System.EventHandler(this.cmbStaffID_SelectedIndexChanged);
             this.cmbStaffID.TextChanged += new System.EventHandler(this.cmbStaffID_TextChanged);
@@ -542,7 +550,7 @@
             this.Label2.BackColor = System.Drawing.Color.Transparent;
             this.Label2.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Label2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.Label2.Location = new System.Drawing.Point(30, 50);
+            this.Label2.Location = new System.Drawing.Point(215, 13);
             this.Label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.Label2.Name = "Label2";
             this.Label2.Size = new System.Drawing.Size(104, 22);
@@ -555,7 +563,7 @@
             this.Label1.BackColor = System.Drawing.Color.Transparent;
             this.Label1.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.Label1.Location = new System.Drawing.Point(30, 14);
+            this.Label1.Location = new System.Drawing.Point(-1, 12);
             this.Label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.Label1.Name = "Label1";
             this.Label1.Size = new System.Drawing.Size(66, 22);
@@ -568,7 +576,7 @@
             this.label19.BackColor = System.Drawing.Color.Transparent;
             this.label19.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label19.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label19.Location = new System.Drawing.Point(30, 88);
+            this.label19.Location = new System.Drawing.Point(-1, 114);
             this.label19.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(124, 22);
@@ -587,7 +595,7 @@
             this.groupPanel3.Controls.Add(this.label5);
             this.groupPanel3.Location = new System.Drawing.Point(3, 3);
             this.groupPanel3.Name = "groupPanel3";
-            this.groupPanel3.Size = new System.Drawing.Size(501, 62);
+            this.groupPanel3.Size = new System.Drawing.Size(538, 62);
             // 
             // 
             // 
@@ -627,7 +635,7 @@
             this.buttonX1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonX1.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonX1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.buttonX1.Location = new System.Drawing.Point(358, 15);
+            this.buttonX1.Location = new System.Drawing.Point(395, 15);
             this.buttonX1.Name = "buttonX1";
             this.buttonX1.Size = new System.Drawing.Size(38, 29);
             this.buttonX1.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -644,7 +652,7 @@
             this.txtPaymentID.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.txtPaymentID.Location = new System.Drawing.Point(154, 15);
             this.txtPaymentID.Name = "txtPaymentID";
-            this.txtPaymentID.Size = new System.Drawing.Size(198, 29);
+            this.txtPaymentID.Size = new System.Drawing.Size(235, 29);
             this.txtPaymentID.TabIndex = 100;
             // 
             // label5
@@ -669,7 +677,7 @@
             this.groupPanel4.Controls.Add(this.labelX1);
             this.groupPanel4.Location = new System.Drawing.Point(12, 4);
             this.groupPanel4.Name = "groupPanel4";
-            this.groupPanel4.Size = new System.Drawing.Size(881, 44);
+            this.groupPanel4.Size = new System.Drawing.Size(933, 44);
             // 
             // 
             // 
@@ -718,7 +726,7 @@
             this.labelX1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.labelX1.Location = new System.Drawing.Point(-3, 5);
             this.labelX1.Name = "labelX1";
-            this.labelX1.Size = new System.Drawing.Size(881, 23);
+            this.labelX1.Size = new System.Drawing.Size(933, 23);
             this.labelX1.TabIndex = 0;
             this.labelX1.Text = "LOAN INSURANCE FEES PAYMENT";
             this.labelX1.TextAlignment = System.Drawing.StringAlignment.Center;
@@ -733,7 +741,7 @@
             this.groupPanel5.Controls.Add(this.buttonX4);
             this.groupPanel5.Controls.Add(this.buttonX3);
             this.groupPanel5.Controls.Add(this.buttonX2);
-            this.groupPanel5.Location = new System.Drawing.Point(752, 57);
+            this.groupPanel5.Location = new System.Drawing.Point(804, 57);
             this.groupPanel5.Name = "groupPanel5";
             this.groupPanel5.Size = new System.Drawing.Size(141, 569);
             // 
@@ -871,9 +879,9 @@
             this.groupPanel6.Controls.Add(this.months);
             this.groupPanel6.Controls.Add(this.label9);
             this.groupPanel6.Controls.Add(this.label4);
-            this.groupPanel6.Location = new System.Drawing.Point(3, 221);
+            this.groupPanel6.Location = new System.Drawing.Point(3, 253);
             this.groupPanel6.Name = "groupPanel6";
-            this.groupPanel6.Size = new System.Drawing.Size(501, 67);
+            this.groupPanel6.Size = new System.Drawing.Size(538, 65);
             // 
             // 
             // 
@@ -976,7 +984,7 @@
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(734, 575);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(786, 575);
             this.tableLayoutPanel1.TabIndex = 68;
             this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
             // 
@@ -995,10 +1003,10 @@
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 4;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 26.53779F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 13.00527F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 48.6819F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(507, 569);
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 31.98594F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.47803F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 43.40949F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(544, 569);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // ribbonClientPanel1
@@ -1014,7 +1022,7 @@
             this.ribbonClientPanel1.Controls.Add(this.label11);
             this.ribbonClientPanel1.Location = new System.Drawing.Point(1, 629);
             this.ribbonClientPanel1.Name = "ribbonClientPanel1";
-            this.ribbonClientPanel1.Size = new System.Drawing.Size(909, 51);
+            this.ribbonClientPanel1.Size = new System.Drawing.Size(961, 51);
             // 
             // 
             // 
@@ -1047,7 +1055,7 @@
             this.labelX5.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.labelX5.Location = new System.Drawing.Point(3, 12);
             this.labelX5.Name = "labelX5";
-            this.labelX5.Size = new System.Drawing.Size(903, 23);
+            this.labelX5.Size = new System.Drawing.Size(955, 23);
             this.labelX5.TabIndex = 64;
             this.labelX5.Text = "Copyright ©  2016-2020 Dither Technologies";
             this.labelX5.TextAlignment = System.Drawing.StringAlignment.Center;
@@ -1076,13 +1084,80 @@
             this.label13.Text = "label13";
             this.label13.Visible = false;
             // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.BackColor = System.Drawing.Color.Transparent;
+            this.label14.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label14.Location = new System.Drawing.Point(-1, 64);
+            this.label14.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(95, 22);
+            this.label14.TabIndex = 78;
+            this.label14.Text = "Account No.";
+            // 
+            // AccountNumber
+            // 
+            this.AccountNumber.Enabled = false;
+            this.AccountNumber.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AccountNumber.Location = new System.Drawing.Point(92, 64);
+            this.AccountNumber.Name = "AccountNumber";
+            this.AccountNumber.Size = new System.Drawing.Size(126, 29);
+            this.AccountNumber.TabIndex = 79;
+            this.AccountNumber.TextChanged += new System.EventHandler(this.AccountNumber_TextChanged);
+            // 
+            // accountbalance
+            // 
+            this.accountbalance.Enabled = false;
+            this.accountbalance.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.accountbalance.Location = new System.Drawing.Point(361, 111);
+            this.accountbalance.Name = "accountbalance";
+            this.accountbalance.Size = new System.Drawing.Size(157, 29);
+            this.accountbalance.TabIndex = 81;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.BackColor = System.Drawing.Color.Transparent;
+            this.label20.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label20.Location = new System.Drawing.Point(260, 114);
+            this.label20.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(96, 22);
+            this.label20.TabIndex = 80;
+            this.label20.Text = "Account Bal.";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.BackColor = System.Drawing.Color.Transparent;
+            this.label21.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label21.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label21.Location = new System.Drawing.Point(219, 66);
+            this.label21.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(118, 22);
+            this.label21.TabIndex = 82;
+            this.label21.Text = "Account Names";
+            // 
+            // AccountName
+            // 
+            this.AccountName.Enabled = false;
+            this.AccountName.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AccountName.Location = new System.Drawing.Point(342, 59);
+            this.AccountName.Name = "AccountName";
+            this.AccountName.Size = new System.Drawing.Size(174, 29);
+            this.AccountName.TabIndex = 83;
+            // 
             // frmLoanInsuranceFeesPayment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = global::Banking_System.Properties.Settings.Default.usercolor;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(904, 673);
+            this.ClientSize = new System.Drawing.Size(956, 673);
             this.Controls.Add(this.ribbonClientPanel1);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.groupPanel5);
@@ -1176,5 +1251,11 @@
         public DevComponents.Editors.IntegerInput txtTotalPaid;
         public DevComponents.Editors.IntegerInput txtBasicSalary;
         public DevComponents.Editors.IntegerInput txtStaffName;
+        internal System.Windows.Forms.Label label14;
+        private System.Windows.Forms.TextBox AccountNumber;
+        private System.Windows.Forms.TextBox accountbalance;
+        internal System.Windows.Forms.Label label20;
+        internal System.Windows.Forms.Label label21;
+        private System.Windows.Forms.TextBox AccountName;
     }
 }

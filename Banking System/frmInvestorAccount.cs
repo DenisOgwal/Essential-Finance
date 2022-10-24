@@ -81,6 +81,81 @@ namespace Banking_System
             }
             string years = yearss.Substring(2, 2);
             accountnumber.Text = "20" + years + monthss + days + convertedid;
+            con.Close();
+        }
+        private void auto2()
+        {
+            int realid = 0;
+            con = new SqlConnection(cs.DBConn);
+            con.Open();
+            string ct = "select ID from InvestorAccount Order By ID DESC";
+            cmd = new SqlCommand(ct);
+            cmd.Connection = con;
+            rdr = cmd.ExecuteReader();
+            if (rdr.Read())
+            {
+                con = new SqlConnection(cs.DBConn);
+                con.Open();
+                cmd = new SqlCommand("select COUNT(AccountNumber) from InvestorAccount", con);
+                realid = Convert.ToInt32(cmd.ExecuteScalar()) + 2;
+            }
+            else
+            {
+                realid = 1;
+            }
+            string convertedid = "";
+            if (realid < 10)
+            {
+                convertedid = "00" + realid;
+            }
+            else if (realid < 100)
+            {
+                convertedid = "0" + realid;
+            }
+            else
+            {
+                convertedid = "" + realid;
+            }
+            string years = yearss.Substring(2, 2);
+            accountnumber.Text = "20" + years + monthss + days + convertedid;
+            con.Close();
+        }
+        private void auto3()
+        {
+            int realid = 0;
+            con = new SqlConnection(cs.DBConn);
+            con.Open();
+            string ct = "select ID from InvestorAccount Order By ID DESC";
+            cmd = new SqlCommand(ct);
+            cmd.Connection = con;
+            rdr = cmd.ExecuteReader();
+            if (rdr.Read())
+            {
+                con = new SqlConnection(cs.DBConn);
+                con.Open();
+                cmd = new SqlCommand("select COUNT(AccountNumber) from InvestorAccount", con);
+                realid = Convert.ToInt32(cmd.ExecuteScalar());
+            }
+            else
+            {
+                realid = 1;
+            }
+            string convertedid = "";
+            if (realid < 10)
+            {
+                convertedid = "00" + realid;
+            }
+            else if (realid < 100)
+            {
+                convertedid = "0" + realid;
+            }
+            else
+            {
+                convertedid = "" + realid;
+            }
+            string years = yearss.Substring(2, 2);
+            accountnumber.Text = "20" + years + monthss + days + convertedid;
+            con.Close();
         }
         public void Reset()
         {
@@ -249,6 +324,32 @@ namespace Banking_System
             }
             try
             {
+                con = new SqlConnection(cs.DBConn);
+                con.Open();
+                string kt = "select AccountNumber from InvestorAccount where AccountNumber='" + accountnumber.Text + "' order by ID Desc";
+                cmd = new SqlCommand(kt);
+                cmd.Connection = con;
+                rdr = cmd.ExecuteReader();
+                if (rdr.Read())
+                {
+                    auto2();
+                    con = new SqlConnection(cs.DBConn);
+                    con.Open();
+                    string kt3 = "select AccountNumber from InvestorAccount where AccountNumber='" + accountnumber.Text + "' order by ID Desc";
+                    cmd = new SqlCommand(kt3);
+                    cmd.Connection = con;
+                    rdr = cmd.ExecuteReader();
+                    if (rdr.Read())
+                    {
+                        auto3();
+                    }
+
+                }
+                else
+                {
+                    auto();
+                }
+                con.Close();
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
                 string cb = "insert into InvestorAccount(AccountNumber,AccountNames,RegistrationDate,Gender,DOB,MaritalStatus,Nationality,NationalityStatus,IDForm,ClientID,ContactNo,ContactNo1,OfficeNo,Email,PhysicalAddress,PostalAddress,BankName,BankAccountName,BankAccountNumber,NOKName,NOKContactNo,NOKAddress,NOKRelationship,CreatedBy,AccountPicture,Signature,AccountType) VALUES (@d1,@d2,@d3,@d4,@d5,@d6,@d7,@d8,@d9,@d10,@d11,@d12,@d13,@d14,@d15,@d16,@d17,@d18,@d19,@d20,@d21,@d22,@d23,@d33,@d34,@d35,@d36)";
@@ -628,6 +729,7 @@ namespace Banking_System
                     buttonX3.Enabled = true;
                     buttonX4.Enabled = true;
                 }
+                con.Close();
             }
             catch (Exception ex)
             {
@@ -790,6 +892,7 @@ namespace Banking_System
                     {
 
                     }
+                    con.Close();
                 }
                 catch (Exception Ex)
                 {

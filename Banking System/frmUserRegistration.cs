@@ -51,7 +51,7 @@ namespace Banking_System
             SqlConnection CN = new SqlConnection(cs.DBConn);
             CN.Open();
             adp = new SqlDataAdapter();
-            adp.SelectCommand = new SqlCommand("SELECT distinct RTRIM(StaffName) FROM Employee where Designation='Doctor'", CN);
+            adp.SelectCommand = new SqlCommand("SELECT distinct RTRIM(StaffName) FROM Employee", CN);
             ds = new DataSet("ds");
             adp.Fill(ds);
             dtable = ds.Tables[0];
@@ -76,12 +76,15 @@ namespace Banking_System
         }
         private void Reset()
         {
-            txtUsername.Text = "";
+            /*txtUsername.Text = "";
             txtPassword.Text = "";
             txtContact_no.Text = "";
             txtName.Text = "";
             txtEmail_Address.Text = "";
-            cmbUsertype.Text = "";
+            cmbUsertype.Text = "";*/
+            this.Hide();
+            frmUserRegistration frm = new frmUserRegistration();
+            frm.ShowDialog();
         }
         private void usertypescomplete()
         {
@@ -270,6 +273,7 @@ namespace Banking_System
                 {
                     rdr.Close();
                 }
+                con.Close();
             }
             catch (Exception ex)
             {
@@ -492,6 +496,7 @@ namespace Banking_System
                     }
                     return;
                 }
+                con.Close();
                 EncryptText(txtPassword.Text, "essentialfinance");
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
@@ -517,6 +522,7 @@ namespace Banking_System
                 cmd.ExecuteReader();
                 con.Close();
                 MessageBox.Show("Successfully Registered", "User", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Reset();
                 //Autocomplete(); 
             }
             catch (Exception ex)

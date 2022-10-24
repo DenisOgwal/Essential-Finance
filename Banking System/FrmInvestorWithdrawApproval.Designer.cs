@@ -30,6 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmInvestorWithdrawApproval));
             this.groupPanel3 = new DevComponents.DotNetBar.Controls.GroupPanel();
+            this.cashier = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.label5 = new System.Windows.Forms.Label();
             this.comment = new System.Windows.Forms.RichTextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.approvals = new System.Windows.Forms.ComboBox();
@@ -76,6 +78,8 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupPanel3.CanvasColor = System.Drawing.SystemColors.Control;
             this.groupPanel3.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
+            this.groupPanel3.Controls.Add(this.cashier);
+            this.groupPanel3.Controls.Add(this.label5);
             this.groupPanel3.Controls.Add(this.comment);
             this.groupPanel3.Controls.Add(this.label4);
             this.groupPanel3.Controls.Add(this.approvals);
@@ -136,6 +140,34 @@
             this.groupPanel3.TabIndex = 2;
             this.groupPanel3.Text = "Investment Withdraw First Approval";
             // 
+            // cashier
+            // 
+            // 
+            // 
+            // 
+            this.cashier.Border.Class = "TextBoxBorder";
+            this.cashier.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.cashier.Enabled = false;
+            this.cashier.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cashier.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.cashier.Location = new System.Drawing.Point(487, 121);
+            this.cashier.Name = "cashier";
+            this.cashier.Size = new System.Drawing.Size(171, 29);
+            this.cashier.TabIndex = 97;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.Transparent;
+            this.label5.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label5.Location = new System.Drawing.Point(333, 121);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(102, 22);
+            this.label5.TabIndex = 96;
+            this.label5.Text = "Requested By";
+            // 
             // comment
             // 
             this.comment.Location = new System.Drawing.Point(155, 121);
@@ -167,7 +199,7 @@
             this.approvals.Items.AddRange(new object[] {
             "Approved",
             "Rejected"});
-            this.approvals.Location = new System.Drawing.Point(487, 121);
+            this.approvals.Location = new System.Drawing.Point(488, 169);
             this.approvals.Name = "approvals";
             this.approvals.Size = new System.Drawing.Size(171, 30);
             this.approvals.TabIndex = 92;
@@ -178,7 +210,7 @@
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label3.Location = new System.Drawing.Point(333, 122);
+            this.label3.Location = new System.Drawing.Point(333, 169);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(73, 22);
@@ -199,7 +231,7 @@
             this.labelX4.Name = "labelX4";
             this.labelX4.Size = new System.Drawing.Size(111, 23);
             this.labelX4.TabIndex = 87;
-            this.labelX4.Text = "Savings ID";
+            this.labelX4.Text = "Investment ID";
             // 
             // investmentid
             // 
@@ -217,7 +249,7 @@
             this.investmentid.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.investmentid.TabIndex = 86;
             this.investmentid.SelectedIndexChanged += new System.EventHandler(this.investmentid_SelectedIndexChanged);
-           
+            // 
             // labelX3
             // 
             this.labelX3.BackColor = System.Drawing.Color.Transparent;
@@ -259,7 +291,7 @@
             this.depositammount.Name = "depositammount";
             this.depositammount.Size = new System.Drawing.Size(171, 29);
             this.depositammount.TabIndex = 2;
-            
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -666,5 +698,7 @@
         private System.Windows.Forms.Label label4;
         public System.Windows.Forms.ComboBox approvals;
         private System.Windows.Forms.Label label3;
+        private DevComponents.DotNetBar.Controls.TextBoxX cashier;
+        private System.Windows.Forms.Label label5;
     }
 }

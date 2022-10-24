@@ -1,10 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 
 namespace Banking_System
@@ -18,7 +12,7 @@ namespace Banking_System
 
         private void frmCompulsoryFees_Load(object sender, EventArgs e)
         {
-            string autolo = Properties.Settings.Default.autoloanfines;
+            string autolo = Properties.Settings.Default.autotransfer;
            if(autolo== "Automatic")
             {
                 checkBox1.Checked = true;

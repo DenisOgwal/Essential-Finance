@@ -43,11 +43,29 @@ namespace Banking_System
             }
             return result.ToString();
         }
-        string monthss = DateTime.Today.Month.ToString();
-        string days = DateTime.Today.Day.ToString();
+        int monthss = DateTime.Today.Month;
+        int days = DateTime.Today.Day;
         string yearss = DateTime.Today.Year.ToString();
+        string condays = null;
+        string conmonths = null;
         private void auto()
         {
+            if (days < 10)
+            {
+                condays = "0" + days;
+            }
+            else
+            {
+                condays = "" + days;
+            }
+            if (monthss < 10)
+            {
+                conmonths = "0" + monthss;
+            }
+            else
+            {
+                conmonths = "" + monthss;
+            }
             int realid = 0;
             con = new SqlConnection(cs.DBConn);
             con.Open();
@@ -66,6 +84,7 @@ namespace Banking_System
             {
                 realid = 1;
             }
+            con.Close();
             string convertedid = "";
             if (realid < 10)
             {
@@ -80,7 +99,113 @@ namespace Banking_System
                 convertedid = "" + realid;
             }
             string years = yearss.Substring(2, 2);
-            accountnumber.Text = "10" + years + monthss + days + convertedid;
+            accountnumber.Text = "10" + years + conmonths + condays + convertedid;
+        }
+        private void auto2()
+        {
+            if (days < 10)
+            {
+                condays = "0" + days;
+            }
+            else
+            {
+                condays = "" + days;
+            }
+            if (monthss < 10)
+            {
+                conmonths = "0" + monthss;
+            }
+            else
+            {
+                conmonths = "" + monthss;
+            }
+            int realid = 0;
+            con = new SqlConnection(cs.DBConn);
+            con.Open();
+            string ct = "select ID from Account Order By ID DESC";
+            cmd = new SqlCommand(ct);
+            cmd.Connection = con;
+            rdr = cmd.ExecuteReader();
+            if (rdr.Read())
+            {
+                con = new SqlConnection(cs.DBConn);
+                con.Open();
+                cmd = new SqlCommand("select COUNT(AccountNumber) from Account", con);
+                realid = Convert.ToInt32(cmd.ExecuteScalar()) + 2;
+            }
+            else
+            {
+                realid = 1;
+            }
+            con.Close();
+            string convertedid = "";
+            if (realid < 10)
+            {
+                convertedid = "00" + realid;
+            }
+            else if (realid < 100)
+            {
+                convertedid = "0" + realid;
+            }
+            else
+            {
+                convertedid = "" + realid;
+            }
+            string years = yearss.Substring(2, 2);
+            accountnumber.Text = "10" + years + conmonths + condays + convertedid;
+        }
+        private void auto3()
+        {
+            if (days < 10)
+            {
+                condays = "0" + days;
+            }
+            else
+            {
+                condays = "" + days;
+            }
+            if (monthss < 10)
+            {
+                conmonths = "0" + monthss;
+            }
+            else
+            {
+                conmonths = "" + monthss;
+            }
+            int realid = 0;
+            con = new SqlConnection(cs.DBConn);
+            con.Open();
+            string ct = "select ID from Account Order By ID DESC";
+            cmd = new SqlCommand(ct);
+            cmd.Connection = con;
+            rdr = cmd.ExecuteReader();
+            if (rdr.Read())
+            {
+                con = new SqlConnection(cs.DBConn);
+                con.Open();
+                cmd = new SqlCommand("select COUNT(AccountNumber) from Account", con);
+                realid = Convert.ToInt32(cmd.ExecuteScalar());
+            }
+            else
+            {
+                realid = 1;
+            }
+            con.Close();
+            string convertedid = "";
+            if (realid < 10)
+            {
+                convertedid = "00" + realid;
+            }
+            else if (realid < 100)
+            {
+                convertedid = "0" + realid;
+            }
+            else
+            {
+                convertedid = "" + realid;
+            }
+            string years = yearss.Substring(2, 2);
+            accountnumber.Text = "10" + years + conmonths + condays + convertedid;
         }
         private void buttonX7_Click(object sender, EventArgs e)
         {
@@ -266,6 +391,33 @@ namespace Banking_System
 
             try
             {
+                con = new SqlConnection(cs.DBConn);
+                con.Open();
+                string kt = "select AccountNumber from Account where AccountNumber='" + accountnumber.Text + "' order by ID Desc";
+                cmd = new SqlCommand(kt);
+                cmd.Connection = con;
+                rdr = cmd.ExecuteReader();
+                if (rdr.Read())
+                {
+                    auto2();
+                    con = new SqlConnection(cs.DBConn);
+                    con.Open();
+                    string kt3 = "select AccountNumber from Account where AccountNumber='" + accountnumber.Text + "' order by ID Desc";
+                    cmd = new SqlCommand(kt3);
+                    cmd.Connection = con;
+                    rdr = cmd.ExecuteReader();
+                    if (rdr.Read())
+                    {
+                        auto3();
+                    }
+                    con.Close();
+
+                }
+                else
+                {
+                    auto();
+                }
+                con.Close();
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
                 string cb = "insert into Account(AccountNumber,AccountNames,RegistrationDate,Gender,DOB,MaritalStatus,Nationality,NationalityStatus,IDForm,ClientID,ContactNo,ContactNo1,OfficeNo,Email,PhysicalAddress,PostalAddress,BankName,BankAccountName,BankAccountNumber,NOKName,NOKContactNo,NOKAddress,NOKRelationship,Designation,EmployerName,EmployerPhysicalAddress,EmployerPostalAddress,EmploymentTerms,Department,LengthOfService,NetSalary,NetIncome,CreatedBy,AccountPicture,Signature) VALUES (@d1,@d2,@d3,@d4,@d5,@d6,@d7,@d8,@d9,@d10,@d11,@d12,@d13,@d14,@d15,@d16,@d17,@d18,@d19,@d20,@d21,@d22,@d23,@d24,@d25,@d26,@d27,@d28,@d29,@d30,@d31,@d32,@d33,@d34,@d35)";
@@ -714,6 +866,7 @@ namespace Banking_System
                     buttonX3.Enabled = true;
                     buttonX4.Enabled = true;
                 }
+                con.Close();
             }
             catch (Exception ex)
             {
@@ -733,8 +886,7 @@ namespace Banking_System
             }
             catch (Exception)
             {
-
-                //return;
+                return;
             }
         }
         private void frmPatientRegistration_FormClosing(object sender, FormClosingEventArgs e)
@@ -885,12 +1037,22 @@ namespace Banking_System
                     {
 
                     }
+                    con.Close();
                 }
                 catch (Exception Ex)
                 {
                     MessageBox.Show(Ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+        }
+
+        private void buttonX5_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            frmRegistrationFeesPayment frm = new frmRegistrationFeesPayment();
+            frm.label7.Text = label33.Text;
+            frm.label12.Text = label34.Text;
+            frm.ShowDialog();
         }
     }
 }

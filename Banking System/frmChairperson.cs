@@ -96,6 +96,7 @@ namespace Banking_System
                     buttonX4.Enabled = true;
                     //buttonX1.Enabled = true;
                 }
+                con.Close();
             }
             catch (Exception ex)
             {
@@ -262,6 +263,7 @@ namespace Banking_System
                     }
                     return;
                 }
+                con.Close();
               
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
@@ -378,32 +380,6 @@ namespace Banking_System
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void product_SelectedIndexChanged_1(object sender, EventArgs e)
-        {
-           
-        }
-
-        private void pictureBox3_Click(object sender, EventArgs e)
-        {
-          
-        }
-
-        private void termofcontract_TextChanged(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void propertyid_TextChanged(object sender, EventArgs e)
-        {
-           
-        }
-
         private void dataGridView1_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             try

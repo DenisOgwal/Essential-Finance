@@ -22,7 +22,7 @@ namespace Banking_System
             {
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
-                cmd = new SqlCommand("select RTRIM(AccountNumber)[Account Number],RTRIM(AccountNames)[Account Names] from Account order by ID DESC", con);
+                cmd = new SqlCommand("select RTRIM(AccountNumber)[Account Number],RTRIM(AccountNames)[Account Names] from Account where Cleared='Yes' order by ID DESC", con);
                 SqlDataAdapter myDA = new SqlDataAdapter(cmd);
                 DataSet myDataSet = new DataSet();
                 myDA.Fill(myDataSet, "Account");
@@ -132,12 +132,6 @@ namespace Banking_System
             {
                 MessageBox.Show(Ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }
-
-        private void clientcontact_TextChanged(object sender, EventArgs e)
-        {
-           
-
         }
     }
 }

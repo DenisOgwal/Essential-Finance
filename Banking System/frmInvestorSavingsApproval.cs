@@ -21,8 +21,6 @@ namespace Banking_System
         DataTable dt = new DataTable();
         SqlCommand cmd2 = null;
         ConnectionString cs = new ConnectionString();
-
-        string BarPrinter = null;
         string companyname = null;
         string companyemail = null;
         string companyaddress = null;
@@ -73,6 +71,7 @@ namespace Banking_System
             {
                 realid = 1;
             }
+            con.Close();
             string years = yearss.Substring(2, 2);
             if (investmentplan.Text == "Silver Extra")
             {
@@ -113,6 +112,7 @@ namespace Banking_System
             {
                 realid = 1;
             }
+            con.Close();
             string years = yearss.Substring(2, 2);
             Depositid.Text =years + monthss + days + realid;
         }
@@ -122,7 +122,7 @@ namespace Banking_System
             {
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
-                cmd = new SqlCommand("select RTRIM(AccountNo)[Account No.],RTRIM(AccountName)[Account Name],RTRIM(SavingsID)[Investment ID],RTRIM(DepositID)[Deposit ID] from InvestmentAppreciation where Approved='Not Approved' and Credit='CR' order by ID DESC", con);
+                cmd = new SqlCommand("select RTRIM(AccountNo)[Account No.],RTRIM(AccountName)[Account Name],RTRIM(SavingsID)[Investment ID],RTRIM(DepositID)[Deposit ID],RTRIM(Date)[Date] from InvestmentAppreciation where Approved='Not Approved' and Credit>0 order by ID DESC", con);
                 SqlDataAdapter myDA = new SqlDataAdapter(cmd);
                 DataSet myDataSet = new DataSet();
                 myDA.Fill(myDataSet, "InvestmentAppreciation");
@@ -138,7 +138,7 @@ namespace Banking_System
                 SqlConnection CN = new SqlConnection(cs.DBConn);
                 CN.Open();
                 adp = new SqlDataAdapter();
-                adp.SelectCommand = new SqlCommand("SELECT distinct RTRIM(AccountNumber) FROM InvestorAccount", CN);
+                adp.SelectCommand = new SqlCommand("SELECT distinct RTRIM(AccountNames) FROM InvestorAccount", CN);
                 ds = new DataSet("ds");
                 adp.Fill(ds);
                 dtable = ds.Tables[0];
@@ -147,6 +147,7 @@ namespace Banking_System
                 {
                     accountnumber.Items.Add(drow[0].ToString());
                 }
+                CN.Close();
             }
             catch (Exception ex)
             {
@@ -165,7 +166,7 @@ namespace Banking_System
                 {
                     cmbModeOfPayment.Items.Add(drow[0].ToString());
                 }
-
+                CN.Close();
             }
             catch (Exception ex)
             {
@@ -196,6 +197,7 @@ namespace Banking_System
                 {
 
                 }
+                con.Close();
             }
             catch (Exception ex)
             {
@@ -237,11 +239,13 @@ namespace Banking_System
                     {
                         con.Close();
                     }
-
+                    string smsheader = Properties.Settings.Default.Smscode;
+                    string inquiryphone = Properties.Settings.Default.phoneinquiry;
                     string usernamess = Properties.Settings.Default.smsusername;
                     string passwordss = Properties.Settings.Default.smspassword;
                     numbers = "+256" + numberphone;
-                    messages = "A deposit of " + depositammount.Text + " Has been made on your account No. " + accountnumber.Text + ", Accout Name" + accountname.Text + "  and your account balance is " + accountbalance.Text;
+                   // messages = "A deposit of " + depositammount.Text + " Has been made on your account No. " + accountnumber.Text + ", Accout Name" + accountname.Text + "  and your account balance is " + accountbalance.Text;
+                    messages = smsheader + ": Your Account has been Credited UGX. " + depositammount.Text + " Reason:Investment Deposit. For Any Inquiries Call: " + inquiryphone;
 
                     WebClient client = new WebClient();
                     string baseURL = "http://geniussmsgroup.com/api/http/messagesService/get?username=" + usernamess + "&password=" + passwordss + "&senderid=Geniussms&message=" + messages + "&numbers=" + numbers;
@@ -312,6 +316,12 @@ namespace Banking_System
                 installment.Focus();
                 return;
             }
+            if (approvals.Text == "")
+            {
+                MessageBox.Show("Please Select Approval", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                approvals.Focus();
+                return;
+            }
 
             try
             {
@@ -328,8 +338,8 @@ namespace Banking_System
                         int accountbalances = Convert.ToInt32(rdr[1]);
                         int newaccountbalance = accountbalances + depositammount.Value;
                         int depositedno = Convert.ToInt32(rdr[2]);
-                        int newdeositno = depositedno + 1;
-                        int appreciationnos = Convert.ToInt32(MaturityPeriod.Value) - newdeositno;
+                        int newdeositno = depositedno+1;
+                        int appreciationnos = Convert.ToInt32(MaturityPeriod.Value);
 
                         string nextappreciationss = null;
                         DateTime startdatess = DateTime.Parse(date2.Text).Date;
@@ -339,7 +349,7 @@ namespace Banking_System
 
                         con = new SqlConnection(cs.DBConn);
                         con.Open();
-                        string cb3 = "update InvestorSavings set OtherMaturityDate=@d4,AccountBalance =@d2,DepositedInstallmentNo=@d3 where SavingsID=@d1";
+                        string cb3 = "update InvestorSavings set OtherMaturityDate=@d4,AccountBalance=@d2,DepositedInstallmentNo=@d3,UploadStatus='Pending' where SavingsID=@d1";
                         cmd = new SqlCommand(cb3);
                         cmd.Connection = con;
                         cmd.Parameters.Add(new SqlParameter("@d1", System.Data.SqlDbType.NChar, 15, "SavingsID"));
@@ -398,11 +408,13 @@ namespace Banking_System
                         cmd.Parameters["@d15"].Value = depositinterval.Text;
                         cmd.Parameters["@d16"].Value = ConvertedappreciationDate;
                         cmd.ExecuteNonQuery();
+                        con.Close();
                     }
+                    con.Close();
                     int totalaamount = 0;
                     con = new SqlConnection(cs.DBConn);
                     con.Open();
-                    string ct2 = "select AmountAvailable from BankAccounts where AccountNumber= '" + cmbModeOfPayment.Text + "' ";
+                    string ct2 = "select AmountAvailable from BankAccounts where AccountNames= '" + cmbModeOfPayment.Text + "' ";
                     cmd = new SqlCommand(ct2);
                     cmd.Connection = con;
                     rdr = cmd.ExecuteReader();
@@ -412,132 +424,54 @@ namespace Banking_System
                         int newtotalammount = totalaamount + Convert.ToInt32(depositammount.Value);
                         con = new SqlConnection(cs.DBConn);
                         con.Open();
-                        string cb2 = "UPDate BankAccounts Set AmountAvailable='" + newtotalammount + "', Date='" + date2.Text + "' where AccountNumber='" + cmbModeOfPayment.Text + "'";
+                        string cb2 = "UPDate BankAccounts Set AmountAvailable='" + newtotalammount + "', Date='" + date2.Text + "' where AccountNames='" + cmbModeOfPayment.Text + "'";
                         cmd = new SqlCommand(cb2);
                         cmd.Connection = con;
                         cmd.ExecuteNonQuery();
                         con.Close();
                     }
-
+                    con.Close();
                     string smsallow = Properties.Settings.Default.smsallow;
                     if (smsallow == "Yes")
                     {
                         sendmessage();
                     }
-                }
-                con = new SqlConnection(cs.DBConn);
-                con.Open();
-                string cb = "UPDATE InvestmentAppreciation SET Approved=@d2, ApprovedBy=@d3 WHERE SavingsID=@d1 and DepositID=@d4";
-                cmd = new SqlCommand(cb);
-                cmd.Connection = con;
-                cmd.Parameters.Add(new SqlParameter("@d1", System.Data.SqlDbType.NChar, 15, "SavingsID"));
-                cmd.Parameters.Add(new SqlParameter("@d2", System.Data.SqlDbType.NChar, 20, "Approved"));
-                cmd.Parameters.Add(new SqlParameter("@d3", System.Data.SqlDbType.NChar, 50, "ApprovedBy"));
-                cmd.Parameters.Add(new SqlParameter("@d4", System.Data.SqlDbType.NChar, 15, "DepositID"));
 
-                cmd.Parameters["@d1"].Value = savingsid.Text.Trim();
-                cmd.Parameters["@d2"].Value = approvals.Text;
-                cmd.Parameters["@d3"].Value = cashiername.Text;
-                cmd.Parameters["@d4"].Value = Depositid.Text;
-                cmd.ExecuteNonQuery();
-
-                con = new SqlConnection(cs.DBConn);
-                con.Open();
-                string ct8 = "select InvestmentID from InvestmentSchedule where InvestmentID= '" + savingsid.Text + "' ";
-                cmd = new SqlCommand(ct8);
-                cmd.Connection = con;
-                rdr = cmd.ExecuteReader();
-                if (rdr.Read())
-                {
                     con = new SqlConnection(cs.DBConn);
                     con.Open();
-                    string cb3 = "update InvestmentSchedule set PaymentStatus='Paid',PaymentDate='"+date2.Text+"'  where InvestmentID=@d1 and Months='"+ installment .Text+ "' ";
-                    cmd = new SqlCommand(cb3);
+                    string ct8 = "select InvestmentID from InvestmentSchedule where InvestmentID= '" + savingsid.Text.Trim() + "' ";
+                    cmd = new SqlCommand(ct8);
                     cmd.Connection = con;
-                    cmd.Parameters.Add(new SqlParameter("@d1", System.Data.SqlDbType.NChar, 15, "InvestmentID"));
-                    cmd.Parameters["@d1"].Value = savingsid.Text.Trim();
-                    cmd.ExecuteNonQuery();
-                    con.Close();
-                }
-                else
-                {
-                    string investmentid = savingsid.Text;
-                    string accountnumbers = accountnumber.Text;
-                    string accountnamess = accountname.Text;
-                    int ammountpay = depositammount.Value;
-                    double Intrestearned = (Convert.ToDouble(IntrestRate.Text) / 100) * depositammount.Value;
-                    if (depositinterval.Text.ToString().Trim() == "One Off")
+                    rdr = cmd.ExecuteReader();
+                    if (rdr.Read())
                     {
-                        double cumulation = Intrestearned * MaturityPeriod.Value;
-                        string installmentno = "Installment 1";
-                        string appreciationDatess = null;
-                        DateTime startdatess = DateTime.Parse(date2.Text).Date;
-                        appreciationDatess = (startdatess.AddMonths(MaturityPeriod.Value)).ToShortDateString();
-                        DateTime dtss = DateTime.Parse(appreciationDatess);
-                        string  maturitydates = dtss.ToString("dd/MMM/yyyy");
-
                         con = new SqlConnection(cs.DBConn);
                         con.Open();
-                        string cbs = "insert into InvestmentSchedule(InvestmentID,AccountNumber,Months,PaymentDate,AmmountPay,InterestEarned,Cumulation,AccrualMonths,PaymentStatus,AccountName) VALUES (@d1,@d2,@d3,@d4,@d5,@d6,@d7,@d8,@d9,@d10)";
-                        cmd = new SqlCommand(cbs);
+                        string cb3 = "update InvestmentSchedule set PaymentStatus='Paid',PaymentDate='" + date2.Text + "',UploadStatus='Pending'  where InvestmentID=@d1 and Months='" + installment.Text.ToString().Trim() + "' ";
+                        cmd = new SqlCommand(cb3);
                         cmd.Connection = con;
                         cmd.Parameters.Add(new SqlParameter("@d1", System.Data.SqlDbType.NChar, 15, "InvestmentID"));
-                        cmd.Parameters.Add(new SqlParameter("@d2", System.Data.SqlDbType.NChar, 15, "AccountNumber"));
-                        cmd.Parameters.Add(new SqlParameter("@d3", System.Data.SqlDbType.NChar, 20, "Months"));
-                        cmd.Parameters.Add(new SqlParameter("@d4", System.Data.SqlDbType.NChar, 20, "PaymentDate"));
-                        cmd.Parameters.Add(new SqlParameter("@d5", System.Data.SqlDbType.Float, 20, "AmmountPay"));
-                        cmd.Parameters.Add(new SqlParameter("@d6", System.Data.SqlDbType.Float, 20, "InterestEarned"));
-                        cmd.Parameters.Add(new SqlParameter("@d7", System.Data.SqlDbType.Float, 20, "Cumulation"));
-                        cmd.Parameters.Add(new SqlParameter("@d8", System.Data.SqlDbType.Int, 20, "AccrualMonths"));
-                        cmd.Parameters.Add(new SqlParameter("@d9", System.Data.SqlDbType.NChar, 20, "PaymentStatus"));
-                        cmd.Parameters.Add(new SqlParameter("@d10", System.Data.SqlDbType.NChar, 100, "AccountName"));
-                        cmd.Parameters["@d1"].Value = savingsid.Text;
-                        cmd.Parameters["@d2"].Value = accountnumber.Text;
-                        cmd.Parameters["@d3"].Value = installmentno;
-                        cmd.Parameters["@d4"].Value = maturitydates;
-                        cmd.Parameters["@d5"].Value = ammountpay;
-                        cmd.Parameters["@d6"].Value = Intrestearned;
-                        cmd.Parameters["@d7"].Value = cumulation;
-                        cmd.Parameters["@d8"].Value = MaturityPeriod.Value;
-                        cmd.Parameters["@d9"].Value = "Paid";
-                        cmd.Parameters["@d10"].Value = accountname.Text;
+                        cmd.Parameters["@d1"].Value = savingsid.Text.Trim();
                         cmd.ExecuteNonQuery();
                         con.Close();
                     }
                     else
                     {
-                        for (int i = 1; i <= (Convert.ToInt32(MaturityPeriod.Text)); i++)
+                        string investmentid = savingsid.Text;
+                        string accountnumbers = accountnumber.Text;
+                        string accountnamess = accountname.Text;
+                        int ammountpay = depositammount.Value;
+                        double Intrestearned = ((Convert.ToDouble(IntrestRate.Text) / 100) / 12) * depositammount.Value;
+                        if (depositinterval.Text.ToString().Trim() == "One Off")
                         {
-                            string paymentstatus = null;
-                            string installmentno = null;
-                            double cumulation = 0.00;
-                            string maturitydates = null;
-                            int leftmonths = 0;
-                            if (i == 1)
-                            {
-                                cumulation = Intrestearned * MaturityPeriod.Value;
-                                installmentno = "Installment 1";
-                                string appreciationDatess = null;
-                                leftmonths = MaturityPeriod.Value;
-                                DateTime startdatess = DateTime.Parse(date2.Text).Date;
-                                appreciationDatess = (startdatess.AddMonths(0)).ToShortDateString();
-                                DateTime dtss = DateTime.Parse(appreciationDatess);
-                                maturitydates = dtss.ToString("dd/MMM/yyyy");
-                                paymentstatus = "Paid";
-                            }
-                            else
-                            {
-                                    //int noofmoths = Convert.ToInt32(rdr["AccrualMonths"]);
-                                    leftmonths = MaturityPeriod.Value - (i-1); 
-                                    cumulation = Intrestearned * leftmonths;
-                                    installmentno = "Installment "+i;
-                                    string appreciationDatess = null;
-                                    DateTime startdatess = DateTime.Parse(date2.Text).Date;
-                                    appreciationDatess = (startdatess.AddMonths(i-1)).ToShortDateString();
-                                    DateTime dtss = DateTime.Parse(appreciationDatess);
-                                    maturitydates = dtss.ToString("dd/MMM/yyyy");
-                                    paymentstatus = "Pending";
-                            }
+                            double cumulation = Intrestearned * MaturityPeriod.Value;
+                            string installmentno = "Installment 1";
+                            string appreciationDatess = null;
+                            DateTime startdatess = DateTime.Parse(date2.Text).Date;
+                            appreciationDatess = (startdatess.AddMonths(MaturityPeriod.Value)).ToShortDateString();
+                            DateTime dtss = DateTime.Parse(appreciationDatess);
+                            string maturitydates = dtss.ToString("dd/MMM/yyyy");
+
                             con = new SqlConnection(cs.DBConn);
                             con.Open();
                             string cbs = "insert into InvestmentSchedule(InvestmentID,AccountNumber,Months,PaymentDate,AmmountPay,InterestEarned,Cumulation,AccrualMonths,PaymentStatus,AccountName) VALUES (@d1,@d2,@d3,@d4,@d5,@d6,@d7,@d8,@d9,@d10)";
@@ -560,62 +494,149 @@ namespace Banking_System
                             cmd.Parameters["@d5"].Value = ammountpay;
                             cmd.Parameters["@d6"].Value = Intrestearned;
                             cmd.Parameters["@d7"].Value = cumulation;
-                            cmd.Parameters["@d8"].Value = leftmonths;
-                            cmd.Parameters["@d9"].Value = paymentstatus;
+                            cmd.Parameters["@d8"].Value = MaturityPeriod.Value;
+                            cmd.Parameters["@d9"].Value = "Paid";
                             cmd.Parameters["@d10"].Value = accountname.Text;
                             cmd.ExecuteNonQuery();
                             con.Close();
                         }
+                        else
+                        {
+                            for (int i = 1; i <= (Convert.ToInt32(MaturityPeriod.Text)); i++)
+                            {
+                                string paymentstatus = null;
+                                string installmentno = null;
+                                double cumulation = 0.00;
+                                string maturitydates = null;
+                                int leftmonths = 0;
+                                if (i == 1)
+                                {
+                                    cumulation = Intrestearned * MaturityPeriod.Value;
+                                    installmentno = "Installment 1";
+                                    string appreciationDatess = null;
+                                    leftmonths = MaturityPeriod.Value;
+                                    DateTime startdatess = DateTime.Parse(date2.Text).Date;
+                                    appreciationDatess = (startdatess.AddMonths(0)).ToShortDateString();
+                                    DateTime dtss = DateTime.Parse(appreciationDatess);
+                                    maturitydates = dtss.ToString("dd/MMM/yyyy");
+                                    paymentstatus = "Paid";
+                                }
+                                else
+                                {
+                                    //int noofmoths = Convert.ToInt32(rdr["AccrualMonths"]);
+                                    leftmonths = MaturityPeriod.Value - (i - 1);
+                                    cumulation = Intrestearned * leftmonths;
+                                    installmentno = "Installment " + i;
+                                    string appreciationDatess = null;
+                                    DateTime startdatess = DateTime.Parse(date2.Text).Date;
+                                    appreciationDatess = (startdatess.AddMonths(i - 1)).ToShortDateString();
+                                    DateTime dtss = DateTime.Parse(appreciationDatess);
+                                    maturitydates = dtss.ToString("dd/MMM/yyyy");
+                                    paymentstatus = "Pending";
+                                }
+                                con = new SqlConnection(cs.DBConn);
+                                con.Open();
+                                string cbs = "insert into InvestmentSchedule(InvestmentID,AccountNumber,Months,PaymentDate,AmmountPay,InterestEarned,Cumulation,AccrualMonths,PaymentStatus,AccountName) VALUES (@d1,@d2,@d3,@d4,@d5,@d6,@d7,@d8,@d9,@d10)";
+                                cmd = new SqlCommand(cbs);
+                                cmd.Connection = con;
+                                cmd.Parameters.Add(new SqlParameter("@d1", System.Data.SqlDbType.NChar, 15, "InvestmentID"));
+                                cmd.Parameters.Add(new SqlParameter("@d2", System.Data.SqlDbType.NChar, 15, "AccountNumber"));
+                                cmd.Parameters.Add(new SqlParameter("@d3", System.Data.SqlDbType.NChar, 20, "Months"));
+                                cmd.Parameters.Add(new SqlParameter("@d4", System.Data.SqlDbType.NChar, 20, "PaymentDate"));
+                                cmd.Parameters.Add(new SqlParameter("@d5", System.Data.SqlDbType.Float, 20, "AmmountPay"));
+                                cmd.Parameters.Add(new SqlParameter("@d6", System.Data.SqlDbType.Float, 20, "InterestEarned"));
+                                cmd.Parameters.Add(new SqlParameter("@d7", System.Data.SqlDbType.Float, 20, "Cumulation"));
+                                cmd.Parameters.Add(new SqlParameter("@d8", System.Data.SqlDbType.Int, 20, "AccrualMonths"));
+                                cmd.Parameters.Add(new SqlParameter("@d9", System.Data.SqlDbType.NChar, 20, "PaymentStatus"));
+                                cmd.Parameters.Add(new SqlParameter("@d10", System.Data.SqlDbType.NChar, 100, "AccountName"));
+                                cmd.Parameters["@d1"].Value = savingsid.Text;
+                                cmd.Parameters["@d2"].Value = accountnumber.Text;
+                                cmd.Parameters["@d3"].Value = installmentno;
+                                cmd.Parameters["@d4"].Value = maturitydates;
+                                cmd.Parameters["@d5"].Value = ammountpay;
+                                cmd.Parameters["@d6"].Value = Intrestearned;
+                                cmd.Parameters["@d7"].Value = cumulation;
+                                cmd.Parameters["@d8"].Value = leftmonths;
+                                cmd.Parameters["@d9"].Value = paymentstatus;
+                                cmd.Parameters["@d10"].Value = accountname.Text;
+                                cmd.ExecuteNonQuery();
+                                con.Close();
+                            }
+                        }
+                        con.Close();
+                    }
+                   
+                    if (installment.Text.ToString().Trim() == "Installment 1")
+                    {
+                        company();
+                        try
+                        {
+                            //this.Hide();
+                            Cursor = Cursors.WaitCursor;
+                            //timer1.Enabled = true;
+                            rptLegalCertificate rpt = new rptLegalCertificate(); //The report you created.
+                            SqlConnection myConnection = default(SqlConnection);
+                            SqlCommand MyCommand = new SqlCommand();
+                            SqlDataAdapter myDA = new SqlDataAdapter();
+                            DataSet myDS = new DataSet(); //The DataSet you created.
+                            FrmInvestorLegalCertificate frm = new FrmInvestorLegalCertificate();
+                            myConnection = new SqlConnection(cs.DBConn);
+                            MyCommand.Connection = myConnection;
+                            MyCommand.CommandText = "select * from InvestmentSchedule where InvestmentID='" + savingsid.Text + "'";
+                            MyCommand.CommandType = CommandType.Text;
+                            myDA.SelectCommand = MyCommand;
+                            myDA.Fill(myDS, "InvestmentSchedule");
+                            rpt.SetDataSource(myDS);
+                            rpt.SetParameterValue("investmentterm", MaturityPeriod.Text);
+                            rpt.SetParameterValue("investmentplan", investmentplan.Text);
+                            rpt.SetParameterValue("maturitydate", maturitydate.Text);
+                            rpt.SetParameterValue("monthlyrate", IntrestRate.Text);
+                            rpt.SetParameterValue("comanyname", companyname);
+                            rpt.SetParameterValue("companyemail", companyemail);
+                            rpt.SetParameterValue("companycontact", companycontact);
+                            rpt.SetParameterValue("companyslogan", companyslogan);
+                            rpt.SetParameterValue("companyaddress", companyaddress);
+                            rpt.SetParameterValue("picpath", "logo.jpg");
+                            frm.crystalReportViewer1.ReportSource = rpt;
+                            myConnection.Close();
+                            frm.ShowDialog();
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
                     }
 
                 }
+                string nextappreciationsss = null;
+                DateTime startdatesss = DateTime.Parse(date2.Text).Date;
+                nextappreciationsss = (startdatesss.AddMonths(1)).ToShortDateString();
+                DateTime dtssss = DateTime.Parse(nextappreciationsss);
+                string nextConvertedappreciationDatesss = dtssss.ToString("dd/MMM/yyyy");
+                con = new SqlConnection(cs.DBConn);
+                con.Open();
+                string cb = "UPDATE InvestmentAppreciation SET Approved=@d2,NextAppreciationDate='"+ nextConvertedappreciationDatesss + "', ApprovedBy=@d3 WHERE SavingsID=@d1 and DepositID=@d4";
+                cmd = new SqlCommand(cb);
+                cmd.Connection = con;
+                cmd.Parameters.Add(new SqlParameter("@d1", System.Data.SqlDbType.NChar, 15, "SavingsID"));
+                cmd.Parameters.Add(new SqlParameter("@d2", System.Data.SqlDbType.NChar, 20, "Approved"));
+                cmd.Parameters.Add(new SqlParameter("@d3", System.Data.SqlDbType.NChar, 50, "ApprovedBy"));
+                cmd.Parameters.Add(new SqlParameter("@d4", System.Data.SqlDbType.NChar, 15, "DepositID"));
+
+                cmd.Parameters["@d1"].Value = savingsid.Text.Trim();
+                cmd.Parameters["@d2"].Value = approvals.Text;
+                cmd.Parameters["@d3"].Value = cashiername.Text;
+                cmd.Parameters["@d4"].Value = Depositid.Text;
+                cmd.ExecuteNonQuery();
+                con.Close();
                 MessageBox.Show("Successfully saved", "Investment Deposit Approval Record", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 buttonX5.Enabled = false;
-                con.Close();
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            if(installment.Text.ToString().Trim()=="Installment 1")
-            {
-                company();
-                try
-                {
-                    //this.Hide();
-                    Cursor = Cursors.WaitCursor;
-                    //timer1.Enabled = true;
-                    rptLegalCertificate rpt = new rptLegalCertificate(); //The report you created.
-                    SqlConnection myConnection = default(SqlConnection);
-                    SqlCommand MyCommand = new SqlCommand();
-                    SqlDataAdapter myDA = new SqlDataAdapter();
-                    DataSet myDS = new DataSet(); //The DataSet you created.
-                    FrmInvestorLegalCertificate frm = new FrmInvestorLegalCertificate();
-                    myConnection = new SqlConnection(cs.DBConn);
-                    MyCommand.Connection = myConnection;
-                    MyCommand.CommandText = "select * from InvestmentSchedule where InvestmentID='"+savingsid.Text+"'";
-                    MyCommand.CommandType = CommandType.Text;
-                    myDA.SelectCommand = MyCommand;
-                    myDA.Fill(myDS, "InvestmentSchedule");
-                    rpt.SetDataSource(myDS);
-                    rpt.SetParameterValue("investmentterm", MaturityPeriod.Text);
-                    rpt.SetParameterValue("investmentplan", investmentplan.Text);
-                    rpt.SetParameterValue("maturitydate", maturitydate.Text);
-                    rpt.SetParameterValue("monthlyrate", IntrestRate.Text);
-                    rpt.SetParameterValue("comanyname", companyname);
-                    rpt.SetParameterValue("companyemail", companyemail);
-                    rpt.SetParameterValue("companycontact", companycontact);
-                    rpt.SetParameterValue("companyslogan", companyslogan);
-                    rpt.SetParameterValue("companyaddress", companyaddress);
-                    rpt.SetParameterValue("picpath", "logo.jpg");
-                    frm.crystalReportViewer1.ReportSource = rpt;
-                    frm.ShowDialog();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
+            
             this.Hide();
             frmInvestorSavingsApproval frm2 = new frmInvestorSavingsApproval();
             frm2.label1.Text = label1.Text;
@@ -848,6 +869,7 @@ namespace Banking_System
                         accountbalance.Value = val1;
                     }
                 }
+                con.Close();
             }
             catch (Exception ex)
             {
@@ -900,6 +922,12 @@ namespace Banking_System
                 installment.Focus();
                 return;
             }
+            if (approvals.Text == "")
+            {
+                MessageBox.Show("Please Select Approval", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                approvals.Focus();
+                return;
+            }
             try
             {
                 if (approvals.Text.Trim() == "Approved")
@@ -915,8 +943,8 @@ namespace Banking_System
                         int accountbalances = Convert.ToInt32(rdr[1]);
                         int newaccountbalance = accountbalances + depositammount.Value;
                         int depositedno = Convert.ToInt32(rdr[2]);
-                        int newdeositno = depositedno + 1;
-                        int appreciationnos = Convert.ToInt32(MaturityPeriod.Value) - newdeositno;
+                        int newdeositno = depositedno+1;
+                        int appreciationnos = Convert.ToInt32(MaturityPeriod.Value) - (newdeositno);
 
                         string nextappreciationss = null;
                         DateTime startdatess = DateTime.Parse(date2.Text).Date;
@@ -926,7 +954,7 @@ namespace Banking_System
 
                         con = new SqlConnection(cs.DBConn);
                         con.Open();
-                        string cb3 = "update InvestorSavings set OtherMaturityDate=@d4,AccountBalance =@d2,DepositedInstallmentNo=@d3 where SavingsID=@d1";
+                        string cb3 = "update InvestorSavings set OtherMaturityDate=@d4,AccountBalance =@d2,DepositedInstallmentNo=@d3,UploadStatus='Pending' where SavingsID=@d1";
                         cmd = new SqlCommand(cb3);
                         cmd.Connection = con;
                         cmd.Parameters.Add(new SqlParameter("@d1", System.Data.SqlDbType.NChar, 15, "SavingsID"));
@@ -985,11 +1013,13 @@ namespace Banking_System
                         cmd.Parameters["@d15"].Value = depositinterval.Text;
                         cmd.Parameters["@d16"].Value = ConvertedappreciationDate;
                         cmd.ExecuteNonQuery();
+                        con.Close();
                     }
+                    con.Close();
                     int totalaamount = 0;
                     con = new SqlConnection(cs.DBConn);
                     con.Open();
-                    string ct2 = "select AmountAvailable from BankAccounts where AccountNumber= '" + cmbModeOfPayment.Text + "' ";
+                    string ct2 = "select AmountAvailable from BankAccounts where AccountNames= '" + cmbModeOfPayment.Text + "' ";
                     cmd = new SqlCommand(ct2);
                     cmd.Connection = con;
                     rdr = cmd.ExecuteReader();
@@ -999,132 +1029,55 @@ namespace Banking_System
                         int newtotalammount = totalaamount + Convert.ToInt32(depositammount.Value);
                         con = new SqlConnection(cs.DBConn);
                         con.Open();
-                        string cb2 = "UPDate BankAccounts Set AmountAvailable='" + newtotalammount + "', Date='" + date2.Text + "' where AccountNumber='" + cmbModeOfPayment.Text + "'";
+                        string cb2 = "UPDate BankAccounts Set AmountAvailable='" + newtotalammount + "', Date='" + date2.Text + "' where AccountNames='" + cmbModeOfPayment.Text + "'";
                         cmd = new SqlCommand(cb2);
                         cmd.Connection = con;
                         cmd.ExecuteNonQuery();
                         con.Close();
                     }
-
+                    con.Close();
                     string smsallow = Properties.Settings.Default.smsallow;
                     if (smsallow == "Yes")
                     {
                         sendmessage();
                     }
-                }
-                con = new SqlConnection(cs.DBConn);
-                con.Open();
-                string cb = "UPDATE InvestmentAppreciation SET Approved=@d2, ApprovedBy=@d3 WHERE SavingsID=@d1 and DepositID=@d4";
-                cmd = new SqlCommand(cb);
-                cmd.Connection = con;
-                cmd.Parameters.Add(new SqlParameter("@d1", System.Data.SqlDbType.NChar, 15, "SavingsID"));
-                cmd.Parameters.Add(new SqlParameter("@d2", System.Data.SqlDbType.NChar, 20, "Approved"));
-                cmd.Parameters.Add(new SqlParameter("@d3", System.Data.SqlDbType.NChar, 50, "ApprovedBy"));
-                cmd.Parameters.Add(new SqlParameter("@d4", System.Data.SqlDbType.NChar, 15, "DepositID"));
 
-                cmd.Parameters["@d1"].Value = savingsid.Text.Trim();
-                cmd.Parameters["@d2"].Value = approvals.Text;
-                cmd.Parameters["@d3"].Value = cashiername.Text;
-                cmd.Parameters["@d4"].Value = Depositid.Text;
-                cmd.ExecuteNonQuery();
 
-                con = new SqlConnection(cs.DBConn);
-                con.Open();
-                string ct8 = "select InvestmentID from InvestmentSchedule where InvestmentID= '" + savingsid.Text + "' ";
-                cmd = new SqlCommand(ct8);
-                cmd.Connection = con;
-                rdr = cmd.ExecuteReader();
-                if (rdr.Read())
-                {
                     con = new SqlConnection(cs.DBConn);
                     con.Open();
-                    string cb3 = "update InvestmentSchedule set PaymentStatus='Paid',PaymentDate='" + date2.Text + "' where InvestmentID=@d1 and Months='" + installment.Text + "' ";
-                    cmd = new SqlCommand(cb3);
+                    string ct8 = "select InvestmentID from InvestmentSchedule where InvestmentID= '" + savingsid.Text + "' ";
+                    cmd = new SqlCommand(ct8);
                     cmd.Connection = con;
-                    cmd.Parameters.Add(new SqlParameter("@d1", System.Data.SqlDbType.NChar, 15, "InvestmentID"));
-                    cmd.Parameters["@d1"].Value = savingsid.Text.Trim();
-                    cmd.ExecuteNonQuery();
-                    con.Close();
-                }
-                else
-                {
-                    string investmentid = savingsid.Text;
-                    string accountnumbers = accountnumber.Text;
-                    string accountnamess = accountname.Text;
-                    int ammountpay = depositammount.Value;
-                    double Intrestearned = (Convert.ToDouble(IntrestRate.Text) / 100) * depositammount.Value;
-                    if (depositinterval.Text.ToString().Trim() == "One Off")
+                    rdr = cmd.ExecuteReader();
+                    if (rdr.Read())
                     {
-                        double cumulation = Intrestearned * MaturityPeriod.Value;
-                        string installmentno = "Installment 1";
-                        string appreciationDatess = null;
-                        DateTime startdatess = DateTime.Parse(date2.Text).Date;
-                        appreciationDatess = (startdatess.AddMonths(MaturityPeriod.Value)).ToShortDateString();
-                        DateTime dtss = DateTime.Parse(appreciationDatess);
-                        string maturitydates = dtss.ToString("dd/MMM/yyyy");
-
                         con = new SqlConnection(cs.DBConn);
                         con.Open();
-                        string cbs = "insert into InvestmentSchedule(InvestmentID,AccountNumber,Months,PaymentDate,AmmountPay,InterestEarned,Cumulation,AccrualMonths,PaymentStatus,AccountName) VALUES (@d1,@d2,@d3,@d4,@d5,@d6,@d7,@d8,@d9,@d10)";
-                        cmd = new SqlCommand(cbs);
+                        string cb3 = "update InvestmentSchedule set PaymentStatus='Paid',PaymentDate='" + date2.Text + "',UploadStatus='Pending' where InvestmentID=@d1 and Months='" + installment.Text + "' ";
+                        cmd = new SqlCommand(cb3);
                         cmd.Connection = con;
                         cmd.Parameters.Add(new SqlParameter("@d1", System.Data.SqlDbType.NChar, 15, "InvestmentID"));
-                        cmd.Parameters.Add(new SqlParameter("@d2", System.Data.SqlDbType.NChar, 15, "AccountNumber"));
-                        cmd.Parameters.Add(new SqlParameter("@d3", System.Data.SqlDbType.NChar, 20, "Months"));
-                        cmd.Parameters.Add(new SqlParameter("@d4", System.Data.SqlDbType.NChar, 20, "PaymentDate"));
-                        cmd.Parameters.Add(new SqlParameter("@d5", System.Data.SqlDbType.Float, 20, "AmmountPay"));
-                        cmd.Parameters.Add(new SqlParameter("@d6", System.Data.SqlDbType.Float, 20, "InterestEarned"));
-                        cmd.Parameters.Add(new SqlParameter("@d7", System.Data.SqlDbType.Float, 20, "Cumulation"));
-                        cmd.Parameters.Add(new SqlParameter("@d8", System.Data.SqlDbType.Int, 20, "AccrualMonths"));
-                        cmd.Parameters.Add(new SqlParameter("@d9", System.Data.SqlDbType.NChar, 20, "PaymentStatus"));
-                        cmd.Parameters.Add(new SqlParameter("@d10", System.Data.SqlDbType.NChar, 100, "AccountName"));
-                        cmd.Parameters["@d1"].Value = savingsid.Text;
-                        cmd.Parameters["@d2"].Value = accountnumber.Text;
-                        cmd.Parameters["@d3"].Value = installmentno;
-                        cmd.Parameters["@d4"].Value = maturitydates;
-                        cmd.Parameters["@d5"].Value = ammountpay;
-                        cmd.Parameters["@d6"].Value = Intrestearned;
-                        cmd.Parameters["@d7"].Value = cumulation;
-                        cmd.Parameters["@d8"].Value = MaturityPeriod.Value;
-                        cmd.Parameters["@d9"].Value = "Paid";
-                        cmd.Parameters["@d10"].Value = accountname.Text;
+                        cmd.Parameters["@d1"].Value = savingsid.Text.Trim();
                         cmd.ExecuteNonQuery();
                         con.Close();
                     }
                     else
                     {
-                        for (int i = 1; i <= (Convert.ToInt32(MaturityPeriod.Text)); i++)
+                        string investmentid = savingsid.Text;
+                        string accountnumbers = accountnumber.Text;
+                        string accountnamess = accountname.Text;
+                        int ammountpay = depositammount.Value;
+                        double Intrestearned = ((Convert.ToDouble(IntrestRate.Text) / 100) / 12) * depositammount.Value;
+                        if (depositinterval.Text.ToString().Trim() == "One Off")
                         {
-                            string paymentstatus = null;
-                            string installmentno = null;
-                            double cumulation = 0.00;
-                            string maturitydates = null;
-                            int leftmonths = 0;
-                            if (i == 1)
-                            {
-                                cumulation = Intrestearned * MaturityPeriod.Value;
-                                installmentno = "Installment 1";
-                                string appreciationDatess = null;
-                                leftmonths = MaturityPeriod.Value;
-                                DateTime startdatess = DateTime.Parse(date2.Text).Date;
-                                appreciationDatess = (startdatess.AddMonths(0)).ToShortDateString();
-                                DateTime dtss = DateTime.Parse(appreciationDatess);
-                                maturitydates = dtss.ToString("dd/MMM/yyyy");
-                                paymentstatus = "Paid";
-                            }
-                            else
-                            {
-                                //int noofmoths = Convert.ToInt32(rdr["AccrualMonths"]);
-                                leftmonths = MaturityPeriod.Value - (i - 1);
-                                cumulation = Intrestearned * leftmonths;
-                                installmentno = "Installment " + i;
-                                string appreciationDatess = null;
-                                DateTime startdatess = DateTime.Parse(date2.Text).Date;
-                                appreciationDatess = (startdatess.AddMonths(i-1)).ToShortDateString();
-                                DateTime dtss = DateTime.Parse(appreciationDatess);
-                                maturitydates = dtss.ToString("dd/MMM/yyyy");
-                                paymentstatus = "Pending";
-                            }
+                            double cumulation = Intrestearned * MaturityPeriod.Value;
+                            string installmentno = "Installment 1";
+                            string appreciationDatess = null;
+                            DateTime startdatess = DateTime.Parse(date2.Text).Date;
+                            appreciationDatess = (startdatess.AddMonths(MaturityPeriod.Value)).ToShortDateString();
+                            DateTime dtss = DateTime.Parse(appreciationDatess);
+                            string maturitydates = dtss.ToString("dd/MMM/yyyy");
+
                             con = new SqlConnection(cs.DBConn);
                             con.Open();
                             string cbs = "insert into InvestmentSchedule(InvestmentID,AccountNumber,Months,PaymentDate,AmmountPay,InterestEarned,Cumulation,AccrualMonths,PaymentStatus,AccountName) VALUES (@d1,@d2,@d3,@d4,@d5,@d6,@d7,@d8,@d9,@d10)";
@@ -1147,114 +1100,213 @@ namespace Banking_System
                             cmd.Parameters["@d5"].Value = ammountpay;
                             cmd.Parameters["@d6"].Value = Intrestearned;
                             cmd.Parameters["@d7"].Value = cumulation;
-                            cmd.Parameters["@d8"].Value = leftmonths;
-                            cmd.Parameters["@d9"].Value = paymentstatus;
+                            cmd.Parameters["@d8"].Value = MaturityPeriod.Value;
+                            cmd.Parameters["@d9"].Value = "Paid";
                             cmd.Parameters["@d10"].Value = accountname.Text;
                             cmd.ExecuteNonQuery();
                             con.Close();
                         }
+                        else
+                        {
+                            for (int i = 1; i <= (Convert.ToInt32(MaturityPeriod.Text)); i++)
+                            {
+                                string paymentstatus = null;
+                                string installmentno = null;
+                                double cumulation = 0.00;
+                                string maturitydates = null;
+                                int leftmonths = 0;
+                                if (i == 1)
+                                {
+                                    cumulation = Intrestearned * MaturityPeriod.Value;
+                                    installmentno = "Installment 1";
+                                    string appreciationDatess = null;
+                                    leftmonths = MaturityPeriod.Value;
+                                    DateTime startdatess = DateTime.Parse(date2.Text).Date;
+                                    appreciationDatess = (startdatess.AddMonths(0)).ToShortDateString();
+                                    DateTime dtss = DateTime.Parse(appreciationDatess);
+                                    maturitydates = dtss.ToString("dd/MMM/yyyy");
+                                    paymentstatus = "Paid";
+                                }
+                                else
+                                {
+                                    //int noofmoths = Convert.ToInt32(rdr["AccrualMonths"]);
+                                    leftmonths = MaturityPeriod.Value - (i - 1);
+                                    cumulation = Intrestearned * leftmonths;
+                                    installmentno = "Installment " + i;
+                                    string appreciationDatess = null;
+                                    DateTime startdatess = DateTime.Parse(date2.Text).Date;
+                                    appreciationDatess = (startdatess.AddMonths(i - 1)).ToShortDateString();
+                                    DateTime dtss = DateTime.Parse(appreciationDatess);
+                                    maturitydates = dtss.ToString("dd/MMM/yyyy");
+                                    paymentstatus = "Pending";
+                                }
+                                con = new SqlConnection(cs.DBConn);
+                                con.Open();
+                                string cbs = "insert into InvestmentSchedule(InvestmentID,AccountNumber,Months,PaymentDate,AmmountPay,InterestEarned,Cumulation,AccrualMonths,PaymentStatus,AccountName) VALUES (@d1,@d2,@d3,@d4,@d5,@d6,@d7,@d8,@d9,@d10)";
+                                cmd = new SqlCommand(cbs);
+                                cmd.Connection = con;
+                                cmd.Parameters.Add(new SqlParameter("@d1", System.Data.SqlDbType.NChar, 15, "InvestmentID"));
+                                cmd.Parameters.Add(new SqlParameter("@d2", System.Data.SqlDbType.NChar, 15, "AccountNumber"));
+                                cmd.Parameters.Add(new SqlParameter("@d3", System.Data.SqlDbType.NChar, 20, "Months"));
+                                cmd.Parameters.Add(new SqlParameter("@d4", System.Data.SqlDbType.NChar, 20, "PaymentDate"));
+                                cmd.Parameters.Add(new SqlParameter("@d5", System.Data.SqlDbType.Float, 20, "AmmountPay"));
+                                cmd.Parameters.Add(new SqlParameter("@d6", System.Data.SqlDbType.Float, 20, "InterestEarned"));
+                                cmd.Parameters.Add(new SqlParameter("@d7", System.Data.SqlDbType.Float, 20, "Cumulation"));
+                                cmd.Parameters.Add(new SqlParameter("@d8", System.Data.SqlDbType.Int, 20, "AccrualMonths"));
+                                cmd.Parameters.Add(new SqlParameter("@d9", System.Data.SqlDbType.NChar, 20, "PaymentStatus"));
+                                cmd.Parameters.Add(new SqlParameter("@d10", System.Data.SqlDbType.NChar, 100, "AccountName"));
+                                cmd.Parameters["@d1"].Value = savingsid.Text;
+                                cmd.Parameters["@d2"].Value = accountnumber.Text;
+                                cmd.Parameters["@d3"].Value = installmentno;
+                                cmd.Parameters["@d4"].Value = maturitydates;
+                                cmd.Parameters["@d5"].Value = ammountpay;
+                                cmd.Parameters["@d6"].Value = Intrestearned;
+                                cmd.Parameters["@d7"].Value = cumulation;
+                                cmd.Parameters["@d8"].Value = leftmonths;
+                                cmd.Parameters["@d9"].Value = paymentstatus;
+                                cmd.Parameters["@d10"].Value = accountname.Text;
+                                cmd.ExecuteNonQuery();
+                                con.Close();
+                            }
+                        }
                     }
+                    con.Close();
+                    company();
+                    try
+                    {
+                        //this.Hide();
+                        Cursor = Cursors.WaitCursor;
+                        //timer1.Enabled = true;
+                        rptReceiptInvestor rpt = new rptReceiptInvestor(); //The report you created.
+                        SqlConnection myConnection = default(SqlConnection);
+                        SqlCommand MyCommand = new SqlCommand();
+                        SqlDataAdapter myDA = new SqlDataAdapter();
+                        DataSet myDS = new DataSet(); //The DataSet you created.
+                        Receipt frm = new Receipt();
+                        myConnection = new SqlConnection(cs.DBConn);
+                        MyCommand.Connection = myConnection;
+                        MyCommand.CommandText = "select * from Expenses";
+                        MyCommand.CommandType = CommandType.Text;
+                        myDA.SelectCommand = MyCommand;
+                        myDA.Fill(myDS, "Expenses");
+                        //myDA.Fill(myDS, "Rights");
+                        rpt.SetDataSource(myDS);
+                        rpt.SetParameterValue("paymentid", savingsid.Text);
+                        rpt.SetParameterValue("accountno", accountnumber.Text);
+                        rpt.SetParameterValue("membernames", accountname.Text);
+                        rpt.SetParameterValue("ammount", depositammount.Value);
+                        rpt.SetParameterValue("totalpaid", accountbalance.Value);
+                        rpt.SetParameterValue("issuedby", cashiername.Text);
+                        rpt.SetParameterValue("comanyname", companyname);
+                        rpt.SetParameterValue("companyemail", companyemail);
+                        rpt.SetParameterValue("companycontact", companycontact);
+                        rpt.SetParameterValue("companyslogan", companyslogan);
+                        rpt.SetParameterValue("companyaddress", companyaddress);
+                        rpt.SetParameterValue("picpath", "logo.jpg");
+                        frm.crystalReportViewer1.ReportSource = rpt;
+                        myConnection.Close();
+                        if (printoptionss == "autoprint")
+                        {
+                            string BarPrinter = Properties.Settings.Default.frontendprinter;
+                            rpt.PrintOptions.PrinterName = BarPrinter;
+                            rpt.PrintToPrinter(1, true, 1, 1);
+                        }
+                        else
+                        {
+                            frm.ShowDialog();
+                        }
+                        //BarPrinter = Properties.Settings.Default.frontendprinter;
+                        //rpt.PrintOptions.PrinterName = BarPrinter;
+                        //rpt.PrintToPrinter(1, true, 1, 1);
+                        //this.Hide();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    buttonX5.Enabled = false;
+                    con.Close();
+
+                    if (installment.Text.ToString().Trim() == "Installment 1")
+                    {
+                        company();
+                        try
+                        {
+                            //this.Hide();
+                            Cursor = Cursors.WaitCursor;
+                            //timer1.Enabled = true;
+                            rptLegalCertificate rpt = new rptLegalCertificate(); //The report you created.
+                            SqlConnection myConnection = default(SqlConnection);
+                            SqlCommand MyCommand = new SqlCommand();
+                            SqlDataAdapter myDA = new SqlDataAdapter();
+                            DataSet myDS = new DataSet(); //The DataSet you created.
+                            FrmInvestorLegalCertificate frm = new FrmInvestorLegalCertificate();
+                            myConnection = new SqlConnection(cs.DBConn);
+                            MyCommand.Connection = myConnection;
+                            MyCommand.CommandText = "select * from InvestmentSchedule where InvestmentID='" + savingsid.Text + "'";
+                            MyCommand.CommandType = CommandType.Text;
+                            myDA.SelectCommand = MyCommand;
+                            myDA.Fill(myDS, "InvestmentSchedule");
+                            rpt.SetDataSource(myDS);
+                            rpt.SetParameterValue("investmentterm", MaturityPeriod.Text);
+                            rpt.SetParameterValue("investmentplan", investmentplan.Text);
+                            rpt.SetParameterValue("maturitydate", maturitydate.Text);
+                            rpt.SetParameterValue("monthlyrate", IntrestRate.Text);
+                            rpt.SetParameterValue("comanyname", companyname);
+                            rpt.SetParameterValue("companyemail", companyemail);
+                            rpt.SetParameterValue("companycontact", companycontact);
+                            rpt.SetParameterValue("companyslogan", companyslogan);
+                            rpt.SetParameterValue("companyaddress", companyaddress);
+                            rpt.SetParameterValue("picpath", "logo.jpg");
+                            frm.crystalReportViewer1.ReportSource = rpt;
+                            myConnection.Close();
+                            frm.ShowDialog();
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+
                 }
+
+                string nextappreciationsss = null;
+                DateTime startdatesss = DateTime.Parse(date2.Text).Date;
+                nextappreciationsss = (startdatesss.AddMonths(1)).ToShortDateString();
+                DateTime dtssss = DateTime.Parse(nextappreciationsss);
+                string nextConvertedappreciationDatesss = dtssss.ToString("dd/MMM/yyyy");
+                con = new SqlConnection(cs.DBConn);
+                con.Open();
+                string cb = "UPDATE InvestmentAppreciation SET Approved=@d2,NextAppreciationDate='" + nextConvertedappreciationDatesss + "', ApprovedBy=@d3 WHERE SavingsID=@d1 and DepositID=@d4";
+                cmd = new SqlCommand(cb);
+                cmd.Connection = con;
+                cmd.Parameters.Add(new SqlParameter("@d1", System.Data.SqlDbType.NChar, 15, "SavingsID"));
+                cmd.Parameters.Add(new SqlParameter("@d2", System.Data.SqlDbType.NChar, 20, "Approved"));
+                cmd.Parameters.Add(new SqlParameter("@d3", System.Data.SqlDbType.NChar, 50, "ApprovedBy"));
+                cmd.Parameters.Add(new SqlParameter("@d4", System.Data.SqlDbType.NChar, 15, "DepositID"));
+
+                cmd.Parameters["@d1"].Value = savingsid.Text.Trim();
+                cmd.Parameters["@d2"].Value = approvals.Text;
+                cmd.Parameters["@d3"].Value = cashiername.Text;
+                cmd.Parameters["@d4"].Value = Depositid.Text;
+                cmd.ExecuteNonQuery();
+                con.Close();
                 MessageBox.Show("Successfully saved", "Investment Deposit Approval Record", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 buttonX5.Enabled = false;
-                con.Close();
+              
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            company();
-            try
-            {
-                //this.Hide();
-                Cursor = Cursors.WaitCursor;
-                //timer1.Enabled = true;
-                rptReceiptInvestor rpt = new rptReceiptInvestor(); //The report you created.
-                SqlConnection myConnection = default(SqlConnection);
-                SqlCommand MyCommand = new SqlCommand();
-                SqlDataAdapter myDA = new SqlDataAdapter();
-                DataSet myDS = new DataSet(); //The DataSet you created.
-                Receipt frm = new Receipt();
-                myConnection = new SqlConnection(cs.DBConn);
-                MyCommand.Connection = myConnection;
-                MyCommand.CommandText = "select * from Expenses";
-                MyCommand.CommandType = CommandType.Text;
-                myDA.SelectCommand = MyCommand;
-                myDA.Fill(myDS, "Expenses");
-                //myDA.Fill(myDS, "Rights");
-                rpt.SetDataSource(myDS);
-                rpt.SetParameterValue("paymentid", savingsid.Text);
-                rpt.SetParameterValue("accountno", accountnumber.Text);
-                rpt.SetParameterValue("membernames", accountname.Text);
-                rpt.SetParameterValue("ammount", depositammount.Value);
-                rpt.SetParameterValue("totalpaid", accountbalance.Value);
-                rpt.SetParameterValue("issuedby", cashiername.Text);
-                rpt.SetParameterValue("comanyname", companyname);
-                rpt.SetParameterValue("companyemail", companyemail);
-                rpt.SetParameterValue("companycontact", companycontact);
-                rpt.SetParameterValue("companyslogan", companyslogan);
-                rpt.SetParameterValue("companyaddress", companyaddress);
-                rpt.SetParameterValue("picpath", "logo.jpg");
-                frm.crystalReportViewer1.ReportSource = rpt;
-                frm.ShowDialog();
-                //BarPrinter = Properties.Settings.Default.frontendprinter;
-                //rpt.PrintOptions.PrinterName = BarPrinter;
-                //rpt.PrintToPrinter(1, true, 1, 1);
-                //this.Hide();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            buttonX5.Enabled = false;
-            con.Close();
-
-            if (installment.Text.ToString().Trim() == "Installment 1")
-            {
-                company();
-                try
-                {
-                    //this.Hide();
-                    Cursor = Cursors.WaitCursor;
-                    //timer1.Enabled = true;
-                    rptLegalCertificate rpt = new rptLegalCertificate(); //The report you created.
-                    SqlConnection myConnection = default(SqlConnection);
-                    SqlCommand MyCommand = new SqlCommand();
-                    SqlDataAdapter myDA = new SqlDataAdapter();
-                    DataSet myDS = new DataSet(); //The DataSet you created.
-                    FrmInvestorLegalCertificate frm = new FrmInvestorLegalCertificate();
-                    myConnection = new SqlConnection(cs.DBConn);
-                    MyCommand.Connection = myConnection;
-                    MyCommand.CommandText = "select * from InvestmentSchedule where InvestmentID='" + savingsid.Text + "'";
-                    MyCommand.CommandType = CommandType.Text;
-                    myDA.SelectCommand = MyCommand;
-                    myDA.Fill(myDS, "InvestmentSchedule");
-                    rpt.SetDataSource(myDS);
-                    rpt.SetParameterValue("investmentterm", MaturityPeriod.Text);
-                    rpt.SetParameterValue("investmentplan", investmentplan.Text);
-                    rpt.SetParameterValue("maturitydate", maturitydate.Text);
-                    rpt.SetParameterValue("monthlyrate", IntrestRate.Text);
-                    rpt.SetParameterValue("comanyname", companyname);
-                    rpt.SetParameterValue("companyemail", companyemail);
-                    rpt.SetParameterValue("companycontact", companycontact);
-                    rpt.SetParameterValue("companyslogan", companyslogan);
-                    rpt.SetParameterValue("companyaddress", companyaddress);
-                    rpt.SetParameterValue("picpath", "logo.jpg");
-                    frm.crystalReportViewer1.ReportSource = rpt;
-                    frm.ShowDialog();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-
+           
             this.Hide();
             frmInvestorSavingsApproval frm2 = new frmInvestorSavingsApproval();
             frm2.label1.Text = label1.Text;
             frm2.label2.Text = label2.Text;
             frm2.ShowDialog();
         }
+        string printoptionss = Properties.Settings.Default.PrintOptions;
         private void accountnumber2_Click(object sender, EventArgs e)
         {
             frmClientDetails2 frm = new frmClientDetails2();
@@ -1277,7 +1329,7 @@ namespace Banking_System
                 {
                     label3.Text = rdr[0].ToString().Trim();
                 }
-
+                con.Close();
             }
             catch (Exception ex)
             {
@@ -1295,7 +1347,7 @@ namespace Banking_System
                     depositammount.Text = rdr[1].ToString().Trim();
                     MaturityPeriod.Text = rdr[0].ToString().Trim();
                 }
-
+                con.Close();
             }
             catch (Exception ex)
             {
@@ -1345,6 +1397,7 @@ namespace Banking_System
                     maturitydate.Text = rdr["OtherMaturityDate"].ToString();
                     cmbModeOfPayment.Text = rdr["ModeOfPayment"].ToString();
                 }
+                con.Close();
             }
             catch (Exception Ex)
             {
@@ -1381,6 +1434,7 @@ namespace Banking_System
                             installment.Text = "";
                         }
                     }
+                    con.Close();
                 }
 
             }
@@ -1399,6 +1453,7 @@ namespace Banking_System
                 accountname.Text = dr.Cells[1].Value.ToString();
                 savingsid.Text = dr.Cells[2].Value.ToString();
                 Depositid.Text = dr.Cells[3].Value.ToString();
+                date2.Text = dr.Cells[4].Value.ToString().Trim(); 
             }
             catch (Exception ex)
             {
@@ -1431,7 +1486,10 @@ namespace Banking_System
                     depositinterval.Text = rdr["DepositInterval"].ToString();
                     maturitydate.Text = rdr["OtherMaturityDate"].ToString();
                     cmbModeOfPayment.Text = rdr["ModeOfPayment"].ToString();
+                    cashier.Text = rdr["CashierName"].ToString();
+                   
                 }
+                con.Close();
             }
             catch (Exception Ex)
             {
@@ -1445,7 +1503,8 @@ namespace Banking_System
                 }
                 else
                 {
-                   /* con = new SqlConnection(cs.DBConn);
+                    SqlDataReader rdr = null;
+                    con = new SqlConnection(cs.DBConn);
                     con.Open();
                     string ct = "select Months,AccrualMonths from InvestmentSchedule where InvestmentID='" + savingsid.Text + "' and PaymentStatus='Pending' order by ID Asc";
                     cmd = new SqlCommand(ct);
@@ -1464,9 +1523,10 @@ namespace Banking_System
                         }
                         else
                         {
-                            installment.Text = "";
+                            installment.Text = "Installment 1";
                         }
-                    }*/
+                    }
+                    con.Close();
                 }
 
             }

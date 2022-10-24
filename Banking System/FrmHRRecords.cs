@@ -102,7 +102,7 @@ namespace Banking_System
             {
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
-                cmd = new SqlCommand("select RTrim(StaffID)[Staff ID], RTRIM(StaffName)[Staff Name], RTRIM(Department)[Department], RTRIM(Gender)[Gender],RTRIM(DOB)[DOB], RTRIM(FatherName)[Father's Name], RTRIM(PermanentAddress)[Permanent Address],RTRIM(TemporaryAddress)[Temporary Address], RTRIM(PhoneNo)[Phone No.], RTRIM(MobileNo)[Mobile No.],RTRIM(DateOfJoining)[Date Of Joining],RTRIM(Qualification)[Qualifications],RTRIM(YearOfExperience)[Year Of  Experience], RTRIM(Designation)[Designation], RTRIM(Email)[Email], RTRIM(BasicSalary)[Basic Salary], RTRIM(LIC)[LIC], RTRIM(IncomeTax)[IncomeTax], RTRIM(GroupInsurance)[Group Insurance], RTRIM(FamilyBenefitFund)[Family Benefit Fund], RTRIM(Loans)[Loans], RTRIM(OtherDeductions)[Other Deductions], (Picture)[Picture],(ContractPeriodExpiry)[Contract Expiry Date], (AccNo)[Account Number], (AccountNames)[Account Names], (AccountBank)[Bank] from employee order by Staffname", con);
+                cmd = new SqlCommand("select RTrim(StaffID)[Staff ID], RTRIM(StaffName)[Staff Name], RTRIM(Department)[Department], RTRIM(Gender)[Gender],RTRIM(DOB)[DOB], RTRIM(FatherName)[Father's Name], RTRIM(PermanentAddress)[Permanent Address],RTRIM(TemporaryAddress)[Temporary Address], RTRIM(PhoneNo)[Phone No.], RTRIM(MobileNo)[Mobile No.],RTRIM(DateOfJoining)[Date Of Joining],RTRIM(Qualification)[Qualifications],RTRIM(YearOfExperience)[Year Of  Experience], RTRIM(Designation)[Designation], RTRIM(Email)[Email], (BasicSalary)[Basic Salary], (LIC)[LIC], (IncomeTax)[IncomeTax], (GroupInsurance)[Group Insurance], (FamilyBenefitFund)[Family Benefit Fund],(Loans)[Loans], (OtherDeductions)[Other Deductions], (Picture)[Picture],(ContractPeriodExpiry)[Contract Expiry Date], (AccNo)[Account Number], (AccountNames)[Account Names], (AccountBank)[Bank] from employee order by Staffname", con);
                 SqlDataAdapter myDA = new SqlDataAdapter(cmd);
                 DataSet myDataSet = new DataSet();
                 myDA.Fill(myDataSet, "Employee");
@@ -185,7 +185,7 @@ namespace Banking_System
             {
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
-                cmd = new SqlCommand("select RTrim(PaymentID)[Payment ID], RTRIM(StaffID)[Staff ID], RTRIM(StaffName)[Staff Name], RTRIM(EmployeePayment.BasicSalary)[Basic Salary], RTRIM(PaymentDate)[Payment Date],RTRIM(ModeOfPayment)[Payment Mode], RTRIM(PaymentModeDetails)[Payment Mode Details], RTRIM(Deduction)[Deduction],RTRIM(TotalPaid)[Total Paid],RTRIM(DueFees)[Due Fees],RTRIM(Months)[Months],RTRIM(Year)[Year] from EmployeePayment where  PaymentDate between @date1 and @date2 order by PaymentDate", con);
+                cmd = new SqlCommand("select RTrim(PaymentID)[Payment ID], RTRIM(StaffID)[Staff ID], RTRIM(StaffName)[Staff Name], (EmployeePayment.BasicSalary)[Basic Salary], RTRIM(PaymentDate)[Payment Date],RTRIM(ModeOfPayment)[Payment Mode], RTRIM(PaymentModeDetails)[Payment Mode Details], (Deduction)[Deduction],(TotalPaid)[Total Paid],(DueFees)[Due Fees],RTRIM(Months)[Months],RTRIM(Year)[Year] from EmployeePayment where  PaymentDate between @date1 and @date2 order by PaymentDate", con);
                 cmd.Parameters.Add("@date1", SqlDbType.DateTime, 30, " PaymentDate").Value = savingsfrom.Value.Date;
                 cmd.Parameters.Add("@date2", SqlDbType.DateTime, 30, "PaymentDate").Value = savingsto.Value.Date;
                 SqlDataAdapter myDA = new SqlDataAdapter(cmd);
@@ -206,7 +206,7 @@ namespace Banking_System
             {
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
-                cmd = new SqlCommand("select RTrim(PaymentID)[Payment ID], RTRIM(StaffID)[Staff ID], RTRIM(StaffName)[Staff Name], RTRIM(EmployeePayment.BasicSalary)[Basic Salary], RTRIM(PaymentDate)[Payment Date],RTRIM(ModeOfPayment)[Payment Mode], RTRIM(PaymentModeDetails)[Payment Mode Details], RTRIM(Deduction)[Deduction],RTRIM(TotalPaid)[Total Paid],RTRIM(DueFees)[Due Fees],RTRIM(Months)[Months],RTRIM(Year)[Year] from EmployeePayment where  PaymentDate Like '"+SavingsSearch.Text + "%' OR StaffID Like '" + SavingsSearch.Text + "%' OR StaffName Like '" + SavingsSearch.Text + "%' OR Months Like '" + SavingsSearch.Text + "%' OR Year Like '" + SavingsSearch.Text + "%' BasicSalary Like '" + SavingsSearch.Text + "%' order by ID Desc", con);
+                cmd = new SqlCommand("select RTrim(PaymentID)[Payment ID], RTRIM(StaffID)[Staff ID], RTRIM(StaffName)[Staff Name], (EmployeePayment.BasicSalary)[Basic Salary], RTRIM(PaymentDate)[Payment Date],RTRIM(ModeOfPayment)[Payment Mode], RTRIM(PaymentModeDetails)[Payment Mode Details], (Deduction)[Deduction],(TotalPaid)[Total Paid],RTRIM(DueFees)[Due Fees],RTRIM(Months)[Months],RTRIM(Year)[Year] from EmployeePayment where  PaymentDate Like '"+SavingsSearch.Text + "%' OR StaffID Like '" + SavingsSearch.Text + "%' OR StaffName Like '" + SavingsSearch.Text + "%' OR Months Like '" + SavingsSearch.Text + "%' OR Year Like '" + SavingsSearch.Text + "%' BasicSalary Like '" + SavingsSearch.Text + "%' order by ID Desc", con);
                 SqlDataAdapter myDA = new SqlDataAdapter(cmd);
                 DataSet myDataSet = new DataSet();
                 myDA.Fill(myDataSet, "EmployeePayment");

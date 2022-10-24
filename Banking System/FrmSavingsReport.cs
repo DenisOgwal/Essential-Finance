@@ -36,7 +36,7 @@ namespace Banking_System
                 if (rdr.Read())
                 {
                     companyname = rdr.GetString(1).Trim();
-                    companyaddress = rdr.GetString(5).Trim();
+                    companyaddress = rdr.GetString(7).Trim();
                     companyslogan = rdr.GetString(2).Trim();
                     companycontact = rdr.GetString(4).Trim();
                     companyemail = rdr.GetString(3).Trim();
@@ -45,6 +45,7 @@ namespace Banking_System
                 {
 
                 }
+                con.Close();
             }
             catch (Exception ex)
             {
@@ -78,6 +79,7 @@ namespace Banking_System
                 {
                     transactiontype.Items.Add(rdr[0].ToString().Trim());
                 }
+                con.Close();
             }
             catch (Exception ex)
             {
@@ -123,6 +125,7 @@ namespace Banking_System
                     rpt.SetParameterValue("companyaddress", companyaddress);
                     rpt.SetParameterValue("picpath", "logo.jpg");
                     crystalReportViewer1.ReportSource = rpt;
+                myConnection.Close();
             }
             catch (Exception ex)
             {
@@ -162,6 +165,7 @@ namespace Banking_System
                 rpt.SetParameterValue("companyaddress", companyaddress);
                 rpt.SetParameterValue("picpath", "logo.jpg");
                 crystalReportViewer2.ReportSource = rpt;
+                myConnection.Close();
             }
             catch (Exception ex)
             {
@@ -208,6 +212,53 @@ namespace Banking_System
                 rpt.SetParameterValue("companyaddress", companyaddress);
                 rpt.SetParameterValue("picpath", "logo.jpg");
                 crystalReportViewer3.ReportSource = rpt;
+                myConnection.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void buttonX2_Click(object sender, EventArgs e)
+        {
+            crystalReportViewer4.ReportSource = null;
+            withdrawfrom.Text = DateTime.Today.ToString();
+            withdrawto.Text = DateTime.Today.ToString();
+        }
+
+        private void buttonX5_Click(object sender, EventArgs e)
+        {
+            company();
+            try
+            {
+
+                SqlConnection myConnection = default(SqlConnection);
+                SqlCommand MyCommand = new SqlCommand();
+                SqlDataAdapter myDA = new SqlDataAdapter();
+                DataSet myDS = new DataSet();
+                rptWithdrawChargesReport rpt = new rptWithdrawChargesReport();
+                //The DataSet you created.
+                myConnection = new SqlConnection(cs.DBConn);
+                myConnection.Open();
+                MyCommand.Connection = myConnection;
+                MyCommand.CommandText = "select  * from WithdrawCharges where Date between @date1 and @date2 order by ID ASC ";
+                MyCommand.Parameters.Add("@date1", SqlDbType.DateTime, 30, "Date").Value = withdrawfrom.Value.Date;
+                MyCommand.Parameters.Add("@date2", SqlDbType.DateTime, 30, "Date").Value = withdrawto.Value.Date;
+                MyCommand.CommandType = CommandType.Text;
+                myDA.SelectCommand = MyCommand;
+                myDA.Fill(myDS, "WithdrawCharges");
+                rpt.SetDataSource(myDS);
+                rpt.SetParameterValue("datefrom", withdrawfrom.Text);
+                rpt.SetParameterValue("dateto", withdrawto.Text);
+                rpt.SetParameterValue("comanyname", companyname);
+                rpt.SetParameterValue("companyemail", companyemail);
+                rpt.SetParameterValue("companycontact", companycontact);
+                rpt.SetParameterValue("companyslogan", companyslogan);
+                rpt.SetParameterValue("companyaddress", companyaddress);
+                rpt.SetParameterValue("picpath", "logo.jpg");
+                crystalReportViewer4.ReportSource = rpt;
+                myConnection.Close();
             }
             catch (Exception ex)
             {

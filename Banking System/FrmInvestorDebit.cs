@@ -48,6 +48,7 @@ namespace Banking_System
             }
             string years = yearss.Substring(2, 2);
             savingsid = years + monthss + days + realid;
+            con.Close();
         }
        
         public void dataload()
@@ -56,7 +57,7 @@ namespace Banking_System
             {
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
-                cmd = new SqlCommand("select RTRIM(SavingsID)[Savings ID],RTRIM(AccountNo)[Account Number], RTRIM(AccountName)[Account Name], RTRIM(Deposit)[Deposit], RTRIM(InterestRate)[Interest Rate] ,RTRIM(AppreciationNo)[Appreciation No.],RTRIM(NextAppreciationDate)[Appreciation Date.],RTRIM(Interval)[Interval], RTRIM(ID)[Record ID] from InvestmentAppreciation where Appreciated='No' and PaidOut='Pending' and NextAppreciationDate <=@date1", con);
+                cmd = new SqlCommand("select RTRIM(SavingsID)[Savings ID],RTRIM(AccountNo)[Account Number], RTRIM(AccountName)[Account Name], RTRIM(Deposit)[Deposit], RTRIM(InterestRate)[Interest Rate] ,RTRIM(AppreciationNo)[Appreciation No.],RTRIM(NextAppreciationDate)[Appreciation Date.],RTRIM(Interval)[Interval], RTRIM(ID)[Record ID],RTRIM(Installment)[Installment] from InvestmentAppreciation where Appreciated='No' and Approved='Approved' and NextAppreciationDate <=@date1 and Freezed='No'", con);
                 cmd.Parameters.Add("@date1", SqlDbType.DateTime, 30, "NextAppreciationDate").Value = dateTimePicker1.Value.Date;
                 SqlDataAdapter myDA = new SqlDataAdapter(cmd);
                 DataSet myDataSet = new DataSet();
@@ -108,13 +109,13 @@ namespace Banking_System
                                 }
                                 else
                                 {
-                                    intrests = Convert.ToDouble(row.Cells[4].Value) / 100;
+                                    intrests = (Convert.ToDouble(row.Cells[4].Value) / 100) / 12;
                                 }
-                                val5 = Convert.ToInt32(row.Cells[3].Value) * (intrests);
-                                val6 = val4 + Convert.ToInt32(val5);
-
+                                val5 = Convert.ToInt32(Convert.ToDouble((row.Cells[3].Value)) * (intrests));
+                                val6 = val4 + Convert.ToInt32(Convert.ToDouble(val5));
+                                //MessageBox.Show(row.Cells[6].Value.ToString().Trim());
                                 string nextappreciation = null;
-                                DateTime startdates = DateTime.Parse(dateTimePicker1.Text).Date;
+                                DateTime startdates = DateTime.Parse(row.Cells[6].Value.ToString().Trim()).Date;
                                 nextappreciation = (startdates.AddMonths(1)).ToShortDateString();
                                 DateTime dts = DateTime.Parse(nextappreciation);
                                 string nextConvertedappreciationDate = dts.ToString("dd/MMM/yyyy");
@@ -122,7 +123,7 @@ namespace Banking_System
                                 int newappreciationno = Convert.ToInt32(row.Cells[5].Value) - 1;
 
                                 string nextappreciationss = null;
-                                DateTime startdatesss = DateTime.Parse(dateTimePicker1.Text).Date;
+                                DateTime startdatesss = DateTime.Parse(row.Cells[6].Value.ToString().Trim()).Date;
                                 nextappreciationss = (startdatesss.AddMonths(newappreciationno)).ToShortDateString();
                                 DateTime dtsss = DateTime.Parse(nextappreciationss);
                                 string nextConvertedappreciationDatess = dtsss.ToString("dd/MMM/yyyy");
@@ -131,61 +132,65 @@ namespace Banking_System
                                 }
                                 else
                                 {
-                                    con = new SqlConnection(cs.DBConn);
-                                    con.Open();
-                                    string cb = "insert into InvestmentAppreciation(SavingsID,DepositID,AccountNo,AccountName,Date,Deposit,Accountbalance,InterestRate,NextAppreciationDate,AppreciationNo,AppreciationAmount,Interval,Approved,ApprovedBy,Credit) VALUES (@d1,@d2,@d3,@d4,@d5,@d6,@d7,@d8,@d9,@d10,@d11,'" + row.Cells[7].Value + "','Approved','Auto','CR')";
-                                    cmd = new SqlCommand(cb);
-                                    cmd.Connection = con;
-                                    cmd.Parameters.Add(new SqlParameter("@d1", System.Data.SqlDbType.NChar, 15, "SavingsID"));
-                                    cmd.Parameters.Add(new SqlParameter("@d2", System.Data.SqlDbType.NChar, 15, "DepositID"));
-                                    cmd.Parameters.Add(new SqlParameter("@d3", System.Data.SqlDbType.NChar, 20, "AccountNo"));
-                                    cmd.Parameters.Add(new SqlParameter("@d4", System.Data.SqlDbType.NChar, 100, "AccountName"));
-                                    cmd.Parameters.Add(new SqlParameter("@d5", System.Data.SqlDbType.NChar, 20, "Date"));
-                                    cmd.Parameters.Add(new SqlParameter("@d6", System.Data.SqlDbType.Int, 10, "Deposit"));
-                                    cmd.Parameters.Add(new SqlParameter("@d7", System.Data.SqlDbType.Int, 10, "Accountbalance"));
-                                    cmd.Parameters.Add(new SqlParameter("@d8", System.Data.SqlDbType.Float, 12, "InterestRate"));
-                                    cmd.Parameters.Add(new SqlParameter("@d9", System.Data.SqlDbType.NChar, 20, "NextAppreciationDate"));
-                                    cmd.Parameters.Add(new SqlParameter("@d10", System.Data.SqlDbType.Int, 5, "AppreciationNo"));
-                                    cmd.Parameters.Add(new SqlParameter("@d11", System.Data.SqlDbType.Int, 10, "AppreciationAmount"));
+                                    if (newappreciationno > 0)
+                                    {
+                                        con = new SqlConnection(cs.DBConn);
+                                        con.Open();
+                                        string cb = "insert into InvestmentAppreciation(SavingsID,DepositID,AccountNo,AccountName,Date,Deposit,Accountbalance,InterestRate,NextAppreciationDate,AppreciationNo,AppreciationAmount,Interval,Approved,ApprovedBy,Credit,Installment) VALUES (@d1,@d2,@d3,@d4,@d5,@d6,@d7,@d8,@d9,@d10,@d11,'" + row.Cells[7].Value + "','Approved','Auto','" + val5 + "','" + row.Cells[9].Value + "')";
+                                        cmd = new SqlCommand(cb);
+                                        cmd.Connection = con;
+                                        cmd.Parameters.Add(new SqlParameter("@d1", System.Data.SqlDbType.NChar, 15, "SavingsID"));
+                                        cmd.Parameters.Add(new SqlParameter("@d2", System.Data.SqlDbType.NChar, 15, "DepositID"));
+                                        cmd.Parameters.Add(new SqlParameter("@d3", System.Data.SqlDbType.NChar, 20, "AccountNo"));
+                                        cmd.Parameters.Add(new SqlParameter("@d4", System.Data.SqlDbType.NChar, 100, "AccountName"));
+                                        cmd.Parameters.Add(new SqlParameter("@d5", System.Data.SqlDbType.NChar, 20, "Date"));
+                                        cmd.Parameters.Add(new SqlParameter("@d6", System.Data.SqlDbType.Int, 10, "Deposit"));
+                                        cmd.Parameters.Add(new SqlParameter("@d7", System.Data.SqlDbType.Int, 10, "Accountbalance"));
+                                        cmd.Parameters.Add(new SqlParameter("@d8", System.Data.SqlDbType.Float, 12, "InterestRate"));
+                                        cmd.Parameters.Add(new SqlParameter("@d9", System.Data.SqlDbType.NChar, 20, "NextAppreciationDate"));
+                                        cmd.Parameters.Add(new SqlParameter("@d10", System.Data.SqlDbType.Int, 5, "AppreciationNo"));
+                                        cmd.Parameters.Add(new SqlParameter("@d11", System.Data.SqlDbType.Int, 10, "AppreciationAmount"));
 
-                                    cmd.Parameters["@d1"].Value = row.Cells[0].Value;
-                                    cmd.Parameters["@d2"].Value = savingsid;
-                                    cmd.Parameters["@d3"].Value = row.Cells[1].Value;
-                                    cmd.Parameters["@d4"].Value = row.Cells[2].Value;
-                                    cmd.Parameters["@d5"].Value = dateTimePicker1.Text.Trim();
-                                    cmd.Parameters["@d6"].Value = row.Cells[3].Value;
-                                    cmd.Parameters["@d7"].Value = val6;
-                                    cmd.Parameters["@d8"].Value = row.Cells[4].Value;
-                                    cmd.Parameters["@d9"].Value = nextConvertedappreciationDate;
-                                    cmd.Parameters["@d10"].Value = newappreciationno;
-                                    cmd.Parameters["@d11"].Value = val5;
-                                    cmd.ExecuteNonQuery();
-                                    con.Close();
+                                        cmd.Parameters["@d1"].Value = row.Cells[0].Value;
+                                        cmd.Parameters["@d2"].Value = savingsid;
+                                        cmd.Parameters["@d3"].Value = row.Cells[1].Value;
+                                        cmd.Parameters["@d4"].Value = row.Cells[2].Value;
+                                        cmd.Parameters["@d5"].Value = dateTimePicker1.Text.Trim();
+                                        cmd.Parameters["@d6"].Value = row.Cells[3].Value;
+                                        cmd.Parameters["@d7"].Value = val6;
+                                        cmd.Parameters["@d8"].Value = row.Cells[4].Value;
+                                        cmd.Parameters["@d9"].Value = nextConvertedappreciationDate;
+                                        cmd.Parameters["@d10"].Value = newappreciationno;
+                                        cmd.Parameters["@d11"].Value = val5;
+                                        cmd.ExecuteNonQuery();
+                                        con.Close();
 
-                                    con = new SqlConnection(cs.DBConn);
-                                    con.Open();
-                                    string cb10 = "UPDATE InvestmentAppreciation SET Appreciated=@d1 where ID='" + row.Cells[8].Value + "' ";
-                                    cmd = new SqlCommand(cb10);
-                                    cmd.Connection = con;
-                                    cmd.Parameters.Add(new SqlParameter("@d1", System.Data.SqlDbType.NChar, 10, "Appreciated"));
-                                    cmd.Parameters["@d1"].Value = "Yes";
-                                    cmd.ExecuteNonQuery();
-                                    con.Close();
+                                        con = new SqlConnection(cs.DBConn);
+                                        con.Open();
+                                        string cb10 = "UPDATE InvestmentAppreciation SET Appreciated=@d1,UploadStatus='Pending' where ID='" + row.Cells[8].Value + "' ";
+                                        cmd = new SqlCommand(cb10);
+                                        cmd.Connection = con;
+                                        cmd.Parameters.Add(new SqlParameter("@d1", System.Data.SqlDbType.NChar, 10, "Appreciated"));
+                                        cmd.Parameters["@d1"].Value = "Yes";
+                                        cmd.ExecuteNonQuery();
+                                        con.Close();
 
-                                    con = new SqlConnection(cs.DBConn);
-                                    con.Open();
-                                    string cb11 = "UPDATE InvestorSavings SET AccountBalance=@d1,OtherMaturityDate=@d2 where SavingsID='" + row.Cells[0].Value + "' ";
-                                    cmd = new SqlCommand(cb11);
-                                    cmd.Connection = con;
-                                    cmd.Parameters.Add(new SqlParameter("@d1", System.Data.SqlDbType.Int, 10, "AccountBalance"));
-                                    cmd.Parameters.Add(new SqlParameter("@d2", System.Data.SqlDbType.NChar, 20, "OtherMaturityDate"));
-                                    cmd.Parameters["@d1"].Value = val6;
-                                    cmd.Parameters["@d2"].Value = nextappreciationss;
-                                    cmd.ExecuteNonQuery();
-                                    con.Close();
+                                        con = new SqlConnection(cs.DBConn);
+                                        con.Open();
+                                        string cb11 = "UPDATE InvestorSavings SET AccountBalance=@d1,OtherMaturityDate=@d2,UploadStatus='Pending' where SavingsID='" + row.Cells[0].Value + "' ";
+                                        cmd = new SqlCommand(cb11);
+                                        cmd.Connection = con;
+                                        cmd.Parameters.Add(new SqlParameter("@d1", System.Data.SqlDbType.Int, 10, "AccountBalance"));
+                                        cmd.Parameters.Add(new SqlParameter("@d2", System.Data.SqlDbType.NChar, 20, "OtherMaturityDate"));
+                                        cmd.Parameters["@d1"].Value = val6;
+                                        cmd.Parameters["@d2"].Value = nextappreciationss;
+                                        cmd.ExecuteNonQuery();
+                                        con.Close();
+                                    }
                                 }
 
                             }
+                            con.Close();
                         }
 
                     }

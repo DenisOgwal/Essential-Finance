@@ -56,8 +56,6 @@
             this.buttonX7 = new DevComponents.DotNetBar.ButtonX();
             this.buttonX1 = new DevComponents.DotNetBar.ButtonX();
             this.buttonX2 = new DevComponents.DotNetBar.ButtonX();
-            this.buttonX3 = new DevComponents.DotNetBar.ButtonX();
-            this.buttonX4 = new DevComponents.DotNetBar.ButtonX();
             this.buttonX5 = new DevComponents.DotNetBar.ButtonX();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.labelX9 = new DevComponents.DotNetBar.LabelX();
@@ -65,6 +63,13 @@
             this.label5 = new System.Windows.Forms.Label();
             this.accountbalance = new DevComponents.Editors.IntegerInput();
             this.labelX11 = new DevComponents.DotNetBar.LabelX();
+            this.earlysettlementamount = new DevComponents.Editors.IntegerInput();
+            this.labelX12 = new DevComponents.DotNetBar.LabelX();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.labelX13 = new DevComponents.DotNetBar.LabelX();
+            this.loanfines = new DevComponents.Editors.IntegerInput();
+            this.label8 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.balance)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ammountpaid)).BeginInit();
             this.groupPanel5.SuspendLayout();
@@ -72,6 +77,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.EarlySettlement)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.accountbalance)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.earlysettlementamount)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.loanfines)).BeginInit();
             this.SuspendLayout();
             // 
             // label2
@@ -117,7 +124,6 @@
             // dateTimePicker1
             // 
             this.dateTimePicker1.CustomFormat = "dd/MMM/yyyy";
-            this.dateTimePicker1.Enabled = false;
             this.dateTimePicker1.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateTimePicker1.Location = new System.Drawing.Point(578, 149);
@@ -170,6 +176,7 @@
             this.loanid.Size = new System.Drawing.Size(225, 29);
             this.loanid.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.loanid.TabIndex = 47;
+            this.loanid.SelectedIndexChanged += new System.EventHandler(this.loanid_SelectedIndexChanged);
             this.loanid.TextChanged += new System.EventHandler(this.loanid_TextChanged);
             this.loanid.Click += new System.EventHandler(this.loanid_Click);
             // 
@@ -226,23 +233,21 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label4.Location = new System.Drawing.Point(75, 349);
+            this.label4.Location = new System.Drawing.Point(335, 459);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(50, 22);
             this.label4.TabIndex = 73;
             this.label4.Text = "label4";
-            this.label4.Visible = false;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(19, 348);
+            this.label3.Location = new System.Drawing.Point(324, 352);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(50, 22);
             this.label3.TabIndex = 72;
             this.label3.Text = "label3";
-            this.label3.Visible = false;
             // 
             // repaymentid
             // 
@@ -268,7 +273,7 @@
             this.cashiername.Enabled = false;
             this.cashiername.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cashiername.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.cashiername.Location = new System.Drawing.Point(580, 393);
+            this.cashiername.Location = new System.Drawing.Point(580, 459);
             this.cashiername.Name = "cashiername";
             this.cashiername.Size = new System.Drawing.Size(223, 29);
             this.cashiername.TabIndex = 68;
@@ -282,7 +287,7 @@
             this.cashierid.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.cashierid.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cashierid.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.cashierid.Location = new System.Drawing.Point(580, 358);
+            this.cashierid.Location = new System.Drawing.Point(580, 424);
             this.cashierid.Name = "cashierid";
             this.cashierid.PasswordChar = '*';
             this.cashierid.Size = new System.Drawing.Size(224, 29);
@@ -301,7 +306,7 @@
             this.balance.Enabled = false;
             this.balance.Font = new System.Drawing.Font("Palatino Linotype", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.balance.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.balance.Location = new System.Drawing.Point(581, 277);
+            this.balance.Location = new System.Drawing.Point(581, 343);
             this.balance.Name = "balance";
             this.balance.Size = new System.Drawing.Size(223, 40);
             this.balance.TabIndex = 66;
@@ -317,7 +322,7 @@
             this.ammountpaid.DisplayFormat = "N0";
             this.ammountpaid.Font = new System.Drawing.Font("Palatino Linotype", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ammountpaid.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.ammountpaid.Location = new System.Drawing.Point(580, 231);
+            this.ammountpaid.Location = new System.Drawing.Point(580, 262);
             this.ammountpaid.Name = "ammountpaid";
             this.ammountpaid.Size = new System.Drawing.Size(224, 40);
             this.ammountpaid.TabIndex = 65;
@@ -349,7 +354,7 @@
             this.labelX7.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.labelX7.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelX7.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.labelX7.Location = new System.Drawing.Point(434, 399);
+            this.labelX7.Location = new System.Drawing.Point(434, 465);
             this.labelX7.Name = "labelX7";
             this.labelX7.Size = new System.Drawing.Size(49, 23);
             this.labelX7.TabIndex = 63;
@@ -365,7 +370,7 @@
             this.labelX6.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.labelX6.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelX6.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.labelX6.Location = new System.Drawing.Point(432, 359);
+            this.labelX6.Location = new System.Drawing.Point(432, 425);
             this.labelX6.Name = "labelX6";
             this.labelX6.Size = new System.Drawing.Size(86, 23);
             this.labelX6.TabIndex = 62;
@@ -381,11 +386,11 @@
             this.labelX5.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.labelX5.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelX5.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.labelX5.Location = new System.Drawing.Point(435, 286);
+            this.labelX5.Location = new System.Drawing.Point(435, 352);
             this.labelX5.Name = "labelX5";
-            this.labelX5.Size = new System.Drawing.Size(103, 23);
+            this.labelX5.Size = new System.Drawing.Size(140, 23);
             this.labelX5.TabIndex = 61;
-            this.labelX5.Text = "Loan Balance";
+            this.labelX5.Text = "Total Loan Balance";
             // 
             // labelX4
             // 
@@ -397,7 +402,7 @@
             this.labelX4.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.labelX4.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelX4.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.labelX4.Location = new System.Drawing.Point(432, 240);
+            this.labelX4.Location = new System.Drawing.Point(432, 279);
             this.labelX4.Name = "labelX4";
             this.labelX4.Size = new System.Drawing.Size(97, 23);
             this.labelX4.TabIndex = 60;
@@ -410,9 +415,9 @@
             this.groupPanel5.CanvasColor = System.Drawing.SystemColors.Control;
             this.groupPanel5.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
             this.groupPanel5.Controls.Add(this.tableLayoutPanel4);
-            this.groupPanel5.Location = new System.Drawing.Point(17, 429);
+            this.groupPanel5.Location = new System.Drawing.Point(16, 499);
             this.groupPanel5.Name = "groupPanel5";
-            this.groupPanel5.Size = new System.Drawing.Size(786, 114);
+            this.groupPanel5.Size = new System.Drawing.Size(786, 98);
             // 
             // 
             // 
@@ -452,25 +457,21 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel4.BackColor = System.Drawing.Color.Transparent;
-            this.tableLayoutPanel4.ColumnCount = 6;
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.27907F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17.44186F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17.44186F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.27907F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 18.60465F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 13.95349F));
+            this.tableLayoutPanel4.ColumnCount = 4;
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 23.33333F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 26.66667F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel4.Controls.Add(this.buttonX7, 2, 0);
             this.tableLayoutPanel4.Controls.Add(this.buttonX1, 0, 0);
             this.tableLayoutPanel4.Controls.Add(this.buttonX2, 1, 0);
-            this.tableLayoutPanel4.Controls.Add(this.buttonX3, 5, 0);
-            this.tableLayoutPanel4.Controls.Add(this.buttonX4, 3, 0);
-            this.tableLayoutPanel4.Controls.Add(this.buttonX5, 4, 0);
+            this.tableLayoutPanel4.Controls.Add(this.buttonX5, 3, 0);
             this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 7);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 1;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(773, 98);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(773, 82);
             this.tableLayoutPanel4.TabIndex = 6;
             // 
             // buttonX7
@@ -481,9 +482,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonX7.Font = new System.Drawing.Font("Palatino Linotype", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonX7.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.buttonX7.Location = new System.Drawing.Point(262, 3);
+            this.buttonX7.Location = new System.Drawing.Point(376, 3);
             this.buttonX7.Name = "buttonX7";
-            this.buttonX7.Size = new System.Drawing.Size(128, 92);
+            this.buttonX7.Size = new System.Drawing.Size(187, 76);
             this.buttonX7.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.buttonX7.TabIndex = 75;
             this.buttonX7.Text = "&Save+Print";
@@ -499,7 +500,7 @@
             this.buttonX1.ForeColor = System.Drawing.SystemColors.ControlText;
             this.buttonX1.Location = new System.Drawing.Point(3, 3);
             this.buttonX1.Name = "buttonX1";
-            this.buttonX1.Size = new System.Drawing.Size(119, 92);
+            this.buttonX1.Size = new System.Drawing.Size(174, 76);
             this.buttonX1.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.buttonX1.TabIndex = 0;
             this.buttonX1.Text = "&New";
@@ -513,47 +514,13 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonX2.Font = new System.Drawing.Font("Palatino Linotype", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonX2.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.buttonX2.Location = new System.Drawing.Point(128, 3);
+            this.buttonX2.Location = new System.Drawing.Point(183, 3);
             this.buttonX2.Name = "buttonX2";
-            this.buttonX2.Size = new System.Drawing.Size(128, 92);
+            this.buttonX2.Size = new System.Drawing.Size(187, 76);
             this.buttonX2.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.buttonX2.TabIndex = 1;
             this.buttonX2.Text = "&Save";
             this.buttonX2.Click += new System.EventHandler(this.buttonX2_Click);
-            // 
-            // buttonX3
-            // 
-            this.buttonX3.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.buttonX3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonX3.Enabled = false;
-            this.buttonX3.Font = new System.Drawing.Font("Palatino Linotype", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonX3.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.buttonX3.Location = new System.Drawing.Point(664, 3);
-            this.buttonX3.Name = "buttonX3";
-            this.buttonX3.Size = new System.Drawing.Size(106, 92);
-            this.buttonX3.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.buttonX3.TabIndex = 2;
-            this.buttonX3.Text = "&Delete";
-            this.buttonX3.Click += new System.EventHandler(this.buttonX3_Click);
-            // 
-            // buttonX4
-            // 
-            this.buttonX4.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.buttonX4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonX4.Enabled = false;
-            this.buttonX4.Font = new System.Drawing.Font("Palatino Linotype", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonX4.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.buttonX4.Location = new System.Drawing.Point(396, 3);
-            this.buttonX4.Name = "buttonX4";
-            this.buttonX4.Size = new System.Drawing.Size(119, 92);
-            this.buttonX4.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.buttonX4.TabIndex = 3;
-            this.buttonX4.Text = "&Update";
-            this.buttonX4.Click += new System.EventHandler(this.buttonX4_Click);
             // 
             // buttonX5
             // 
@@ -563,9 +530,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonX5.Font = new System.Drawing.Font("Palatino Linotype", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonX5.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.buttonX5.Location = new System.Drawing.Point(521, 3);
+            this.buttonX5.Location = new System.Drawing.Point(569, 3);
             this.buttonX5.Name = "buttonX5";
-            this.buttonX5.Size = new System.Drawing.Size(137, 92);
+            this.buttonX5.Size = new System.Drawing.Size(201, 76);
             this.buttonX5.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.buttonX5.TabIndex = 4;
             this.buttonX5.Text = "Cancel";
@@ -581,7 +548,7 @@
             this.dataGridView1.DataBindings.Add(new System.Windows.Forms.Binding("BackgroundColor", global::Banking_System.Properties.Settings.Default, "usercolor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.dataGridView1.Location = new System.Drawing.Point(17, 14);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(389, 409);
+            this.dataGridView1.Size = new System.Drawing.Size(389, 479);
             this.dataGridView1.TabIndex = 82;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
@@ -610,7 +577,7 @@
             this.EarlySettlement.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.EarlySettlement.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2;
             this.EarlySettlement.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.EarlySettlement.Location = new System.Drawing.Point(580, 196);
+            this.EarlySettlement.Location = new System.Drawing.Point(578, 193);
             this.EarlySettlement.Name = "EarlySettlement";
             this.EarlySettlement.Size = new System.Drawing.Size(224, 29);
             this.EarlySettlement.TabIndex = 84;
@@ -638,7 +605,7 @@
             this.accountbalance.Enabled = false;
             this.accountbalance.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.accountbalance.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.accountbalance.Location = new System.Drawing.Point(581, 323);
+            this.accountbalance.Location = new System.Drawing.Point(581, 389);
             this.accountbalance.Name = "accountbalance";
             this.accountbalance.Size = new System.Drawing.Size(223, 29);
             this.accountbalance.TabIndex = 87;
@@ -653,27 +620,118 @@
             this.labelX11.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.labelX11.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelX11.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.labelX11.Location = new System.Drawing.Point(436, 329);
+            this.labelX11.Location = new System.Drawing.Point(436, 395);
             this.labelX11.Name = "labelX11";
             this.labelX11.Size = new System.Drawing.Size(139, 23);
             this.labelX11.TabIndex = 86;
             this.labelX11.Text = "Account Balance";
+            // 
+            // earlysettlementamount
+            // 
+            // 
+            // 
+            // 
+            this.earlysettlementamount.BackgroundStyle.Class = "DateTimeInputBackground";
+            this.earlysettlementamount.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.earlysettlementamount.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2;
+            this.earlysettlementamount.DisplayFormat = "N0";
+            this.earlysettlementamount.Enabled = false;
+            this.earlysettlementamount.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.earlysettlementamount.Location = new System.Drawing.Point(579, 227);
+            this.earlysettlementamount.Name = "earlysettlementamount";
+            this.earlysettlementamount.Size = new System.Drawing.Size(224, 29);
+            this.earlysettlementamount.TabIndex = 88;
+            // 
+            // labelX12
+            // 
+            this.labelX12.BackColor = System.Drawing.Color.Transparent;
+            // 
+            // 
+            // 
+            this.labelX12.BackgroundStyle.Class = "";
+            this.labelX12.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX12.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelX12.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.labelX12.Location = new System.Drawing.Point(430, 227);
+            this.labelX12.Name = "labelX12";
+            this.labelX12.Size = new System.Drawing.Size(129, 50);
+            this.labelX12.TabIndex = 89;
+            this.labelX12.Text = "Early Settlement\r\nAmount";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(336, 400);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(35, 13);
+            this.label6.TabIndex = 90;
+            this.label6.Text = "label6";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(336, 424);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(35, 13);
+            this.label7.TabIndex = 91;
+            this.label7.Text = "label7";
+            // 
+            // labelX13
+            // 
+            this.labelX13.BackColor = System.Drawing.Color.Transparent;
+            // 
+            // 
+            // 
+            this.labelX13.BackgroundStyle.Class = "";
+            this.labelX13.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX13.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelX13.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.labelX13.Location = new System.Drawing.Point(434, 314);
+            this.labelX13.Name = "labelX13";
+            this.labelX13.Size = new System.Drawing.Size(103, 23);
+            this.labelX13.TabIndex = 92;
+            this.labelX13.Text = "Loan Fines";
+            // 
+            // loanfines
+            // 
+            // 
+            // 
+            // 
+            this.loanfines.BackgroundStyle.Class = "DateTimeInputBackground";
+            this.loanfines.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.loanfines.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2;
+            this.loanfines.Enabled = false;
+            this.loanfines.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.loanfines.Location = new System.Drawing.Point(580, 308);
+            this.loanfines.Name = "loanfines";
+            this.loanfines.Size = new System.Drawing.Size(223, 29);
+            this.loanfines.TabIndex = 93;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(339, 441);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(35, 13);
+            this.label8.TabIndex = 94;
+            this.label8.Text = "label8";
             // 
             // frmRepaymentEarlySettlement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = global::Banking_System.Properties.Settings.Default.usercolor;
-            this.ClientSize = new System.Drawing.Size(820, 563);
+            this.ClientSize = new System.Drawing.Size(820, 608);
+            this.Controls.Add(this.loanfines);
+            this.Controls.Add(this.labelX13);
+            this.Controls.Add(this.labelX12);
+            this.Controls.Add(this.earlysettlementamount);
             this.Controls.Add(this.accountbalance);
             this.Controls.Add(this.labelX11);
-            this.Controls.Add(this.label5);
             this.Controls.Add(this.EarlySettlement);
             this.Controls.Add(this.labelX9);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.groupPanel5);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.repaymentid);
             this.Controls.Add(this.cashiername);
             this.Controls.Add(this.cashierid);
@@ -694,6 +752,12 @@
             this.Controls.Add(this.labelX3);
             this.Controls.Add(this.labelX2);
             this.Controls.Add(this.labelX1);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label5);
             this.DataBindings.Add(new System.Windows.Forms.Binding("BackColor", global::Banking_System.Properties.Settings.Default, "usercolor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmRepaymentEarlySettlement";
@@ -707,6 +771,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.EarlySettlement)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.accountbalance)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.earlysettlementamount)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.loanfines)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -739,8 +805,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
         private DevComponents.DotNetBar.ButtonX buttonX1;
         private DevComponents.DotNetBar.ButtonX buttonX2;
-        private DevComponents.DotNetBar.ButtonX buttonX3;
-        private DevComponents.DotNetBar.ButtonX buttonX4;
         private DevComponents.DotNetBar.ButtonX buttonX5;
         private DevComponents.DotNetBar.ButtonX buttonX7;
         private System.Windows.Forms.DataGridView dataGridView1;
@@ -749,5 +813,12 @@
         private System.Windows.Forms.Label label5;
         private DevComponents.Editors.IntegerInput accountbalance;
         private DevComponents.DotNetBar.LabelX labelX11;
+        private DevComponents.Editors.IntegerInput earlysettlementamount;
+        private DevComponents.DotNetBar.LabelX labelX12;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
+        private DevComponents.DotNetBar.LabelX labelX13;
+        private DevComponents.Editors.IntegerInput loanfines;
+        private System.Windows.Forms.Label label8;
     }
 }

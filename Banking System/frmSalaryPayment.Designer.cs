@@ -37,6 +37,10 @@
             this.label6 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.groupPanel1 = new DevComponents.DotNetBar.Controls.GroupPanel();
+            this.cashiername = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.labelX12 = new DevComponents.DotNetBar.LabelX();
+            this.cashierid = new System.Windows.Forms.TextBox();
+            this.labelX11 = new DevComponents.DotNetBar.LabelX();
             this.Duepayment = new DevComponents.Editors.IntegerInput();
             this.txtTotalPaid = new DevComponents.Editors.IntegerInput();
             this.label10 = new System.Windows.Forms.Label();
@@ -171,6 +175,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupPanel1.CanvasColor = System.Drawing.SystemColors.Control;
             this.groupPanel1.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
+            this.groupPanel1.Controls.Add(this.cashiername);
+            this.groupPanel1.Controls.Add(this.labelX12);
+            this.groupPanel1.Controls.Add(this.cashierid);
+            this.groupPanel1.Controls.Add(this.labelX11);
             this.groupPanel1.Controls.Add(this.Duepayment);
             this.groupPanel1.Controls.Add(this.txtTotalPaid);
             this.groupPanel1.Controls.Add(this.label10);
@@ -220,6 +228,66 @@
             this.groupPanel1.TabIndex = 60;
             this.groupPanel1.Text = "Payment Details";
             // 
+            // cashiername
+            // 
+            this.cashiername.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            // 
+            // 
+            // 
+            this.cashiername.Border.Class = "TextBoxBorder";
+            this.cashiername.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.cashiername.Enabled = false;
+            this.cashiername.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cashiername.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.cashiername.Location = new System.Drawing.Point(316, 197);
+            this.cashiername.Name = "cashiername";
+            this.cashiername.Size = new System.Drawing.Size(189, 29);
+            this.cashiername.TabIndex = 208;
+            // 
+            // labelX12
+            // 
+            this.labelX12.BackColor = System.Drawing.Color.Transparent;
+            // 
+            // 
+            // 
+            this.labelX12.BackgroundStyle.Class = "";
+            this.labelX12.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX12.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelX12.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.labelX12.Location = new System.Drawing.Point(267, 199);
+            this.labelX12.Name = "labelX12";
+            this.labelX12.Size = new System.Drawing.Size(132, 23);
+            this.labelX12.TabIndex = 207;
+            this.labelX12.Text = "Name";
+            // 
+            // cashierid
+            // 
+            this.cashierid.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cashierid.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.cashierid.Location = new System.Drawing.Point(115, 197);
+            this.cashierid.Name = "cashierid";
+            this.cashierid.PasswordChar = '*';
+            this.cashierid.Size = new System.Drawing.Size(150, 29);
+            this.cashierid.TabIndex = 206;
+            this.cashierid.TextChanged += new System.EventHandler(this.cashierid_TextChanged);
+            // 
+            // labelX11
+            // 
+            this.labelX11.BackColor = System.Drawing.Color.Transparent;
+            // 
+            // 
+            // 
+            this.labelX11.BackgroundStyle.Class = "";
+            this.labelX11.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX11.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelX11.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.labelX11.Location = new System.Drawing.Point(3, 197);
+            this.labelX11.Name = "labelX11";
+            this.labelX11.Size = new System.Drawing.Size(108, 23);
+            this.labelX11.TabIndex = 205;
+            this.labelX11.Text = "Approval ID";
+            // 
             // Duepayment
             // 
             this.Duepayment.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -233,9 +301,9 @@
             this.Duepayment.DisplayFormat = "N0";
             this.Duepayment.Enabled = false;
             this.Duepayment.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Duepayment.Location = new System.Drawing.Point(195, 203);
+            this.Duepayment.Location = new System.Drawing.Point(115, 166);
             this.Duepayment.Name = "Duepayment";
-            this.Duepayment.Size = new System.Drawing.Size(294, 29);
+            this.Duepayment.Size = new System.Drawing.Size(390, 29);
             this.Duepayment.TabIndex = 204;
             // 
             // txtTotalPaid
@@ -250,9 +318,9 @@
             this.txtTotalPaid.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2;
             this.txtTotalPaid.DisplayFormat = "N0";
             this.txtTotalPaid.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTotalPaid.Location = new System.Drawing.Point(195, 170);
+            this.txtTotalPaid.Location = new System.Drawing.Point(115, 131);
             this.txtTotalPaid.Name = "txtTotalPaid";
-            this.txtTotalPaid.Size = new System.Drawing.Size(294, 29);
+            this.txtTotalPaid.Size = new System.Drawing.Size(390, 29);
             this.txtTotalPaid.TabIndex = 203;
             this.txtTotalPaid.ValueChanged += new System.EventHandler(this.txtTotalPaid_ValueChanged);
             // 
@@ -262,7 +330,7 @@
             this.label10.BackColor = System.Drawing.Color.Transparent;
             this.label10.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label10.Location = new System.Drawing.Point(30, 203);
+            this.label10.Location = new System.Drawing.Point(-1, 165);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(103, 22);
             this.label10.TabIndex = 81;
@@ -274,9 +342,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtDeduction.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDeduction.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.txtDeduction.Location = new System.Drawing.Point(195, 139);
+            this.txtDeduction.Location = new System.Drawing.Point(115, 96);
             this.txtDeduction.Name = "txtDeduction";
-            this.txtDeduction.Size = new System.Drawing.Size(294, 29);
+            this.txtDeduction.Size = new System.Drawing.Size(390, 29);
             this.txtDeduction.TabIndex = 202;
             // 
             // label3
@@ -285,7 +353,7 @@
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label3.Location = new System.Drawing.Point(30, 144);
+            this.label3.Location = new System.Drawing.Point(-1, 96);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(80, 22);
@@ -298,11 +366,11 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtPaymentModeDetails.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPaymentModeDetails.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.txtPaymentModeDetails.Location = new System.Drawing.Point(195, 73);
+            this.txtPaymentModeDetails.Location = new System.Drawing.Point(115, 42);
             this.txtPaymentModeDetails.Multiline = true;
             this.txtPaymentModeDetails.Name = "txtPaymentModeDetails";
             this.txtPaymentModeDetails.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtPaymentModeDetails.Size = new System.Drawing.Size(294, 60);
+            this.txtPaymentModeDetails.Size = new System.Drawing.Size(390, 48);
             this.txtPaymentModeDetails.TabIndex = 201;
             // 
             // cmbModeOfPayment
@@ -314,25 +382,19 @@
             this.cmbModeOfPayment.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbModeOfPayment.ForeColor = System.Drawing.SystemColors.Highlight;
             this.cmbModeOfPayment.FormattingEnabled = true;
-            this.cmbModeOfPayment.Items.AddRange(new object[] {
-            "Cash",
-            "Bank",
-            "Mobile Money"});
-            this.cmbModeOfPayment.Location = new System.Drawing.Point(195, 42);
+            this.cmbModeOfPayment.Location = new System.Drawing.Point(312, 11);
             this.cmbModeOfPayment.Name = "cmbModeOfPayment";
-            this.cmbModeOfPayment.Size = new System.Drawing.Size(294, 30);
+            this.cmbModeOfPayment.Size = new System.Drawing.Size(193, 30);
             this.cmbModeOfPayment.TabIndex = 200;
             // 
             // dtpPaymentDate
             // 
-            this.dtpPaymentDate.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.dtpPaymentDate.CustomFormat = "dd/MMM/yyyy";
             this.dtpPaymentDate.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpPaymentDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpPaymentDate.Location = new System.Drawing.Point(195, 12);
+            this.dtpPaymentDate.Location = new System.Drawing.Point(115, 12);
             this.dtpPaymentDate.Name = "dtpPaymentDate";
-            this.dtpPaymentDate.Size = new System.Drawing.Size(294, 29);
+            this.dtpPaymentDate.Size = new System.Drawing.Size(130, 29);
             this.dtpPaymentDate.TabIndex = 71;
             // 
             // label18
@@ -341,12 +403,13 @@
             this.label18.BackColor = System.Drawing.Color.Transparent;
             this.label18.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label18.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label18.Location = new System.Drawing.Point(30, 49);
+            this.label18.Location = new System.Drawing.Point(252, 17);
             this.label18.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(136, 22);
+            this.label18.Size = new System.Drawing.Size(53, 22);
             this.label18.TabIndex = 79;
-            this.label18.Text = "Mode Of Payment";
+            this.label18.Text = "Mode ";
+            this.label18.Click += new System.EventHandler(this.label18_Click);
             // 
             // label17
             // 
@@ -354,7 +417,7 @@
             this.label17.BackColor = System.Drawing.Color.Transparent;
             this.label17.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label17.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label17.Location = new System.Drawing.Point(30, 177);
+            this.label17.Location = new System.Drawing.Point(-1, 135);
             this.label17.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(88, 22);
@@ -367,12 +430,12 @@
             this.label16.BackColor = System.Drawing.Color.Transparent;
             this.label16.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label16.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label16.Location = new System.Drawing.Point(30, 93);
+            this.label16.Location = new System.Drawing.Point(-1, 45);
             this.label16.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(164, 22);
+            this.label16.Size = new System.Drawing.Size(56, 22);
             this.label16.TabIndex = 77;
-            this.label16.Text = "Payment Mode Details";
+            this.label16.Text = "Details";
             // 
             // label15
             // 
@@ -380,7 +443,7 @@
             this.label15.BackColor = System.Drawing.Color.Transparent;
             this.label15.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label15.Location = new System.Drawing.Point(30, 15);
+            this.label15.Location = new System.Drawing.Point(-1, 17);
             this.label15.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(107, 22);
@@ -1244,5 +1307,9 @@
         public DevComponents.Editors.IntegerInput payee;
         public DevComponents.Editors.IntegerInput nssf;
         public DevComponents.Editors.IntegerInput txtBasicSalary;
+        private System.Windows.Forms.TextBox cashierid;
+        private DevComponents.DotNetBar.LabelX labelX11;
+        private DevComponents.DotNetBar.Controls.TextBoxX cashiername;
+        private DevComponents.DotNetBar.LabelX labelX12;
     }
 }

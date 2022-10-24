@@ -325,7 +325,7 @@
             this.reason.Name = "reason";
             this.reason.Size = new System.Drawing.Size(216, 30);
             this.reason.TabIndex = 114;
-           
+            // 
             // label9
             // 
             this.label9.AutoSize = true;
@@ -443,6 +443,8 @@
             // 
             // ammount
             // 
+            this.ammount.AutoOffFreeTextEntry = true;
+            this.ammount.BackColor = System.Drawing.Color.Transparent;
             // 
             // 
             // 
@@ -515,10 +517,6 @@
             this.paymentmode.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.paymentmode.ForeColor = System.Drawing.SystemColors.Highlight;
             this.paymentmode.FormattingEnabled = true;
-            this.paymentmode.Items.AddRange(new object[] {
-            "Cash",
-            "Bank",
-            "Mobile Money"});
             this.paymentmode.Location = new System.Drawing.Point(159, 166);
             this.paymentmode.Name = "paymentmode";
             this.paymentmode.Size = new System.Drawing.Size(216, 30);

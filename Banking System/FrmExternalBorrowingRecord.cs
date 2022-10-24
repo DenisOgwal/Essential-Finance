@@ -12,6 +12,7 @@ namespace Banking_System
         DataSet ds = new DataSet();
         SqlCommand cmd = null;
         DataTable dt = new DataTable();
+        SqlDataReader rdr = null;
         ConnectionString cs = new ConnectionString();
         public FrmExternalBorrowingRecord()
         {
@@ -94,7 +95,7 @@ namespace Banking_System
             {
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
-                cmd = new SqlCommand("select RTRIM(LoansID)[Loan ID],RTRIM(LoanAmmount)[Loan Amount],RTRIM(Date)[Receive Date],RTRIM(Period)[Servicing Period],RTRIM(ServicingInterval)[Repayment Interval] ,RTRIM(InterestRate)[Interest Rate],RTRIM(Lender)[Lender],RTRIM(Securities)[Securities],RTRIM(OfficerName)[Officer Name],RTRIM(Method)[Method] from ExternalLoans where Date between @date1 and @date2 order by ID Asc", con);
+                cmd = new SqlCommand("select RTRIM(LoansID)[Loan ID],(LoanAmmount)[Loan Amount],RTRIM(Date)[Receive Date],RTRIM(Period)[Servicing Period],RTRIM(ServicingInterval)[Repayment Interval] ,RTRIM(InterestRate)[Interest Rate],RTRIM(Lender)[Lender],RTRIM(Securities)[Securities],RTRIM(OfficerName)[Officer Name],RTRIM(Method)[Method] from ExternalLoans where Date between @date1 and @date2 order by ID Asc", con);
                 cmd.Parameters.Add("@date1", SqlDbType.DateTime, 30, "Date").Value = datefrom.Value.Date;
                 cmd.Parameters.Add("@date2", SqlDbType.DateTime, 30, "Date").Value = dateto.Value.Date;
                 SqlDataAdapter myDA = new SqlDataAdapter(cmd);
@@ -123,22 +124,56 @@ namespace Banking_System
             Left = Top = 0;
             this.Width = Screen.PrimaryScreen.WorkingArea.Width;
             this.Height = Screen.PrimaryScreen.WorkingArea.Height;
+            try
+            {
+                con = new SqlConnection(cs.DBConn);
+                con.Open();
+                cmd = con.CreateCommand();
+                cmd.CommandText = "SELECT distinct PaymentStatus FROM ExternalRepaymentSchedule";
+                rdr = cmd.ExecuteReader();
+                while (rdr.Read()==true)
+                {
+                    schedules.Items.Add(rdr[0].ToString());
+                }
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void buttonX6_Click(object sender, EventArgs e)
         {
             try
             {
-                con = new SqlConnection(cs.DBConn);
-                con.Open();
-                cmd = new SqlCommand("select RTRIM(LoanID)[Loan ID], RTRIM(PaymentDate)[Repayment Date], RTRIM(Months)[Installment],RTRIM(AmmountPay)[Principal], RTRIM(Interest)[Interest], RTRIM(TotalAmmount)[Total Amount], RTRIM(BalanceExist)[Balance Exist], RTRIM(PaymentStatus)[Payment Status] from ExternalRepaymentSchedule where  PaymentDate between @date1 and @date2 order by ID Asc", con);
-                cmd.Parameters.Add("@date1", SqlDbType.DateTime, 30, "PaymentDate").Value =externalschedulefrom.Value.Date;
-                cmd.Parameters.Add("@date2", SqlDbType.DateTime, 30, "PaymentDate").Value = externalscheduleto.Value.Date;
-                SqlDataAdapter myDA = new SqlDataAdapter(cmd);
-                DataSet myDataSet = new DataSet();
-                myDA.Fill(myDataSet, "ExternalRepaymentSchedule");
-                dataGridView2.DataSource = myDataSet.Tables["ExternalRepaymentSchedule"].DefaultView;
-                con.Close();
+                if (schedules.Text == "All")
+                {
+                    con = new SqlConnection(cs.DBConn);
+                    con.Open();
+                    cmd = new SqlCommand("select RTRIM(LoanID)[Loan ID], RTRIM(PaymentDate)[Repayment Date], RTRIM(Months)[Installment],(AmmountPay)[Principal], (Interest)[Interest], (TotalAmmount)[Total Amount], (BalanceExist)[Balance Exist], RTRIM(PaymentStatus)[Payment Status] from ExternalRepaymentSchedule where  PaymentDate between @date1 and @date2 order by ID Asc", con);
+                    cmd.Parameters.Add("@date1", SqlDbType.DateTime, 30, "PaymentDate").Value = externalschedulefrom.Value.Date;
+                    cmd.Parameters.Add("@date2", SqlDbType.DateTime, 30, "PaymentDate").Value = externalscheduleto.Value.Date;
+                    SqlDataAdapter myDA = new SqlDataAdapter(cmd);
+                    DataSet myDataSet = new DataSet();
+                    myDA.Fill(myDataSet, "ExternalRepaymentSchedule");
+                    dataGridView2.DataSource = myDataSet.Tables["ExternalRepaymentSchedule"].DefaultView;
+                    con.Close();
+                }
+                else
+                {
+                    con = new SqlConnection(cs.DBConn);
+                    con.Open();
+                    cmd = new SqlCommand("select RTRIM(LoanID)[Loan ID], RTRIM(PaymentDate)[Repayment Date], RTRIM(Months)[Installment],(AmmountPay)[Principal], (Interest)[Interest], (TotalAmmount)[Total Amount], (BalanceExist)[Balance Exist], RTRIM(PaymentStatus)[Payment Status] from ExternalRepaymentSchedule where  PaymentDate between @date1 and @date2 and PaymentStatus ='" + schedules.Text + "' order by ID Asc", con);
+                    cmd.Parameters.Add("@date1", SqlDbType.DateTime, 30, "PaymentDate").Value = externalschedulefrom.Value.Date;
+                    cmd.Parameters.Add("@date2", SqlDbType.DateTime, 30, "PaymentDate").Value = externalscheduleto.Value.Date;
+                    SqlDataAdapter myDA = new SqlDataAdapter(cmd);
+                    DataSet myDataSet = new DataSet();
+                    myDA.Fill(myDataSet, "ExternalRepaymentSchedule");
+                    dataGridView2.DataSource = myDataSet.Tables["ExternalRepaymentSchedule"].DefaultView;
+                    con.Close();
+                }
+               
             }
             catch (Exception ex)
             {
@@ -280,7 +315,7 @@ namespace Banking_System
             {
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
-                cmd = new SqlCommand("select  RTRIM(RepaymentID)[Repayment ID],RTRIM(LoanID)[Loan ID], RTRIM(AmmountPaid)[Paid Ammount],RTRIM(Balance)[Balance],RTRIM(RepayMonths)[Installment], RTRIM(RepaymentDate)[Date], RTRIM(ModeOfPayment)[Payment Mode], RTRIM(PaidBy)[Paid By] from ExternalLoanRepayment where Repaymentdate between @date1 and @date2 order by ID DESC", con);
+                cmd = new SqlCommand("select  RTRIM(RepaymentID)[Repayment ID],RTRIM(LoanID)[Loan ID], (AmmountPaid)[Paid Ammount],(Balance)[Balance],RTRIM(RepayMonths)[Installment], RTRIM(RepaymentDate)[Date], RTRIM(ModeOfPayment)[Payment Mode], RTRIM(PaidBy)[Paid By] from ExternalLoanRepayment where Repaymentdate between @date1 and @date2 order by ID DESC", con);
                 cmd.Parameters.Add("@date1", SqlDbType.DateTime, 30, "RePaymentdate").Value = externalrepaymentsfrom.Value.Date;
                 cmd.Parameters.Add("@date2", SqlDbType.DateTime, 30, "RePaymentdate").Value = externalrepaymentsto.Value.Date;
                 SqlDataAdapter myDA = new SqlDataAdapter(cmd);
@@ -370,12 +405,97 @@ namespace Banking_System
                 string repaymentdates = dt.ToString("dd/MMM/yyyy");
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
-                cmd = new SqlCommand("select RTRIM(LoanID)[Loan ID], RTRIM(PaymentDate)[Repayment Date], RTRIM(Months)[Installment],RTRIM(AmmountPay)[Principal], RTRIM(Interest)[Interest], RTRIM(TotalAmmount)[Total Amount], RTRIM(BalanceExist)[Balance Exist], RTRIM(PaymentStatus)[Payment Status] from ExternalRepaymentSchedule where PaymentDate= @date1 and PaymentStatus='Pending' order by ID ASC", con);
+                cmd = new SqlCommand("select RTRIM(LoanID)[Loan ID], RTRIM(PaymentDate)[Repayment Date], RTRIM(Months)[Installment],(AmmountPay)[Principal], (Interest)[Interest], (TotalAmmount)[Total Amount], (BalanceExist)[Balance Exist], RTRIM(PaymentStatus)[Payment Status] from ExternalRepaymentSchedule where PaymentDate= @date1 and PaymentStatus='Pending' order by ID ASC", con);
                 cmd.Parameters.Add("@date1", SqlDbType.DateTime, 30, "PaymentDate").Value = DateTime.Parse(repaymentdates).Date;
                 SqlDataAdapter myDA = new SqlDataAdapter(cmd);
                 DataSet myDataSet = new DataSet();
                 myDA.Fill(myDataSet, "ExternalRepaymentSchedule");
                 dataGridView4.DataSource = myDataSet.Tables["ExternalRepaymentSchedule"].DefaultView;
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void buttonX13_Click(object sender, EventArgs e)
+        {
+            dataGridView5.DataSource = null;
+            externalfrom.Text = DateTime.Today.ToString();
+            externalto.Text = DateTime.Today.ToString();
+        }
+
+        private void buttonX14_Click(object sender, EventArgs e)
+        {
+            if (dataGridView5.DataSource == null)
+            {
+                MessageBox.Show("Sorry nothing to export into excel sheet..", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            int rowsTotal = 0;
+            int colsTotal = 0;
+            int I = 0;
+            int j = 0;
+            int iC = 0;
+            Cursor.Current = Cursors.WaitCursor;
+            Excel.Application xlApp = new Excel.Application();
+
+            try
+            {
+                Excel.Workbook excelBook = xlApp.Workbooks.Add();
+                Excel.Worksheet excelWorksheet = (Excel.Worksheet)excelBook.Worksheets[1];
+                xlApp.Visible = true;
+
+                rowsTotal = dataGridView5.RowCount - 1;
+                colsTotal = dataGridView5.Columns.Count - 1;
+                var _with1 = excelWorksheet;
+                _with1.Cells.Select();
+                _with1.Cells.Delete();
+                for (iC = 0; iC <= colsTotal; iC++)
+                {
+                    _with1.Cells[1, iC + 1].Value = dataGridView5.Columns[iC].HeaderText;
+                }
+                for (I = 0; I <= rowsTotal - 1; I++)
+                {
+                    for (j = 0; j <= colsTotal; j++)
+                    {
+                        _with1.Cells[I + 2, j + 1].value = dataGridView5.Rows[I].Cells[j].Value;
+                    }
+                }
+                _with1.Rows["1:1"].Font.FontStyle = "Bold";
+                _with1.Rows["1:1"].Font.Size = 12;
+
+                _with1.Cells.Columns.AutoFit();
+                _with1.Cells.Select();
+                _with1.Cells.EntireColumn.AutoFit();
+                _with1.Cells[1, 1].Select();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                //RELEASE ALLOACTED RESOURCES
+                System.Windows.Forms.Cursor.Current = System.Windows.Forms.Cursors.Default;
+                xlApp = null;
+            }
+        }
+
+        private void buttonX15_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                con = new SqlConnection(cs.DBConn);
+                con.Open();
+                cmd = new SqlCommand("select RTrim(PaymentID)[Payment ID], RTRIM(MemberID)[Loan ID], RTRIM(Year)[Year], RTRIM(Months)[Months], RTRIM(Date)[Payment Date],RTRIM(CashierName)[Recieved By],(FineFee)[Amount Paid], RTRIM(Reason)[Reason]from ExternalLoanFines where  Date between @date1 and @date2 order by Date", con);
+                cmd.Parameters.Add("@date1", SqlDbType.DateTime, 30, "Date").Value = externalfrom.Value.Date;
+                cmd.Parameters.Add("@date2", SqlDbType.DateTime, 30, "Date").Value = externalto.Value.Date;
+                SqlDataAdapter myDA = new SqlDataAdapter(cmd);
+                DataSet myDataSet = new DataSet();
+                myDA.Fill(myDataSet, "ExternalLoanFines");
+                dataGridView5.DataSource = myDataSet.Tables["ExternalLoanFines"].DefaultView;
                 con.Close();
             }
             catch (Exception ex)

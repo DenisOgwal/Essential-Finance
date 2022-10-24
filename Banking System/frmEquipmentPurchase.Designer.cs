@@ -390,11 +390,7 @@
             this.paymentmode.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.paymentmode.ForeColor = System.Drawing.SystemColors.Highlight;
             this.paymentmode.FormattingEnabled = true;
-            this.paymentmode.Items.AddRange(new object[] {
-            "Cash",
-            "Bank",
-            "Mobile Money"});
-            this.paymentmode.Location = new System.Drawing.Point(545, 250);
+            this.paymentmode.Location = new System.Drawing.Point(544, 228);
             this.paymentmode.Name = "paymentmode";
             this.paymentmode.Size = new System.Drawing.Size(274, 30);
             this.paymentmode.TabIndex = 21;
@@ -405,7 +401,7 @@
             this.label14.BackColor = System.Drawing.Color.Transparent;
             this.label14.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label14.Location = new System.Drawing.Point(407, 253);
+            this.label14.Location = new System.Drawing.Point(400, 235);
             this.label14.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(114, 22);
@@ -516,9 +512,9 @@
             this.description.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.description.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.description.Location = new System.Drawing.Point(544, 174);
+            this.description.Location = new System.Drawing.Point(544, 159);
             this.description.Name = "description";
-            this.description.Size = new System.Drawing.Size(274, 70);
+            this.description.Size = new System.Drawing.Size(274, 64);
             this.description.TabIndex = 20;
             this.description.Text = "";
             // 
@@ -574,7 +570,7 @@
             this.specifications.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.specifications.Location = new System.Drawing.Point(544, 85);
             this.specifications.Name = "specifications";
-            this.specifications.Size = new System.Drawing.Size(274, 83);
+            this.specifications.Size = new System.Drawing.Size(274, 65);
             this.specifications.TabIndex = 19;
             this.specifications.Text = "";
             // 
@@ -810,6 +806,7 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 88.50325F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(834, 377);
             this.tableLayoutPanel2.TabIndex = 0;
+            this.tableLayoutPanel2.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel2_Paint);
             // 
             // outlet
             // 

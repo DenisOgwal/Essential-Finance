@@ -185,50 +185,95 @@ namespace Banking_System
                 ApprovalID.Focus();
                 return;
             }
-            try
+            if (ApprovalName.Text == "")
             {
-                con = new SqlConnection(cs.DBConn);
-                con.Open();
-                string cb = "update RepaymentSchedule set PaymentStatus=@d1 where LoanID=@d2 and BalanceExist > 0 and PaymentStatus !='Rescheduled' and PaymentStatus !='ToppedUp'";
-                cmd = new SqlCommand(cb);
-                cmd.Connection = con;
-                cmd.Parameters.Add(new SqlParameter("@d1", System.Data.SqlDbType.NChar, 15, "PaymentStatus"));
-                cmd.Parameters.Add(new SqlParameter("@d2", System.Data.SqlDbType.NChar, 15, "LoanID"));
-                cmd.Parameters["@d1"].Value = "Written Off";
-                cmd.Parameters["@d2"].Value = LoanID.Text;
-                cmd.ExecuteNonQuery();
-                con.Close();
+                MessageBox.Show("Please Enter Correct Approval ID", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ApprovalID.Focus();
+                return;
             }
-            catch (Exception Ex)
+            if (approvals.Text == "")
             {
-                MessageBox.Show(Ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Please Select Approval", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                approvals.Focus();
+                return;
             }
-            try
+            if (approvals.Text == "Approved")
             {
+                try
+                {
+                    con = new SqlConnection(cs.DBConn);
+                    con.Open();
+                    string cb = "update RepaymentSchedule set PaymentStatus=@d1,ActualPaymentDate='" + ApplicationDate.Text + "',UploadStatus='Pending' where LoanID=@d2 and BalanceExist > 0 and PaymentStatus !='Rescheduled' and PaymentStatus !='ToppedUp'";
+                    cmd = new SqlCommand(cb);
+                    cmd.Connection = con;
+                    cmd.Parameters.Add(new SqlParameter("@d1", System.Data.SqlDbType.NChar, 15, "PaymentStatus"));
+                    cmd.Parameters.Add(new SqlParameter("@d2", System.Data.SqlDbType.NChar, 15, "LoanID"));
+                    cmd.Parameters["@d1"].Value = "Written Off";
+                    cmd.Parameters["@d2"].Value = LoanID.Text;
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+                }
+                catch (Exception Ex)
+                {
+                    MessageBox.Show(Ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                try
+                {
 
-                con = new SqlConnection(cs.DBConn);
-                con.Open();
-                string cb = "UPDATE WriteOff SET WriteoffDate=@d2,WrittenOffBy=@d3 Where LoanID=@d1";
-                cmd = new SqlCommand(cb);
-                cmd.Connection = con;
-                cmd.Parameters.Add(new SqlParameter("@d1", System.Data.SqlDbType.NChar, 20, "LoanID"));
-                cmd.Parameters.Add(new SqlParameter("@d2", System.Data.SqlDbType.NChar, 20, "WriteoffDate"));
-                cmd.Parameters.Add(new SqlParameter("@d3", System.Data.SqlDbType.NChar, 40, "WrittenOffBy"));;
-                cmd.Parameters["@d1"].Value = LoanID.Text;
-                cmd.Parameters["@d2"].Value = ApplicationDate.Text;
-                cmd.Parameters["@d3"].Value = ApprovalName.Text;
-                cmd.ExecuteNonQuery();
-                con.Close();
-                MessageBox.Show("Successful Writen Off", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.Hide();
-                FrmLoanWriteOffFinal frm = new FrmLoanWriteOffFinal();
-                frm.label1.Text = label1.Text;
-                frm.label2.Text = label2.Text;
-                frm.ShowDialog();
+                    con = new SqlConnection(cs.DBConn);
+                    con.Open();
+                    string cb = "UPDATE WriteOff SET WriteoffDate=@d2,WrittenOffBy=@d3 Where LoanID=@d1";
+                    cmd = new SqlCommand(cb);
+                    cmd.Connection = con;
+                    cmd.Parameters.Add(new SqlParameter("@d1", System.Data.SqlDbType.NChar, 20, "LoanID"));
+                    cmd.Parameters.Add(new SqlParameter("@d2", System.Data.SqlDbType.NChar, 20, "WriteoffDate"));
+                    cmd.Parameters.Add(new SqlParameter("@d3", System.Data.SqlDbType.NChar, 40, "WrittenOffBy")); ;
+                    cmd.Parameters["@d1"].Value = LoanID.Text;
+                    cmd.Parameters["@d2"].Value = ApplicationDate.Text;
+                    cmd.Parameters["@d3"].Value = ApprovalName.Text;
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+                    MessageBox.Show("Successful Writen Off", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Hide();
+                    FrmLoanWriteOffFinal frm = new FrmLoanWriteOffFinal();
+                    frm.label1.Text = label1.Text;
+                    frm.label2.Text = label2.Text;
+                    frm.ShowDialog();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
-            catch (Exception ex)
+            else if(approvals.Text == "Rejected")
             {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                try
+                {
+
+                    con = new SqlConnection(cs.DBConn);
+                    con.Open();
+                    string cb = "UPDATE WriteOff SET WriteoffDate=@d2,WrittenOffBy=@d3 Where LoanID=@d1";
+                    cmd = new SqlCommand(cb);
+                    cmd.Connection = con;
+                    cmd.Parameters.Add(new SqlParameter("@d1", System.Data.SqlDbType.NChar, 20, "LoanID"));
+                    cmd.Parameters.Add(new SqlParameter("@d2", System.Data.SqlDbType.NChar, 20, "WriteoffDate"));
+                    cmd.Parameters.Add(new SqlParameter("@d3", System.Data.SqlDbType.NChar, 40, "WrittenOffBy")); ;
+                    cmd.Parameters["@d1"].Value = LoanID.Text;
+                    cmd.Parameters["@d2"].Value = ApplicationDate.Text;
+                    cmd.Parameters["@d3"].Value = ApprovalName.Text;
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+                    MessageBox.Show("Successful Writen Off", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Hide();
+                    FrmLoanWriteOffFinal frm = new FrmLoanWriteOffFinal();
+                    frm.label1.Text = label1.Text;
+                    frm.label2.Text = label2.Text;
+                    frm.ShowDialog();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 

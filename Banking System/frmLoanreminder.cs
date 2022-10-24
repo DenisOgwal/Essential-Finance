@@ -38,7 +38,7 @@ namespace Banking_System
                 repaymentdate = dt.ToString("dd/MMM/yyyy");
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
-                cmd = new SqlCommand("select  RTRIM(BalanceExist)[Balance Exist],RTRIM(ContactNo)[Contact],RTRIM(Months)[Months],RTRIM(RepaymentSchedule.AccountNumber)[AccountNumber] from Account,RepaymentSchedule where Account.AccountNumber=RepaymentSchedule.AccountNumber and PaymentDate='" + repaymentdate + "'", con);
+                cmd = new SqlCommand("select  RTRIM(BalanceExist)[Balance Exist],RTRIM(ContactNo)[Contact],RTRIM(Months)[Months],RTRIM(RepaymentSchedule.AccountNumber)[AccountNumber],RTRIM(RepaymentSchedule.LoanType)[Loa Type] from Account,RepaymentSchedule where Account.AccountNumber=RepaymentSchedule.AccountNumber and PaymentDate='" + repaymentdate + "' and LoanType !='Daily'", con);
                 SqlDataAdapter myDA = new SqlDataAdapter(cmd);
                 DataSet myDataSet = new DataSet();
                 myDA.Fill(myDataSet, "RepaymentSchedule");
@@ -73,7 +73,7 @@ namespace Banking_System
                 }
                 catch (Exception)
                 {
-                    MessageBox.Show("Your Not Connected to Internet, The Investor reminder messages were not sent");
+                    MessageBox.Show("Your Not Connected to Internet, The Loan Reminder messages were not sent");
                     dataGridView1.DataSource = null;
                     if (dataGridView1.DataSource == null)
                     {
@@ -134,16 +134,20 @@ namespace Banking_System
                                                 cmd.Parameters["@d2"].Value = sentdates;
                                                 cmd.ExecuteNonQuery();
                                                 con.Close();
+                                                string smsheader = Properties.Settings.Default.Smscode;
+                                                string inquiryphone = Properties.Settings.Default.phoneinquiry;
                                                 string usernamess = Properties.Settings.Default.smsusername;
                                                 string passwordss = Properties.Settings.Default.smspassword;
                                                 numbers2 = "+256" + numberphone2;
-                                                messages2 = "Please Your reminded to clear your " + row.Cells[2].Value.ToString() + " loan installament balance of " + row.Cells[0].Value.ToString() + " on " + repaymentdate;
-
+                                                //messages2 = "Please Your reminded to clear your " + row.Cells[2].Value.ToString() + " loan installament balance of " + row.Cells[0].Value.ToString() + " on " + repaymentdate;
+                                                messages2 = smsheader + ": We hereby remind you of your "+ row.Cells[4].Value.ToString() + " loan repayment of UGX. " + row.Cells[0].Value.ToString() + " Due on "+ repaymentdate+ " Please endavour to make the payments through the Accouts we Provided. For Any Inquiries Call: " + inquiryphone;
+                                                
                                                 WebClient client = new WebClient();
                                                 string baseURL = "http://geniussmsgroup.com/api/http/messagesService/get?username=" + usernamess + "&password=" + passwordss + "&senderid=Geniussms&message=" + messages2 + "&numbers=" + numbers2;
                                                 client.OpenRead(baseURL);
                                             }
                                         }
+                                        con.Close();
                                     }
                                     catch (Exception exp)
                                     {

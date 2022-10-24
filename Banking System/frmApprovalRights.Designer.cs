@@ -39,6 +39,19 @@
             this.buttonX23 = new DevComponents.DotNetBar.ButtonX();
             this.buttonX24 = new DevComponents.DotNetBar.ButtonX();
             this.expandablePanel2 = new DevComponents.DotNetBar.ExpandablePanel();
+            this.itemPanel2 = new DevComponents.DotNetBar.ItemPanel();
+            this.checkBoxItem17 = new DevComponents.DotNetBar.CheckBoxItem();
+            this.checkBoxItem18 = new DevComponents.DotNetBar.CheckBoxItem();
+            this.checkBoxItem19 = new DevComponents.DotNetBar.CheckBoxItem();
+            this.checkBoxItem20 = new DevComponents.DotNetBar.CheckBoxItem();
+            this.checkBoxItem21 = new DevComponents.DotNetBar.CheckBoxItem();
+            this.checkBoxItem22 = new DevComponents.DotNetBar.CheckBoxItem();
+            this.checkBoxItem23 = new DevComponents.DotNetBar.CheckBoxItem();
+            this.checkBoxItem24 = new DevComponents.DotNetBar.CheckBoxItem();
+            this.checkBoxItem25 = new DevComponents.DotNetBar.CheckBoxItem();
+            this.checkBoxItem26 = new DevComponents.DotNetBar.CheckBoxItem();
+            this.checkBoxItem27 = new DevComponents.DotNetBar.CheckBoxItem();
+            this.checkBoxItem28 = new DevComponents.DotNetBar.CheckBoxItem();
             this.itemPanel1 = new DevComponents.DotNetBar.ItemPanel();
             this.checkBoxItem1 = new DevComponents.DotNetBar.CheckBoxItem();
             this.checkBoxItem2 = new DevComponents.DotNetBar.CheckBoxItem();
@@ -105,7 +118,7 @@
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridViewX2.DefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGridViewX2.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(213)))), ((int)(((byte)(245)))));
+            this.dataGridViewX2.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
             this.dataGridViewX2.Location = new System.Drawing.Point(0, 29);
             this.dataGridViewX2.Name = "dataGridViewX2";
             this.dataGridViewX2.RowTemplate.Height = 40;
@@ -126,7 +139,7 @@
             this.ribbonClientPanel2.Controls.Add(this.label3);
             this.ribbonClientPanel2.Location = new System.Drawing.Point(5, 565);
             this.ribbonClientPanel2.Name = "ribbonClientPanel2";
-            this.ribbonClientPanel2.Size = new System.Drawing.Size(841, 68);
+            this.ribbonClientPanel2.Size = new System.Drawing.Size(1080, 63);
             // 
             // 
             // 
@@ -181,7 +194,7 @@
             // 
             this.buttonX23.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.buttonX23.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.buttonX23.Location = new System.Drawing.Point(55, 497);
+            this.buttonX23.Location = new System.Drawing.Point(320, 498);
             this.buttonX23.Name = "buttonX23";
             this.buttonX23.Size = new System.Drawing.Size(87, 45);
             this.buttonX23.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -193,7 +206,7 @@
             // 
             this.buttonX24.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.buttonX24.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.buttonX24.Location = new System.Drawing.Point(148, 498);
+            this.buttonX24.Location = new System.Drawing.Point(413, 498);
             this.buttonX24.Name = "buttonX24";
             this.buttonX24.Size = new System.Drawing.Size(87, 45);
             this.buttonX24.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -205,13 +218,14 @@
             // 
             this.expandablePanel2.CanvasColor = System.Drawing.SystemColors.Control;
             this.expandablePanel2.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.expandablePanel2.Controls.Add(this.itemPanel2);
             this.expandablePanel2.Controls.Add(this.itemPanel1);
             this.expandablePanel2.Controls.Add(this.buttonX24);
             this.expandablePanel2.Controls.Add(this.buttonX23);
             this.expandablePanel2.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.expandablePanel2.Location = new System.Drawing.Point(556, 13);
             this.expandablePanel2.Name = "expandablePanel2";
-            this.expandablePanel2.Size = new System.Drawing.Size(290, 546);
+            this.expandablePanel2.Size = new System.Drawing.Size(515, 546);
             this.expandablePanel2.Style.Alignment = System.Drawing.StringAlignment.Center;
             this.expandablePanel2.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
             this.expandablePanel2.Style.BackColor2.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
@@ -228,6 +242,94 @@
             this.expandablePanel2.TitleStyle.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
             this.expandablePanel2.TitleStyle.GradientAngle = 90;
             this.expandablePanel2.TitleText = "Approval Rights";
+            // 
+            // itemPanel2
+            // 
+            // 
+            // 
+            // 
+            this.itemPanel2.BackgroundStyle.Class = "ItemPanel";
+            this.itemPanel2.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.itemPanel2.ContainerControlProcessDialogKey = true;
+            this.itemPanel2.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
+            this.checkBoxItem17,
+            this.checkBoxItem18,
+            this.checkBoxItem19,
+            this.checkBoxItem20,
+            this.checkBoxItem21,
+            this.checkBoxItem22,
+            this.checkBoxItem23,
+            this.checkBoxItem24,
+            this.checkBoxItem25,
+            this.checkBoxItem26,
+            this.checkBoxItem27,
+            this.checkBoxItem28});
+            this.itemPanel2.LayoutOrientation = DevComponents.DotNetBar.eOrientation.Vertical;
+            this.itemPanel2.Location = new System.Drawing.Point(273, 29);
+            this.itemPanel2.Name = "itemPanel2";
+            this.itemPanel2.Size = new System.Drawing.Size(239, 463);
+            this.itemPanel2.TabIndex = 24;
+            this.itemPanel2.Text = "itemPanel2";
+            // 
+            // checkBoxItem17
+            // 
+            this.checkBoxItem17.Name = "checkBoxItem17";
+            this.checkBoxItem17.Text = "Loan Settlement";
+            // 
+            // checkBoxItem18
+            // 
+            this.checkBoxItem18.Name = "checkBoxItem18";
+            this.checkBoxItem18.Text = "Loan Issue";
+            // 
+            // checkBoxItem19
+            // 
+            this.checkBoxItem19.Name = "checkBoxItem19";
+            this.checkBoxItem19.Text = "Staff Payment";
+            // 
+            // checkBoxItem20
+            // 
+            this.checkBoxItem20.Name = "checkBoxItem20";
+            this.checkBoxItem20.Text = "Other Incomes";
+            // 
+            // checkBoxItem21
+            // 
+            this.checkBoxItem21.Name = "checkBoxItem21";
+            this.checkBoxItem21.Text = "Devidends";
+            // 
+            // checkBoxItem22
+            // 
+            this.checkBoxItem22.Name = "checkBoxItem22";
+            this.checkBoxItem22.Text = "Loan Insurance";
+            // 
+            // checkBoxItem23
+            // 
+            this.checkBoxItem23.Name = "checkBoxItem23";
+            this.checkBoxItem23.Text = "Add Fines";
+            // 
+            // checkBoxItem24
+            // 
+            this.checkBoxItem24.Name = "checkBoxItem24";
+            this.checkBoxItem24.Text = "Add External Loans";
+            // 
+            // checkBoxItem25
+            // 
+            this.checkBoxItem25.Name = "checkBoxItem25";
+            this.checkBoxItem25.Text = "Clear External Loans";
+            // 
+            // checkBoxItem26
+            // 
+            this.checkBoxItem26.Name = "checkBoxItem26";
+            this.checkBoxItem26.Text = "Investor Withdraw Isue Out";
+            // 
+            // checkBoxItem27
+            // 
+            this.checkBoxItem27.Name = "checkBoxItem27";
+            this.checkBoxItem27.Text = "Loan Processing Approvals";
+            // 
+            // checkBoxItem28
+            // 
+            this.checkBoxItem28.Name = "checkBoxItem28";
+            this.checkBoxItem28.Text = "Investment";
             // 
             // itemPanel1
             // 
@@ -257,7 +359,7 @@
             this.itemPanel1.LayoutOrientation = DevComponents.DotNetBar.eOrientation.Vertical;
             this.itemPanel1.Location = new System.Drawing.Point(3, 29);
             this.itemPanel1.Name = "itemPanel1";
-            this.itemPanel1.Size = new System.Drawing.Size(284, 463);
+            this.itemPanel1.Size = new System.Drawing.Size(270, 463);
             this.itemPanel1.TabIndex = 23;
             this.itemPanel1.Text = "itemPanel1";
             this.itemPanel1.ItemClick += new System.EventHandler(this.itemPanel1_ItemClick);
@@ -265,7 +367,7 @@
             // checkBoxItem1
             // 
             this.checkBoxItem1.Name = "checkBoxItem1";
-            this.checkBoxItem1.Text = "Recieve Payments Application";
+            this.checkBoxItem1.Text = "Initiate Savings Deposits";
             this.checkBoxItem1.TextColor = System.Drawing.SystemColors.ActiveCaptionText;
             // 
             // checkBoxItem2
@@ -356,7 +458,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = global::Banking_System.Properties.Settings.Default.usercolor;
-            this.ClientSize = new System.Drawing.Size(849, 639);
+            this.ClientSize = new System.Drawing.Size(1088, 634);
             this.Controls.Add(this.ribbonClientPanel2);
             this.Controls.Add(this.expandablePanel2);
             this.Controls.Add(this.expandablePanel1);
@@ -404,5 +506,18 @@
         private DevComponents.DotNetBar.CheckBoxItem checkBoxItem14;
         private DevComponents.DotNetBar.CheckBoxItem checkBoxItem15;
         private DevComponents.DotNetBar.CheckBoxItem checkBoxItem16;
+        private DevComponents.DotNetBar.ItemPanel itemPanel2;
+        private DevComponents.DotNetBar.CheckBoxItem checkBoxItem17;
+        private DevComponents.DotNetBar.CheckBoxItem checkBoxItem18;
+        private DevComponents.DotNetBar.CheckBoxItem checkBoxItem19;
+        private DevComponents.DotNetBar.CheckBoxItem checkBoxItem20;
+        private DevComponents.DotNetBar.CheckBoxItem checkBoxItem21;
+        private DevComponents.DotNetBar.CheckBoxItem checkBoxItem22;
+        private DevComponents.DotNetBar.CheckBoxItem checkBoxItem23;
+        private DevComponents.DotNetBar.CheckBoxItem checkBoxItem24;
+        private DevComponents.DotNetBar.CheckBoxItem checkBoxItem25;
+        private DevComponents.DotNetBar.CheckBoxItem checkBoxItem26;
+        private DevComponents.DotNetBar.CheckBoxItem checkBoxItem27;
+        private DevComponents.DotNetBar.CheckBoxItem checkBoxItem28;
     }
 }

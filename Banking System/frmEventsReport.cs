@@ -1,15 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 using System.Data.SqlClient;
-using CrystalDecisions.CrystalReports.Engine;
-using CrystalDecisions.Shared;
-using System.IO;
 
 namespace Banking_System
 {
@@ -34,7 +26,7 @@ namespace Banking_System
                 SqlConnection myConnection = default(SqlConnection);
                 SqlCommand MyCommand = new SqlCommand();
                 SqlDataAdapter myDA = new SqlDataAdapter();
-                AEventsDataset myDS = new AEventsDataset();
+                DataSet myDS = new DataSet();
                 rptEvents rpt = new rptEvents();
                 //The DataSet you created.
                 myConnection = new SqlConnection(cs.DBConn);
@@ -46,6 +38,7 @@ namespace Banking_System
                 myDA.Fill(myDS, "Event");
                 rpt.SetDataSource(myDS);
                 crystalReportViewer1.ReportSource = rpt;
+                myConnection.Close();
             }
             catch (Exception ex)
             {

@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 namespace Banking_System
@@ -81,18 +77,10 @@ namespace Banking_System
             frm.dtpEndingTime.Text = dr.Cells[5].Value.ToString();
             frm.txtManagedBy.Text = dr.Cells[6].Value.ToString();
             frm.txtActivities.Text = dr.Cells[7].Value.ToString();
-            if (label2.Text == "Manager")
-            {
                 frm.txtEventName.Focus();
                 frm.label8.Text = label1.Text;
                 frm.label9.Text = label2.Text;
-            }
-            else
-            {
-                frm.txtEventName.Focus();
-                frm.label8.Text = label1.Text;
-                frm.label9.Text = label2.Text;
-            }
+            
         }
 
         private void frmEventRecord_FormClosing(object sender, FormClosingEventArgs e)

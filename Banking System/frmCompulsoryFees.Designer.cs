@@ -102,8 +102,7 @@
             this.checkBox1.TabIndex = 0;
             this.checkBox1.Text = "Processing Fees";
             this.checkBox1.UseVisualStyleBackColor = false;
-            this.checkBox1.Click += new System.EventHandler(this.checkBox1_Click);
-            // 
+           
             // buttonX1
             // 
             this.buttonX1.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;

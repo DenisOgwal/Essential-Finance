@@ -133,16 +133,20 @@ namespace Banking_System
                                                 cmd.Parameters["@d2"].Value = sentdates;
                                                 cmd.ExecuteNonQuery();
                                                 con.Close();
+                                                string smsheader = Properties.Settings.Default.Smscode;
+                                                string inquiryphone = Properties.Settings.Default.phoneinquiry;
                                                 string usernamess = Properties.Settings.Default.smsusername;
                                                 string passwordss = Properties.Settings.Default.smspassword;
                                                 numbers2 = "+256" + numberphone2;
-                                                messages2 = "Please Your reminded to Deposit your " + row.Cells[2].Value.ToString() + " Investor Installment of " + row.Cells[0].Value.ToString() + " on " + repaymentdate;
+                                                messages2 = "Please Your reminded to Deposit your monthly Investment plan Deposit of UGX. " + row.Cells[0].Value.ToString() + " Due on " + repaymentdate;
+                                                messages2 = smsheader + ": We hereby remind you of your " + row.Cells[4].Value.ToString() + " loan repayment of UGX. " + row.Cells[0].Value.ToString() + " Due on " + repaymentdate + " Please endavour to make the payments through the Accouts we Provided. For Any Inquiries Call: " + inquiryphone;
 
                                                 WebClient client = new WebClient();
                                                 string baseURL = "http://geniussmsgroup.com/api/http/messagesService/get?username=" + usernamess + "&password=" + passwordss + "&senderid=Geniussms&message=" + messages2 + "&numbers=" + numbers2;
                                                 client.OpenRead(baseURL);
                                             }
                                         }
+                                        con.Close();
                                     }
                                     catch (Exception exp)
                                     {

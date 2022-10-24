@@ -92,7 +92,7 @@ namespace Banking_System
             string years = yearss.Substring(2, 2);
             accountnumber.Text = "SAC-" + years + monthss + days + GetUniqueKey(4);
         }
-        
+
         private void btnSave_Click(object sender, EventArgs e)
         {
             if (accountnumber.Text == "")
@@ -119,54 +119,55 @@ namespace Banking_System
                 location.Focus();
                 return;
             }
-           
+
             try
             {
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
-                string ct = "select AccountNumber from SupplierAccount where  AccountNumber= '" +accountnumber.Text + "' order by ID Desc";
+                string ct = "select AccountNumber from SupplierAccount where  AccountNumber= '" + accountnumber.Text + "' order by ID Desc";
                 cmd = new SqlCommand(ct);
                 cmd.Connection = con;
                 rdr = cmd.ExecuteReader();
                 if (rdr.Read())
                 {
                     MessageBox.Show("Account Number Already Exist Try Generating Another", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                   return;
+                    return;
                 }
-                    con = new SqlConnection(cs.DBConn);
-                    con.Open();
-                    string cb = "insert into SupplierAccount(AccountNumber,AccountName,Contact,Location,Description,AuthorisedBy,DateCreated) VALUES (@d1,@d2,@d3,@d4,@d5,@d6,@d7)";
-                    cmd = new SqlCommand(cb);
-                    cmd.Connection = con;
-                    cmd.Parameters.Add(new SqlParameter("@d1", System.Data.SqlDbType.NChar, 15, "AccountNumber"));
-                    cmd.Parameters.Add(new SqlParameter("@d2", System.Data.SqlDbType.NChar, 60, "AccountName"));
-                    cmd.Parameters.Add(new SqlParameter("@d3", System.Data.SqlDbType.NChar, 30, "Contact"));
-                    cmd.Parameters.Add(new SqlParameter("@d4", System.Data.SqlDbType.NChar, 100, "Location"));
-                    cmd.Parameters.Add(new SqlParameter("@d5", System.Data.SqlDbType.Text, 2000, "Description"));
-                    cmd.Parameters.Add(new SqlParameter("@d6", System.Data.SqlDbType.NChar, 60, "AuthorisedBy"));
-                    cmd.Parameters.Add(new SqlParameter("@d7", System.Data.SqlDbType.NChar, 20, "DateCreated"));
+                con = new SqlConnection(cs.DBConn);
+                con.Open();
+                string cb = "insert into SupplierAccount(AccountNumber,AccountName,Contact,Location,Description,AuthorisedBy,DateCreated) VALUES (@d1,@d2,@d3,@d4,@d5,@d6,@d7)";
+                cmd = new SqlCommand(cb);
+                cmd.Connection = con;
+                cmd.Parameters.Add(new SqlParameter("@d1", System.Data.SqlDbType.NChar, 15, "AccountNumber"));
+                cmd.Parameters.Add(new SqlParameter("@d2", System.Data.SqlDbType.NChar, 60, "AccountName"));
+                cmd.Parameters.Add(new SqlParameter("@d3", System.Data.SqlDbType.NChar, 30, "Contact"));
+                cmd.Parameters.Add(new SqlParameter("@d4", System.Data.SqlDbType.NChar, 100, "Location"));
+                cmd.Parameters.Add(new SqlParameter("@d5", System.Data.SqlDbType.Text, 2000, "Description"));
+                cmd.Parameters.Add(new SqlParameter("@d6", System.Data.SqlDbType.NChar, 60, "AuthorisedBy"));
+                cmd.Parameters.Add(new SqlParameter("@d7", System.Data.SqlDbType.NChar, 20, "DateCreated"));
 
-                    cmd.Parameters["@d1"].Value = accountnumber.Text;
-                    cmd.Parameters["@d2"].Value = accountname.Text;
-                    cmd.Parameters["@d3"].Value = contact.Text;
-                    cmd.Parameters["@d4"].Value = location.Text;
-                    cmd.Parameters["@d5"].Value = description.Text;
-                    cmd.Parameters["@d6"].Value = label4.Text;
-                    cmd.Parameters["@d7"].Value = dtp.Text;          
-                    cmd.ExecuteNonQuery();
-                    MessageBox.Show("Successfully Registered Account", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    Reset();
-                    loadpay();
-                    this.Hide();
-                    frmSupplierAccounts frm = new frmSupplierAccounts();
-                    frm.label4.Text = label4.Text;
-                    frm.ShowDialog();
+                cmd.Parameters["@d1"].Value = accountnumber.Text;
+                cmd.Parameters["@d2"].Value = accountname.Text;
+                cmd.Parameters["@d3"].Value = contact.Text;
+                cmd.Parameters["@d4"].Value = location.Text;
+                cmd.Parameters["@d5"].Value = description.Text;
+                cmd.Parameters["@d6"].Value = label4.Text;
+                cmd.Parameters["@d7"].Value = dtp.Text;
+                cmd.ExecuteNonQuery();
+                con.Close();
+                MessageBox.Show("Successfully Registered Account", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Reset();
+                loadpay();
+                this.Hide();
+                frmSupplierAccounts frm = new frmSupplierAccounts();
+                frm.label4.Text = label4.Text;
+                frm.ShowDialog();
             }
             catch (Exception Ex)
             {
                 MessageBox.Show(Ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-           
+
         }
 
         private void Delete_Click(object sender, EventArgs e)
@@ -219,6 +220,7 @@ namespace Banking_System
                 cmd.Parameters["@d6"].Value = label4.Text;
                 cmd.Parameters["@d7"].Value = dtp.Text;
                 cmd.ExecuteNonQuery();
+                con.Close();
                 MessageBox.Show("Successfully Updated Account", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Reset();
                 loadpay();

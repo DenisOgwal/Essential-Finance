@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.IO;
 using System.Security.Cryptography;
@@ -88,10 +86,11 @@ namespace Banking_System
                 cmd.Parameters["@d4"].Value = label2.Text;
                 cmd.Parameters["@d5"].Value = from.Text;
                 cmd.ExecuteNonQuery();
+                con.Close();
                 int totalaamount = 0;
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
-                string ct2 = "select AmountAvailable from BankAccounts where AccountNumber= '" + from.Text + "' ";
+                string ct2 = "select AmountAvailable from BankAccounts where AccountNames= '" + from.Text + "' ";
                 cmd = new SqlCommand(ct2);
                 cmd.Connection = con;
                 rdr = cmd.ExecuteReader();
@@ -101,17 +100,17 @@ namespace Banking_System
                     int newtotalammount = totalaamount - Convert.ToInt32(amounttransfered.Value);
                     con = new SqlConnection(cs.DBConn);
                     con.Open();
-                    string cb4 = "UPDate BankAccounts Set AmountAvailable='" + newtotalammount + "', Date='" + Purchasedate.Text + "' where AccountNumber='" + from.Text + "'";
+                    string cb4 = "UPDate BankAccounts Set AmountAvailable='" + newtotalammount + "', Date='" + Purchasedate.Text + "' where AccountNames='" + from.Text + "'";
                     cmd = new SqlCommand(cb4);
                     cmd.Connection = con;
                     cmd.ExecuteNonQuery();
                     con.Close();
                 }
-
+                con.Close();
                 int totalaamounts = 0;
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
-                string ct4 = "select AmountAvailable from BankAccounts where AccountNumber= '" + toaccount.Text + "' ";
+                string ct4 = "select AmountAvailable from BankAccounts where AccountNames= '" + toaccount.Text + "' ";
                 cmd = new SqlCommand(ct4);
                 cmd.Connection = con;
                 rdr = cmd.ExecuteReader();
@@ -121,7 +120,7 @@ namespace Banking_System
                     int newtotalammount = totalaamounts + Convert.ToInt32(amounttransfered.Value);
                     con = new SqlConnection(cs.DBConn);
                     con.Open();
-                    string cb4 = "UPDate BankAccounts Set AmountAvailable='" + newtotalammount + "', Date='" + Purchasedate.Text + "' where AccountNumber='" +toaccount.Text + "'";
+                    string cb4 = "UPDate BankAccounts Set AmountAvailable='" + newtotalammount + "', Date='" + Purchasedate.Text + "' where AccountNames='" + toaccount.Text + "'";
                     cmd = new SqlCommand(cb4);
                     cmd.Connection = con;
                     cmd.ExecuteNonQuery();
@@ -153,10 +152,10 @@ namespace Banking_System
                 dtable = ds.Tables[0];
                 foreach (DataRow drow in dtable.Rows)
                 {
-                    from.Items.Add(drow[0].ToString());
-                    toaccount.Items.Add(drow[0].ToString());
+                    from.Items.Add(drow[1].ToString());
+                    toaccount.Items.Add(drow[1].ToString());
                 }
-
+                CN.Close();
             }
             catch (Exception ex)
             {

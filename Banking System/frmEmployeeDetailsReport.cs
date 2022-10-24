@@ -1,15 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 using System.Data.SqlClient;
-using CrystalDecisions.CrystalReports.Engine;
-using CrystalDecisions.Shared;
-using System.IO;
 
 namespace Banking_System
 {
@@ -40,6 +32,7 @@ namespace Banking_System
                 {
                     cmbEmployeeName.Items.Add(drow[0].ToString());
                 }
+                CN.Close();
             }
             catch (Exception ex)
             {
@@ -64,7 +57,7 @@ namespace Banking_System
                 SqlConnection myConnection = default(SqlConnection);
                 SqlCommand MyCommand = new SqlCommand();
                 SqlDataAdapter myDA = new SqlDataAdapter();
-                AEmployeeDataset myDS = new AEmployeeDataset();
+                DataSet myDS = new DataSet();
                 rptEmployee rpt = new rptEmployee();
                 //The DataSet you created.
                 myConnection = new SqlConnection(cs.DBConn);
@@ -76,6 +69,7 @@ namespace Banking_System
                 myDA.Fill(myDS, "Employee");
                 rpt.SetDataSource(myDS);
                 crystalReportViewer1.ReportSource = rpt;
+                myConnection.Close();
             }
             catch (Exception ex)
             {
@@ -105,7 +99,7 @@ namespace Banking_System
                 SqlConnection myConnection = default(SqlConnection);
                 SqlCommand MyCommand = new SqlCommand();
                 SqlDataAdapter myDA = new SqlDataAdapter();
-                AEmployeeDataset myDS = new AEmployeeDataset();
+                DataSet myDS = new DataSet();
                 rptEmployeeIndividual rpt = new rptEmployeeIndividual();
                 //The DataSet you created.
                 myConnection = new SqlConnection(cs.DBConn);
@@ -117,6 +111,7 @@ namespace Banking_System
                 myDA.Fill(myDS, "Employee");
                 rpt.SetDataSource(myDS);
                 crystalReportViewer2.ReportSource = rpt;
+                myConnection.Close();
             }
             catch (Exception ex)
             {

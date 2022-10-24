@@ -29,6 +29,7 @@ namespace Banking_System
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmExternalLoanManual));
             this.Securities = new System.Windows.Forms.RichTextBox();
             this.label15 = new System.Windows.Forms.Label();
@@ -75,7 +76,7 @@ namespace Banking_System
             // 
             // Securities
             // 
-            this.Securities.Location = new System.Drawing.Point(505, 188);
+            this.Securities.Location = new System.Drawing.Point(549, 188);
             this.Securities.Name = "Securities";
             this.Securities.Size = new System.Drawing.Size(261, 77);
             this.Securities.TabIndex = 167;
@@ -85,7 +86,7 @@ namespace Banking_System
             // 
             this.label15.AutoSize = true;
             this.label15.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label15.Location = new System.Drawing.Point(370, 193);
+            this.label15.Location = new System.Drawing.Point(414, 193);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(76, 44);
             this.label15.TabIndex = 184;
@@ -94,11 +95,7 @@ namespace Banking_System
             // PaymentMode
             // 
             this.PaymentMode.FormattingEnabled = true;
-            this.PaymentMode.Items.AddRange(new object[] {
-            "Cash",
-            "Bank",
-            "Mobile Money"});
-            this.PaymentMode.Location = new System.Drawing.Point(505, 154);
+            this.PaymentMode.Location = new System.Drawing.Point(549, 154);
             this.PaymentMode.Name = "PaymentMode";
             this.PaymentMode.Size = new System.Drawing.Size(261, 30);
             this.PaymentMode.TabIndex = 166;
@@ -107,7 +104,7 @@ namespace Banking_System
             // 
             this.label5.AutoSize = true;
             this.label5.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label5.Location = new System.Drawing.Point(373, 162);
+            this.label5.Location = new System.Drawing.Point(417, 162);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(114, 22);
             this.label5.TabIndex = 183;
@@ -120,7 +117,7 @@ namespace Banking_System
             "Daily",
             "Weekly",
             "Monthly"});
-            this.RepaymentInterval.Location = new System.Drawing.Point(505, 13);
+            this.RepaymentInterval.Location = new System.Drawing.Point(549, 13);
             this.RepaymentInterval.Name = "RepaymentInterval";
             this.RepaymentInterval.Size = new System.Drawing.Size(261, 30);
             this.RepaymentInterval.TabIndex = 163;
@@ -131,14 +128,14 @@ namespace Banking_System
             this.AmortisationMethod.Items.AddRange(new object[] {
             "Reducing Balance",
             "Flat Rate"});
-            this.AmortisationMethod.Location = new System.Drawing.Point(141, 84);
+            this.AmortisationMethod.Location = new System.Drawing.Point(163, 84);
             this.AmortisationMethod.Name = "AmortisationMethod";
             this.AmortisationMethod.Size = new System.Drawing.Size(223, 30);
             this.AmortisationMethod.TabIndex = 160;
             // 
             // ServicingPeriod
             // 
-            this.ServicingPeriod.Location = new System.Drawing.Point(505, 49);
+            this.ServicingPeriod.Location = new System.Drawing.Point(549, 49);
             this.ServicingPeriod.Name = "ServicingPeriod";
             this.ServicingPeriod.Size = new System.Drawing.Size(261, 29);
             this.ServicingPeriod.TabIndex = 164;
@@ -147,7 +144,7 @@ namespace Banking_System
             // 
             this.label14.AutoSize = true;
             this.label14.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label14.Location = new System.Drawing.Point(370, 56);
+            this.label14.Location = new System.Drawing.Point(414, 56);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(120, 22);
             this.label14.TabIndex = 182;
@@ -162,7 +159,7 @@ namespace Banking_System
             this.Amount.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.Amount.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2;
             this.Amount.DisplayFormat = "N0";
-            this.Amount.Location = new System.Drawing.Point(141, 155);
+            this.Amount.Location = new System.Drawing.Point(163, 155);
             this.Amount.Name = "Amount";
             this.Amount.Size = new System.Drawing.Size(223, 29);
             this.Amount.TabIndex = 162;
@@ -175,7 +172,7 @@ namespace Banking_System
             this.PaymentInterval.BackgroundStyle.Class = "DateTimeInputBackground";
             this.PaymentInterval.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.PaymentInterval.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2;
-            this.PaymentInterval.Location = new System.Drawing.Point(505, 84);
+            this.PaymentInterval.Location = new System.Drawing.Point(549, 84);
             this.PaymentInterval.Name = "PaymentInterval";
             this.PaymentInterval.Size = new System.Drawing.Size(261, 29);
             this.PaymentInterval.TabIndex = 165;
@@ -184,7 +181,7 @@ namespace Banking_System
             // 
             this.label13.AutoSize = true;
             this.label13.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label13.Location = new System.Drawing.Point(372, 92);
+            this.label13.Location = new System.Drawing.Point(416, 92);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(127, 22);
             this.label13.TabIndex = 181;
@@ -194,7 +191,7 @@ namespace Banking_System
             // 
             this.label12.AutoSize = true;
             this.label12.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label12.Location = new System.Drawing.Point(370, 16);
+            this.label12.Location = new System.Drawing.Point(414, 16);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(129, 22);
             this.label12.TabIndex = 180;
@@ -204,7 +201,7 @@ namespace Banking_System
             // 
             this.label11.AutoSize = true;
             this.label11.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label11.Location = new System.Drawing.Point(21, 162);
+            this.label11.Location = new System.Drawing.Point(21, 157);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(66, 22);
             this.label11.TabIndex = 179;
@@ -212,7 +209,7 @@ namespace Banking_System
             // 
             // Interest
             // 
-            this.Interest.Location = new System.Drawing.Point(141, 120);
+            this.Interest.Location = new System.Drawing.Point(163, 120);
             this.Interest.Name = "Interest";
             this.Interest.Size = new System.Drawing.Size(223, 29);
             this.Interest.TabIndex = 161;
@@ -240,14 +237,14 @@ namespace Banking_System
             // ApprovalName
             // 
             this.ApprovalName.Enabled = false;
-            this.ApprovalName.Location = new System.Drawing.Point(141, 225);
+            this.ApprovalName.Location = new System.Drawing.Point(163, 225);
             this.ApprovalName.Name = "ApprovalName";
             this.ApprovalName.Size = new System.Drawing.Size(223, 29);
             this.ApprovalName.TabIndex = 176;
             // 
             // ApprovalID
             // 
-            this.ApprovalID.Location = new System.Drawing.Point(141, 190);
+            this.ApprovalID.Location = new System.Drawing.Point(163, 190);
             this.ApprovalID.Name = "ApprovalID";
             this.ApprovalID.PasswordChar = '*';
             this.ApprovalID.Size = new System.Drawing.Size(223, 29);
@@ -268,7 +265,7 @@ namespace Banking_System
             // 
             this.label9.AutoSize = true;
             this.label9.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label9.Location = new System.Drawing.Point(16, 193);
+            this.label9.Location = new System.Drawing.Point(18, 191);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(94, 22);
             this.label9.TabIndex = 174;
@@ -279,21 +276,21 @@ namespace Banking_System
             this.ApplicationDate.CustomFormat = "dd/MMM/yyyy";
             this.ApplicationDate.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ApplicationDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.ApplicationDate.Location = new System.Drawing.Point(505, 122);
+            this.ApplicationDate.Location = new System.Drawing.Point(549, 122);
             this.ApplicationDate.Name = "ApplicationDate";
             this.ApplicationDate.Size = new System.Drawing.Size(261, 29);
             this.ApplicationDate.TabIndex = 169;
             // 
             // Lender
             // 
-            this.Lender.Location = new System.Drawing.Point(141, 49);
+            this.Lender.Location = new System.Drawing.Point(163, 49);
             this.Lender.Name = "Lender";
             this.Lender.Size = new System.Drawing.Size(223, 29);
             this.Lender.TabIndex = 159;
             // 
             // LoanID
             // 
-            this.LoanID.Location = new System.Drawing.Point(141, 13);
+            this.LoanID.Location = new System.Drawing.Point(163, 13);
             this.LoanID.Name = "LoanID";
             this.LoanID.Size = new System.Drawing.Size(223, 29);
             this.LoanID.TabIndex = 173;
@@ -302,7 +299,7 @@ namespace Banking_System
             // 
             this.label7.AutoSize = true;
             this.label7.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label7.Location = new System.Drawing.Point(373, 127);
+            this.label7.Location = new System.Drawing.Point(417, 127);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(79, 22);
             this.label7.TabIndex = 172;
@@ -399,7 +396,7 @@ namespace Banking_System
             this.dataGridView1.DataBindings.Add(new System.Windows.Forms.Binding("BackgroundColor", global::Banking_System.Properties.Settings.Default, "usercolor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.dataGridView1.Location = new System.Drawing.Point(18, 271);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(749, 286);
+            this.dataGridView1.Size = new System.Drawing.Size(792, 286);
             this.dataGridView1.TabIndex = 191;
             // 
             // Column4
@@ -409,7 +406,9 @@ namespace Banking_System
             // 
             // Column5
             // 
-            this.Column5.HeaderText = "Payment Date";
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Himalaya", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Column5.DefaultCellStyle = dataGridViewCellStyle1;
+            this.Column5.HeaderText = "Payment Date (dd/Mmm/yyyy)";
             this.Column5.Name = "Column5";
             // 
             // Principal
@@ -437,7 +436,7 @@ namespace Banking_System
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = global::Banking_System.Properties.Settings.Default.usercolor;
-            this.ClientSize = new System.Drawing.Size(783, 660);
+            this.ClientSize = new System.Drawing.Size(827, 654);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);

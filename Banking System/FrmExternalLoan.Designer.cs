@@ -152,11 +152,11 @@ namespace Banking_System
             // 
             this.label9.AutoSize = true;
             this.label9.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label9.Location = new System.Drawing.Point(17, 243);
+            this.label9.Location = new System.Drawing.Point(17, 238);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(94, 22);
+            this.label9.Size = new System.Drawing.Size(97, 22);
             this.label9.TabIndex = 135;
-            this.label9.Text = "Approval ID";
+            this.label9.Text = " Approval ID";
             // 
             // buttonX3
             // 
@@ -353,10 +353,6 @@ namespace Banking_System
             // PaymentMode
             // 
             this.PaymentMode.FormattingEnabled = true;
-            this.PaymentMode.Items.AddRange(new object[] {
-            "Cash",
-            "Bank",
-            "Mobile Money"});
             this.PaymentMode.Location = new System.Drawing.Point(506, 194);
             this.PaymentMode.Name = "PaymentMode";
             this.PaymentMode.Size = new System.Drawing.Size(261, 30);
@@ -395,7 +391,7 @@ namespace Banking_System
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = global::Banking_System.Properties.Settings.Default.usercolor;
-            this.ClientSize = new System.Drawing.Size(784, 437);
+            this.ClientSize = new System.Drawing.Size(784, 431);
             this.Controls.Add(this.Securities);
             this.Controls.Add(this.label15);
             this.Controls.Add(this.PaymentMode);

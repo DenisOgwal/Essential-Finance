@@ -53,6 +53,12 @@
             this.checkBoxItem55 = new DevComponents.DotNetBar.CheckBoxItem();
             this.checkBoxItem56 = new DevComponents.DotNetBar.CheckBoxItem();
             this.checkBoxItem57 = new DevComponents.DotNetBar.CheckBoxItem();
+            this.checkBoxItem58 = new DevComponents.DotNetBar.CheckBoxItem();
+            this.checkBoxItem59 = new DevComponents.DotNetBar.CheckBoxItem();
+            this.checkBoxItem60 = new DevComponents.DotNetBar.CheckBoxItem();
+            this.checkBoxItem61 = new DevComponents.DotNetBar.CheckBoxItem();
+            this.checkBoxItem62 = new DevComponents.DotNetBar.CheckBoxItem();
+            this.checkBoxItem63 = new DevComponents.DotNetBar.CheckBoxItem();
             this.itemPanel2 = new DevComponents.DotNetBar.ItemPanel();
             this.checkBoxItem23 = new DevComponents.DotNetBar.CheckBoxItem();
             this.checkBoxItem24 = new DevComponents.DotNetBar.CheckBoxItem();
@@ -99,6 +105,9 @@
             this.checkBoxItem20 = new DevComponents.DotNetBar.CheckBoxItem();
             this.checkBoxItem21 = new DevComponents.DotNetBar.CheckBoxItem();
             this.checkBoxItem22 = new DevComponents.DotNetBar.CheckBoxItem();
+            this.checkBoxItem64 = new DevComponents.DotNetBar.CheckBoxItem();
+            this.checkBoxItem65 = new DevComponents.DotNetBar.CheckBoxItem();
+            this.checkBoxItem66 = new DevComponents.DotNetBar.CheckBoxItem();
             this.expandablePanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewX2)).BeginInit();
             this.ribbonClientPanel2.SuspendLayout();
@@ -148,7 +157,7 @@
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridViewX2.DefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGridViewX2.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(213)))), ((int)(((byte)(245)))));
+            this.dataGridViewX2.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(208)))), ((int)(((byte)(243)))));
             this.dataGridViewX2.Location = new System.Drawing.Point(3, 29);
             this.dataGridViewX2.Name = "dataGridViewX2";
             this.dataGridViewX2.RowTemplate.Height = 40;
@@ -157,6 +166,7 @@
             this.dataGridViewX2.Size = new System.Drawing.Size(355, 597);
             this.dataGridViewX2.TabIndex = 2;
             this.dataGridViewX2.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewX2_CellClick);
+            this.dataGridViewX2.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewX2_CellContentClick);
             // 
             // ribbonClientPanel2
             // 
@@ -169,7 +179,7 @@
             this.ribbonClientPanel2.Controls.Add(this.label3);
             this.ribbonClientPanel2.Location = new System.Drawing.Point(5, 648);
             this.ribbonClientPanel2.Name = "ribbonClientPanel2";
-            this.ribbonClientPanel2.Size = new System.Drawing.Size(1008, 40);
+            this.ribbonClientPanel2.Size = new System.Drawing.Size(1008, 31);
             // 
             // 
             // 
@@ -296,7 +306,16 @@
             this.checkBoxItem54,
             this.checkBoxItem55,
             this.checkBoxItem56,
-            this.checkBoxItem57});
+            this.checkBoxItem57,
+            this.checkBoxItem58,
+            this.checkBoxItem59,
+            this.checkBoxItem60,
+            this.checkBoxItem61,
+            this.checkBoxItem62,
+            this.checkBoxItem63,
+            this.checkBoxItem64,
+            this.checkBoxItem65,
+            this.checkBoxItem66});
             this.itemPanel3.LayoutOrientation = DevComponents.DotNetBar.eOrientation.Vertical;
             this.itemPanel3.Location = new System.Drawing.Point(414, 29);
             this.itemPanel3.Name = "itemPanel3";
@@ -368,6 +387,36 @@
             // 
             this.checkBoxItem57.Name = "checkBoxItem57";
             this.checkBoxItem57.Text = "Bank Accounts Create";
+            // 
+            // checkBoxItem58
+            // 
+            this.checkBoxItem58.Name = "checkBoxItem58";
+            this.checkBoxItem58.Text = "Office Admin Reports";
+            // 
+            // checkBoxItem59
+            // 
+            this.checkBoxItem59.Name = "checkBoxItem59";
+            this.checkBoxItem59.Text = "Recovery Officer Reports";
+            // 
+            // checkBoxItem60
+            // 
+            this.checkBoxItem60.Name = "checkBoxItem60";
+            this.checkBoxItem60.Text = "Relationship Manager Reports";
+            // 
+            // checkBoxItem61
+            // 
+            this.checkBoxItem61.Name = "checkBoxItem61";
+            this.checkBoxItem61.Text = "Director Operations Reports";
+            // 
+            // checkBoxItem62
+            // 
+            this.checkBoxItem62.Name = "checkBoxItem62";
+            this.checkBoxItem62.Text = "Managing Director Reports";
+            // 
+            // checkBoxItem63
+            // 
+            this.checkBoxItem63.Name = "checkBoxItem63";
+            this.checkBoxItem63.Text = "Director Accounts Reports";
             // 
             // itemPanel2
             // 
@@ -684,12 +733,27 @@
             this.checkBoxItem22.Name = "checkBoxItem22";
             this.checkBoxItem22.Text = "HR Records";
             // 
+            // checkBoxItem64
+            // 
+            this.checkBoxItem64.Name = "checkBoxItem64";
+            this.checkBoxItem64.Text = "Shares";
+            // 
+            // checkBoxItem65
+            // 
+            this.checkBoxItem65.Name = "checkBoxItem65";
+            this.checkBoxItem65.Text = "Investments";
+            // 
+            // checkBoxItem66
+            // 
+            this.checkBoxItem66.Name = "checkBoxItem66";
+            this.checkBoxItem66.Text = "Annual Subscription";
+            // 
             // frmAccessRights
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = global::Banking_System.Properties.Settings.Default.usercolor;
-            this.ClientSize = new System.Drawing.Size(1016, 694);
+            this.ClientSize = new System.Drawing.Size(1016, 685);
             this.Controls.Add(this.ribbonClientPanel2);
             this.Controls.Add(this.expandablePanel2);
             this.Controls.Add(this.expandablePanel1);
@@ -780,5 +844,14 @@
         private DevComponents.DotNetBar.CheckBoxItem checkBoxItem55;
         private DevComponents.DotNetBar.CheckBoxItem checkBoxItem56;
         private DevComponents.DotNetBar.CheckBoxItem checkBoxItem57;
+        private DevComponents.DotNetBar.CheckBoxItem checkBoxItem58;
+        private DevComponents.DotNetBar.CheckBoxItem checkBoxItem59;
+        private DevComponents.DotNetBar.CheckBoxItem checkBoxItem60;
+        private DevComponents.DotNetBar.CheckBoxItem checkBoxItem61;
+        private DevComponents.DotNetBar.CheckBoxItem checkBoxItem62;
+        private DevComponents.DotNetBar.CheckBoxItem checkBoxItem63;
+        private DevComponents.DotNetBar.CheckBoxItem checkBoxItem64;
+        private DevComponents.DotNetBar.CheckBoxItem checkBoxItem65;
+        private DevComponents.DotNetBar.CheckBoxItem checkBoxItem66;
     }
 }

@@ -57,7 +57,10 @@ namespace Banking_System
             this.buttonX6 = new DevComponents.DotNetBar.ButtonX();
             this.buttonX7 = new DevComponents.DotNetBar.ButtonX();
             this.buttonX8 = new DevComponents.DotNetBar.ButtonX();
+            this.Amount = new DevComponents.Editors.IntegerInput();
+            this.label8 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Amount)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -187,7 +190,7 @@ namespace Banking_System
             // 
             this.label11.AutoSize = true;
             this.label11.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label11.Location = new System.Drawing.Point(334, 189);
+            this.label11.Location = new System.Drawing.Point(334, 228);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(145, 22);
             this.label11.TabIndex = 138;
@@ -195,9 +198,9 @@ namespace Banking_System
             // 
             // ApprovalComment
             // 
-            this.ApprovalComment.Location = new System.Drawing.Point(493, 189);
+            this.ApprovalComment.Location = new System.Drawing.Point(493, 225);
             this.ApprovalComment.Name = "ApprovalComment";
-            this.ApprovalComment.Size = new System.Drawing.Size(229, 88);
+            this.ApprovalComment.Size = new System.Drawing.Size(229, 52);
             this.ApprovalComment.TabIndex = 2;
             this.ApprovalComment.Text = "";
             // 
@@ -338,12 +341,38 @@ namespace Banking_System
             this.buttonX8.Text = "Amortisation\r\nSchedule";
             this.buttonX8.Click += new System.EventHandler(this.buttonX8_Click);
             // 
+            // Amount
+            // 
+            // 
+            // 
+            // 
+            this.Amount.BackgroundStyle.Class = "DateTimeInputBackground";
+            this.Amount.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.Amount.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2;
+            this.Amount.DisplayFormat = "N0";
+            this.Amount.Location = new System.Drawing.Point(493, 189);
+            this.Amount.Name = "Amount";
+            this.Amount.Size = new System.Drawing.Size(229, 29);
+            this.Amount.TabIndex = 158;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label8.Location = new System.Drawing.Point(334, 189);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(104, 22);
+            this.label8.TabIndex = 157;
+            this.label8.Text = "Loan Amount";
+            // 
             // FrmLoanFinalApproval
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = global::Banking_System.Properties.Settings.Default.usercolor;
-            this.ClientSize = new System.Drawing.Size(877, 455);
+            this.ClientSize = new System.Drawing.Size(877, 453);
+            this.Controls.Add(this.Amount);
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.buttonX8);
             this.Controls.Add(this.buttonX7);
             this.Controls.Add(this.buttonX6);
@@ -382,6 +411,7 @@ namespace Banking_System
             this.Text = "Loan First Approval";
             this.Load += new System.EventHandler(this.FrmLoanFirstApproval_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Amount)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -416,5 +446,7 @@ namespace Banking_System
         private DevComponents.DotNetBar.ButtonX buttonX6;
         private DevComponents.DotNetBar.ButtonX buttonX7;
         private DevComponents.DotNetBar.ButtonX buttonX8;
+        private DevComponents.Editors.IntegerInput Amount;
+        private System.Windows.Forms.Label label8;
     }
 }

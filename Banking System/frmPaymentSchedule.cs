@@ -297,6 +297,7 @@ namespace Banking_System
                             cmd.Parameters["@d9"].Value = dc.Value;
                             cmd.Parameters["@d11"].Value = dc.Value;
                             cmd.ExecuteNonQuery();
+                            con.Close();
                             break;
                         case 5:
                             DataGridViewRow dr1 = dataGridViewX2.CurrentRow;
@@ -322,6 +323,7 @@ namespace Banking_System
                             cmd.Parameters["@d9"].Value = dc1.Value;
                             cmd.Parameters["@d11"].Value = dc1.Value;
                             cmd.ExecuteNonQuery();
+                            con.Close();
                             break;
 
                         case 6:
@@ -348,6 +350,7 @@ namespace Banking_System
                             cmd.Parameters["@d9"].Value = dc2.Value;
                             cmd.Parameters["@d11"].Value = dc2.Value;
                             cmd.ExecuteNonQuery();
+                            con.Close();
                             break;
                     }
                 }
@@ -358,5 +361,9 @@ namespace Banking_System
             }
         }
 
+        private void membername_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

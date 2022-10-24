@@ -52,6 +52,8 @@ namespace Banking_System
             this.buttonX5 = new DevComponents.DotNetBar.ButtonX();
             this.buttonX4 = new DevComponents.DotNetBar.ButtonX();
             this.buttonX6 = new DevComponents.DotNetBar.ButtonX();
+            this.approvals = new System.Windows.Forms.ComboBox();
+            this.label8 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -72,7 +74,7 @@ namespace Banking_System
             this.ApplicationDate.CustomFormat = "dd/MMM/yyyy";
             this.ApplicationDate.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ApplicationDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.ApplicationDate.Location = new System.Drawing.Point(457, 156);
+            this.ApplicationDate.Location = new System.Drawing.Point(457, 121);
             this.ApplicationDate.Name = "ApplicationDate";
             this.ApplicationDate.Size = new System.Drawing.Size(264, 29);
             this.ApplicationDate.TabIndex = 133;
@@ -80,7 +82,7 @@ namespace Banking_System
             // AccountName
             // 
             this.AccountName.Enabled = false;
-            this.AccountName.Location = new System.Drawing.Point(457, 111);
+            this.AccountName.Location = new System.Drawing.Point(457, 86);
             this.AccountName.Name = "AccountName";
             this.AccountName.Size = new System.Drawing.Size(264, 29);
             this.AccountName.TabIndex = 132;
@@ -88,7 +90,7 @@ namespace Banking_System
             // AccountNumber
             // 
             this.AccountNumber.Enabled = false;
-            this.AccountNumber.Location = new System.Drawing.Point(457, 62);
+            this.AccountNumber.Location = new System.Drawing.Point(457, 51);
             this.AccountNumber.Name = "AccountNumber";
             this.AccountNumber.Size = new System.Drawing.Size(264, 29);
             this.AccountNumber.TabIndex = 131;
@@ -105,7 +107,7 @@ namespace Banking_System
             // 
             this.label7.AutoSize = true;
             this.label7.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label7.Location = new System.Drawing.Point(334, 161);
+            this.label7.Location = new System.Drawing.Point(334, 126);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(79, 22);
             this.label7.TabIndex = 129;
@@ -115,7 +117,7 @@ namespace Banking_System
             // 
             this.label5.AutoSize = true;
             this.label5.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label5.Location = new System.Drawing.Point(334, 114);
+            this.label5.Location = new System.Drawing.Point(334, 89);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(112, 22);
             this.label5.TabIndex = 128;
@@ -125,7 +127,7 @@ namespace Banking_System
             // 
             this.label4.AutoSize = true;
             this.label4.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label4.Location = new System.Drawing.Point(334, 65);
+            this.label4.Location = new System.Drawing.Point(334, 54);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(95, 22);
             this.label4.TabIndex = 127;
@@ -282,12 +284,35 @@ namespace Banking_System
             this.buttonX6.Text = "Final Approval";
             this.buttonX6.Click += new System.EventHandler(this.buttonX6_Click);
             // 
+            // approvals
+            // 
+            this.approvals.FormattingEnabled = true;
+            this.approvals.Items.AddRange(new object[] {
+            "Approved",
+            "Rejected"});
+            this.approvals.Location = new System.Drawing.Point(458, 156);
+            this.approvals.Name = "approvals";
+            this.approvals.Size = new System.Drawing.Size(263, 30);
+            this.approvals.TabIndex = 154;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label8.Location = new System.Drawing.Point(333, 164);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(73, 22);
+            this.label8.TabIndex = 153;
+            this.label8.Text = "Approval";
+            // 
             // FrmLoanRecoveryFinal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = global::Banking_System.Properties.Settings.Default.usercolor;
-            this.ClientSize = new System.Drawing.Size(861, 376);
+            this.ClientSize = new System.Drawing.Size(861, 374);
+            this.Controls.Add(this.approvals);
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.buttonX6);
             this.Controls.Add(this.buttonX4);
             this.Controls.Add(this.buttonX5);
@@ -350,5 +375,7 @@ namespace Banking_System
         private DevComponents.DotNetBar.ButtonX buttonX5;
         private DevComponents.DotNetBar.ButtonX buttonX4;
         private DevComponents.DotNetBar.ButtonX buttonX6;
+        private System.Windows.Forms.ComboBox approvals;
+        private System.Windows.Forms.Label label8;
     }
 }

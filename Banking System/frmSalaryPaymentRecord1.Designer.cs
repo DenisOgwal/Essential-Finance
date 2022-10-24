@@ -76,7 +76,7 @@
             this.tabControl1.Location = new System.Drawing.Point(5, 52);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(984, 619);
+            this.tabControl1.Size = new System.Drawing.Size(984, 618);
             this.tabControl1.TabIndex = 0;
             this.tabControl1.Click += new System.EventHandler(this.tabControl1_Click);
             // 
@@ -91,7 +91,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 26);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(976, 589);
+            this.tabPage1.Size = new System.Drawing.Size(976, 588);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "By Staff Name";
             // 
@@ -249,7 +249,7 @@
             this.DGV.Location = new System.Drawing.Point(6, 99);
             this.DGV.MultiSelect = false;
             this.DGV.Name = "DGV";
-            this.DGV.Size = new System.Drawing.Size(964, 460);
+            this.DGV.Size = new System.Drawing.Size(964, 459);
             this.DGV.TabIndex = 8;
             this.DGV.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DGV_RowHeaderMouseClick);
             this.DGV.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.DGV_RowPostPaint);
@@ -519,7 +519,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(243)))), ((int)(((byte)(250)))));
-            this.ClientSize = new System.Drawing.Size(997, 688);
+            this.ClientSize = new System.Drawing.Size(997, 686);
             this.Controls.Add(this.ribbonControl1);
             this.Controls.Add(this.tabControl1);
             this.Font = new System.Drawing.Font("Palatino Linotype", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

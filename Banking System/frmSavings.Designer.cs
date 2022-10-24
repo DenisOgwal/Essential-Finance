@@ -409,6 +409,7 @@
             this.accountname.Name = "accountname";
             this.accountname.Size = new System.Drawing.Size(205, 29);
             this.accountname.TabIndex = 1;
+            this.accountname.TextChanged += new System.EventHandler(this.accountname_TextChanged);
             // 
             // accountnumber
             // 

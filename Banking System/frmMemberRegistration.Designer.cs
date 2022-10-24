@@ -113,6 +113,7 @@
             this.Designation = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.buttonX5 = new DevComponents.DotNetBar.ButtonX();
             this.groupPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -923,6 +924,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupPanel3.CanvasColor = System.Drawing.SystemColors.Control;
             this.groupPanel3.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
+            this.groupPanel3.Controls.Add(this.buttonX5);
             this.groupPanel3.Controls.Add(this.label34);
             this.groupPanel3.Controls.Add(this.label33);
             this.groupPanel3.Controls.Add(this.buttonX4);
@@ -993,9 +995,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonX4.Enabled = false;
             this.buttonX4.Font = new System.Drawing.Font("Palatino Linotype", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonX4.Location = new System.Drawing.Point(3, 328);
+            this.buttonX4.Location = new System.Drawing.Point(3, 268);
             this.buttonX4.Name = "buttonX4";
-            this.buttonX4.Size = new System.Drawing.Size(179, 98);
+            this.buttonX4.Size = new System.Drawing.Size(179, 74);
             this.buttonX4.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.buttonX4.TabIndex = 34;
             this.buttonX4.Text = "&Update";
@@ -1009,9 +1011,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonX3.Enabled = false;
             this.buttonX3.Font = new System.Drawing.Font("Palatino Linotype", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonX3.Location = new System.Drawing.Point(3, 227);
+            this.buttonX3.Location = new System.Drawing.Point(3, 183);
             this.buttonX3.Name = "buttonX3";
-            this.buttonX3.Size = new System.Drawing.Size(179, 95);
+            this.buttonX3.Size = new System.Drawing.Size(179, 78);
             this.buttonX3.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.buttonX3.TabIndex = 36;
             this.buttonX3.Text = "&Delete";
@@ -1024,9 +1026,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonX2.Font = new System.Drawing.Font("Palatino Linotype", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonX2.Location = new System.Drawing.Point(3, 124);
+            this.buttonX2.Location = new System.Drawing.Point(3, 97);
             this.buttonX2.Name = "buttonX2";
-            this.buttonX2.Size = new System.Drawing.Size(179, 98);
+            this.buttonX2.Size = new System.Drawing.Size(179, 80);
             this.buttonX2.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.buttonX2.TabIndex = 32;
             this.buttonX2.Text = "&Save";
@@ -1041,7 +1043,7 @@
             this.buttonX1.Font = new System.Drawing.Font("Palatino Linotype", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonX1.Location = new System.Drawing.Point(3, 13);
             this.buttonX1.Name = "buttonX1";
-            this.buttonX1.Size = new System.Drawing.Size(179, 105);
+            this.buttonX1.Size = new System.Drawing.Size(179, 78);
             this.buttonX1.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.buttonX1.TabIndex = 35;
             this.buttonX1.Text = "&New";
@@ -1379,6 +1381,21 @@
             this.tableLayoutPanel3.Size = new System.Drawing.Size(983, 448);
             this.tableLayoutPanel3.TabIndex = 66;
             // 
+            // buttonX5
+            // 
+            this.buttonX5.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.buttonX5.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonX5.Font = new System.Drawing.Font("Palatino Linotype", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonX5.Location = new System.Drawing.Point(3, 348);
+            this.buttonX5.Name = "buttonX5";
+            this.buttonX5.Size = new System.Drawing.Size(179, 74);
+            this.buttonX5.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.buttonX5.TabIndex = 37;
+            this.buttonX5.Text = "&Registration Fees";
+            this.buttonX5.Click += new System.EventHandler(this.buttonX5_Click);
+            // 
             // frmMemberRegistration
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1499,5 +1516,6 @@
         public System.Windows.Forms.Label label34;
         public System.Windows.Forms.Label label33;
         public DevComponents.DotNetBar.Controls.TextBoxX accountnumber;
+        public DevComponents.DotNetBar.ButtonX buttonX5;
     }
 }

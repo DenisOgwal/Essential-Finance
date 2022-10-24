@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Data.SqlClient;
@@ -39,7 +35,9 @@ namespace Banking_System
 
         private void buttonX1_Click(object sender, EventArgs e)
         {
-            Reset();
+            this.Hide();
+            frmMinimumAccountbalance frm = new frmMinimumAccountbalance();
+            frm.ShowDialog();
         }
 
         private void buttonX2_Click(object sender, EventArgs e)
@@ -78,12 +76,15 @@ namespace Banking_System
                 cmd.Parameters["@d1"].Value = month1.Text;
                 cmd.Parameters["@d2"].Value = year1.Text.Trim();
                 cmd.Parameters["@d3"].Value = date1.Text.Trim();
-                cmd.Parameters["@d4"].Value = interestrate.Text;
+                cmd.Parameters["@d4"].Value = interestrate.Value;
                 cmd.Parameters["@d5"].Value = chairperson.Text.Trim();
                 cmd.ExecuteNonQuery();
-                MessageBox.Show("Successfully saved", "Savings Record", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                Reset();
                 con.Close();
+                MessageBox.Show("Successfully saved", "Record", MessageBoxButtons.OK, MessageBoxIcon.Information);
+               
+                this.Hide();
+                frmMinimumAccountbalance frm = new frmMinimumAccountbalance();
+                frm.ShowDialog();
             }
             catch (Exception ex)
             {
@@ -147,10 +148,10 @@ namespace Banking_System
                 cmd.Parameters["@d1"].Value = month1.Text;
                 cmd.Parameters["@d2"].Value = year1.Text.Trim();
                 cmd.Parameters["@d3"].Value = date1.Text.Trim();
-                cmd.Parameters["@d4"].Value = interestrate.Text;
+                cmd.Parameters["@d4"].Value = interestrate.Value;
                 cmd.Parameters["@d5"].Value = chairperson.Text.Trim();
                 cmd.ExecuteNonQuery();
-                MessageBox.Show("Successfully Updated", "Interest Record", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Successfully Updated", "Record", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 con.Close();
             }
             catch (Exception ex)

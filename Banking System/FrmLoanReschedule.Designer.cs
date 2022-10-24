@@ -48,12 +48,10 @@ namespace Banking_System
             this.buttonX1 = new DevComponents.DotNetBar.ButtonX();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.AmortisationMethod = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.Interest = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.ScheduleInterval = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.buttonX4 = new DevComponents.DotNetBar.ButtonX();
@@ -61,6 +59,8 @@ namespace Banking_System
             this.Amount = new DevComponents.Editors.IntegerInput();
             this.ServicingPeriod = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
+            this.AmortisationMethod = new System.Windows.Forms.ComboBox();
+            this.ScheduleInterval = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PaymentInterval)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Amount)).BeginInit();
@@ -106,11 +106,11 @@ namespace Banking_System
             // 
             // LoanID
             // 
-            this.LoanID.Enabled = false;
             this.LoanID.Location = new System.Drawing.Point(493, 13);
             this.LoanID.Name = "LoanID";
             this.LoanID.Size = new System.Drawing.Size(282, 29);
             this.LoanID.TabIndex = 130;
+            this.LoanID.Click += new System.EventHandler(this.LoanID_Click);
             this.LoanID.TextChanged += new System.EventHandler(this.LoanID_TextChanged);
             // 
             // label7
@@ -246,13 +246,6 @@ namespace Banking_System
             this.label1.Text = "label1";
             this.label1.Visible = false;
             // 
-            // AmortisationMethod
-            // 
-            this.AmortisationMethod.Location = new System.Drawing.Point(493, 118);
-            this.AmortisationMethod.Name = "AmortisationMethod";
-            this.AmortisationMethod.Size = new System.Drawing.Size(282, 29);
-            this.AmortisationMethod.TabIndex = 146;
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -265,7 +258,6 @@ namespace Banking_System
             // 
             // Interest
             // 
-            this.Interest.Enabled = false;
             this.Interest.Location = new System.Drawing.Point(493, 153);
             this.Interest.Name = "Interest";
             this.Interest.Size = new System.Drawing.Size(282, 29);
@@ -290,13 +282,6 @@ namespace Banking_System
             this.label11.Size = new System.Drawing.Size(66, 22);
             this.label11.TabIndex = 149;
             this.label11.Text = "Amount";
-            // 
-            // ScheduleInterval
-            // 
-            this.ScheduleInterval.Location = new System.Drawing.Point(493, 223);
-            this.ScheduleInterval.Name = "ScheduleInterval";
-            this.ScheduleInterval.Size = new System.Drawing.Size(282, 29);
-            this.ScheduleInterval.TabIndex = 152;
             // 
             // label12
             // 
@@ -375,24 +360,47 @@ namespace Banking_System
             this.label14.TabIndex = 155;
             this.label14.Text = "Servicing Period";
             // 
+            // AmortisationMethod
+            // 
+            this.AmortisationMethod.FormattingEnabled = true;
+            this.AmortisationMethod.Items.AddRange(new object[] {
+            "Reducing Balance",
+            "Flat Rate"});
+            this.AmortisationMethod.Location = new System.Drawing.Point(493, 117);
+            this.AmortisationMethod.Name = "AmortisationMethod";
+            this.AmortisationMethod.Size = new System.Drawing.Size(282, 30);
+            this.AmortisationMethod.TabIndex = 157;
+            // 
+            // ScheduleInterval
+            // 
+            this.ScheduleInterval.FormattingEnabled = true;
+            this.ScheduleInterval.Items.AddRange(new object[] {
+            "Daily",
+            "Weekly",
+            "Monthly"});
+            this.ScheduleInterval.Location = new System.Drawing.Point(493, 221);
+            this.ScheduleInterval.Name = "ScheduleInterval";
+            this.ScheduleInterval.Size = new System.Drawing.Size(282, 30);
+            this.ScheduleInterval.TabIndex = 158;
+            // 
             // FrmLoanReschedule
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = global::Banking_System.Properties.Settings.Default.usercolor;
-            this.ClientSize = new System.Drawing.Size(784, 520);
+            this.ClientSize = new System.Drawing.Size(784, 516);
+            this.Controls.Add(this.ScheduleInterval);
+            this.Controls.Add(this.AmortisationMethod);
             this.Controls.Add(this.ServicingPeriod);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.Amount);
             this.Controls.Add(this.PaymentInterval);
             this.Controls.Add(this.buttonX4);
             this.Controls.Add(this.label13);
-            this.Controls.Add(this.ScheduleInterval);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.Interest);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.AmortisationMethod);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -450,12 +458,10 @@ namespace Banking_System
         private DevComponents.DotNetBar.ButtonX buttonX1;
         public System.Windows.Forms.Label label2;
         public System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox AmortisationMethod;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox Interest;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox ScheduleInterval;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
         private DevComponents.DotNetBar.ButtonX buttonX4;
@@ -463,5 +469,7 @@ namespace Banking_System
         private DevComponents.Editors.IntegerInput Amount;
         private System.Windows.Forms.TextBox ServicingPeriod;
         private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.ComboBox AmortisationMethod;
+        private System.Windows.Forms.ComboBox ScheduleInterval;
     }
 }

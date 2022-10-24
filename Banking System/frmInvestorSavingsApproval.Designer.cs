@@ -30,6 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmInvestorSavingsApproval));
             this.groupPanel3 = new DevComponents.DotNetBar.Controls.GroupPanel();
+            this.cashier = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.label7 = new System.Windows.Forms.Label();
             this.installment = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.labelX2 = new DevComponents.DotNetBar.LabelX();
             this.approvals = new System.Windows.Forms.ComboBox();
@@ -95,6 +97,8 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupPanel3.CanvasColor = System.Drawing.SystemColors.Control;
             this.groupPanel3.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
+            this.groupPanel3.Controls.Add(this.cashier);
+            this.groupPanel3.Controls.Add(this.label7);
             this.groupPanel3.Controls.Add(this.installment);
             this.groupPanel3.Controls.Add(this.labelX2);
             this.groupPanel3.Controls.Add(this.approvals);
@@ -171,6 +175,34 @@
             this.groupPanel3.TabIndex = 2;
             this.groupPanel3.Text = "Investment Deposit Approval";
             // 
+            // cashier
+            // 
+            // 
+            // 
+            // 
+            this.cashier.Border.Class = "TextBoxBorder";
+            this.cashier.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.cashier.Enabled = false;
+            this.cashier.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cashier.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.cashier.Location = new System.Drawing.Point(486, 230);
+            this.cashier.Name = "cashier";
+            this.cashier.Size = new System.Drawing.Size(205, 29);
+            this.cashier.TabIndex = 105;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.BackColor = System.Drawing.Color.Transparent;
+            this.label7.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label7.Location = new System.Drawing.Point(347, 238);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(107, 22);
+            this.label7.TabIndex = 104;
+            this.label7.Text = "Cashier Name";
+            // 
             // installment
             // 
             // 
@@ -213,7 +245,7 @@
             this.approvals.Items.AddRange(new object[] {
             "Approved",
             "Rejected"});
-            this.approvals.Location = new System.Drawing.Point(486, 230);
+            this.approvals.Location = new System.Drawing.Point(486, 270);
             this.approvals.Name = "approvals";
             this.approvals.Size = new System.Drawing.Size(205, 30);
             this.approvals.TabIndex = 100;
@@ -224,7 +256,7 @@
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label6.Location = new System.Drawing.Point(346, 235);
+            this.label6.Location = new System.Drawing.Point(347, 273);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(73, 22);
@@ -297,7 +329,7 @@
             this.labelX6.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.labelX6.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelX6.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.labelX6.Location = new System.Drawing.Point(348, 155);
+            this.labelX6.Location = new System.Drawing.Point(346, 199);
             this.labelX6.Name = "labelX6";
             this.labelX6.Size = new System.Drawing.Size(130, 23);
             this.labelX6.TabIndex = 95;
@@ -309,7 +341,7 @@
             this.maturitydate.Enabled = false;
             this.maturitydate.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.maturitydate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.maturitydate.Location = new System.Drawing.Point(486, 151);
+            this.maturitydate.Location = new System.Drawing.Point(487, 195);
             this.maturitydate.Name = "maturitydate";
             this.maturitydate.Size = new System.Drawing.Size(205, 29);
             this.maturitydate.TabIndex = 94;
@@ -461,7 +493,7 @@
             this.labelX1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.labelX1.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelX1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.labelX1.Location = new System.Drawing.Point(348, 195);
+            this.labelX1.Location = new System.Drawing.Point(346, 158);
             this.labelX1.Name = "labelX1";
             this.labelX1.Size = new System.Drawing.Size(130, 23);
             this.labelX1.TabIndex = 82;
@@ -599,10 +631,9 @@
             // date2
             // 
             this.date2.CustomFormat = "dd/MMM/yyyy";
-            this.date2.Enabled = false;
             this.date2.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.date2.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.date2.Location = new System.Drawing.Point(486, 191);
+            this.date2.Location = new System.Drawing.Point(487, 154);
             this.date2.Name = "date2";
             this.date2.Size = new System.Drawing.Size(205, 29);
             this.date2.TabIndex = 6;
@@ -735,7 +766,7 @@
             this.labelX12.Name = "labelX12";
             this.labelX12.Size = new System.Drawing.Size(132, 23);
             this.labelX12.TabIndex = 1;
-            this.labelX12.Text = "Accountant Name";
+            this.labelX12.Text = "Name";
             // 
             // labelX11
             // 
@@ -751,7 +782,7 @@
             this.labelX11.Name = "labelX11";
             this.labelX11.Size = new System.Drawing.Size(148, 23);
             this.labelX11.TabIndex = 0;
-            this.labelX11.Text = "Accountant Approval ID";
+            this.labelX11.Text = "Approval ID";
             // 
             // groupPanel5
             // 
@@ -976,5 +1007,7 @@
         private System.Windows.Forms.Label label6;
         private DevComponents.DotNetBar.Controls.TextBoxX installment;
         private DevComponents.DotNetBar.LabelX labelX2;
+        private DevComponents.DotNetBar.Controls.TextBoxX cashier;
+        private System.Windows.Forms.Label label7;
     }
 }

@@ -55,7 +55,7 @@ namespace Banking_System
             int realid = 0;
             con = new SqlConnection(cs.DBConn);
             con.Open();
-            cmd = new SqlCommand("select ID from Savings where Date=@date1 Order By ID DESC",con);
+            cmd = new SqlCommand("select ID from Savings  Order By ID DESC",con);
             cmd.Parameters.Add("@date1", SqlDbType.DateTime, 30, "Date").Value = date2.Value.Date;
             cmd.Connection = con;
             rdr = cmd.ExecuteReader();
@@ -63,7 +63,7 @@ namespace Banking_System
             {
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
-                cmd = new SqlCommand("select COUNT(AccountNo) from Savings where Date=@date1", con);
+                cmd = new SqlCommand("select COUNT(AccountNo) from Savings ", con);
                 cmd.Parameters.Add("@date1", SqlDbType.DateTime, 30, "Date").Value = date2.Value.Date;
                 realid = Convert.ToInt32(cmd.ExecuteScalar()) + 1;
             }
@@ -71,8 +71,9 @@ namespace Banking_System
             {
                 realid = 1;
             }
+            con.Close();
             string years = yearss.Substring(2, 2);
-            savingsid.Text = "W-" + years + monthss + days +realid;
+            savingsid.Text = "W-"  + days +realid;
         }
         private void frmSavings_Load(object sender, EventArgs e)
         {
@@ -87,9 +88,9 @@ namespace Banking_System
                 dtable = ds.Tables[0];
                 foreach (DataRow drow in dtable.Rows)
                 {
-                    cmbModeOfPayment.Items.Add(drow[0].ToString());
+                    cmbModeOfPayment.Items.Add(drow[1].ToString());
                 }
-
+                CN.Close();
             }
             catch (Exception ex)
             {
@@ -119,6 +120,7 @@ namespace Banking_System
                 {
                    
                 }
+                con.Close();
             }
             catch (Exception ex)
             {
@@ -306,31 +308,7 @@ namespace Banking_System
 
         private void accountnumber2_SelectedIndexChanged(object sender, EventArgs e)
         {
-            try
-            {
-                con = new SqlConnection(cs.DBConn);
-                con.Open();
-                cmd = con.CreateCommand();
-                cmd.CommandText = "SELECT distinct RTRIM(AccountNames) FROM Account where AccountNumber='" + accountnumber.Text + "'";
-                rdr = cmd.ExecuteReader();
-                accountname.Text = "";
-                if (rdr.Read())
-                {
-                    accountname.Text = rdr.GetString(0).Trim();
-                }
-                if ((rdr != null))
-                {
-                    rdr.Close();
-                }
-                if (con.State == ConnectionState.Open)
-                {
-                    con.Close();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            
         }
         private void depositammount_ValueChanged(object sender, EventArgs e)
         {
@@ -463,6 +441,7 @@ namespace Banking_System
                         accountbalance.Value = val1;
                     }
                 }
+                con.Close();
             }
             catch (Exception ex)
             {
@@ -483,6 +462,40 @@ namespace Banking_System
         private void membername2_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void accountnumber_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                con = new SqlConnection(cs.DBConn);
+                con.Open();
+                cmd = con.CreateCommand();
+                cmd.CommandText = "SELECT distinct RTRIM(AccountNames) FROM Account where AccountNumber='" + accountnumber.Text + "' and Freezed='No'";
+                rdr = cmd.ExecuteReader();
+                accountname.Text = "";
+                if (rdr.Read())
+                {
+                    accountname.Text = rdr.GetString(0).Trim();
+                }
+                else
+                {
+                    MessageBox.Show("You Can not withdraw from this Account, It has been Frozen", "Frozen Account", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Hide();
+                }
+                if ((rdr != null))
+                {
+                    rdr.Close();
+                }
+                if (con.State == ConnectionState.Open)
+                {
+                    con.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

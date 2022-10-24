@@ -74,6 +74,7 @@ namespace Banking_System
                 {
                     Staffid.Items.Add(drow[0].ToString());
                 }
+                CN.Close();
             }
             catch (Exception ex)
             {
@@ -273,7 +274,7 @@ namespace Banking_System
                 cmd.Parameters["@d4"].Value = result;
                 cmd.Parameters["@d5"].Value = category.Text.Trim();
                 cmd.ExecuteNonQuery();
-                MessageBox.Show("Successfully saved", "Savings Record", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Successfully saved", "Record", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Reset();
                 con.Close();
             }

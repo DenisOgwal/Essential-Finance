@@ -190,7 +190,7 @@ namespace Banking_System
 
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
-                string cb = "insert into Recovery(LoanID,AccountNumber,AccountNames,RequestDate,RequestedBy) VALUES (@d1,@d2,@d3,@d4,@d5)";
+                string cb = "insert into Recovery(LoanID,AccountNumber,AccountNames,RequestDate,RequestedBy,Approval) VALUES (@d1,@d2,@d3,@d4,@d5,'Pending')";
                 cmd = new SqlCommand(cb);
                 cmd.Connection = con;
                 cmd.Parameters.Add(new SqlParameter("@d1", System.Data.SqlDbType.NChar, 20, "LoanID"));
@@ -265,6 +265,16 @@ namespace Banking_System
             frm.label1.Text = label1.Text;
             frm.label2.Text = label2.Text;
             frm.ShowDialog();
+        }
+
+        private void LoanID_Click(object sender, EventArgs e)
+        {
+            frmClientDetails4 frm = new frmClientDetails4();
+            frm.ShowDialog();
+            this.LoanID.Text = frm.LoanID.Text;
+            this.AccountNumber.Text = frm.clientnames.Text;
+            this.AccountName.Text = frm.Accountnames.Text;
+            return;
         }
     }
 }

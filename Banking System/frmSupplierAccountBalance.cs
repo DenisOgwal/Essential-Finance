@@ -86,7 +86,7 @@ namespace Banking_System
                 SqlConnection CN = new SqlConnection(cs.DBConn);
                 CN.Open();
                 adp = new SqlDataAdapter();
-                adp.SelectCommand = new SqlCommand("SELECT distinct RTRIM(AccountNumber) FROM SupplierAccount", CN);
+                adp.SelectCommand = new SqlCommand("SELECT distinct RTRIM(AccountName) FROM SupplierAccount", CN);
                 ds = new DataSet("ds");
                 adp.Fill(ds);
                 dtable = ds.Tables[0];
@@ -95,7 +95,7 @@ namespace Banking_System
                 {
                     accountnumber.Items.Add(drow[0].ToString());
                 }
-
+                CN.Close();
             }
             catch (Exception ex)
             {
@@ -135,7 +135,8 @@ namespace Banking_System
                     }
                     return;
                 }
-                if (transactiontype.Text == "By Transaction Clearance"|| transactiontype.Text == "Deposit")
+                con.Close();
+                if (transactiontype.Text == "By Transaction Clearance")
                 {
                     con = new SqlConnection(cs.DBConn);
                     con.Open();
@@ -180,34 +181,13 @@ namespace Banking_System
                     cmd.Parameters["@d11"].Value = paymentmode.Text;
                     cmd.ExecuteNonQuery();
                     con.Close();
-                    if (transactiontype.Text == "Deposit")
-                    {
-                        int totalaamount = 0;
-                        con = new SqlConnection(cs.DBConn);
-                        con.Open();
-                        string ct2 = "select AmountAvailable from BankAccounts where AccountNumber= '" + paymentmode.Text + "' ";
-                        cmd = new SqlCommand(ct2);
-                        cmd.Connection = con;
-                        rdr = cmd.ExecuteReader();   
-                        if (rdr.Read())
-                        {
-                            totalaamount = Convert.ToInt32(rdr["AmountAvailable"]);
-                            int newtotalammount = totalaamount - Convert.ToInt32(ammount.Value);
-                            con = new SqlConnection(cs.DBConn);
-                            con.Open();
-                            string cb4 = "UPDate BankAccounts Set AmountAvailable='" + newtotalammount + "', Date='" + dtp.Text + "' where AccountNumber='" + paymentmode.Text + "'";
-                            cmd = new SqlCommand(cb4);
-                            cmd.Connection = con;
-                            cmd.ExecuteNonQuery();
-                            con.Close();
-                        }
-                    }
+                  
                     MessageBox.Show("Successfully saved", "Record", MessageBoxButtons.OK, MessageBoxIcon.Information);
                    
                     loadpay();
 
                 }
-                else if (transactiontype.Text == "Clear All Bills")
+                else if (transactiontype.Text == "Clear All Bills" || transactiontype.Text == "Deposit")
                 {
                     con = new SqlConnection(cs.DBConn);
                     con.Open();
@@ -254,6 +234,29 @@ namespace Banking_System
                     cmd.Parameters["@d10"].Value = reason.Text;
                     cmd.Parameters["@d12"].Value = accountnames.Text;
                     cmd.ExecuteNonQuery();
+                    if (transactiontype.Text == "Deposit")
+                    {
+                        int totalaamount = 0;
+                        con = new SqlConnection(cs.DBConn);
+                        con.Open();
+                        string ct2 = "select AmountAvailable from BankAccounts where AccountNames= '" + paymentmode.Text + "' ";
+                        cmd = new SqlCommand(ct2);
+                        cmd.Connection = con;
+                        rdr = cmd.ExecuteReader();
+                        if (rdr.Read())
+                        {
+                            totalaamount = Convert.ToInt32(rdr["AmountAvailable"]);
+                            int newtotalammount = totalaamount - Convert.ToInt32(ammount.Value);
+                            con = new SqlConnection(cs.DBConn);
+                            con.Open();
+                            string cb4 = "UPDate BankAccounts Set AmountAvailable='" + newtotalammount + "', Date='" + dtp.Text + "' where AccountNames='" + paymentmode.Text + "'";
+                            cmd = new SqlCommand(cb4);
+                            cmd.Connection = con;
+                            cmd.ExecuteNonQuery();
+                            con.Close();
+                        }
+                        con.Close();
+                    }
                     MessageBox.Show("Successfully saved", "Record", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     con.Close();
                     loadpay();
@@ -368,6 +371,7 @@ namespace Banking_System
                 {
                  
                 }
+                con.Close();
             }
             catch (Exception ex)
             {
@@ -401,22 +405,22 @@ namespace Banking_System
             {
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
-                string cb = "insert into DeletedTransactions(SalesID,Product,Size,StaffName,Date) VALUES (@d1,@d2,@d3,@d4,@d6)";
+                string cb = "insert into DeletedTransactions(TransactionID,TransactionType,TransactionAmount,DeleteDate,DeletedBy) VALUES (@d1,@d2,@d3,@d4,@d6)";
                 cmd = new SqlCommand(cb);
                 cmd.Connection = con;
-                cmd.Parameters.Add(new SqlParameter("@d1", System.Data.SqlDbType.NChar, 15, "SalesID"));
-                cmd.Parameters.Add(new SqlParameter("@d2", System.Data.SqlDbType.NChar, 30, "Product"));
-                cmd.Parameters.Add(new SqlParameter("@d3", System.Data.SqlDbType.NChar, 30, "Size"));
-                cmd.Parameters.Add(new SqlParameter("@d4", System.Data.SqlDbType.NChar, 50, "StaffName"));
+                cmd.Parameters.Add(new SqlParameter("@d1", System.Data.SqlDbType.NChar, 15, "TransactionID"));
+                cmd.Parameters.Add(new SqlParameter("@d2", System.Data.SqlDbType.NChar, 30, "TransactionType"));
+                cmd.Parameters.Add(new SqlParameter("@d3", System.Data.SqlDbType.Int, 10, "TransactionAmount"));
+                cmd.Parameters.Add(new SqlParameter("@d4", System.Data.SqlDbType.NChar, 20, "DeleteDate"));
                 //cmd.Parameters.Add(new SqlParameter("@d5", System.Data.SqlDbType.Int, 20, "Quantity"));
-                cmd.Parameters.Add(new SqlParameter("@d6", System.Data.SqlDbType.NChar, 20, "Date"));
+                cmd.Parameters.Add(new SqlParameter("@d6", System.Data.SqlDbType.NChar, 30, "DeletedBy"));
 
                 cmd.Parameters["@d1"].Value = paymentid.Text;
                 cmd.Parameters["@d2"].Value = transactiontype.Text;
-                cmd.Parameters["@d3"].Value = "Account Transaction";
-                cmd.Parameters["@d4"].Value = label13.Text;
+                cmd.Parameters["@d3"].Value = ammount.Value;
+                cmd.Parameters["@d4"].Value = dtp.Text;
                 //cmd.Parameters["@d5"].Value = ;
-                cmd.Parameters["@d6"].Value = DateTime.Today.Date;
+                cmd.Parameters["@d6"].Value = label13.Text; 
                 cmd.ExecuteNonQuery();
                 con.Close();
                 delete_records();
@@ -494,10 +498,10 @@ namespace Banking_System
                     int val6 = 0;
                     int I = 0;
                     int.TryParse(duefeess, out val4);
-                    int.TryParse(ammount.Text, out val6);
+                    int.TryParse(ammount.Value.ToString(), out val6);
                     if (transactiontype.Text == "Deposit")
                     {
-                        I = (val4 + val6);
+                        I = (val4 + val6)-billspending.Value;
                     }
                     else
                     {
@@ -515,18 +519,19 @@ namespace Banking_System
                     if (transactiontype.Text == "Deposit")
                     {
                         int val1 = 0;
-                        int.TryParse(ammount.Text, out val1);
+                        int.TryParse(ammount.Value.ToString(), out val1);
                         int I = (val1);
-                        Accountbalance.Text = (0 + I).ToString();
+                        Accountbalance.Text = (0 + I- billspending.Value).ToString();
                     }
                     else
                     {
                         int val1 = 0;
-                        int.TryParse(ammount.Text, out val1);
+                        int.TryParse(ammount.Value.ToString(), out val1);
                         int I = (val1);
                         Accountbalance.Text = (0 - I).ToString();
                     }
                 }
+                con.Close();
             }
             catch (Exception ex)
             {
@@ -556,7 +561,8 @@ namespace Banking_System
                     reason.Text = "N/A";
                     ammount.Text = "0";
                 }
-               
+                con.Close();
+
             }
             catch (Exception ex)
             {
@@ -615,6 +621,7 @@ namespace Banking_System
                         Accountbalance.Text = (0 - I).ToString();
                     }
                 }
+                con.Close();
             }
             catch (Exception ex)
             {
@@ -645,32 +652,39 @@ namespace Banking_System
 
         private void transactiontype_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (transactiontype.Text == "Deposit")
+            try
             {
-                transactionid.Text = "N/A";
-                //reason.Text = "N/A";
-                //reason.Enabled = false;
-                amountdue.Enabled = true;
-                amountdue.Text = "0";
-                transactionid.Enabled = true;
+                if (transactiontype.Text == "Deposit")
+                {
+                    transactionid.Text = "N/A";
+                    //reason.Text = "N/A";
+                    //reason.Enabled = false;
+                    amountdue.Enabled = true;
+                    amountdue.Text = "0";
+                    transactionid.Enabled = true;
 
-            }
-            else if (transactiontype.Text == "Clear All Bills")
-            {
-                ammount.Enabled = false;
-                ammount.Text = billspending.Text;
-                transactionid.Text = "N/A";
-                transactionid.Enabled = true;
-                reason.Text = "Total Peanding Balance Clearance";
+                }
+                else if (transactiontype.Text == "Clear All Bills")
+                {
+                    ammount.Enabled = false;
+                    ammount.Text = billspending.Value.ToString();
+                    transactionid.Text = "N/A";
+                    transactionid.Enabled = true;
+                    reason.Text = "Total Peanding Balance Clearance";
 
+                }
+                else
+                {
+                    ammount.Text = null;
+                    amountdue.Enabled = false;
+                    transactionid.Text = " ";
+                    transactionid.Enabled = true;
+                    ammount.Enabled = true;
+                }
             }
-            else
+            catch (Exception ex)
             {
-                ammount.Text = null;
-                amountdue.Enabled = false;
-                transactionid.Text = " ";
-                transactionid.Enabled = true;
-                ammount.Enabled = true;
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -696,7 +710,7 @@ namespace Banking_System
                     {
                         transactionid.Items.Add(drow[0].ToString());
                     }
-
+                    CN.Close();
                 }
                 catch (Exception ex)
                 {
@@ -728,6 +742,7 @@ namespace Banking_System
                         Accountbalance.Text = "0";
                         label17.Text = "0";
                     }
+                    con.Close();
                 }
                 catch (Exception ex)
                 {
@@ -757,6 +772,7 @@ namespace Banking_System
                     {
                         Accountbalance.Text = "0";
                     }
+                    con.Close();
                 }
                 catch (Exception ex)
                 {
@@ -787,6 +803,7 @@ namespace Banking_System
                     {
                         billspending.Text = "0";
                     }
+                    con.Close();
                 }
                 catch (Exception ex)
                 {
@@ -833,6 +850,7 @@ namespace Banking_System
                     }
                     return;
                 }
+                con.Close();
                 if (transactiontype.Text == "By Transaction Clearance" || transactiontype.Text == "Deposit")
                 {
                     con = new SqlConnection(cs.DBConn);
@@ -997,9 +1015,9 @@ namespace Banking_System
                 dtable = ds.Tables[0];
                 foreach (DataRow drow in dtable.Rows)
                 {
-                    paymentmode.Items.Add(drow[0].ToString());
+                    paymentmode.Items.Add(drow[1].ToString());
                 }
-
+                CN.Close();
             }
             catch (Exception ex)
             {

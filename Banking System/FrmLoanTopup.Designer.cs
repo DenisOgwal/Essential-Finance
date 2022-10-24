@@ -112,11 +112,11 @@ namespace Banking_System
             // 
             // LoanID
             // 
-            this.LoanID.Enabled = false;
             this.LoanID.Location = new System.Drawing.Point(493, 13);
             this.LoanID.Name = "LoanID";
             this.LoanID.Size = new System.Drawing.Size(282, 29);
             this.LoanID.TabIndex = 130;
+            this.LoanID.Click += new System.EventHandler(this.LoanID_Click);
             this.LoanID.TextChanged += new System.EventHandler(this.LoanID_TextChanged);
             // 
             // label7
@@ -443,7 +443,7 @@ namespace Banking_System
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = global::Banking_System.Properties.Settings.Default.usercolor;
-            this.ClientSize = new System.Drawing.Size(784, 565);
+            this.ClientSize = new System.Drawing.Size(784, 563);
             this.Controls.Add(this.InterestRate);
             this.Controls.Add(this.ServicingPeriod);
             this.Controls.Add(this.label16);

@@ -18,6 +18,7 @@ namespace Banking_System
         SqlDataReader rdr = null;
         SqlCommand cmd2 = null;
         SqlDataReader rdr2 = null;
+        SqlDataAdapter adp;
         public frmExternalLoanManual()
         {
             InitializeComponent();
@@ -25,7 +26,25 @@ namespace Banking_System
 
         private void frmExternalLoanManual_Load(object sender, EventArgs e)
         {
-
+            try
+            {
+                SqlConnection CN = new SqlConnection(cs.DBConn);
+                CN.Open();
+                adp = new SqlDataAdapter();
+                adp.SelectCommand = new SqlCommand("SELECT distinct RTRIM(AccountNumber),RTRIM(AccountNames) FROM BankAccounts", CN);
+                ds = new DataSet("ds");
+                adp.Fill(ds);
+                dtable = ds.Tables[0];
+                foreach (DataRow drow in dtable.Rows)
+                {
+                    PaymentMode.Items.Add(drow[1].ToString());
+                }
+                CN.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void buttonX1_Click(object sender, EventArgs e)
@@ -94,6 +113,14 @@ namespace Banking_System
             }
             try
             {
+                int rowscounting  = dataGridView1.Rows.Count;
+                int servicingperiods = Convert.ToInt32(ServicingPeriod.Text);
+                int repaymentintervals= Convert.ToInt32(PaymentInterval.Value);
+                if (rowscounting<(servicingperiods/ repaymentintervals))
+                {
+                    MessageBox.Show("Repayment Installments can not be less than agreed Installments");
+                    return;
+                }
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
                 string cb = "insert into ExternalLoans(LoansID,LoanAmmount,Securities,OfficerName,Date,Period,InterestRate,ModeOfPayment,Lender,Method,ServicingInterval) VALUES (@d1,@d2,@d3,@d4,@d5,@d6,@d7,@d8,@d9,@d10,@d11)";
@@ -124,10 +151,29 @@ namespace Banking_System
                 cmd.ExecuteNonQuery();
                 con.Close();
 
-
+                SqlDataReader rdr = null;
+                int totalaamount = 0;
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
-                string cb2 = "insert into ExternalRepaymentSchedule(LoanID,Months,PaymentDate,TotalAmmount,AmmountPay,Interest,BalanceExist,BeginningBalance) VALUES (@d1,@d2,@d3,@d4,@d5,@d6,@d7,@d8)";
+                string ct2 = "select AmountAvailable from BankAccounts where AccountNames= '" + PaymentMode.Text + "' ";
+                cmd = new SqlCommand(ct2);
+                cmd.Connection = con;
+                rdr = cmd.ExecuteReader();
+                if (rdr.Read())
+                {
+                    totalaamount = Convert.ToInt32(rdr["AmountAvailable"]);
+                    int newtotalammount = totalaamount + Convert.ToInt32(Amount.Value);
+                    con = new SqlConnection(cs.DBConn);
+                    con.Open();
+                    string cb3 = "UPDate BankAccounts Set AmountAvailable='" + newtotalammount + "', Date='" + ApplicationDate.Text + "' where AccountNames='" + PaymentMode.Text + "'";
+                    cmd = new SqlCommand(cb3);
+                    cmd.Connection = con;
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+                }
+                con = new SqlConnection(cs.DBConn);
+                con.Open();
+                string cb2 = "insert into ExternalRepaymentSchedule(LoanID,Months,PaymentDate,TotalAmmount,AmmountPay,Interest,BalanceExist,BeginningBalance,Lender) VALUES (@d1,@d2,@d3,@d4,@d5,@d6,@d7,@d8,@d9)";
                 cmd = new SqlCommand(cb2);
                 cmd.Connection = con;
                 cmd.Parameters.Add(new SqlParameter("@d1", System.Data.SqlDbType.NChar, 15, "LoanID"));
@@ -138,6 +184,7 @@ namespace Banking_System
                 cmd.Parameters.Add(new SqlParameter("@d6", System.Data.SqlDbType.Float, 20, "Interest"));
                 cmd.Parameters.Add(new SqlParameter("@d7", System.Data.SqlDbType.Float, 20, "BalanceExist"));
                 cmd.Parameters.Add(new SqlParameter("@d8", System.Data.SqlDbType.Float, 20, "BeginningBalance"));
+                cmd.Parameters.Add(new SqlParameter("@d9", System.Data.SqlDbType.NChar, 50, "Lender"));
                 foreach (DataGridViewRow row in dataGridView1.Rows)
                 {
                     if (!row.IsNewRow)
@@ -152,6 +199,7 @@ namespace Banking_System
                             cmd.Parameters["@d6"].Value = row.Cells[3].Value;
                             cmd.Parameters["@d7"].Value = row.Cells[4].Value;
                             cmd.Parameters["@d8"].Value = row.Cells[5].Value;
+                            cmd.Parameters["@d9"].Value = Lender.Text;
                             cmd.ExecuteNonQuery();
                            
                         }
@@ -159,6 +207,11 @@ namespace Banking_System
                 }
                 con.Close();
                 MessageBox.Show("Successful", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Hide();
+                frmExternalLoanManual frm = new frmExternalLoanManual();
+                frm.label1.Text = label1.Text;
+                frm.label2.Text = label2.Text;
+                frm.ShowDialog();
             }
             catch(Exception ex)
             {
@@ -229,7 +282,7 @@ namespace Banking_System
                     string staffids = rdr["StaffID"].ToString().Trim();
                     con = new SqlConnection(cs.DBConn);
                     con.Open();
-                    string ct = "SELECT UserName,StaffID FROM ApprovalRights WHERE StaffID='" + staffids + "' and ManagingDirector='Yes'";
+                    string ct = "SELECT UserName,StaffID FROM ApprovalRights WHERE StaffID='" + staffids + "' and ExternalLoans='Yes'";
                     cmd2 = new SqlCommand(ct);
                     cmd2.Connection = con;
                     rdr2 = cmd2.ExecuteReader();

@@ -190,7 +190,7 @@ namespace Banking_System
 
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
-                string cb = "UPDATE Recovery SET Approval=@d2,ApprovalComment=@d3,ApprovalDate=@d4,ApprovedBy=@d5 Where LoanID=@d1";
+                string cb = "UPDATE Recovery SET Approval=@d2,ApprovalComment=@d3,ApprovalDate=@d4,ApprovedBy=@d5,RecoveryModeBy='Pending' Where LoanID=@d1";
                 cmd = new SqlCommand(cb);
                 cmd.Connection = con;
                 cmd.Parameters.Add(new SqlParameter("@d1", System.Data.SqlDbType.NChar, 20, "LoanID"));

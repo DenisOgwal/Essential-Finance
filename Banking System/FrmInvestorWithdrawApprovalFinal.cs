@@ -13,7 +13,6 @@ namespace Banking_System
     {
         SqlDataReader rdr = null;
         SqlDataReader rdr2 = null;
-        SqlDataAdapter adp;
         DataTable dtable = new DataTable();
         SqlConnection con = null;
         DataSet ds = new DataSet();
@@ -89,6 +88,7 @@ namespace Banking_System
                 {
                    
                 }
+                con.Close();
             }
             catch (Exception ex)
             {
@@ -360,7 +360,8 @@ namespace Banking_System
                     {
                     investmentid.Items.Add(rdr2["SavingsID"].ToString());   
                     }
-                   
+                con.Close();
+
             }
             catch (Exception ex)
             {
@@ -406,8 +407,9 @@ namespace Banking_System
                     depositammount.Value = Convert.ToInt32(rdr["Amount"]);
                     investmentid.Text = rdr["SavingsID"].ToString();
                     comment.Text= rdr["Comment"].ToString();
-
+                    firstapprovalby.Text= rdr["ApprovalBy"].ToString();
                 }
+                con.Close();
             }
             catch (Exception Ex)
             {

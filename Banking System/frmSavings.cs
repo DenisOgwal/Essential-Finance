@@ -55,24 +55,75 @@ namespace Banking_System
             int realid = 0;
             con = new SqlConnection(cs.DBConn);
             con.Open();
-            cmd = new SqlCommand("select ID from Savings where Date=@date1 Order By ID DESC",con);
-            cmd.Parameters.Add("@date1", SqlDbType.DateTime, 30, "Date").Value = date2.Value.Date;
+            cmd = new SqlCommand("select ID from SavingsTransactions  Order By ID DESC",con);
+            cmd.Parameters.Add("@date1", SqlDbType.DateTime, 30, "Date").Value = date2.Text;
             cmd.Connection = con;
             rdr = cmd.ExecuteReader();
             if (rdr.Read())
             {
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
-                cmd = new SqlCommand("select COUNT(AccountNo) from Savings where Date=@date1", con);
-                cmd.Parameters.Add("@date1", SqlDbType.DateTime, 30, "Date").Value = date2.Value.Date;
+                cmd = new SqlCommand("select COUNT(AccountNo) from SavingsTransactions ", con);
+                cmd.Parameters.Add("@date1", SqlDbType.DateTime, 30, "Date").Value = date2.Text;
                 realid = Convert.ToInt32(cmd.ExecuteScalar()) + 1;
             }
             else
             {
                 realid = 1;
             }
+            con.Close();
             string years = yearss.Substring(2, 2);
-            savingsid.Text = "S-" + years + monthss + days +realid;
+            savingsid.Text = "S-"+ days +realid;
+        }
+        private void auto3()
+        {
+            int realid = 0;
+            con = new SqlConnection(cs.DBConn);
+            con.Open();
+            cmd = new SqlCommand("select ID from SavingsTransactions  Order By ID DESC", con);
+            cmd.Parameters.Add("@date1", SqlDbType.DateTime, 30, "Date").Value = date2.Text;
+            cmd.Connection = con;
+            rdr = cmd.ExecuteReader();
+            if (rdr.Read())
+            {
+                con = new SqlConnection(cs.DBConn);
+                con.Open();
+                cmd = new SqlCommand("select COUNT(AccountNo) from SavingsTransactions ", con);
+                cmd.Parameters.Add("@date1", SqlDbType.DateTime, 30, "Date").Value = date2.Text;
+                realid = Convert.ToInt32(cmd.ExecuteScalar()) + 2;
+            }
+            else
+            {
+                realid = 1;
+            }
+            con.Close();
+            string years = yearss.Substring(2, 2);
+            savingsid.Text = "S-" + days + realid;
+        }
+        private void auto4()
+        {
+            int realid = 0;
+            con = new SqlConnection(cs.DBConn);
+            con.Open();
+            cmd = new SqlCommand("select ID from SavingsTransactions  Order By ID DESC", con);
+            cmd.Parameters.Add("@date1", SqlDbType.DateTime, 30, "Date").Value = date2.Text;
+            cmd.Connection = con;
+            rdr = cmd.ExecuteReader();
+            if (rdr.Read())
+            {
+                con = new SqlConnection(cs.DBConn);
+                con.Open();
+                cmd = new SqlCommand("select COUNT(AccountNo) from SavingsTransactions ", con);
+                cmd.Parameters.Add("@date1", SqlDbType.DateTime, 30, "Date").Value = date2.Text;
+                realid = Convert.ToInt32(cmd.ExecuteScalar());
+            }
+            else
+            {
+                realid = 1;
+            }
+            con.Close();
+            string years = yearss.Substring(2, 2);
+            savingsid.Text = "S-" + days + realid;
         }
         private void frmSavings_Load(object sender, EventArgs e)
         {
@@ -87,9 +138,9 @@ namespace Banking_System
                 dtable = ds.Tables[0];
                 foreach (DataRow drow in dtable.Rows)
                 {
-                    cmbModeOfPayment.Items.Add(drow[0].ToString());
+                    cmbModeOfPayment.Items.Add(drow[1].ToString());
                 }
-
+                CN.Close();
             }
             catch (Exception ex)
             {
@@ -119,6 +170,7 @@ namespace Banking_System
                 {
                    
                 }
+                con.Close();
             }
             catch (Exception ex)
             {
@@ -164,7 +216,7 @@ namespace Banking_System
                         string usernamess = Properties.Settings.Default.smsusername;
                         string passwordss = Properties.Settings.Default.smspassword;
                         numbers = "+256" + numberphone;
-                        messages = " A deposit of " + depositammount.Text + " Has been made on your account No. " + accountnumber.Text + ", Accout Name"+accountname.Text+"  and your account balance is " + accountbalance.Text;
+                        messages = "A deposit of " + depositammount.Text + " Has been made on your account No. " + accountnumber.Text + ", Accout Name"+accountname.Text+"  and your account balance is " + accountbalance.Text;
 
                         WebClient client = new WebClient();
                         string baseURL = "http://geniussmsgroup.com/api/http/messagesService/get?username="+usernamess +"&password="+passwordss+"&senderid=Geniussms&message=" + messages + "&numbers=" + numbers;
@@ -218,6 +270,40 @@ namespace Banking_System
             }
             try
             {
+                try
+                {
+                    con = new SqlConnection(cs.DBConn);
+                    con.Open();
+                    string kt = "select SavingsID from Savings where SavingsID='" + savingsid.Text + "' order by ID Desc";
+                    cmd = new SqlCommand(kt);
+                    cmd.Connection = con;
+                    rdr = cmd.ExecuteReader();
+                    if (rdr.Read())
+                    {
+                        auto3();
+                        con = new SqlConnection(cs.DBConn);
+                        con.Open();
+                        string kt3 = "select SavingsID from Savings where SavingsID='" + savingsid.Text + "' order by ID Desc";
+                        cmd = new SqlCommand(kt3);
+                        cmd.Connection = con;
+                        rdr = cmd.ExecuteReader();
+                        if (rdr.Read())
+                        {
+                            auto4();
+                        }
+                        con.Close();
+
+                    }
+                    else
+                    {
+                        auto2();
+                    }
+                    con.Close();
+                }
+                catch (Exception Ex)
+                {
+                    MessageBox.Show(Ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
                 string cb = "insert into SavingsTransactions(SavingsID,AccountNo,AccountName,CashierName,Date,Deposit,Accountbalance,SubmittedBy,Transactions,ModeOfPayment,DepositDate,Credit) VALUES (@d1,@d2,@d3,@d4,@d5,@d6,@d7,@d8,@d9,@d10,@d11,@d12)";
@@ -248,6 +334,7 @@ namespace Banking_System
                 cmd.Parameters["@d11"].Value = dateTimePicker1.Text;
                 cmd.Parameters["@d12"].Value = "CR";
                 cmd.ExecuteNonQuery();
+                con.Close();
                 MessageBox.Show("Successfully saved", "Savings Record", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 /*string smsallow = Properties.Settings.Default.smsallow;
                 if (smsallow == "Yes")
@@ -467,6 +554,7 @@ namespace Banking_System
                         int.TryParse(depositammount.Value.ToString(), out val1);
                         accountbalance.Value = val1 ;
                     }
+                    con.Close();
                 }
             }
             catch (Exception ex)
@@ -492,6 +580,11 @@ namespace Banking_System
             this.accountnumber.Text = frm.clientnames.Text;
             this.accountname.Text = frm.Accountnames.Text;
             return;
+        }
+
+        private void accountname_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

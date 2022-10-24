@@ -12,7 +12,6 @@ namespace Banking_System
     public partial class frmSavingsApproval : DevComponents.DotNetBar.Office2007Form
     {
         SqlDataReader rdr = null;
-        SqlDataReader rdr2 = null;
         SqlDataAdapter adp;
         DataTable dtable = new DataTable();
         SqlConnection con = null;
@@ -20,7 +19,9 @@ namespace Banking_System
         SqlCommand cmd = null;
         DataTable dt = new DataTable();
         SqlCommand cmd2 = null;
+        SqlDataReader rdr2 = null;
         ConnectionString cs = new ConnectionString();
+        string printoptionss = Properties.Settings.Default.PrintOptions;
         string companyname = null;
         string companyemail = null;
         string companyaddress = null;
@@ -37,7 +38,7 @@ namespace Banking_System
             {
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
-                cmd = new SqlCommand("select RTRIM(AccountNo)[Account No.],RTRIM(AccountName)[Account Name],RTRIM(SavingsID)[Deposit ID] from SavingsTransactions where Approval='Not Approved' and Credit='CR' order by ID DESC", con);
+                cmd = new SqlCommand("select RTRIM(AccountNo)[Account No.],RTRIM(AccountName)[Account Name],RTRIM(SavingsID)[Deposit ID],RTRIM(ModeOfPayment)[Mode Of Payment] from SavingsTransactions where Approval='Not Approved' and Credit='CR' order by ID DESC", con);
                 SqlDataAdapter myDA = new SqlDataAdapter(cmd);
                 DataSet myDataSet = new DataSet();
                 myDA.Fill(myDataSet, "SavingsTransactions");
@@ -59,9 +60,9 @@ namespace Banking_System
                 dtable = ds.Tables[0];
                 foreach (DataRow drow in dtable.Rows)
                 {
-                    cmbModeOfPayment.Items.Add(drow[0].ToString());
+                    cmbModeOfPayment.Items.Add(drow[1].ToString());
                 }
-
+                CN.Close();
             }
             catch (Exception ex)
             {
@@ -91,6 +92,7 @@ namespace Banking_System
                 {
                    
                 }
+                con.Close();
             }
             catch (Exception ex)
             {
@@ -112,37 +114,39 @@ namespace Banking_System
             string numbers = null;
             try
             {
-                    using (var client2 = new WebClient())
-                    using (client2.OpenRead("http://client3.google.com/generate_204"))
+                using (var client2 = new WebClient())
+                using (client2.OpenRead("http://client3.google.com/generate_204"))
+                {
+                    con = new SqlConnection(cs.DBConn);
+                    con.Open();
+                    cmd = con.CreateCommand();
+                    cmd.CommandText = "SELECT distinct RTRIM(ContactNo) FROM Account where AccountNumber='" + accountnumber.Text + "'";
+                    rdr = cmd.ExecuteReader();
+                    if (rdr.Read())
                     {
-                        con = new SqlConnection(cs.DBConn);
-                        con.Open();
-                        cmd = con.CreateCommand();
-                        cmd.CommandText = "SELECT distinct RTRIM(ContactNo) FROM Account where AccountNumber='" + accountnumber.Text + "'";
-                        rdr = cmd.ExecuteReader();
-                        if (rdr.Read())
-                        {
-                            numberphone = rdr.GetString(0);
-                        }
-                        if ((rdr != null))
-                        {
-                            rdr.Close();
-                        }
-                        if (con.State == ConnectionState.Open)
-                        {
-                            con.Close();
-                        }
-
-                        string usernamess = Properties.Settings.Default.smsusername;
-                        string passwordss = Properties.Settings.Default.smspassword;
-                        numbers = "+256" + numberphone;
-                        messages = " A deposit of " + depositammount.Text + " Has been made on your account No. " + accountnumber.Text + ", Accout Name "+accountname.Text+"  and your account balance is " + accountbalance.Text;
-
-                        WebClient client = new WebClient();
-                        string baseURL = "http://geniussmsgroup.com/api/http/messagesService/get?username="+usernamess +"&password="+passwordss+"&senderid=Geniussms&message=" + messages + "&numbers=" + numbers;
-                        client.OpenRead(baseURL);
-                        //MessageBox.Show("Successfully sent message");
+                        numberphone = rdr.GetString(0);
                     }
+                    if ((rdr != null))
+                    {
+                        rdr.Close();
+                    }
+                    if (con.State == ConnectionState.Open)
+                    {
+                        con.Close();
+                    }
+                    string smsheader = Properties.Settings.Default.Smscode;
+                    string inquiryphone = Properties.Settings.Default.phoneinquiry;
+                    string usernamess = Properties.Settings.Default.smsusername;
+                    string passwordss = Properties.Settings.Default.smspassword;
+                    numbers = "+256" + numberphone;
+                    //messages = "A deposit of " + depositammount.Text + " Has been made on your account No. " + accountnumber.Text + ", Accout Name " + accountname.Text + "  and your account balance is " + accountbalance.Text;
+                    messages = smsheader + ": Your Account has been Credited UGX. " + depositammount.Text + " Reason:Cash Deposit. For Any Inquiries Call: " + inquiryphone;
+
+                    WebClient client = new WebClient();
+                    string baseURL = "http://geniussmsgroup.com/api/http/messagesService/get?username=" + usernamess + "&password=" + passwordss + "&senderid=Geniussms&message=" + messages + "&numbers=" + numbers;
+                    client.OpenRead(baseURL);
+                    //MessageBox.Show("Successfully sent message");
+                }
             }
             catch (Exception)
             {
@@ -171,7 +175,7 @@ namespace Banking_System
             }
             if (depositammount.Text == "")
             {
-                MessageBox.Show("Please enter Deposited ammount", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Please enter Deposited amount", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 depositammount.Focus();
                 return;
             }
@@ -249,17 +253,16 @@ namespace Banking_System
                 cmd.Parameters.Add(new SqlParameter("@d1", System.Data.SqlDbType.NChar, 15, "SavingsID"));
                 cmd.Parameters.Add(new SqlParameter("@d2", System.Data.SqlDbType.NChar, 20, "Approval"));
                 cmd.Parameters.Add(new SqlParameter("@d3", System.Data.SqlDbType.NChar, 50, "ApprovedBy"));
-
                 cmd.Parameters["@d1"].Value = savingsid.Text.Trim();
                 cmd.Parameters["@d2"].Value = approvals.Text;
                 cmd.Parameters["@d3"].Value = cashiername.Text;
                 cmd.ExecuteNonQuery();
-
+                con.Close();
                 SqlDataReader rdr = null;
                 int totalaamount = 0;
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
-                string ct2 = "select AmountAvailable from BankAccounts where AccountNumber= '" + cmbModeOfPayment.Text + "' ";
+                string ct2 = "select AmountAvailable from BankAccounts where AccountNames= '" + cmbModeOfPayment.Text + "' ";
                 cmd = new SqlCommand(ct2);
                 cmd.Connection = con;
                 rdr = cmd.ExecuteReader();
@@ -269,13 +272,13 @@ namespace Banking_System
                     int newtotalammount = totalaamount + Convert.ToInt32(depositammount.Value);
                     con = new SqlConnection(cs.DBConn);
                     con.Open();
-                    string cb2 = "UPDate BankAccounts Set AmountAvailable='" + newtotalammount + "', Date='" + dateTimePicker1.Text + "' where AccountNumber='" + cmbModeOfPayment.Text + "'";
+                    string cb2 = "UPDate BankAccounts Set AmountAvailable='" + newtotalammount + "', Date='" + dateTimePicker1.Text + "' where AccountNames='" + cmbModeOfPayment.Text + "'";
                     cmd = new SqlCommand(cb2);
                     cmd.Connection = con;
                     cmd.ExecuteNonQuery();
                     con.Close();
                 }
-
+                con.Close();
                 MessageBox.Show("Successfully saved", "Savings Approval Record", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 string smsallow = Properties.Settings.Default.smsallow;
                 if (smsallow == "Yes")
@@ -444,6 +447,7 @@ namespace Banking_System
                     {
                         cashiername.Text = "";
                     }
+                    con.Close();
                 }
                 else
                 {
@@ -491,6 +495,7 @@ namespace Banking_System
                         int.TryParse(depositammount.Value.ToString(), out val1);
                         accountbalance.Value = val1 ;
                     }
+                    con.Close();
                 }
             }
             catch (Exception ex)
@@ -605,12 +610,12 @@ namespace Banking_System
                     cmd.Parameters["@d2"].Value = approvals.Text;
                     cmd.Parameters["@d3"].Value = cashiername.Text;
                     cmd.ExecuteNonQuery();
-
+                    con.Close();
                     SqlDataReader rdr = null;
                     int totalaamount = 0;
                     con = new SqlConnection(cs.DBConn);
                     con.Open();
-                    string ct2 = "select AmountAvailable from BankAccounts where AccountNumber= '" + cmbModeOfPayment.Text + "' ";
+                    string ct2 = "select AmountAvailable from BankAccounts where AccountNames= '" + cmbModeOfPayment.Text + "' ";
                     cmd = new SqlCommand(ct2);
                     cmd.Connection = con;
                     rdr = cmd.ExecuteReader();
@@ -620,12 +625,13 @@ namespace Banking_System
                         int newtotalammount = totalaamount + Convert.ToInt32(depositammount.Value);
                         con = new SqlConnection(cs.DBConn);
                         con.Open();
-                        string cb2 = "UPDate BankAccounts Set AmountAvailable='" + newtotalammount + "', Date='" + dateTimePicker1.Text + "' where AccountNumber='" + cmbModeOfPayment.Text + "'";
+                        string cb2 = "UPDate BankAccounts Set AmountAvailable='" + newtotalammount + "', Date='" + dateTimePicker1.Text + "' where AccountNames='" + cmbModeOfPayment.Text + "'";
                         cmd = new SqlCommand(cb2);
                         cmd.Connection = con;
                         cmd.ExecuteNonQuery();
                         con.Close();
                     }
+                    con.Close();
                     MessageBox.Show("Successfully saved", "Savings Approval Record", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     string smsallow = Properties.Settings.Default.smsallow;
                     if (smsallow == "Yes")
@@ -672,7 +678,17 @@ namespace Banking_System
                     rpt.SetParameterValue("companyaddress", companyaddress);
                     rpt.SetParameterValue("picpath", "logo.jpg");
                     frm.crystalReportViewer1.ReportSource = rpt;
-                    frm.ShowDialog();
+                    myConnection.Close();
+                    if (printoptionss == "autoprint")
+                    {
+                        string BarPrinter = Properties.Settings.Default.frontendprinter;
+                        rpt.PrintOptions.PrinterName = BarPrinter;
+                        rpt.PrintToPrinter(1, true, 1, 1);
+                    }
+                    else
+                    {
+                        frm.ShowDialog();
+                    }
                     //BarPrinter = Properties.Settings.Default.frontendprinter;
                     //rpt.PrintOptions.PrinterName = BarPrinter;
                     //rpt.PrintToPrinter(1, true, 1, 1);
@@ -715,9 +731,21 @@ namespace Banking_System
             try
             {
                 DataGridViewRow dr = dataGridView1.CurrentRow;
+                label4.Text = dr.Cells[3].Value.ToString();
                 accountnumber.Text = dr.Cells[0].Value.ToString();
                 accountname.Text = dr.Cells[1].Value.ToString();
                 savingsid.Text = dr.Cells[2].Value.ToString();
+                label4.Text = dr.Cells[3].Value.ToString();
+
+                if (label4.Text.Trim() == "Transfer")
+                {
+                    MessageBox.Show("Please First Approve the Debit Transaction For this Transfer", "Information",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                    this.Hide();
+                    frmSavingsApproval frm = new frmSavingsApproval();
+                    frm.label1.Text = label1.Text;
+                    frm.label2.Text = label2.Text;
+                    frm.ShowDialog();
+                }
             }
             catch (Exception ex)
             {
@@ -732,6 +760,7 @@ namespace Banking_System
                 if (savingsid.Text == "") { }
                 else
                 {
+                    SqlDataReader rdr = null;
                     con = new SqlConnection(cs.DBConn);
                     con.Open();
                     string ct2 = "select * from SavingsTransactions where  SavingsID= '" + savingsid.Text + "' ";
@@ -744,21 +773,28 @@ namespace Banking_System
                         dateTimePicker1.Text = rdr["DepositDate"].ToString();
                         cmbModeOfPayment.Text = rdr["ModeOfPayment"].ToString();
                         depositammount.Text = rdr["Deposit"].ToString();
+                        cashier.Text = rdr["CashierName"].ToString();
                         //accountbalance.Text = rdr["Accountbalance"].ToString();
-                       
-                       
+
+
                         con.Close();
                     }
                     else
                     {
                         MessageBox.Show("Wrong Transaction","Information",MessageBoxButtons.OK,MessageBoxIcon.Error);
                     }
+                    con.Close();
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void cashier_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

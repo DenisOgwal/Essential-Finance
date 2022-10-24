@@ -1,10 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 using System.Reflection;
 namespace Banking_System
@@ -15,10 +9,11 @@ namespace Banking_System
         {
             InitializeComponent();
         }
+
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
              try{
-            string webAddress = "http://www.facebook.com/ogwal denis";
+                 string webAddress = "https://www.facebook.com/ditherug";
 
             System.Diagnostics.Process.Start(webAddress);
              }
@@ -32,7 +27,8 @@ namespace Banking_System
         {
             try
             {
-                string webAddress = "https://twitter.com/@denoogwal";
+                string webAddress = "https://twitter.com/DitherTechnolo1";
+
                 System.Diagnostics.Process.Start(webAddress);
             }
             catch (Exception ex)
@@ -60,6 +56,8 @@ namespace Banking_System
         private void frmContact_Load(object sender, EventArgs e)
         {
             this.label7.Text = AssemblyCopyright;
-        }     
+        }
+
+     
     }
 }

@@ -37,7 +37,7 @@ namespace Banking_System
                 if (rdr.Read())
                 {
                     companyname = rdr.GetString(1).Trim();
-                    companyaddress = rdr.GetString(5).Trim();
+                    companyaddress = rdr.GetString(7).Trim();
                     companyslogan = rdr.GetString(2).Trim();
                     companycontact = rdr.GetString(4).Trim();
                     companyemail = rdr.GetString(3).Trim();
@@ -46,6 +46,7 @@ namespace Banking_System
                 {
 
                 }
+                con.Close();
             }
             catch (Exception ex)
             {
@@ -105,6 +106,7 @@ namespace Banking_System
                     rpt.SetParameterValue("companyaddress", companyaddress);
                     rpt.SetParameterValue("picpath", "logo.jpg");
                     crystalReportViewer1.ReportSource = rpt;
+                myConnection.Close();
                 
             }
             catch (Exception ex)
@@ -127,9 +129,9 @@ namespace Banking_System
                     myConnection = new SqlConnection(cs.DBConn);
                     myConnection.Open();
                     MyCommand.Connection = myConnection;
-                    MyCommand.CommandText = "select  * from RepaymentSchedule where PaymentDate between @date1 and @date2 and PaymentStatus='Paid'  order by ID ASC ";
-                    MyCommand.Parameters.Add("@date1", SqlDbType.DateTime, 30, "PaymentDate").Value = paidfrom.Value.Date;
-                    MyCommand.Parameters.Add("@date2", SqlDbType.DateTime, 30, "PaymentDate").Value = paidto.Value.Date;
+                    MyCommand.CommandText = "select  * from RepaymentSchedule where ActualPaymentDate between @date1 and @date2 and PaymentStatus='Paid'  order by ID ASC ";
+                    MyCommand.Parameters.Add("@date1", SqlDbType.DateTime, 30, "ActualPaymentDate").Value = paidfrom.Value.Date;
+                    MyCommand.Parameters.Add("@date2", SqlDbType.DateTime, 30, "ActualPaymentDate").Value = paidto.Value.Date;
                     MyCommand.CommandType = CommandType.Text;
                     myDA.SelectCommand = MyCommand;
                     myDA.Fill(myDS, "RepaymentSchedule");
@@ -143,6 +145,7 @@ namespace Banking_System
                     rpt.SetParameterValue("companyaddress", companyaddress);
                     rpt.SetParameterValue("picpath", "logo.jpg");
                     crystalReportViewer2.ReportSource = rpt;
+                myConnection.Close();
             }
             catch (Exception ex)
             {
@@ -194,6 +197,7 @@ namespace Banking_System
                 rpt.SetParameterValue("companyaddress", companyaddress);
                 rpt.SetParameterValue("picpath", "logo.jpg");
                 crystalReportViewer3.ReportSource = rpt;
+                myConnection.Close();
             }
             catch (Exception ex)
             {
@@ -238,6 +242,7 @@ namespace Banking_System
                 rpt.SetParameterValue("companyaddress", companyaddress);
                 rpt.SetParameterValue("picpath", "logo.jpg");
                 crystalReportViewer4.ReportSource = rpt;
+                myConnection.Close();
             }
             catch (Exception ex)
             {
@@ -282,6 +287,7 @@ namespace Banking_System
                 rpt.SetParameterValue("companyaddress", companyaddress);
                 rpt.SetParameterValue("picpath", "logo.jpg");
                 crystalReportViewer5.ReportSource = rpt;
+                myConnection.Close();
             }
             catch (Exception ex)
             {
@@ -326,6 +332,7 @@ namespace Banking_System
                 rpt.SetParameterValue("companyaddress", companyaddress);
                 rpt.SetParameterValue("picpath", "logo.jpg");
                 crystalReportViewer6.ReportSource = rpt;
+                myConnection.Close();
             }
             catch (Exception ex)
             {
@@ -370,6 +377,7 @@ namespace Banking_System
                 rpt.SetParameterValue("companyaddress", companyaddress);
                 rpt.SetParameterValue("picpath", "logo.jpg");
                 crystalReportViewer7.ReportSource = rpt;
+                myConnection.Close();
             }
             catch (Exception ex)
             {
@@ -407,6 +415,7 @@ namespace Banking_System
                 rpt.SetParameterValue("companyaddress", companyaddress);
                 rpt.SetParameterValue("picpath", "logo.jpg");
                 crystalReportViewer8.ReportSource = rpt;
+                myConnection.Close();
             }
             catch (Exception ex)
             {
@@ -464,6 +473,144 @@ namespace Banking_System
                 rpt.SetParameterValue("companyaddress", companyaddress);
                 rpt.SetParameterValue("picpath", "logo.jpg");
                 crystalReportViewer9.ReportSource = rpt;
+                myConnection.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void buttonX2_Click(object sender, EventArgs e)
+        {
+            crystalReportViewer10.ReportSource = null;
+            clearancestatus.Text = "";
+        }
+
+        private void buttonX5_Click(object sender, EventArgs e)
+        {
+            company();
+            try
+            {
+                SqlConnection myConnection = default(SqlConnection);
+                SqlCommand MyCommand = new SqlCommand();
+                SqlDataAdapter myDA = new SqlDataAdapter();
+                DataSet myDS = new DataSet();
+                rptAccountLoans rpt = new rptAccountLoans();
+                myConnection = new SqlConnection(cs.DBConn);
+                myConnection.Open();
+                MyCommand.Connection = myConnection;
+                MyCommand.CommandText = "select  * from Loan where Clearance='"+clearancestatus.Text+"'  and Issued !='Pending' order by ID ASC ";
+                MyCommand.CommandType = CommandType.Text;
+                myDA.SelectCommand = MyCommand;
+                myDA.Fill(myDS, "Loan");
+                rpt.SetDataSource(myDS);
+                rpt.SetParameterValue("loanstatus", clearancestatus.Text);
+                rpt.SetParameterValue("comanyname", companyname);
+                rpt.SetParameterValue("companyemail", companyemail);
+                rpt.SetParameterValue("companycontact", companycontact);
+                rpt.SetParameterValue("companyslogan", companyslogan);
+                rpt.SetParameterValue("companyaddress", companyaddress);
+                rpt.SetParameterValue("picpath", "logo.jpg");
+                crystalReportViewer10.ReportSource = rpt;
+                myConnection.Close();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void buttonX8_Click(object sender, EventArgs e)
+        {
+            crystalReportViewer11.ReportSource = null;
+            pastdaysset.Text = DateTime.Today.ToString();
+            dayspast.Text = null;
+        }
+
+        private void buttonX11_Click(object sender, EventArgs e)
+        {
+            company();
+            try
+            {
+                daynum = Convert.ToInt32(dayspast.Text);
+                DateTime schedule = DateTime.Parse(pastdaysset.Text).Date;
+                string paymentdates = (schedule.AddDays(-daynum)).ToShortDateString();
+                DateTime dt = DateTime.Parse(paymentdates);
+                string repaymentdates = dt.ToString("dd/MMM/yyyy");
+
+                SqlConnection myConnection = default(SqlConnection);
+                SqlCommand MyCommand = new SqlCommand();
+                SqlDataAdapter myDA = new SqlDataAdapter();
+                DataSet myDS = new DataSet();
+                rptUnPaidLoanSchedule2 rpt = new rptUnPaidLoanSchedule2();
+                //The DataSet you created.
+                myConnection = new SqlConnection(cs.DBConn);
+                myConnection.Open();
+                MyCommand.Connection = myConnection;
+                MyCommand.CommandText = "select  * from RepaymentSchedule where PaymentDate <= @date1 and PaymentStatus='Pending'  order by ID ASC ";
+                MyCommand.Parameters.Add("@date1", SqlDbType.DateTime, 30, "PaymentDate").Value = DateTime.Parse(repaymentdates).Date;
+                MyCommand.Parameters.Add("@date2", SqlDbType.DateTime, 30, "PaymentDate").Value = DateTime.Parse(repaymentdates).Date;
+                MyCommand.CommandType = CommandType.Text;
+                myDA.SelectCommand = MyCommand;
+                myDA.Fill(myDS, "RepaymentSchedule");
+                rpt.SetDataSource(myDS);
+                rpt.SetParameterValue("datefrom", pastdaysset.Text);
+                rpt.SetParameterValue("dateto", dayspast.Text);
+                rpt.SetParameterValue("comanyname", companyname);
+                rpt.SetParameterValue("companyemail", companyemail);
+                rpt.SetParameterValue("companycontact", companycontact);
+                rpt.SetParameterValue("companyslogan", companyslogan);
+                rpt.SetParameterValue("companyaddress", companyaddress);
+                rpt.SetParameterValue("picpath", "logo.jpg");
+                crystalReportViewer11.ReportSource = rpt;
+                myConnection.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void buttonX14_Click(object sender, EventArgs e)
+        {
+            crystalReportViewer12.ReportSource = null;
+            finesfrom.Text = DateTime.Today.ToString();
+           finesto.Text = DateTime.Today.ToString();
+        }
+
+        private void buttonX17_Click(object sender, EventArgs e)
+        {
+            company();
+            try
+            {
+                SqlConnection myConnection = default(SqlConnection);
+                SqlCommand MyCommand = new SqlCommand();
+                SqlDataAdapter myDA = new SqlDataAdapter();
+                DataSet myDS = new DataSet();
+                rptFinesLoanSchedule rpt = new rptFinesLoanSchedule();
+                //The DataSet you created.
+                myConnection = new SqlConnection(cs.DBConn);
+                myConnection.Open();
+                MyCommand.Connection = myConnection;
+                MyCommand.CommandText = "select  * from RepaymentSchedule where ActualPaymentDate between @date1 and @date2 and PaymentStatus='Paid' and Fines >0 and Waivered='No'  order by ID ASC ";
+                MyCommand.Parameters.Add("@date1", SqlDbType.DateTime, 30, "ActualPaymentDate").Value = finesfrom.Value.Date;
+                MyCommand.Parameters.Add("@date2", SqlDbType.DateTime, 30, "ActualPaymentDate").Value = finesto.Value.Date;
+                MyCommand.CommandType = CommandType.Text;
+                myDA.SelectCommand = MyCommand;
+                myDA.Fill(myDS, "RepaymentSchedule");
+                rpt.SetDataSource(myDS);
+                rpt.SetParameterValue("datefrom", finesfrom.Text);
+                rpt.SetParameterValue("dateto", finesto.Text);
+                rpt.SetParameterValue("comanyname", companyname);
+                rpt.SetParameterValue("companyemail", companyemail);
+                rpt.SetParameterValue("companycontact", companycontact);
+                rpt.SetParameterValue("companyslogan", companyslogan);
+                rpt.SetParameterValue("companyaddress", companyaddress);
+                rpt.SetParameterValue("picpath", "logo.jpg");
+                crystalReportViewer12.ReportSource = rpt;
+                myConnection.Close();
             }
             catch (Exception ex)
             {

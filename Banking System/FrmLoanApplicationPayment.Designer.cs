@@ -146,7 +146,7 @@ namespace Banking_System
             // 
             this.label9.AutoSize = true;
             this.label9.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label9.Location = new System.Drawing.Point(338, 235);
+            this.label9.Location = new System.Drawing.Point(340, 239);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(94, 22);
             this.label9.TabIndex = 9;
@@ -169,6 +169,7 @@ namespace Banking_System
             this.LoanID.Name = "LoanID";
             this.LoanID.Size = new System.Drawing.Size(229, 29);
             this.LoanID.TabIndex = 11;
+            this.LoanID.TextChanged += new System.EventHandler(this.LoanID_TextChanged);
             // 
             // AccountNumber
             // 
@@ -326,7 +327,7 @@ namespace Banking_System
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = global::Banking_System.Properties.Settings.Default.usercolor;
-            this.ClientSize = new System.Drawing.Size(722, 403);
+            this.ClientSize = new System.Drawing.Size(722, 406);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.accountbalance);
             this.Controls.Add(this.label8);

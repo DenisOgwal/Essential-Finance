@@ -39,6 +39,10 @@
             this.buttonX1 = new DevComponents.DotNetBar.ButtonX();
             this.buttonX2 = new DevComponents.DotNetBar.ButtonX();
             this.buttonX3 = new DevComponents.DotNetBar.ButtonX();
+            this.smscodes = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.label3 = new System.Windows.Forms.Label();
+            this.phoneinquiry = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.label4 = new System.Windows.Forms.Label();
             this.groupPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -117,7 +121,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.label1.Location = new System.Drawing.Point(17, 125);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(148, 22);
@@ -128,7 +132,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.label2.Location = new System.Drawing.Point(17, 166);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(134, 22);
@@ -168,7 +172,7 @@
             this.buttonX1.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.buttonX1.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonX1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.buttonX1.Location = new System.Drawing.Point(70, 210);
+            this.buttonX1.Location = new System.Drawing.Point(73, 278);
             this.buttonX1.Name = "buttonX1";
             this.buttonX1.Size = new System.Drawing.Size(95, 49);
             this.buttonX1.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -181,7 +185,7 @@
             this.buttonX2.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.buttonX2.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonX2.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.buttonX2.Location = new System.Drawing.Point(172, 210);
+            this.buttonX2.Location = new System.Drawing.Point(175, 278);
             this.buttonX2.Name = "buttonX2";
             this.buttonX2.Size = new System.Drawing.Size(75, 49);
             this.buttonX2.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -194,7 +198,7 @@
             this.buttonX3.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.buttonX3.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonX3.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.buttonX3.Location = new System.Drawing.Point(254, 210);
+            this.buttonX3.Location = new System.Drawing.Point(257, 278);
             this.buttonX3.Name = "buttonX3";
             this.buttonX3.Size = new System.Drawing.Size(90, 49);
             this.buttonX3.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -202,12 +206,66 @@
             this.buttonX3.Text = "Cancel";
             this.buttonX3.Click += new System.EventHandler(this.buttonX3_Click);
             // 
+            // smscodes
+            // 
+            // 
+            // 
+            // 
+            this.smscodes.Border.Class = "TextBoxBorder";
+            this.smscodes.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.smscodes.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.smscodes.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.smscodes.Location = new System.Drawing.Point(175, 208);
+            this.smscodes.Name = "smscodes";
+            this.smscodes.Size = new System.Drawing.Size(221, 29);
+            this.smscodes.TabIndex = 9;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label3.Location = new System.Drawing.Point(17, 210);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(106, 22);
+            this.label3.TabIndex = 8;
+            this.label3.Text = "Header Name";
+            // 
+            // phoneinquiry
+            // 
+            // 
+            // 
+            // 
+            this.phoneinquiry.Border.Class = "TextBoxBorder";
+            this.phoneinquiry.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.phoneinquiry.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.phoneinquiry.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.phoneinquiry.Location = new System.Drawing.Point(175, 243);
+            this.phoneinquiry.Name = "phoneinquiry";
+            this.phoneinquiry.Size = new System.Drawing.Size(221, 29);
+            this.phoneinquiry.TabIndex = 11;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label4.Location = new System.Drawing.Point(17, 245);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(88, 22);
+            this.label4.TabIndex = 10;
+            this.label4.Text = "Inquiry Tel.";
+            // 
             // frmSmsSettings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = global::Banking_System.Properties.Settings.Default.usercolor;
-            this.ClientSize = new System.Drawing.Size(423, 271);
+            this.ClientSize = new System.Drawing.Size(423, 335);
+            this.Controls.Add(this.phoneinquiry);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.smscodes);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.buttonX3);
             this.Controls.Add(this.buttonX2);
             this.Controls.Add(this.buttonX1);
@@ -241,5 +299,9 @@
         private DevComponents.DotNetBar.ButtonX buttonX1;
         private DevComponents.DotNetBar.ButtonX buttonX2;
         private DevComponents.DotNetBar.ButtonX buttonX3;
+        private DevComponents.DotNetBar.Controls.TextBoxX smscodes;
+        private System.Windows.Forms.Label label3;
+        private DevComponents.DotNetBar.Controls.TextBoxX phoneinquiry;
+        private System.Windows.Forms.Label label4;
     }
 }

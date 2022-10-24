@@ -76,6 +76,36 @@ namespace Banking_System
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            try
+            {
+                DataGridViewRow dr = dataGridView1.CurrentRow;
+                con = new SqlConnection(cs.DBConn);
+                con.Open();
+                cmd = con.CreateCommand();
+                cmd.CommandText = "SELECT LoanAmount FROM Loan WHERE LoanID = '" + dr.Cells[2].Value.ToString().Trim() + "'";
+                rdr = cmd.ExecuteReader();
+                if (rdr.Read())
+                {
+                    Amount.Text = rdr[0].ToString();
+                }
+                else
+                {
+                    MessageBox.Show("Client has not yet paid Loan Application Fees for this Loan Application, Please Clear to continue", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+                if ((rdr != null))
+                {
+                    rdr.Close();
+                }
+                if (con.State == ConnectionState.Open)
+                {
+                    con.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void buttonX3_Click(object sender, EventArgs e)

@@ -46,7 +46,7 @@ namespace Banking_System
                
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
-                cmd = new SqlCommand("select RTRIM(LoanID)[Loan ID], RTRIM(Names)[Guarantor Name],RTRIM(Residence)[Residence],(Relationship)[Relationship],RTRIM(IDNo)[ID No.], RTRIM(Date)[Date],RTRIM(TELNo)[Tel No.] from Guarantor  order by ID DESC", con);
+                cmd = new SqlCommand("select RTRIM(LoanID)[Loan ID], RTRIM(Names)[Guarantor Name],RTRIM(Residence)[Residence],(Relationship)[Relationship],RTRIM(MemberID)[ID No.], RTRIM(Date)[Date],RTRIM(TELNo)[Tel No.] from Guarantor  order by ID DESC", con);
                 SqlDataAdapter myDA = new SqlDataAdapter(cmd);
                 DataSet myDataSet = new DataSet();
                 myDA.Fill(myDataSet, "Guarantor");
@@ -174,7 +174,7 @@ namespace Banking_System
                 dataGridView1.Columns.Clear();
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
-                cmd = new SqlCommand("select RTRIM(LoanID)[Loan ID], RTRIM(Names)[Guarantor Name],RTRIM(Residence)[Residence],(Relationship)[Relationship],RTRIM(IDNo)[ID No.], RTRIM(Date)[Date],RTRIM(TELNo)[Tel No.] from Guarantor where  Residence Like '" + serachbox.Text + "%' OR Names Like '" + serachbox.Text + "%' OR IDNo Like '" + serachbox.Text + "%' OR LoanID Like '" + serachbox.Text + "%' OR TELNo like'" + serachbox.Text + "%' order by ID DESC", con);
+                cmd = new SqlCommand("select RTRIM(LoanID)[Loan ID], RTRIM(Names)[Guarantor Name],RTRIM(Residence)[Residence],(Relationship)[Relationship],RTRIM(MemberID)[ID No.], RTRIM(Date)[Date],RTRIM(TELNo)[Tel No.] from Guarantor where  Residence Like '" + serachbox.Text + "%' OR Names Like '" + serachbox.Text + "%' OR MemberID Like '" + serachbox.Text + "%' OR LoanID Like '" + serachbox.Text + "%' OR TELNo like'" + serachbox.Text + "%' order by ID DESC", con);
                 SqlDataAdapter myDA = new SqlDataAdapter(cmd);
                 DataSet myDataSet = new DataSet();
                 myDA.Fill(myDataSet, "Guarantor");

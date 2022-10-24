@@ -107,6 +107,8 @@ namespace Banking_System
             this.comboItem4 = new DevComponents.Editors.ComboItem();
             this.comboItem5 = new DevComponents.Editors.ComboItem();
             this.comboItem6 = new DevComponents.Editors.ComboItem();
+            this.buttonX13 = new DevComponents.DotNetBar.ButtonX();
+            this.buttonX14 = new DevComponents.DotNetBar.ButtonX();
             ((System.ComponentModel.ISupportInitialize)(this.LoanAmount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ServicingPeriod)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CollateralValue)).BeginInit();
@@ -144,9 +146,9 @@ namespace Banking_System
             this.label3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.label3.Location = new System.Drawing.Point(22, 20);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(95, 22);
+            this.label3.Size = new System.Drawing.Size(101, 22);
             this.label3.TabIndex = 2;
-            this.label3.Text = "Account No.";
+            this.label3.Text = "Applicant ID.";
             // 
             // label4
             // 
@@ -154,9 +156,9 @@ namespace Banking_System
             this.label4.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.label4.Location = new System.Drawing.Point(286, 19);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(112, 22);
+            this.label4.Size = new System.Drawing.Size(122, 22);
             this.label4.TabIndex = 3;
-            this.label4.Text = "Account Name";
+            this.label4.Text = "Applicant Name";
             // 
             // label5
             // 
@@ -233,9 +235,9 @@ namespace Banking_System
             this.label7.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.label7.Location = new System.Drawing.Point(587, 62);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(144, 22);
+            this.label7.Size = new System.Drawing.Size(129, 22);
             this.label7.TabIndex = 10;
-            this.label7.Text = "Repayment Interval";
+            this.label7.Text = "Servicing Interval";
             // 
             // label8
             // 
@@ -718,7 +720,7 @@ namespace Banking_System
             this.buttonX5.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonX5.Location = new System.Drawing.Point(868, 12);
             this.buttonX5.Name = "buttonX5";
-            this.buttonX5.Size = new System.Drawing.Size(123, 77);
+            this.buttonX5.Size = new System.Drawing.Size(123, 64);
             this.buttonX5.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.buttonX5.TabIndex = 22;
             this.buttonX5.Text = "&NEW";
@@ -728,9 +730,9 @@ namespace Banking_System
             // 
             this.buttonX6.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.buttonX6.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonX6.Location = new System.Drawing.Point(868, 182);
+            this.buttonX6.Location = new System.Drawing.Point(868, 152);
             this.buttonX6.Name = "buttonX6";
-            this.buttonX6.Size = new System.Drawing.Size(123, 82);
+            this.buttonX6.Size = new System.Drawing.Size(123, 68);
             this.buttonX6.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.buttonX6.TabIndex = 21;
             this.buttonX6.Text = "&APPLICATION FEES";
@@ -740,9 +742,9 @@ namespace Banking_System
             // 
             this.buttonX7.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.buttonX7.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonX7.Location = new System.Drawing.Point(868, 271);
+            this.buttonX7.Location = new System.Drawing.Point(868, 229);
             this.buttonX7.Name = "buttonX7";
-            this.buttonX7.Size = new System.Drawing.Size(123, 84);
+            this.buttonX7.Size = new System.Drawing.Size(123, 63);
             this.buttonX7.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.buttonX7.TabIndex = 24;
             this.buttonX7.Text = "&DELETE";
@@ -752,9 +754,9 @@ namespace Banking_System
             // 
             this.buttonX8.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.buttonX8.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonX8.Location = new System.Drawing.Point(868, 95);
+            this.buttonX8.Location = new System.Drawing.Point(868, 82);
             this.buttonX8.Name = "buttonX8";
-            this.buttonX8.Size = new System.Drawing.Size(123, 81);
+            this.buttonX8.Size = new System.Drawing.Size(123, 61);
             this.buttonX8.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.buttonX8.TabIndex = 20;
             this.buttonX8.Text = "&ADD COLLATERAL";
@@ -764,9 +766,9 @@ namespace Banking_System
             // 
             this.buttonX9.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.buttonX9.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonX9.Location = new System.Drawing.Point(868, 361);
+            this.buttonX9.Location = new System.Drawing.Point(868, 443);
             this.buttonX9.Name = "buttonX9";
-            this.buttonX9.Size = new System.Drawing.Size(123, 98);
+            this.buttonX9.Size = new System.Drawing.Size(123, 78);
             this.buttonX9.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.buttonX9.TabIndex = 25;
             this.buttonX9.Text = "&1st \r\nAPPROVAL";
@@ -776,9 +778,9 @@ namespace Banking_System
             // 
             this.buttonX10.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.buttonX10.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonX10.Location = new System.Drawing.Point(868, 465);
+            this.buttonX10.Location = new System.Drawing.Point(868, 527);
             this.buttonX10.Name = "buttonX10";
-            this.buttonX10.Size = new System.Drawing.Size(123, 98);
+            this.buttonX10.Size = new System.Drawing.Size(123, 72);
             this.buttonX10.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.buttonX10.TabIndex = 26;
             this.buttonX10.Text = "&FINAL APPROVAL";
@@ -788,9 +790,9 @@ namespace Banking_System
             // 
             this.buttonX11.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.buttonX11.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonX11.Location = new System.Drawing.Point(868, 569);
+            this.buttonX11.Location = new System.Drawing.Point(868, 602);
             this.buttonX11.Name = "buttonX11";
-            this.buttonX11.Size = new System.Drawing.Size(123, 98);
+            this.buttonX11.Size = new System.Drawing.Size(123, 65);
             this.buttonX11.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.buttonX11.TabIndex = 27;
             this.buttonX11.Text = "&CANCEL";
@@ -839,6 +841,7 @@ namespace Banking_System
             this.LoanID.TabIndex = 125;
             this.LoanID.WatermarkText = "This is Auto Generated";
             this.LoanID.Click += new System.EventHandler(this.LoanID_Click);
+            this.LoanID.TextChanged += new System.EventHandler(this.LoanID_TextChanged);
             // 
             // label25
             // 
@@ -950,12 +953,38 @@ namespace Banking_System
             // 
             this.comboItem6.Text = "Yearly";
             // 
+            // buttonX13
+            // 
+            this.buttonX13.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.buttonX13.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonX13.Location = new System.Drawing.Point(868, 298);
+            this.buttonX13.Name = "buttonX13";
+            this.buttonX13.Size = new System.Drawing.Size(123, 66);
+            this.buttonX13.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.buttonX13.TabIndex = 134;
+            this.buttonX13.Text = "&UPDATE";
+            this.buttonX13.Click += new System.EventHandler(this.buttonX13_Click);
+            // 
+            // buttonX14
+            // 
+            this.buttonX14.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.buttonX14.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonX14.Location = new System.Drawing.Point(868, 370);
+            this.buttonX14.Name = "buttonX14";
+            this.buttonX14.Size = new System.Drawing.Size(123, 67);
+            this.buttonX14.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.buttonX14.TabIndex = 135;
+            this.buttonX14.Text = "&PROCESSING APPROVAL";
+            this.buttonX14.Click += new System.EventHandler(this.buttonX14_Click);
+            // 
             // frmLoanApplication
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = global::Banking_System.Properties.Settings.Default.usercolor;
-            this.ClientSize = new System.Drawing.Size(1008, 672);
+            this.ClientSize = new System.Drawing.Size(1008, 671);
+            this.Controls.Add(this.buttonX14);
+            this.Controls.Add(this.buttonX13);
             this.Controls.Add(this.businesstype);
             this.Controls.Add(this.label27);
             this.Controls.Add(this.InterestRate);
@@ -1116,5 +1145,7 @@ namespace Banking_System
         private DevComponents.Editors.ComboItem comboItem4;
         private DevComponents.Editors.ComboItem comboItem5;
         private DevComponents.Editors.ComboItem comboItem6;
+        private DevComponents.DotNetBar.ButtonX buttonX13;
+        private DevComponents.DotNetBar.ButtonX buttonX14;
     }
 }

@@ -55,7 +55,7 @@ namespace Banking_System
             int realid = 0;
             con = new SqlConnection(cs.DBConn);
             con.Open();
-            cmd = new SqlCommand("select ID from InvestorWithdraw where Date=@date1 Order By ID DESC",con);
+            cmd = new SqlCommand("select ID from InvestorWithdraw  Order By ID DESC",con);
             cmd.Parameters.Add("@date1", SqlDbType.DateTime, 30, "Date").Value = date2.Value.Date;
             cmd.Connection = con;
             rdr = cmd.ExecuteReader();
@@ -63,7 +63,7 @@ namespace Banking_System
             {
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
-                cmd = new SqlCommand("select COUNT(AccountNo) from InvestorWithdraw where Date=@date1", con);
+                cmd = new SqlCommand("select COUNT(AccountNo) from InvestorWithdraw ", con);
                 cmd.Parameters.Add("@date1", SqlDbType.DateTime, 30, "Date").Value = date2.Value.Date;
                 realid = Convert.ToInt32(cmd.ExecuteScalar()) + 1;
             }
@@ -71,8 +71,9 @@ namespace Banking_System
             {
                 realid = 1;
             }
+            con.Close();
             string years = yearss.Substring(2, 2);
-            savingsid.Text = "IW-" + years + monthss + days +realid;
+            savingsid.Text = "IW-"  + days +realid;
         }
         private void frmSavings_Load(object sender, EventArgs e)
         {
@@ -81,7 +82,7 @@ namespace Banking_System
                 SqlConnection CN = new SqlConnection(cs.DBConn);
                 CN.Open();
                 adp = new SqlDataAdapter();
-                adp.SelectCommand = new SqlCommand("SELECT distinct RTRIM(AccountNumber) FROM Account", CN);
+                adp.SelectCommand = new SqlCommand("SELECT distinct RTRIM(AccountNames) FROM InvestorAccount", CN);
                 ds = new DataSet("ds");
                 adp.Fill(ds);
                 dtable = ds.Tables[0];
@@ -90,6 +91,7 @@ namespace Banking_System
                 {
                     accountnumber.Items.Add(drow[0].ToString());
                 }
+                CN.Close();
             }
             catch (Exception ex)
             {
@@ -106,9 +108,9 @@ namespace Banking_System
                 dtable = ds.Tables[0];
                 foreach (DataRow drow in dtable.Rows)
                 {
-                    cmbModeOfPayment.Items.Add(drow[0].ToString());
+                    cmbModeOfPayment.Items.Add(drow[1].ToString());
                 }
-
+                CN.Close();
             }
             catch (Exception ex)
             {
@@ -138,6 +140,7 @@ namespace Banking_System
                 {
                    
                 }
+                con.Close();
             }
             catch (Exception ex)
             {
@@ -192,11 +195,17 @@ namespace Banking_System
                 submittedby.Focus();
                 return;
             }
+            if (withdrawtype.Text == "")
+            {
+                MessageBox.Show("Please Select Withdraw Type", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                withdrawtype.Focus();
+                return;
+            }
             try
             {
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
-                string cb = "insert into InvestorWithdraw(SavingsID,AccountNo,AccountName,CashierName,Date,Amount,WithdrawID) VALUES (@d1,@d2,@d3,@d4,@d5,@d6,@d7)";
+                string cb = "insert into InvestorWithdraw(SavingsID,AccountNo,AccountName,CashierName,Date,Amount,WithdrawID,WithdrawType) VALUES (@d1,@d2,@d3,@d4,@d5,@d6,@d7,'"+ withdrawtype.Text+ "')";
                 cmd = new SqlCommand(cb);
                 cmd.Connection = con;
                 cmd.Parameters.Add(new SqlParameter("@d1", System.Data.SqlDbType.NChar, 15, "SavingsID"));
@@ -402,35 +411,46 @@ namespace Banking_System
         private void depositammount_ValueChanged_1(object sender, EventArgs e)
         {
             try {
-                if (depositammount.Text == "") { }
-                else
-                {
-                    con = new SqlConnection(cs.DBConn);
-                    con.Open();
-                    int val4 = 0;
-                    int val5 = 0;
-                    string ct2 = "select Accountbalance from InvestorSavings where  AccountNo= '" + accountnumber.Text + "' and SavingsID='"+ investmentid .Text+"' ";
-                    cmd = new SqlCommand(ct2);
-                    cmd.Connection = con;
-                    rdr2 = cmd.ExecuteReader();
-                    if (rdr2.Read())
-                    {
-                        string Accbalance = rdr2["Accountbalance"].ToString();
-                        val4 = Convert.ToInt32(Accbalance);
-                        int.TryParse(depositammount.Value.ToString(), out val5);
-                        accountbalance.Value = (val4 - val5);
-                        if ((rdr2 != null))
-                        {
-                            rdr2.Close();
-                        }
-                    }
+               
+                    if (depositammount.Text == "") { }
                     else
                     {
-                        int val1 = 0;
-                        int.TryParse(depositammount.Value.ToString(), out val1);
-                        accountbalance.Value =(0- val1);
+                    if (withdrawtype.Text == "Interest Only")
+                    {
+                        if (depositammount.Value > interestearned.Value)
+                        {
+                            MessageBox.Show("you can not withdraw more than interest Earned", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            this.Hide();
+                        }
                     }
+                        con = new SqlConnection(cs.DBConn);
+                        con.Open();
+                        int val4 = 0;
+                        int val5 = 0;
+                        string ct2 = "select Accountbalance from InvestorSavings where  AccountNo= '" + accountnumber.Text + "' and SavingsID='" + investmentid.Text + "' ";
+                        cmd = new SqlCommand(ct2);
+                        cmd.Connection = con;
+                        rdr2 = cmd.ExecuteReader();
+                        if (rdr2.Read())
+                        {
+                            string Accbalance = rdr2["Accountbalance"].ToString();
+                            val4 = Convert.ToInt32(Accbalance);
+                            int.TryParse(depositammount.Value.ToString(), out val5);
+                            accountbalance.Value = (val4 - val5);
+                            if ((rdr2 != null))
+                            {
+                                rdr2.Close();
+                            }
+                        }
+                        else
+                        {
+                            int val1 = 0;
+                            int.TryParse(depositammount.Value.ToString(), out val1);
+                            accountbalance.Value = (0 - val1);
+                        }
+                    con.Close();
                 }
+                
             }
             catch (Exception ex)
             {
@@ -514,7 +534,7 @@ namespace Banking_System
                 cmd.Parameters["@d10"].Value = cmbModeOfPayment.Text;
                 cmd.Parameters["@d11"].Value = dateTimePicker1.Text;
                 cmd.Parameters["@d12"].Value = "DR";
-                //cmd.ExecuteNonQuery();
+                cmd.ExecuteNonQuery();
                 MessageBox.Show("Successfully saved", "Savings Record", MessageBoxButtons.OK, MessageBoxIcon.Information);
               
                 company();
@@ -550,6 +570,7 @@ namespace Banking_System
                     rpt.SetParameterValue("companyaddress", companyaddress);
                     rpt.SetParameterValue("picpath", "logo.jpg");
                     frm.crystalReportViewer1.ReportSource = rpt;
+                    myConnection.Close();
                     frm.ShowDialog();
                     //BarPrinter = Properties.Settings.Default.frontendprinter;
                     //rpt.PrintOptions.PrinterName = BarPrinter;
@@ -598,7 +619,8 @@ namespace Banking_System
                     {
                     investmentid.Items.Add(rdr2["SavingsID"].ToString());   
                     }
-                   
+                con.Close();
+
             }
             catch (Exception ex)
             {
@@ -608,32 +630,84 @@ namespace Banking_System
 
         private void investmentid_TextChanged(object sender, EventArgs e)
         {
-            try
+           
+        }
+
+        private void withdrawtype_TextChanged(object sender, EventArgs e)
+        {
+            if (withdrawtype.Text == "Whole Amount")
             {
-
-                con = new SqlConnection(cs.DBConn);
-                con.Open();
-                cmd = new SqlCommand("select Accountbalance from InvestorSavings where  AccountNo= '" + accountnumber.Text + "' and OtherMaturityDate <=@date1", con);
-                cmd.Parameters.Add("@date1", SqlDbType.DateTime, 30, "OtherMaturityDate").Value = dateTimePicker1.Value.Date;
-                rdr2 = cmd.ExecuteReader();
-                if (rdr2.Read())
+                try
                 {
-                    accountbalance.Value = Convert.ToInt32(rdr2["Accountbalance"]);
-                }
-                else
-                {
-                    MessageBox.Show("Investment has not yet Matured", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    this.Hide();
-                    FrmInvestorWithdraw frm = new FrmInvestorWithdraw();
-                    frm.label1.Text = label1.Text;
-                    frm.label2.Text = label2.Text;
-                    frm.ShowDialog();
-                }
 
+                    con = new SqlConnection(cs.DBConn);
+                    con.Open();
+                    cmd = new SqlCommand("select Accountbalance from InvestorSavings where  SavingsID= '" +investmentid.Text + "' and OtherMaturityDate <=@date1", con);
+                    cmd.Parameters.Add("@date1", SqlDbType.DateTime, 30, "OtherMaturityDate").Value = dateTimePicker1.Value.Date;
+                    rdr2 = cmd.ExecuteReader();
+                    if (rdr2.Read())
+                    {
+                        accountbalance.Value = Convert.ToInt32(rdr2["Accountbalance"]);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Investment has not yet Matured", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        this.Hide();
+                        FrmInvestorWithdraw frm = new FrmInvestorWithdraw();
+                        frm.label1.Text = label1.Text;
+                        frm.label2.Text = label2.Text;
+                        frm.ShowDialog();
+                    }
+                    con.Close();
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
-            catch (Exception ex)
+            else if (withdrawtype.Text == "Interest Only")
             {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                try
+                {
+
+                    con = new SqlConnection(cs.DBConn);
+                    con.Open();
+                    cmd = new SqlCommand("select AppreciationAmount from InvestmentAppreciation where  SavingsID= '" + investmentid.Text + "' and Freezed='No' and Approved='Approved' and PaidOut='Pending'", con);
+                    rdr2 = cmd.ExecuteReader();
+                    if (rdr2.Read())
+                    {
+                        con = new SqlConnection(cs.DBConn);
+                        con.Open();
+                        cmd = new SqlCommand("select SUM(AppreciationAmount) from InvestmentAppreciation where SavingsID= '" + investmentid.Text + "' and Freezed='No' and Approved='Approved' and PaidOut='Pending'", con);
+                        interestearned.Value = Convert.ToInt32(cmd.ExecuteScalar().ToString());
+                        con.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Investment has not yet earned anything", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        this.Hide();
+                        FrmInvestorWithdraw frm = new FrmInvestorWithdraw();
+                        frm.label1.Text = label1.Text;
+                        frm.label2.Text = label2.Text;
+                        frm.ShowDialog();
+                    }
+                    con.Close();
+                    con = new SqlConnection(cs.DBConn);
+                    con.Open();
+                    cmd = new SqlCommand("select Accountbalance from InvestorSavings where  SavingsID= '" + investmentid.Text + "' ", con);
+                    rdr2 = cmd.ExecuteReader();
+                    if (rdr2.Read())
+                    {
+                        accountbalance.Value = Convert.ToInt32(rdr2["Accountbalance"]);
+                    }
+                    con.Close();
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
     }

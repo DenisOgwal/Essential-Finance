@@ -1,15 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 using System.Data.SqlClient;
-using CrystalDecisions.CrystalReports.Engine;
-using CrystalDecisions.Shared;
-using System.IO;
 
 namespace Banking_System
 {
@@ -143,7 +135,7 @@ namespace Banking_System
                 SqlConnection myConnection = default(SqlConnection);
                 SqlCommand MyCommand = new SqlCommand();
                 SqlDataAdapter myDA = new SqlDataAdapter();
-                AAttendancememberDataSet myDS = new AAttendancememberDataSet();
+                DataSet myDS = new DataSet();
                 rptAttendanceIndividualMember rpt = new rptAttendanceIndividualMember();
                 //The DataSet you created.
                 myConnection = new SqlConnection(cs.DBConn);
@@ -157,6 +149,7 @@ namespace Banking_System
                 myDA.Fill(myDS, "MemberAttendance");
                 rpt.SetDataSource(myDS);
                 crystalReportViewer2.ReportSource = rpt;
+                con.Close();
             }
             catch (Exception ex)
             {

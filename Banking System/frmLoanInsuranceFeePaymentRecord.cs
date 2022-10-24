@@ -73,6 +73,7 @@ namespace Banking_System
                 {
                     cmbStaffName.Items.Add(drow[0].ToString());
                 }
+                CN.Close();
             }
             catch (Exception ex)
             {

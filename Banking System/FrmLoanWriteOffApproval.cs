@@ -185,10 +185,10 @@ namespace Banking_System
                 ApprovalID.Focus();
                 return;
             }
-            if (Reason.Text == "")
+            if (approvals.Text == "")
             {
-                MessageBox.Show("Please Enter Reason", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Reason.Focus();
+                MessageBox.Show("Please Select Approval", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                approvals.Focus();
                 return;
             }
             try

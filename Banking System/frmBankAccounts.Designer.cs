@@ -272,9 +272,9 @@
             this.label1.Location = new System.Drawing.Point(11, 54);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(112, 22);
+            this.label1.Size = new System.Drawing.Size(46, 22);
             this.label1.TabIndex = 87;
-            this.label1.Text = "Account Name";
+            this.label1.Text = "Bank";
             // 
             // groupPanel2
             // 
@@ -364,7 +364,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = global::Banking_System.Properties.Settings.Default.usercolor;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(581, 297);
+            this.ClientSize = new System.Drawing.Size(581, 295);
             this.Controls.Add(this.groupPanel2);
             this.Controls.Add(this.groupPanel1);
             this.Controls.Add(this.ribbonControl1);
@@ -383,7 +383,7 @@
             this.Text = "Bank Accounts Registration";
             this.TopMost = true;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmPurchaseDetails_FormClosing);
-            this.Load += new System.EventHandler(this.frmBankAccounts_Load);
+           
             this.groupPanel1.ResumeLayout(false);
             this.groupPanel1.PerformLayout();
             this.groupPanel2.ResumeLayout(false);

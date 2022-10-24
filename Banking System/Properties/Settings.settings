@@ -42,7 +42,7 @@
       <Value Profile="(Default)">Data Source=(LocalDB)\v11.0;AttachDbFilename="C:\Users\ogden\Documents\Dither Technologies\KCDSACCO\BS.mdf";Integrated Security=True;Connect Timeout=30</Value>
     </Setting>
     <Setting Name="usercolor" Type="System.Drawing.Color" Scope="User">
-      <Value Profile="(Default)">Highlight</Value>
+      <Value Profile="(Default)">HotTrack</Value>
     </Setting>
     <Setting Name="userstyle" Type="DevComponents.DotNetBar.eStyle" Scope="User">
       <Value Profile="(Default)">Office2007Blue</Value>
@@ -150,7 +150,7 @@
     <Setting Name="autotransfer" Type="System.String" Scope="User">
       <Value Profile="(Default)">Manual</Value>
     </Setting>
-    <Setting Name="autotransferdays" Type="System.String" Scope="User">
+    <Setting Name="autotransferdays" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">2</Value>
     </Setting>
     <Setting Name="LendingConnectionString" Type="(Connection string)" Scope="Application">
@@ -160,6 +160,24 @@
   &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
       <Value Profile="(Default)">Data Source=DENIS\SQLEXPRESS;Initial Catalog=Lending;Persist Security Info=True;User ID=sa;Password=jesus@lord1</Value>
+    </Setting>
+    <Setting Name="ThreadsAuto" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Yes</Value>
+    </Setting>
+    <Setting Name="receipttype" Type="System.String" Scope="User">
+      <Value Profile="(Default)">POS</Value>
+    </Setting>
+    <Setting Name="PrintOptions" Type="System.String" Scope="User">
+      <Value Profile="(Default)">showdialog</Value>
+    </Setting>
+    <Setting Name="Smscode" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Dither Tech</Value>
+    </Setting>
+    <Setting Name="phoneinquiry" Type="System.String" Scope="User">
+      <Value Profile="(Default)">+256787045644</Value>
+    </Setting>
+    <Setting Name="RescheduleAmount" Type="System.String" Scope="User">
+      <Value Profile="(Default)">10000</Value>
     </Setting>
   </Settings>
 </SettingsFile>

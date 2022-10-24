@@ -88,7 +88,7 @@ namespace Banking_System
             {
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
-                cmd = new SqlCommand("select RTRIM(AccountNo)[Account No.],RTRIM(AccountName)[Account Name],RTRIM(LoanID)[Loan ID],RTRIM(LoanAmount)[Loan Amount],RTRIM(ApplicationDate)[Application Date],RTRIM(ServicingPeriod)[Servicing Period],RTRIM(RepaymentInterval)[Repayment Interval] ,RTRIM(Interest)[Interest Rate],RTRIM(RefereeName)[Referee Name],RTRIM(RefereeTel)[Referee Tel],RTRIM(RefereeAddress)[Referee Address],RTRIM(RefereeRelationShip)[Referee Relationship],RTRIM(FirstApproval)[1st Approval],(ApprovalComment)[Approval Comment],RTRIM(FinalApproval)[Final Approval],(FinalApprovalComment)[Final Approval Comment],RTRIM(FinalApprovalDate)[Final Approval Date],RTRIM(FinalApprovedBy)[Approved By],RTRIM(LoanType)[LoanType],RTRIM(IssueType)[Issue Method],RTRIM(Issued)[Issued] from Loan where  ApplicationDate between @date1 and @date2 order by ID Asc", con);
+                cmd = new SqlCommand("select RTRIM(AccountNo)[Account No.],RTRIM(AccountName)[Account Name],RTRIM(LoanID)[Loan ID],(LoanAmount)[Loan Amount],RTRIM(ServicingPeriod)[Servicing Period],RTRIM(RepaymentInterval)[Repayment Interval] ,(Interest)[Interest Rate],RTRIM(ApplicationDate)[Application Date],RTRIM(RegisteredBy)[Relationship Manager],RTRIM(RefereeName)[Referee Name],RTRIM(RefereeTel)[Referee Tel],RTRIM(RefereeAddress)[Referee Address],RTRIM(RefereeRelationShip)[Referee Relationship],RTRIM(FirstApproval)[1st Approval],(ApprovalComment)[Approval Comment],RTRIM(FinalApproval)[Final Approval],(FinalApprovalComment)[Final Approval Comment],RTRIM(FinalApprovalDate)[Final Approval Date],RTRIM(FinalApprovedBy)[Approved By],RTRIM(LoanType)[LoanType],RTRIM(IssueType)[Issue Method],RTRIM(Issued)[Issued] from Loan where  ApplicationDate between @date1 and @date2 order by ID Asc", con);
                 cmd.Parameters.Add("@date1", SqlDbType.DateTime, 30, "ApplicationDate").Value = datefrom.Value.Date;
                 cmd.Parameters.Add("@date2", SqlDbType.DateTime, 30, "ApplicationDate").Value = dateto.Value.Date;
                 SqlDataAdapter myDA = new SqlDataAdapter(cmd);
@@ -178,7 +178,7 @@ namespace Banking_System
             {
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
-                cmd = new SqlCommand("select RTrim(AccountNumber)[Account Number], RTRIM(AccountName)[Account Names], RTRIM(LoanID)[Loan ID], RTRIM(PaymentDate)[Repayment Date], RTRIM(Months)[Installment],RTRIM(AmmountPay)[Principal], RTRIM(Interest)[Interest], RTRIM(TotalAmmount)[Total Amount], RTRIM(BalanceExist)[Balance Exist], RTRIM(PaymentStatus)[Payment Status], RTRIM(Fines)[Fines], RTRIM(Waivered)[Waivered] from RepaymentSchedule where  PaymentDate between @date1 and @date2 and BalanceExist>0 and PaymentStatus !='Rescheduled' and PaymentStatus !='ToppedUp' and PaymentStatus !='Written Off' order by ID Asc", con);
+                cmd = new SqlCommand("select RTrim(AccountNumber)[Account Number], RTRIM(AccountName)[Account Names], RTRIM(LoanID)[Loan ID], RTRIM(PaymentDate)[Repayment Date], RTRIM(Months)[Installment],(AmmountPay)[Principal], (Interest)[Interest], (TotalAmmount)[Total Amount], (BalanceExist)[Balance Exist], RTRIM(PaymentStatus)[Payment Status], (Fines)[Fines], RTRIM(Waivered)[Waivered] from RepaymentSchedule where  PaymentDate between @date1 and @date2 and BalanceExist>0 and PaymentStatus !='Rescheduled' and PaymentStatus !='ToppedUp' and PaymentStatus !='Written Off' order by ID Asc", con);
                 cmd.Parameters.Add("@date1", SqlDbType.DateTime, 30, "PaymentDate").Value = unpaidfrom.Value.Date;
                 cmd.Parameters.Add("@date2", SqlDbType.DateTime, 30, "PaymentDate").Value = unpaidto.Value.Date;
                 SqlDataAdapter myDA = new SqlDataAdapter(cmd);
@@ -279,7 +279,7 @@ namespace Banking_System
             {
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
-                cmd = new SqlCommand("select RTrim(AccountNumber)[Account Number], RTRIM(AccountName)[Account Names], RTRIM(LoanID)[Loan ID], RTRIM(PaymentDate)[Repayment Date], RTRIM(Months)[Installment],RTRIM(AmmountPay)[Principal], RTRIM(Interest)[Interest], RTRIM(TotalAmmount)[Total Amount], RTRIM(BalanceExist)[Balance Exist], RTRIM(PaymentStatus)[Payment Status], RTRIM(Fines)[Fines], RTRIM(Waivered)[Waivered] from RepaymentSchedule where  PaymentDate between @date1 and @date2 and PaymentStatus ='Paid' order by ID Asc", con);
+                cmd = new SqlCommand("select RTrim(AccountNumber)[Account Number], RTRIM(AccountName)[Account Names], RTRIM(LoanID)[Loan ID], RTRIM(PaymentDate)[Repayment Date], RTRIM(Months)[Installment],(AmmountPay)[Principal], (Interest)[Interest], (TotalAmmount)[Total Amount], (BalanceExist)[Balance Exist], RTRIM(PaymentStatus)[Payment Status], (Fines)[Fines], RTRIM(Waivered)[Waivered] from RepaymentSchedule where  PaymentDate between @date1 and @date2 and PaymentStatus ='Paid' order by ID Asc", con);
                 cmd.Parameters.Add("@date1", SqlDbType.DateTime, 30, "PaymentDate").Value = paidfrom.Value.Date;
                 cmd.Parameters.Add("@date2", SqlDbType.DateTime, 30, "PaymentDate").Value = paidto.Value.Date;
                 SqlDataAdapter myDA = new SqlDataAdapter(cmd);
@@ -364,7 +364,7 @@ namespace Banking_System
             {
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
-                cmd = new SqlCommand("select RTrim(AccountNumber)[Account Number], RTRIM(AccountName)[Account Names], RTRIM(LoanID)[Loan ID], RTRIM(PaymentDate)[Repayment Date], RTRIM(Months)[Installment],RTRIM(AmmountPay)[Principal], RTRIM(Interest)[Interest], RTRIM(TotalAmmount)[Total Amount], RTRIM(BalanceExist)[Balance Exist], RTRIM(PaymentStatus)[Payment Status], RTRIM(Fines)[Fines], RTRIM(Waivered)[Waivered] from RepaymentSchedule where  PaymentDate between @date1 and @date2 and PaymentStatus ='Rescheduled' order by ID Asc", con);
+                cmd = new SqlCommand("select RTrim(AccountNumber)[Account Number], RTRIM(AccountName)[Account Names], RTRIM(LoanID)[Loan ID], RTRIM(PaymentDate)[Repayment Date], RTRIM(Months)[Installment],(AmmountPay)[Principal], (Interest)[Interest],(TotalAmmount)[Total Amount], (BalanceExist)[Balance Exist], RTRIM(PaymentStatus)[Payment Status], (Fines)[Fines], RTRIM(Waivered)[Waivered] from RepaymentSchedule where  PaymentDate between @date1 and @date2 and PaymentStatus ='Rescheduled' order by ID Asc", con);
                 cmd.Parameters.Add("@date1", SqlDbType.DateTime, 30, "PaymentDate").Value = rescheduledfrom.Value.Date;
                 cmd.Parameters.Add("@date2", SqlDbType.DateTime, 30, "PaymentDate").Value = rescheduledto.Value.Date;
                 SqlDataAdapter myDA = new SqlDataAdapter(cmd);
@@ -449,7 +449,7 @@ namespace Banking_System
             {
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
-                cmd = new SqlCommand("select RTrim(AccountNumber)[Account Number], RTRIM(AccountName)[Account Names], RTRIM(LoanID)[Loan ID], RTRIM(PaymentDate)[Repayment Date], RTRIM(Months)[Installment],RTRIM(AmmountPay)[Principal], RTRIM(Interest)[Interest], RTRIM(TotalAmmount)[Total Amount], RTRIM(BalanceExist)[Balance Exist], RTRIM(PaymentStatus)[Payment Status], RTRIM(Fines)[Fines], RTRIM(Waivered)[Waivered] from RepaymentSchedule where  PaymentDate between @date1 and @date2 and PaymentStatus ='ToppedUp' order by ID Asc", con);
+                cmd = new SqlCommand("select RTrim(AccountNumber)[Account Number], RTRIM(AccountName)[Account Names], RTRIM(LoanID)[Loan ID], RTRIM(PaymentDate)[Repayment Date], RTRIM(Months)[Installment],(AmmountPay)[Principal], (Interest)[Interest], (TotalAmmount)[Total Amount], (BalanceExist)[Balance Exist], RTRIM(PaymentStatus)[Payment Status], (Fines)[Fines], RTRIM(Waivered)[Waivered] from RepaymentSchedule where  PaymentDate between @date1 and @date2 and PaymentStatus ='ToppedUp' order by ID Asc", con);
                 cmd.Parameters.Add("@date1", SqlDbType.DateTime, 30, "PaymentDate").Value = toppedupfrom.Value.Date;
                 cmd.Parameters.Add("@date2", SqlDbType.DateTime, 30, "PaymentDate").Value = toppedupto.Value.Date;
                 SqlDataAdapter myDA = new SqlDataAdapter(cmd);
@@ -534,7 +534,7 @@ namespace Banking_System
             {
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
-                cmd = new SqlCommand("select  RTRIM(RepaymentID)[Repayment ID],RTRIM(LoanRepayment.LoanID)[Loan ID], RTRIM(LoanRepayment.MemberID)[Account Number], RTRIM(MemberName)[Account Name], RTRIM(AmmountPaid)[Paid Ammount],RTRIM(Balance)[Balance],RTRIM(RepayMonths)[Installment], RTRIM(CashierName)[ Cashier Name], RTRIM(Fines)[Fines], RTRIM(Waivered)[Waivered] from LoanRepayment where Repaymentdate between @date1 and @date2 order by LoanRepayment.ID DESC", con);
+                cmd = new SqlCommand("select  RTRIM(RepaymentID)[Repayment ID],RTRIM(LoanRepayment.LoanID)[Loan ID], RTRIM(LoanRepayment.MemberID)[Account Number], RTRIM(MemberName)[Account Name], (AmmountPaid)[Paid Ammount],(Balance)[Balance],(TotalAmmount)[Principal],(Fines)[Fine],(EarlySettlement)[Early Settlement],RTRIM(RepayMonths)[Installment], RTRIM(CashierName)[ Cashier Name] from LoanRepayment where Repaymentdate between @date1 and @date2 order by LoanRepayment.ID DESC", con);
                 cmd.Parameters.Add("@date1", SqlDbType.DateTime, 30, "Repaymentdate").Value = repaymentfrom.Value.Date;
                 cmd.Parameters.Add("@date2", SqlDbType.DateTime, 30, "Repaymentdate").Value = repaymentto.Value.Date;
                 SqlDataAdapter myDA = new SqlDataAdapter(cmd);
@@ -619,7 +619,7 @@ namespace Banking_System
             {
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
-                cmd = new SqlCommand("select RTrim(AccountNumber)[Account Number], RTRIM(AccountName)[Account Names], RTRIM(LoanID)[Loan ID], RTRIM(PaymentDate)[Repayment Date], RTRIM(Months)[Installment],RTRIM(AmmountPay)[Principal], RTRIM(Interest)[Interest], RTRIM(TotalAmmount)[Total Amount], RTRIM(BalanceExist)[Balance Exist], RTRIM(PaymentStatus)[Payment Status], RTRIM(Fines)[Fines], RTRIM(Waivered)[Waivered] from RepaymentSchedule where  PaymentDate between @date1 and @date2 and PaymentStatus ='Written Off' order by ID Asc", con);
+                cmd = new SqlCommand("select RTrim(AccountNumber)[Account Number], RTRIM(AccountName)[Account Names], RTRIM(LoanID)[Loan ID], RTRIM(PaymentDate)[Repayment Date], RTRIM(Months)[Installment],(AmmountPay)[Principal], (Interest)[Interest], (TotalAmmount)[Total Amount], (BalanceExist)[Balance Exist], RTRIM(PaymentStatus)[Payment Status], (Fines)[Fines], RTRIM(Waivered)[Waivered] from RepaymentSchedule where  PaymentDate between @date1 and @date2 and PaymentStatus ='Written Off' order by ID Asc", con);
                 cmd.Parameters.Add("@date1", SqlDbType.DateTime, 30, "PaymentDate").Value = writtenofffrom.Value.Date;
                 cmd.Parameters.Add("@date2", SqlDbType.DateTime, 30, "PaymentDate").Value = writtenoffto.Value.Date;
                 SqlDataAdapter myDA = new SqlDataAdapter(cmd);
@@ -704,7 +704,7 @@ namespace Banking_System
             {
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
-                cmd = new SqlCommand("select RTrim(AccountNumber)[Account Number], RTRIM(AccountName)[Account Names], RTRIM(LoanID)[Loan ID], RTRIM(PaymentDate)[Repayment Date], RTRIM(Months)[Installment],RTRIM(AmmountPay)[Principal], RTRIM(Interest)[Interest], RTRIM(TotalAmmount)[Total Amount], RTRIM(BalanceExist)[Balance Exist], RTRIM(PaymentStatus)[Payment Status], RTRIM(Fines)[Fines], RTRIM(Waivered)[Waivered] from RepaymentSchedule where  PaymentDate between @date1 and @date2 and PaymentStatus ='Recovery' order by ID Asc", con);
+                cmd = new SqlCommand("select RTrim(AccountNumber)[Account Number], RTRIM(AccountName)[Account Names], RTRIM(LoanID)[Loan ID], RTRIM(PaymentDate)[Repayment Date], RTRIM(Months)[Installment],(AmmountPay)[Principal], (Interest)[Interest], (TotalAmmount)[Total Amount], (BalanceExist)[Balance Exist], RTRIM(PaymentStatus)[Payment Status], (Fines)[Fines], RTRIM(Waivered)[Waivered] from RepaymentSchedule where  PaymentDate between @date1 and @date2 and PaymentStatus ='Recovery' order by ID Asc", con);
                 cmd.Parameters.Add("@date1", SqlDbType.DateTime, 30, "PaymentDate").Value = recoverfrom.Value.Date;
                 cmd.Parameters.Add("@date2", SqlDbType.DateTime, 30, "PaymentDate").Value = recoverto.Value.Date;
                 SqlDataAdapter myDA = new SqlDataAdapter(cmd);
@@ -794,7 +794,7 @@ namespace Banking_System
                 string repaymentdates = dt.ToString("dd/MMM/yyyy");
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
-                cmd = new SqlCommand("select RTrim(AccountNumber)[Account Number], RTRIM(AccountName)[Account Names], RTRIM(LoanID)[Loan ID], RTRIM(PaymentDate)[Repayment Date], RTRIM(Months)[Installment],RTRIM(AmmountPay)[Principal], RTRIM(Interest)[Interest], RTRIM(TotalAmmount)[Total Amount], RTRIM(BalanceExist)[Balance Exist], RTRIM(PaymentStatus)[Payment Status], RTRIM(Fines)[Fines], RTRIM(Waivered)[Waivered] from RepaymentSchedule where PaymentDate= @date1 and PaymentStatus='Pending' order by RepaymentSchedule.ID ASC", con);
+                cmd = new SqlCommand("select RTrim(AccountNumber)[Account Number], RTRIM(AccountName)[Account Names], RTRIM(LoanID)[Loan ID], RTRIM(PaymentDate)[Repayment Date], RTRIM(Months)[Installment],(AmmountPay)[Principal], (Interest)[Interest], (TotalAmmount)[Total Amount], (BalanceExist)[Balance Exist], RTRIM(PaymentStatus)[Payment Status], (Fines)[Fines], RTRIM(Waivered)[Waivered] from RepaymentSchedule where PaymentDate= @date1 and PaymentStatus='Pending' order by RepaymentSchedule.ID ASC", con);
                 cmd.Parameters.Add("@date1", SqlDbType.DateTime, 30, "PaymentDate").Value = DateTime.Parse(repaymentdates).Date;
                 SqlDataAdapter myDA = new SqlDataAdapter(cmd);
                 DataSet myDataSet = new DataSet();
@@ -814,7 +814,7 @@ namespace Banking_System
             {
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
-                cmd = new SqlCommand("select RTRIM(AccountNo)[Account No.],RTRIM(AccountName)[Account Name],RTRIM(LoanID)[Loan ID],RTRIM(LoanAmount)[Loan Amount],RTRIM(ApplicationDate)[Application Date],RTRIM(ServicingPeriod)[Servicing Period],RTRIM(RepaymentInterval)[Repayment Interval] ,RTRIM(Interest)[Interest Rate],RTRIM(RefereeName)[Referee Name],RTRIM(RefereeTel)[Referee Tel],RTRIM(RefereeAddress)[Referee Address],RTRIM(RefereeRelationShip)[Referee Relationship],RTRIM(FirstApproval)[1st Approval],(ApprovalComment)[Approval Comment],RTRIM(FinalApproval)[Final Approval],(FinalApprovalComment)[Final Approval Comment],RTRIM(FinalApprovalDate)[Final Approval Date],RTRIM(FinalApprovedBy)[Approved By],RTRIM(LoanType)[LoanType],RTRIM(IssueType)[Issue Method],RTRIM(Issued)[Issued] from Loan where  AccountNo Like '" + issuedloanssearch.Text + "%' OR LoanAmount Like '" + issuedloanssearch.Text + "%' OR FirstApproval Like '" + issuedloanssearch.Text + "%' OR FinalApproval Like '" + issuedloanssearch.Text + "%' OR LoanType Like '" + issuedloanssearch.Text + "%' OR IssueType Like '" + issuedloanssearch.Text + "%' order by ID Asc", con);
+                cmd = new SqlCommand("select RTRIM(AccountNo)[Account No.],RTRIM(AccountName)[Account Name],RTRIM(LoanID)[Loan ID],(LoanAmount)[Loan Amount],RTRIM(ApplicationDate)[Application Date],RTRIM(ServicingPeriod)[Servicing Period],RTRIM(RepaymentInterval)[Repayment Interval] ,RTRIM(Interest)[Interest Rate],RTRIM(RefereeName)[Referee Name],RTRIM(RefereeTel)[Referee Tel],RTRIM(RefereeAddress)[Referee Address],RTRIM(RefereeRelationShip)[Referee Relationship],RTRIM(FirstApproval)[1st Approval],(ApprovalComment)[Approval Comment],RTRIM(FinalApproval)[Final Approval],(FinalApprovalComment)[Final Approval Comment],RTRIM(FinalApprovalDate)[Final Approval Date],RTRIM(FinalApprovedBy)[Approved By],RTRIM(LoanType)[LoanType],RTRIM(IssueType)[Issue Method],RTRIM(Issued)[Issued] from Loan where  AccountNo Like '" + issuedloanssearch.Text + "%' OR LoanAmount Like '" + issuedloanssearch.Text + "%' OR FirstApproval Like '" + issuedloanssearch.Text + "%' OR FinalApproval Like '" + issuedloanssearch.Text + "%' OR LoanType Like '" + issuedloanssearch.Text + "%' OR IssueType Like '" + issuedloanssearch.Text + "%' order by ID Asc", con);
                 SqlDataAdapter myDA = new SqlDataAdapter(cmd);
                 DataSet myDataSet = new DataSet();
                 myDA.Fill(myDataSet, "Loan");
@@ -824,6 +824,88 @@ namespace Banking_System
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void buttonX30_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                con = new SqlConnection(cs.DBConn);
+                con.Open();
+                cmd = new SqlCommand("select RTRIM(AccountNo)[Account No.],RTRIM(AccountName)[Account Name],RTRIM(LoanID)[Loan ID],(LoanAmount)[Loan Amount],RTRIM(ApplicationDate)[Application Date],RTRIM(ServicingPeriod)[Servicing Period],RTRIM(RepaymentInterval)[Repayment Interval] ,RTRIM(Interest)[Interest Rate],RTRIM(RefereeTel)[Referee Tel],RTRIM(RefereeAddress)[Referee Address],RTRIM(RefereeRelationShip)[Referee Relationship],RTRIM(LoanType)[LoanType],RTRIM(IssueType)[Issue Method],RTRIM(Issued)[Issued] from Loan where Clearance='"+clearancestatus.Text+"' order by ID Asc", con);
+                SqlDataAdapter myDA = new SqlDataAdapter(cmd);
+                DataSet myDataSet = new DataSet();
+                myDA.Fill(myDataSet, "Loan");
+                dataGridView10.DataSource = myDataSet.Tables["Loan"].DefaultView;
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void buttonX28_Click(object sender, EventArgs e)
+        {
+            dataGridView10.DataSource = null;
+            clearancestatus.Text = "";
+        }
+
+        private void buttonX29_Click(object sender, EventArgs e)
+        {
+            if (dataGridView10.DataSource == null)
+            {
+                MessageBox.Show("Sorry nothing to export into excel sheet..", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            int rowsTotal = 0;
+            int colsTotal = 0;
+            int I = 0;
+            int j = 0;
+            int iC = 0;
+            Cursor.Current = Cursors.WaitCursor;
+            Excel.Application xlApp = new Excel.Application();
+
+            try
+            {
+                Excel.Workbook excelBook = xlApp.Workbooks.Add();
+                Excel.Worksheet excelWorksheet = (Excel.Worksheet)excelBook.Worksheets[1];
+                xlApp.Visible = true;
+
+                rowsTotal = dataGridView10.RowCount - 1;
+                colsTotal = dataGridView10.Columns.Count - 1;
+                var _with1 = excelWorksheet;
+                _with1.Cells.Select();
+                _with1.Cells.Delete();
+                for (iC = 0; iC <= colsTotal; iC++)
+                {
+                    _with1.Cells[1, iC + 1].Value = dataGridView10.Columns[iC].HeaderText;
+                }
+                for (I = 0; I <= rowsTotal - 1; I++)
+                {
+                    for (j = 0; j <= colsTotal; j++)
+                    {
+                        _with1.Cells[I + 2, j + 1].value = dataGridView10.Rows[I].Cells[j].Value;
+                    }
+                }
+                _with1.Rows["1:1"].Font.FontStyle = "Bold";
+                _with1.Rows["1:1"].Font.Size = 12;
+
+                _with1.Cells.Columns.AutoFit();
+                _with1.Cells.Select();
+                _with1.Cells.EntireColumn.AutoFit();
+                _with1.Cells[1, 1].Select();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                //RELEASE ALLOACTED RESOURCES
+                System.Windows.Forms.Cursor.Current = System.Windows.Forms.Cursors.Default;
+                xlApp = null;
             }
         }
     }

@@ -78,8 +78,14 @@ namespace Banking_System
                 return TableView;
         }
         string settings, humanresource,savingsaccount,savingsdeposit,investoraccountcreation,loanapplication,loanrecovery,loanwriteoff,Normalsettlement,earlysettlement,loanreschedule,loantopup,accountsrecord,savingsrecord,loansrecord,deletes,updates,externalborrowingrecords,investorrecords,inflowsrecords,outflowsrecords,HRrecords = null;
+
+        private void dataGridViewX2_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
         string fines,grants, otherincomes,expenses,purchases,devidends,supplierbalances, savingswithdraw,creditapproval,debitapproval,addcollateral,addinsuranceprocessing,issueloan,loanschedule,savingsforloans,externalloan,externalloanschedule,externalloanfines,externalloanrepayments,investorwithdrawapplication,investorcreditapproval,investordebitfirstapproval = null;
-        string investordebitsecondapproval, investorwithdrawissue, accountreports, savingsreports, loansreports, externalborrowingreports, investorreports, hrreports, transactionreports, financialsummsries, addmenu, moneytransfer, bankaccountscreate = null;
+        string investordebitsecondapproval, investorwithdrawissue, accountreports, savingsreports, loansreports, externalborrowingreports, investorreports, hrreports, transactionreports, financialsummsries, addmenu, moneytransfer, bankaccountscreate,officeadmin,recoveryofficer,relationshipmanager,directoroperations,managingdirector,directoraccounts,shares,investments,annualsubscription = null;
         public void Checkboxes()
         {
             if (checkBoxItem1.Checked == true) { settings = "Yes"; } else { settings = "No"; }
@@ -117,7 +123,7 @@ namespace Banking_System
             if (checkBoxItem33.Checked == true) { addcollateral = "Yes"; } else { addcollateral= "No"; }
             if (checkBoxItem34.Checked == true) { addinsuranceprocessing= "Yes"; } else { addinsuranceprocessing = "No"; }
             if (checkBoxItem35.Checked == true) { issueloan = "Yes"; } else { issueloan = "No"; }
-            if (checkBoxItem36.Checked == true) { loanreschedule = "Yes"; } else { loanschedule = "No"; }
+            if (checkBoxItem36.Checked == true) { loanschedule = "Yes"; } else { loanschedule = "No"; }
             if (checkBoxItem37.Checked == true) { savingsforloans = "Yes"; } else { savingsforloans = "No"; }
             if (checkBoxItem38.Checked == true) { externalloan = "Yes"; } else { externalloan = "No"; }
             if (checkBoxItem39.Checked == true) { externalloanfines = "Yes"; } else { externalloanfines = "No"; }
@@ -139,6 +145,15 @@ namespace Banking_System
             if (checkBoxItem55.Checked == true) { addmenu = "Yes"; } else { addmenu = "No"; }
             if (checkBoxItem56.Checked == true) { moneytransfer = "Yes"; } else { moneytransfer = "No"; }
             if (checkBoxItem57.Checked == true) { bankaccountscreate = "Yes"; } else { bankaccountscreate = "No"; }
+            if (checkBoxItem58.Checked == true) { officeadmin = "Yes"; } else { officeadmin = "No"; }
+            if (checkBoxItem59.Checked == true) { recoveryofficer = "Yes"; } else { recoveryofficer = "No"; }
+            if (checkBoxItem60.Checked == true) { relationshipmanager = "Yes"; } else { relationshipmanager = "No"; }
+            if (checkBoxItem61.Checked == true) { directoroperations = "Yes"; } else { directoroperations = "No"; }
+            if (checkBoxItem62.Checked == true) { managingdirector = "Yes"; } else { managingdirector = "No"; }
+            if (checkBoxItem63.Checked == true) { directoraccounts= "Yes"; } else { directoraccounts = "No"; }
+            if (checkBoxItem64.Checked == true) { shares = "Yes"; } else {shares = "No"; }
+            if (checkBoxItem65.Checked == true) { investments = "Yes"; } else { investments= "No"; }
+            if (checkBoxItem66.Checked == true) { annualsubscription = "Yes"; } else { annualsubscription = "No"; }
         }
         private void buttonX23_Click(object sender, EventArgs e)
         {
@@ -159,7 +174,7 @@ namespace Banking_System
                 {
                     con = new SqlConnection(cs.DBConn);
                     con.Open();
-                    string cb = "update UserAccess set BankAccounts=@d58,MoneyTransfer=@d57,AddMenu=@d56,FinancialSummaries=@d55,TransactionReports=@d54,HRReports=@d53,InvestorReports=@d52,ExternalBorrowingReports=@d51,LoanReports=@d50,SavingsReports=@d49,AccountReports=@d48,InvestorWithdraw=@d47, InvestorDebitSecond=@d46,InvestorDebitFirst=@d45,InvestorCreditApproval=@d44,InvestorWithdrawApplication=@d43,ExternalLoanRepayments=@d42,ExternalLoanSchedule=@d41,ExternalLoanFines=@d40,ExternalLoan=@d39,SavingsForLoans=@d38,LoanSchedule=@d37,IssueLoan=@d36, AddInsurance=@d35,AddCollateral=@d34,DebitApproval=@d33,CreditApproval=@d32,SavingsWithdraw=@d31,SupplierBalances=@d30,Dividends=@d29,Purchases=@d28,Expenses=@d27,OtherIncomes=@d26,Grants=@d25,Fines=@d24,HRRecords=@d23,OutflowRecords=@d22,InflowRecords=@d21,InvestorRecords=@d20,ExternalRecords=@d19,Updates=@d18,Deletes=@d17,LoanRecords=@d16,SavingsRecord=@d15,AccountsRecord=@d14,LoanTopup=@d13,LoanReschedule=@d12,EarlySettlement=@d11,NormalSettlement=@d10,LoanWriteoff=@d9,LoanRecovery=@d8, Loans=@d7,InvestorAccount=@d6,Settings=@d2,Humanresource=@d3,Account=@d4,Savings=@d5 where UserName=@d1";
+                    string cb = "update UserAccess set Shares=@d65,Investments=@d66,AnnualSubscriptions=@d67,OfficeAdmin=@d59,RecoveryOfficer=@d60,RelationshipManager=@d61,DirectorOperations=@d62,ManagingDirector=@d63,DirectorAccounts=@d64, BankAccounts=@d58,MoneyTransfer=@d57,AddMenu=@d56,FinancialSummaries=@d55,TransactionReports=@d54,HRReports=@d53,InvestorReports=@d52,ExternalBorrowingReports=@d51,LoanReports=@d50,SavingsReports=@d49,AccountReports=@d48,InvestorWithdraw=@d47, InvestorDebitSecond=@d46,InvestorDebitFirst=@d45,InvestorCreditApproval=@d44,InvestorWithdrawApplication=@d43,ExternalLoanRepayments=@d42,ExternalLoanSchedule=@d41,ExternalLoanFines=@d40,ExternalLoan=@d39,SavingsForLoans=@d38,LoanSchedule=@d37,IssueLoan=@d36, AddInsurance=@d35,AddCollateral=@d34,DebitApproval=@d33,CreditApproval=@d32,SavingsWithdraw=@d31,SupplierBalances=@d30,Dividends=@d29,Purchases=@d28,Expenses=@d27,OtherIncomes=@d26,Grants=@d25,Fines=@d24,HRRecords=@d23,OutflowRecords=@d22,InflowRecords=@d21,InvestorRecords=@d20,ExternalRecords=@d19,Updates=@d18,Deletes=@d17,LoanRecords=@d16,SavingsRecord=@d15,AccountsRecord=@d14,LoanTopup=@d13,LoanReschedule=@d12,EarlySettlement=@d11,NormalSettlement=@d10,LoanWriteoff=@d9,LoanRecovery=@d8, Loans=@d7,InvestorAccount=@d6,Settings=@d2,Humanresource=@d3,Account=@d4,Savings=@d5 where UserName=@d1";
                     cmd = new SqlCommand(cb);
                     cmd.Connection = con;
                     cmd.Parameters.Add(new SqlParameter("@d1", System.Data.SqlDbType.NChar, 50, "UserName"));
@@ -220,6 +235,15 @@ namespace Banking_System
                     cmd.Parameters.Add(new SqlParameter("@d56", System.Data.SqlDbType.NChar, 10, "AddMenu"));
                     cmd.Parameters.Add(new SqlParameter("@d57", System.Data.SqlDbType.NChar, 10, "MoneyTransfer"));
                     cmd.Parameters.Add(new SqlParameter("@d58", System.Data.SqlDbType.NChar, 10, "BankAccounts"));
+                    cmd.Parameters.Add(new SqlParameter("@d59", System.Data.SqlDbType.NChar, 10, "OfficeAdmin"));
+                    cmd.Parameters.Add(new SqlParameter("@d60", System.Data.SqlDbType.NChar, 10, "RecoveryOfficer"));
+                    cmd.Parameters.Add(new SqlParameter("@d61", System.Data.SqlDbType.NChar, 10, "RelationshipManager"));
+                    cmd.Parameters.Add(new SqlParameter("@d62", System.Data.SqlDbType.NChar, 10, "DirectorOperations"));
+                    cmd.Parameters.Add(new SqlParameter("@d63", System.Data.SqlDbType.NChar, 10, "Managing Director"));
+                    cmd.Parameters.Add(new SqlParameter("@d64", System.Data.SqlDbType.NChar, 10, "DirectorAccounts"));
+                    cmd.Parameters.Add(new SqlParameter("@d65", System.Data.SqlDbType.NChar, 10, "Shares"));
+                    cmd.Parameters.Add(new SqlParameter("@d66", System.Data.SqlDbType.NChar, 10, "Investments"));
+                    cmd.Parameters.Add(new SqlParameter("@d67", System.Data.SqlDbType.NChar, 10, "AnnualSubscriptions"));
                     cmd.Parameters["@d1"].Value = expandablePanel2.TitleText;
                     cmd.Parameters["@d2"].Value = settings;
                     cmd.Parameters["@d3"].Value = humanresource;
@@ -278,6 +302,15 @@ namespace Banking_System
                     cmd.Parameters["@d56"].Value = addmenu;
                     cmd.Parameters["@d57"].Value = moneytransfer;
                     cmd.Parameters["@d58"].Value = bankaccountscreate;
+                    cmd.Parameters["@d59"].Value = officeadmin;
+                    cmd.Parameters["@d60"].Value = recoveryofficer;
+                    cmd.Parameters["@d61"].Value = relationshipmanager;
+                    cmd.Parameters["@d62"].Value = directoroperations;
+                    cmd.Parameters["@d63"].Value = managingdirector;
+                    cmd.Parameters["@d64"].Value = directoraccounts;
+                    cmd.Parameters["@d65"].Value = shares;
+                    cmd.Parameters["@d66"].Value = investments;
+                    cmd.Parameters["@d67"].Value = annualsubscription;
                     cmd.ExecuteReader();
                     con.Close();
                     MessageBox.Show("Successfully updated", "User Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -289,7 +322,7 @@ namespace Banking_System
                 {
                     con = new SqlConnection(cs.DBConn);
                     con.Open();
-                    string cb = "Insert Into UserAccess (Username,Settings,Humanresource,Account,Savings,InvestorAccount,Loans,LoanRecovery,LoanWriteoff,NormalSettlement,EarlySettlement,LoanReschedule,LoanTopup,AccountsRecord,SavingsRecord,LoanRecords,Deletes,Updates,ExternalRecords,InvestorRecords,InflowRecords,OutflowRecords,HRRecords,Fines,Grants,OtherIncomes,Expenses,Purchases,Dividends,SupplierBalances,SavingsWithdraw,CreditApproval,DebitApproval,AddCollateral,AddInsurance,IssueLoan,LoanSchedule,SavingsForLoans,ExternalLoan,ExternalLoanFines,ExternalLoanSchedule,ExternalLoanRepayments,InvestorWithdrawApplication,InvestorCreditApproval,InvestorDebitFirst,InvestorDebitSecond,InvestorWithdraw,AccountReports,SavingsReports,LoanReports,ExternalBorrowingReports,InvestorReports,HRReports,TransactionReports,FinancialSummaries,AddMenu,MoneyTransfer,BankAccounts) Values(@d1,@d2,@d3,@d4,@d5,@d6,@d7,@d8,@d9,@d10,@d11,@d12,@d13,@d14,@d15,@d16,@d17,@d18,@d19,@d20,@d21,@d22,@d23,@d24,@d25,@d26,@d27,@d28,@d29,@d30,@d31,@d32,@d33,@d34,@d35,@d36,@d37,@d38,@d39,@d40,@d41,@d42,@d43,@d44,@d45,@d46,@d47,@d48,@d49,@d50,@d51,@d52,@d53,@d54,@d55,@d56,@d57,@d58)";
+                    string cb = "Insert Into UserAccess (Username,Settings,Humanresource,Account,Savings,InvestorAccount,Loans,LoanRecovery,LoanWriteoff,NormalSettlement,EarlySettlement,LoanReschedule,LoanTopup,AccountsRecord,SavingsRecord,LoanRecords,Deletes,Updates,ExternalRecords,InvestorRecords,InflowRecords,OutflowRecords,HRRecords,Fines,Grants,OtherIncomes,Expenses,Purchases,Dividends,SupplierBalances,SavingsWithdraw,CreditApproval,DebitApproval,AddCollateral,AddInsurance,IssueLoan,LoanSchedule,SavingsForLoans,ExternalLoan,ExternalLoanFines,ExternalLoanSchedule,ExternalLoanRepayments,InvestorWithdrawApplication,InvestorCreditApproval,InvestorDebitFirst,InvestorDebitSecond,InvestorWithdraw,AccountReports,SavingsReports,LoanReports,ExternalBorrowingReports,InvestorReports,HRReports,TransactionReports,FinancialSummaries,AddMenu,MoneyTransfer,BankAccounts,OfficeAdmin,RecoveryOfficer,RelationshipManager,DirectorOperations,ManagingDirector,DirectorAccounts,Shares,Investments,AnnualSubscriptions) Values(@d1,@d2,@d3,@d4,@d5,@d6,@d7,@d8,@d9,@d10,@d11,@d12,@d13,@d14,@d15,@d16,@d17,@d18,@d19,@d20,@d21,@d22,@d23,@d24,@d25,@d26,@d27,@d28,@d29,@d30,@d31,@d32,@d33,@d34,@d35,@d36,@d37,@d38,@d39,@d40,@d41,@d42,@d43,@d44,@d45,@d46,@d47,@d48,@d49,@d50,@d51,@d52,@d53,@d54,@d55,@d56,@d57,@d58,@d59,@d60,@d61,@d62,@d63,@d64,@d65,@d66,@d67)";
                     cmd = new SqlCommand(cb);
                     cmd.Connection = con;
                     cmd.Parameters.Add(new SqlParameter("@d1", System.Data.SqlDbType.NChar, 50, "UserName"));
@@ -350,6 +383,15 @@ namespace Banking_System
                     cmd.Parameters.Add(new SqlParameter("@d56", System.Data.SqlDbType.NChar, 10, "AddMenu"));
                     cmd.Parameters.Add(new SqlParameter("@d57", System.Data.SqlDbType.NChar, 10, "MoneyTransfer"));
                     cmd.Parameters.Add(new SqlParameter("@d58", System.Data.SqlDbType.NChar, 10, "BankAccounts"));
+                    cmd.Parameters.Add(new SqlParameter("@d59", System.Data.SqlDbType.NChar, 10, "OfficeAdmin"));
+                    cmd.Parameters.Add(new SqlParameter("@d60", System.Data.SqlDbType.NChar, 10, "RecoveryOfficer"));
+                    cmd.Parameters.Add(new SqlParameter("@d61", System.Data.SqlDbType.NChar, 10, "RelationshipManager"));
+                    cmd.Parameters.Add(new SqlParameter("@d62", System.Data.SqlDbType.NChar, 10, "DirectorOperations"));
+                    cmd.Parameters.Add(new SqlParameter("@d63", System.Data.SqlDbType.NChar, 10, "Managing Director"));
+                    cmd.Parameters.Add(new SqlParameter("@d64", System.Data.SqlDbType.NChar, 10, "DirectorAccounts"));
+                    cmd.Parameters.Add(new SqlParameter("@d65", System.Data.SqlDbType.NChar, 10, "Shares"));
+                    cmd.Parameters.Add(new SqlParameter("@d66", System.Data.SqlDbType.NChar, 10, "Investments"));
+                    cmd.Parameters.Add(new SqlParameter("@d67", System.Data.SqlDbType.NChar, 10, "AnnualSubscriptions"));
                     cmd.Parameters["@d1"].Value = expandablePanel2.TitleText;
                     cmd.Parameters["@d2"].Value = settings;
                     cmd.Parameters["@d3"].Value = humanresource;
@@ -408,6 +450,15 @@ namespace Banking_System
                     cmd.Parameters["@d56"].Value = addmenu;
                     cmd.Parameters["@d57"].Value = moneytransfer;
                     cmd.Parameters["@d58"].Value = bankaccountscreate;
+                    cmd.Parameters["@d59"].Value = officeadmin;
+                    cmd.Parameters["@d60"].Value = recoveryofficer;
+                    cmd.Parameters["@d61"].Value = relationshipmanager;
+                    cmd.Parameters["@d62"].Value = directoroperations;
+                    cmd.Parameters["@d63"].Value = managingdirector;
+                    cmd.Parameters["@d64"].Value = directoraccounts;
+                    cmd.Parameters["@d65"].Value = shares;
+                    cmd.Parameters["@d66"].Value = investments;
+                    cmd.Parameters["@d67"].Value = annualsubscription;
                     cmd.ExecuteReader();
                     con.Close();
                     MessageBox.Show("Successfully Saved", "User Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -415,7 +466,7 @@ namespace Banking_System
                     frmAccessRights frm = new frmAccessRights();
                     frm.ShowDialog();
                 }
-
+                con.Close();
                 if ((rdr != null))
                 {
                     rdr.Close();
@@ -504,6 +555,17 @@ namespace Banking_System
                     moneytransfer = rdr["MoneyTransfer"].ToString().Trim();
                     bankaccountscreate = rdr["BankAccounts"].ToString().Trim();
 
+                    officeadmin = rdr["OfficeAdmin"].ToString().Trim();
+                    recoveryofficer = rdr["RecoveryOfficer"].ToString().Trim();
+                    relationshipmanager = rdr["RelationshipManager"].ToString().Trim();
+                    directoroperations = rdr["DirectorOperations"].ToString().Trim();
+                    managingdirector = rdr["ManagingDirector"].ToString().Trim();
+                    directoraccounts = rdr["DirectorAccounts"].ToString().Trim();
+
+                    shares = rdr["Shares"].ToString().Trim();
+                    investments = rdr["Investments"].ToString().Trim();
+                    annualsubscription = rdr["AnnualSubscriptions"].ToString().Trim();
+
                     if (settings == "Yes") { checkBoxItem1.Checked = true; } else { checkBoxItem1.Checked = false; }
                     if (humanresource == "Yes") { checkBoxItem2.Checked = true; } else { checkBoxItem2.Checked = false; }
                     if (savingsaccount == "Yes") { checkBoxItem3.Checked = true; } else { checkBoxItem3.Checked = false; }
@@ -561,6 +623,17 @@ namespace Banking_System
                     if (addmenu == "Yes") { checkBoxItem55.Checked = true; } else { checkBoxItem55.Checked = false; }
                     if (moneytransfer == "Yes") { checkBoxItem56.Checked = true; } else { checkBoxItem56.Checked = false; }
                     if (bankaccountscreate== "Yes") { checkBoxItem57.Checked = true; } else { checkBoxItem57.Checked = false; }
+
+                    if (officeadmin == "Yes") { checkBoxItem58.Checked = true; } else { checkBoxItem58.Checked = false; }
+                    if (recoveryofficer == "Yes") { checkBoxItem59.Checked = true; } else { checkBoxItem59.Checked = false; }
+                    if (relationshipmanager == "Yes") { checkBoxItem60.Checked = true; } else { checkBoxItem60.Checked = false; }
+                    if (directoroperations == "Yes") { checkBoxItem61.Checked = true; } else { checkBoxItem61.Checked = false; }
+                    if (managingdirector == "Yes") { checkBoxItem62.Checked = true; } else { checkBoxItem62.Checked = false; }
+                    if (directoraccounts == "Yes") { checkBoxItem63.Checked = true; } else { checkBoxItem63.Checked = false; }
+
+                    if (shares == "Yes") { checkBoxItem64.Checked = true; } else { checkBoxItem64.Checked = false; }
+                    if (investments == "Yes") { checkBoxItem65.Checked = true; } else { checkBoxItem65.Checked = false; }
+                    if (annualsubscription == "Yes") { checkBoxItem66.Checked = true; } else { checkBoxItem66.Checked = false; }
                 }
                 else
                 {
@@ -621,8 +694,17 @@ namespace Banking_System
                     checkBoxItem55.Checked = false;
                     checkBoxItem56.Checked = false;
                     checkBoxItem57.Checked = false;
-
+                    checkBoxItem58.Checked = false;
+                    checkBoxItem59.Checked = false;
+                    checkBoxItem60.Checked = false;
+                    checkBoxItem61.Checked = false;
+                    checkBoxItem62.Checked = false;
+                    checkBoxItem63.Checked = false;
+                    checkBoxItem64.Checked = false;
+                    checkBoxItem65.Checked = false;
+                    checkBoxItem66.Checked = false;
                 }
+                con.Close();
             }
             catch (Exception ex)
             {

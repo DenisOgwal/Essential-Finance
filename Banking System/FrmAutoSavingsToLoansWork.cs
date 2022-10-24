@@ -29,7 +29,7 @@ namespace Banking_System
             int realid = 0;
             con = new SqlConnection(cs.DBConn);
             con.Open();
-            cmd = new SqlCommand("select ID from Savings where Date=@date1 Order By ID DESC", con);
+            cmd = new SqlCommand("select ID from Savings  Order By ID DESC", con);
             cmd.Parameters.Add("@date1", SqlDbType.DateTime, 30, "Date").Value = dateTimePicker1.Value.Date;
             cmd.Connection = con;
             rdr = cmd.ExecuteReader();
@@ -37,7 +37,7 @@ namespace Banking_System
             {
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
-                cmd = new SqlCommand("select COUNT(AccountNo) from Savings where Date=@date1", con);
+                cmd = new SqlCommand("select COUNT(AccountNo) from Savings ", con);
                 cmd.Parameters.Add("@date1", SqlDbType.DateTime, 30, "Date").Value = dateTimePicker1.Value.Date;
                 realid = Convert.ToInt32(cmd.ExecuteScalar()) + 1;
             }
@@ -45,10 +45,11 @@ namespace Banking_System
             {
                 realid = 1;
             }
+            con.Close();
             string years = yearss.Substring(2, 2);
             paymentid = "STL-" + years + monthss + days + realid;
             repaymentid = "RID-" + years + monthss + days + realid;
-            savingsid = "S-" + years + monthss + days + realid;
+            savingsid = "S-"+ days + realid;
         }
         public void dataload()
         {
@@ -117,8 +118,8 @@ namespace Banking_System
                             {
                                 Accountbalance = 0;
                             }
-                            //if (Accountbalance >= totalammount)
-                            //{
+                            if (Accountbalance >= totalammount)
+                            {
                                 NewAccountBalance = Accountbalance - totalammount;
                                 try
                                 {
@@ -144,7 +145,7 @@ namespace Banking_System
                                     cmd.Parameters["@d6"].Value = totalammount;
                                     cmd.Parameters["@d7"].Value = "Auto";
                                     cmd.Parameters["@d8"].Value = "Auto Transfer From Savings to Clear Loan";
-                                    //cmd.ExecuteReader();
+                                    cmd.ExecuteReader();
                                     con.Close();
 
                                     con = new SqlConnection(cs.DBConn);
@@ -172,7 +173,7 @@ namespace Banking_System
                                     cmd.Parameters["@d8"].Value = "Transfer";
                                     cmd.Parameters["@d9"].Value = row.Cells[2].Value.ToString().Trim();
                                     cmd.Parameters["@d10"].Value = "Auto";
-                                    //cmd.ExecuteNonQuery();
+                                    cmd.ExecuteNonQuery();
                                     con.Close();
                                     con = new SqlConnection(cs.DBConn);
                                     con.Open();
@@ -205,25 +206,25 @@ namespace Banking_System
                                     cmd.Parameters["@d11"].Value = totalammount;
                                     cmd.Parameters["@d12"].Value = row.Cells[2].Value.ToString().Trim();
                                     cmd.Parameters["@d13"].Value = "Transfer";
-                                    //cmd.ExecuteNonQuery();
+                                    cmd.ExecuteNonQuery();
                                     con.Close();
 
                                     con = new SqlConnection(cs.DBConn);
                                     con.Open();
-                                    string cb5 = "update RepaymentSchedule set PaymentStatus=@d1,BalanceExist=@d3,PaymentDate=@d4 where LoanID=@d2 and Months=@d5";
+                                    string cb5 = "update RepaymentSchedule set PaymentStatus=@d1,BalanceExist=@d3,ActualPaymentDate=@d4,UploadStatus='Pending' where LoanID=@d2 and Months=@d5";
                                     cmd = new SqlCommand(cb5);
                                     cmd.Connection = con;
                                     cmd.Parameters.Add(new SqlParameter("@d1", System.Data.SqlDbType.NChar, 15, "PaymentStatus"));
                                     cmd.Parameters.Add(new SqlParameter("@d2", System.Data.SqlDbType.NChar, 15, "LoanID"));
                                     cmd.Parameters.Add(new SqlParameter("@d3", System.Data.SqlDbType.NChar, 15, "BalanceExist"));
-                                    cmd.Parameters.Add(new SqlParameter("@d4", System.Data.SqlDbType.NChar, 20, "PaymentDate"));
+                                    cmd.Parameters.Add(new SqlParameter("@d4", System.Data.SqlDbType.NChar, 20, "ActualPaymentDate"));
                                     cmd.Parameters.Add(new SqlParameter("@d5", System.Data.SqlDbType.NChar, 15, "Months"));
                                     cmd.Parameters["@d1"].Value = "Paid";
                                     cmd.Parameters["@d2"].Value = loanid;
                                     cmd.Parameters["@d3"].Value = 0;
                                     cmd.Parameters["@d4"].Value = dateTimePicker1.Text;
                                     cmd.Parameters["@d5"].Value = installment;
-                                    //cmd.ExecuteNonQuery();
+                                    cmd.ExecuteNonQuery();
                                     con.Close();
                                 }
                                 catch (Exception Ex)
@@ -231,7 +232,7 @@ namespace Banking_System
                                     MessageBox.Show(Ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                     return;
                                 }
-                            //}
+                            }
                         }
 
                     }
@@ -240,7 +241,7 @@ namespace Banking_System
                 if (dataGridView1.DataSource == null)
                 {
                     this.Hide();
-                    FrmInvestorDebit frm = new FrmInvestorDebit();
+                    frmmonthlydatagrid frm = new frmmonthlydatagrid();
                     frm.Show();
                     
                 }

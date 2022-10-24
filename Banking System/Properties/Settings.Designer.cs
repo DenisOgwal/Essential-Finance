@@ -118,7 +118,7 @@ namespace Banking_System.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Highlight")]
+        [global::System.Configuration.DefaultSettingValueAttribute("HotTrack")]
         public global::System.Drawing.Color usercolor {
             get {
                 return ((global::System.Drawing.Color)(this["usercolor"]));
@@ -513,9 +513,9 @@ namespace Banking_System.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("2")]
-        public string autotransferdays {
+        public int autotransferdays {
             get {
-                return ((string)(this["autotransferdays"]));
+                return ((int)(this["autotransferdays"]));
             }
             set {
                 this["autotransferdays"] = value;
@@ -530,6 +530,78 @@ namespace Banking_System.Properties {
         public string LendingConnectionString {
             get {
                 return ((string)(this["LendingConnectionString"]));
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Yes")]
+        public string ThreadsAuto {
+            get {
+                return ((string)(this["ThreadsAuto"]));
+            }
+            set {
+                this["ThreadsAuto"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("POS")]
+        public string receipttype {
+            get {
+                return ((string)(this["receipttype"]));
+            }
+            set {
+                this["receipttype"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("showdialog")]
+        public string PrintOptions {
+            get {
+                return ((string)(this["PrintOptions"]));
+            }
+            set {
+                this["PrintOptions"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Dither Tech")]
+        public string Smscode {
+            get {
+                return ((string)(this["Smscode"]));
+            }
+            set {
+                this["Smscode"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("+256787045644")]
+        public string phoneinquiry {
+            get {
+                return ((string)(this["phoneinquiry"]));
+            }
+            set {
+                this["phoneinquiry"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("10000")]
+        public string RescheduleAmount {
+            get {
+                return ((string)(this["RescheduleAmount"]));
+            }
+            set {
+                this["RescheduleAmount"] = value;
             }
         }
     }

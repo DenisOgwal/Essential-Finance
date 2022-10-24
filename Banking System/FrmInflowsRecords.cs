@@ -125,7 +125,7 @@ namespace Banking_System
             {
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
-                cmd = new SqlCommand("select RTrim(PaymentID)[Payment ID], RTRIM(MemberID)[Account Number], RTRIM(Year)[Year], RTRIM(Months)[Months], RTRIM(Date)[Payment Date],RTRIM(CashierName)[Recieved By], RTRIM(FineFee)[Ammount Paid], RTRIM(Reason)[Reason] from Fines where MemberID like '" + accountsearch.Text + "%' OR Reason like '" + accountsearch.Text + "%' OR PaymentID like '" + accountsearch.Text + "%' Or FineFee like '" + accountsearch.Text + "%' order by ID Desc", con);
+                cmd = new SqlCommand("select RTrim(PaymentID)[Payment ID], RTRIM(MemberID)[Account Number], RTRIM(Year)[Year], RTRIM(Months)[Months], RTRIM(Date)[Payment Date],RTRIM(CashierName)[Recieved By], (FineFee)[Ammount Paid], RTRIM(Reason)[Reason] from Fines where MemberID like '" + accountsearch.Text + "%' OR Reason like '" + accountsearch.Text + "%' OR PaymentID like '" + accountsearch.Text + "%' Or FineFee like '" + accountsearch.Text + "%' order by ID Desc", con);
                 SqlDataAdapter myDA = new SqlDataAdapter(cmd);
                 DataSet myDataSet = new DataSet();
                 myDA.Fill(myDataSet, "Fines");
@@ -208,7 +208,7 @@ namespace Banking_System
             {
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
-                cmd = new SqlCommand("select RTrim(PaymentID)[Payment ID], RTRIM(GrantedBy)[Granted By], RTRIM(Year)[Year], RTRIM(Months)[Months], RTRIM(Date)[Payment Date],RTRIM(CashierName)[Recieved By], RTRIM(GrantFee)[Granted Fee], RTRIM(Reason)[Reason] from GrantFees where  Date between @date1 and @date2 order by Date", con);
+                cmd = new SqlCommand("select RTrim(PaymentID)[Payment ID], RTRIM(GrantedBy)[Granted By], RTRIM(Year)[Year], RTRIM(Months)[Months], RTRIM(Date)[Payment Date],RTRIM(CashierName)[Recieved By], (GrantFee)[Granted Fee], RTRIM(Reason)[Reason] from GrantFees where  Date between @date1 and @date2 order by Date", con);
                 cmd.Parameters.Add("@date1", SqlDbType.DateTime, 30, "Date").Value = grantsfrom.Value.Date;
                 cmd.Parameters.Add("@date2", SqlDbType.DateTime, 30, "Date").Value = grantsto.Value.Date;
                 SqlDataAdapter myDA = new SqlDataAdapter(cmd);
@@ -229,7 +229,7 @@ namespace Banking_System
             {
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
-                cmd = new SqlCommand("select RTrim(PaymentID)[Payment ID], RTRIM(GrantedBy)[Granted By], RTRIM(Year)[Year], RTRIM(Months)[Months], RTRIM(Date)[Payment Date],RTRIM(CashierName)[Recieved By], RTRIM(GrantFee)[Granted Fee], RTRIM(Reason)[Reason] from GrantFees where  Date like '"+ grantsearch.Text+ "%' OR GrantedBy like '" + grantsearch.Text + "%' OR PaymentID like '" + grantsearch.Text + "%' OR GrantFee like '" + grantsearch.Text + "%' OR Reason like '" + grantsearch.Text + "%' order by Date", con);
+                cmd = new SqlCommand("select RTrim(PaymentID)[Payment ID], RTRIM(GrantedBy)[Granted By], RTRIM(Year)[Year], RTRIM(Months)[Months], RTRIM(Date)[Payment Date],RTRIM(CashierName)[Recieved By], (GrantFee)[Granted Fee], RTRIM(Reason)[Reason] from GrantFees where  Date like '"+ grantsearch.Text+ "%' OR GrantedBy like '" + grantsearch.Text + "%' OR PaymentID like '" + grantsearch.Text + "%' OR GrantFee like '" + grantsearch.Text + "%' OR Reason like '" + grantsearch.Text + "%' order by Date", con);
                 cmd.Parameters.Add("@date1", SqlDbType.DateTime, 30, "Date").Value = grantsfrom.Value.Date;
                 cmd.Parameters.Add("@date2", SqlDbType.DateTime, 30, "Date").Value = grantsto.Value.Date;
                 SqlDataAdapter myDA = new SqlDataAdapter(cmd);
@@ -314,7 +314,7 @@ namespace Banking_System
             {
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
-                cmd = new SqlCommand("select RTRIM(Comment)[Comment], RTRIM(PaymentID)[Income ID], RTRIM(CashierName)[Cashier Name],RTRIM(Year)[Year], RTRIM(Months)[Months], RTRIM(Date)[Date],RTRIM(Income)[Paid For],RTRIM(OtherFee)[Total Paid],RTRIM(Reason)[Reason], RTRIM(PaidBy)[Paid By],RTRIM(Telephone)[Telephone No. ], RTRIM(Address)[ Address] from OtherIncomes where Date between @date1 and @date2 order by ID DESC", con);
+                cmd = new SqlCommand("select RTRIM(Comment)[Comment], RTRIM(PaymentID)[Income ID], RTRIM(CashierName)[Cashier Name],RTRIM(Year)[Year], RTRIM(Months)[Months], RTRIM(Date)[Date],RTRIM(Income)[Paid For],(OtherFee)[Total Paid],RTRIM(Reason)[Reason], RTRIM(PaidBy)[Paid By],RTRIM(Telephone)[Telephone No. ], RTRIM(Address)[ Address] from OtherIncomes where Date between @date1 and @date2 order by ID DESC", con);
                 cmd.Parameters.Add("@date1", SqlDbType.DateTime, 30, " Date").Value =othersfrom.Value.Date;
                 cmd.Parameters.Add("@date2", SqlDbType.DateTime, 30, " Date").Value = othersto.Value.Date;
                 SqlDataAdapter myDA = new SqlDataAdapter(cmd);

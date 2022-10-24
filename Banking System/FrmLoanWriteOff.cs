@@ -256,5 +256,15 @@ namespace Banking_System
             frm.label2.Text = label2.Text;
             frm.ShowDialog();
         }
+
+        private void LoanID_Click(object sender, EventArgs e)
+        {
+            frmClientDetails4 frm = new frmClientDetails4();
+            frm.ShowDialog();
+            this.LoanID.Text = frm.LoanID.Text;
+            this.AccountNumber.Text = frm.clientnames.Text;
+            this.AccountName.Text = frm.Accountnames.Text;
+            return;
+        }
     }
 }

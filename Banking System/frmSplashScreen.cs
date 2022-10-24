@@ -89,31 +89,59 @@ namespace Banking_System
                
                 try
                 {
+                        string autolo = Properties.Settings.Default.ThreadsAuto;
+                        if (autolo == "Yes")
+                        {
+                            string monthlychargesetting = Properties.Settings.Default.monthlycharge;
+                            string autoloansoption = Properties.Settings.Default.autoloanfines;
+                            string autosavingstoloanoption = Properties.Settings.Default.autotransfer;
+                            if (autoloansoption == "Automatic")
+                            {
+                                timer1.Enabled = false;
+                                FrmAutoLoanFinesWork frm = new FrmAutoLoanFinesWork();
+                                frm.Show();
+                                this.Hide();
+                            }
+                            else if (autosavingstoloanoption == "Automatic")
+                            {
+                                timer1.Enabled = false;
+                                FrmAutoSavingsToLoansWork frm = new FrmAutoSavingsToLoansWork();
+                                frm.Show();
+                                this.Hide();
+                            }
+                            else if (days == "1" || days == "2")
+                            {
+                                if (monthlychargesetting == "Yes")
+                                {
 
-                        string autoloansoption = Properties.Settings.Default.autoloanfines;
-                        string autosavingstoloanoption = Properties.Settings.Default.autotransfer;
-                        if (autoloansoption == "Automatic")
-                        {
-                            timer1.Enabled = false;
-                            FrmAutoLoanFinesWork frm = new FrmAutoLoanFinesWork();
-                            frm.Show();
-                            this.Hide();
-                        }
-                       else if (autosavingstoloanoption == "Automatic")
-                        {
-                            timer1.Enabled = false;
-                            FrmAutoSavingsToLoansWork frm = new FrmAutoSavingsToLoansWork();
-                            frm.Show();
-                            this.Hide();
+                                    timer1.Enabled = false;
+                                    frmmonthlydatagrid frm1 = new frmmonthlydatagrid();
+                                    frm1.Show();
+                                    this.Hide();
+                                }
+                                else
+                                {
+                                    timer1.Enabled = false;
+                                    FrmInvestorDebit frm = new FrmInvestorDebit();
+                                    frm.Show();
+                                    this.Hide();
+                                }
+                            }
+                            else
+                            {
+                                timer1.Enabled = false;
+                                FrmInvestorDebit frm = new FrmInvestorDebit();
+                                frm.Show();
+                                this.Hide();
+                            }
                         }
                         else
                         {
                             timer1.Enabled = false;
-                            FrmInvestorDebit frm = new FrmInvestorDebit();
+                            frmLogin frm = new frmLogin();
                             frm.Show();
                             this.Hide();
                         }
-
                 }
                 catch (Exception ex)
                 {

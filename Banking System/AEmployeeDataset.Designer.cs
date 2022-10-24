@@ -321,6 +321,8 @@ namespace Banking_System {
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class EmployeeDataTable : global::System.Data.TypedTableBase<EmployeeRow> {
             
+            private global::System.Data.DataColumn columnID;
+            
             private global::System.Data.DataColumn columnStaffID;
             
             private global::System.Data.DataColumn columnStaffName;
@@ -333,6 +335,8 @@ namespace Banking_System {
             
             private global::System.Data.DataColumn columnFatherName;
             
+            private global::System.Data.DataColumn columnNokphone;
+            
             private global::System.Data.DataColumn columnPermanentAddress;
             
             private global::System.Data.DataColumn columnTemporaryAddress;
@@ -340,6 +344,8 @@ namespace Banking_System {
             private global::System.Data.DataColumn columnPhoneNo;
             
             private global::System.Data.DataColumn columnMobileNo;
+            
+            private global::System.Data.DataColumn columnAccNo;
             
             private global::System.Data.DataColumn columnDateOfJoining;
             
@@ -366,6 +372,22 @@ namespace Banking_System {
             private global::System.Data.DataColumn columnOtherDeductions;
             
             private global::System.Data.DataColumn columnPicture;
+            
+            private global::System.Data.DataColumn columnActive;
+            
+            private global::System.Data.DataColumn columnUpload1;
+            
+            private global::System.Data.DataColumn columnUpload2;
+            
+            private global::System.Data.DataColumn columnContractPeriodExpiry;
+            
+            private global::System.Data.DataColumn columnAccountNames;
+            
+            private global::System.Data.DataColumn columnAccountBank;
+            
+            private global::System.Data.DataColumn columnInsBranch;
+            
+            private global::System.Data.DataColumn columnUploadStatus;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
@@ -398,6 +420,14 @@ namespace Banking_System {
             protected EmployeeDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn IDColumn {
+                get {
+                    return this.columnID;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -450,6 +480,14 @@ namespace Banking_System {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn NokphoneColumn {
+                get {
+                    return this.columnNokphone;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public global::System.Data.DataColumn PermanentAddressColumn {
                 get {
                     return this.columnPermanentAddress;
@@ -477,6 +515,14 @@ namespace Banking_System {
             public global::System.Data.DataColumn MobileNoColumn {
                 get {
                     return this.columnMobileNo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn AccNoColumn {
+                get {
+                    return this.columnAccNo;
                 }
             }
             
@@ -586,6 +632,70 @@ namespace Banking_System {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn ActiveColumn {
+                get {
+                    return this.columnActive;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn Upload1Column {
+                get {
+                    return this.columnUpload1;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn Upload2Column {
+                get {
+                    return this.columnUpload2;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn ContractPeriodExpiryColumn {
+                get {
+                    return this.columnContractPeriodExpiry;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn AccountNamesColumn {
+                get {
+                    return this.columnAccountNames;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn AccountBankColumn {
+                get {
+                    return this.columnAccountBank;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn InsBranchColumn {
+                get {
+                    return this.columnInsBranch;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn UploadStatusColumn {
+                get {
+                    return this.columnUploadStatus;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -628,10 +738,12 @@ namespace Banking_System {
                         string Gender, 
                         string DOB, 
                         string FatherName, 
+                        string Nokphone, 
                         string PermanentAddress, 
                         string TemporaryAddress, 
                         string PhoneNo, 
                         string MobileNo, 
+                        string AccNo, 
                         string DateOfJoining, 
                         string Qualification, 
                         int YearOfExperience, 
@@ -644,19 +756,30 @@ namespace Banking_System {
                         int FamilyBenefitFund, 
                         int Loans, 
                         int OtherDeductions, 
-                        byte[] Picture) {
+                        byte[] Picture, 
+                        string Active, 
+                        string Upload1, 
+                        string Upload2, 
+                        string ContractPeriodExpiry, 
+                        string AccountNames, 
+                        string AccountBank, 
+                        string InsBranch, 
+                        string UploadStatus) {
                 EmployeeRow rowEmployeeRow = ((EmployeeRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
+                        null,
                         StaffID,
                         StaffName,
                         Department,
                         Gender,
                         DOB,
                         FatherName,
+                        Nokphone,
                         PermanentAddress,
                         TemporaryAddress,
                         PhoneNo,
                         MobileNo,
+                        AccNo,
                         DateOfJoining,
                         Qualification,
                         YearOfExperience,
@@ -669,7 +792,15 @@ namespace Banking_System {
                         FamilyBenefitFund,
                         Loans,
                         OtherDeductions,
-                        Picture};
+                        Picture,
+                        Active,
+                        Upload1,
+                        Upload2,
+                        ContractPeriodExpiry,
+                        AccountNames,
+                        AccountBank,
+                        InsBranch,
+                        UploadStatus};
                 rowEmployeeRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowEmployeeRow);
                 return rowEmployeeRow;
@@ -699,16 +830,19 @@ namespace Banking_System {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             internal void InitVars() {
+                this.columnID = base.Columns["ID"];
                 this.columnStaffID = base.Columns["StaffID"];
                 this.columnStaffName = base.Columns["StaffName"];
                 this.columnDepartment = base.Columns["Department"];
                 this.columnGender = base.Columns["Gender"];
                 this.columnDOB = base.Columns["DOB"];
                 this.columnFatherName = base.Columns["FatherName"];
+                this.columnNokphone = base.Columns["Nokphone"];
                 this.columnPermanentAddress = base.Columns["PermanentAddress"];
                 this.columnTemporaryAddress = base.Columns["TemporaryAddress"];
                 this.columnPhoneNo = base.Columns["PhoneNo"];
                 this.columnMobileNo = base.Columns["MobileNo"];
+                this.columnAccNo = base.Columns["AccNo"];
                 this.columnDateOfJoining = base.Columns["DateOfJoining"];
                 this.columnQualification = base.Columns["Qualification"];
                 this.columnYearOfExperience = base.Columns["YearOfExperience"];
@@ -722,11 +856,21 @@ namespace Banking_System {
                 this.columnLoans = base.Columns["Loans"];
                 this.columnOtherDeductions = base.Columns["OtherDeductions"];
                 this.columnPicture = base.Columns["Picture"];
+                this.columnActive = base.Columns["Active"];
+                this.columnUpload1 = base.Columns["Upload1"];
+                this.columnUpload2 = base.Columns["Upload2"];
+                this.columnContractPeriodExpiry = base.Columns["ContractPeriodExpiry"];
+                this.columnAccountNames = base.Columns["AccountNames"];
+                this.columnAccountBank = base.Columns["AccountBank"];
+                this.columnInsBranch = base.Columns["InsBranch"];
+                this.columnUploadStatus = base.Columns["UploadStatus"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             private void InitClass() {
+                this.columnID = new global::System.Data.DataColumn("ID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnID);
                 this.columnStaffID = new global::System.Data.DataColumn("StaffID", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnStaffID);
                 this.columnStaffName = new global::System.Data.DataColumn("StaffName", typeof(string), null, global::System.Data.MappingType.Element);
@@ -739,6 +883,8 @@ namespace Banking_System {
                 base.Columns.Add(this.columnDOB);
                 this.columnFatherName = new global::System.Data.DataColumn("FatherName", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnFatherName);
+                this.columnNokphone = new global::System.Data.DataColumn("Nokphone", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNokphone);
                 this.columnPermanentAddress = new global::System.Data.DataColumn("PermanentAddress", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPermanentAddress);
                 this.columnTemporaryAddress = new global::System.Data.DataColumn("TemporaryAddress", typeof(string), null, global::System.Data.MappingType.Element);
@@ -747,6 +893,8 @@ namespace Banking_System {
                 base.Columns.Add(this.columnPhoneNo);
                 this.columnMobileNo = new global::System.Data.DataColumn("MobileNo", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnMobileNo);
+                this.columnAccNo = new global::System.Data.DataColumn("AccNo", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAccNo);
                 this.columnDateOfJoining = new global::System.Data.DataColumn("DateOfJoining", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDateOfJoining);
                 this.columnQualification = new global::System.Data.DataColumn("Qualification", typeof(string), null, global::System.Data.MappingType.Element);
@@ -773,8 +921,29 @@ namespace Banking_System {
                 base.Columns.Add(this.columnOtherDeductions);
                 this.columnPicture = new global::System.Data.DataColumn("Picture", typeof(byte[]), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPicture);
+                this.columnActive = new global::System.Data.DataColumn("Active", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnActive);
+                this.columnUpload1 = new global::System.Data.DataColumn("Upload1", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnUpload1);
+                this.columnUpload2 = new global::System.Data.DataColumn("Upload2", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnUpload2);
+                this.columnContractPeriodExpiry = new global::System.Data.DataColumn("ContractPeriodExpiry", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnContractPeriodExpiry);
+                this.columnAccountNames = new global::System.Data.DataColumn("AccountNames", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAccountNames);
+                this.columnAccountBank = new global::System.Data.DataColumn("AccountBank", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAccountBank);
+                this.columnInsBranch = new global::System.Data.DataColumn("InsBranch", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnInsBranch);
+                this.columnUploadStatus = new global::System.Data.DataColumn("UploadStatus", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnUploadStatus);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnStaffID}, true));
+                this.columnID.AutoIncrement = true;
+                this.columnID.AutoIncrementSeed = -1;
+                this.columnID.AutoIncrementStep = -1;
+                this.columnID.AllowDBNull = false;
+                this.columnID.ReadOnly = true;
                 this.columnStaffID.AllowDBNull = false;
                 this.columnStaffID.Unique = true;
                 this.columnStaffID.MaxLength = 15;
@@ -783,14 +952,26 @@ namespace Banking_System {
                 this.columnGender.MaxLength = 10;
                 this.columnDOB.MaxLength = 20;
                 this.columnFatherName.MaxLength = 30;
+                this.columnNokphone.MaxLength = 15;
                 this.columnPermanentAddress.MaxLength = 100;
                 this.columnTemporaryAddress.MaxLength = 100;
                 this.columnPhoneNo.MaxLength = 10;
                 this.columnMobileNo.MaxLength = 10;
+                this.columnAccNo.MaxLength = 30;
                 this.columnDateOfJoining.MaxLength = 30;
                 this.columnQualification.MaxLength = 70;
                 this.columnDesignation.MaxLength = 100;
                 this.columnEmail.MaxLength = 50;
+                this.columnActive.MaxLength = 10;
+                this.columnUpload1.MaxLength = 20;
+                this.columnUpload2.MaxLength = 20;
+                this.columnContractPeriodExpiry.MaxLength = 20;
+                this.columnAccountNames.MaxLength = 50;
+                this.columnAccountBank.MaxLength = 50;
+                this.columnInsBranch.AllowDBNull = false;
+                this.columnInsBranch.MaxLength = 50;
+                this.columnUploadStatus.AllowDBNull = false;
+                this.columnUploadStatus.MaxLength = 10;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -930,6 +1111,8 @@ namespace Banking_System {
             
             private global::System.Data.DataColumn columnStaffID;
             
+            private global::System.Data.DataColumn columnStaffName;
+            
             private global::System.Data.DataColumn columnBasicSalary;
             
             private global::System.Data.DataColumn columnPaymentDate;
@@ -942,11 +1125,23 @@ namespace Banking_System {
             
             private global::System.Data.DataColumn columnTotalPaid;
             
+            private global::System.Data.DataColumn columnDueFees;
+            
             private global::System.Data.DataColumn columnMonths;
             
             private global::System.Data.DataColumn columnYear;
             
-            private global::System.Data.DataColumn columnDueFees;
+            private global::System.Data.DataColumn columnPaid;
+            
+            private global::System.Data.DataColumn columnDepartment;
+            
+            private global::System.Data.DataColumn columnUpload1;
+            
+            private global::System.Data.DataColumn columnUpload2;
+            
+            private global::System.Data.DataColumn columnInsBranch;
+            
+            private global::System.Data.DataColumn columnUploadStatus;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
@@ -1007,6 +1202,14 @@ namespace Banking_System {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn StaffNameColumn {
+                get {
+                    return this.columnStaffName;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public global::System.Data.DataColumn BasicSalaryColumn {
                 get {
                     return this.columnBasicSalary;
@@ -1055,6 +1258,14 @@ namespace Banking_System {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn DueFeesColumn {
+                get {
+                    return this.columnDueFees;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public global::System.Data.DataColumn MonthsColumn {
                 get {
                     return this.columnMonths;
@@ -1071,9 +1282,49 @@ namespace Banking_System {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn DueFeesColumn {
+            public global::System.Data.DataColumn PaidColumn {
                 get {
-                    return this.columnDueFees;
+                    return this.columnPaid;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn DepartmentColumn {
+                get {
+                    return this.columnDepartment;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn Upload1Column {
+                get {
+                    return this.columnUpload1;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn Upload2Column {
+                get {
+                    return this.columnUpload2;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn InsBranchColumn {
+                get {
+                    return this.columnInsBranch;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn UploadStatusColumn {
+                get {
+                    return this.columnUploadStatus;
                 }
             }
             
@@ -1114,23 +1365,48 @@ namespace Banking_System {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public EmployeePaymentRow AddEmployeePaymentRow(string PaymentID, EmployeeRow parentEmployeeRowByFK_EmployeePayment_Employee, int BasicSalary, string PaymentDate, string ModeOfPayment, string PaymentModeDetails, int Deduction, int TotalPaid, string Months, string Year, int DueFees) {
+            public EmployeePaymentRow AddEmployeePaymentRow(
+                        string PaymentID, 
+                        EmployeeRow parentEmployeeRowByFK_EmployeePayment_Employee, 
+                        string StaffName, 
+                        int BasicSalary, 
+                        string PaymentDate, 
+                        string ModeOfPayment, 
+                        string PaymentModeDetails, 
+                        int Deduction, 
+                        int TotalPaid, 
+                        int DueFees, 
+                        string Months, 
+                        string Year, 
+                        string Paid, 
+                        string Department, 
+                        string Upload1, 
+                        string Upload2, 
+                        string InsBranch, 
+                        string UploadStatus) {
                 EmployeePaymentRow rowEmployeePaymentRow = ((EmployeePaymentRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         PaymentID,
                         null,
+                        StaffName,
                         BasicSalary,
                         PaymentDate,
                         ModeOfPayment,
                         PaymentModeDetails,
                         Deduction,
                         TotalPaid,
+                        DueFees,
                         Months,
                         Year,
-                        DueFees};
+                        Paid,
+                        Department,
+                        Upload1,
+                        Upload2,
+                        InsBranch,
+                        UploadStatus};
                 if ((parentEmployeeRowByFK_EmployeePayment_Employee != null)) {
-                    columnValuesArray[2] = parentEmployeeRowByFK_EmployeePayment_Employee[0];
+                    columnValuesArray[2] = parentEmployeeRowByFK_EmployeePayment_Employee[1];
                 }
                 rowEmployeePaymentRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowEmployeePaymentRow);
@@ -1164,15 +1440,22 @@ namespace Banking_System {
                 this.columnID = base.Columns["ID"];
                 this.columnPaymentID = base.Columns["PaymentID"];
                 this.columnStaffID = base.Columns["StaffID"];
+                this.columnStaffName = base.Columns["StaffName"];
                 this.columnBasicSalary = base.Columns["BasicSalary"];
                 this.columnPaymentDate = base.Columns["PaymentDate"];
                 this.columnModeOfPayment = base.Columns["ModeOfPayment"];
                 this.columnPaymentModeDetails = base.Columns["PaymentModeDetails"];
                 this.columnDeduction = base.Columns["Deduction"];
                 this.columnTotalPaid = base.Columns["TotalPaid"];
+                this.columnDueFees = base.Columns["DueFees"];
                 this.columnMonths = base.Columns["Months"];
                 this.columnYear = base.Columns["Year"];
-                this.columnDueFees = base.Columns["DueFees"];
+                this.columnPaid = base.Columns["Paid"];
+                this.columnDepartment = base.Columns["Department"];
+                this.columnUpload1 = base.Columns["Upload1"];
+                this.columnUpload2 = base.Columns["Upload2"];
+                this.columnInsBranch = base.Columns["InsBranch"];
+                this.columnUploadStatus = base.Columns["UploadStatus"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1184,6 +1467,8 @@ namespace Banking_System {
                 base.Columns.Add(this.columnPaymentID);
                 this.columnStaffID = new global::System.Data.DataColumn("StaffID", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnStaffID);
+                this.columnStaffName = new global::System.Data.DataColumn("StaffName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnStaffName);
                 this.columnBasicSalary = new global::System.Data.DataColumn("BasicSalary", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnBasicSalary);
                 this.columnPaymentDate = new global::System.Data.DataColumn("PaymentDate", typeof(string), null, global::System.Data.MappingType.Element);
@@ -1196,12 +1481,24 @@ namespace Banking_System {
                 base.Columns.Add(this.columnDeduction);
                 this.columnTotalPaid = new global::System.Data.DataColumn("TotalPaid", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTotalPaid);
+                this.columnDueFees = new global::System.Data.DataColumn("DueFees", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDueFees);
                 this.columnMonths = new global::System.Data.DataColumn("Months", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnMonths);
                 this.columnYear = new global::System.Data.DataColumn("Year", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnYear);
-                this.columnDueFees = new global::System.Data.DataColumn("DueFees", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnDueFees);
+                this.columnPaid = new global::System.Data.DataColumn("Paid", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPaid);
+                this.columnDepartment = new global::System.Data.DataColumn("Department", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDepartment);
+                this.columnUpload1 = new global::System.Data.DataColumn("Upload1", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnUpload1);
+                this.columnUpload2 = new global::System.Data.DataColumn("Upload2", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnUpload2);
+                this.columnInsBranch = new global::System.Data.DataColumn("InsBranch", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnInsBranch);
+                this.columnUploadStatus = new global::System.Data.DataColumn("UploadStatus", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnUploadStatus);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnPaymentID}, true));
                 this.columnID.AutoIncrement = true;
@@ -1212,12 +1509,22 @@ namespace Banking_System {
                 this.columnPaymentID.AllowDBNull = false;
                 this.columnPaymentID.Unique = true;
                 this.columnPaymentID.MaxLength = 15;
+                this.columnStaffID.AllowDBNull = false;
                 this.columnStaffID.MaxLength = 15;
+                this.columnStaffName.MaxLength = 50;
                 this.columnPaymentDate.MaxLength = 30;
-                this.columnModeOfPayment.MaxLength = 20;
+                this.columnModeOfPayment.MaxLength = 50;
                 this.columnPaymentModeDetails.MaxLength = 200;
                 this.columnMonths.MaxLength = 10;
                 this.columnYear.MaxLength = 10;
+                this.columnPaid.MaxLength = 10;
+                this.columnDepartment.MaxLength = 50;
+                this.columnUpload1.MaxLength = 20;
+                this.columnUpload2.MaxLength = 20;
+                this.columnInsBranch.AllowDBNull = false;
+                this.columnInsBranch.MaxLength = 50;
+                this.columnUploadStatus.AllowDBNull = false;
+                this.columnUploadStatus.MaxLength = 10;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1360,6 +1667,17 @@ namespace Banking_System {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int ID {
+                get {
+                    return ((int)(this[this.tableEmployee.IDColumn]));
+                }
+                set {
+                    this[this.tableEmployee.IDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public string StaffID {
                 get {
                     return ((string)(this[this.tableEmployee.StaffIDColumn]));
@@ -1451,6 +1769,22 @@ namespace Banking_System {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Nokphone {
+                get {
+                    try {
+                        return ((string)(this[this.tableEmployee.NokphoneColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Nokphone\' in table \'Employee\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableEmployee.NokphoneColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public string PermanentAddress {
                 get {
                     try {
@@ -1510,6 +1844,22 @@ namespace Banking_System {
                 }
                 set {
                     this[this.tableEmployee.MobileNoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string AccNo {
+                get {
+                    try {
+                        return ((string)(this[this.tableEmployee.AccNoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'AccNo\' in table \'Employee\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableEmployee.AccNoColumn] = value;
                 }
             }
             
@@ -1723,6 +2073,124 @@ namespace Banking_System {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Active {
+                get {
+                    try {
+                        return ((string)(this[this.tableEmployee.ActiveColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Active\' in table \'Employee\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableEmployee.ActiveColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Upload1 {
+                get {
+                    try {
+                        return ((string)(this[this.tableEmployee.Upload1Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Upload1\' in table \'Employee\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableEmployee.Upload1Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Upload2 {
+                get {
+                    try {
+                        return ((string)(this[this.tableEmployee.Upload2Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Upload2\' in table \'Employee\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableEmployee.Upload2Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string ContractPeriodExpiry {
+                get {
+                    try {
+                        return ((string)(this[this.tableEmployee.ContractPeriodExpiryColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ContractPeriodExpiry\' in table \'Employee\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableEmployee.ContractPeriodExpiryColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string AccountNames {
+                get {
+                    try {
+                        return ((string)(this[this.tableEmployee.AccountNamesColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'AccountNames\' in table \'Employee\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableEmployee.AccountNamesColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string AccountBank {
+                get {
+                    try {
+                        return ((string)(this[this.tableEmployee.AccountBankColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'AccountBank\' in table \'Employee\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableEmployee.AccountBankColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string InsBranch {
+                get {
+                    return ((string)(this[this.tableEmployee.InsBranchColumn]));
+                }
+                set {
+                    this[this.tableEmployee.InsBranchColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string UploadStatus {
+                get {
+                    return ((string)(this[this.tableEmployee.UploadStatusColumn]));
+                }
+                set {
+                    this[this.tableEmployee.UploadStatusColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsStaffNameNull() {
                 return this.IsNull(this.tableEmployee.StaffNameColumn);
             }
@@ -1783,6 +2251,18 @@ namespace Banking_System {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsNokphoneNull() {
+                return this.IsNull(this.tableEmployee.NokphoneColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetNokphoneNull() {
+                this[this.tableEmployee.NokphoneColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsPermanentAddressNull() {
                 return this.IsNull(this.tableEmployee.PermanentAddressColumn);
             }
@@ -1827,6 +2307,18 @@ namespace Banking_System {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetMobileNoNull() {
                 this[this.tableEmployee.MobileNoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsAccNoNull() {
+                return this.IsNull(this.tableEmployee.AccNoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetAccNoNull() {
+                this[this.tableEmployee.AccNoColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1987,6 +2479,78 @@ namespace Banking_System {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsActiveNull() {
+                return this.IsNull(this.tableEmployee.ActiveColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetActiveNull() {
+                this[this.tableEmployee.ActiveColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsUpload1Null() {
+                return this.IsNull(this.tableEmployee.Upload1Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetUpload1Null() {
+                this[this.tableEmployee.Upload1Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsUpload2Null() {
+                return this.IsNull(this.tableEmployee.Upload2Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetUpload2Null() {
+                this[this.tableEmployee.Upload2Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsContractPeriodExpiryNull() {
+                return this.IsNull(this.tableEmployee.ContractPeriodExpiryColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetContractPeriodExpiryNull() {
+                this[this.tableEmployee.ContractPeriodExpiryColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsAccountNamesNull() {
+                return this.IsNull(this.tableEmployee.AccountNamesColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetAccountNamesNull() {
+                this[this.tableEmployee.AccountNamesColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsAccountBankNull() {
+                return this.IsNull(this.tableEmployee.AccountBankColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetAccountBankNull() {
+                this[this.tableEmployee.AccountBankColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public EmployeePaymentRow[] GetEmployeePaymentRows() {
                 if ((this.Table.ChildRelations["FK_EmployeePayment_Employee"] == null)) {
                     return new EmployeePaymentRow[0];
@@ -2037,15 +2601,26 @@ namespace Banking_System {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public string StaffID {
                 get {
-                    try {
-                        return ((string)(this[this.tableEmployeePayment.StaffIDColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'StaffID\' in table \'EmployeePayment\' is DBNull.", e);
-                    }
+                    return ((string)(this[this.tableEmployeePayment.StaffIDColumn]));
                 }
                 set {
                     this[this.tableEmployeePayment.StaffIDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string StaffName {
+                get {
+                    try {
+                        return ((string)(this[this.tableEmployeePayment.StaffNameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'StaffName\' in table \'EmployeePayment\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableEmployeePayment.StaffNameColumn] = value;
                 }
             }
             
@@ -2147,6 +2722,22 @@ namespace Banking_System {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int DueFees {
+                get {
+                    try {
+                        return ((int)(this[this.tableEmployeePayment.DueFeesColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'DueFees\' in table \'EmployeePayment\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableEmployeePayment.DueFeesColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public string Months {
                 get {
                     try {
@@ -2179,17 +2770,87 @@ namespace Banking_System {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int DueFees {
+            public string Paid {
                 get {
                     try {
-                        return ((int)(this[this.tableEmployeePayment.DueFeesColumn]));
+                        return ((string)(this[this.tableEmployeePayment.PaidColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'DueFees\' in table \'EmployeePayment\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Paid\' in table \'EmployeePayment\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableEmployeePayment.DueFeesColumn] = value;
+                    this[this.tableEmployeePayment.PaidColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Department {
+                get {
+                    try {
+                        return ((string)(this[this.tableEmployeePayment.DepartmentColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Department\' in table \'EmployeePayment\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableEmployeePayment.DepartmentColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Upload1 {
+                get {
+                    try {
+                        return ((string)(this[this.tableEmployeePayment.Upload1Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Upload1\' in table \'EmployeePayment\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableEmployeePayment.Upload1Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Upload2 {
+                get {
+                    try {
+                        return ((string)(this[this.tableEmployeePayment.Upload2Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Upload2\' in table \'EmployeePayment\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableEmployeePayment.Upload2Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string InsBranch {
+                get {
+                    return ((string)(this[this.tableEmployeePayment.InsBranchColumn]));
+                }
+                set {
+                    this[this.tableEmployeePayment.InsBranchColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string UploadStatus {
+                get {
+                    return ((string)(this[this.tableEmployeePayment.UploadStatusColumn]));
+                }
+                set {
+                    this[this.tableEmployeePayment.UploadStatusColumn] = value;
                 }
             }
             
@@ -2206,14 +2867,14 @@ namespace Banking_System {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsStaffIDNull() {
-                return this.IsNull(this.tableEmployeePayment.StaffIDColumn);
+            public bool IsStaffNameNull() {
+                return this.IsNull(this.tableEmployeePayment.StaffNameColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetStaffIDNull() {
-                this[this.tableEmployeePayment.StaffIDColumn] = global::System.Convert.DBNull;
+            public void SetStaffNameNull() {
+                this[this.tableEmployeePayment.StaffNameColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2290,6 +2951,18 @@ namespace Banking_System {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsDueFeesNull() {
+                return this.IsNull(this.tableEmployeePayment.DueFeesColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetDueFeesNull() {
+                this[this.tableEmployeePayment.DueFeesColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsMonthsNull() {
                 return this.IsNull(this.tableEmployeePayment.MonthsColumn);
             }
@@ -2314,14 +2987,50 @@ namespace Banking_System {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsDueFeesNull() {
-                return this.IsNull(this.tableEmployeePayment.DueFeesColumn);
+            public bool IsPaidNull() {
+                return this.IsNull(this.tableEmployeePayment.PaidColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetDueFeesNull() {
-                this[this.tableEmployeePayment.DueFeesColumn] = global::System.Convert.DBNull;
+            public void SetPaidNull() {
+                this[this.tableEmployeePayment.PaidColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsDepartmentNull() {
+                return this.IsNull(this.tableEmployeePayment.DepartmentColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetDepartmentNull() {
+                this[this.tableEmployeePayment.DepartmentColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsUpload1Null() {
+                return this.IsNull(this.tableEmployeePayment.Upload1Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetUpload1Null() {
+                this[this.tableEmployeePayment.Upload1Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsUpload2Null() {
+                return this.IsNull(this.tableEmployeePayment.Upload2Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetUpload2Null() {
+                this[this.tableEmployeePayment.Upload2Column] = global::System.Convert.DBNull;
             }
         }
         
@@ -2518,16 +3227,19 @@ namespace Banking_System.AEmployeeDatasetTableAdapters {
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "Employee";
+            tableMapping.ColumnMappings.Add("ID", "ID");
             tableMapping.ColumnMappings.Add("StaffID", "StaffID");
             tableMapping.ColumnMappings.Add("StaffName", "StaffName");
             tableMapping.ColumnMappings.Add("Department", "Department");
             tableMapping.ColumnMappings.Add("Gender", "Gender");
             tableMapping.ColumnMappings.Add("DOB", "DOB");
             tableMapping.ColumnMappings.Add("FatherName", "FatherName");
+            tableMapping.ColumnMappings.Add("Nokphone", "Nokphone");
             tableMapping.ColumnMappings.Add("PermanentAddress", "PermanentAddress");
             tableMapping.ColumnMappings.Add("TemporaryAddress", "TemporaryAddress");
             tableMapping.ColumnMappings.Add("PhoneNo", "PhoneNo");
             tableMapping.ColumnMappings.Add("MobileNo", "MobileNo");
+            tableMapping.ColumnMappings.Add("AccNo", "AccNo");
             tableMapping.ColumnMappings.Add("DateOfJoining", "DateOfJoining");
             tableMapping.ColumnMappings.Add("Qualification", "Qualification");
             tableMapping.ColumnMappings.Add("YearOfExperience", "YearOfExperience");
@@ -2541,37 +3253,57 @@ namespace Banking_System.AEmployeeDatasetTableAdapters {
             tableMapping.ColumnMappings.Add("Loans", "Loans");
             tableMapping.ColumnMappings.Add("OtherDeductions", "OtherDeductions");
             tableMapping.ColumnMappings.Add("Picture", "Picture");
+            tableMapping.ColumnMappings.Add("Active", "Active");
+            tableMapping.ColumnMappings.Add("Upload1", "Upload1");
+            tableMapping.ColumnMappings.Add("Upload2", "Upload2");
+            tableMapping.ColumnMappings.Add("ContractPeriodExpiry", "ContractPeriodExpiry");
+            tableMapping.ColumnMappings.Add("AccountNames", "AccountNames");
+            tableMapping.ColumnMappings.Add("AccountBank", "AccountBank");
+            tableMapping.ColumnMappings.Add("InsBranch", "InsBranch");
+            tableMapping.ColumnMappings.Add("UploadStatus", "UploadStatus");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[Employee] WHERE (([StaffID] = @Original_StaffID) AND ((@IsNull" +
-                "_StaffName = 1 AND [StaffName] IS NULL) OR ([StaffName] = @Original_StaffName)) " +
-                "AND ((@IsNull_Department = 1 AND [Department] IS NULL) OR ([Department] = @Origi" +
-                "nal_Department)) AND ((@IsNull_Gender = 1 AND [Gender] IS NULL) OR ([Gender] = @" +
-                "Original_Gender)) AND ((@IsNull_DOB = 1 AND [DOB] IS NULL) OR ([DOB] = @Original" +
-                "_DOB)) AND ((@IsNull_FatherName = 1 AND [FatherName] IS NULL) OR ([FatherName] =" +
-                " @Original_FatherName)) AND ((@IsNull_PermanentAddress = 1 AND [PermanentAddress" +
-                "] IS NULL) OR ([PermanentAddress] = @Original_PermanentAddress)) AND ((@IsNull_T" +
-                "emporaryAddress = 1 AND [TemporaryAddress] IS NULL) OR ([TemporaryAddress] = @Or" +
-                "iginal_TemporaryAddress)) AND ((@IsNull_PhoneNo = 1 AND [PhoneNo] IS NULL) OR ([" +
-                "PhoneNo] = @Original_PhoneNo)) AND ((@IsNull_MobileNo = 1 AND [MobileNo] IS NULL" +
-                ") OR ([MobileNo] = @Original_MobileNo)) AND ((@IsNull_DateOfJoining = 1 AND [Dat" +
-                "eOfJoining] IS NULL) OR ([DateOfJoining] = @Original_DateOfJoining)) AND ((@IsNu" +
-                "ll_Qualification = 1 AND [Qualification] IS NULL) OR ([Qualification] = @Origina" +
-                "l_Qualification)) AND ((@IsNull_YearOfExperience = 1 AND [YearOfExperience] IS N" +
-                "ULL) OR ([YearOfExperience] = @Original_YearOfExperience)) AND ((@IsNull_Designa" +
-                "tion = 1 AND [Designation] IS NULL) OR ([Designation] = @Original_Designation)) " +
-                "AND ((@IsNull_Email = 1 AND [Email] IS NULL) OR ([Email] = @Original_Email)) AND" +
-                " ((@IsNull_BasicSalary = 1 AND [BasicSalary] IS NULL) OR ([BasicSalary] = @Origi" +
-                "nal_BasicSalary)) AND ((@IsNull_LIC = 1 AND [LIC] IS NULL) OR ([LIC] = @Original" +
-                "_LIC)) AND ((@IsNull_IncomeTax = 1 AND [IncomeTax] IS NULL) OR ([IncomeTax] = @O" +
-                "riginal_IncomeTax)) AND ((@IsNull_GroupInsurance = 1 AND [GroupInsurance] IS NUL" +
-                "L) OR ([GroupInsurance] = @Original_GroupInsurance)) AND ((@IsNull_FamilyBenefit" +
-                "Fund = 1 AND [FamilyBenefitFund] IS NULL) OR ([FamilyBenefitFund] = @Original_Fa" +
-                "milyBenefitFund)) AND ((@IsNull_Loans = 1 AND [Loans] IS NULL) OR ([Loans] = @Or" +
-                "iginal_Loans)) AND ((@IsNull_OtherDeductions = 1 AND [OtherDeductions] IS NULL) " +
-                "OR ([OtherDeductions] = @Original_OtherDeductions)))";
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[Employee] WHERE (([ID] = @Original_ID) AND ([StaffID] = @Origi" +
+                "nal_StaffID) AND ((@IsNull_StaffName = 1 AND [StaffName] IS NULL) OR ([StaffName" +
+                "] = @Original_StaffName)) AND ((@IsNull_Department = 1 AND [Department] IS NULL)" +
+                " OR ([Department] = @Original_Department)) AND ((@IsNull_Gender = 1 AND [Gender]" +
+                " IS NULL) OR ([Gender] = @Original_Gender)) AND ((@IsNull_DOB = 1 AND [DOB] IS N" +
+                "ULL) OR ([DOB] = @Original_DOB)) AND ((@IsNull_FatherName = 1 AND [FatherName] I" +
+                "S NULL) OR ([FatherName] = @Original_FatherName)) AND ((@IsNull_Nokphone = 1 AND" +
+                " [Nokphone] IS NULL) OR ([Nokphone] = @Original_Nokphone)) AND ((@IsNull_Permane" +
+                "ntAddress = 1 AND [PermanentAddress] IS NULL) OR ([PermanentAddress] = @Original" +
+                "_PermanentAddress)) AND ((@IsNull_TemporaryAddress = 1 AND [TemporaryAddress] IS" +
+                " NULL) OR ([TemporaryAddress] = @Original_TemporaryAddress)) AND ((@IsNull_Phone" +
+                "No = 1 AND [PhoneNo] IS NULL) OR ([PhoneNo] = @Original_PhoneNo)) AND ((@IsNull_" +
+                "MobileNo = 1 AND [MobileNo] IS NULL) OR ([MobileNo] = @Original_MobileNo)) AND (" +
+                "(@IsNull_AccNo = 1 AND [AccNo] IS NULL) OR ([AccNo] = @Original_AccNo)) AND ((@I" +
+                "sNull_DateOfJoining = 1 AND [DateOfJoining] IS NULL) OR ([DateOfJoining] = @Orig" +
+                "inal_DateOfJoining)) AND ((@IsNull_Qualification = 1 AND [Qualification] IS NULL" +
+                ") OR ([Qualification] = @Original_Qualification)) AND ((@IsNull_YearOfExperience" +
+                " = 1 AND [YearOfExperience] IS NULL) OR ([YearOfExperience] = @Original_YearOfEx" +
+                "perience)) AND ((@IsNull_Designation = 1 AND [Designation] IS NULL) OR ([Designa" +
+                "tion] = @Original_Designation)) AND ((@IsNull_Email = 1 AND [Email] IS NULL) OR " +
+                "([Email] = @Original_Email)) AND ((@IsNull_BasicSalary = 1 AND [BasicSalary] IS " +
+                "NULL) OR ([BasicSalary] = @Original_BasicSalary)) AND ((@IsNull_LIC = 1 AND [LIC" +
+                "] IS NULL) OR ([LIC] = @Original_LIC)) AND ((@IsNull_IncomeTax = 1 AND [IncomeTa" +
+                "x] IS NULL) OR ([IncomeTax] = @Original_IncomeTax)) AND ((@IsNull_GroupInsurance" +
+                " = 1 AND [GroupInsurance] IS NULL) OR ([GroupInsurance] = @Original_GroupInsuran" +
+                "ce)) AND ((@IsNull_FamilyBenefitFund = 1 AND [FamilyBenefitFund] IS NULL) OR ([F" +
+                "amilyBenefitFund] = @Original_FamilyBenefitFund)) AND ((@IsNull_Loans = 1 AND [L" +
+                "oans] IS NULL) OR ([Loans] = @Original_Loans)) AND ((@IsNull_OtherDeductions = 1" +
+                " AND [OtherDeductions] IS NULL) OR ([OtherDeductions] = @Original_OtherDeduction" +
+                "s)) AND ((@IsNull_Active = 1 AND [Active] IS NULL) OR ([Active] = @Original_Acti" +
+                "ve)) AND ((@IsNull_Upload1 = 1 AND [Upload1] IS NULL) OR ([Upload1] = @Original_" +
+                "Upload1)) AND ((@IsNull_Upload2 = 1 AND [Upload2] IS NULL) OR ([Upload2] = @Orig" +
+                "inal_Upload2)) AND ((@IsNull_ContractPeriodExpiry = 1 AND [ContractPeriodExpiry]" +
+                " IS NULL) OR ([ContractPeriodExpiry] = @Original_ContractPeriodExpiry)) AND ((@I" +
+                "sNull_AccountNames = 1 AND [AccountNames] IS NULL) OR ([AccountNames] = @Origina" +
+                "l_AccountNames)) AND ((@IsNull_AccountBank = 1 AND [AccountBank] IS NULL) OR ([A" +
+                "ccountBank] = @Original_AccountBank)) AND ([InsBranch] = @Original_InsBranch) AN" +
+                "D ([UploadStatus] = @Original_UploadStatus))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_StaffID", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "StaffID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_StaffName", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "StaffName", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_StaffName", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "StaffName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -2583,6 +3315,8 @@ namespace Banking_System.AEmployeeDatasetTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_DOB", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DOB", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_FatherName", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FatherName", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_FatherName", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FatherName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Nokphone", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Nokphone", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Nokphone", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Nokphone", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_PermanentAddress", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PermanentAddress", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PermanentAddress", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PermanentAddress", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_TemporaryAddress", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TemporaryAddress", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
@@ -2591,6 +3325,8 @@ namespace Banking_System.AEmployeeDatasetTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PhoneNo", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PhoneNo", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_MobileNo", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MobileNo", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MobileNo", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MobileNo", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_AccNo", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AccNo", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_AccNo", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AccNo", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_DateOfJoining", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DateOfJoining", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_DateOfJoining", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DateOfJoining", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Qualification", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Qualification", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
@@ -2615,10 +3351,24 @@ namespace Banking_System.AEmployeeDatasetTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Loans", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Loans", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_OtherDeductions", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "OtherDeductions", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_OtherDeductions", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "OtherDeductions", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Active", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Active", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Active", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Active", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Upload1", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Upload1", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Upload1", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Upload1", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Upload2", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Upload2", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Upload2", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Upload2", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_ContractPeriodExpiry", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ContractPeriodExpiry", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ContractPeriodExpiry", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ContractPeriodExpiry", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_AccountNames", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AccountNames", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_AccountNames", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AccountNames", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_AccountBank", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AccountBank", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_AccountBank", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AccountBank", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_InsBranch", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "InsBranch", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_UploadStatus", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UploadStatus", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[Employee] ([StaffID], [StaffName], [Department], [Gender], [DOB], [FatherName], [PermanentAddress], [TemporaryAddress], [PhoneNo], [MobileNo], [DateOfJoining], [Qualification], [YearOfExperience], [Designation], [Email], [BasicSalary], [LIC], [IncomeTax], [GroupInsurance], [FamilyBenefitFund], [Loans], [OtherDeductions], [Picture]) VALUES (@StaffID, @StaffName, @Department, @Gender, @DOB, @FatherName, @PermanentAddress, @TemporaryAddress, @PhoneNo, @MobileNo, @DateOfJoining, @Qualification, @YearOfExperience, @Designation, @Email, @BasicSalary, @LIC, @IncomeTax, @GroupInsurance, @FamilyBenefitFund, @Loans, @OtherDeductions, @Picture);
-SELECT StaffID, StaffName, Department, Gender, DOB, FatherName, PermanentAddress, TemporaryAddress, PhoneNo, MobileNo, DateOfJoining, Qualification, YearOfExperience, Designation, Email, BasicSalary, LIC, IncomeTax, GroupInsurance, FamilyBenefitFund, Loans, OtherDeductions, Picture FROM Employee WHERE (StaffID = @StaffID)";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[Employee] ([StaffID], [StaffName], [Department], [Gender], [DOB], [FatherName], [Nokphone], [PermanentAddress], [TemporaryAddress], [PhoneNo], [MobileNo], [AccNo], [DateOfJoining], [Qualification], [YearOfExperience], [Designation], [Email], [BasicSalary], [LIC], [IncomeTax], [GroupInsurance], [FamilyBenefitFund], [Loans], [OtherDeductions], [Picture], [Active], [Upload1], [Upload2], [ContractPeriodExpiry], [AccountNames], [AccountBank], [InsBranch], [UploadStatus]) VALUES (@StaffID, @StaffName, @Department, @Gender, @DOB, @FatherName, @Nokphone, @PermanentAddress, @TemporaryAddress, @PhoneNo, @MobileNo, @AccNo, @DateOfJoining, @Qualification, @YearOfExperience, @Designation, @Email, @BasicSalary, @LIC, @IncomeTax, @GroupInsurance, @FamilyBenefitFund, @Loans, @OtherDeductions, @Picture, @Active, @Upload1, @Upload2, @ContractPeriodExpiry, @AccountNames, @AccountBank, @InsBranch, @UploadStatus);
+SELECT ID, StaffID, StaffName, Department, Gender, DOB, FatherName, Nokphone, PermanentAddress, TemporaryAddress, PhoneNo, MobileNo, AccNo, DateOfJoining, Qualification, YearOfExperience, Designation, Email, BasicSalary, LIC, IncomeTax, GroupInsurance, FamilyBenefitFund, Loans, OtherDeductions, Picture, Active, Upload1, Upload2, ContractPeriodExpiry, AccountNames, AccountBank, InsBranch, UploadStatus FROM Employee WHERE (StaffID = @StaffID)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@StaffID", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "StaffID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@StaffName", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "StaffName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -2626,10 +3376,12 @@ SELECT StaffID, StaffName, Department, Gender, DOB, FatherName, PermanentAddress
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Gender", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Gender", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DOB", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DOB", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FatherName", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FatherName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Nokphone", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Nokphone", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PermanentAddress", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PermanentAddress", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TemporaryAddress", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TemporaryAddress", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PhoneNo", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PhoneNo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MobileNo", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MobileNo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AccNo", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AccNo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DateOfJoining", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DateOfJoining", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Qualification", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Qualification", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@YearOfExperience", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "YearOfExperience", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -2643,47 +3395,71 @@ SELECT StaffID, StaffName, Department, Gender, DOB, FatherName, PermanentAddress
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Loans", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Loans", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@OtherDeductions", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "OtherDeductions", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Picture", global::System.Data.SqlDbType.Image, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Picture", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Active", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Active", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Upload1", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Upload1", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Upload2", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Upload2", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ContractPeriodExpiry", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ContractPeriodExpiry", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AccountNames", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AccountNames", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AccountBank", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AccountBank", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@InsBranch", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "InsBranch", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@UploadStatus", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UploadStatus", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
             this._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[Employee] SET [StaffID] = @StaffID, [StaffName] = @StaffName, [Depa" +
                 "rtment] = @Department, [Gender] = @Gender, [DOB] = @DOB, [FatherName] = @FatherN" +
-                "ame, [PermanentAddress] = @PermanentAddress, [TemporaryAddress] = @TemporaryAddr" +
-                "ess, [PhoneNo] = @PhoneNo, [MobileNo] = @MobileNo, [DateOfJoining] = @DateOfJoin" +
-                "ing, [Qualification] = @Qualification, [YearOfExperience] = @YearOfExperience, [" +
-                "Designation] = @Designation, [Email] = @Email, [BasicSalary] = @BasicSalary, [LI" +
-                "C] = @LIC, [IncomeTax] = @IncomeTax, [GroupInsurance] = @GroupInsurance, [Family" +
-                "BenefitFund] = @FamilyBenefitFund, [Loans] = @Loans, [OtherDeductions] = @OtherD" +
-                "eductions, [Picture] = @Picture WHERE (([StaffID] = @Original_StaffID) AND ((@Is" +
-                "Null_StaffName = 1 AND [StaffName] IS NULL) OR ([StaffName] = @Original_StaffNam" +
-                "e)) AND ((@IsNull_Department = 1 AND [Department] IS NULL) OR ([Department] = @O" +
-                "riginal_Department)) AND ((@IsNull_Gender = 1 AND [Gender] IS NULL) OR ([Gender]" +
-                " = @Original_Gender)) AND ((@IsNull_DOB = 1 AND [DOB] IS NULL) OR ([DOB] = @Orig" +
-                "inal_DOB)) AND ((@IsNull_FatherName = 1 AND [FatherName] IS NULL) OR ([FatherNam" +
-                "e] = @Original_FatherName)) AND ((@IsNull_PermanentAddress = 1 AND [PermanentAdd" +
-                "ress] IS NULL) OR ([PermanentAddress] = @Original_PermanentAddress)) AND ((@IsNu" +
-                "ll_TemporaryAddress = 1 AND [TemporaryAddress] IS NULL) OR ([TemporaryAddress] =" +
-                " @Original_TemporaryAddress)) AND ((@IsNull_PhoneNo = 1 AND [PhoneNo] IS NULL) O" +
-                "R ([PhoneNo] = @Original_PhoneNo)) AND ((@IsNull_MobileNo = 1 AND [MobileNo] IS " +
-                "NULL) OR ([MobileNo] = @Original_MobileNo)) AND ((@IsNull_DateOfJoining = 1 AND " +
-                "[DateOfJoining] IS NULL) OR ([DateOfJoining] = @Original_DateOfJoining)) AND ((@" +
-                "IsNull_Qualification = 1 AND [Qualification] IS NULL) OR ([Qualification] = @Ori" +
-                "ginal_Qualification)) AND ((@IsNull_YearOfExperience = 1 AND [YearOfExperience] " +
-                "IS NULL) OR ([YearOfExperience] = @Original_YearOfExperience)) AND ((@IsNull_Des" +
-                "ignation = 1 AND [Designation] IS NULL) OR ([Designation] = @Original_Designatio" +
-                "n)) AND ((@IsNull_Email = 1 AND [Email] IS NULL) OR ([Email] = @Original_Email))" +
-                " AND ((@IsNull_BasicSalary = 1 AND [BasicSalary] IS NULL) OR ([BasicSalary] = @O" +
-                "riginal_BasicSalary)) AND ((@IsNull_LIC = 1 AND [LIC] IS NULL) OR ([LIC] = @Orig" +
-                "inal_LIC)) AND ((@IsNull_IncomeTax = 1 AND [IncomeTax] IS NULL) OR ([IncomeTax] " +
-                "= @Original_IncomeTax)) AND ((@IsNull_GroupInsurance = 1 AND [GroupInsurance] IS" +
-                " NULL) OR ([GroupInsurance] = @Original_GroupInsurance)) AND ((@IsNull_FamilyBen" +
-                "efitFund = 1 AND [FamilyBenefitFund] IS NULL) OR ([FamilyBenefitFund] = @Origina" +
-                "l_FamilyBenefitFund)) AND ((@IsNull_Loans = 1 AND [Loans] IS NULL) OR ([Loans] =" +
-                " @Original_Loans)) AND ((@IsNull_OtherDeductions = 1 AND [OtherDeductions] IS NU" +
-                "LL) OR ([OtherDeductions] = @Original_OtherDeductions)));\r\nSELECT StaffID, Staff" +
-                "Name, Department, Gender, DOB, FatherName, PermanentAddress, TemporaryAddress, P" +
-                "honeNo, MobileNo, DateOfJoining, Qualification, YearOfExperience, Designation, E" +
-                "mail, BasicSalary, LIC, IncomeTax, GroupInsurance, FamilyBenefitFund, Loans, Oth" +
-                "erDeductions, Picture FROM Employee WHERE (StaffID = @StaffID)";
+                "ame, [Nokphone] = @Nokphone, [PermanentAddress] = @PermanentAddress, [TemporaryA" +
+                "ddress] = @TemporaryAddress, [PhoneNo] = @PhoneNo, [MobileNo] = @MobileNo, [AccN" +
+                "o] = @AccNo, [DateOfJoining] = @DateOfJoining, [Qualification] = @Qualification," +
+                " [YearOfExperience] = @YearOfExperience, [Designation] = @Designation, [Email] =" +
+                " @Email, [BasicSalary] = @BasicSalary, [LIC] = @LIC, [IncomeTax] = @IncomeTax, [" +
+                "GroupInsurance] = @GroupInsurance, [FamilyBenefitFund] = @FamilyBenefitFund, [Lo" +
+                "ans] = @Loans, [OtherDeductions] = @OtherDeductions, [Picture] = @Picture, [Acti" +
+                "ve] = @Active, [Upload1] = @Upload1, [Upload2] = @Upload2, [ContractPeriodExpiry" +
+                "] = @ContractPeriodExpiry, [AccountNames] = @AccountNames, [AccountBank] = @Acco" +
+                "untBank, [InsBranch] = @InsBranch, [UploadStatus] = @UploadStatus WHERE (([ID] =" +
+                " @Original_ID) AND ([StaffID] = @Original_StaffID) AND ((@IsNull_StaffName = 1 A" +
+                "ND [StaffName] IS NULL) OR ([StaffName] = @Original_StaffName)) AND ((@IsNull_De" +
+                "partment = 1 AND [Department] IS NULL) OR ([Department] = @Original_Department))" +
+                " AND ((@IsNull_Gender = 1 AND [Gender] IS NULL) OR ([Gender] = @Original_Gender)" +
+                ") AND ((@IsNull_DOB = 1 AND [DOB] IS NULL) OR ([DOB] = @Original_DOB)) AND ((@Is" +
+                "Null_FatherName = 1 AND [FatherName] IS NULL) OR ([FatherName] = @Original_Fathe" +
+                "rName)) AND ((@IsNull_Nokphone = 1 AND [Nokphone] IS NULL) OR ([Nokphone] = @Ori" +
+                "ginal_Nokphone)) AND ((@IsNull_PermanentAddress = 1 AND [PermanentAddress] IS NU" +
+                "LL) OR ([PermanentAddress] = @Original_PermanentAddress)) AND ((@IsNull_Temporar" +
+                "yAddress = 1 AND [TemporaryAddress] IS NULL) OR ([TemporaryAddress] = @Original_" +
+                "TemporaryAddress)) AND ((@IsNull_PhoneNo = 1 AND [PhoneNo] IS NULL) OR ([PhoneNo" +
+                "] = @Original_PhoneNo)) AND ((@IsNull_MobileNo = 1 AND [MobileNo] IS NULL) OR ([" +
+                "MobileNo] = @Original_MobileNo)) AND ((@IsNull_AccNo = 1 AND [AccNo] IS NULL) OR" +
+                " ([AccNo] = @Original_AccNo)) AND ((@IsNull_DateOfJoining = 1 AND [DateOfJoining" +
+                "] IS NULL) OR ([DateOfJoining] = @Original_DateOfJoining)) AND ((@IsNull_Qualifi" +
+                "cation = 1 AND [Qualification] IS NULL) OR ([Qualification] = @Original_Qualific" +
+                "ation)) AND ((@IsNull_YearOfExperience = 1 AND [YearOfExperience] IS NULL) OR ([" +
+                "YearOfExperience] = @Original_YearOfExperience)) AND ((@IsNull_Designation = 1 A" +
+                "ND [Designation] IS NULL) OR ([Designation] = @Original_Designation)) AND ((@IsN" +
+                "ull_Email = 1 AND [Email] IS NULL) OR ([Email] = @Original_Email)) AND ((@IsNull" +
+                "_BasicSalary = 1 AND [BasicSalary] IS NULL) OR ([BasicSalary] = @Original_BasicS" +
+                "alary)) AND ((@IsNull_LIC = 1 AND [LIC] IS NULL) OR ([LIC] = @Original_LIC)) AND" +
+                " ((@IsNull_IncomeTax = 1 AND [IncomeTax] IS NULL) OR ([IncomeTax] = @Original_In" +
+                "comeTax)) AND ((@IsNull_GroupInsurance = 1 AND [GroupInsurance] IS NULL) OR ([Gr" +
+                "oupInsurance] = @Original_GroupInsurance)) AND ((@IsNull_FamilyBenefitFund = 1 A" +
+                "ND [FamilyBenefitFund] IS NULL) OR ([FamilyBenefitFund] = @Original_FamilyBenefi" +
+                "tFund)) AND ((@IsNull_Loans = 1 AND [Loans] IS NULL) OR ([Loans] = @Original_Loa" +
+                "ns)) AND ((@IsNull_OtherDeductions = 1 AND [OtherDeductions] IS NULL) OR ([Other" +
+                "Deductions] = @Original_OtherDeductions)) AND ((@IsNull_Active = 1 AND [Active] " +
+                "IS NULL) OR ([Active] = @Original_Active)) AND ((@IsNull_Upload1 = 1 AND [Upload" +
+                "1] IS NULL) OR ([Upload1] = @Original_Upload1)) AND ((@IsNull_Upload2 = 1 AND [U" +
+                "pload2] IS NULL) OR ([Upload2] = @Original_Upload2)) AND ((@IsNull_ContractPerio" +
+                "dExpiry = 1 AND [ContractPeriodExpiry] IS NULL) OR ([ContractPeriodExpiry] = @Or" +
+                "iginal_ContractPeriodExpiry)) AND ((@IsNull_AccountNames = 1 AND [AccountNames] " +
+                "IS NULL) OR ([AccountNames] = @Original_AccountNames)) AND ((@IsNull_AccountBank" +
+                " = 1 AND [AccountBank] IS NULL) OR ([AccountBank] = @Original_AccountBank)) AND " +
+                "([InsBranch] = @Original_InsBranch) AND ([UploadStatus] = @Original_UploadStatus" +
+                "));\r\nSELECT ID, StaffID, StaffName, Department, Gender, DOB, FatherName, Nokphon" +
+                "e, PermanentAddress, TemporaryAddress, PhoneNo, MobileNo, AccNo, DateOfJoining, " +
+                "Qualification, YearOfExperience, Designation, Email, BasicSalary, LIC, IncomeTax" +
+                ", GroupInsurance, FamilyBenefitFund, Loans, OtherDeductions, Picture, Active, Up" +
+                "load1, Upload2, ContractPeriodExpiry, AccountNames, AccountBank, InsBranch, Uplo" +
+                "adStatus FROM Employee WHERE (StaffID = @StaffID)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@StaffID", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "StaffID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@StaffName", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "StaffName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -2691,10 +3467,12 @@ SELECT StaffID, StaffName, Department, Gender, DOB, FatherName, PermanentAddress
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Gender", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Gender", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DOB", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DOB", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FatherName", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FatherName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Nokphone", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Nokphone", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PermanentAddress", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PermanentAddress", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TemporaryAddress", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TemporaryAddress", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PhoneNo", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PhoneNo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MobileNo", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MobileNo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AccNo", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AccNo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DateOfJoining", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DateOfJoining", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Qualification", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Qualification", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@YearOfExperience", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "YearOfExperience", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -2708,6 +3486,15 @@ SELECT StaffID, StaffName, Department, Gender, DOB, FatherName, PermanentAddress
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Loans", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Loans", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@OtherDeductions", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "OtherDeductions", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Picture", global::System.Data.SqlDbType.Image, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Picture", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Active", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Active", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Upload1", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Upload1", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Upload2", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Upload2", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ContractPeriodExpiry", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ContractPeriodExpiry", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AccountNames", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AccountNames", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AccountBank", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AccountBank", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@InsBranch", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "InsBranch", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@UploadStatus", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UploadStatus", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_StaffID", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "StaffID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_StaffName", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "StaffName", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_StaffName", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "StaffName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -2719,6 +3506,8 @@ SELECT StaffID, StaffName, Department, Gender, DOB, FatherName, PermanentAddress
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_DOB", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DOB", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_FatherName", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FatherName", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_FatherName", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FatherName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Nokphone", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Nokphone", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Nokphone", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Nokphone", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_PermanentAddress", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PermanentAddress", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PermanentAddress", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PermanentAddress", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_TemporaryAddress", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TemporaryAddress", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
@@ -2727,6 +3516,8 @@ SELECT StaffID, StaffName, Department, Gender, DOB, FatherName, PermanentAddress
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PhoneNo", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PhoneNo", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_MobileNo", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MobileNo", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MobileNo", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MobileNo", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_AccNo", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AccNo", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_AccNo", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AccNo", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_DateOfJoining", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DateOfJoining", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_DateOfJoining", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DateOfJoining", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Qualification", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Qualification", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
@@ -2751,13 +3542,27 @@ SELECT StaffID, StaffName, Department, Gender, DOB, FatherName, PermanentAddress
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Loans", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Loans", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_OtherDeductions", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "OtherDeductions", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_OtherDeductions", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "OtherDeductions", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Active", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Active", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Active", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Active", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Upload1", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Upload1", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Upload1", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Upload1", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Upload2", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Upload2", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Upload2", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Upload2", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_ContractPeriodExpiry", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ContractPeriodExpiry", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ContractPeriodExpiry", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ContractPeriodExpiry", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_AccountNames", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AccountNames", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_AccountNames", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AccountNames", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_AccountBank", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AccountBank", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_AccountBank", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AccountBank", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_InsBranch", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "InsBranch", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_UploadStatus", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UploadStatus", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::Banking_System.Properties.Settings.Default.BSConnectionString;
+            this._connection.ConnectionString = global::Banking_System.Properties.Settings.Default.LendingConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2766,7 +3571,7 @@ SELECT StaffID, StaffName, Department, Gender, DOB, FatherName, PermanentAddress
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT StaffID, StaffName, Department, Gender, DOB, FatherName, PermanentAddress, TemporaryAddress, PhoneNo, MobileNo, DateOfJoining, Qualification, YearOfExperience, Designation, Email, BasicSalary, LIC, IncomeTax, GroupInsurance, FamilyBenefitFund, Loans, OtherDeductions, Picture FROM dbo.Employee";
+            this._commandCollection[0].CommandText = @"SELECT ID, StaffID, StaffName, Department, Gender, DOB, FatherName, Nokphone, PermanentAddress, TemporaryAddress, PhoneNo, MobileNo, AccNo, DateOfJoining, Qualification, YearOfExperience, Designation, Email, BasicSalary, LIC, IncomeTax, GroupInsurance, FamilyBenefitFund, Loans, OtherDeductions, Picture, Active, Upload1, Upload2, ContractPeriodExpiry, AccountNames, AccountBank, InsBranch, UploadStatus FROM dbo.Employee";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -2828,16 +3633,19 @@ SELECT StaffID, StaffName, Department, Gender, DOB, FatherName, PermanentAddress
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
         public virtual int Delete(
+                    int Original_ID, 
                     string Original_StaffID, 
                     string Original_StaffName, 
                     string Original_Department, 
                     string Original_Gender, 
                     string Original_DOB, 
                     string Original_FatherName, 
+                    string Original_Nokphone, 
                     string Original_PermanentAddress, 
                     string Original_TemporaryAddress, 
                     string Original_PhoneNo, 
                     string Original_MobileNo, 
+                    string Original_AccNo, 
                     string Original_DateOfJoining, 
                     string Original_Qualification, 
                     global::System.Nullable<int> Original_YearOfExperience, 
@@ -2849,180 +3657,265 @@ SELECT StaffID, StaffName, Department, Gender, DOB, FatherName, PermanentAddress
                     global::System.Nullable<int> Original_GroupInsurance, 
                     global::System.Nullable<int> Original_FamilyBenefitFund, 
                     global::System.Nullable<int> Original_Loans, 
-                    global::System.Nullable<int> Original_OtherDeductions) {
+                    global::System.Nullable<int> Original_OtherDeductions, 
+                    string Original_Active, 
+                    string Original_Upload1, 
+                    string Original_Upload2, 
+                    string Original_ContractPeriodExpiry, 
+                    string Original_AccountNames, 
+                    string Original_AccountBank, 
+                    string Original_InsBranch, 
+                    string Original_UploadStatus) {
+            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_ID));
             if ((Original_StaffID == null)) {
                 throw new global::System.ArgumentNullException("Original_StaffID");
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[0].Value = ((string)(Original_StaffID));
+                this.Adapter.DeleteCommand.Parameters[1].Value = ((string)(Original_StaffID));
             }
             if ((Original_StaffName == null)) {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[2].Value = global::System.DBNull.Value;
+                this.Adapter.DeleteCommand.Parameters[2].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_StaffName));
+                this.Adapter.DeleteCommand.Parameters[2].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((string)(Original_StaffName));
             }
             if ((Original_Department == null)) {
-                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[4].Value = global::System.DBNull.Value;
+                this.Adapter.DeleteCommand.Parameters[4].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[5].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[4].Value = ((string)(Original_Department));
+                this.Adapter.DeleteCommand.Parameters[4].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[5].Value = ((string)(Original_Department));
             }
             if ((Original_Gender == null)) {
-                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[6].Value = global::System.DBNull.Value;
+                this.Adapter.DeleteCommand.Parameters[6].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[7].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[6].Value = ((string)(Original_Gender));
+                this.Adapter.DeleteCommand.Parameters[6].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[7].Value = ((string)(Original_Gender));
             }
             if ((Original_DOB == null)) {
-                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[8].Value = global::System.DBNull.Value;
+                this.Adapter.DeleteCommand.Parameters[8].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[9].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[8].Value = ((string)(Original_DOB));
+                this.Adapter.DeleteCommand.Parameters[8].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[9].Value = ((string)(Original_DOB));
             }
             if ((Original_FatherName == null)) {
-                this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[10].Value = global::System.DBNull.Value;
+                this.Adapter.DeleteCommand.Parameters[10].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[11].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[10].Value = ((string)(Original_FatherName));
+                this.Adapter.DeleteCommand.Parameters[10].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[11].Value = ((string)(Original_FatherName));
+            }
+            if ((Original_Nokphone == null)) {
+                this.Adapter.DeleteCommand.Parameters[12].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[13].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[12].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[13].Value = ((string)(Original_Nokphone));
             }
             if ((Original_PermanentAddress == null)) {
-                this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[12].Value = global::System.DBNull.Value;
+                this.Adapter.DeleteCommand.Parameters[14].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[15].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[12].Value = ((string)(Original_PermanentAddress));
+                this.Adapter.DeleteCommand.Parameters[14].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[15].Value = ((string)(Original_PermanentAddress));
             }
             if ((Original_TemporaryAddress == null)) {
-                this.Adapter.DeleteCommand.Parameters[13].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[14].Value = global::System.DBNull.Value;
+                this.Adapter.DeleteCommand.Parameters[16].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[17].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[13].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[14].Value = ((string)(Original_TemporaryAddress));
+                this.Adapter.DeleteCommand.Parameters[16].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[17].Value = ((string)(Original_TemporaryAddress));
             }
             if ((Original_PhoneNo == null)) {
-                this.Adapter.DeleteCommand.Parameters[15].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[16].Value = global::System.DBNull.Value;
+                this.Adapter.DeleteCommand.Parameters[18].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[19].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[15].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[16].Value = ((string)(Original_PhoneNo));
+                this.Adapter.DeleteCommand.Parameters[18].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[19].Value = ((string)(Original_PhoneNo));
             }
             if ((Original_MobileNo == null)) {
-                this.Adapter.DeleteCommand.Parameters[17].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[18].Value = global::System.DBNull.Value;
+                this.Adapter.DeleteCommand.Parameters[20].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[21].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[17].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[18].Value = ((string)(Original_MobileNo));
+                this.Adapter.DeleteCommand.Parameters[20].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[21].Value = ((string)(Original_MobileNo));
+            }
+            if ((Original_AccNo == null)) {
+                this.Adapter.DeleteCommand.Parameters[22].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[23].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[22].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[23].Value = ((string)(Original_AccNo));
             }
             if ((Original_DateOfJoining == null)) {
-                this.Adapter.DeleteCommand.Parameters[19].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[20].Value = global::System.DBNull.Value;
+                this.Adapter.DeleteCommand.Parameters[24].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[25].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[19].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[20].Value = ((string)(Original_DateOfJoining));
+                this.Adapter.DeleteCommand.Parameters[24].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[25].Value = ((string)(Original_DateOfJoining));
             }
             if ((Original_Qualification == null)) {
-                this.Adapter.DeleteCommand.Parameters[21].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[22].Value = global::System.DBNull.Value;
+                this.Adapter.DeleteCommand.Parameters[26].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[27].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[21].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[22].Value = ((string)(Original_Qualification));
+                this.Adapter.DeleteCommand.Parameters[26].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[27].Value = ((string)(Original_Qualification));
             }
             if ((Original_YearOfExperience.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[23].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[24].Value = ((int)(Original_YearOfExperience.Value));
+                this.Adapter.DeleteCommand.Parameters[28].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[29].Value = ((int)(Original_YearOfExperience.Value));
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[23].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[24].Value = global::System.DBNull.Value;
+                this.Adapter.DeleteCommand.Parameters[28].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[29].Value = global::System.DBNull.Value;
             }
             if ((Original_Designation == null)) {
-                this.Adapter.DeleteCommand.Parameters[25].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[26].Value = global::System.DBNull.Value;
+                this.Adapter.DeleteCommand.Parameters[30].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[31].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[25].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[26].Value = ((string)(Original_Designation));
+                this.Adapter.DeleteCommand.Parameters[30].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[31].Value = ((string)(Original_Designation));
             }
             if ((Original_Email == null)) {
-                this.Adapter.DeleteCommand.Parameters[27].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[28].Value = global::System.DBNull.Value;
+                this.Adapter.DeleteCommand.Parameters[32].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[33].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[27].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[28].Value = ((string)(Original_Email));
+                this.Adapter.DeleteCommand.Parameters[32].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[33].Value = ((string)(Original_Email));
             }
             if ((Original_BasicSalary.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[29].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[30].Value = ((int)(Original_BasicSalary.Value));
+                this.Adapter.DeleteCommand.Parameters[34].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[35].Value = ((int)(Original_BasicSalary.Value));
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[29].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[30].Value = global::System.DBNull.Value;
+                this.Adapter.DeleteCommand.Parameters[34].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[35].Value = global::System.DBNull.Value;
             }
             if ((Original_LIC.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[31].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[32].Value = ((int)(Original_LIC.Value));
+                this.Adapter.DeleteCommand.Parameters[36].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[37].Value = ((int)(Original_LIC.Value));
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[31].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[32].Value = global::System.DBNull.Value;
+                this.Adapter.DeleteCommand.Parameters[36].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[37].Value = global::System.DBNull.Value;
             }
             if ((Original_IncomeTax.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[33].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[34].Value = ((int)(Original_IncomeTax.Value));
+                this.Adapter.DeleteCommand.Parameters[38].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[39].Value = ((int)(Original_IncomeTax.Value));
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[33].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[34].Value = global::System.DBNull.Value;
+                this.Adapter.DeleteCommand.Parameters[38].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[39].Value = global::System.DBNull.Value;
             }
             if ((Original_GroupInsurance.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[35].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[36].Value = ((int)(Original_GroupInsurance.Value));
+                this.Adapter.DeleteCommand.Parameters[40].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[41].Value = ((int)(Original_GroupInsurance.Value));
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[35].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[36].Value = global::System.DBNull.Value;
+                this.Adapter.DeleteCommand.Parameters[40].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[41].Value = global::System.DBNull.Value;
             }
             if ((Original_FamilyBenefitFund.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[37].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[38].Value = ((int)(Original_FamilyBenefitFund.Value));
+                this.Adapter.DeleteCommand.Parameters[42].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[43].Value = ((int)(Original_FamilyBenefitFund.Value));
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[37].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[38].Value = global::System.DBNull.Value;
+                this.Adapter.DeleteCommand.Parameters[42].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[43].Value = global::System.DBNull.Value;
             }
             if ((Original_Loans.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[39].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[40].Value = ((int)(Original_Loans.Value));
+                this.Adapter.DeleteCommand.Parameters[44].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[45].Value = ((int)(Original_Loans.Value));
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[39].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[40].Value = global::System.DBNull.Value;
+                this.Adapter.DeleteCommand.Parameters[44].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[45].Value = global::System.DBNull.Value;
             }
             if ((Original_OtherDeductions.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[41].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[42].Value = ((int)(Original_OtherDeductions.Value));
+                this.Adapter.DeleteCommand.Parameters[46].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[47].Value = ((int)(Original_OtherDeductions.Value));
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[41].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[42].Value = global::System.DBNull.Value;
+                this.Adapter.DeleteCommand.Parameters[46].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[47].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Active == null)) {
+                this.Adapter.DeleteCommand.Parameters[48].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[49].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[48].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[49].Value = ((string)(Original_Active));
+            }
+            if ((Original_Upload1 == null)) {
+                this.Adapter.DeleteCommand.Parameters[50].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[51].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[50].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[51].Value = ((string)(Original_Upload1));
+            }
+            if ((Original_Upload2 == null)) {
+                this.Adapter.DeleteCommand.Parameters[52].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[53].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[52].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[53].Value = ((string)(Original_Upload2));
+            }
+            if ((Original_ContractPeriodExpiry == null)) {
+                this.Adapter.DeleteCommand.Parameters[54].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[55].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[54].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[55].Value = ((string)(Original_ContractPeriodExpiry));
+            }
+            if ((Original_AccountNames == null)) {
+                this.Adapter.DeleteCommand.Parameters[56].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[57].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[56].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[57].Value = ((string)(Original_AccountNames));
+            }
+            if ((Original_AccountBank == null)) {
+                this.Adapter.DeleteCommand.Parameters[58].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[59].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[58].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[59].Value = ((string)(Original_AccountBank));
+            }
+            if ((Original_InsBranch == null)) {
+                throw new global::System.ArgumentNullException("Original_InsBranch");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[60].Value = ((string)(Original_InsBranch));
+            }
+            if ((Original_UploadStatus == null)) {
+                throw new global::System.ArgumentNullException("Original_UploadStatus");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[61].Value = ((string)(Original_UploadStatus));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -3051,10 +3944,12 @@ SELECT StaffID, StaffName, Department, Gender, DOB, FatherName, PermanentAddress
                     string Gender, 
                     string DOB, 
                     string FatherName, 
+                    string Nokphone, 
                     string PermanentAddress, 
                     string TemporaryAddress, 
                     string PhoneNo, 
                     string MobileNo, 
+                    string AccNo, 
                     string DateOfJoining, 
                     string Qualification, 
                     global::System.Nullable<int> YearOfExperience, 
@@ -3067,7 +3962,15 @@ SELECT StaffID, StaffName, Department, Gender, DOB, FatherName, PermanentAddress
                     global::System.Nullable<int> FamilyBenefitFund, 
                     global::System.Nullable<int> Loans, 
                     global::System.Nullable<int> OtherDeductions, 
-                    byte[] Picture) {
+                    byte[] Picture, 
+                    string Active, 
+                    string Upload1, 
+                    string Upload2, 
+                    string ContractPeriodExpiry, 
+                    string AccountNames, 
+                    string AccountBank, 
+                    string InsBranch, 
+                    string UploadStatus) {
             if ((StaffID == null)) {
                 throw new global::System.ArgumentNullException("StaffID");
             }
@@ -3104,107 +4007,167 @@ SELECT StaffID, StaffName, Department, Gender, DOB, FatherName, PermanentAddress
             else {
                 this.Adapter.InsertCommand.Parameters[5].Value = ((string)(FatherName));
             }
-            if ((PermanentAddress == null)) {
+            if ((Nokphone == null)) {
                 this.Adapter.InsertCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[6].Value = ((string)(PermanentAddress));
+                this.Adapter.InsertCommand.Parameters[6].Value = ((string)(Nokphone));
             }
-            if ((TemporaryAddress == null)) {
+            if ((PermanentAddress == null)) {
                 this.Adapter.InsertCommand.Parameters[7].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[7].Value = ((string)(TemporaryAddress));
+                this.Adapter.InsertCommand.Parameters[7].Value = ((string)(PermanentAddress));
             }
-            if ((PhoneNo == null)) {
+            if ((TemporaryAddress == null)) {
                 this.Adapter.InsertCommand.Parameters[8].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[8].Value = ((string)(PhoneNo));
+                this.Adapter.InsertCommand.Parameters[8].Value = ((string)(TemporaryAddress));
             }
-            if ((MobileNo == null)) {
+            if ((PhoneNo == null)) {
                 this.Adapter.InsertCommand.Parameters[9].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[9].Value = ((string)(MobileNo));
+                this.Adapter.InsertCommand.Parameters[9].Value = ((string)(PhoneNo));
             }
-            if ((DateOfJoining == null)) {
+            if ((MobileNo == null)) {
                 this.Adapter.InsertCommand.Parameters[10].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[10].Value = ((string)(DateOfJoining));
+                this.Adapter.InsertCommand.Parameters[10].Value = ((string)(MobileNo));
             }
-            if ((Qualification == null)) {
+            if ((AccNo == null)) {
                 this.Adapter.InsertCommand.Parameters[11].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[11].Value = ((string)(Qualification));
+                this.Adapter.InsertCommand.Parameters[11].Value = ((string)(AccNo));
             }
-            if ((YearOfExperience.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[12].Value = ((int)(YearOfExperience.Value));
-            }
-            else {
+            if ((DateOfJoining == null)) {
                 this.Adapter.InsertCommand.Parameters[12].Value = global::System.DBNull.Value;
             }
-            if ((Designation == null)) {
+            else {
+                this.Adapter.InsertCommand.Parameters[12].Value = ((string)(DateOfJoining));
+            }
+            if ((Qualification == null)) {
                 this.Adapter.InsertCommand.Parameters[13].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[13].Value = ((string)(Designation));
+                this.Adapter.InsertCommand.Parameters[13].Value = ((string)(Qualification));
             }
-            if ((Email == null)) {
+            if ((YearOfExperience.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[14].Value = ((int)(YearOfExperience.Value));
+            }
+            else {
                 this.Adapter.InsertCommand.Parameters[14].Value = global::System.DBNull.Value;
             }
-            else {
-                this.Adapter.InsertCommand.Parameters[14].Value = ((string)(Email));
-            }
-            if ((BasicSalary.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[15].Value = ((int)(BasicSalary.Value));
-            }
-            else {
+            if ((Designation == null)) {
                 this.Adapter.InsertCommand.Parameters[15].Value = global::System.DBNull.Value;
             }
-            if ((LIC.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[16].Value = ((int)(LIC.Value));
-            }
             else {
+                this.Adapter.InsertCommand.Parameters[15].Value = ((string)(Designation));
+            }
+            if ((Email == null)) {
                 this.Adapter.InsertCommand.Parameters[16].Value = global::System.DBNull.Value;
             }
-            if ((IncomeTax.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[17].Value = ((int)(IncomeTax.Value));
+            else {
+                this.Adapter.InsertCommand.Parameters[16].Value = ((string)(Email));
+            }
+            if ((BasicSalary.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[17].Value = ((int)(BasicSalary.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[17].Value = global::System.DBNull.Value;
             }
-            if ((GroupInsurance.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[18].Value = ((int)(GroupInsurance.Value));
+            if ((LIC.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[18].Value = ((int)(LIC.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[18].Value = global::System.DBNull.Value;
             }
-            if ((FamilyBenefitFund.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[19].Value = ((int)(FamilyBenefitFund.Value));
+            if ((IncomeTax.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[19].Value = ((int)(IncomeTax.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[19].Value = global::System.DBNull.Value;
             }
-            if ((Loans.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[20].Value = ((int)(Loans.Value));
+            if ((GroupInsurance.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[20].Value = ((int)(GroupInsurance.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[20].Value = global::System.DBNull.Value;
             }
-            if ((OtherDeductions.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[21].Value = ((int)(OtherDeductions.Value));
+            if ((FamilyBenefitFund.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[21].Value = ((int)(FamilyBenefitFund.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[21].Value = global::System.DBNull.Value;
             }
-            if ((Picture == null)) {
-                this.Adapter.InsertCommand.Parameters[22].Value = global::System.DBNull.Value;
+            if ((Loans.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[22].Value = ((int)(Loans.Value));
             }
             else {
-                this.Adapter.InsertCommand.Parameters[22].Value = ((byte[])(Picture));
+                this.Adapter.InsertCommand.Parameters[22].Value = global::System.DBNull.Value;
+            }
+            if ((OtherDeductions.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[23].Value = ((int)(OtherDeductions.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[23].Value = global::System.DBNull.Value;
+            }
+            if ((Picture == null)) {
+                this.Adapter.InsertCommand.Parameters[24].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[24].Value = ((byte[])(Picture));
+            }
+            if ((Active == null)) {
+                this.Adapter.InsertCommand.Parameters[25].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[25].Value = ((string)(Active));
+            }
+            if ((Upload1 == null)) {
+                this.Adapter.InsertCommand.Parameters[26].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[26].Value = ((string)(Upload1));
+            }
+            if ((Upload2 == null)) {
+                this.Adapter.InsertCommand.Parameters[27].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[27].Value = ((string)(Upload2));
+            }
+            if ((ContractPeriodExpiry == null)) {
+                this.Adapter.InsertCommand.Parameters[28].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[28].Value = ((string)(ContractPeriodExpiry));
+            }
+            if ((AccountNames == null)) {
+                this.Adapter.InsertCommand.Parameters[29].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[29].Value = ((string)(AccountNames));
+            }
+            if ((AccountBank == null)) {
+                this.Adapter.InsertCommand.Parameters[30].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[30].Value = ((string)(AccountBank));
+            }
+            if ((InsBranch == null)) {
+                throw new global::System.ArgumentNullException("InsBranch");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[31].Value = ((string)(InsBranch));
+            }
+            if ((UploadStatus == null)) {
+                throw new global::System.ArgumentNullException("UploadStatus");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[32].Value = ((string)(UploadStatus));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -3233,10 +4196,12 @@ SELECT StaffID, StaffName, Department, Gender, DOB, FatherName, PermanentAddress
                     string Gender, 
                     string DOB, 
                     string FatherName, 
+                    string Nokphone, 
                     string PermanentAddress, 
                     string TemporaryAddress, 
                     string PhoneNo, 
                     string MobileNo, 
+                    string AccNo, 
                     string DateOfJoining, 
                     string Qualification, 
                     global::System.Nullable<int> YearOfExperience, 
@@ -3250,16 +4215,27 @@ SELECT StaffID, StaffName, Department, Gender, DOB, FatherName, PermanentAddress
                     global::System.Nullable<int> Loans, 
                     global::System.Nullable<int> OtherDeductions, 
                     byte[] Picture, 
+                    string Active, 
+                    string Upload1, 
+                    string Upload2, 
+                    string ContractPeriodExpiry, 
+                    string AccountNames, 
+                    string AccountBank, 
+                    string InsBranch, 
+                    string UploadStatus, 
+                    int Original_ID, 
                     string Original_StaffID, 
                     string Original_StaffName, 
                     string Original_Department, 
                     string Original_Gender, 
                     string Original_DOB, 
                     string Original_FatherName, 
+                    string Original_Nokphone, 
                     string Original_PermanentAddress, 
                     string Original_TemporaryAddress, 
                     string Original_PhoneNo, 
                     string Original_MobileNo, 
+                    string Original_AccNo, 
                     string Original_DateOfJoining, 
                     string Original_Qualification, 
                     global::System.Nullable<int> Original_YearOfExperience, 
@@ -3271,7 +4247,15 @@ SELECT StaffID, StaffName, Department, Gender, DOB, FatherName, PermanentAddress
                     global::System.Nullable<int> Original_GroupInsurance, 
                     global::System.Nullable<int> Original_FamilyBenefitFund, 
                     global::System.Nullable<int> Original_Loans, 
-                    global::System.Nullable<int> Original_OtherDeductions) {
+                    global::System.Nullable<int> Original_OtherDeductions, 
+                    string Original_Active, 
+                    string Original_Upload1, 
+                    string Original_Upload2, 
+                    string Original_ContractPeriodExpiry, 
+                    string Original_AccountNames, 
+                    string Original_AccountBank, 
+                    string Original_InsBranch, 
+                    string Original_UploadStatus) {
             if ((StaffID == null)) {
                 throw new global::System.ArgumentNullException("StaffID");
             }
@@ -3308,281 +4292,418 @@ SELECT StaffID, StaffName, Department, Gender, DOB, FatherName, PermanentAddress
             else {
                 this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(FatherName));
             }
-            if ((PermanentAddress == null)) {
+            if ((Nokphone == null)) {
                 this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(PermanentAddress));
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(Nokphone));
             }
-            if ((TemporaryAddress == null)) {
+            if ((PermanentAddress == null)) {
                 this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(TemporaryAddress));
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(PermanentAddress));
             }
-            if ((PhoneNo == null)) {
+            if ((TemporaryAddress == null)) {
                 this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(PhoneNo));
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(TemporaryAddress));
             }
-            if ((MobileNo == null)) {
+            if ((PhoneNo == null)) {
                 this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(MobileNo));
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(PhoneNo));
             }
-            if ((DateOfJoining == null)) {
+            if ((MobileNo == null)) {
                 this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(DateOfJoining));
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(MobileNo));
             }
-            if ((Qualification == null)) {
+            if ((AccNo == null)) {
                 this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(Qualification));
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(AccNo));
             }
-            if ((YearOfExperience.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((int)(YearOfExperience.Value));
-            }
-            else {
+            if ((DateOfJoining == null)) {
                 this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
             }
-            if ((Designation == null)) {
+            else {
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(DateOfJoining));
+            }
+            if ((Qualification == null)) {
                 this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((string)(Designation));
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((string)(Qualification));
             }
-            if ((Email == null)) {
+            if ((YearOfExperience.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((int)(YearOfExperience.Value));
+            }
+            else {
                 this.Adapter.UpdateCommand.Parameters[14].Value = global::System.DBNull.Value;
             }
-            else {
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((string)(Email));
-            }
-            if ((BasicSalary.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((int)(BasicSalary.Value));
-            }
-            else {
+            if ((Designation == null)) {
                 this.Adapter.UpdateCommand.Parameters[15].Value = global::System.DBNull.Value;
             }
-            if ((LIC.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[16].Value = ((int)(LIC.Value));
-            }
             else {
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((string)(Designation));
+            }
+            if ((Email == null)) {
                 this.Adapter.UpdateCommand.Parameters[16].Value = global::System.DBNull.Value;
             }
-            if ((IncomeTax.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[17].Value = ((int)(IncomeTax.Value));
+            else {
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((string)(Email));
+            }
+            if ((BasicSalary.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((int)(BasicSalary.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[17].Value = global::System.DBNull.Value;
             }
-            if ((GroupInsurance.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[18].Value = ((int)(GroupInsurance.Value));
+            if ((LIC.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[18].Value = ((int)(LIC.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[18].Value = global::System.DBNull.Value;
             }
-            if ((FamilyBenefitFund.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[19].Value = ((int)(FamilyBenefitFund.Value));
+            if ((IncomeTax.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[19].Value = ((int)(IncomeTax.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[19].Value = global::System.DBNull.Value;
             }
-            if ((Loans.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[20].Value = ((int)(Loans.Value));
+            if ((GroupInsurance.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[20].Value = ((int)(GroupInsurance.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[20].Value = global::System.DBNull.Value;
             }
-            if ((OtherDeductions.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[21].Value = ((int)(OtherDeductions.Value));
+            if ((FamilyBenefitFund.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[21].Value = ((int)(FamilyBenefitFund.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[21].Value = global::System.DBNull.Value;
             }
-            if ((Picture == null)) {
-                this.Adapter.UpdateCommand.Parameters[22].Value = global::System.DBNull.Value;
+            if ((Loans.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[22].Value = ((int)(Loans.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[22].Value = ((byte[])(Picture));
+                this.Adapter.UpdateCommand.Parameters[22].Value = global::System.DBNull.Value;
             }
+            if ((OtherDeductions.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[23].Value = ((int)(OtherDeductions.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[23].Value = global::System.DBNull.Value;
+            }
+            if ((Picture == null)) {
+                this.Adapter.UpdateCommand.Parameters[24].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[24].Value = ((byte[])(Picture));
+            }
+            if ((Active == null)) {
+                this.Adapter.UpdateCommand.Parameters[25].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[25].Value = ((string)(Active));
+            }
+            if ((Upload1 == null)) {
+                this.Adapter.UpdateCommand.Parameters[26].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[26].Value = ((string)(Upload1));
+            }
+            if ((Upload2 == null)) {
+                this.Adapter.UpdateCommand.Parameters[27].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[27].Value = ((string)(Upload2));
+            }
+            if ((ContractPeriodExpiry == null)) {
+                this.Adapter.UpdateCommand.Parameters[28].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[28].Value = ((string)(ContractPeriodExpiry));
+            }
+            if ((AccountNames == null)) {
+                this.Adapter.UpdateCommand.Parameters[29].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[29].Value = ((string)(AccountNames));
+            }
+            if ((AccountBank == null)) {
+                this.Adapter.UpdateCommand.Parameters[30].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[30].Value = ((string)(AccountBank));
+            }
+            if ((InsBranch == null)) {
+                throw new global::System.ArgumentNullException("InsBranch");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[31].Value = ((string)(InsBranch));
+            }
+            if ((UploadStatus == null)) {
+                throw new global::System.ArgumentNullException("UploadStatus");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[32].Value = ((string)(UploadStatus));
+            }
+            this.Adapter.UpdateCommand.Parameters[33].Value = ((int)(Original_ID));
             if ((Original_StaffID == null)) {
                 throw new global::System.ArgumentNullException("Original_StaffID");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[23].Value = ((string)(Original_StaffID));
+                this.Adapter.UpdateCommand.Parameters[34].Value = ((string)(Original_StaffID));
             }
             if ((Original_StaffName == null)) {
-                this.Adapter.UpdateCommand.Parameters[24].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[25].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[35].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[36].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[24].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[25].Value = ((string)(Original_StaffName));
+                this.Adapter.UpdateCommand.Parameters[35].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[36].Value = ((string)(Original_StaffName));
             }
             if ((Original_Department == null)) {
-                this.Adapter.UpdateCommand.Parameters[26].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[27].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[37].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[38].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[26].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[27].Value = ((string)(Original_Department));
+                this.Adapter.UpdateCommand.Parameters[37].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[38].Value = ((string)(Original_Department));
             }
             if ((Original_Gender == null)) {
-                this.Adapter.UpdateCommand.Parameters[28].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[29].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[39].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[40].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[28].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[29].Value = ((string)(Original_Gender));
+                this.Adapter.UpdateCommand.Parameters[39].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[40].Value = ((string)(Original_Gender));
             }
             if ((Original_DOB == null)) {
-                this.Adapter.UpdateCommand.Parameters[30].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[31].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[41].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[42].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[30].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[31].Value = ((string)(Original_DOB));
+                this.Adapter.UpdateCommand.Parameters[41].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[42].Value = ((string)(Original_DOB));
             }
             if ((Original_FatherName == null)) {
-                this.Adapter.UpdateCommand.Parameters[32].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[33].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[43].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[44].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[32].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[33].Value = ((string)(Original_FatherName));
+                this.Adapter.UpdateCommand.Parameters[43].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[44].Value = ((string)(Original_FatherName));
+            }
+            if ((Original_Nokphone == null)) {
+                this.Adapter.UpdateCommand.Parameters[45].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[46].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[45].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[46].Value = ((string)(Original_Nokphone));
             }
             if ((Original_PermanentAddress == null)) {
-                this.Adapter.UpdateCommand.Parameters[34].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[35].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[47].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[48].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[34].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[35].Value = ((string)(Original_PermanentAddress));
+                this.Adapter.UpdateCommand.Parameters[47].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[48].Value = ((string)(Original_PermanentAddress));
             }
             if ((Original_TemporaryAddress == null)) {
-                this.Adapter.UpdateCommand.Parameters[36].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[37].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[49].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[50].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[36].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[37].Value = ((string)(Original_TemporaryAddress));
+                this.Adapter.UpdateCommand.Parameters[49].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[50].Value = ((string)(Original_TemporaryAddress));
             }
             if ((Original_PhoneNo == null)) {
-                this.Adapter.UpdateCommand.Parameters[38].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[39].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[51].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[52].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[38].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[39].Value = ((string)(Original_PhoneNo));
+                this.Adapter.UpdateCommand.Parameters[51].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[52].Value = ((string)(Original_PhoneNo));
             }
             if ((Original_MobileNo == null)) {
-                this.Adapter.UpdateCommand.Parameters[40].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[41].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[53].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[54].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[40].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[41].Value = ((string)(Original_MobileNo));
+                this.Adapter.UpdateCommand.Parameters[53].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[54].Value = ((string)(Original_MobileNo));
+            }
+            if ((Original_AccNo == null)) {
+                this.Adapter.UpdateCommand.Parameters[55].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[56].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[55].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[56].Value = ((string)(Original_AccNo));
             }
             if ((Original_DateOfJoining == null)) {
-                this.Adapter.UpdateCommand.Parameters[42].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[43].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[57].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[58].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[42].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[43].Value = ((string)(Original_DateOfJoining));
+                this.Adapter.UpdateCommand.Parameters[57].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[58].Value = ((string)(Original_DateOfJoining));
             }
             if ((Original_Qualification == null)) {
-                this.Adapter.UpdateCommand.Parameters[44].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[45].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[59].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[60].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[44].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[45].Value = ((string)(Original_Qualification));
+                this.Adapter.UpdateCommand.Parameters[59].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[60].Value = ((string)(Original_Qualification));
             }
             if ((Original_YearOfExperience.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[46].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[47].Value = ((int)(Original_YearOfExperience.Value));
+                this.Adapter.UpdateCommand.Parameters[61].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[62].Value = ((int)(Original_YearOfExperience.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[46].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[47].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[61].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[62].Value = global::System.DBNull.Value;
             }
             if ((Original_Designation == null)) {
-                this.Adapter.UpdateCommand.Parameters[48].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[49].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[63].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[64].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[48].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[49].Value = ((string)(Original_Designation));
+                this.Adapter.UpdateCommand.Parameters[63].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[64].Value = ((string)(Original_Designation));
             }
             if ((Original_Email == null)) {
-                this.Adapter.UpdateCommand.Parameters[50].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[51].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[65].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[66].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[50].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[51].Value = ((string)(Original_Email));
+                this.Adapter.UpdateCommand.Parameters[65].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[66].Value = ((string)(Original_Email));
             }
             if ((Original_BasicSalary.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[52].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[53].Value = ((int)(Original_BasicSalary.Value));
+                this.Adapter.UpdateCommand.Parameters[67].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[68].Value = ((int)(Original_BasicSalary.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[52].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[53].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[67].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[68].Value = global::System.DBNull.Value;
             }
             if ((Original_LIC.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[54].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[55].Value = ((int)(Original_LIC.Value));
+                this.Adapter.UpdateCommand.Parameters[69].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[70].Value = ((int)(Original_LIC.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[54].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[55].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[69].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[70].Value = global::System.DBNull.Value;
             }
             if ((Original_IncomeTax.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[56].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[57].Value = ((int)(Original_IncomeTax.Value));
+                this.Adapter.UpdateCommand.Parameters[71].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[72].Value = ((int)(Original_IncomeTax.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[56].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[57].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[71].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[72].Value = global::System.DBNull.Value;
             }
             if ((Original_GroupInsurance.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[58].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[59].Value = ((int)(Original_GroupInsurance.Value));
+                this.Adapter.UpdateCommand.Parameters[73].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[74].Value = ((int)(Original_GroupInsurance.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[58].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[59].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[73].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[74].Value = global::System.DBNull.Value;
             }
             if ((Original_FamilyBenefitFund.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[60].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[61].Value = ((int)(Original_FamilyBenefitFund.Value));
+                this.Adapter.UpdateCommand.Parameters[75].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[76].Value = ((int)(Original_FamilyBenefitFund.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[60].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[61].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[75].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[76].Value = global::System.DBNull.Value;
             }
             if ((Original_Loans.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[62].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[63].Value = ((int)(Original_Loans.Value));
+                this.Adapter.UpdateCommand.Parameters[77].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[78].Value = ((int)(Original_Loans.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[62].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[63].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[77].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[78].Value = global::System.DBNull.Value;
             }
             if ((Original_OtherDeductions.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[64].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[65].Value = ((int)(Original_OtherDeductions.Value));
+                this.Adapter.UpdateCommand.Parameters[79].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[80].Value = ((int)(Original_OtherDeductions.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[64].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[65].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[79].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[80].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Active == null)) {
+                this.Adapter.UpdateCommand.Parameters[81].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[82].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[81].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[82].Value = ((string)(Original_Active));
+            }
+            if ((Original_Upload1 == null)) {
+                this.Adapter.UpdateCommand.Parameters[83].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[84].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[83].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[84].Value = ((string)(Original_Upload1));
+            }
+            if ((Original_Upload2 == null)) {
+                this.Adapter.UpdateCommand.Parameters[85].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[86].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[85].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[86].Value = ((string)(Original_Upload2));
+            }
+            if ((Original_ContractPeriodExpiry == null)) {
+                this.Adapter.UpdateCommand.Parameters[87].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[88].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[87].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[88].Value = ((string)(Original_ContractPeriodExpiry));
+            }
+            if ((Original_AccountNames == null)) {
+                this.Adapter.UpdateCommand.Parameters[89].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[90].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[89].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[90].Value = ((string)(Original_AccountNames));
+            }
+            if ((Original_AccountBank == null)) {
+                this.Adapter.UpdateCommand.Parameters[91].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[92].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[91].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[92].Value = ((string)(Original_AccountBank));
+            }
+            if ((Original_InsBranch == null)) {
+                throw new global::System.ArgumentNullException("Original_InsBranch");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[93].Value = ((string)(Original_InsBranch));
+            }
+            if ((Original_UploadStatus == null)) {
+                throw new global::System.ArgumentNullException("Original_UploadStatus");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[94].Value = ((string)(Original_UploadStatus));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -3610,10 +4731,12 @@ SELECT StaffID, StaffName, Department, Gender, DOB, FatherName, PermanentAddress
                     string Gender, 
                     string DOB, 
                     string FatherName, 
+                    string Nokphone, 
                     string PermanentAddress, 
                     string TemporaryAddress, 
                     string PhoneNo, 
                     string MobileNo, 
+                    string AccNo, 
                     string DateOfJoining, 
                     string Qualification, 
                     global::System.Nullable<int> YearOfExperience, 
@@ -3627,16 +4750,27 @@ SELECT StaffID, StaffName, Department, Gender, DOB, FatherName, PermanentAddress
                     global::System.Nullable<int> Loans, 
                     global::System.Nullable<int> OtherDeductions, 
                     byte[] Picture, 
+                    string Active, 
+                    string Upload1, 
+                    string Upload2, 
+                    string ContractPeriodExpiry, 
+                    string AccountNames, 
+                    string AccountBank, 
+                    string InsBranch, 
+                    string UploadStatus, 
+                    int Original_ID, 
                     string Original_StaffID, 
                     string Original_StaffName, 
                     string Original_Department, 
                     string Original_Gender, 
                     string Original_DOB, 
                     string Original_FatherName, 
+                    string Original_Nokphone, 
                     string Original_PermanentAddress, 
                     string Original_TemporaryAddress, 
                     string Original_PhoneNo, 
                     string Original_MobileNo, 
+                    string Original_AccNo, 
                     string Original_DateOfJoining, 
                     string Original_Qualification, 
                     global::System.Nullable<int> Original_YearOfExperience, 
@@ -3648,8 +4782,16 @@ SELECT StaffID, StaffName, Department, Gender, DOB, FatherName, PermanentAddress
                     global::System.Nullable<int> Original_GroupInsurance, 
                     global::System.Nullable<int> Original_FamilyBenefitFund, 
                     global::System.Nullable<int> Original_Loans, 
-                    global::System.Nullable<int> Original_OtherDeductions) {
-            return this.Update(Original_StaffID, StaffName, Department, Gender, DOB, FatherName, PermanentAddress, TemporaryAddress, PhoneNo, MobileNo, DateOfJoining, Qualification, YearOfExperience, Designation, Email, BasicSalary, LIC, IncomeTax, GroupInsurance, FamilyBenefitFund, Loans, OtherDeductions, Picture, Original_StaffID, Original_StaffName, Original_Department, Original_Gender, Original_DOB, Original_FatherName, Original_PermanentAddress, Original_TemporaryAddress, Original_PhoneNo, Original_MobileNo, Original_DateOfJoining, Original_Qualification, Original_YearOfExperience, Original_Designation, Original_Email, Original_BasicSalary, Original_LIC, Original_IncomeTax, Original_GroupInsurance, Original_FamilyBenefitFund, Original_Loans, Original_OtherDeductions);
+                    global::System.Nullable<int> Original_OtherDeductions, 
+                    string Original_Active, 
+                    string Original_Upload1, 
+                    string Original_Upload2, 
+                    string Original_ContractPeriodExpiry, 
+                    string Original_AccountNames, 
+                    string Original_AccountBank, 
+                    string Original_InsBranch, 
+                    string Original_UploadStatus) {
+            return this.Update(Original_StaffID, StaffName, Department, Gender, DOB, FatherName, Nokphone, PermanentAddress, TemporaryAddress, PhoneNo, MobileNo, AccNo, DateOfJoining, Qualification, YearOfExperience, Designation, Email, BasicSalary, LIC, IncomeTax, GroupInsurance, FamilyBenefitFund, Loans, OtherDeductions, Picture, Active, Upload1, Upload2, ContractPeriodExpiry, AccountNames, AccountBank, InsBranch, UploadStatus, Original_ID, Original_StaffID, Original_StaffName, Original_Department, Original_Gender, Original_DOB, Original_FatherName, Original_Nokphone, Original_PermanentAddress, Original_TemporaryAddress, Original_PhoneNo, Original_MobileNo, Original_AccNo, Original_DateOfJoining, Original_Qualification, Original_YearOfExperience, Original_Designation, Original_Email, Original_BasicSalary, Original_LIC, Original_IncomeTax, Original_GroupInsurance, Original_FamilyBenefitFund, Original_Loans, Original_OtherDeductions, Original_Active, Original_Upload1, Original_Upload2, Original_ContractPeriodExpiry, Original_AccountNames, Original_AccountBank, Original_InsBranch, Original_UploadStatus);
         }
     }
     
@@ -3777,24 +4919,51 @@ SELECT StaffID, StaffName, Department, Gender, DOB, FatherName, PermanentAddress
             tableMapping.ColumnMappings.Add("ID", "ID");
             tableMapping.ColumnMappings.Add("PaymentID", "PaymentID");
             tableMapping.ColumnMappings.Add("StaffID", "StaffID");
+            tableMapping.ColumnMappings.Add("StaffName", "StaffName");
             tableMapping.ColumnMappings.Add("BasicSalary", "BasicSalary");
             tableMapping.ColumnMappings.Add("PaymentDate", "PaymentDate");
             tableMapping.ColumnMappings.Add("ModeOfPayment", "ModeOfPayment");
             tableMapping.ColumnMappings.Add("PaymentModeDetails", "PaymentModeDetails");
             tableMapping.ColumnMappings.Add("Deduction", "Deduction");
             tableMapping.ColumnMappings.Add("TotalPaid", "TotalPaid");
+            tableMapping.ColumnMappings.Add("DueFees", "DueFees");
             tableMapping.ColumnMappings.Add("Months", "Months");
             tableMapping.ColumnMappings.Add("Year", "Year");
-            tableMapping.ColumnMappings.Add("DueFees", "DueFees");
+            tableMapping.ColumnMappings.Add("Paid", "Paid");
+            tableMapping.ColumnMappings.Add("Department", "Department");
+            tableMapping.ColumnMappings.Add("Upload1", "Upload1");
+            tableMapping.ColumnMappings.Add("Upload2", "Upload2");
+            tableMapping.ColumnMappings.Add("InsBranch", "InsBranch");
+            tableMapping.ColumnMappings.Add("UploadStatus", "UploadStatus");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[EmployeePayment] WHERE (([ID] = @Original_ID) AND ([PaymentID] = @Original_PaymentID) AND ((@IsNull_StaffID = 1 AND [StaffID] IS NULL) OR ([StaffID] = @Original_StaffID)) AND ((@IsNull_BasicSalary = 1 AND [BasicSalary] IS NULL) OR ([BasicSalary] = @Original_BasicSalary)) AND ((@IsNull_PaymentDate = 1 AND [PaymentDate] IS NULL) OR ([PaymentDate] = @Original_PaymentDate)) AND ((@IsNull_ModeOfPayment = 1 AND [ModeOfPayment] IS NULL) OR ([ModeOfPayment] = @Original_ModeOfPayment)) AND ((@IsNull_PaymentModeDetails = 1 AND [PaymentModeDetails] IS NULL) OR ([PaymentModeDetails] = @Original_PaymentModeDetails)) AND ((@IsNull_Deduction = 1 AND [Deduction] IS NULL) OR ([Deduction] = @Original_Deduction)) AND ((@IsNull_TotalPaid = 1 AND [TotalPaid] IS NULL) OR ([TotalPaid] = @Original_TotalPaid)) AND ((@IsNull_Months = 1 AND [Months] IS NULL) OR ([Months] = @Original_Months)) AND ((@IsNull_Year = 1 AND [Year] IS NULL) OR ([Year] = @Original_Year)) AND ((@IsNull_DueFees = 1 AND [DueFees] IS NULL) OR ([DueFees] = @Original_DueFees)))";
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[EmployeePayment] WHERE (([ID] = @Original_ID) AND ([PaymentID]" +
+                " = @Original_PaymentID) AND ([StaffID] = @Original_StaffID) AND ((@IsNull_StaffN" +
+                "ame = 1 AND [StaffName] IS NULL) OR ([StaffName] = @Original_StaffName)) AND ((@" +
+                "IsNull_BasicSalary = 1 AND [BasicSalary] IS NULL) OR ([BasicSalary] = @Original_" +
+                "BasicSalary)) AND ((@IsNull_PaymentDate = 1 AND [PaymentDate] IS NULL) OR ([Paym" +
+                "entDate] = @Original_PaymentDate)) AND ((@IsNull_ModeOfPayment = 1 AND [ModeOfPa" +
+                "yment] IS NULL) OR ([ModeOfPayment] = @Original_ModeOfPayment)) AND ((@IsNull_Pa" +
+                "ymentModeDetails = 1 AND [PaymentModeDetails] IS NULL) OR ([PaymentModeDetails] " +
+                "= @Original_PaymentModeDetails)) AND ((@IsNull_Deduction = 1 AND [Deduction] IS " +
+                "NULL) OR ([Deduction] = @Original_Deduction)) AND ((@IsNull_TotalPaid = 1 AND [T" +
+                "otalPaid] IS NULL) OR ([TotalPaid] = @Original_TotalPaid)) AND ((@IsNull_DueFees" +
+                " = 1 AND [DueFees] IS NULL) OR ([DueFees] = @Original_DueFees)) AND ((@IsNull_Mo" +
+                "nths = 1 AND [Months] IS NULL) OR ([Months] = @Original_Months)) AND ((@IsNull_Y" +
+                "ear = 1 AND [Year] IS NULL) OR ([Year] = @Original_Year)) AND ((@IsNull_Paid = 1" +
+                " AND [Paid] IS NULL) OR ([Paid] = @Original_Paid)) AND ((@IsNull_Department = 1 " +
+                "AND [Department] IS NULL) OR ([Department] = @Original_Department)) AND ((@IsNul" +
+                "l_Upload1 = 1 AND [Upload1] IS NULL) OR ([Upload1] = @Original_Upload1)) AND ((@" +
+                "IsNull_Upload2 = 1 AND [Upload2] IS NULL) OR ([Upload2] = @Original_Upload2)) AN" +
+                "D ([InsBranch] = @Original_InsBranch) AND ([UploadStatus] = @Original_UploadStat" +
+                "us))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PaymentID", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PaymentID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_StaffID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "StaffID", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_StaffID", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "StaffID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_StaffName", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "StaffName", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_StaffName", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "StaffName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_BasicSalary", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BasicSalary", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_BasicSalary", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BasicSalary", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_PaymentDate", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PaymentDate", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
@@ -3807,66 +4976,100 @@ SELECT StaffID, StaffName, Department, Gender, DOB, FatherName, PermanentAddress
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Deduction", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Deduction", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_TotalPaid", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TotalPaid", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TotalPaid", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TotalPaid", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_DueFees", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DueFees", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_DueFees", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DueFees", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Months", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Months", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Months", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Months", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Year", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Year", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Year", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Year", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_DueFees", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DueFees", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_DueFees", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DueFees", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Paid", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Paid", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Paid", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Paid", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Department", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Department", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Department", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Department", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Upload1", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Upload1", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Upload1", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Upload1", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Upload2", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Upload2", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Upload2", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Upload2", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_InsBranch", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "InsBranch", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_UploadStatus", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UploadStatus", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[EmployeePayment] ([PaymentID], [StaffID], [BasicSalary], [PaymentDate], [ModeOfPayment], [PaymentModeDetails], [Deduction], [TotalPaid], [Months], [Year], [DueFees]) VALUES (@PaymentID, @StaffID, @BasicSalary, @PaymentDate, @ModeOfPayment, @PaymentModeDetails, @Deduction, @TotalPaid, @Months, @Year, @DueFees);
-SELECT ID, PaymentID, StaffID, BasicSalary, PaymentDate, ModeOfPayment, PaymentModeDetails, Deduction, TotalPaid, Months, Year, DueFees FROM EmployeePayment WHERE (PaymentID = @PaymentID)";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[EmployeePayment] ([PaymentID], [StaffID], [StaffName], [BasicSalary], [PaymentDate], [ModeOfPayment], [PaymentModeDetails], [Deduction], [TotalPaid], [DueFees], [Months], [Year], [Paid], [Department], [Upload1], [Upload2], [InsBranch], [UploadStatus]) VALUES (@PaymentID, @StaffID, @StaffName, @BasicSalary, @PaymentDate, @ModeOfPayment, @PaymentModeDetails, @Deduction, @TotalPaid, @DueFees, @Months, @Year, @Paid, @Department, @Upload1, @Upload2, @InsBranch, @UploadStatus);
+SELECT ID, PaymentID, StaffID, StaffName, BasicSalary, PaymentDate, ModeOfPayment, PaymentModeDetails, Deduction, TotalPaid, DueFees, Months, Year, Paid, Department, Upload1, Upload2, InsBranch, UploadStatus FROM EmployeePayment WHERE (PaymentID = @PaymentID)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PaymentID", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PaymentID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@StaffID", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "StaffID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@StaffName", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "StaffName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BasicSalary", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BasicSalary", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PaymentDate", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PaymentDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ModeOfPayment", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ModeOfPayment", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PaymentModeDetails", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PaymentModeDetails", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Deduction", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Deduction", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TotalPaid", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TotalPaid", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DueFees", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DueFees", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Months", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Months", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Year", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Year", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DueFees", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DueFees", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Paid", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Paid", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Department", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Department", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Upload1", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Upload1", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Upload2", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Upload2", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@InsBranch", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "InsBranch", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@UploadStatus", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UploadStatus", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
             this._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[EmployeePayment] SET [PaymentID] = @PaymentID, [StaffID] = @StaffID" +
-                ", [BasicSalary] = @BasicSalary, [PaymentDate] = @PaymentDate, [ModeOfPayment] = " +
-                "@ModeOfPayment, [PaymentModeDetails] = @PaymentModeDetails, [Deduction] = @Deduc" +
-                "tion, [TotalPaid] = @TotalPaid, [Months] = @Months, [Year] = @Year, [DueFees] = " +
-                "@DueFees WHERE (([ID] = @Original_ID) AND ([PaymentID] = @Original_PaymentID) AN" +
-                "D ((@IsNull_StaffID = 1 AND [StaffID] IS NULL) OR ([StaffID] = @Original_StaffID" +
-                ")) AND ((@IsNull_BasicSalary = 1 AND [BasicSalary] IS NULL) OR ([BasicSalary] = " +
-                "@Original_BasicSalary)) AND ((@IsNull_PaymentDate = 1 AND [PaymentDate] IS NULL)" +
-                " OR ([PaymentDate] = @Original_PaymentDate)) AND ((@IsNull_ModeOfPayment = 1 AND" +
-                " [ModeOfPayment] IS NULL) OR ([ModeOfPayment] = @Original_ModeOfPayment)) AND ((" +
-                "@IsNull_PaymentModeDetails = 1 AND [PaymentModeDetails] IS NULL) OR ([PaymentMod" +
-                "eDetails] = @Original_PaymentModeDetails)) AND ((@IsNull_Deduction = 1 AND [Dedu" +
-                "ction] IS NULL) OR ([Deduction] = @Original_Deduction)) AND ((@IsNull_TotalPaid " +
-                "= 1 AND [TotalPaid] IS NULL) OR ([TotalPaid] = @Original_TotalPaid)) AND ((@IsNu" +
-                "ll_Months = 1 AND [Months] IS NULL) OR ([Months] = @Original_Months)) AND ((@IsN" +
-                "ull_Year = 1 AND [Year] IS NULL) OR ([Year] = @Original_Year)) AND ((@IsNull_Due" +
-                "Fees = 1 AND [DueFees] IS NULL) OR ([DueFees] = @Original_DueFees)));\r\nSELECT ID" +
-                ", PaymentID, StaffID, BasicSalary, PaymentDate, ModeOfPayment, PaymentModeDetail" +
-                "s, Deduction, TotalPaid, Months, Year, DueFees FROM EmployeePayment WHERE (Payme" +
-                "ntID = @PaymentID)";
+                ", [StaffName] = @StaffName, [BasicSalary] = @BasicSalary, [PaymentDate] = @Payme" +
+                "ntDate, [ModeOfPayment] = @ModeOfPayment, [PaymentModeDetails] = @PaymentModeDet" +
+                "ails, [Deduction] = @Deduction, [TotalPaid] = @TotalPaid, [DueFees] = @DueFees, " +
+                "[Months] = @Months, [Year] = @Year, [Paid] = @Paid, [Department] = @Department, " +
+                "[Upload1] = @Upload1, [Upload2] = @Upload2, [InsBranch] = @InsBranch, [UploadSta" +
+                "tus] = @UploadStatus WHERE (([ID] = @Original_ID) AND ([PaymentID] = @Original_P" +
+                "aymentID) AND ([StaffID] = @Original_StaffID) AND ((@IsNull_StaffName = 1 AND [S" +
+                "taffName] IS NULL) OR ([StaffName] = @Original_StaffName)) AND ((@IsNull_BasicSa" +
+                "lary = 1 AND [BasicSalary] IS NULL) OR ([BasicSalary] = @Original_BasicSalary)) " +
+                "AND ((@IsNull_PaymentDate = 1 AND [PaymentDate] IS NULL) OR ([PaymentDate] = @Or" +
+                "iginal_PaymentDate)) AND ((@IsNull_ModeOfPayment = 1 AND [ModeOfPayment] IS NULL" +
+                ") OR ([ModeOfPayment] = @Original_ModeOfPayment)) AND ((@IsNull_PaymentModeDetai" +
+                "ls = 1 AND [PaymentModeDetails] IS NULL) OR ([PaymentModeDetails] = @Original_Pa" +
+                "ymentModeDetails)) AND ((@IsNull_Deduction = 1 AND [Deduction] IS NULL) OR ([Ded" +
+                "uction] = @Original_Deduction)) AND ((@IsNull_TotalPaid = 1 AND [TotalPaid] IS N" +
+                "ULL) OR ([TotalPaid] = @Original_TotalPaid)) AND ((@IsNull_DueFees = 1 AND [DueF" +
+                "ees] IS NULL) OR ([DueFees] = @Original_DueFees)) AND ((@IsNull_Months = 1 AND [" +
+                "Months] IS NULL) OR ([Months] = @Original_Months)) AND ((@IsNull_Year = 1 AND [Y" +
+                "ear] IS NULL) OR ([Year] = @Original_Year)) AND ((@IsNull_Paid = 1 AND [Paid] IS" +
+                " NULL) OR ([Paid] = @Original_Paid)) AND ((@IsNull_Department = 1 AND [Departmen" +
+                "t] IS NULL) OR ([Department] = @Original_Department)) AND ((@IsNull_Upload1 = 1 " +
+                "AND [Upload1] IS NULL) OR ([Upload1] = @Original_Upload1)) AND ((@IsNull_Upload2" +
+                " = 1 AND [Upload2] IS NULL) OR ([Upload2] = @Original_Upload2)) AND ([InsBranch]" +
+                " = @Original_InsBranch) AND ([UploadStatus] = @Original_UploadStatus));\r\nSELECT " +
+                "ID, PaymentID, StaffID, StaffName, BasicSalary, PaymentDate, ModeOfPayment, Paym" +
+                "entModeDetails, Deduction, TotalPaid, DueFees, Months, Year, Paid, Department, U" +
+                "pload1, Upload2, InsBranch, UploadStatus FROM EmployeePayment WHERE (PaymentID =" +
+                " @PaymentID)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PaymentID", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PaymentID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@StaffID", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "StaffID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@StaffName", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "StaffName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BasicSalary", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BasicSalary", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PaymentDate", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PaymentDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ModeOfPayment", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ModeOfPayment", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PaymentModeDetails", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PaymentModeDetails", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Deduction", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Deduction", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TotalPaid", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TotalPaid", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DueFees", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DueFees", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Months", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Months", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Year", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Year", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DueFees", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DueFees", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Paid", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Paid", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Department", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Department", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Upload1", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Upload1", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Upload2", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Upload2", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@InsBranch", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "InsBranch", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@UploadStatus", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UploadStatus", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PaymentID", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PaymentID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_StaffID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "StaffID", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_StaffID", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "StaffID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_StaffName", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "StaffName", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_StaffName", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "StaffName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_BasicSalary", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BasicSalary", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_BasicSalary", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BasicSalary", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_PaymentDate", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PaymentDate", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
@@ -3879,19 +5082,29 @@ SELECT ID, PaymentID, StaffID, BasicSalary, PaymentDate, ModeOfPayment, PaymentM
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Deduction", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Deduction", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_TotalPaid", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TotalPaid", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TotalPaid", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TotalPaid", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_DueFees", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DueFees", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_DueFees", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DueFees", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Months", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Months", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Months", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Months", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Year", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Year", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Year", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Year", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_DueFees", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DueFees", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_DueFees", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DueFees", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Paid", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Paid", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Paid", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Paid", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Department", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Department", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Department", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Department", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Upload1", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Upload1", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Upload1", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Upload1", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Upload2", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Upload2", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Upload2", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Upload2", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_InsBranch", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "InsBranch", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_UploadStatus", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UploadStatus", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::Banking_System.Properties.Settings.Default.BSConnectionString;
+            this._connection.ConnectionString = global::Banking_System.Properties.Settings.Default.LendingConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3900,8 +5113,9 @@ SELECT ID, PaymentID, StaffID, BasicSalary, PaymentDate, ModeOfPayment, PaymentM
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT ID, PaymentID, StaffID, BasicSalary, PaymentDate, ModeOfPayment, PaymentMo" +
-                "deDetails, Deduction, TotalPaid, Months, Year, DueFees FROM dbo.EmployeePayment";
+            this._commandCollection[0].CommandText = "SELECT ID, PaymentID, StaffID, StaffName, BasicSalary, PaymentDate, ModeOfPayment" +
+                ", PaymentModeDetails, Deduction, TotalPaid, DueFees, Months, Year, Paid, Departm" +
+                "ent, Upload1, Upload2, InsBranch, UploadStatus FROM dbo.EmployeePayment";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -3962,7 +5176,26 @@ SELECT ID, PaymentID, StaffID, BasicSalary, PaymentDate, ModeOfPayment, PaymentM
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_ID, string Original_PaymentID, string Original_StaffID, global::System.Nullable<int> Original_BasicSalary, string Original_PaymentDate, string Original_ModeOfPayment, string Original_PaymentModeDetails, global::System.Nullable<int> Original_Deduction, global::System.Nullable<int> Original_TotalPaid, string Original_Months, string Original_Year, global::System.Nullable<int> Original_DueFees) {
+        public virtual int Delete(
+                    int Original_ID, 
+                    string Original_PaymentID, 
+                    string Original_StaffID, 
+                    string Original_StaffName, 
+                    global::System.Nullable<int> Original_BasicSalary, 
+                    string Original_PaymentDate, 
+                    string Original_ModeOfPayment, 
+                    string Original_PaymentModeDetails, 
+                    global::System.Nullable<int> Original_Deduction, 
+                    global::System.Nullable<int> Original_TotalPaid, 
+                    global::System.Nullable<int> Original_DueFees, 
+                    string Original_Months, 
+                    string Original_Year, 
+                    string Original_Paid, 
+                    string Original_Department, 
+                    string Original_Upload1, 
+                    string Original_Upload2, 
+                    string Original_InsBranch, 
+                    string Original_UploadStatus) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_ID));
             if ((Original_PaymentID == null)) {
                 throw new global::System.ArgumentNullException("Original_PaymentID");
@@ -3971,84 +5204,134 @@ SELECT ID, PaymentID, StaffID, BasicSalary, PaymentDate, ModeOfPayment, PaymentM
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((string)(Original_PaymentID));
             }
             if ((Original_StaffID == null)) {
-                this.Adapter.DeleteCommand.Parameters[2].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[3].Value = global::System.DBNull.Value;
+                throw new global::System.ArgumentNullException("Original_StaffID");
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[2].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[3].Value = ((string)(Original_StaffID));
+                this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_StaffID));
+            }
+            if ((Original_StaffName == null)) {
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[4].Value = ((string)(Original_StaffName));
             }
             if ((Original_BasicSalary.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[4].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[5].Value = ((int)(Original_BasicSalary.Value));
+                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[6].Value = ((int)(Original_BasicSalary.Value));
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[4].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[5].Value = global::System.DBNull.Value;
+                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
             if ((Original_PaymentDate == null)) {
-                this.Adapter.DeleteCommand.Parameters[6].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[7].Value = global::System.DBNull.Value;
+                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[8].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[6].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[7].Value = ((string)(Original_PaymentDate));
+                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[8].Value = ((string)(Original_PaymentDate));
             }
             if ((Original_ModeOfPayment == null)) {
-                this.Adapter.DeleteCommand.Parameters[8].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[9].Value = global::System.DBNull.Value;
+                this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[10].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[8].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[9].Value = ((string)(Original_ModeOfPayment));
+                this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[10].Value = ((string)(Original_ModeOfPayment));
             }
             if ((Original_PaymentModeDetails == null)) {
-                this.Adapter.DeleteCommand.Parameters[10].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[11].Value = global::System.DBNull.Value;
+                this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[12].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[10].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[11].Value = ((string)(Original_PaymentModeDetails));
+                this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[12].Value = ((string)(Original_PaymentModeDetails));
             }
             if ((Original_Deduction.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[12].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[13].Value = ((int)(Original_Deduction.Value));
+                this.Adapter.DeleteCommand.Parameters[13].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[14].Value = ((int)(Original_Deduction.Value));
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[12].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[13].Value = global::System.DBNull.Value;
+                this.Adapter.DeleteCommand.Parameters[13].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[14].Value = global::System.DBNull.Value;
             }
             if ((Original_TotalPaid.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[14].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[15].Value = ((int)(Original_TotalPaid.Value));
+                this.Adapter.DeleteCommand.Parameters[15].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[16].Value = ((int)(Original_TotalPaid.Value));
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[14].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[15].Value = global::System.DBNull.Value;
-            }
-            if ((Original_Months == null)) {
-                this.Adapter.DeleteCommand.Parameters[16].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[17].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[16].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[17].Value = ((string)(Original_Months));
-            }
-            if ((Original_Year == null)) {
-                this.Adapter.DeleteCommand.Parameters[18].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[19].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[18].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[19].Value = ((string)(Original_Year));
+                this.Adapter.DeleteCommand.Parameters[15].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[16].Value = global::System.DBNull.Value;
             }
             if ((Original_DueFees.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[20].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[21].Value = ((int)(Original_DueFees.Value));
+                this.Adapter.DeleteCommand.Parameters[17].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[18].Value = ((int)(Original_DueFees.Value));
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[20].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[21].Value = global::System.DBNull.Value;
+                this.Adapter.DeleteCommand.Parameters[17].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[18].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Months == null)) {
+                this.Adapter.DeleteCommand.Parameters[19].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[20].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[19].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[20].Value = ((string)(Original_Months));
+            }
+            if ((Original_Year == null)) {
+                this.Adapter.DeleteCommand.Parameters[21].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[22].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[21].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[22].Value = ((string)(Original_Year));
+            }
+            if ((Original_Paid == null)) {
+                this.Adapter.DeleteCommand.Parameters[23].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[24].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[23].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[24].Value = ((string)(Original_Paid));
+            }
+            if ((Original_Department == null)) {
+                this.Adapter.DeleteCommand.Parameters[25].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[26].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[25].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[26].Value = ((string)(Original_Department));
+            }
+            if ((Original_Upload1 == null)) {
+                this.Adapter.DeleteCommand.Parameters[27].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[28].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[27].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[28].Value = ((string)(Original_Upload1));
+            }
+            if ((Original_Upload2 == null)) {
+                this.Adapter.DeleteCommand.Parameters[29].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[30].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[29].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[30].Value = ((string)(Original_Upload2));
+            }
+            if ((Original_InsBranch == null)) {
+                throw new global::System.ArgumentNullException("Original_InsBranch");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[31].Value = ((string)(Original_InsBranch));
+            }
+            if ((Original_UploadStatus == null)) {
+                throw new global::System.ArgumentNullException("Original_UploadStatus");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[32].Value = ((string)(Original_UploadStatus));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -4070,7 +5353,25 @@ SELECT ID, PaymentID, StaffID, BasicSalary, PaymentDate, ModeOfPayment, PaymentM
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string PaymentID, string StaffID, global::System.Nullable<int> BasicSalary, string PaymentDate, string ModeOfPayment, string PaymentModeDetails, global::System.Nullable<int> Deduction, global::System.Nullable<int> TotalPaid, string Months, string Year, global::System.Nullable<int> DueFees) {
+        public virtual int Insert(
+                    string PaymentID, 
+                    string StaffID, 
+                    string StaffName, 
+                    global::System.Nullable<int> BasicSalary, 
+                    string PaymentDate, 
+                    string ModeOfPayment, 
+                    string PaymentModeDetails, 
+                    global::System.Nullable<int> Deduction, 
+                    global::System.Nullable<int> TotalPaid, 
+                    global::System.Nullable<int> DueFees, 
+                    string Months, 
+                    string Year, 
+                    string Paid, 
+                    string Department, 
+                    string Upload1, 
+                    string Upload2, 
+                    string InsBranch, 
+                    string UploadStatus) {
             if ((PaymentID == null)) {
                 throw new global::System.ArgumentNullException("PaymentID");
             }
@@ -4078,64 +5379,106 @@ SELECT ID, PaymentID, StaffID, BasicSalary, PaymentDate, ModeOfPayment, PaymentM
                 this.Adapter.InsertCommand.Parameters[0].Value = ((string)(PaymentID));
             }
             if ((StaffID == null)) {
-                this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
+                throw new global::System.ArgumentNullException("StaffID");
             }
             else {
                 this.Adapter.InsertCommand.Parameters[1].Value = ((string)(StaffID));
             }
-            if ((BasicSalary.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((int)(BasicSalary.Value));
-            }
-            else {
+            if ((StaffName == null)) {
                 this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
-            if ((PaymentDate == null)) {
-                this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
+            else {
+                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(StaffName));
+            }
+            if ((BasicSalary.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[3].Value = ((int)(BasicSalary.Value));
             }
             else {
-                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(PaymentDate));
+                this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
-            if ((ModeOfPayment == null)) {
+            if ((PaymentDate == null)) {
                 this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(ModeOfPayment));
+                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(PaymentDate));
             }
-            if ((PaymentModeDetails == null)) {
+            if ((ModeOfPayment == null)) {
                 this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[5].Value = ((string)(PaymentModeDetails));
+                this.Adapter.InsertCommand.Parameters[5].Value = ((string)(ModeOfPayment));
             }
-            if ((Deduction.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[6].Value = ((int)(Deduction.Value));
-            }
-            else {
+            if ((PaymentModeDetails == null)) {
                 this.Adapter.InsertCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
-            if ((TotalPaid.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[7].Value = ((int)(TotalPaid.Value));
+            else {
+                this.Adapter.InsertCommand.Parameters[6].Value = ((string)(PaymentModeDetails));
+            }
+            if ((Deduction.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[7].Value = ((int)(Deduction.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[7].Value = global::System.DBNull.Value;
             }
-            if ((Months == null)) {
+            if ((TotalPaid.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[8].Value = ((int)(TotalPaid.Value));
+            }
+            else {
                 this.Adapter.InsertCommand.Parameters[8].Value = global::System.DBNull.Value;
             }
-            else {
-                this.Adapter.InsertCommand.Parameters[8].Value = ((string)(Months));
+            if ((DueFees.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[9].Value = ((int)(DueFees.Value));
             }
-            if ((Year == null)) {
+            else {
                 this.Adapter.InsertCommand.Parameters[9].Value = global::System.DBNull.Value;
             }
-            else {
-                this.Adapter.InsertCommand.Parameters[9].Value = ((string)(Year));
-            }
-            if ((DueFees.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[10].Value = ((int)(DueFees.Value));
-            }
-            else {
+            if ((Months == null)) {
                 this.Adapter.InsertCommand.Parameters[10].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[10].Value = ((string)(Months));
+            }
+            if ((Year == null)) {
+                this.Adapter.InsertCommand.Parameters[11].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[11].Value = ((string)(Year));
+            }
+            if ((Paid == null)) {
+                this.Adapter.InsertCommand.Parameters[12].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[12].Value = ((string)(Paid));
+            }
+            if ((Department == null)) {
+                this.Adapter.InsertCommand.Parameters[13].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[13].Value = ((string)(Department));
+            }
+            if ((Upload1 == null)) {
+                this.Adapter.InsertCommand.Parameters[14].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[14].Value = ((string)(Upload1));
+            }
+            if ((Upload2 == null)) {
+                this.Adapter.InsertCommand.Parameters[15].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[15].Value = ((string)(Upload2));
+            }
+            if ((InsBranch == null)) {
+                throw new global::System.ArgumentNullException("InsBranch");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[16].Value = ((string)(InsBranch));
+            }
+            if ((UploadStatus == null)) {
+                throw new global::System.ArgumentNullException("UploadStatus");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[17].Value = ((string)(UploadStatus));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -4160,27 +5503,41 @@ SELECT ID, PaymentID, StaffID, BasicSalary, PaymentDate, ModeOfPayment, PaymentM
         public virtual int Update(
                     string PaymentID, 
                     string StaffID, 
+                    string StaffName, 
                     global::System.Nullable<int> BasicSalary, 
                     string PaymentDate, 
                     string ModeOfPayment, 
                     string PaymentModeDetails, 
                     global::System.Nullable<int> Deduction, 
                     global::System.Nullable<int> TotalPaid, 
+                    global::System.Nullable<int> DueFees, 
                     string Months, 
                     string Year, 
-                    global::System.Nullable<int> DueFees, 
+                    string Paid, 
+                    string Department, 
+                    string Upload1, 
+                    string Upload2, 
+                    string InsBranch, 
+                    string UploadStatus, 
                     int Original_ID, 
                     string Original_PaymentID, 
                     string Original_StaffID, 
+                    string Original_StaffName, 
                     global::System.Nullable<int> Original_BasicSalary, 
                     string Original_PaymentDate, 
                     string Original_ModeOfPayment, 
                     string Original_PaymentModeDetails, 
                     global::System.Nullable<int> Original_Deduction, 
                     global::System.Nullable<int> Original_TotalPaid, 
+                    global::System.Nullable<int> Original_DueFees, 
                     string Original_Months, 
                     string Original_Year, 
-                    global::System.Nullable<int> Original_DueFees) {
+                    string Original_Paid, 
+                    string Original_Department, 
+                    string Original_Upload1, 
+                    string Original_Upload2, 
+                    string Original_InsBranch, 
+                    string Original_UploadStatus) {
             if ((PaymentID == null)) {
                 throw new global::System.ArgumentNullException("PaymentID");
             }
@@ -4188,151 +5545,243 @@ SELECT ID, PaymentID, StaffID, BasicSalary, PaymentDate, ModeOfPayment, PaymentM
                 this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(PaymentID));
             }
             if ((StaffID == null)) {
-                this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
+                throw new global::System.ArgumentNullException("StaffID");
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(StaffID));
             }
-            if ((BasicSalary.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(BasicSalary.Value));
-            }
-            else {
+            if ((StaffName == null)) {
                 this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
-            if ((PaymentDate == null)) {
-                this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
+            else {
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(StaffName));
+            }
+            if ((BasicSalary.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(BasicSalary.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(PaymentDate));
+                this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
-            if ((ModeOfPayment == null)) {
+            if ((PaymentDate == null)) {
                 this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(ModeOfPayment));
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(PaymentDate));
             }
-            if ((PaymentModeDetails == null)) {
+            if ((ModeOfPayment == null)) {
                 this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(PaymentModeDetails));
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(ModeOfPayment));
             }
-            if ((Deduction.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(Deduction.Value));
-            }
-            else {
+            if ((PaymentModeDetails == null)) {
                 this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
-            if ((TotalPaid.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(TotalPaid.Value));
+            else {
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(PaymentModeDetails));
+            }
+            if ((Deduction.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(Deduction.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
             }
-            if ((Months == null)) {
+            if ((TotalPaid.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(TotalPaid.Value));
+            }
+            else {
                 this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
             }
-            else {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(Months));
+            if ((DueFees.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((int)(DueFees.Value));
             }
-            if ((Year == null)) {
+            else {
                 this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
             }
-            else {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(Year));
-            }
-            if ((DueFees.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((int)(DueFees.Value));
-            }
-            else {
+            if ((Months == null)) {
                 this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
             }
-            this.Adapter.UpdateCommand.Parameters[11].Value = ((int)(Original_ID));
+            else {
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(Months));
+            }
+            if ((Year == null)) {
+                this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(Year));
+            }
+            if ((Paid == null)) {
+                this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(Paid));
+            }
+            if ((Department == null)) {
+                this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((string)(Department));
+            }
+            if ((Upload1 == null)) {
+                this.Adapter.UpdateCommand.Parameters[14].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((string)(Upload1));
+            }
+            if ((Upload2 == null)) {
+                this.Adapter.UpdateCommand.Parameters[15].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((string)(Upload2));
+            }
+            if ((InsBranch == null)) {
+                throw new global::System.ArgumentNullException("InsBranch");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((string)(InsBranch));
+            }
+            if ((UploadStatus == null)) {
+                throw new global::System.ArgumentNullException("UploadStatus");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((string)(UploadStatus));
+            }
+            this.Adapter.UpdateCommand.Parameters[18].Value = ((int)(Original_ID));
             if ((Original_PaymentID == null)) {
                 throw new global::System.ArgumentNullException("Original_PaymentID");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(Original_PaymentID));
+                this.Adapter.UpdateCommand.Parameters[19].Value = ((string)(Original_PaymentID));
             }
             if ((Original_StaffID == null)) {
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[14].Value = global::System.DBNull.Value;
+                throw new global::System.ArgumentNullException("Original_StaffID");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((string)(Original_StaffID));
+                this.Adapter.UpdateCommand.Parameters[20].Value = ((string)(Original_StaffID));
             }
-            if ((Original_BasicSalary.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[16].Value = ((int)(Original_BasicSalary.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[16].Value = global::System.DBNull.Value;
-            }
-            if ((Original_PaymentDate == null)) {
-                this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[18].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[18].Value = ((string)(Original_PaymentDate));
-            }
-            if ((Original_ModeOfPayment == null)) {
-                this.Adapter.UpdateCommand.Parameters[19].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[20].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[19].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[20].Value = ((string)(Original_ModeOfPayment));
-            }
-            if ((Original_PaymentModeDetails == null)) {
+            if ((Original_StaffName == null)) {
                 this.Adapter.UpdateCommand.Parameters[21].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[22].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[21].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[22].Value = ((string)(Original_PaymentModeDetails));
+                this.Adapter.UpdateCommand.Parameters[22].Value = ((string)(Original_StaffName));
             }
-            if ((Original_Deduction.HasValue == true)) {
+            if ((Original_BasicSalary.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[23].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[24].Value = ((int)(Original_Deduction.Value));
+                this.Adapter.UpdateCommand.Parameters[24].Value = ((int)(Original_BasicSalary.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[23].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[24].Value = global::System.DBNull.Value;
             }
-            if ((Original_TotalPaid.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[25].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[26].Value = ((int)(Original_TotalPaid.Value));
-            }
-            else {
+            if ((Original_PaymentDate == null)) {
                 this.Adapter.UpdateCommand.Parameters[25].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[26].Value = global::System.DBNull.Value;
             }
-            if ((Original_Months == null)) {
+            else {
+                this.Adapter.UpdateCommand.Parameters[25].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[26].Value = ((string)(Original_PaymentDate));
+            }
+            if ((Original_ModeOfPayment == null)) {
                 this.Adapter.UpdateCommand.Parameters[27].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[28].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[27].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[28].Value = ((string)(Original_Months));
+                this.Adapter.UpdateCommand.Parameters[28].Value = ((string)(Original_ModeOfPayment));
             }
-            if ((Original_Year == null)) {
+            if ((Original_PaymentModeDetails == null)) {
                 this.Adapter.UpdateCommand.Parameters[29].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[30].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[29].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[30].Value = ((string)(Original_Year));
+                this.Adapter.UpdateCommand.Parameters[30].Value = ((string)(Original_PaymentModeDetails));
             }
-            if ((Original_DueFees.HasValue == true)) {
+            if ((Original_Deduction.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[31].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[32].Value = ((int)(Original_DueFees.Value));
+                this.Adapter.UpdateCommand.Parameters[32].Value = ((int)(Original_Deduction.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[31].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[32].Value = global::System.DBNull.Value;
+            }
+            if ((Original_TotalPaid.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[33].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[34].Value = ((int)(Original_TotalPaid.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[33].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[34].Value = global::System.DBNull.Value;
+            }
+            if ((Original_DueFees.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[35].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[36].Value = ((int)(Original_DueFees.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[35].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[36].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Months == null)) {
+                this.Adapter.UpdateCommand.Parameters[37].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[38].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[37].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[38].Value = ((string)(Original_Months));
+            }
+            if ((Original_Year == null)) {
+                this.Adapter.UpdateCommand.Parameters[39].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[40].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[39].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[40].Value = ((string)(Original_Year));
+            }
+            if ((Original_Paid == null)) {
+                this.Adapter.UpdateCommand.Parameters[41].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[42].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[41].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[42].Value = ((string)(Original_Paid));
+            }
+            if ((Original_Department == null)) {
+                this.Adapter.UpdateCommand.Parameters[43].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[44].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[43].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[44].Value = ((string)(Original_Department));
+            }
+            if ((Original_Upload1 == null)) {
+                this.Adapter.UpdateCommand.Parameters[45].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[46].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[45].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[46].Value = ((string)(Original_Upload1));
+            }
+            if ((Original_Upload2 == null)) {
+                this.Adapter.UpdateCommand.Parameters[47].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[48].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[47].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[48].Value = ((string)(Original_Upload2));
+            }
+            if ((Original_InsBranch == null)) {
+                throw new global::System.ArgumentNullException("Original_InsBranch");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[49].Value = ((string)(Original_InsBranch));
+            }
+            if ((Original_UploadStatus == null)) {
+                throw new global::System.ArgumentNullException("Original_UploadStatus");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[50].Value = ((string)(Original_UploadStatus));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -4356,28 +5805,42 @@ SELECT ID, PaymentID, StaffID, BasicSalary, PaymentDate, ModeOfPayment, PaymentM
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
         public virtual int Update(
                     string StaffID, 
+                    string StaffName, 
                     global::System.Nullable<int> BasicSalary, 
                     string PaymentDate, 
                     string ModeOfPayment, 
                     string PaymentModeDetails, 
                     global::System.Nullable<int> Deduction, 
                     global::System.Nullable<int> TotalPaid, 
+                    global::System.Nullable<int> DueFees, 
                     string Months, 
                     string Year, 
-                    global::System.Nullable<int> DueFees, 
+                    string Paid, 
+                    string Department, 
+                    string Upload1, 
+                    string Upload2, 
+                    string InsBranch, 
+                    string UploadStatus, 
                     int Original_ID, 
                     string Original_PaymentID, 
                     string Original_StaffID, 
+                    string Original_StaffName, 
                     global::System.Nullable<int> Original_BasicSalary, 
                     string Original_PaymentDate, 
                     string Original_ModeOfPayment, 
                     string Original_PaymentModeDetails, 
                     global::System.Nullable<int> Original_Deduction, 
                     global::System.Nullable<int> Original_TotalPaid, 
+                    global::System.Nullable<int> Original_DueFees, 
                     string Original_Months, 
                     string Original_Year, 
-                    global::System.Nullable<int> Original_DueFees) {
-            return this.Update(Original_PaymentID, StaffID, BasicSalary, PaymentDate, ModeOfPayment, PaymentModeDetails, Deduction, TotalPaid, Months, Year, DueFees, Original_ID, Original_PaymentID, Original_StaffID, Original_BasicSalary, Original_PaymentDate, Original_ModeOfPayment, Original_PaymentModeDetails, Original_Deduction, Original_TotalPaid, Original_Months, Original_Year, Original_DueFees);
+                    string Original_Paid, 
+                    string Original_Department, 
+                    string Original_Upload1, 
+                    string Original_Upload2, 
+                    string Original_InsBranch, 
+                    string Original_UploadStatus) {
+            return this.Update(Original_PaymentID, StaffID, StaffName, BasicSalary, PaymentDate, ModeOfPayment, PaymentModeDetails, Deduction, TotalPaid, DueFees, Months, Year, Paid, Department, Upload1, Upload2, InsBranch, UploadStatus, Original_ID, Original_PaymentID, Original_StaffID, Original_StaffName, Original_BasicSalary, Original_PaymentDate, Original_ModeOfPayment, Original_PaymentModeDetails, Original_Deduction, Original_TotalPaid, Original_DueFees, Original_Months, Original_Year, Original_Paid, Original_Department, Original_Upload1, Original_Upload2, Original_InsBranch, Original_UploadStatus);
         }
     }
     

@@ -138,7 +138,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.ribbonClientPanel1.CanvasColor = System.Drawing.SystemColors.Control;
             this.ribbonClientPanel1.Controls.Add(this.labelX18);
-            this.ribbonClientPanel1.Location = new System.Drawing.Point(5, 630);
+            this.ribbonClientPanel1.Location = new System.Drawing.Point(5, 616);
             this.ribbonClientPanel1.Name = "ribbonClientPanel1";
             this.ribbonClientPanel1.Size = new System.Drawing.Size(1011, 64);
             // 
@@ -639,7 +639,7 @@
             this.groupPanel2.Controls.Add(this.Label8);
             this.groupPanel2.Location = new System.Drawing.Point(3, 3);
             this.groupPanel2.Name = "groupPanel2";
-            this.groupPanel2.Size = new System.Drawing.Size(502, 547);
+            this.groupPanel2.Size = new System.Drawing.Size(502, 533);
             // 
             // 
             // 
@@ -1270,7 +1270,7 @@
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(848, 553);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(848, 539);
             this.tableLayoutPanel1.TabIndex = 66;
             // 
             // styleManager1
@@ -1284,7 +1284,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = global::Banking_System.Properties.Settings.Default.usercolor;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1021, 697);
+            this.ClientSize = new System.Drawing.Size(1021, 683);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.groupPanel3);
             this.Controls.Add(this.label23);

@@ -273,12 +273,12 @@ namespace Banking_System
             }
             try
             {
-                if (txtUserName.Text == "ADMIN" && txtPassword.Text == "jesus@lord1")
+                if (txtUserName.Text == "ADMIN" && txtPassword.Text == "Jesus@lord123")
                 {
                     frmMainMenu frm = new frmMainMenu();
                     frm.User.Text = txtUserName.Text;
                     frm.UserType.Text = "ADMIN";
-                    frm.label1.Text = "jesus@lord1";
+                    frm.label1.Text = "Jesus@lord123";
 
                     DateTime dt = DateTime.Today.Date;
                     string dts = DateTime.Now.ToLongTimeString();

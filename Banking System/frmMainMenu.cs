@@ -44,12 +44,14 @@ namespace Banking_System
                 if (rdr.Read())
                 {
                     companyname = rdr.GetString(1).Trim();
+                    
 
                 }
                 else
                 {
 
                 }
+                con.Close();
             }
             catch (Exception ex)
             {
@@ -82,11 +84,11 @@ namespace Banking_System
                  buttonItem42.Visible = false;
              }*/
             string currentselect = Properties.Settings.Default.currentselection;
-            if (currentselect == "Settings")
+            /*if (currentselect == "Settings")
             {
                 Settings.Select();
-            }
-            else if (currentselect == "ribbonTabItem1")
+            }*/
+            if (currentselect == "ribbonTabItem1")
             {
                 ribbonTabItem1.Select();
             }
@@ -136,13 +138,17 @@ namespace Banking_System
             }
             try
             {
-                if (User.Text == "ADMIN" && label1.Text == "jesus@lord1")
+                if (User.Text == "ADMIN" && label1.Text == "Jesus@lord123")
                 {
                     buttonItem16.Visible = true;
                 }
                 if (User.Text == "ADMIN")
                 {
+                    buttonItem112.Visible = true; 
+                    buttonItem114.Visible = true;
+                    buttonItem123.Visible = true;
                     //ribbonTabItem1.Select();
+                    buttonItem16.Visible = true;
                     Settings.Visible = true;//settings
                     ribbonTabItem1.Visible = true;//Loans
                     ribbonTabItem2.Visible = true;//Loans
@@ -172,7 +178,7 @@ namespace Banking_System
                     buttonX11.Enabled = true;
                     buttonX12.Enabled = true;
 
-                    buttonItem21.Visible = true;
+                    //buttonItem21.Visible = true;
                     buttonItem28.Visible = true;
                     buttonItem29.Visible = true;
                     buttonItem8.Visible = true;//
@@ -197,6 +203,7 @@ namespace Banking_System
                     buttonItem34.Visible = true;//
                     buttonItem67.Visible = true;//
                     buttonItem72.Visible = true;//
+                    buttonItem109.Visible = true;//
                     buttonItem35.Visible = true;//
                     buttonItem36.Visible = true;//
                     buttonItem68.Visible = true;//
@@ -225,14 +232,13 @@ namespace Banking_System
                     try
                     {
                         string settings, humanresource, savingsaccount, savingsdeposit, investoraccountcreation, loanapplication, loanrecovery, loanwriteoff, Normalsettlement, earlysettlement, loanreschedule, loantopup, accountsrecord, savingsrecord, loansrecord, deletes, updates, externalborrowingrecords, investorrecords, inflowsrecords, outflowsrecords, HRrecords = null;
-                        string fines, grants, otherincomes, expenses, purchases, devidends, supplierbalances, savingswithdraw, creditapproval, debitapproval, addcollateral, addinsuranceprocessing, issueloan, loanschedule, savingsforloans, externalloan, externalloanschedule, externalloanfines, externalloanrepayments, investorwithdrawapplication, investorcreditapproval, investordebitfirstapproval = null;
-                        string investordebitsecondapproval, investorwithdrawissue, accountreports, savingsreports, loansreports, externalborrowingreports, investorreports, hrreports, transactionreports, financialsummsries, addmenu, moneytransfer, bankaccountscreate = null;
+                        string grants, finess, otherincomes, expenses, purchases, devidends, supplierbalances, savingswithdraw, creditapproval, debitapproval, addcollateral, addinsuranceprocessing, issueloan, loanschedule, savingsforloans, externalloan, externalloanschedule, externalloanfines, externalloanrepayments, investorwithdrawapplication, investorcreditapproval, investordebitfirstapproval = null;
+                        string investordebitsecondapproval, investorwithdrawissue, accountreports, savingsreports, loansreports, externalborrowingreports, investorreports, hrreports, transactionreports, financialsummsries, addmenu, moneytransfer, bankaccountscreate, shares, investments, annualsubscription = null;
                         SqlDataReader rdr = null;
                         con = new SqlConnection(cs.DBConn);
                         con.Open();
                         cmd = con.CreateCommand();
                         cmd.CommandText = "SELECT * FROM UserAccess where UserName='" + User.Text + "' ";
-
                         rdr = cmd.ExecuteReader();
                         if (rdr.Read())
                         {
@@ -258,7 +264,7 @@ namespace Banking_System
                             inflowsrecords = rdr["InflowRecords"].ToString().Trim();
                             outflowsrecords = rdr["OutflowRecords"].ToString().Trim();
                             HRrecords = rdr["HRRecords"].ToString().Trim();
-                            fines = rdr["Fines"].ToString().Trim();
+                            finess = rdr["Fines"].ToString().Trim();
                             grants = rdr["Grants"].ToString().Trim();
                             otherincomes = rdr["OtherIncomes"].ToString().Trim();
                             expenses = rdr["Expenses"].ToString().Trim();
@@ -293,8 +299,12 @@ namespace Banking_System
                             addmenu = rdr["AddMenu"].ToString().Trim();
                             moneytransfer = rdr["MoneyTransfer"].ToString().Trim();
                             bankaccountscreate = rdr["BankAccounts"].ToString().Trim();
-                            if (settings == "Yes") { Settings.Visible = true; } else { Settings.Visible = false; }
+                            shares = rdr["Shares"].ToString().Trim();
+                            investments = rdr["Investments"].ToString().Trim();
+                            annualsubscription = rdr["AnnualSubscriptions"].ToString().Trim();
+                            if (settings == "Yes") { Settings.Visible = true;buttonItem112.Visible = true;buttonItem114.Visible = true;buttonItem123.Visible = true; } else { Settings.Visible = false; buttonItem112.Visible = false; buttonItem114.Visible = false; buttonItem123.Visible = false; }
                             if (humanresource == "Yes") {ribbonTabItem3.Visible = true; } else { ribbonTabItem3.Visible = false; }
+                          
                             if (savingsaccount == "Yes") { administration.Enabled = true; buttonItem24.Enabled = true; ribbonTabItem4.Visible = true; } else { administration.Enabled = false; buttonItem24.Enabled =false; ribbonTabItem4.Visible = false; }
                             if (savingsdeposit == "Yes") { schedule.Enabled = true; buttonItem25.Enabled = true; } else { schedule.Enabled= false; buttonItem25.Enabled = false; }
                             if (investoraccountcreation == "Yes") { records.Enabled = true; buttonItem35.Enabled = true; ribbonTabItem6.Visible = true; } else {records.Enabled = false; buttonItem35.Enabled = false; ribbonTabItem6.Visible = false; }
@@ -313,7 +323,6 @@ namespace Banking_System
                             if (inflowsrecords == "Yes") {buttonX11.Enabled = true; } else { buttonX11.Enabled = false; }
                             if (outflowsrecords == "Yes") { buttonX12.Enabled = true; } else { buttonX12.Enabled = false; }
                             if (HRrecords == "Yes") { buttonX13.Enabled = true; } else { buttonX13.Enabled = false; }
-                            if (fines == "Yes") { buttonItem21.Enabled = true; ribbonTabItem5.Visible = true; } else { buttonItem21.Enabled = false; ribbonTabItem5.Visible = false; }
                             if (grants == "Yes") { buttonItem28.Enabled = true; } else { buttonItem28.Enabled = false; }
                             if (otherincomes == "Yes") { buttonItem29.Enabled = true; } else { buttonItem29.Enabled = false; }
                             if (expenses == "Yes") { buttonItem8.Enabled = true; ribbonTabItem7.Visible = true; } else { buttonItem8.Enabled = false; ribbonTabItem7.Visible=false; }
@@ -331,7 +340,7 @@ namespace Banking_System
                             if (externalloan == "Yes") { ribbonTabItem8.Visible = true; buttonItem50.Enabled = true; buttonItem67.Enabled = true; ribbonTabItem8.Visible = true; } else { ribbonTabItem8.Visible = false; buttonItem50.Enabled = false; buttonItem67.Enabled = false; ribbonTabItem8.Visible = false; }
                             if (externalloanfines == "Yes") { buttonItem70.Enabled = true; } else { buttonItem70.Enabled= false; }
                             if (externalloanschedule == "Yes") { buttonItem34.Enabled= true; } else { buttonItem34.Enabled = false; }
-                            if (externalloanrepayments == "Yes") { buttonItem72.Enabled = true; } else { buttonItem72.Enabled = false; }
+                            if (externalloanrepayments == "Yes") { buttonItem72.Enabled = true; buttonItem109.Enabled = true; } else { buttonItem72.Enabled = false; buttonItem109.Enabled = false; }
                             if (investorwithdrawapplication == "Yes") { buttonItem68.Enabled = true; } else { buttonItem68.Enabled = false; }
                             if (investorcreditapproval == "Yes") { buttonItem38.Enabled = true; } else { buttonItem38.Enabled = false; }
                             if (investordebitfirstapproval == "Yes") { buttonItem64.Enabled = true; } else { buttonItem64.Enabled = false; }
@@ -348,6 +357,10 @@ namespace Banking_System
                             if (addmenu == "Yes") { buttonItem2.Visible = true; } else { buttonItem2.Visible = false; }
                             if (moneytransfer == "Yes") { buttonItem118.Visible = true; } else { buttonItem118.Visible = false; }
                             if (bankaccountscreate == "Yes") { buttonItem119.Visible = true; } else { buttonItem119.Visible = false; }
+                            if (shares == "Yes") { buttonItem131.Enabled = true; buttonItem135.Enabled = true; } else { buttonItem131.Enabled = false; buttonItem135.Enabled = false; }
+                            if (investments == "Yes") { ribbonTabItem10.Visible = true; } else { ribbonTabItem10.Visible = false; }
+                            if (finess == "Yes") { ribbonTabItem5.Visible = true; buttonItem137.Enabled = true; } else { ribbonTabItem5.Visible = false; buttonItem137.Enabled = false; }
+                            if (annualsubscription == "Yes") { buttonItem138.Enabled = true; buttonItem139.Enabled = true; ribbonTabItem5.Visible = true; } else { buttonItem138.Enabled = false; buttonItem139.Enabled = false; }
                         }
                         else
                         {
@@ -360,6 +373,7 @@ namespace Banking_System
                             ribbonTabItem6.Visible = false;//Investments
                             ribbonTabItem7.Visible = false;//Outflows
                             ribbonTabItem8.Visible =false;//Pendings
+                            ribbonTabItem10.Visible = false;//Pendings
 
                             administration.Enabled = false;//account openning
                             schedule.Enabled = false;//savings transaction
@@ -379,8 +393,10 @@ namespace Banking_System
                             buttonX10.Enabled = false;
                             buttonX11.Enabled = false;
                             buttonX12.Enabled = false;
-
-                            buttonItem21.Visible = false;
+                            buttonItem114.Visible = false;
+                            buttonItem123.Visible = false;
+                            buttonItem114.Visible = false;
+                            //buttonItem21.Visible = false;
                             buttonItem28.Visible = false;
                             buttonItem29.Visible = false;
                             buttonItem8.Visible = false;//
@@ -405,6 +421,7 @@ namespace Banking_System
                             buttonItem34.Visible = false;//
                             buttonItem67.Visible = false;//
                             buttonItem72.Visible = false;//
+                            buttonItem109.Visible = false;//
                             buttonItem35.Visible = false;//
                             buttonItem36.Visible = false;//
                             buttonItem68.Visible = false;//
@@ -421,12 +438,17 @@ namespace Banking_System
                             buttonItem56.Visible = false;//
                             buttonItem57.Visible = false;//
                             buttonItem58.Visible = false;//
+                            buttonItem138.Enabled = false;
+                            buttonItem135.Enabled = false;
+                            buttonItem131.Enabled = false;
+                            buttonItem139.Enabled = false;
 
                             buttonItem117.Visible = false;//
                             buttonItem118.Visible = false;//
                             buttonItem119.Visible = false;//
                             buttonItem2.Visible = false;//
                         }
+                        con.Close();
                        
                     }
                     catch (Exception ex)
@@ -439,10 +461,20 @@ namespace Banking_System
             {
 
             }
-            frmLoanreminder frm = new frmLoanreminder();
-            frm.ShowDialog();
-            FrmInvestorRemider frm2 = new FrmInvestorRemider();
-            frm2.ShowDialog();
+            frmLoanUpdate frm3 = new frmLoanUpdate();
+            frm3.ShowDialog();
+            string autolo = Properties.Settings.Default.ThreadsAuto;
+            if (autolo == "Yes")
+            {
+                string smsallows = Properties.Settings.Default.smsallow;
+                if (smsallows == "Yes")
+                {
+                    frmLoanreminder frm = new frmLoanreminder();
+                    frm.ShowDialog();
+                    FrmInvestorRemider frm2 = new FrmInvestorRemider();
+                    frm2.ShowDialog();
+                }
+            }
         }
 
         private void buttonItem14_Click(object sender, EventArgs e)
@@ -477,9 +509,9 @@ namespace Banking_System
             }
             else
             {
-                this.Hide();
+                /*this.Hide();
                 frmLogin frm = new frmLogin();
-                frm.Show();
+                frm.Show();*/
             }
         }
         private void buttonItem3_Click(object sender, EventArgs e)
@@ -527,6 +559,8 @@ namespace Banking_System
         }
         private void administration_Click(object sender, EventArgs e)
         {
+            notifyIcon1.Icon = null;
+            notifyIcon2.Icon = null;
             frmMemberRegistration frm = new frmMemberRegistration();
             frm.label33.Text = User.Text;
             frm.label34.Text = UserType.Text;
@@ -621,6 +655,8 @@ namespace Banking_System
 
         private void frmMainMenu_FormClosing(object sender, FormClosingEventArgs e)
         {
+            notifyIcon1.Icon = null;
+            notifyIcon2.Icon = null;
             DialogResult dialog = MessageBox.Show("Do you really want to log out?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dialog == System.Windows.Forms.DialogResult.Yes)
             {
@@ -647,6 +683,7 @@ namespace Banking_System
                 frm.UserType.Text = UserType.Text;
                 frm.Show();
             }
+            //notifyIcon.Icon = null;
 
         }
 
@@ -785,6 +822,8 @@ namespace Banking_System
 
         private void schedule_Click(object sender, EventArgs e)
         {
+            notifyIcon1.Icon = null;
+            notifyIcon2.Icon = null;
             frmSavings frm = new frmSavings();
             frm.label1.Text = User.Text;
             frm.label2.Text = UserType.Text;
@@ -910,6 +949,8 @@ namespace Banking_System
 
         private void buttonItem9_Click_1(object sender, EventArgs e)
         {
+            notifyIcon1.Icon = null;
+            notifyIcon2.Icon = null;
             //this.Hide();
             frmEquipmentPurchase frm = new frmEquipmentPurchase();
             frm.label1.Text = User.Text;
@@ -919,6 +960,8 @@ namespace Banking_System
 
         private void buttonItem10_Click_1(object sender, EventArgs e)
         {
+            notifyIcon1.Icon = null;
+            notifyIcon2.Icon = null;
             //this.Hide();
             frmDrawings frm = new frmDrawings();
             frm.label7.Text = User.Text;
@@ -947,6 +990,8 @@ namespace Banking_System
 
         private void buttonItem21_Click_1(object sender, EventArgs e)
         {
+            notifyIcon1.Icon = null;
+            notifyIcon2.Icon = null;
             //this.Hide();
             frmFineFeesPayment frm = new frmFineFeesPayment();
             frm.label7.Text = User.Text;
@@ -964,6 +1009,8 @@ namespace Banking_System
         }
         private void buttonItem28_Click_1(object sender, EventArgs e)
         {
+            notifyIcon1.Icon = null;
+            notifyIcon2.Icon = null;
             //this.Hide();
             frmGrant frm = new frmGrant();
             frm.label7.Text = User.Text;
@@ -973,6 +1020,8 @@ namespace Banking_System
 
         private void buttonItem29_Click_1(object sender, EventArgs e)
         {
+            notifyIcon1.Icon = null;
+            notifyIcon2.Icon = null;
             //this.Hide();
             frmOtherIncomes frm = new frmOtherIncomes();
             frm.label1.Text = User.Text;
@@ -1007,7 +1056,7 @@ namespace Banking_System
             {
                 Properties.Settings.Default["userstyle"] = DevComponents.DotNetBar.eStyle.Office2007Black;
                 Properties.Settings.Default.Save();
-                DialogResult dialog = MessageBox.Show("Do you want to ogin now for the chages to take effect", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                DialogResult dialog = MessageBox.Show("Do you want to Login now for the chages to take effect", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (dialog == System.Windows.Forms.DialogResult.Yes)
                 {
                     this.Hide();
@@ -1035,7 +1084,7 @@ namespace Banking_System
             {
                 Properties.Settings.Default["userstyle"] = DevComponents.DotNetBar.eStyle.Office2007Blue;
                 Properties.Settings.Default.Save();
-                DialogResult dialog = MessageBox.Show("Do you want to ogin now for the chages to take effect", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                DialogResult dialog = MessageBox.Show("Do you want to Login now for the chages to take effect", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (dialog == System.Windows.Forms.DialogResult.Yes)
                 {
                     this.Hide();
@@ -1063,7 +1112,7 @@ namespace Banking_System
             {
                 Properties.Settings.Default["userstyle"] = DevComponents.DotNetBar.eStyle.Office2007Silver;
                 Properties.Settings.Default.Save();
-                DialogResult dialog = MessageBox.Show("Do you want to ogin now for the chages to take effect", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                DialogResult dialog = MessageBox.Show("Do you want to Login now for the changes to take effect", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (dialog == System.Windows.Forms.DialogResult.Yes)
                 {
                     this.Hide();
@@ -1091,7 +1140,7 @@ namespace Banking_System
             {
                 Properties.Settings.Default["userstyle"] = DevComponents.DotNetBar.eStyle.Office2007VistaGlass;
                 Properties.Settings.Default.Save();
-                DialogResult dialog = MessageBox.Show("Do you want to ogin now for the chages to take effect", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                DialogResult dialog = MessageBox.Show("Do you want to Login now for the changes to take effect", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (dialog == System.Windows.Forms.DialogResult.Yes)
                 {
                     this.Hide();
@@ -1119,7 +1168,7 @@ namespace Banking_System
             {
                 Properties.Settings.Default["userstyle"] = DevComponents.DotNetBar.eStyle.Office2010Black;
                 Properties.Settings.Default.Save();
-                DialogResult dialog = MessageBox.Show("Do you want to ogin now for the chages to take effect", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                DialogResult dialog = MessageBox.Show("Do you want to Login now for the changes to take effect", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (dialog == System.Windows.Forms.DialogResult.Yes)
                 {
                     this.Hide();
@@ -1147,7 +1196,7 @@ namespace Banking_System
             {
                 Properties.Settings.Default["userstyle"] = DevComponents.DotNetBar.eStyle.Office2010Blue;
                 Properties.Settings.Default.Save();
-                DialogResult dialog = MessageBox.Show("Do you want to ogin now for the chages to take effect", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                DialogResult dialog = MessageBox.Show("Do you want to Login now for the changes to take effect", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (dialog == System.Windows.Forms.DialogResult.Yes)
                 {
                     this.Hide();
@@ -1175,7 +1224,7 @@ namespace Banking_System
             {
                 Properties.Settings.Default["userstyle"] = DevComponents.DotNetBar.eStyle.Office2010Silver;
                 Properties.Settings.Default.Save();
-                DialogResult dialog = MessageBox.Show("Do you want to ogin now for the chages to take effect", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                DialogResult dialog = MessageBox.Show("Do you want to Login now for the changes to take effect", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (dialog == System.Windows.Forms.DialogResult.Yes)
                 {
                     this.Hide();
@@ -1203,7 +1252,7 @@ namespace Banking_System
             {
                 Properties.Settings.Default["userstyle"] = DevComponents.DotNetBar.eStyle.Windows7Blue;
                 Properties.Settings.Default.Save();
-                DialogResult dialog = MessageBox.Show("Do you want to ogin now for the chages to take effect", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                DialogResult dialog = MessageBox.Show("Do you want to Login now for the changes to take effect", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (dialog == System.Windows.Forms.DialogResult.Yes)
                 {
                     this.Hide();
@@ -1235,6 +1284,8 @@ namespace Banking_System
 
         private void buttonItem30_Click_1(object sender, EventArgs e)
         {
+            notifyIcon1.Icon = null;
+            notifyIcon2.Icon = null;
             //this.Hide();
             frmEmployeeDetails frm = new frmEmployeeDetails();
             frm.label21.Text = User.Text;
@@ -1244,6 +1295,8 @@ namespace Banking_System
 
         private void buttonItem37_Click_1(object sender, EventArgs e)
         {
+            notifyIcon1.Icon = null;
+            notifyIcon2.Icon = null;
             this.Hide();
             frmAttendance frm = new frmAttendance();
             frm.label3.Text = User.Text;
@@ -1253,6 +1306,8 @@ namespace Banking_System
 
         private void buttonItem95_Click(object sender, EventArgs e)
         {
+            notifyIcon1.Icon = null;
+            notifyIcon2.Icon = null;
             this.Hide();
             frmSalaryPayment frm = new frmSalaryPayment();
             frm.label7.Text = User.Text;
@@ -1262,6 +1317,8 @@ namespace Banking_System
 
         private void buttonItem96_Click(object sender, EventArgs e)
         {
+            notifyIcon1.Icon = null;
+            notifyIcon2.Icon = null;
             //this.Hide();
             frmEvent frm = new frmEvent();
             frm.label8.Text = User.Text;
@@ -1288,6 +1345,8 @@ namespace Banking_System
         }
         private void buttonItem99_Click(object sender, EventArgs e)
         {
+            notifyIcon1.Icon = null;
+            notifyIcon2.Icon = null;
             DialogResult dialog = MessageBox.Show("Do you really want to log out?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dialog == System.Windows.Forms.DialogResult.Yes)
             {
@@ -1349,6 +1408,8 @@ namespace Banking_System
 
         private void buttonItem25_Click_1(object sender, EventArgs e)
         {
+            notifyIcon1.Icon = null;
+            notifyIcon2.Icon = null;
             frmSavings frm = new frmSavings();
             frm.label1.Text = User.Text;
             frm.label2.Text = UserType.Text;
@@ -1387,6 +1448,8 @@ namespace Banking_System
 
         private void buttonItem102_Click(object sender, EventArgs e)
         {
+            notifyIcon1.Icon = null;
+            notifyIcon2.Icon = null;
             DialogResult dialog = MessageBox.Show("Do you really want to log out?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dialog == System.Windows.Forms.DialogResult.Yes)
             {
@@ -1421,8 +1484,9 @@ namespace Banking_System
                     cmd.Parameters["@d1"].Value = User.Text.Trim();
                     cmd.Parameters["@d2"].Value = dts;
                     cmd.ExecuteNonQuery();
-                    con.Close();
+                  
                 }
+                con.Close();
                 this.Hide();
                 frmLogin frm = new frmLogin();
                 frm.Show();
@@ -1469,6 +1533,8 @@ namespace Banking_System
 
         private void buttonItem104_Click(object sender, EventArgs e)
         {
+            notifyIcon1.Icon = null;
+            notifyIcon2.Icon = null;
             DialogResult dialog = MessageBox.Show("Do you really want to log out?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dialog == System.Windows.Forms.DialogResult.Yes)
             {
@@ -1503,8 +1569,9 @@ namespace Banking_System
                     cmd.Parameters["@d1"].Value = User.Text.Trim();
                     cmd.Parameters["@d2"].Value = dts;
                     cmd.ExecuteNonQuery();
-                    con.Close();
+                    
                 }
+                con.Close();
                 this.Hide();
                 frmLogin frm = new frmLogin();
                 frm.Show();
@@ -1527,6 +1594,8 @@ namespace Banking_System
 
         private void buttonItem8_Click_1(object sender, EventArgs e)
         {
+            notifyIcon1.Icon = null;
+            notifyIcon2.Icon = null;
             //this.Hide();
             frmEXpenses frm = new frmEXpenses();
             frm.label1.Text = User.Text;
@@ -1536,6 +1605,8 @@ namespace Banking_System
 
         private void buttonItem105_Click(object sender, EventArgs e)
         {
+            notifyIcon1.Icon = null;
+            notifyIcon2.Icon = null;
             DialogResult dialog = MessageBox.Show("Do you really want to log out?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dialog == System.Windows.Forms.DialogResult.Yes)
             {
@@ -1570,8 +1641,9 @@ namespace Banking_System
                     cmd.Parameters["@d1"].Value = User.Text.Trim();
                     cmd.Parameters["@d2"].Value = dts;
                     cmd.ExecuteNonQuery();
-                    con.Close();
+                    
                 }
+                con.Close();
                 this.Hide();
                 frmLogin frm = new frmLogin();
                 frm.Show();
@@ -1588,6 +1660,8 @@ namespace Banking_System
 
         private void buttonItem106_Click(object sender, EventArgs e)
         {
+            notifyIcon1.Icon = null;
+            notifyIcon2.Icon = null;
             DialogResult dialog = MessageBox.Show("Do you really want to log out?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dialog == System.Windows.Forms.DialogResult.Yes)
             {
@@ -1622,8 +1696,9 @@ namespace Banking_System
                     cmd.Parameters["@d1"].Value = User.Text.Trim();
                     cmd.Parameters["@d2"].Value = dts;
                     cmd.ExecuteNonQuery();
-                    con.Close();
+                   
                 }
+                con.Close();
                 this.Hide();
                 frmLogin frm = new frmLogin();
                 frm.Show();
@@ -1655,6 +1730,8 @@ namespace Banking_System
         }
         private void buttonItem72_Click(object sender, EventArgs e)
         {
+            notifyIcon1.Icon = null;
+            notifyIcon2.Icon = null;
             frmExternalRepaymentForm frm = new frmExternalRepaymentForm();
             frm.label1.Text = User.Text;
             frm.label2.Text = UserType.Text;
@@ -1682,7 +1759,7 @@ namespace Banking_System
 
         private void buttonItem86_Click(object sender, EventArgs e)
         {
-            frmGeneralReport frm = new frmGeneralReport();
+            frmGeneralReport2 frm = new frmGeneralReport2();
             frm.label1.Text = User.Text;
             frm.label2.Text = UserType.Text;
             frm.ShowDialog();
@@ -1716,6 +1793,8 @@ namespace Banking_System
 
         private void buttonItem110_Click(object sender, EventArgs e)
         {
+            notifyIcon1.Icon = null;
+            notifyIcon2.Icon = null;
             this.Hide();
             frmCashierSafe frm = new frmCashierSafe();
             frm.label1.Text = User.Text;
@@ -1786,8 +1865,8 @@ namespace Banking_System
 
         private void Settings_Click(object sender, EventArgs e)
         {
-            Properties.Settings.Default["currentselection"] = "Settings";
-            Properties.Settings.Default.Save();
+            /*Properties.Settings.Default["currentselection"] = "Settings";
+            Properties.Settings.Default.Save();*/
         }
 
         private void ribbonTabItem3_Click(object sender, EventArgs e)
@@ -1854,6 +1933,8 @@ namespace Banking_System
 
         private void buttonItem120_Click(object sender, EventArgs e)
         {
+            notifyIcon1.Icon = null;
+            notifyIcon2.Icon = null;
             frmSupplierAccountBalance frm = new frmSupplierAccountBalance();
             frm.label12.Text = User.Text;
             frm.ShowDialog();
@@ -1866,6 +1947,8 @@ namespace Banking_System
 
         private void buttonItem121_Click(object sender, EventArgs e)
         {
+            notifyIcon1.Icon = null;
+            notifyIcon2.Icon = null;
             frmSavingsToLoans frm = new frmSavingsToLoans();
             frm.label7.Text = User.Text;
             frm.label12.Text = UserType.Text;
@@ -1884,7 +1967,7 @@ namespace Banking_System
         }
         private void buttonItem15_Click_1(object sender, EventArgs e)
         {
-            frmIntrestType frm = new frmIntrestType();
+            frmLoanMultiple frm = new frmLoanMultiple();
             frm.ShowDialog();
         }
 
@@ -1932,6 +2015,8 @@ namespace Banking_System
 
         private void records_Click(object sender, EventArgs e)
         {
+            notifyIcon1.Icon = null;
+            notifyIcon2.Icon = null;
             frmInvestorAccount frm = new frmInvestorAccount();
             frm.label33.Text = User.Text;
             frm.label34.Text = UserType.Text;
@@ -1940,14 +2025,24 @@ namespace Banking_System
 
         private void invetory_Click(object sender, EventArgs e)
         {
-            frmLoanApplication frm = new frmLoanApplication();
-            frm.label1.Text = User.Text;
-            frm.label2.Text = UserType.Text;
-            frm.ShowDialog();
+            try
+            {
+                notifyIcon1.Icon = null;
+                notifyIcon2.Icon = null;
+                frmLoanApplications frm = new frmLoanApplications();
+                frm.label1.Text = User.Text;
+                frm.label2.Text = UserType.Text;
+                frm.ShowDialog();
+            }catch(Exception Ex)
+            {
+                MessageBox.Show(Ex.Message);
+            }
         }
 
         private void buttonItem24_Click_1(object sender, EventArgs e)
         {
+            notifyIcon1.Icon = null;
+            notifyIcon2.Icon = null;
             frmMemberRegistration frm = new frmMemberRegistration();
             frm.label33.Text = User.Text;
             frm.label34.Text = UserType.Text;
@@ -1956,14 +2051,24 @@ namespace Banking_System
 
         private void buttonItem91_Click(object sender, EventArgs e)
         {
-            frmLoanApplication frm = new frmLoanApplication();
+            try { 
+            notifyIcon1.Icon = null;
+            notifyIcon2.Icon = null;
+            frmLoanApplications frm = new frmLoanApplications();
             frm.label1.Text = User.Text;
             frm.label2.Text = UserType.Text;
             frm.ShowDialog();
+            }
+            catch (Exception Ex)
+            {
+                MessageBox.Show(Ex.Message);
+            }
         }
 
         private void buttonItem39_Click(object sender, EventArgs e)
         {
+            notifyIcon1.Icon = null;
+            notifyIcon2.Icon = null;
             FrmLoanApplicationPayment frm = new FrmLoanApplicationPayment();
             frm.label1.Text = User.Text;
             frm.label2.Text = UserType.Text;
@@ -1972,6 +2077,8 @@ namespace Banking_System
 
         private void buttonItem93_Click(object sender, EventArgs e)
         {
+            notifyIcon1.Icon = null;
+            notifyIcon2.Icon = null;
             //this.Hide();
             frmLoanInsuranceFeesPayment frm = new frmLoanInsuranceFeesPayment();
             frm.label7.Text = User.Text;
@@ -1981,6 +2088,8 @@ namespace Banking_System
 
         private void buttonItem41_Click(object sender, EventArgs e)
         {
+            notifyIcon1.Icon = null;
+            notifyIcon2.Icon = null;
             FrmLoanIssue frm = new FrmLoanIssue();
             frm.label1.Text = User.Text;
             frm.label2.Text = UserType.Text;
@@ -1989,6 +2098,8 @@ namespace Banking_System
 
         private void buttonItem32_Click(object sender, EventArgs e)
         {
+            notifyIcon1.Icon = null;
+            notifyIcon2.Icon = null;
             frmEXpensesLoanProcess frm = new frmEXpensesLoanProcess();
             frm.label1.Text = User.Text;
             frm.label2.Text = UserType.Text;
@@ -1997,11 +2108,15 @@ namespace Banking_System
 
         private void buttonItem33_Click(object sender, EventArgs e)
         {
+            notifyIcon1.Icon = null;
+            notifyIcon2.Icon = null;
             contextMenuStrip1.Show(Cursor.Position.X, Cursor.Position.Y);
         }
 
         private void buttonItem14_Click_1(object sender, EventArgs e)
         {
+            notifyIcon1.Icon = null;
+            notifyIcon2.Icon = null;
             this.Hide();
             frmPaymentSchedule frm = new frmPaymentSchedule();
             frm.label1.Text = User.Text;
@@ -2011,6 +2126,8 @@ namespace Banking_System
 
         private void buttonX1_Click(object sender, EventArgs e)
         {
+            notifyIcon1.Icon = null;
+            notifyIcon2.Icon = null;
             frmRepaymentForm frm = new frmRepaymentForm();
             frm.label1.Text = User.Text;
             frm.label2.Text = UserType.Text;
@@ -2019,6 +2136,8 @@ namespace Banking_System
 
         private void buttonX2_Click(object sender, EventArgs e)
         {
+            notifyIcon1.Icon = null;
+            notifyIcon2.Icon = null;
             frmRepaymentEarlySettlement frm = new frmRepaymentEarlySettlement();
             frm.label1.Text = User.Text;
             frm.label2.Text = UserType.Text;
@@ -2027,6 +2146,8 @@ namespace Banking_System
 
         private void buttonX3_Click(object sender, EventArgs e)
         {
+            notifyIcon1.Icon = null;
+            notifyIcon2.Icon = null;
             FrmLoanReschedule frm = new FrmLoanReschedule();
             frm.label1.Text = User.Text;
             frm.label2.Text = UserType.Text;
@@ -2035,6 +2156,8 @@ namespace Banking_System
 
         private void buttonX4_Click(object sender, EventArgs e)
         {
+            notifyIcon1.Icon = null;
+            notifyIcon2.Icon = null;
             FrmLoanTopup frm = new FrmLoanTopup();
             frm.label1.Text = User.Text;
             frm.label2.Text = UserType.Text;
@@ -2043,6 +2166,8 @@ namespace Banking_System
 
         private void accounts_Click(object sender, EventArgs e)
         {
+            notifyIcon1.Icon = null;
+            notifyIcon2.Icon = null;
             FrmLoanWriteOff frm = new FrmLoanWriteOff();
             frm.label1.Text = User.Text;
             frm.label2.Text = UserType.Text;
@@ -2051,6 +2176,8 @@ namespace Banking_System
 
         private void reports_Click(object sender, EventArgs e)
         {
+            notifyIcon1.Icon = null;
+            notifyIcon2.Icon = null;
             FrmLoanRecovery frm = new FrmLoanRecovery();
             frm.label1.Text = User.Text;
             frm.label2.Text = UserType.Text;
@@ -2059,6 +2186,8 @@ namespace Banking_System
 
         private void buttonItem50_Click(object sender, EventArgs e)
         {
+            notifyIcon1.Icon = null;
+            notifyIcon2.Icon = null;
             FrmExternalLoan frm = new FrmExternalLoan();
             frm.label1.Text = User.Text;
             frm.label2.Text = UserType.Text;
@@ -2067,6 +2196,8 @@ namespace Banking_System
 
         private void buttonItem34_Click_1(object sender, EventArgs e)
         {
+            notifyIcon1.Icon = null;
+            notifyIcon2.Icon = null;
             frmExternalPaymentSchedule frm = new frmExternalPaymentSchedule();
             frm.label1.Text = User.Text;
             frm.label2.Text = UserType.Text;
@@ -2075,6 +2206,8 @@ namespace Banking_System
 
         private void buttonItem70_Click(object sender, EventArgs e)
         {
+            notifyIcon1.Icon = null;
+            notifyIcon2.Icon = null;
             frmExternalLoanFineFeesPayment frm = new frmExternalLoanFineFeesPayment();
             frm.label7.Text = User.Text;
             frm.label12.Text = UserType.Text;
@@ -2117,8 +2250,9 @@ namespace Banking_System
                     cmd.Parameters["@d1"].Value = User.Text.Trim();
                     cmd.Parameters["@d2"].Value = dts;
                     cmd.ExecuteNonQuery();
-                    con.Close();
+                    
                 }
+                con.Close();
                 this.Hide();
                 frmLogin frm = new frmLogin();
                 frm.Show();
@@ -2135,6 +2269,8 @@ namespace Banking_System
 
         private void buttonItem35_Click_1(object sender, EventArgs e)
         {
+            notifyIcon1.Icon = null;
+            notifyIcon2.Icon = null;
             frmInvestorAccount frm = new frmInvestorAccount();
             frm.label33.Text = User.Text;
             frm.label34.Text = UserType.Text;
@@ -2143,6 +2279,8 @@ namespace Banking_System
 
         private void buttonItem36_Click_1(object sender, EventArgs e)
         {
+            notifyIcon1.Icon = null;
+            notifyIcon2.Icon = null;
             frmInvestorSavings frm = new frmInvestorSavings();
             frm.label1.Text = User.Text;
             frm.label2.Text = UserType.Text;
@@ -2157,6 +2295,8 @@ namespace Banking_System
 
         private void buttonX5_Click(object sender, EventArgs e)
         {
+            notifyIcon1.Icon = null;
+            notifyIcon2.Icon = null;
             this.Hide();
             FrmAccountRecords frm = new FrmAccountRecords();
             frm.label1.Text = User.Text;
@@ -2166,6 +2306,8 @@ namespace Banking_System
 
         private void buttonX6_Click(object sender, EventArgs e)
         {
+            notifyIcon1.Icon = null;
+            notifyIcon2.Icon = null;
             this.Hide();
             FrmSavingsRecord frm = new FrmSavingsRecord();
             frm.label1.Text = User.Text;
@@ -2175,6 +2317,8 @@ namespace Banking_System
 
         private void buttonX7_Click(object sender, EventArgs e)
         {
+            notifyIcon1.Icon = null;
+            notifyIcon2.Icon = null;
             this.Hide();
             FrmLoanRecords frm = new FrmLoanRecords();
             frm.label1.Text = User.Text;
@@ -2184,6 +2328,8 @@ namespace Banking_System
 
         private void buttonX9_Click(object sender, EventArgs e)
         {
+            notifyIcon1.Icon = null;
+            notifyIcon2.Icon = null;
             this.Hide();
             FrmExternalBorrowingRecord frm = new FrmExternalBorrowingRecord();
             frm.label1.Text = User.Text;
@@ -2193,6 +2339,8 @@ namespace Banking_System
 
         private void buttonX10_Click(object sender, EventArgs e)
         {
+            notifyIcon1.Icon = null;
+            notifyIcon2.Icon = null;
             this.Hide();
             FrmInvestorRecords frm = new FrmInvestorRecords();
             frm.label1.Text = User.Text;
@@ -2202,6 +2350,8 @@ namespace Banking_System
 
         private void buttonX11_Click(object sender, EventArgs e)
         {
+            notifyIcon1.Icon = null;
+            notifyIcon2.Icon = null;
             this.Hide();
             FrmInflowsRecords frm = new FrmInflowsRecords();
             frm.label1.Text = User.Text;
@@ -2211,6 +2361,8 @@ namespace Banking_System
 
         private void buttonX12_Click(object sender, EventArgs e)
         {
+            notifyIcon1.Icon = null;
+            notifyIcon2.Icon = null;
             this.Hide();
             FrmOutflowsRecords frm = new FrmOutflowsRecords();
             frm.label1.Text = User.Text;
@@ -2220,6 +2372,8 @@ namespace Banking_System
 
         private void buttonX13_Click(object sender, EventArgs e)
         {
+            notifyIcon1.Icon = null;
+            notifyIcon2.Icon = null;
             this.Hide();
             FrmHRRecords frm = new FrmHRRecords();
             frm.label1.Text = User.Text;
@@ -2331,6 +2485,8 @@ namespace Banking_System
 
         private void buttonItem61_Click_1(object sender, EventArgs e)
         {
+            notifyIcon1.Icon = null;
+            notifyIcon2.Icon = null;
             DialogResult dialog = MessageBox.Show("Do you really want to log out?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dialog == System.Windows.Forms.DialogResult.Yes)
             {
@@ -2365,8 +2521,9 @@ namespace Banking_System
                     cmd.Parameters["@d1"].Value = User.Text.Trim();
                     cmd.Parameters["@d2"].Value = dts;
                     cmd.ExecuteNonQuery();
-                    con.Close();
+                   
                 }
+                con.Close();
                 this.Hide();
                 frmLogin frm = new frmLogin();
                 frm.Show();
@@ -2383,6 +2540,8 @@ namespace Banking_System
 
         private void buttonItem42_Click(object sender, EventArgs e)
         {
+            notifyIcon1.Icon = null;
+            notifyIcon2.Icon = null;
             this.Hide();
             FrmAccountReports frm = new FrmAccountReports();
             frm.label1.Text = User.Text;
@@ -2392,6 +2551,8 @@ namespace Banking_System
 
         private void buttonItem44_Click(object sender, EventArgs e)
         {
+            notifyIcon1.Icon = null;
+            notifyIcon2.Icon = null;
             this.Hide();
             FrmSavingsReport frm = new FrmSavingsReport();
             frm.label1.Text = User.Text;
@@ -2401,6 +2562,8 @@ namespace Banking_System
 
         private void buttonItem45_Click(object sender, EventArgs e)
         {
+            notifyIcon1.Icon = null;
+            notifyIcon2.Icon = null;
             this.Hide();
             FrmLoanReports frm = new FrmLoanReports();
             frm.label1.Text = User.Text;
@@ -2410,6 +2573,8 @@ namespace Banking_System
 
         private void buttonItem47_Click(object sender, EventArgs e)
         {
+            notifyIcon1.Icon = null;
+            notifyIcon2.Icon = null;
             this.Hide();
             FrmExternalBorrowingReport frm = new FrmExternalBorrowingReport();
             frm.label1.Text = User.Text;
@@ -2419,6 +2584,8 @@ namespace Banking_System
 
         private void buttonItem48_Click(object sender, EventArgs e)
         {
+            notifyIcon1.Icon = null;
+            notifyIcon2.Icon = null;
             this.Hide();
             FrmInvestorReports frm = new FrmInvestorReports();
             frm.label1.Text = User.Text;
@@ -2428,6 +2595,8 @@ namespace Banking_System
 
         private void buttonItem49_Click(object sender, EventArgs e)
         {
+            notifyIcon1.Icon = null;
+            notifyIcon2.Icon = null;
             this.Hide();
             FrmInflowsReports frm = new FrmInflowsReports();
             frm.label1.Text = User.Text;
@@ -2437,6 +2606,8 @@ namespace Banking_System
 
         private void buttonItem51_Click(object sender, EventArgs e)
         {
+            notifyIcon1.Icon = null;
+            notifyIcon2.Icon = null;
             this.Hide();
             FrmOutflowsReports frm = new FrmOutflowsReports();
             frm.label1.Text = User.Text;
@@ -2446,6 +2617,8 @@ namespace Banking_System
 
         private void buttonItem56_Click(object sender, EventArgs e)
         {
+            notifyIcon1.Icon = null;
+            notifyIcon2.Icon = null;
             this.Hide();
             FrmHumanResourceReports frm = new FrmHumanResourceReports();
             frm.label1.Text = User.Text;
@@ -2455,6 +2628,8 @@ namespace Banking_System
 
         private void buttonItem58_Click_1(object sender, EventArgs e)
         {
+            notifyIcon1.Icon = null;
+            notifyIcon2.Icon = null;
             frmGeneralReport frm = new frmGeneralReport();
             frm.label1.Text = User.Text;
             frm.label2.Text = UserType.Text;
@@ -2463,6 +2638,8 @@ namespace Banking_System
 
         private void buttonItem57_Click(object sender, EventArgs e)
         {
+            notifyIcon1.Icon = null;
+            notifyIcon2.Icon = null;
             this.Hide();
             FrmTransactionsReports frm = new FrmTransactionsReports();
             frm.label1.Text = User.Text;
@@ -2478,6 +2655,8 @@ namespace Banking_System
 
         private void buttonItem62_Click(object sender, EventArgs e)
         {
+            notifyIcon1.Icon = null;
+            notifyIcon2.Icon = null;
             FrmWithdraw frm = new FrmWithdraw();
             frm.label1.Text = User.Text;
             frm.label2.Text = UserType.Text;
@@ -2486,58 +2665,13 @@ namespace Banking_System
 
         private void buttonItem63_Click_1(object sender, EventArgs e)
         {
-            DialogResult dialog = MessageBox.Show("Do you really want to log out?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (dialog == System.Windows.Forms.DialogResult.Yes)
-            {
-                con = new SqlConnection(cs.DBConn);
-                con.Open();
-                string cb1 = "update User_Registration set Status=@d2 where Username=@d1";
-                cmd = new SqlCommand(cb1);
-                cmd.Connection = con;
-                cmd.Parameters.Add(new SqlParameter("@d1", System.Data.SqlDbType.NChar, 30, "Username"));
-                cmd.Parameters.Add(new SqlParameter("@d2", System.Data.SqlDbType.NChar, 12, "Status"));
-                cmd.Parameters["@d1"].Value = User.Text.Trim();
-                cmd.Parameters["@d2"].Value = status;
-                cmd.ExecuteNonQuery();
-                con.Close();
-                SqlDataReader rdr = null;
-                con = new SqlConnection(cs.DBConn);
-                con.Open();
-                cmd = con.CreateCommand();
-                cmd.CommandText = "SELECT ID from Logins WHERE UserName = '" + User.Text + "' order by ID DESC";
-                rdr = cmd.ExecuteReader();
-                if (rdr.Read())
-                {
-                    int Ids = Convert.ToInt32(rdr["ID"]);
-                    string dts = DateTime.Now.ToLongTimeString();
-                    con = new SqlConnection(cs.DBConn);
-                    con.Open();
-                    string cb2 = "update Logins set LogOut=@d2 where UserName=@d1 and ID='" + Ids + "'";
-                    cmd = new SqlCommand(cb2);
-                    cmd.Connection = con;
-                    cmd.Parameters.Add(new SqlParameter("@d1", System.Data.SqlDbType.NChar, 30, "UserName"));
-                    cmd.Parameters.Add(new SqlParameter("@d2", System.Data.SqlDbType.NChar, 12, "Status"));
-                    cmd.Parameters["@d1"].Value = User.Text.Trim();
-                    cmd.Parameters["@d2"].Value = dts;
-                    cmd.ExecuteNonQuery();
-                    con.Close();
-                }
-                this.Hide();
-                frmLogin frm = new frmLogin();
-                frm.Show();
-            }
-            else
-            {
-                this.Hide();
-                frmMainMenu frm = new frmMainMenu();
-                frm.User.Text = User.Text;
-                frm.UserType.Text = UserType.Text;
-                frm.Show();
-            }
+          
         }
 
         private void buttonItem64_Click(object sender, EventArgs e)
         {
+            notifyIcon1.Icon = null;
+            notifyIcon2.Icon = null;
             frmSavingsApproval frm = new frmSavingsApproval();
             frm.label1.Text = User.Text;
             frm.label2.Text = UserType.Text;
@@ -2547,6 +2681,8 @@ namespace Banking_System
 
         private void buttonItem65_Click_1(object sender, EventArgs e)
         {
+            notifyIcon1.Icon = null;
+            notifyIcon2.Icon = null;
             frmWithdrawApproval frm = new frmWithdrawApproval();
             frm.label1.Text = User.Text;
             frm.label2.Text = UserType.Text;
@@ -2555,6 +2691,8 @@ namespace Banking_System
 
         private void buttonItem66_Click(object sender, EventArgs e)
         {
+            notifyIcon1.Icon = null;
+            notifyIcon2.Icon = null;
             FrmLoanScheduleTrial frm = new FrmLoanScheduleTrial();
             frm.label1.Text = User.Text;
             frm.label2.Text = UserType.Text;
@@ -2563,6 +2701,8 @@ namespace Banking_System
 
         private void buttonItem67_Click(object sender, EventArgs e)
         {
+            notifyIcon1.Icon = null;
+            notifyIcon2.Icon = null;
             frmExternalLoanManual frm = new frmExternalLoanManual();
             frm.label1.Text = User.Text;
             frm.label2.Text = UserType.Text;
@@ -2571,6 +2711,8 @@ namespace Banking_System
 
         private void buttonItem68_Click(object sender, EventArgs e)
         {
+            notifyIcon1.Icon = null;
+            notifyIcon2.Icon = null;
             FrmInvestorWithdraw frm = new FrmInvestorWithdraw();
             frm.label1.Text = User.Text;
             frm.label2.Text = UserType.Text;
@@ -2579,6 +2721,8 @@ namespace Banking_System
 
         private void buttonItem71_Click(object sender, EventArgs e)
         {
+            notifyIcon1.Icon = null;
+            notifyIcon2.Icon = null;
             DialogResult dialog = MessageBox.Show("Do you really want to log out?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dialog == System.Windows.Forms.DialogResult.Yes)
             {
@@ -2613,8 +2757,9 @@ namespace Banking_System
                     cmd.Parameters["@d1"].Value = User.Text.Trim();
                     cmd.Parameters["@d2"].Value = dts;
                     cmd.ExecuteNonQuery();
-                    con.Close();
+                   
                 }
+                con.Close();
                 this.Hide();
                 frmLogin frm = new frmLogin();
                 frm.Show();
@@ -2639,12 +2784,16 @@ namespace Banking_System
 
         private void buttonItem79_Click(object sender, EventArgs e)
         {
+            notifyIcon1.Icon = null;
+            notifyIcon2.Icon = null;
             frmLogins frm = new frmLogins();
             frm.ShowDialog();
         }
 
         private void buttonItem38_Click_2(object sender, EventArgs e)
         {
+            notifyIcon1.Icon = null;
+            notifyIcon2.Icon = null;
             frmInvestorSavingsApproval frm = new frmInvestorSavingsApproval();
             frm.label1.Text = User.Text;
             frm.label2.Text = UserType.Text;
@@ -2653,6 +2802,8 @@ namespace Banking_System
 
         private void buttonItem64_Click_1(object sender, EventArgs e)
         {
+            notifyIcon1.Icon = null;
+            notifyIcon2.Icon = null;
             FrmInvestorWithdrawApproval frm = new FrmInvestorWithdrawApproval();
             frm.label1.Text = User.Text;
             frm.label2.Text = UserType.Text;
@@ -2661,6 +2812,8 @@ namespace Banking_System
 
         private void buttonItem74_Click(object sender, EventArgs e)
         {
+            notifyIcon1.Icon = null;
+            notifyIcon2.Icon = null;
             FrmInvestorWithdrawApprovalFinal frm = new FrmInvestorWithdrawApprovalFinal();
             frm.label1.Text = User.Text;
             frm.label2.Text = UserType.Text;
@@ -2669,6 +2822,8 @@ namespace Banking_System
 
         private void buttonItem80_Click(object sender, EventArgs e)
         {
+            notifyIcon1.Icon = null;
+            notifyIcon2.Icon = null;
             FrmInvestorWithdrawIssue frm = new FrmInvestorWithdrawIssue();
             frm.label1.Text = User.Text;
             frm.label2.Text = UserType.Text;
@@ -2694,15 +2849,16 @@ namespace Banking_System
                     cmd = new SqlCommand("select Count(PaymentDate) from RepaymentSchedule where BalanceExist >0 and PaymentDate <= @date1 ", con);
                     cmd.Parameters.Add("@date1", SqlDbType.DateTime, 30, "PaymentDate").Value = registrationdate.Value.Date;
                     pendinginvoice = Convert.ToInt32(cmd.ExecuteScalar());
-                    con.Close();
+                   
                     notifyIcon1.Visible = true;
-                    notifyIcon1.ShowBalloonTip(2000, "Reminder", "You have " + pendinginvoice + " Loans Payable today", ToolTipIcon.Info);
+                    notifyIcon1.ShowBalloonTip(500, "Reminder", "You have " + pendinginvoice + " Loans Payable today", ToolTipIcon.Info);
                    // notifyIcon1.Click += new System.EventHandler(NotifyIcon1_Click);
                 }
                 else
                 {
 
                 }
+                con.Close();
                 //notifyIcon1.Visible = true;
                 //notifyIcon1.ShowBalloonTip(2000,"warning you","Try to start again",ToolTipIcon.Info);
 
@@ -2714,11 +2870,16 @@ namespace Banking_System
 
             try
             {
-
+                int days = 30;
+                DateTime schedule = DateTime.Parse(registrationdate.Text).Date;
+                string paymentdates = (schedule.AddDays(days)).ToShortDateString();
+                DateTime dt = DateTime.Parse(paymentdates);
+                string repaymentdates = dt.ToString("dd/MMM/yyyy");
                 con = new SqlConnection(cs.DBConn);
                 con.Open();
-                cmd = new SqlCommand("select NextDepositDate from InvestorSavings where NextDepositDate <= @date1", con);
+                cmd = new SqlCommand("select NextDepositDate from InvestorSavings where NextDepositDate <= @date1 and Appreciated='No'", con);
                 cmd.Parameters.Add("@date1", SqlDbType.DateTime, 30, "NextDepositDate").Value = registrationdate.Value.Date;
+                cmd.Parameters.Add("@date2", SqlDbType.DateTime, 30, "NextDepositDate").Value = repaymentdates;
                 cmd.Connection = con;
                 rdr = cmd.ExecuteReader();
                 if (rdr.Read())
@@ -2726,19 +2887,104 @@ namespace Banking_System
                     int pendinginvoice = 0;
                     con = new SqlConnection(cs.DBConn);
                     con.Open();
-                    cmd = new SqlCommand("select Count(NextDepositDate) from InvestorSavings where  NextDepositDate <= @date1 ", con);
+                    cmd = new SqlCommand("select Count(NextDepositDate) from InvestorSavings where  NextDepositDate <= @date1 and Appreciated='No'", con);
                     cmd.Parameters.Add("@date1", SqlDbType.DateTime, 30, "NextDepositDate").Value = registrationdate.Value.Date;
+                    cmd.Parameters.Add("@date2", SqlDbType.DateTime, 30, "NextDepositDate").Value = repaymentdates;
                     pendinginvoice = Convert.ToInt32(cmd.ExecuteScalar());
-                    con.Close();
+                   
                     notifyIcon2.Visible = true;
-                    notifyIcon2.ShowBalloonTip(2000, "Reminder", pendinginvoice + " investment Deposits are Expected today", ToolTipIcon.Info);
+                    notifyIcon2.ShowBalloonTip(500, "Reminder", pendinginvoice + " investment Deposits are Due", ToolTipIcon.Info);
                     // notifyIcon1.Click += new System.EventHandler(NotifyIcon1_Click);
                 }
                 else
                 {
 
                 }
+                con.Close();
                 //notifyIcon1.Visible = true;
+                //notifyIcon1.ShowBalloonTip(2000,"warning you","Try to start again",ToolTipIcon.Info);
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            try
+            {
+                int days = 15;
+                DateTime schedule = DateTime.Parse(registrationdate.Text).Date;
+                string paymentdates = (schedule.AddDays(days)).ToShortDateString();
+                DateTime dt = DateTime.Parse(paymentdates);
+                string repaymentdates = dt.ToString("dd/MMM/yyyy");
+                con = new SqlConnection(cs.DBConn);
+                con.Open();
+                cmd = new SqlCommand("select NextDepositDate from InvestorSavings where OtherMaturityDate between @date2 and @date1", con);
+                cmd.Parameters.Add("@date1", SqlDbType.DateTime, 30, "OtherMaturityDate").Value = repaymentdates;
+                cmd.Parameters.Add("@date2", SqlDbType.DateTime, 30, "OtherMaturityDate").Value = registrationdate.Text;
+                cmd.Connection = con;
+                rdr = cmd.ExecuteReader();
+                if (rdr.Read())
+                {
+                    int pendinginvoice = 0;
+                    con = new SqlConnection(cs.DBConn);
+                    con.Open();
+                    cmd = new SqlCommand("select Count(NextDepositDate) from InvestorSavings where OtherMaturityDate between @date2 and @date1 ", con);
+                    cmd.Parameters.Add("@date1", SqlDbType.DateTime, 30, "OtherMaturityDate").Value = repaymentdates;
+                    cmd.Parameters.Add("@date2", SqlDbType.DateTime, 30, "OtherMaturityDate").Value = registrationdate.Text;
+                    pendinginvoice = Convert.ToInt32(cmd.ExecuteScalar());
+                   
+                    notifyIcon2.Visible = true;
+                    notifyIcon2.ShowBalloonTip(500, "Reminder", pendinginvoice + " investmentent Payouts are Expected in the next few days", ToolTipIcon.Info);
+                    // notifyIcon1.Click += new System.EventHandler(NotifyIcon1_Click);
+                }
+                else
+                {
+
+                }
+                con.Close();
+                //notifyIcon1.Visible = true;
+                //notifyIcon1.ShowBalloonTip(2000,"warning you","Try to start again",ToolTipIcon.Info);
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            try
+            {
+                int days = 2;
+                DateTime schedule = DateTime.Parse(registrationdate.Text).Date;
+                string paymentdates = (schedule.AddDays(days)).ToShortDateString();
+                DateTime dt = DateTime.Parse(paymentdates);
+                string repaymentdates = dt.ToString("dd/MMM/yyyy");
+                con = new SqlConnection(cs.DBConn);
+                con.Open();
+                cmd = new SqlCommand("select StartingDate from Event where StartingDate between @date2 and @date1", con);
+                cmd.Parameters.Add("@date1", SqlDbType.DateTime, 30, "StartingDate").Value = repaymentdates;
+                cmd.Parameters.Add("@date2", SqlDbType.DateTime, 30, "StartingDate").Value = registrationdate.Text;
+                cmd.Connection = con;
+                rdr = cmd.ExecuteReader();
+                if (rdr.Read())
+                {
+                    int pendinginvoice = 0;
+                    con = new SqlConnection(cs.DBConn);
+                    con.Open();
+                    cmd = new SqlCommand("select Count(StartingDate) from Event where StartingDate between @date2 and @date1", con);
+                    cmd.Parameters.Add("@date1", SqlDbType.DateTime, 30, "StartingDate").Value = repaymentdates;
+                    cmd.Parameters.Add("@date2", SqlDbType.DateTime, 30, "StartingDate").Value = registrationdate.Text;
+                    pendinginvoice = Convert.ToInt32(cmd.ExecuteScalar());
+
+                    notifyIcon2.Visible = true;
+                    notifyIcon2.ShowBalloonTip(500, "Reminder", pendinginvoice + " Events are Upcoming, Check them out", ToolTipIcon.Info);
+                    notifyIcon2.Click += new System.EventHandler(notifyIcon2_Click);
+                }
+                else
+                {
+
+                }
+                con.Close();
+                notifyIcon2.Visible = true;
                 //notifyIcon1.ShowBalloonTip(2000,"warning you","Try to start again",ToolTipIcon.Info);
 
             }
@@ -2750,9 +2996,434 @@ namespace Banking_System
 
         private void buttonItem92_Click(object sender, EventArgs e)
         {
+            notifyIcon1.Icon = null;
+            notifyIcon2.Icon = null;
             frmLoanFines frm = new frmLoanFines();
             frm.label7.Text = User.Text;
             frm.label12.Text = UserType.Text;
+            frm.ShowDialog();
+        }
+
+        private void buttonItem94_Click(object sender, EventArgs e)
+        {
+            FrmFreezeAccount frm = new FrmFreezeAccount();
+            frm.ShowDialog();
+        }
+
+        private void buttonItem97_Click(object sender, EventArgs e)
+        {
+            notifyIcon1.Icon = null;
+            notifyIcon2.Icon = null;
+            FrmFreezeInvestorAccount frm = new FrmFreezeInvestorAccount();
+            frm.ShowDialog();
+        }
+
+        private void buttonItem100_Click(object sender, EventArgs e)
+        {
+            FrmDisposePurchase frm = new FrmDisposePurchase();
+            frm.ShowDialog();
+        }
+
+        private void buttonItem101_Click_1(object sender, EventArgs e)
+        {
+            notifyIcon1.Icon = null;
+            notifyIcon2.Icon = null;
+            FrmInvestmentScheduleTrial frm = new FrmInvestmentScheduleTrial();
+            frm.label1.Text = User.Text;
+            frm.label2.Text = UserType.Text;
+            frm.ShowDialog();
+        }
+
+        private void buttonItem103_Click_1(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void buttonItem103_Click_2(object sender, EventArgs e)
+        {
+            FrmThreaadsAuto frm = new FrmThreaadsAuto();
+            frm.ShowDialog();
+        }
+
+        private void buttonItem108_Click_1(object sender, EventArgs e)
+        {
+            FrmAccountBal frm = new FrmAccountBal();
+            frm.ShowDialog();
+        }
+
+        private void frmMainMenu_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            notifyIcon1.Icon = null;
+            notifyIcon2.Icon = null;
+        }
+
+        private void buttonItem107_Click(object sender, EventArgs e)
+        {
+            notifyIcon1.Icon = null;
+            notifyIcon2.Icon = null;
+            this.Hide();
+            FrmPeriodicReports frm = new FrmPeriodicReports();
+            frm.label19.Text = User.Text;
+            frm.label20.Text = UserType.Text;
+            frm.Show();
+        }
+
+        private void buttonItem109_Click_1(object sender, EventArgs e)
+        {
+            notifyIcon1.Icon = null;
+            notifyIcon2.Icon = null;
+            frmExternalRepaymentFormSingle frm = new frmExternalRepaymentFormSingle();
+            frm.label1.Text = User.Text;
+            frm.label2.Text = UserType.Text;
+            frm.ShowDialog();
+        }
+
+        private void buttonItem111_Click_1(object sender, EventArgs e)
+        {
+            FrmLoanRescheduleFee frm = new FrmLoanRescheduleFee();
+            frm.ShowDialog();
+        }
+
+        private void buttonItem21_Click_2(object sender, EventArgs e)
+        {
+            frmSynchronize frm = new frmSynchronize();
+            frm.ShowDialog();
+        }
+
+        private void buttonItem18_Click(object sender, EventArgs e)
+        {
+            frmRemoteConnection frm = new frmRemoteConnection();
+            frm.ShowDialog();
+        }
+
+        private void office2007StartButton1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonItem132_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string filePath1 = @"C:\\EssentialFinanceFIles\\Manual.pdf";
+                System.Diagnostics.Process.Start(filePath1);
+            }
+            catch (Exception Ex)
+            {
+                MessageBox.Show(Ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void buttonItem130_Click(object sender, EventArgs e)
+        {
+            frmContact frm = new frmContact();
+            frm.ShowDialog();
+        }
+
+        private void buttonItem113_Click_1(object sender, EventArgs e)
+        {
+            frmWithdrawFees frm = new frmWithdrawFees();
+            frm.ShowDialog();
+        }
+
+        private void buttonItem114_Click(object sender, EventArgs e)
+        {
+            frmMonthlyCharge frm = new frmMonthlyCharge();
+            frm.ShowDialog();
+        }
+
+        private void buttonItem122_Click(object sender, EventArgs e)
+        {
+            frmMinimumAccountbalance frm = new frmMinimumAccountbalance();
+            frm.ShowDialog();
+        }
+
+        private void buttonItem124_Click(object sender, EventArgs e)
+        {
+            frmTotalRegistrationFees frm = new frmTotalRegistrationFees();
+            frm.ShowDialog();
+        }
+
+        private void buttonItem125_Click(object sender, EventArgs e)
+        {
+            frmAnnualSubscriptionFees frm = new frmAnnualSubscriptionFees();
+            frm.ShowDialog();
+        }
+
+        private void buttonItem126_Click(object sender, EventArgs e)
+        {
+            frmFormPassBookLedger frm = new frmFormPassBookLedger();
+            frm.ShowDialog();
+        }
+
+        private void buttonItem127_Click(object sender, EventArgs e)
+        {
+            frmShareCapital frm = new frmShareCapital();
+            frm.ShowDialog();
+        }
+
+        private void buttonItem128_Click(object sender, EventArgs e)
+        {
+            frmMonthlyCharge frm = new frmMonthlyCharge();
+            frm.ShowDialog();
+        }
+
+        private void buttonItem129_Click(object sender, EventArgs e)
+        {
+            frmMonthlyChargeSetting frm = new frmMonthlyChargeSetting();
+            frm.ShowDialog();
+        }
+
+        private void buttonItem131_Click(object sender, EventArgs e)
+        {
+            frmSharesIncludeSetting frm = new frmSharesIncludeSetting();
+            frm.ShowDialog();
+        }
+
+        private void buttonItem133_Click(object sender, EventArgs e)
+        {
+            frmSharesIncludeSetting frm = new frmSharesIncludeSetting();
+            frm.ShowDialog();
+        }
+
+        private void buttonItem134_Click(object sender, EventArgs e)
+        {
+            frmLoanMultipleType frm = new frmLoanMultipleType();
+            frm.ShowDialog();
+        }
+
+        private void buttonItem131_Click_1(object sender, EventArgs e)
+        {
+            frmShareCapitalDepost frm = new frmShareCapitalDepost();
+            frm.label7.Text = User.Text;
+            frm.label12.Text = UserType.Text;
+            frm.ShowDialog();
+        }
+
+        private void buttonItem135_Click(object sender, EventArgs e)
+        {
+            frmShareToSavings frm = new frmShareToSavings();
+            frm.label7.Text = User.Text;
+            frm.label12.Text = UserType.Text;
+            frm.ShowDialog();
+        }
+
+        private void buttonItem63_Click_2(object sender, EventArgs e)
+        {
+            notifyIcon1.Icon = null;
+            notifyIcon2.Icon = null;
+            DialogResult dialog = MessageBox.Show("Do you really want to log out?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dialog == System.Windows.Forms.DialogResult.Yes)
+            {
+                con = new SqlConnection(cs.DBConn);
+                con.Open();
+                string cb1 = "update User_Registration set Status=@d2 where Username=@d1";
+                cmd = new SqlCommand(cb1);
+                cmd.Connection = con;
+                cmd.Parameters.Add(new SqlParameter("@d1", System.Data.SqlDbType.NChar, 30, "Username"));
+                cmd.Parameters.Add(new SqlParameter("@d2", System.Data.SqlDbType.NChar, 12, "Status"));
+                cmd.Parameters["@d1"].Value = User.Text.Trim();
+                cmd.Parameters["@d2"].Value = status;
+                cmd.ExecuteNonQuery();
+                con.Close();
+                SqlDataReader rdr = null;
+                con = new SqlConnection(cs.DBConn);
+                con.Open();
+                cmd = con.CreateCommand();
+                cmd.CommandText = "SELECT ID from Logins WHERE UserName = '" + User.Text + "' order by ID DESC";
+                rdr = cmd.ExecuteReader();
+                if (rdr.Read())
+                {
+                    int Ids = Convert.ToInt32(rdr["ID"]);
+                    string dts = DateTime.Now.ToLongTimeString();
+                    con = new SqlConnection(cs.DBConn);
+                    con.Open();
+                    string cb2 = "update Logins set LogOut=@d2 where UserName=@d1 and ID='" + Ids + "'";
+                    cmd = new SqlCommand(cb2);
+                    cmd.Connection = con;
+                    cmd.Parameters.Add(new SqlParameter("@d1", System.Data.SqlDbType.NChar, 30, "UserName"));
+                    cmd.Parameters.Add(new SqlParameter("@d2", System.Data.SqlDbType.NChar, 12, "Status"));
+                    cmd.Parameters["@d1"].Value = User.Text.Trim();
+                    cmd.Parameters["@d2"].Value = dts;
+                    cmd.ExecuteNonQuery();
+
+                }
+                con.Close();
+                this.Hide();
+                frmLogin frm = new frmLogin();
+                frm.Show();
+            }
+            else
+            {
+                this.Hide();
+                frmMainMenu frm = new frmMainMenu();
+                frm.User.Text = User.Text;
+                frm.UserType.Text = UserType.Text;
+                frm.Show();
+            }
+        }
+
+        private void buttonItem136_Click(object sender, EventArgs e)
+        {
+            try { 
+            notifyIcon1.Icon = null;
+            notifyIcon2.Icon = null;
+            frmLoanApplication frm = new frmLoanApplication();
+            frm.label1.Text = User.Text;
+            frm.label2.Text = UserType.Text;
+            frm.ShowDialog();
+            }
+            catch (Exception Ex)
+            {
+                MessageBox.Show(Ex.Message);
+            }
+        }
+
+        private void buttonItem137_Click(object sender, EventArgs e)
+        {
+            //this.Hide();
+            frmFineFeesPayment frm = new frmFineFeesPayment();
+            frm.label7.Text = User.Text;
+            frm.label12.Text = UserType.Text;
+            frm.ShowDialog();
+        }
+
+        private void buttonItem138_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            frmAnnualSubscriptionFeesPayment frm = new frmAnnualSubscriptionFeesPayment();
+            frm.label7.Text = User.Text;
+            frm.label12.Text = UserType.Text;
+            frm.Show();
+        }
+
+        private void buttonItem139_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            frmPassbookLedgerLoanPayment frm = new frmPassbookLedgerLoanPayment();
+            frm.label7.Text = User.Text;
+            frm.label12.Text = UserType.Text;
+            frm.Show();
+        }
+
+        private void buttonItem141_Click(object sender, EventArgs e)
+        {
+            frmInvestmentReturns frm = new frmInvestmentReturns();
+            frm.label7.Text = User.Text;
+            frm.label12.Text = UserType.Text;
+            frm.ShowDialog();
+        }
+
+        private void buttonItem140_Click(object sender, EventArgs e)
+        {
+            frmInvestment frm = new frmInvestment();
+            frm.label2.Text = User.Text;
+            frm.ShowDialog();
+        }
+
+        private void buttonItem142_Click(object sender, EventArgs e)
+        {
+            notifyIcon1.Icon = null;
+            notifyIcon2.Icon = null;
+            DialogResult dialog = MessageBox.Show("Do you really want to log out?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dialog == System.Windows.Forms.DialogResult.Yes)
+            {
+                con = new SqlConnection(cs.DBConn);
+                con.Open();
+                string cb1 = "update User_Registration set Status=@d2 where Username=@d1";
+                cmd = new SqlCommand(cb1);
+                cmd.Connection = con;
+                cmd.Parameters.Add(new SqlParameter("@d1", System.Data.SqlDbType.NChar, 30, "Username"));
+                cmd.Parameters.Add(new SqlParameter("@d2", System.Data.SqlDbType.NChar, 12, "Status"));
+                cmd.Parameters["@d1"].Value = User.Text.Trim();
+                cmd.Parameters["@d2"].Value = status;
+                cmd.ExecuteNonQuery();
+                con.Close();
+                SqlDataReader rdr = null;
+                con = new SqlConnection(cs.DBConn);
+                con.Open();
+                cmd = con.CreateCommand();
+                cmd.CommandText = "SELECT ID from Logins WHERE UserName = '" + User.Text + "' order by ID DESC";
+                rdr = cmd.ExecuteReader();
+                if (rdr.Read())
+                {
+                    int Ids = Convert.ToInt32(rdr["ID"]);
+                    string dts = DateTime.Now.ToLongTimeString();
+                    con = new SqlConnection(cs.DBConn);
+                    con.Open();
+                    string cb2 = "update Logins set LogOut=@d2 where UserName=@d1 and ID='" + Ids + "'";
+                    cmd = new SqlCommand(cb2);
+                    cmd.Connection = con;
+                    cmd.Parameters.Add(new SqlParameter("@d1", System.Data.SqlDbType.NChar, 30, "UserName"));
+                    cmd.Parameters.Add(new SqlParameter("@d2", System.Data.SqlDbType.NChar, 12, "Status"));
+                    cmd.Parameters["@d1"].Value = User.Text.Trim();
+                    cmd.Parameters["@d2"].Value = dts;
+                    cmd.ExecuteNonQuery();
+
+                }
+                con.Close();
+                this.Hide();
+                frmLogin frm = new frmLogin();
+                frm.Show();
+            }
+            else
+            {
+                this.Hide();
+                frmMainMenu frm = new frmMainMenu();
+                frm.User.Text = User.Text;
+                frm.UserType.Text = UserType.Text;
+                frm.Show();
+            }
+        }
+
+        private void ribbonTabItem10_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonItem144_Click(object sender, EventArgs e)
+        {
+            FrmAccountToAccountFees frm = new FrmAccountToAccountFees();
+            frm.ShowDialog();
+        }
+
+        private void buttonItem143_Click(object sender, EventArgs e)
+        {
+            notifyIcon1.Icon = null;
+            notifyIcon2.Icon = null;
+            FrmAccountToAccount frm = new FrmAccountToAccount();
+            frm.label1.Text = User.Text;
+            frm.label2.Text = UserType.Text;
+            frm.ShowDialog();
+        }
+
+        private void notifyIcon1_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+
+        }
+
+        private void notifyIcon1_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void notifyIcon2_Click(object sender, EventArgs e)
+        {
+            frmEventRecord frm = new frmEventRecord();
+            frm.ShowDialog();
+        }
+
+        private void buttonItem145_Click(object sender, EventArgs e)
+        {
+            frmShareTransfer frm = new frmShareTransfer();
+            frm.label7.Text = User.Text;
+            frm.label12.Text = UserType.Text;
+            frm.ShowDialog();
+        }
+
+        private void buttonItem146_Click(object sender, EventArgs e)
+        {
+            frmMaximumShares frm = new frmMaximumShares();
             frm.ShowDialog();
         }
     }

@@ -20,8 +20,8 @@ namespace Banking_System
         {
             try
             {
-                string fileName = "Lending.mdf";
-                string fileName2 = "Lending.ldf";
+                string fileName = "BS.mdf";
+                string fileName2 = "BS.ldf";
                 //string userName = "Denia";
                 string userName = Environment.UserName;
                 String filePath = @"\Users\" + userName + "\\Documents\\Dither Technologies";
@@ -59,7 +59,7 @@ namespace Banking_System
             try
             {
                 var _with1 = openFileDialog1;
-                _with1.Filter = ("Lending|Lending.mdf");
+                _with1.Filter = ("BS|BS.mdf");
                 _with1.FilterIndex = 4;
                 //Clear the file name
                 openFileDialog1.FileName = "";
